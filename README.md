@@ -18,9 +18,8 @@ My blog is located at [https://www.rubick.com](https://www.rubick.com).
 ## Feel free to fork
 
 [![License: MIT](badge-mit.svg)](https://opensource.org/licenses/MIT)
-[![License: CC BY 4.0](badge-cc.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-You are free to use this repo to create your own blog (code is MIT licensed) and I'm not the original author of it. However the content in this particular repo is mine -- contact me if you wish to use it.
+You are free to use this repo to create your own blog (code in the repo is MIT licensed).
 
 #### How to create your own blog with this repo
 
