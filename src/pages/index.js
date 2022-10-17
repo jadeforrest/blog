@@ -52,21 +52,17 @@ const IndexPage = props => {
               </div>
             
               <div className="formkit-disclaimer" data-element="disclaimer">
-                The course is free. I respect your privacy. Unsubscribe anytime.
+                <p>The course is free, but a <a href="/courses">paid</a> version is available, and I offer a <a href="/courses">newsletter course</a> on frontline management.</p>
+                <br /><p>I respect your privacy. Unsubscribe anytime.</p>
               </div>
 
               <form action="/courses" className="seva-form" method="get" data-sv-form="2891253" data-uid="3978146adc" data-format="inline" data-version="5" min-width="400 500 600 700 800">
                 <div data-element="fields" className="seva-fields formkit-fields">
                   <button data-element="submit" className="formkit-submit">
-                    <span className="paid-version">Learn about the two paid courses</span>
+                    <span className="paid-version">Learn more</span>
                   </button>
                 </div>
               </form>
-
-              <div className="formkit-disclaimer" data-element="disclaimer">
-              I offer a paid version of the engineering leadership course, and a 
-              frontline management bootcamp course. 
-              </div>
 
               <div className="formkit-powered-by-convertkit-container">
               </div>
@@ -75,18 +71,12 @@ const IndexPage = props => {
         </form>
 
         <p></p>
-        <h4>Kind words from readers:</h4>
-        <p></p>
 
         <img src={charity} className="charity" width="100%" />
 
-        <ul>
-          <li>"You summed up my 20+ years doing product development nicely" --A reader in Palo Alto</li>
-          <li>"This article has gone viral after I shared it internally." --A reader in Toronto</li>
-          <li>"Your blog posts continue to be 🔥" --A reader in Oregon</li> 
-        </ul>
+        <p></p>
 
-        <div className="darkBackground">Read by leaders from <b>Salesforce</b>, <b>Gitlab</b>, <b>Slack</b>, <b>Netlify</b>, and many other companies.</div>
+        <div>Read by leaders from <b>Salesforce</b>, <b>Gitlab</b>, <b>Slack</b>, <b>Netlify</b>, and many other companies.</div>
 
         <p></p>
 
