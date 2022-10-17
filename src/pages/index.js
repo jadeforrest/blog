@@ -6,6 +6,7 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaUserPlus, FaRss, FaTwitter, FaLinkedin } from "react-icons/fa";
+import charity from "../images/png/charity.png";
 
 
 const IndexPage = props => {
@@ -74,6 +75,16 @@ const IndexPage = props => {
         </form>
 
         <p></p>
+        <h4>Kind words from readers:</h4>
+        <p></p>
+
+        <img src={charity} className="charity" width="100%" />
+
+        <ul>
+          <li>"You summed up my 20+ years doing product development nicely" --A reader in Palo Alto</li>
+          <li>"This article has gone viral after I shared it internally." --A reader in Toronto</li>
+          <li>"Your blog posts continue to be 🔥" --A reader in Oregon</li> 
+        </ul>
 
         <div className="darkBackground">Read by leaders from <b>Salesforce</b>, <b>Gitlab</b>, <b>Slack</b>, <b>Netlify</b>, and many other companies.</div>
 
@@ -114,17 +125,6 @@ const IndexPage = props => {
             <span className="subText">Engineering leadership paid course</span>
           </section>
         </a>
-
-        <p></p>
-        <h4>Kind words from readers:</h4>
-
-        <ul>
-          <li>You summed up my 20+ years doing product development nicely --A reader in Palo Alto</li>
-          <li>This article has gone viral after I shared it internally. --A reader in Toronto</li>
-          <li>This is just what I was looking for --A reader in Washington DC</li>
-          <li>Your blog posts continue to be 🔥 --A reader in Oregon</li> 
-          <li>This article had me at 'hello' --A reader in Ottowa</li>
-        </ul>
 
         <p></p>
         <h4>You can also follow my writing in other ways:</h4>
