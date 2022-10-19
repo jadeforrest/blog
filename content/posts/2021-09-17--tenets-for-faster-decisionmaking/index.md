@@ -1,6 +1,6 @@
 ---
 title: No-bullshit tenets for faster decision-making
-tags: ["scaling", "communication", "coordination-models", "coordination-models-centralized"]
+tags: ["scaling", "communication", "coordination-models", "coordination-models-centralized", "hacker-news"]
 cover: tenets.jpg
 author: Jade Rubick
 discussionId: "tenets"

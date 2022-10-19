@@ -1,6 +1,6 @@
 ---
 title: What do great engineering managers need to know about compensation and equity?
-tags: ["diversity-equity-and-inclusion", "hiring", "pay-equity", "promotions"]
+tags: ["diversity-equity-and-inclusion", "hiring", "pay-equity", "promotions", "hacker-news"]
 cover: comp.jpg
 author: Jade Rubick
 discussionId: "compensation-equity"

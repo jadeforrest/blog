@@ -1,6 +1,6 @@
 ---
 title: Great engineering teams focus on milestones instead of projects
-tags: ["delivery", "velocity", "project-management", "prioritization", "agile"]
+tags: ["delivery", "velocity", "project-management", "prioritization", "agile", "hacker-news"]
 cover: milestone.jpg
 author: Jade Rubick
 discussionId: "milestone"

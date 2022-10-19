@@ -1,6 +1,6 @@
 ---
 title: How to build silos and decrease collaboration (on purpose)
-tags: ["scaling", "communication", "company-culture", "org-design", "information-flow"]
+tags: ["scaling", "communication", "company-culture", "org-design", "information-flow", "hacker-news"]
 cover: silo.jpg
 author: Jade Rubick
 discussionId: "build-silos"
