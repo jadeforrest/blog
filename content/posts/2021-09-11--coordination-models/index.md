@@ -28,7 +28,7 @@ I’ve put these models into three categories:
 
 As we discussed in my last post, you should [centralize coordination and goal-setting](/how-to-build-silos-and-decrease-collaboration/). These patterns are appropriate for achieving better global coordination and alignment. 
 
-1. **[Product strategy -- draft](https://docs.google.com/document/d/10gd9LlfTb9nQhYlcUMzxUjafeDcUoR_OgAzzvGzZ71w/edit#)**. A written strategy which outlines the environment and way forward. 
+1. **[Product strategy](/product-strategy/)**. A written strategy which outlines the environment and way forward. 
 2. **[Standards](/exploration-and-exploitation-in-technical-standards/)**. Rules that define guardrails in team behavior and force conversations about non-standard choices.
 3. **[Tenets](/tenets-for-faster-decisionmaking/)**. Mental shortcuts to help people globally make tradeoff decisions.
 4. **[Goal frameworks](/advice-for-using-goal-frameworks/)**. A way to set goals that attempt to be coherent across the organization, and translate across the functions to coordinate work.

@@ -71,7 +71,7 @@ Protecting a team is one of many tools you need in your management toolkit.
 
 <re-img src="hammer.png" width="40%"></re-img>
 
-For example, let’s say there is some conflict over the product strategy. You could try to shield the team from the messy conversations. Or you could take the approach of an <span style="text-decoration:underline;">interpreter</span>: explain the situation to them so they understand what is going on. 
+For example, let’s say there is some conflict over the [product strategy](/product-strategy/). You could try to shield the team from the messy conversations. Or you could take the approach of an <span style="text-decoration:underline;">interpreter</span>: explain the situation to them so they understand what is going on. 
 
 Having the “interpreter” management tool makes you more flexible. This is an approach that improves empathy and context for your team. That context will help even if you’re not available, because the rest of the company will make more sense to the team. 
 
