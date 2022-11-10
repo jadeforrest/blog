@@ -195,6 +195,10 @@ The opposite of your strategy should be a viable strategy.
 
 <re-img src="opposite-test.png" width="50%"></re-img>
 
+Nadya Duke Boone suggests checking to see if anyone _would_ ever do the opposite approach. If no one ever would do the opposite, then your strategy is too generic. This helps you recognize goals masquerading as strategy. 
+
+Note that the opposite test is a good way to show a strategy is **not** a viable strategy. But it doesn't necessarily show that a strategy is a good one. For example, a strategy of "focusing on growth in the Enterprise market" passes the test, because another company might focus on SMB customers. However, focusing on the Enterprise market is just the _beginning_ of a good strategy. 
+
 ### Update it regularly
 
 Gregory Kim: “I think one of the arts of implementing a strategy is knowing when to be fluid and adapt to incoming information and when to stay the course. Supporting this is a couple of mindsets. Be confident in what you propose and understand what it is based upon. Be flexible to change if important underlying assumptions are proving to be inaccurate or if new unexpected opportunities become known.”
