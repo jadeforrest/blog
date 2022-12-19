@@ -5,7 +5,7 @@ import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaUserPlus, FaRss, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaUserPlus, FaRss, FaMastodon, FaLinkedin } from "react-icons/fa";
 import charity from "../images/png/charity.png";
 
 
@@ -127,10 +127,10 @@ const IndexPage = props => {
           </section>
         </a>
 
-        <a href="https://twitter.com/JadeRubick" target="_blank">
+        <a href="https://tech.lgbt/@jadeforrest" target="_blank">
           <section className="subContainer">
-            <span className="subIcon"><FaTwitter /></span>
-            <span className="subText">Twitter</span>
+            <span className="subIcon"><FaMastodon /></span>
+            <span className="subText">Mastodon</span>
           </section>
         </a>
 
