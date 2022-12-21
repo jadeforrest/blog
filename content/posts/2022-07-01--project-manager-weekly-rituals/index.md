@@ -27,7 +27,7 @@ Most weeks, you should already have a next milestone identified. Fantastic! Howe
 
 <re-img src="milestone-yes-really.png" width="30%"></re-img>
 
-Why a month, as opposed to something sooner or later? The short answer is that this is what I've seen both with my own experience, and with evidence from some limited data I've seen. You can read more about this in my post on [milestones, not projects](https://www.rubick.com/milestones-not-projects/). 
+Why a month, as opposed to something sooner or later? The short answer is that this is what I've seen both with my own experience, and with evidence from some limited data I've seen. You can read more about this in my post on [milestones, not projects](/milestones-not-projects/). 
 
 I recommend getting the product manager, designer, and people who have thought the most about the technical contours of the project in a room, and tell them you'd like to identify a milestones: "What would the best milestone be that is less than a month away? Let's come up with a few possibilities, and choose the one we like best." 
 
@@ -36,11 +36,12 @@ Start with the constraint that you always need a milestone that is less than a m
 ## Update your project plan
 
 I book time every week to update my projects. I review the project plan, and make sure it reflects my current thinking. I ask myself if it still seems realistic. I think through the rest of the project, and think about potential sources of delay and risk. 
+
 Wishful thinking is your enemy. Look at everything from a skeptical perspective. For some people, this is natural, and for others, it requires practice. 
 
 You will often need information from others in order to update the project plan. I usually schedule a weekly meeting per team, or per project. At this meeting, I have the main leaders present, and walk them through the next couple of weeks in detail, showing them my current thinking with the project plan, and asking them to critique it. I then go through further out into the future, but with a little less fidelity the further out we get. Usually I invite someone representing product, technical leadership, and design. 
 
-Try to keep these meetings pretty high level. You want them to not be a huge waste of time for the participants. I often find it best to join this activity into a meeting that has a larger purpose. For example, a local team's leadership meeting might cover this in 5-10 minutes every week. But the majority of our time we might discuss other matters, like the things we're concerned about or need to improve.
+Try to keep these meetings high level. You want them to not be a huge waste of time for the participants. I often find it best to join this activity into a meeting that has a larger purpose. For example, a local team's leadership meeting might cover this in 5-10 minutes every week. But the majority of our time we might discuss other matters, like the things we're concerned about or need to improve.
 
 One anti-pattern for project managers is that you can get into a habit of pinging people for information all the time. This is annoying at best. Make it inexpensive for people to keep you informed. And also encourage people to surface what they're observing, so you don't have to update them. Switching communication to push, from pull, is preferable.  
 
@@ -57,6 +58,8 @@ The goal for your project plan is to not be more specific that a couple of bulle
 One thing to watch out for is many engineering teams work on a person per project. The more you can use the team as a unit of delivery for your projects, the better. This is a deeper topic, so I won't go into a lot of detail now, but in general, when I see project plans that specify what each person is doing, I view that as a sign that the project is unnecessarily brittle. And a team that is overly specializing, and not doing enough knowledge sharing. This can be appropriate for small companies, but otherwise, I tend to discourage it. If I see fractional allocation of "resources" in a project, I typically scream, take a lighter out of my bag, set my hair on fire, and run out of the room. The fewer projects you're managing, the better you'll do with them, so that's another argument for teams focusing on fewer projects.
 
 People ask if you need a week by week project plan if you're on a team that has two week long sprints. Of course it is up to you, but I would do it week by week. Otherwise, you have very little visibility into whether things are on course or not. If I were doing it on a two-week long sprint cadence I would tell the team, this is a plan showing whether or not we could demo this by Friday every week. 
+
+You can read some more advice on [week by week project plans](/weekly-project-plans/).
 
 ## What should your risk registry look like?
 

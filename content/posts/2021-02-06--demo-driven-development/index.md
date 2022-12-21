@@ -151,7 +151,7 @@ Even though it’s okay to demo progress on incomplete work, teams should try to
 
 I usually recommend you only do milestone planning, not project planning. If you're planning out an entire project, you're investing a lot of time to produce estimates on work you may never get to. 
 
-I've written more extensively about [project plans and risk registries](/project-manager-weekly-rituals/).
+I've written more extensively about [project plans and risk registries](/project-manager-weekly-rituals/). And more specific advice on [week by week project plans](/weekly-project-plans/).
 
 ## Step 6: Create technical plans
 

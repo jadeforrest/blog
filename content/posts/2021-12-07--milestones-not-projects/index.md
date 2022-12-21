@@ -281,7 +281,7 @@ Using milestones also means a more steady stream of value is delivered to custom
 
 ### Managing milestones is lighter weight
 
-You generally need a lot less heavy-weight process to manage milestones than to manage projects. At the most, you may need a couple of bullet points per week as a project plan. You don’t need heavy artifacts and heavy tooling. You don’t need Gantt charts. You can track you dependencies and risks, and probably should. But you can scale the amount of investment in milestone management to the complexity and risk of the situation.
+You generally need a lot less heavy-weight process to manage milestones than to manage projects. At the most, you may need a [couple of bullet points per week as a project plan](/weekly-project-plans/). You don’t need heavy artifacts and heavy tooling. You don’t need Gantt charts. You can track you dependencies and risks, and probably should. But you can scale the amount of investment in milestone management to the complexity and risk of the situation.
 
 ## Project-based delivery vs milestone-based delivery
 
