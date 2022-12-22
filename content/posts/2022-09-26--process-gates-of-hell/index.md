@@ -1,6 +1,6 @@
 ---
 title: Why are process gates the hellish spawn of evil you should avoid at all costs?
-tags: ["delivery", "scaling", "change-management", "design", "velocity", "complexity", "hacker-news"]
+tags: ["delivery", "scaling", "change-management", "design", "velocity", "complexity", "hacker-news", "dzone-featured"]
 cover: process-gates.jpg
 author: Jade Rubick
 discussionId: "process-gates"

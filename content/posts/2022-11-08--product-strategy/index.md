@@ -1,6 +1,6 @@
 ---
 title: How to not screw up your product strategy
-tags: ["goal-setting", "prioritization", "product-management"]
+tags: ["goal-setting", "prioritization", "product-management", "dzone-featured"]
 cover: product-strategy.jpg
 author: Jade Rubick
 discussionId: "product-strategy"

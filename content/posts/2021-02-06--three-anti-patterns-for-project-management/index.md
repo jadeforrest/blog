@@ -1,6 +1,6 @@
 ---
 title: Make your team miserable with one of these popular project-management anti-patterns
-tags: ["project-management", "delivery"]
+tags: ["project-management", "delivery", "dzone-featured"]
 cover: slow.jpg
 author: Jade Rubick
 discussionId: "three-anti-patterns-project-management"
