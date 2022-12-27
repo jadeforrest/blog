@@ -1,6 +1,6 @@
 ---
 title: A weekly project plan you will want to frame
-tags: ["delivery", "project-management", "agile"]
+tags: ["delivery", "project-management", "agile", "dzone-featured"]
 cover: project-plan.jpg
 author: Jade Rubick
 discussionId: "project-plan"
