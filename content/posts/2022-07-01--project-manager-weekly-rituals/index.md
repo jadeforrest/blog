@@ -86,7 +86,7 @@ The aim of a weekly project update is not to share everything about the project.
 
 This tweet summarized a lot of the things I've learned over the years about writing concise, readable updates. It also features some wonderful examples, so I strongly recommend reading through it:
 
-<re-img src="aaron-berman-tweet.png" width="60%" href="https://twitter.com/AaronDBerman/status/1541576231891525633"></re-img>
+<re-img src="aaron-berman-tweet.png" width="60%" href="https://medium.com/@aaronbman/writing-tips-from-the-presidents-daily-brief-c4d96e9fa0c2"></re-img>
 
 One thing I'd like to emphasize is that you should come across as a neutral party: objective, upfront about risk, exposing things without bias.
 
