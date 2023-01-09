@@ -13,7 +13,7 @@ Today, I'll share a few thoughts on what makes a good project plan. And I'll pro
 
 ## Why have project plans
 
-Many agile teams focus on sprints or chunks of work. But they don't really plan -- instead they do what they can each sprint, plot out their velocity, and determine what they can accomplish over the next sprints. 
+Many agile teams focus on sprints or chunks of work. But they don't really plan -- instead, they do what they can each sprint, plot out their velocity, and determine what they can accomplish over the next sprints. 
 
 This is fine, but project plans are a tool for getting you to think about the contours of your projects. They have the following advantages:
 
@@ -48,15 +48,15 @@ You also want a project plan that clearly communicates. An outside observer shou
 
 Here are some things I recommend in a simple project plan:
 
-* **Make it week by week**. List out what should happen each week, with a couple of bullet points. Doesn’t need to be more complex than that. What should the bullet points be? Things you will [demo at the end of each week](/demo-driven-development/). 
+* **Make it week-by-week**. List out what should happen each week, with a couple of bullet points. Doesn’t need to be more complex than that. What should the bullet points be? Things you will [demo at the end of each week](/demo-driven-development/). 
 
-* **Estimate milestones, not projects**. You should [plan milestones, not projects](/milestones-not-projects/). Yes, a high-level project plan can be important, but you also shouldn't overinvest in it by planning out the whole project in advance. That prevents you from making changes to sequencing or adapting based on things you've learned. You should make a high-level technical plan, and make a list of sequenced milestones. And to estimate the overall project, you might do some high-level estimates. But I recommend only having a week by week plan for the current milestone. [Does that mean these are really milestone plans? Yes, but I call them project plans anyway, because that's what people are used to.]
+* **Estimate milestones, not projects**. You should [plan milestones, not projects](/milestones-not-projects/). Yes, a high-level project plan can be important, but you also shouldn't overinvest in it by planning out the whole project in advance. That prevents you from making changes to sequencing or adapting based on things you've learned. You should make a high-level technical plan, and make a list of sequenced milestones. And to estimate the overall project, you might do some high-level estimates. But I recommend only having a week-by-week plan for the current milestone. [Does that mean these are really milestone plans? Yes, but I call them project plans anyway, because that's what people are used to.]
 
 * **Milestones should be less than a month in length**. See the [milestones post](/milestones-not-projects/) for more details. The key insight here is that small projects typically go way better than large projects, so make all the projects small projects. 
 
 * **Combine plans with weekly communication**. It’s helpful to combine project plans with project reporting. Use a style of communication that is concise, represents the state of things dispassionately, surfaces risks, but maintains a “I’m taking care of things” tone. Combining plans with project reporting ensures the plan will be updated at least once a week. I’ll write about project reporting soon.
 
-* **Make text-based plans**. I’ve found it more useful to have project plans be text-based, rather than tied to tooling like Jira. Tooling based approaches are fine. But text-based approaches force people to really think through everything in a different way. You can use links to link to sprint plans or individual stories, or whatever. But it keeps it easy to understand for someone not aware of the project. I sometimes don't insist on this, but it depends on the circumstances.
+* **Make text-based plans**. I’ve found it more useful to have project plans be text-based, rather than tied to tooling like Jira. Tooling-based approaches are fine. But text-based approaches force people to think through everything differently. You can use links to link to sprint plans or individual stories, or whatever. But it keeps it easy to understand for someone not aware of the project. I sometimes don't insist on this, but it depends on the circumstances.
 
 ## Weekly project plan template
 
