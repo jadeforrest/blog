@@ -27,7 +27,7 @@ I brought this up with an executive coach I was working with at the time. He enc
 
 At first, it was hard to preserve the time I set aside. In my busy schedule, it seemed luxurious to save a couple hours just for thinking. But it quickly became some of the most valuable time I spent each week. 
 
-I would spend time each weeking thinking amount my organization, about the product, about how things were going. I researched other products that competed with mine. I spent time using the product. I thought critically about our technical and product failings. 
+I would spend time each week thinking amount my organization, about the product, about how things were going. I researched other products that competed with mine. I spent time using the product. I thought critically about our technical and product failings. 
 
 I ended up developing a better sense of what possible futures I could create. I started to see possibilities that were invisible to me. I started to learn how to lead.
 
@@ -85,8 +85,10 @@ If you're an external processor, you might find it more useful to talk with othe
 
 A leader is _a person that asserts a future for a group of people_. 
 
-If you want to lead, you have to learn to make your own problems. And hopefully, you'll find some of the process I've used to develop that future useful. Do you have your own methods? Please share them with me!
+If you want to lead, you have to learn to make your own problems. You want the problems you're working on to be partially something you've generated. Because that is really the role of a leader: to scout out the upcoming terrain and prepare a group of people to navigate it. While you don't need to do all the scouting yourself, your need to have a way to make sure the future is explored and thought out.
+
+Hopefully, you'll find this post useful to develop and approach to navigating that future. If you've found other methods to do so, please share them with me!
 
 ## Thank you
 
-[Jim Ruppert](https://www.linkedin.com/in/jim-ruppert-0ba71/) helped me see that I didn't have a vision for my organization. [Robert Goldmann](https://www.linkedin.com/in/coachrg/) helped me learn the perspective I needed to lead better. He helped me develop some of the questions on this list. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) challenged me to consider things through multiple mental models. Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Pixabay</a>
+[Jim Ruppert](https://www.linkedin.com/in/jim-ruppert-0ba71/) helped me see that I didn't have a vision for my organization. [Robert Goldmann](https://www.linkedin.com/in/coachrg/) helped me learn the perspective I needed to lead better. He helped me develop some of the questions on this list. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) challenged me to consider things through multiple mental models. Thank you to [George Sudarkoff](https://sudarkoff.com) for feedback on the post and some minor edits. Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Pixabay</a>
