@@ -269,7 +269,7 @@ Drives best practices across the organization.</td>
 * The original version of this was developed by [Shaun Yelle](https://www.linkedin.com/in/shaunyelle/), [Alexa Stefanko](https://www.linkedin.com/in/alexa-stefanko-86646aa4/), and Jade Rubick at [Gremlin](https://www.gremlin.com). It has since been modified and improved as it’s been used at a couple of companies.
 * I'd like to thank Gremlin, and in particular [Matthew Fornaciari](https://www.linkedin.com/in/mattforni/), for granting permission to share these levels outside of Gremlin.
 * The inspiration for this format was developed at [New Relic](https://newrelic.com), after a couple of iterations. Jade Rubick did a lot of the work on those versions.
-* Parts of this were taken from Carta’s [excellent post on their engineering levels](https://medium.com/building-carta/engineering-levels-at-carta-d33db2a55a20). 
+* Carta's [excellent post on their engineering levels](https://medium.com/building-carta/engineering-levels-at-carta-d33db2a55a20) had some really well done language. I adopted some of that language and have modified it for use here.  
 * Image by <a href="https://pixabay.com/users/stokpic-692575/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=600468">stokpic</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=600468">Pixabay</a>
 
 
