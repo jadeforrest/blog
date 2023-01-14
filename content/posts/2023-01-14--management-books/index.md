@@ -1,6 +1,6 @@
 ---
 title: Books on management
-tags: []
+tags: ["leadership", "prioritization", "org-design"]
 cover: book.jpg
 author: Jade Rubick
 discussionId: "management-books"
