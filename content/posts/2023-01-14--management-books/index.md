@@ -1,6 +1,6 @@
 ---
 title: Books on management
-tags: ["leadership", "prioritization", "org-design"]
+tags: ["leadership", "prioritization", "org-design", "hackernoon-frontpage"]
 cover: book.jpg
 author: Jade Rubick
 discussionId: "management-books"
