@@ -1,6 +1,6 @@
 ---
 title: Leaders make their own problems
-tags: ["goal-setting", "roles", "leadership", "okrs"]
+tags: ["goal-setting", "roles", "leadership", "okrs", "dzone-featured"]
 cover: problems.jpg
 author: Jade Rubick
 discussionId: "leaders-make-problems"
