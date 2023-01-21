@@ -265,9 +265,13 @@ Teams that are delivering value to the business every couple of weeks feel great
 
 ### Milestones are agile, in the sense that change feels natural
 
+The fourth property of milestones is probably the most important: that it is independently Valuable. 
+
 With milestones, you have natural stopping places every one to three weeks. This means teams can change their priorities and it won’t feel like a thrash to do so. And because some value was delivered, it doesn’t feel like your work is being wasted. With projects, priority changes feel like throwing work away, and can be dispiriting. With milestones, you can usually finish up what you’re doing.
 
-There are some situations where you’ll want to halt a milestone: if something is truly urgent. But if you do that, you’re making a conscious choice to incur the cost of throwing away work. And it’s less likely to happen, because the end of the milestone is more likely to be near.
+While you're using Milestones, ideally each milestone feels like it's own independent project. And going on to the next milestone feels optional. This gives the product manager more optionality. Teams that use this approach are also more responsive to their environment, because their work isn't locked up for 3-6 months at a time. This allows for more follow-up work and iteration. 
+
+There are some situations where you’ll want to halt DURING a milestone: if something is truly urgent. But if you do that, you’re making a conscious choice to incur the cost of throwing away work. And it’s less likely to happen, because the end of the milestone is more likely to be near.
 
 ### Milestones make engineering look good, and it builds trust
 
