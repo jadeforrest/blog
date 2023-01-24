@@ -21,6 +21,8 @@ Management is a deep topic, and there isn't a formal program for learning. Books
 
 The **Louis Allen** books on management are out of print and there are a lot of versions, some of which aren't as good as others. These are perhaps the best overall books on management I've read, but they're out of date. I'm working with someone else to get these revised and republished. Let me know if you would buy a copy. 
 
+[The Five Dysfunctions of a Team](https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team). Has some useful frameworks of how to think about management. 
+
 ## Decentralized leadership
 
 [Turn the ship around](https://www.amazon.com/Turn-Ship-Around-Turning-Followers/dp/1591846404/ref=sr_1_1?crid=3D8DLKU1QWTCI&dchild=1&keywords=turn+this+ship+around+book&qid=1609270542&s=books&sprefix=turn+this+ship%2Cstripbooks%2C227&sr=1-1). How to make an organization where everyone leads.
