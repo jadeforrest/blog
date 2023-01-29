@@ -1,6 +1,6 @@
 ---
 title: Uplevel your managers with Mini-M support groups
-tags: ["leadership", "prioritization", "org-design"]
+tags: ["company-culture", "meetings", "mentorship"]
 cover: seedling.jpg
 author: Jade Rubick
 discussionId: "about-mini-m-support-groups"
