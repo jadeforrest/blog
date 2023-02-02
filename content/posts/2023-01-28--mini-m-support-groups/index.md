@@ -14,19 +14,19 @@ Today, I would like to share a management practice we developed at [New Relic](h
 This post is first of a series:
 
 1. In this post, we look at how Mini-Ms work and what they are.
-2. Next, we learn how to implement Mini-Ms.
+2. Next, we learn [how to implement Mini-Ms](/implementing-mini-m-support-groups/).
 3. Then, we discuss variations you may want to consider. 
 4. Finally, we share a history of Mini-Ms, including where the name came from. 
 
-### What is a Mini-M?
+## What is a Mini-M?
 
 A Mini-M is a group of managers that meet weekly or biweekly. The meeting is a combination support group and working session. In each session, managers share challenges they face. The other participants offer support and help problem-solve. 
 
-### Why are Mini-Ms effective?
+## Why are Mini-Ms effective?
 
 What is the value in meeting with other managers and talking about your problems? It may not seem like it is worth the time. Yet, many managers claimed Mini-Ms helped them grow more than anything else.
 
-### Mini-Ms help you develop skills
+## Mini-Ms help you develop skills
 
 There are a few reasons for that. [Elaine May](https://www.linkedin.com/in/elainelmay/) describes three reasons:
 
@@ -46,7 +46,7 @@ Imagine having to fill in those skills some other way. You would have to study e
 
 This makes the M-team into a combination of a support group and training session for your management team. 
 
-### Mini-Ms are a source of valuable support
+## Mini-Ms are a source of valuable support
 
 Management is a difficult profession. As hierarchical creatures, being “higher” in the hierarchy separates you from your team members. And other managers are often busy and unavailable. 
 
@@ -56,7 +56,7 @@ Having a Mini-M helped me to build up a mental map of the skills of the managers
 
 In addition, many companies are distributed nowadays. This can result in less accidental interaction with peers. And it can contribute to isolation. Mini-Ms can be a source of connection with other managers.
 
-### Mini-Ms help retain and attract managers
+## Mini-Ms help retain and attract managers
 
 Because managers feel better supported by their peers, they are more likely to stay at the company. Or stay in management. I anticipated that benefit. 
 
@@ -69,13 +69,13 @@ Why were they so attracted by Mini-Ms?
 * They showed we experimented with our organizational practices. And would welcome further innovation.
 
 
-### Mini-Ms help build a management culture
+## Mini-Ms help build a management culture
 
 Along with a support group, the other inspiration for Mini-Ms was a conspiracy. The idea was to bring a few managers together, gripe about the problems in the organization, and come up with solutions. Mini-Ms naturally became the graph along which many management practices spread through the organization. 
 
 In the [Five Dysfunctions of a Team](/management-books/), Lencioni talks about the importance of managers seeing their “first team” as the management team. Mini-Ms helped develop a community of managers that all were focused on improving their skills and their teams. And many of us felt empowered to address the problems we saw in the organization around us.
 
-### How does a Mini-M work?
+## How does a Mini-M work?
 
 There have been a lot of variations to the way Mini-Ms have run over the years. What follows is a good way to start Mini-Ms. 
 
@@ -93,7 +93,7 @@ This is based on the [Lean Coffee meeting format](https://agilecoffee.com/leanco
 
 The Facilitator sets the expectation that meetings are safe places. Participants discuss sensitive topics and there is an expectation of confidentiality. For example, a manager might talk about the challenges they were having with _their_ manager. 
 
-### When to use Mini-Ms
+## When to use Mini-Ms
 
 You should design your Mini-Ms based on the particulars of your company. The size and company culture are particularly important. 
 
@@ -103,15 +103,15 @@ I recommend Mini-Ms to companies with product-market fit. Early in the growth of
 
 You can use Mini-Ms globally, across an organization, or within a smaller group. You can even implement a Mini-M informally, with a smaller group of managers. If you start informally, be sure to read the History section to see how they evolved at New Relic. 
 
-### How do I implement Mini-Ms?
+## How do I implement Mini-Ms?
 
-We will get to that in our next post. Stay tuned!
+We get to that in our [next post](/implementing-mini-m-support-groups/).
 
-### Thank you
+## Thank you
 
 Not a lot has been written about Mini-Ms, but there is [one post](https://newrelic.com/blog/nerd-life/how-engineering-leaders-benefit-from-unique-mini-m-groups) currently on the New Relic blog, and another that has mysteriously [vanished](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/). 
 
-[Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
+[Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](https://www.rubick.com/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
 
 [Nic Benders](https://www.linkedin.com/in/benders/) was one of the cofounders of Mini-Ms. He reviewed this post, offered feedback,  and contributed to the history section and described some of the design goals for Mini-Ms. 
 
@@ -125,7 +125,7 @@ Not a lot has been written about Mini-Ms, but there is [one post](https://newrel
 
 [Marty Matheny](https://www.linkedin.com/in/martymatheny/) shared feedback based on his experience as an Organizer. He helped improve the advice for Organizers. And he pointed out that engineering adjacent departments participated.
 
-[Chris Hansen](https://www.linkedin.com/in/cxhansen/) pointed out that confidentiality was an issue with whiteboards. He noticed an error that would have been embarrassing. He pointed out the value of M-teams in distributed organizations to counter isolation among managers. He also added some advice for participants.
+[Chris Hansen](https://www.linkedin.com/in/cxhansen/) pointed out that confidentiality was an issue with whiteboards. He noticed an error that would have been embarrassing. He pointed out the value of M-teams in distributed organizations to counter isolation among managers. He also added some advice for participants. Chris also helped with a point about the value of the first few meetings.
 
 [Teresa Martyny](https://www.linkedin.com/in/teresamartyny/) reviewed a draft of this post and pointed out some redundant assertions I was making. And she recommended I break this into multiple posts or edit for brevity. 
 
