@@ -24,9 +24,9 @@ To roll out Mini-Ms, you need to know what to optimize for. These principles can
 
 1. **The single most important thing is that participants feel safe and able to be vulnerable**. All of your decisions around how to set things up should optimize for psychological safety. \
  \
-“[Mini-Ms should be] a safe place to vent, both about frustrations with the team that you manage or frustrations with your own manager or senior leaders. This is much healthier than bonding inappropriately with your tech leads or your organizational aunts and uncles. Encouraging this, without becoming overly negative, is always a balancing act. But I think a good Mini-M should feel slightly conspiratorial.” – Nic Benders \
+“[Mini-Ms should be] a safe place to vent, both about frustrations with the team that you manage or frustrations with your own manager or senior leaders. This is much healthier than bonding inappropriately with your tech leads or your organizational aunts and uncles. Encouraging this, without becoming overly negative, is always a balancing act. But I think a good Mini-M should feel slightly conspiratorial.” – Nic Benders 
 
-2. **Mini-Ms are diverse, deliberately**. You want participants to feel like they are from a random selection of teams. This helps avoid groupthink. Ideally, you’re talking with managers from product engineering, infrastructure engineering, and platform teams. They all have different ways of working and contribute different perspectives.  \
+2. **Mini-Ms are diverse, deliberately**. You want participants to feel like they are from a random selection of teams. This helps avoid groupthink. Ideally, you’re talking with managers from product engineering, infrastructure engineering, and platform teams. They all have different ways of working and contribute different perspectives.  
 
 3. “**Everyone should be about the same level**, hierarchically and energy wise. A bunch of keen new managers will learn way more from each other than they will learn from someone who has seen it all.” – Nic Benders. I’ll add that the facilitator can be a little more experienced as long as they are careful not to make it a teaching session.
 
