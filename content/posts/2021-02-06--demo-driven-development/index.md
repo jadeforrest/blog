@@ -107,9 +107,9 @@ Your next step is to move to using user stories, instead of tasks.
 
 * Ideally, their size should be a couple of days of work. 
 
-* They should be cross-functional in nature. They should mention the user and what they are able to do. Even reliability user stories can be high level. For example, "decrease paging for the team by tuning our alerts".
+* User stories should be team-focused, not individual focused. A common mistake is to make user stories that can be accomplished by an individual. For example, a poor user story might divide the frontend work from the backend work. Write user stories so they are "cross-functional" in nature -- crossing skill boundaries. They should mention the user and what they are able to do: "User is able to see a list of items they have listed for sale in a table". Note this implies both frontend and backend work.
 
-* User stories can be an increment towards something bigger, but if it is possible, they should try to be valuable in some way. 
+* User stories can be an increment towards something bigger, but if it is possible, they should try to be valuable by themselves. 
 
 ### How does the team break user stories down to technical work?
 
@@ -216,6 +216,6 @@ By gradually introducing the set of practices behind demo-driven development, yo
 
 ## Thank you
 
-Many experienced engineering leaders give helpful feedback on drafts of this post. Thank you to [Seth Falcon](https://www.linkedin.com/in/sethfalcon/), [Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) and [Kenichi Nakamura](https://www.linkedin.com/in/kenichi/) for numerous structural and content suggestions that made this post stronger and more focused. And thank you to [Brent Miller](https://www.linkedin.com/in/foliosus/), [Davy Stevenson](https://www.linkedin.com/in/davystevenson/), and [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for their improvements! Thank you to [davidkunz](https://news.ycombinator.com/user?id=davidkunz) for [pointing out potential failure modes](https://news.ycombinator.com/item?id=27417551). I learned a lot of these approaches from [Alex Kroman](https://www.linkedin.com/in/alexkroman/). 
+Many experienced engineering leaders give helpful feedback on drafts of this post. Thank you to [Seth Falcon](https://www.linkedin.com/in/sethfalcon/), [Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) and [Kenichi Nakamura](https://www.linkedin.com/in/kenichi/) for numerous structural and content suggestions that made this post stronger and more focused. And thank you to [Brent Miller](https://www.linkedin.com/in/foliosus/), [Davy Stevenson](https://www.linkedin.com/in/davystevenson/), and [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for their improvements! Thank you to [davidkunz](https://news.ycombinator.com/user?id=davidkunz) for [pointing out potential failure modes](https://news.ycombinator.com/item?id=27417551). I learned a lot of these approaches from [Alex Kroman](https://www.linkedin.com/in/alexkroman/). [Daslan Govender](https://www.linkedin.com/in/daslan-govender-4600508/) suggested some improvements to how I introduced "cross-functional" terminology.
 
 _Image by <a href="https://pixabay.com/users/sasint-3639875/">Sasin Tipchai</a> from <a href="https://pixabay.com/">Pixabay</a>_
