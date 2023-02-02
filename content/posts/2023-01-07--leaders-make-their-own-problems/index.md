@@ -15,7 +15,7 @@ At some point, you begin to lead. This is very different than managing. The diff
 
 When I first became a director, I had a conversation with another Director named Jim. 
 
-Jim: "So, you've been in this role for a month now. Have you figured out your vision for your organization."
+Jim: "So, you've been in this role for a month now. Have you figured out your vision for your organization?"
 
 Me: [What is he talking about?]
 
@@ -91,4 +91,4 @@ Hopefully, you'll find this post useful to develop and approach to navigating th
 
 ## Thank you
 
-[Jim Ruppert](https://www.linkedin.com/in/jim-ruppert-0ba71/) helped me see that I didn't have a vision for my organization. [Robert Goldmann](https://www.linkedin.com/in/coachrg/) helped me learn the perspective I needed to lead better. He helped me develop some of the questions on this list. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) challenged me to consider things through multiple mental models. Thank you to [George Sudarkoff](https://sudarkoff.com) for feedback on the post and some minor edits. Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Pixabay</a>
+[Jim Ruppert](https://www.linkedin.com/in/jim-ruppert-0ba71/) helped me see that I didn't have a vision for my organization, and his gentle nudge helped me expand my horizons. [Robert Goldmann](https://www.linkedin.com/in/coachrg/) helped me learn the perspective I needed to lead better. He helped me develop some of the questions on this list. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) challenged me to consider things through multiple mental models. Thank you to [George Sudarkoff](https://sudarkoff.com) for feedback on the post and some minor edits. Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Pixabay</a>
