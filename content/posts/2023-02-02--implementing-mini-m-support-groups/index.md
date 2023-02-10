@@ -1,6 +1,6 @@
 ---
 title: How to implement Mini-M support groups
-tags: ["company-culture", "meetings", "mentorship", "dzone-featured"]
+tags: ["company-culture", "meetings", "mentorship", "mini-m"]
 cover: planting.jpg
 author: Jade Rubick
 discussionId: "implementing-mini-m-support-groups"
