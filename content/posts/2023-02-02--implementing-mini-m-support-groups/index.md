@@ -15,7 +15,7 @@ This post is second in a series:
 
 1. Last post, we looked at [how Mini-Ms work and what they are](/mini-m-support-groups/).
 2. In this post, we cover how to implement Mini-Ms.
-3. Next, we discuss variations you may want to consider. 
+3. Next, we [discuss variations you may want to consider](/mini-m-variations/). 
 4. Finally, we share a history of Mini-Ms, including where the name came from. 
 
 ## Mini-M implementation principles

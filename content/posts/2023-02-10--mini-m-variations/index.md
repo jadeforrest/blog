@@ -18,7 +18,7 @@ This post is third of a series:
 3. Now, we discuss variations of Mini-Ms and other ways to encourage manager growth.
 4. Next, we'll cover the history of Mini-Ms, including where the name came from. 
 
-There is no right way to run Mini-Ms, as long as it is working for participants.So let’s dive into the variations!
+There is no right way to run Mini-Ms, as long as it is working for participants. So let’s dive into the variations!
 
 ## Rotating members in a Mini-M
 
