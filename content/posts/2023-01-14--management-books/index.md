@@ -21,7 +21,9 @@ Management is a deep topic, and there isn't a formal program for learning. Books
 
 The **Louis Allen** books on management are out of print and there are a lot of versions, some of which aren't as good as others. These are perhaps the best overall books on management I've read, but they're out of date. I'm working with someone else to get these revised and republished. Let me know if you would buy a copy. 
 
-[The Five Dysfunctions of a Team](https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team). Has some useful frameworks of how to think about management. 
+[The Five Dysfunctions of a Team](https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team). Has some useful frameworks of how to think about management.
+
+[Drive](https://www.danpink.com/books/drive/) by Daniel Pink, introduces the basics of motivation. It is important to understand the importance of autonomy, mastery, and purpose. You may not need to read the book, but these concepts are essential to good management practice.
 
 ## Decentralized leadership
 
