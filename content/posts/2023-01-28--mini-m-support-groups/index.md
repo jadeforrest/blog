@@ -111,7 +111,7 @@ We get to that in our [next post](/implementing-mini-m-support-groups/).
 
 Not a lot has been written about Mini-Ms, but there is [one post](https://newrelic.com/blog/nerd-life/how-engineering-leaders-benefit-from-unique-mini-m-groups) currently on the New Relic blog, and another that has mysteriously [vanished](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/). 
 
-[Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](https://www.rubick.com/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
+[Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
 
 [Nic Benders](https://www.linkedin.com/in/benders/) was one of the cofounders of Mini-Ms. He reviewed this post, offered feedback,  and contributed to the history section and described some of the design goals for Mini-Ms. 
 

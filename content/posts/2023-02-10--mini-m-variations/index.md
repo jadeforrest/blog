@@ -70,7 +70,7 @@ This next way to level up managers comes from Molly Graham:
 
 ## Random 1-1s with other managers
 
-Apparently at Slack there is a practice of having the [Donut app](https://www.rubick.com/tools-to-make-your-organization-better/) schedule managers for random 1-1 time with other randomly paired managers.
+Apparently at Slack there is a practice of having the [Donut app](/tools-to-make-your-organization-better/) schedule managers for random 1-1 time with other randomly paired managers.
 
 The advantage of this is it is quite easy to set up. And you get to build some shallow relationships with a lot of the other managers. This type of acquaintance type relationship can be really valuable in a large organization. 
 
@@ -115,7 +115,7 @@ If you experiment with Mini-Ms, please let me know your experiences and variatio
 
 Not a lot has been written about Mini-Ms, but there is [one post](https://newrelic.com/blog/nerd-life/how-engineering-leaders-benefit-from-unique-mini-m-groups) currently on the New Relic blog, and another that has mysteriously [vanished](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/). 
 
-[Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](https://www.rubick.com/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
+[Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
 
 [Nic Benders](https://www.linkedin.com/in/benders/) was one of the cofounders of Mini-Ms. He reviewed this post, offered feedback,  and contributed to the history section and described some of the design goals for Mini-Ms. 
 
