@@ -1,6 +1,6 @@
 ---
 title: Uplevel your managers with Mini-M support groups
-tags: ["company-culture", "meetings", "mentorship, "mini-m", "dzone-featured"]
+tags: ["company-culture", "meetings", "mentorship", "mini-m", "dzone-featured"]
 cover: seedling.jpg
 author: Jade Rubick
 discussionId: "about-mini-m-support-groups"
