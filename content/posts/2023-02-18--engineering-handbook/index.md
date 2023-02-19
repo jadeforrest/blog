@@ -96,7 +96,7 @@ I’ve done this numerous times. Here’s the general steps I recommend.
 
 ### 1. Choose a format for your engineering handbook
 
-The first challenge you’ll have is to figure out where to keep your process documentation. I’ve never found anything that works perfectly. I have a separate post which shares my [notes on which tools to use for employee handbooks](linkhere). The important step is to choose something. You can change your mind later.
+The first challenge you’ll have is to figure out where to keep your process documentation. I’ve never found anything that works perfectly. I have a separate post which shares my [notes on which tools to use for employee handbooks](/engineering-handbook-tools/). The important step is to choose something. You can change your mind later.
 
 ### 2. Bootstrap the content
 
