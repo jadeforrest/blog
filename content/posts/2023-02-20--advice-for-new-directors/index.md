@@ -7,7 +7,7 @@ discussionId: "new-director"
 description: "Jade Rubick shares his advice for new directors. All the surprises you may encounter, and tips for navigating the new skills of managing managers."
 ---
 
-People often ask me for advice when they move to a manager of managers role. This post covers ten things to consider. I'll describe a number of things that surprised me, some skills to focus on building, and some tips for navigating this phase of your career. 
+I'm often asked about my advice for new directors. Here I lay out the ten things I wish I had known when I started as a manager of managers.
 
 <re-img src="director.jpg"></re-img>
 
@@ -98,9 +98,9 @@ You also should think about ways you can influence the whole system. Your toolki
 
 A few suggestions: 
 
-* You are in a unique position to offer clarity. You can simplify things for people. You can allow them to focus on less things. This is almost always a helpful thing for you to be doing, so pay attention to how you can both simplify things in your own mind, but also how to communicate them. \
+* You are in a unique position to offer clarity. You can simplify things for people. You can allow them to focus on less things. This is almost always a helpful thing for you to be doing, so pay attention to how you can both simplify things in your own mind, but also how to communicate them. 
 
-* You’re also in a unique position to offer context. You will have a lot more context than you used to, because you’ll be interacting with higher levels of leadership than you did in the past. Think of that context sharing as a service you offer your organization.  \
+* You’re also in a unique position to offer context. You will have a lot more context than you used to, because you’ll be interacting with higher levels of leadership than you did in the past. Think of that context sharing as a service you offer your organization.  
 
 * Constraints are a tool that you may wield more as a Director. For example, you can make simple rules for teams that help nudge them in the right direction. An example? Teams can only have a project or two they work on at a time. Don’t use over-use constraints as a tool, but sometimes it can be helpful to ask yourself: if I could only do one thing right now, what would have the biggest impact?
 
