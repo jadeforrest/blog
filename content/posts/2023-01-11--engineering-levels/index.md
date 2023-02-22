@@ -64,9 +64,13 @@ Introducing engineering levels can have downsides. It's time-intensive, and it c
 
 * When customizing engineering levels, be sure to only choose things that vary depending on the level of experience. Sometimes people want to add items that are baseline expectations. For example, the values of the company. This is a mistake unless it is something that scales with the level of experience and impact the person has.
 
+## Note the thank yous
+
+* The work below is the result of the work of a lot of people. See the thank you section below for the credits. The text portion especially owes a debt to the [Carta blog post](https://medium.com/building-carta/engineering-levels-at-carta-d33db2a55a20) on their engineering levels. 
+
 <hr>
 
-## Our system
+## Our titles
 
 We have four engineering titles:
 
@@ -94,7 +98,7 @@ You’ll note that this is not a linear progression, especially at the top of th
 
 Leveling decisions can sometimes seem unfair, and we aim to create a fair promotion process. One important thing to understand is that levels are conservative by default. Once we put someone in a level, there isn’t a practical way to “take it back”. It can cause an otherwise excellent employee to look like they are underperforming at their level, which in some cases can only be remedied by managing them out of the company. So when we promote someone, we try to be sure that it’s the right decision. It’s better for everyone to have you perform solidly at a Senior 3 level than to struggle at a Lead 1 level.
 
-Because levels are conservative, you’ll often hear managers say that promotions are a lagging indicator of performance: You have to demonstrate that you’re performing at the next level, consistently, over a period of time. This can feel unfair — why am I delivering value at a Senior 1 level and only getting paid at a Software Engineer 3 level — until you remember that promoting you is a risk for the company, and since the company doesn’t want to make a mistake and lose you, they’re risk-averse. You might be certain that you have all the skills of a senior engineer, but the more obvious that is, the more likely the promotion is to occur. 
+Because levels are conservative, you’ll often hear managers say that promotions are a lagging indicator of performance: You have to demonstrate that you’re performing at the next level, consistently, over a period of time. This can feel unfair. You might ask, "why am I delivering value at a Senior 1 level and only getting paid at a Software Engineer 3 level". But remember that promoting you is a risk for the company, and since the company doesn’t want to make a mistake and lose you, they’re risk-averse. You might be certain that you have all the skills of a senior engineer, but the more obvious that is, the more likely the promotion is to occur. 
 
 However, there is also a risk in _not_ promoting people that are performing at a high level. So the way we account for this during our review period is that we evaluate your performance over the entire review period and weigh the amount of time we’ve seen your performance at that level. So if the review period is for six months, and we’ve seen exceptional performance over the last two months, that only gets about a third of the weighting it would get if you had performed that way over the whole period. Similarly, if you’ve had a rough period, we’ll do the same weighting in your favor.
 
