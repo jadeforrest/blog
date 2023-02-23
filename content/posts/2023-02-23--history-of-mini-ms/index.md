@@ -13,7 +13,7 @@ This recounts the organizational history of Mini-Ms. Histories like this are imp
 * You can use that context to give you a better ability to adapt practices to your local situation. 
 * And you can learn from the history about the environment from which the practice emerged, helping you to create a similarly fertile place for other practices to grow.  
 
-<re-img src="history.jpg" width="50%"></re-img>
+<re-img src="history.jpg"></re-img>
 
 Before we had enough managers to have [Mini-Ms](/mini-m-support-groups/), we had one management group for engineering. We called this the M-team meeting (and the name Mini-M came about when we split it up). 
 
