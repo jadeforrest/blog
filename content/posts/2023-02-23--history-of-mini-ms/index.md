@@ -15,6 +15,15 @@ This recounts the organizational history of Mini-Ms. Histories like this are imp
 
 <re-img src="history.jpg"></re-img>
 
+This post is last in a series:
+
+1. We first looked at [how Mini-Ms work and what they are](/mini-m-support-groups/).
+2. Then, we covered [how to implement Mini-Ms](/implementing-mini-m-support-groups/).
+3. We next discussed [variations you may want to consider](/mini-m-variations/). 
+4. And finally we cover the history of Mini-Ms. 
+
+<hr>
+
 Before we had enough managers to have [Mini-Ms](/mini-m-support-groups/), we had one management group for engineering. We called this the M-team meeting (and the name Mini-M came about when we split it up). 
 
 In the early days, this meeting combined operational matters and topics designed to make us better managers. Our [VP of Engineering](https://www.linkedin.com/in/bjornfreemanbenson/) would present on topics about how to be an effective manager. For example, how to run effective meetings, or on project management. But a lot of our topics were conversational in nature: like a discussion group on management. 
