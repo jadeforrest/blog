@@ -1,6 +1,6 @@
 ---
 title: Your process should be open source
-tags: ["company-culture", "scaling", "information-flow", "onboarding", "remote-work", "process", "engineering-handbook"]
+tags: ["company-culture", "scaling", "information-flow", "onboarding", "remote-work", "process", "engineering-handbook", "dzone-featured"]
 cover: umbrellas.jpg
 author: Jade Rubick
 discussionId: "open-source-process"
