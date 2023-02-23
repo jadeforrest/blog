@@ -94,7 +94,7 @@ You will need to model the behavior you desire of your participants. And you mig
 
 ## A growth-focused management meeting
 
-Bjorn Freeman-Benson was the grandfather of the Mini-M. Early on at New Relic, our management meetings were a blend of tactical topics and topics intended to grow our management team. He treated it like a professor would, in an upper-level seminar class, with discussion amongst participants.
+Bjorn Freeman-Benson founded Mini-Ms. Early on at New Relic, our management meetings were a blend of tactical topics and topics intended to grow our management team. He treated it like a professor would, in an upper-level seminar class, with discussion amongst participants.
 
 Here is an example agenda:
 
@@ -112,7 +112,6 @@ As you can see, there was a lot of room for discussion, but we had a full agenda
 If you experiment with Mini-Ms, please let me know your experiences and variations. I’d also love to hear of any other ways groups of managers have learned from each other. Please share your experiences, and perhaps I’ll incorporate them into this post!
 
 ## Thank you
-
 
 Not a lot has been written about Mini-Ms, but there is [one post](https://newrelic.com/blog/nerd-life/how-engineering-leaders-benefit-from-unique-mini-m-groups) currently on the New Relic blog, and another that has mysteriously [vanished](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/). 
 
