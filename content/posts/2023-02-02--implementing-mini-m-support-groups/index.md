@@ -128,19 +128,19 @@ I'd love to [hear from you](/contact/) if your organization is experimenting wit
 
 Not a lot has been written about Mini-Ms, but there is [one post](https://newrelic.com/blog/nerd-life/how-engineering-leaders-benefit-from-unique-mini-m-groups) currently on the New Relic blog, and another that has mysteriously [vanished](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/). 
 
+[Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) was the founder of the Mini-M practice. He shared a lot of his thinking about the principles behind why Mini-Ms were successful and what they were aiming for. He advised me to break up this post into sections and make it easier to get to the implementation section. And shared overall feedback.
+
+[Nic Benders](https://www.linkedin.com/in/benders/) ran the first Mini-M, and established and evolved the practice. He also ran one of the more influential Mini-Ms for years. He reviewed this post, offered feedback,  and contributed to the history section and described some of the design goals for Mini-Ms. 
+
 [Darin Swanson](https://www.linkedin.com/in/darinswanson/) authored some content that were inspirations for large parts of this article. He and I have worked together on helping other companies implement Mini-Ms, so [contact me](/contact/) if you’re interested in help. He also provided feedback and suggestions on drafts of this article. He encouraged me to explain the first team concept more fully, and to describe why pre-product market fit companies may not be a good match. And he suggested I split the content into separate articles.
 
-[Nic Benders](https://www.linkedin.com/in/benders/) was one of the cofounders of Mini-Ms. He reviewed this post, offered feedback,  and contributed to the history section and described some of the design goals for Mini-Ms. 
-
 [Elaine May](https://www.linkedin.com/in/elainelmay/) provided feedback, some of which was so good I just ended up quoting her. She was gracious enough to offer some talk to talk about her experiences setting up or participating in similar programs at other companies. And she talked about her experiences with me in New Relic’s Mini-Ms. Elaine introduced me to the Chatham House Rules, which I incorporated into the post. 
-
-[Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) was the grandfather of the Mini-M. He shared a lot of his thinking about the principles behind why Mini-Ms were successful and what they were aiming for. He advised me to break up this post into sections and make it easier to get to the implementation section. And shared overall feedback. 
 
 [Merlyn Albery-Speyer](https://github.com/curious-attempt-bunny) helped me improve the section on “when to use Mini-Ms” by pointing out some preconditions for success. He pointed out that the structure became less important after the Mini-M is established. Merlyn pointed out that we tried to keep people from being in the same Mini-M as their managers, or other people reporting to the same manager. He also shared the theory about VPs not being willing to be vulnerable as a possible explanation for why the Mini-Ms never took off in manager of manager groups to the same extent they did for frontline managers.
 
 [Molly Graham](https://www.linkedin.com/in/mograham/) contributed the section on “Manager coaching circles” in the variations post. She has an insightful [newsletter](https://mollyg.substack.com).
 
-[Jason Poole](https://www.linkedin.com/in/jasonapoole/) shared his experience as an Organizer of Mini-Ms. He pointed out a now mostly disappeared [second post](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/) on Mini-Ms. He also suggested ways Facilitators could counter unproductive ranting. 
+[Jason Poole](https://www.linkedin.com/in/jasonapoole/) shared his experience as an Organizer of Mini-Ms. He pointed out a now mostly disappeared [second post](https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/) on Mini-Ms. He also suggested ways Facilitators could counter unproductive ranting, and pointed out how effective the Mini-Ms were for improving our performance reviews.
 
 [Marty Matheny](https://www.linkedin.com/in/martymatheny/) shared feedback based on his experience as an Organizer. He helped improve the advice for Organizers. And he pointed out that engineering adjacent departments participated.
 
