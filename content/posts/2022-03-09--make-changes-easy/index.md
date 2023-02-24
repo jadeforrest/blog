@@ -1,11 +1,13 @@
 ---
-title: Make changes easy for your team
+title: Make changes that people will embrace
 tags: ["communication", "change-management"]
 cover: change.jpg
 author: Jade Rubick
 discussionId: "make-change"
 description: "How managers can make changes that people will embrace."
 ---
+
+Today, we'll talk about managing change, and how to reduce obstacles as you do so. We'll also talk about how to ensure your changes are effective.
 
 <re-img src="change.jpg"></re-img>
 
@@ -39,11 +41,11 @@ Once you've selected something from the top of your backlog, here's how you migh
 3. Next, your goal is to come up with a **diagnosis**. A diagnosis is the issue that is at the heart of the problem. This is the step most managers skip, and it's the most important step. You dig in and research it so you understand it better than anyone. You must do this as rapidly as possible. There may be 10 problems in the mix -- the diagnosis identifies where to focus. I usually do this by stacking up intensive conversations with the people involved: all within a couple of days. But I might also look at any tools, or any data that can help me understand the situation. If we're looking at the team velocity, I would stack up 1-1s with the team and ask people individually. It could be a million things that are slowing down the team, or it could be multiple things. When you understand it well, you have a diagnosis. A clear diagnosis is important, because usually the remedy is clear with a good diagnosis. Also note it is fine if the diagnosis is that there are lots of small problems. 
 4. Finally, you come up with a proposed **remedy**. This should be something that will make the situation better. It doesn't have to completely solve the problem, but it should make things a lot better.
 
-I usually recommend writing down these three things in a half-page or page doc. This clarifies your thinking. The sections are Problem, Diagnosis, and Proposed Remedy.
+I like to write it down to clarify my thinking. The sections are Problem, Diagnosis, and Proposed Remedy.
 
 ## Socialize your plan
 
-After you're done all this work, you may think you have the best plan in the world. You probably understand the tradeoffs of your solution better than anyone. It might be the best plan in the world. But people resist smart plans all the time. 
+After you're done all this work, you may think you have the best plan in the world. You probably understand the tradeoffs of your solution better than anyone. But people resist smart plans all the time. 
 
 The best way to get people to get on board with a plan is to give them a chance to interact with it. Instead of laying it on them, give them a chance to provide feedback. This can often result in them improving it as well! 
 
@@ -112,6 +114,6 @@ You can use the people around you to help make sure you're making good decisions
 
 ## Thank you
 
-I've learned about this topic from a lot of people. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) taught me the most about having other people improve your thinking. [James Shore](https://www.jamesshore.com/), more than anyone, showed me how participation in a plan gets people on board with it. [Robert Goldmann](https://www.linkedin.com/in/coachrg/), my executive coach for many years, taught me the many things you have to pay attention to when communicating changes to people. [Marco Rogers](https://www.linkedin.com/in/marcorogers/) showed me the value of deliberation, that going quickly isn't always the best course of action, and that teams have a capacity for absorbing change. [Rebecca Vetter](https://www.linkedin.com/in/rebeccafae/) provided valuable feedback on early versions of this doc.
+I've learned about this topic from a lot of people. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) taught me the most about having other people improve your thinking. [Jim Shore](https://www.jamesshore.com/), more than anyone, showed me how participation in a plan gets people on board with it. [Robert Goldmann](https://www.linkedin.com/in/coachrg/), my executive coach for many years, taught me the many things you have to pay attention to when communicating changes to people. [Marco Rogers](https://www.linkedin.com/in/marcorogers/) showed me the value of deliberation, that going quickly isn't always the best course of action, and that teams have a capacity for absorbing change. [Rebecca Vetter](https://www.linkedin.com/in/rebeccafae/) provided valuable feedback on early versions of this doc.
 
 Image by <a href="https://pixabay.com/users/0fjd125gk87-51581/">0fjd125gk87</a> from <a href="https://pixabay.com/">Pixabay</a>
