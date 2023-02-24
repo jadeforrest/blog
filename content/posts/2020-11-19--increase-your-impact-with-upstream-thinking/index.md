@@ -38,7 +38,7 @@ Here are some things to consider that can help you get better at upstream approa
 1. **Reply with documentation**. When someone asks you something, document the response in a place that a future person can look it up, and send them the link.
 2. **Automated testing**. Prove that the bug can't reoccur, which prevents it from happening again.
 3. **Identify "do not repeat incidents" work** after an incident. Make sure you identify the minimum possible thing that would prevent or mitigate future examples of this problem.
-4. **Turn off an alert**, or **rethinking how we monitor something**. Rather than just bumping up the threshold, think about whether the alert is something we even act on. Move the channel of the alert to an information channel instead of alerting channel, or rework it to be actionable.
+4. **Turn off an alert**, or **rethink how we monitor something**. Rather than just bumping up the threshold, think about whether the alert is something we even act on. Move the channel of the alert to an information channel instead of alerting channel, or rework it to be actionable.
 5. **Automate the steps into a script**. Instead of going through a list of things, put it in a script, which is a step towards automating it.
 
 If nothing else, it can be valuable to take a few moments when you're working on something to look at the big picture, and not let the rush prevent you from looking upstream to where the source of the problem may lie. 
