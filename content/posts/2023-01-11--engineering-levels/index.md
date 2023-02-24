@@ -4,7 +4,7 @@ tags: ["pay-equity", "promotions"]
 cover: staircase.jpg
 author: Jade Rubick
 discussionId: "engineering-levels"
-description: "Jade shares example engineering levels, that you can use to craft the levels as your company."
+description: "Jade shares example engineering levels, that you can use to craft engineering levels at your company."
 ---
 
 <re-img src="staircase.jpg"></re-img>
