@@ -230,7 +230,8 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml"
+              output: "/rss.xml",
+	      title: config.siteTitle  // fix for issue @https://github.com/gatsbyjs/gatsby/issues/17100
           }
         ]
       }
