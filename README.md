@@ -72,3 +72,4 @@ I started building on top of [Greg Lobinski's](https://github.com/greglobinski) 
 
 Useful links:
 - react-icons: https://react-icons.github.io/react-icons/icons?name=fa
+- updating Gatby, etc: https://www.attejuvonen.fi/gatsby-dependency-updates/
