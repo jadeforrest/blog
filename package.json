@@ -1,7 +1,7 @@
 {
-  "name": "@baobabkoodaa/blog",
-  "version": "0.9.0",
-  "author": "Baobab Koodaa",
+  "name": "@jadeforrest/blog",
+  "version": "1.0.0",
+  "author": "Jade Rubick",
   "description": "Feature-rich blog with streamlined design.",
   "license": "MIT",
   "dependencies": {
