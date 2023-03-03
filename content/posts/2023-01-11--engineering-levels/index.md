@@ -258,6 +258,10 @@ Drives best practices across the organization.</td>
   </tr>
 </table>
 
+## Want help?
+
+I've done this many times before, and [I'm available to help](/contact/) guide your organization through it. 
+
 ## Future improvements
 
 * Jade likes the simplicity, visualization, and mental model proposed by Amy Chanta [here](https://amychanta.beehiiv.com/p/reimagining-think-career-development).  
