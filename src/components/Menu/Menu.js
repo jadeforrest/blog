@@ -158,8 +158,7 @@ class Menu extends React.Component {
             flex-grow: 1;
             left: 0;
             max-height: ${open ? "1000px" : "50px"};
-            padding: 0 ${theme.space.inset.s};
-
+            padding: 0;
             position: fixed;
             width: 100%;
             z-index: 1;
