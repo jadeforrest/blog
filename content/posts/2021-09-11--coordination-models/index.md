@@ -33,8 +33,7 @@ As we discussed in my last post, you should [centralize coordination and goal-se
 3. **[Tenets](/tenets-for-faster-decisionmaking/)**. Mental shortcuts to help people globally make tradeoff decisions.
 4. **[Goal frameworks](/advice-for-using-goal-frameworks/)**. A way to set goals that attempt to be coherent across the organization, and translate across the functions to coordinate work.
 5. **[Metrics -- early draft](https://docs.google.com/document/d/1ye7xBs3ND65smawfRLnBJmzZV14OcfEj_SoEv2demzE/edit?usp=sharing)**. Track numbers to drive particular outcomes, add observability, or force attention to an area.
-6. **[Centralized/decentralized prioritization -- draft](https://docs.google.com/document/d/1Bx9xKrtpwQriBLa8Zj8yD_018VoAvdaQxlARg2kqgWg/edit#)**. Cut through cross-team projects gridlock by providing prioritization for critical projects and a way to break ties in prioritizations between decentralized teams.
-
+6. **[Product council](/product-council/?utm_source=website-coordination-models&utm_medium=link&utm_campaign=coordination-models)**. Cut through cross-team projects gridlock by providing prioritization for critical projects and a way to break ties in prioritizations between decentralized teams.
 
 ### Role based coordination models
 
