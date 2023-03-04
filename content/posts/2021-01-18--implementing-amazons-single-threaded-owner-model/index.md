@@ -117,6 +117,8 @@ We were moving to be more metrics driven at the same time, and although we saw g
 
 One of the challenges the STOs faced was in the interface between leadership and the STOs. Ideally, the way this works is that the leadership provides goals, and the STOs choose projects to meet those goals. In practice, this can be hard within a small company, when the founders and executives want to be highly involved in the team’s work. In our case, the local teams weren’t fully empowered to be autonomous, so they weren’t fully able to make decisions without them being overridden by executives. That kind of violated the expectations of the STO model, and resulted in back and forth and friction. 
 
+Another thing to note is that Single Threaded Owners can discourage standardation. Each area tends to solve things in different ways. So a side effect of this approach is that different teams and different organizations may feel very dissimilar to each other.
+
 ## Do I recommend the Single Threaded Owner model?
 
 I believe the STO model is more effective than the standard “3 stool” model of having separate leadership hierarchies. But it has downsides and requires more discipline to implement and maintain, so I plan to keep it as a tool I can employ, but not one that I will use in most situations. 
@@ -146,6 +148,14 @@ As a thought exercise, you might be able to achieve some of the same outcomes by
 I could see this working effectively in either direction, with either Product or Engineering having the ability to end the contract. 
 
 **There might be ways to set up the responsibilities so that the Engineering Manager or Product Manager have an expansive view of their role**, that is similar to the “you own everything” approach of the STO model. I once had my manager tell me, “everything that happens on this product is your fault. If customers are supported poorly, that’s your fault. If you have bad product direction, that’s your fault. You’re responsible for making this all work.” Some of this was actually a stretch -- I wasn’t technically responsible for the product direction. But that sort of expansive view of a role can be helpful to ensure people make sure things are working, even if it’s not in their lane. Giving people the message that the Team’s success is what counts, even if it’s out of your lane, is probably a message we need to emphasize more.
+
+## General Manager model
+
+The Single Threaded Owner approach doesn't have to extend all the way down the organization. A variation is a General Manager model. 
+
+A General Manager is a person responsible for an organization. They might have separate hierarchies underneath them -- product, engineering, and design. But they're responsible for all three.
+
+General Managers are used to separate an organization into divisions. The nice thing about this approach is that it is fractal -- you can choose to take it as far as you want to. But you can also just do it at the top level, and extend further downwards as needed.
 
 ## Thank you
 
