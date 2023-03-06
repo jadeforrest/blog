@@ -95,7 +95,7 @@ I encourage you to try a Steel Threaded approach. I think you’ll find it can t
 
 ## Steel Threads are closely related to vertical slices
 
-You may have heard of the term “vertical slicing”. I describe the concept in my post on [Milestones](/milestones-not-projects/). 
+You may have heard of the term “vertical slicing”. I describe the concept in my post on [Milestones](/milestones-not-projects/?utm_source=website-steel-threads&utm_medium=link&utm_campaign=steel-threads). 
 
 Steel Threads are a software design technique that result in delivering your software in vertical slices. The term tends to be used to describe the initial vertical slices of a system. They’re closely related concepts, but not completely the same.
 
