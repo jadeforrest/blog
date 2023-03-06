@@ -119,6 +119,24 @@ If your organization gets larger, you either need to subdivide into multiple Pro
 
 New Relic was about 50 software engineering teams when we added the Product Council. It would have been helpful with many fewer teams. But I wouldn’t probably do it before cross-team coordination was a large problem.
 
+## Spend more time implementing strategy, less on writing strategy
+
+Alex Kroman was on the Product Council for many years. When I asked him his thoughts on it, he shared these thoughts:
+
+**The Product Council focused too much on _writing_ strategy and not enough on _implementing_ strategy.**
+
+It's relatively easy and risk free to write a good strategy doc. But it is difficult, and involves a lot of risk, to implement. Implementing strategy involves making difficult tradeoffs, and can be really unpopular and use a lot of political capital.
+
+Decisions to support strategy almost always cross organizational lines or functional boundaries.
+
+What I would do if I were doing it over again is identify a small number of cross-functional initiatives that will have the most impact on the business. Then communicate about them. 
+
+Then I would set up the Product Council to work with the leaders of those cross-functional initiatives, and help the organization make the right tradeoff decisions. These things won't happen on their own because they cross boundaries. So you need to align leaders across boundaries on these priority tradeoffs. 
+
+I would judge the effectiveness of the Product Council based on the number of hard tradeoff decisions the leaders make and implement themselves, in support of the highest priority initiatives. 
+
+Too often, I see organizations give "directly responsible individual" type accountability for projects. You tell this leader they have our permission to work across teams and do this work and do all these things. What I typically see is they don’t give that person that authority. What needs to happen is the leaders need to actually make hard decisions based on that person's recommendations. 
+
 ## Product council versus other coordination models
 
 One alternative to a Product Council is a General manager approach (which is a type of [Single Threaded Owner](/implementing-amazons-single-threaded-owner-model/?utm_source=website-product-council&utm_medium=link&utm_campaign=product-council)) or a Division structure. This subdivides the problem in smaller pieces, which can scale. 
@@ -142,6 +160,8 @@ See anything I missed? Disagree with this? Please let me know your thoughts!
 ## Thank you
 
 [Jim Shore](https://www.jamesshore.com/) introduced me (and all of New Relic) to the Product Council. It was part of a larger set of changes he introduced – the most successful organizational transformation I’ve seen. Jim reviewed this post and shared his thoughts on FAST as an alternative approach. 
+
+[Alex Kroman](https://www.linkedin.com/in/alexkroman/) left voice memos about the Product Council and product strategy that were far more coherent than I would have been able to make while driving. I edited them into the section above on implementing the product strategy of the Product Council.
 
 [Nic Benders](https://www.linkedin.com/in/benders/) was one of the key executives behind the agile transformation at New Relic. He worked with Jim Shore and myself to implement these changes and was the executive responsible for the work. He was on the Product Council for many years, so he brings a unique perspective to bear. Nic reviewed a draft of this article and I included a quote of his on the cross-functional and prioritization value the Product Council provides. He emphasized Brent’s point about the time commitment of being on the Product Council. Nic also contributed a quote about the power dynamics and perception issues of the Product Council, and the need for transparency.
 
