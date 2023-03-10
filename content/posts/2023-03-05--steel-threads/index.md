@@ -1,6 +1,6 @@
 ---
 title: Steel threads are a technique that will make you a better engineer
-tags: ["software-design", "project-management", "architecture", "feature-flags"]
+tags: ["software-design", "project-management", "architecture", "feature-flags", "hacker-news"]
 cover: thread.jpg
 author: Jade Rubick
 discussionId: "steel-threads"
