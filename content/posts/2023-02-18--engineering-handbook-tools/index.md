@@ -158,7 +158,9 @@ Github or Slite/Notion-like wikis > Confluence > Google Docs
 
 ### Conclusion
 
-I recommend using a modern wiki for process docs. I would also consider using Google Docs. 
+I recommend using a modern wiki for process docs ([Slite](https://refer.slite.com/9a4s8hl7i0ta) or Notion are the ones I would start with). I would also consider using Google Docs. 
+
+(Note I get a referral fee if you click the link above for Slite, but recommended it long before I included that link and will remove the link if I find another wiki I prefer).
 
 If I wanted to kickstart the process with engineering, I would consider using Github for a while. You could then migrate to another tool when other functions like product and design and support want to participate.
 
