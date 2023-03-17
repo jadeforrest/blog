@@ -98,12 +98,12 @@ Steel Threads are often a good place to start when designing your projects. They
 
 I encourage you to try a Steel Threaded approach. I think you’ll find it can transform your projects. Let me know your experiences with it!
 
-## Steel Threads are closely related to vertical slices
+## Steel Threads relation to other patterns
 
-You may have heard of the term “vertical slicing”. I describe the concept in my post on [Milestones](/milestones-not-projects/?utm_source=website-steel-threads&utm_medium=link&utm_campaign=steel-threads). 
+Steel threads are also referred to as [Tracer Bullets](https://wiki.c2.com/?TracerBullets), especially when doing it for new work. They have also been referred to as a [Walking Skeleton](https://wiki.c2.com/?WalkingSkeleton) approach. When used with migration projects, the pattern is referred to as a [Strangler Fig Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig). 
+
+Steel threads are closely related to vertical slices. I describe the concept in my post on [Milestones](/milestones-not-projects/?utm_source=website-steel-threads&utm_medium=link&utm_campaign=steel-threads). 
 
 Steel Threads are a software design technique that result in delivering your software in vertical slices. The term tends to be used to describe the initial vertical slices of a system. They’re closely related concepts, but not completely the same.
-
-I've also heard of Steel Threads being referred to as "tracer bullets".
 
 Image by <a href="https://pixabay.com/users/steenjepsen-1490089/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1232723">Steen Jepsen</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1232723">Pixabay</a>
