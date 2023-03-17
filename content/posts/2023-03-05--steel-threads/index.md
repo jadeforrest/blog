@@ -41,7 +41,6 @@ What problems would I expect in this project?
 
 Both of these things are avoidable, by not having a huge cutover. Note that even cutting over one percent of traffic to the new service with a feature flag is a cutover approach. Why? You’re cutting over all that one percent of traffic to all the changes at the same time. I still would not expect it to go well. You are taking steps that are too large.
 
-
 ## Example using a Steel Thread
 
 Contrast that approach with the Steel Thread way of doing it. 
@@ -52,6 +51,8 @@ Contrast that approach with the Steel Thread way of doing it.
 4. Make it work for just that narrow use case. For any other use case, use the old code path. Get it out to production, into full use. (Tip: you could even do both the new AND old code path, and compare!)
 5. Then you gradually add the additional use cases, until you’ve moved all of the functionality you need to, to the new service. Each use case is in production.
 6. Once you’re done, you rip out the old code and feature flags. This isn’t risky at all, since you’re already running on the new system.
+
+Isn't this also the "strangler" pattern? Yes, but this can be used for new projects too. Read on for a greenfield example.
 
 ## Steel threads avoid integration pain, and give you higher confidence
 
@@ -69,7 +70,9 @@ When using a Steel Thread approach, you choose some of the core requirements and
 
 Thus, Steel Threads are a [subset of the requirements](https://www.cs.du.edu/~snarayan/sada/docs/steelthreads.pdf) of a system. 
 
-For example, let’s say you’re implementing a clone of Slack. Your initial Steel Thread might be something like:
+## Steel threads can be used on greenfield work as well
+
+Let’s say you’re implementing a clone of Slack. Your initial Steel Thread might be something like:
 
 “Any unauthenticated person can post a message in a hardcoded #general room in a hardcoded account. Messages persist through page refreshes.”
 
@@ -77,7 +80,9 @@ Note how limited this initial Steel Thread is. It doesn’t handle authenticatio
 
 Your second Steel Thread can move the system towards being more useful. You could, for example, have a Steel Thread that allows the message poster to choose the name they post under. 
 
-This second Steel Thread hasn’t actually done much. You still don’t have authentication, accounts, or even a concept of a user. But you have made a chat room that works enough that you can start using it.  
+This second Steel Thread hasn’t actually done much. You still don’t have authentication, accounts, or even a concept of a user. But you have made a chat room that works enough that you can start using it.
+
+Also note that you haven't pulled the Steel Thread through every portion of the system. But you have stubbed out the concepts of users and accounts.
 
 ## Steel Threads provide early feedback
 
