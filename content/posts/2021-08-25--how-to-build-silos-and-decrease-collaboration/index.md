@@ -7,38 +7,48 @@ discussionId: "build-silos"
 description: "Although counter-intuitive, it can be beneficial to build silos and decrease collaboration between teams. Balance the need for collaboration, coordionation, and communication with these tips."
 ---
 
-<re-img src="silo.jpg"></re-img>
-
-## How to build silos and decrease collaboration (on purpose)
-
 _“We need to break down silos between departments and get people to collaborate better” -- almost every leader everywhere._
+
+<re-img src="silo.jpg"></re-img>
 
 Most leaders reflexively think of silos as BAD and collaboration as GOOD. This manifesto defends silos and challenges the value of collaboration.  
 
-### Increasing collaboration can do harm
+## Increasing collaboration can do harm
 
 In general, you should aim to maximize collaboration _within_ teams, and minimize collaboration _between_ teams. 
 
-**Why maximize collaboration within teams?**
+### Why maximize collaboration within teams?
 
-A collaborative team works together on one or two goals. This maximizes [shared state](/communication-is-shared-state/) -- everyone has a common understanding of goals, progress, and who is doing what. This gives team members a better ability to focus and coordinate their work with each other. Team members have overlapping areas of knowledge, so they can critique each other’s work and help each other grow. They are more innovative, because the interplay between people as they work on the same goal helps generate more diverse thinking and improve decision-making. When someone leaves the team, the fact that others have a shared understanding of the work means the team can survive and continue to work effectively. People can go on vacation or leave without as much disruption. And collaborative teams feel great to be a part of -- everyone shares the same victories and accomplishments together. A team that doesn’t collaborate often really isn’t a team at all.
+A collaborative team works together on one or two goals. Why?
+* This maximizes [shared state](/communication-is-shared-state/) -- everyone has a common understanding of goals, progress, and who is doing what. 
+* This gives team members a better ability to focus and coordinate their work with each other. 
+* Team members have overlapping areas of knowledge, so they can critique each other’s work and help each other grow. 
+* They are more innovative, because the interplay between people as they work on the same goal helps generate more diverse thinking and improve decision-making. 
+* When someone leaves the team, the fact that others have a shared understanding of the work means the team can survive and continue to work effectively. 
+* People can go on vacation or leave without as much disruption. 
 
+Collaborative teams feel great to be a part of -- everyone shares the same victories and accomplishments together. A team that doesn’t collaborate often really isn’t a team at all.
 
-**Why minimize collaboration between teams?**
+### Why minimize collaboration between teams?
 
 To the maximum extent possible, teams should have what they need to succeed within the borders of their team. And where that is not true, you need some structure to ensure the team can get what it needs in a way that will scale with the organization’s growth. 
 
 As companies grow, communication and dependencies proliferate. Companies start out with many-to-many communication. As they grow, the communication patterns within the company must necessarily switch to being segmented and defined. Otherwise, the communication burden on teams will grow at an exponential rate, and the increasing complexity will degrade the effectiveness of the company. 
 
-I observed an example of this at New Relic. As the engineering organization grew, we encouraged a collaborative culture and rewarded people for collaboration between teams (it was even part of our promotion criteria -- you can blame that on me!). After a few years, the increasing number of teams made it more and more difficult to manage dependencies between teams, to the point that it eventually became impossible to accomplish any large project within the organization. I know, because I was one of the “best project managers”, so I got put on many of those large projects -- and they were systematically impossible to execute on. We all tried heroically to make it work, but the system was rigged -- there wasn’t a way to accomplish these larger projects. The solution to this was to eventually define the interaction models between teams, reduce dependencies, and add some structure to prioritization and communication. Looking back in retrospect, it was as obvious as math what happened, but I see organizations fall into this trap over and over. We’ll talk more about how to structure these solutions in the second blog post in this series.
+I observed an example of this at New Relic:
+1. As the engineering organization grew, we encouraged a collaborative culture and rewarded people for collaboration between teams (it was even part of our promotion criteria -- you can blame that on me!).
+2. After a few years, the increasing number of teams made it more and more difficult to manage dependencies between teams, to the point that it eventually became impossible to accomplish any large project within the organization. I know, because I was one of the “best project managers”, so I got put on many of those large projects -- and they were systematically impossible to execute on. We all tried heroically to make it work, but the system was rigged -- there wasn’t a way to accomplish these larger projects. 
+3. The solution to this was to eventually define the interaction models between teams, reduce dependencies, and add some [structure to prioritization](/product-council/?utm_source=ck-silos&utm_medium=link&utm_campaign=silos) and communication. 
+
+Looking back in retrospect, it was as obvious as math what happened, but I see organizations fall into this trap over and over. We’ll talk more about how to structure these solutions in the second blog post in this series.
 
 Collaboration _sounds_ great, but it’s something you want to actively be combating between teams. A little collaboration is fine, but excessive collaboration between teams is a sign your organization isn’t structured well. If you ever wonder why Bezos took such a hard line on his [API mandate](https://chrislaing.net/blog/the-memo/#fn:1) in 2002, this probably factored into it. Bezos structured Amazon so that teams were as independent as possible.
 
-### What are silos?
+## What are silos?
 
 Silos are boundaries between groups of people, based on the organizational structure and teams they’re working on. 
 
-### Why do silos exist?
+## Why do silos exist?
 
 Silos exist because humans have cognitive and communication limits: 
 
@@ -51,7 +61,7 @@ It’s important to recognize that these limits are real limits, and not somethi
 
 There are ways to flex certain aspects of this. For example, a company that is designed to be fully asynchronous can rely on process and tooling to change some of these constraints. But even then, you’re moving the constraints around, not eliminating them completely. You need to operate in a way that recognizes these limits.
 
-### Why do leaders want to break down silos?
+## Why do leaders want to break down silos?
 
 Leaders start talking about breaking down silos when they see that individual parts of the company aren’t achieving larger business outcomes and are excessively focused on their own area. Alternatively, they talk about breaking down silos when parts of the company aren’t well coordinated with each other. Generally this happens once the organization has become complex enough that the structure is getting in the way.
 
@@ -62,17 +72,17 @@ Here are a couple of examples:
 
 Leaders see these things, and start blathering about “breaking down silos” and “increasing collaboration”. What’s wrong with that?
 
-### “Breaking down silos” represents incomplete thinking
+## “Breaking down silos” represents incomplete thinking
 
 **“Breaking down silos” is an exhortation rather than a diagnosis or prescription of how to improve the situation**. “Breaking down silos” blames individuals for not having a big enough vision and working across boundaries, instead of looking with curiosity at the system and asking _why_ they are doing what they’re doing. It’s expecting people to have your level of perspective without figuring out why they don’t.
 
 But the main problem is that it isn’t specific enough. 
 
-### Communication != Collaboration != Coordination
+## Communication != Collaboration != Coordination
 
 When you hear someone say they want teams to collaborate more or break down silos, encourage them to look at the problem from three perspectives:
 
-**Coordination**
+### Coordination
 
 Usually when people talk about collaboration, what they’re really looking for is better coordination. 
 
@@ -82,7 +92,7 @@ The US military found that the best way to coordinate groups of people quickly a
 
 We’ll talk in the second post in this series about a multitude of ways you can coordinate groups of people working together. 
 
-**Communication**
+### Communication
 
 Communication is transferring information from one person or group to another. 
 
@@ -96,7 +106,7 @@ When people talk about needing increased collaboration, you can often achieve th
 
 One thing I’ve done over and over in many startups is set up weekly communication on projects in engineering. This helps the marketing organization understand how to coordinate their work with engineering, among other benefits.
 
-**Collaboration**
+### Collaboration
 
 Collaboration is when people work together to produce an outcome. When teams are collaborating, it means they’re working with other teams to achieve outcomes together. That’s often a sign the team isn’t set up well. Ideally, it should have what it needs to do what it needs without dependencies on other teams. 
 
@@ -104,18 +114,19 @@ A team that has to collaborate to achieve its objectives is going to be less rel
 
 Of course, the world is messy, and you shouldn’t expect a complete lack of collaboration between teams. But when you see teams collaborate, that’s something to pay attention to. 
 
-### Technical analogy
+## Technical analogy
 
 You might think of silos as "encapsulation". Leaders want to dig into the internals of the classes holding the logic they need. But it's a bad solution to just bolt that on -- you really need to refactor things so that they are better structured.
 
-### How do you get teams to coordinate better?
+## How do you get teams to coordinate better?
 
-In the next post in this series, I share concrete [patterns that help teams and departments work across organizational boundaries](/coordination-models). 
+In the next post in this series, I share concrete [patterns that help teams and departments work across organizational boundaries](/coordination-models/). 
 
-### What do you think?
+## What do you think?
 
 I always appreciate hearing your thoughts and reactions to my posts. 
 
+## Thank you
 
 Thank you to the many people who helped improve this post. [Rebecca Campbell](https://www.linkedin.com/in/rebecca--campbell/) always makes my work better. She helped me tighten up many of my arguments and helped me realize that I needed to make the section on coordination more explicit. [Brent Miller](https://www.linkedin.com/in/foliosus/), always the purveyer of astute observations, offered structural feedback that made the post much stronger. [Chris Haupt](https://www.linkedin.com/in/chaupt/), always thoughtful, pointed out a few areas that he didn't find convincing, and helped me see that I needed to go deeper on information flow. [Aaron Erickson](https://www.linkedin.com/in/aaronerickson/) suggested the metaphor of encapsulation. Thanks to Neville Kuyt for suggesting I define silo. And additional thank you to [Robert DiFalco](https://www.linkedin.com/in/robert-difalco-a40378/) and [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for reviewing and commenting on the post. Always appreciate your insight! 
 
