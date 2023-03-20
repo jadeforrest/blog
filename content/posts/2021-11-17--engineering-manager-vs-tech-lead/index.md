@@ -55,7 +55,7 @@ The intention is to have the Product Manager heavily involved in the team’s wo
 
 ## Single threaded owner
 
-The Single Threaded Owner owns everything. They can hire people to delegate parts of their job. I have a longer [experience report on the Single Threaded Owner model](/implementing-amazons-single-threaded-owner-model/). Amazon popularized this approach. 
+The Single Threaded Owner owns everything. They can hire people to delegate parts of their job. I have a longer [experience report on the Single Threaded Owner model](/implementing-amazons-single-threaded-owner-model/?utm_source=website-em-vs-tl&utm_medium=link&utm_campaign=em-vs-tl). Amazon popularized this approach. 
 
 ![Single Threaded Owner runs everything](sto.png)
 
@@ -76,11 +76,10 @@ The SCRUM approach is a classic approach to software development. It doesn’t e
 * You don’t see a lot of project management with SCRUM. It’s all focused on points or burndown charts. SCRUM teams I've worked with have neglected project breakdown, sequencing, and risk management. SCRUM divides project responsibilities between the Product Owner and the Scrummaster.
 * Incentives for the Scrummaster are to focus on process and meetings. They tend to go overboard with it. They tend to lean on process too much.
 * The team owns the quality of their technical plans and work. It’s generally done in an egalitarian way. Which can be good if the team functions well. 
-* The Product Owner acts as a lightweight product manager. The Product Owner role is a subset of the Product Manager role. Generally, a Product Owner[ will not do the job as well](https://svpg.com/product-manager-vs-product-owner-revisited/).
+* The Product Owner acts as a lightweight product manager. The Product Owner role is a subset of the Product Manager role. Generally, a Product Owner [will not do the job as well](https://svpg.com/product-manager-vs-product-owner-revisited/).
 
 
 ## Summary
-
 
 <table border="1" cellpadding="5" cellspacing="0">
   <tr>
@@ -217,7 +216,7 @@ Moving between these models is where things get hard. For example, let's say you
 
 I have experience with all of these models listed above. One model I didn't include is the Engineering Manager who runs People, Process, and Technical, but works with a Project Manager. I’m sure it’s possible to be successful with any of these models. I welcome your feedback and comments!
 
-Also, be sure to [subscribe](/subscribe/) if you’d like to be notified of future posts.
+Also, be sure to [subscribe](/subscribe/?utm_source=website-em-vs-tl&utm_medium=link&utm_campaign=em-vs-tl) if you’d like to be notified of future posts.
 
 
 Image by <a href="https://pixabay.com/users/markiss33311-20814146/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6116282">Marcus Williams</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6116282">Pixabay</a>
