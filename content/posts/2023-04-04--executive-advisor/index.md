@@ -77,7 +77,7 @@ But you have to be careful with your choices. You’re hiring someone for their 
 
 Ideally, your company should be paying for the advisor. What I tell companies is to use this heuristic to determine whether the rates are reasonable for an advisor: 
 
-**If you took the yearly cost of the executive advisor, and compared it to how much it would cost to hire an additional engineer, how does it compare? **Compare both the anticipated impact of the advisor, and the cost. When you consider the impact on the company, it’s generally a very smart investment, even if it looks quite expensive. A good advisor can help you avoid expensive mistakes, and improve the trajectory for an entire department. That’s often worth it even if it’s quite expensive.
+**If you took the yearly cost of the executive advisor, and compared it to how much it would cost to hire an additional engineer, how does it compare?** Compare both the anticipated impact of the advisor, and the cost. When you consider the impact on the company, it’s generally a very smart investment, even if it looks quite expensive. A good advisor can help you avoid expensive mistakes, and improve the trajectory for an entire department. That’s often worth it even if it’s quite expensive.
 
 Advisors can be expensive, and even feel out of reach for individuals. Why? Consider the economics of the situation. A highly experienced engineering leader can command a salary of $300-500k/year, plus 0.5-2% of the equity of a company, and bonuses. Total comp can be $350-$1MM a year. 
 
