@@ -1,5 +1,5 @@
 ---
-title: Experience report - a Product Council to solve cross-team priorities
+title: Solving cross-team priorities with a Product Council - an experience report
 tags: ["scaling", "information-flow", "prioritization", "goal-setting", "product-management", "complexity", "communication", "coordination-models", "coordination-models-centralized"]
 cover: council.jpg
 author: Jade Rubick
