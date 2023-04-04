@@ -3,8 +3,8 @@ title: How an executive advisor can help you grow faster and navigate unfamiliar
 tags: ["scaling", "company-culture", "mentorship", "leadership", "interviewing", "consultants", "self-promotion"]
 cover: guide.jpg
 author: Jade Rubick
-discussionId: "steel-threads"
-description: "Steel Threads are a powerful but obscure software design approach. Learning about Steel Threads will make you a better engineer. You can use them to avoid common problems like integration pain. And you can use them to cut through the complexity of system design."
+discussionId: "advisor"
+description: "An executive advisor can help you grow faster and navigate unfamiliar terrain. This post summarizes how to evaluate advisors and what rates to pay for their services"
 ---
 
 When you’re navigating new territory, it is essential to have a guide. And if you want to grow your skills as rapidly as possible, it helps to learn from someone who has done it before.
@@ -26,6 +26,8 @@ An advisor is someone who helps you produce better results with your work. They�
 Every advisor is different, so you should find out what approach a prospective advisor uses. I think my approach is fairly common, so let me share how it works with my practice:
 
 With most of my clients, we conduct _working sessions_. They are one hour sessions, and are weekly, biweekly, or monthly. In these sessions, my client brings their current problems, and we problem-solve them together.
+
+<re-img src="working-sessions.png" width="70%"></re-img>
 
 Each of us brings an essential part to the working session. I bring a lot of experience (both in terms of years doing this, and across many companies). I’ve seen it all before. My clients have their own experience and expertise. But most importantly, they have much better context on the problem and environment. 
 
@@ -74,6 +76,8 @@ The last one is something I think it’s important to emphasize. How flexible is
 Rates vary greatly depending on the advisor. I’ve seen rates that vary by an order of magnitude! If you’re on a budget, you can probably find someone fairly inexpensive. 
 
 But you have to be careful with your choices. You’re hiring someone for their expertise, not just for them to coach you (more on the difference between coaches and advisors later). 
+
+<re-img src="money.png" width="15%"></re-img>
 
 Ideally, your company should be paying for the advisor. What I tell companies is to use this heuristic to determine whether the rates are reasonable for an advisor: 
 
