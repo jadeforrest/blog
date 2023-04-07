@@ -102,13 +102,12 @@ One way to speed things up is to monitor how the “onsite” interview goes, by
 
 One of the challenges I've had with a lot of applicant trackng systems is that it is hard to know which candidates are waiting on us. And it's hard to get a sense of how we're doing as a team in responding. 
 
-A tool I have not used, but would check out if I were using [Greenhouse](https://www.greenhouse.io) or [Lever](https://www.lever.co), is [TalentWall](https://talentwall.io). It visualizes your candidate pipeline as a kanban board, and shows how you're doing and what needs to be done for each candidate. Super valuable! Let me know your experiences with it -- I have not used it. Also let me know if you've used any other tools that help you visualize your hiring pipeline. 
+A tool I have not used, but would check out if I were using [Greenhouse](https://www.greenhouse.io) or [Lever](https://www.lever.co), is [TalentWall](https://talentwall.io). It visualizes your candidate pipeline as a kanban board, and shows how you're doing and what needs to be done for each candidate. Super valuable! Maksim Koutun describes his experiences with it [here](https://medium.com/flo-health/engineering-hiring-strategy-at-flo-health-657dfb9b725). Let me know your experiences with it -- I have not used it. Also let me know if you've used any other tools that help you visualize your hiring pipeline.
 
 Did I miss anything? Please share your favorite ideas with me, I’d love to hear them! 
 
-
 ## Thank you
 
-My appreciation to jtopper from Rands Leadership for his feedback on the post. 
+My appreciation to jtopper from Rands Leadership for his feedback on the post. [Maksim Koutun](https://www.linkedin.com/in/maksim-koutun/) shared the post on hiring improvements he made and his experience with TalentWall.
 
 Image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1840437">Pexels</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1840437">Pixabay</a>
