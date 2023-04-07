@@ -33,9 +33,9 @@ To avoid this pit of despair **ask, but _never expect_ other teams to do work fo
 
 ## How should product engineering handle dependencies? 
 
-Some organizations try to solve dependencies with tracking. This doesn't work, because the problem is dependencies, not tracking dependencies. Adding a system to track needs in Jira isn't going to help. Underlying everything is the fact that teams each have competing priorities. And those priorities shift, so you can't rely on them.
+Some organizations try to solve dependencies with **tracking**. This doesn't work, because the problem is dependencies, not tracking dependencies. Adding a system to track needs in Jira isn't going to help. Underlying everything is the fact that teams each have competing priorities. And those priorities shift, so you can't rely on them.
 
-Some will think they can avoid this trap by using experienced project managers. But the problem isn’t poor project management. Even if you manage dependencies and risks, you will have unacceptable risk. Plans with dependencies are risky. When you always have a fallback, you guarantee you can deliver a baseline of value. 
+Some will think they can avoid this trap by using experienced **project managers**. But the problem isn’t poor project management. Even if you manage dependencies and risks, you will have unacceptable risk. Plans with dependencies are risky. When you always have a fallback, you guarantee you can deliver a baseline of value. 
 
 Shift to a model where you insist on always having a plan that doesn't rely on others. When you do this, you always have a plan that will deliver value. Communicate your needs to the other teams, so they can maximize value for the whole company. But deliver the most value you can within your zone of control. 
 
