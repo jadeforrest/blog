@@ -1,5 +1,5 @@
 ---
-title: The secret to holding a candidate review meeting that isn't boring a hell
+title: The secret to holding a candidate review meeting that isn't boring as hell
 tags: ["interviewing", "meetings", "hiring"]
 cover: python.jpg
 author: Jade Rubick
