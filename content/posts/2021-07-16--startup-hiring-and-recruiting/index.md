@@ -115,21 +115,13 @@ If you use recruiters, invest some time in making sure they understand what you�
 
 ## Have a review meeting when making a decision on a candidate
 
-Review syncs at their worst can be everyone just summarizing the feedback they already put in the application tracking system. [Shaun Yelle](https://www.linkedin.com/in/shaunyelle/) taught me an interview format that I now consider to be the best approach. 
-
-Instead of a meeting where people summarize their feedback, you as hiring manager go through all the written feedback ahead of time. Make a list of observations that seem to be common between people. And then, more importantly, make a list of observations that contradict each other. Did some people have feedback that doesn’t match up? Did people bring up concerns that didn’t get responded to? 
-
-During the meeting, quickly summarize the feedback on the candidate, and then move to the important part: go through the points people had disagreement about, and dig deeper on them, in a safe and curious way. For example: "Lisa, I noticed you were concerned about how the candidate communicated about their employer. But Josh said glowing things about how they talked about their team. Can you both share a little about that portion of the interview, what questions you asked and what you uncovered?"
-
-What I’ve found is that a lot of observations and assumptions break down when people have these type of discussions. An observation like, “they’re not very good at receiving feedback”, will become way more nuanced when you have a discussion about how you asked the question and what they said, when a different person had the opposite feedback. 
-
-This format also leads to better introspection of the interview process, so you can improve the design of the interview panels. 
+Candidate review meetings tend to be just reading the feedback everyone collected. Improve those meetings by following my guide to running a [candidate review meeting](/candidate-review-meeting/).
 
 ## Bundle up similar roles
 
 One of the bigger inefficiencies in a hiring process is to treat every role as a separate queue of candidates. You can achieve way better outcomes by bundling similar roles together: no ramp up time for new positions, prefilled queues of candidates for new positions, process efficiencies, and even better success hiring candidates from diverse backgrounds.
 
-Learn more about [bundled hiring](/bundled-hiring) and how it can improve your hiring outcomes. 
+Learn more about [bundled hiring](/bundled-hiring/) and how it can improve your hiring outcomes. 
 
 ## All of these things reinforce each other
 
