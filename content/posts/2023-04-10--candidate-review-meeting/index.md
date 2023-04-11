@@ -7,7 +7,7 @@ discussionId: "candidate-review"
 description: "Avoid the typical boring candidate review meeting, where everyone summarizes their feedback. Instead, use this surprisingly effective approach!"
 ---
 
-Most candidate "sync" meetings are super-boring. Everyone just reads the feedback they already put into the application tracking system. 
+Most candidate debrief meetings are super-boring. Everyone just reads the feedback they already put into the application tracking system. 
 
 A couple of years ago I was introduced to a much better approach, and I'd like to share that today.
 
