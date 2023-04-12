@@ -7,7 +7,7 @@ discussionId: "hiring-ems"
 description: "I share a complete guide to how to hire engineering managers, including a sample interview plan"
 ---
 
-I'd like to share a complete guide to how to hire and interview engineering managers. I'll cover every step of the process, and even include a sample interview plan you can use. 
+I'd like to share a complete guide to how to hire and interview engineering managers. I'll cover every step of the process, and even include a sample interview plan you can use. I think you'll find a lot of surprises, and some genuinely useful templates and questions to use.
 
 This approach can be used for other roles as well. 
 
