@@ -1,6 +1,6 @@
 ---
 title: How an executive advisor can help you grow faster and navigate unfamiliar terrain
-tags: ["scaling", "company-culture", "mentorship", "leadership", "interviewing", "consultants", "self-promotion"]
+tags: ["scaling", "company-culture", "mentorship", "leadership", "interviewing", "consultants", "self-promotion", "dzone-featured"]
 cover: guide.jpg
 author: Jade Rubick
 discussionId: "advisor"
