@@ -71,6 +71,8 @@ What should you look for in an advisor?
 
 The last one is something I think it’s important to emphasize. How flexible is the advisor’s thinking? Do they respond to every situation with the same solution? That’s often a red flag.
 
+The problem with determining the effectiveness of an advisor is that many people will confidently give you bullshit suggestions that can actually make your life worse. As humans, we often conflate confidence with competence. What I would look for is the level of insight they give you. And compare it with what others give you when given the same information. Another suggestion is to ask them about their thought process and why they are making that recommendation.
+
 ## Rates for advisors
 
 Rates vary greatly depending on the advisor. I’ve seen rates that vary by an order of magnitude! If you’re on a budget, you can probably find someone fairly inexpensive. 
