@@ -1,6 +1,6 @@
 ---
 title: The ultimate playbook for hiring engineering managers - a step-by-step guide
-tags: ["interviewing", "hiring"]
+tags: ["interviewing", "hiring", "dzone-featured"]
 cover: crowd.jpg
 author: Jade Rubick
 discussionId: "hiring-ems"
