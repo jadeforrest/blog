@@ -3,23 +3,64 @@ title: About
 ---
 <re-img src="avatar-large.jpeg" hovereffect=true></re-img>
 
+## TL;DR
+
+I can help you with these problems<sup>†</sup>:
+
+1. Scaling engineering.
+2. Helping leaders navigate unfamiliar terrain.
+3. Improving engineering delivery and quality.
+4. Getting organizations to coordinate more effectively.
+
+<br />
+
+<p style="font-size: 12px;color:grey;" size="small">† I can help with a lot of other problems too. But people need to pattern-match you. See below for a longer list.</p>
+
+## Hello
+
 My name is Jade Rubick. I advise startup founders and engineering leaders on how to build thriving engineering organizations. My specialty is humane, results-focused organizations.
 
 I also like to share what I've learned. So I write blog posts on this site, and write newsletter based courses on engineering leadership. 
 
 [Contact me](/contact) if you'd like to discuss how I might be able to help your organization. You can see my background, companies I've worked with, and what people say about working with me on [LinkedIn](https://www.linkedin.com/in/jaderubick/). 
 
-## How I help as an advisor
+## How I help
 
-Most startups and medium sized engineering organizations run into challenges as they scale up their engineering teams. The most common symptoms are delivery slowing or quality problems. 
+I help companies in a couple of ways:
 
-Very smart people run into these problems, because the solutions  are the opposite of what you would expect. I've been through these scaling bottlenecks [many times before](https://www.linkedin.com/in/jaderubick/). We can often work together to quickly improve your organization. 
+* Executive advisor. 
+* Fractional doer.
+* Interim VP of Engineering.
 
-I help companies primarily as an expert advisor (and occasionally as an Interim VP of Engineering). Typically this means I meet weekly or biweekly with a few leaders in your organization, and guide them through the problems the organization is facing. 
+As **executive advisor**, I meet weekly or biweekly with one or more leaders in your organization. We conduct working sessions where we problem-solve your current challenges. You bring context, I bring expertise, and together we come up with better solutions than either of us could individually.
 
-What size of organization do I help with? Usually I work with companies with 10-100 engineers. (I have experience outside of both ends of that, however, so feel free to contact me if you want to explore a fit).  
+As a **fractional doer**, you point me at a problem in your organization, and I take care of it. You get the benefit of hiring someone with deep expertise who can produce amazing results in a short period of time. Fractional work also encompasses evaluation of an organization -- I can take a look at what is working and what isn't, and give you a list of recommendations. A benefit of fractional work is that you can hire a level of talent that would otherwise be unaffordable or inaccessible.
 
-### Areas I can help
+As an **Interim VP of Engineering**, I take leadership for a limited period of time (usually 3-9 months). I improve the organization and hire my replacement.
+
+## Is your company a fit?
+
+I work with companies that deliver software, across most industries. I avoid crypto engagements.
+
+My approach is to focus on both effectiveness and sustainability. Companies that treat employees like resources or cogs aren't going to be a good fit.
+
+I focus on companies with 10-100 engineers. I have experience outside of both ends of that, however, so feel free to contact me if you want to explore a fit.
+
+## Fractional projects
+
+Some typical fractional projects:
+
+* I need to hire a lot of people quickly and need someone to improve our hiring practices.
+
+* We need to uplevel our engineering management team. How can I improve things as quickly as possible?
+
+* Engineering delivery and quality has been degrading over time. What do we do?
+
+* We're getting to the size we need to break up into multiple teams.
+
+* I need to implement engineering levels and salary bands.
+
+## Areas of expertise
 
 **Execution issues**. Engineering departments exist to create value for the company and for customers. But the most common failure mode of an engineering organization is for delivery to stall. I can help diagnose and address what is getting in the way of the team being effective. 
 
@@ -43,7 +84,7 @@ What size of organization do I help with? Usually I work with companies with 10-
 
 **Project visibility**. Sometimes it can seem like engineering isn't doing anything. This is often the result of poor project reporting and communication. What is useful here is something lightweight that improves accountability and oversight.
 
-**Servicification**. I was a leader in New Relic’s servicification effort. Moving to services can stall an engineering organization for years. I can make these efforts much less problematic.
+**Servicification**. I was a leader in New Relic’s servicification effort. Moving to services can stall an engineering organization for years. I can make these efforts much less problematic. I even have some experimental approaches that may avoid most of the pain of servicification altogether.
 
 **Employee retention**. Engineers are in demand, and it can be hard to build a work culture that keeps them engaged and happy. I can help advise on what it takes to build a work environment that allows people to do their best work, and makes them want to stay at your company. And I can help arrest retention challenges.
 
