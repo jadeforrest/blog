@@ -51,17 +51,12 @@ One of the most important factors for your success is the rate of incoming leads
 
 You’ll need a strategy for finding those leads. Here are approaches I see people take:
 
-1. **Your network**. If people know you do exceptional work, they are more likely to consider hiring you to do work for them. And they’ll be more likely to refer you to other people. So you need the people that know your work are aware that you’re available to be hired for consulting work. They need to easily pattern-match your skills against problems they hear about. \
- \
-The stronger your network is, the more this is an option. So if you have a large following on Mastodon, or a lot of former coworkers that are now at companies all around, your network will help a lot. My own assessment of my network wasn’t accurate: I thought I didn’t have an especially strong network until I went into consulting. Then I realized it was actually quite amazing! \
+1. **Your network**. If people know you do exceptional work, they are more likely to consider hiring you to do work for them. And they’ll be more likely to refer you to other people. So you need the people that know your work are aware that you’re available to be hired for consulting work. They need to easily pattern-match your skills against problems they hear about. <br /><br />The stronger your network is, the more this is an option. So if you have a large following on Mastodon, or a lot of former coworkers that are now at companies all around, your network will help a lot. My own assessment of my network wasn’t accurate: I thought I didn’t have an especially strong network until I went into consulting. Then I realized it was actually quite amazing!
 
-2. **Partners or benefactors**. It can often be in someone else’s best interest to refer you. If you can come up with people that have good connections with potential clients, and will make introductions for you, then you are getting referrals that are much more likely to use your help.  \
- \
-For this, you would need connections who can see obvious ways you can help them out. Usually this means it’s their business to do so. Venture capitalists, or consultants who need specialized skills and would refer you. \
+2. **Partners or benefactors**. It can often be in someone else’s best interest to refer you. If you can come up with people that have good connections with potential clients, and will make introductions for you, then you are getting referrals that are much more likely to use your help. <br /><br />For this, you would need connections who can see obvious ways you can help them out. Usually this means it’s their business to do so. Venture capitalists, or consultants who need specialized skills and would refer you.
 
-3. **Content marketing**. If you can offer content that is useful to people, it can also drive awareness of the work you do.  \
- \
-This requires some skill in writing and a perspective that is unusual or interesting in some way.
+3. **Content marketing**. If you can offer content that is useful to people, it can also drive awareness of the work you do. <br /><br /> This requires some skill in writing and a perspective that is unusual or interesting in some way.
+
 4. **Be a subcontractor**. If you know someone that could use your help, you can often get work from them. 
 
 I’ve used the first three approaches, and get referrals from all three sources. 
@@ -196,7 +191,7 @@ The challenge with these roles is assessing how much work is actually required o
 
 ## About advisory and coaching work
 
-Advisory work is where you have working sessions together. They’re similar to coaching. I’ve written a whole post on advisory work: [/executive-advisor/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious](https://www.rubick.com/executive-advisor/)
+Advisory work is where you have working sessions together. They’re similar to coaching. I’ve written a [whole post on advisory work](https://www.rubick.com/executive-advisor/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious).
 
 This type of work is enjoyable, but the main challenge is finding enough clients to make the work sustainable. Most people seem to merge this work with other types of work.
 
