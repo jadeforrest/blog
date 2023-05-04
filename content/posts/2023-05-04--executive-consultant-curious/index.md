@@ -217,15 +217,17 @@ It’s possible that every person entering consulting is also making space for a
 
 ## Should I try consulting?
 
-It’s up to you whether to try consulting. It’s not a better or worse thing to do. 
+It’s up to you whether to try consulting. It’s not a better or worse thing to do. Hopefully, this post illuminates the tradeoffs.
 
-I’m not really an advocate for consulting. I want people to know that there are challenges in consulting, so they know what they’re getting into. Many people will try consulting and decide it’s not for them. Or they may not be able to build a sustainable business. But there are some benefits to consulting as well. Hopefully you’ve found this will help you make a better, more informed decision.
+For me, the main benefits have been that I can sometimes work a part-time schedule, and get a decent compensation for that time. And I've been able to support people across a many companies. And I've learned a great deal from working at so many companies. But there have been a lot of disadvantages as well: cyclical work, less permanent relationships, and a lot of overhead.
 
 If you’re thinking about consulting, my advice is to only do it when you have a nest egg and can live without the income for six months. Give yourself a set amount of time. See if you get the traction you need. And if you don’t, you can always go back to full time work!
 
 ## Thank you
 
 [Seth Falcon](https://sethfalcon.substack.com) reviewed a draft version of this and made some helpful suggestions. 
+
+[Darin Swanson](https://www.linkedin.com/in/darinswanson/) is the person that got me into consulting. He suggested some improvements to my conclusion in an earlier draft of this post.
 
 [John Hartley](https://www.linkedin.com/in/hartleyjohn/) reviewed early versions of this post and provided excellent feedback and suggestions. Much of the structure was influenced by his suggestions!
 
