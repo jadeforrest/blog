@@ -71,7 +71,7 @@ I had good results by letting my whole network know I was doing consulting work.
 
 The first time I did consulting, I converted my full-time role into a consulting position as I left the company. If I had wanted to, I could have used this as a bridge into full-time consulting. I’ve seen others do that. This approach won’t always work. But if you have a specialist skill, this can be a route into consulting.
 
-You should either have some savings, or some form of “bridge” work you can do until you have enough work to have a sustainable business. For myself, I gave myself a deadline, and told myself I would try it out and see if it worked. If it didn’t, I would go back to searching for full-time work. To my surprise, I had a sustainable business within a couple of months. I’ve bene told that this is unusual, so you probably should expect it to take a lot longer than that.
+You should either have some savings, or some form of “bridge” work you can do until you have enough work to have a sustainable business. For myself, I gave myself a deadline, and told myself I would try it out and see if it worked. If it didn’t, I would go back to searching for full-time work. To my surprise, I had a sustainable business within a couple of months. I’ve been told that this is unusual, so you probably should expect it to take a lot longer than that.
 
 ## You need to have skills that are valuable to people
 
