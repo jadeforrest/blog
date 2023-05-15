@@ -1,5 +1,5 @@
 ---
-title: Executive presence coaching -- use these tips to become a better leader
+title: Use these tips to improve your executive presence
 tags: ["communication", "diversity-equity-and-inclusion", "leadership"]
 cover: executive.jpg
 author: Jade Rubick
