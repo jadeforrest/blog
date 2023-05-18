@@ -189,6 +189,6 @@ The company most notable for doing this is Gitlab. The [Gitlab handbook](https:/
 
 [Alex Kroman](https://www.linkedin.com/in/alexkroman/) asked me to write the New Relic engineering handbook, which was essentially our book on how we did product development. It included our practices, roles, and standards. 
 
-[Gabriel Ricard](https://www.linkedin.com/in/gabrielricard/) introduced me to the idea of Replying with Documentation.
+[Michael Davis](https://www.linkedin.com/in/michaeljacobdavis/) introduced me to the idea of Replying with Documentation.
 
 Image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1281751">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1281751">Pixabay</a>
