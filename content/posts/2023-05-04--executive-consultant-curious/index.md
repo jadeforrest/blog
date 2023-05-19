@@ -191,7 +191,7 @@ The challenge with these roles is assessing how much work is actually required o
 
 ## About advisory and coaching work
 
-Advisory work is where you have working sessions together. They’re similar to coaching. I’ve written a [whole post on advisory work](https://www.rubick.com/executive-advisor/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious).
+Advisory work is where you have working sessions together. They’re similar to coaching. I’ve written a [whole post on advisory work](/executive-advisor/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious).
 
 This type of work is enjoyable, but the main challenge is finding enough clients to make the work sustainable. Most people seem to merge this work with other types of work.
 
