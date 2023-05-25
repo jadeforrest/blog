@@ -46,7 +46,7 @@ const CoursePage = props => {
               <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
                 <section className="subContainer2">
                   <span className="subIcon"><FaUserPlus /></span>
-                  <span className="subText">Engineering leadership</span>
+                  <span className="subText">Engineering leadership weekly</span>
                 </section>
               </a>
 
@@ -63,10 +63,10 @@ const CoursePage = props => {
                 <dt>How much time do these courses require?</dt>
                 <dd>For all of the courses, the amount of time you devote to them depends on you.<br /><br />
 
-                  For the Engineering Leadership course, most of the content is ideas and 
+                  For Engineering Leadership Weekly, most of the content is ideas and 
                   inspiration for your practice. <br /><br />
                   
-                  The Management Bootcamp course has some assignments. But all assignments
+                  The Frontline Management Bootcamp course has some assignments. But all assignments
                   are optional, and it's up to you to decide which you want to integrate
                   into your management practice. For example, there is an assignment to 
                   set up your support network, with some suggestions for how to do so. 
@@ -78,12 +78,12 @@ const CoursePage = props => {
                 </dd>
 
                 <dt>Is there any interaction with other students?</dt>
-                <dd>The Management Bootcamp course has a private Slack group you can 
+                <dd>The Frontline Management Bootcamp course has a private Slack group you can 
                   opt to participate in. It's like a support group for managers! You can
                   ask questions there and get answers from your peers and from Jade. 
                 </dd>
 
-                <dt>How is the paid version of the Engineering Leadership course different than the free version?</dt>
+                <dt>How is the paid version of Engineering Leadership Weekly different than the free version?</dt>
                 <dd>The paid version includes a 1-1 session with me, and also supports my
                   writing. If you're able to do the paid version, please do. These courses 
                   are something I do because I want people to pass on the things I've learned. 
@@ -96,15 +96,11 @@ const CoursePage = props => {
                 </dd>
 
                 <dt>How much email will I be receiving, and for how long?</dt>
-                <dd>The Engineering Leadership course is a weekly email with about 
-                  eleven months of content (as of March 2022). I'll probably add courses
-                  in the future as well, so it's possible you'll get more content, just less
-                  frequently, after you get through the main content. 
+                <dd>Engineering Leadership Weekly course is a weekly email with over a year's content. 
                   <br /><br />
-                  The Management Bootcamp course has much more frequent emails at the beginning. 
-                  Starting daily, then every other day, and slowly easing into a weekly cadence.
-                  The length of the course is still being determined,
-                  but I'm planning to make it about a ninety day course. 
+                  The Frontline Management Bootcamp course is also weekly. It is a five month course. 
+                  <br /><br />
+                  After either course, you may get occasional emails, as I add additional content.
                 </dd>
 
                 <dt>Can I sign up for both classes?</dt>
@@ -127,8 +123,8 @@ const CoursePage = props => {
                 </dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
-                <dd>The Management bootcamp course is very engineering focused. Ironically, the 
-                  Engineering Leadership course is more mixed. Almost all the content is valuable
+                <dd>The Frontline management bootcamp course is very engineering focused. Ironically, the 
+                  Engineering Leadership Weekly is LESS engineering focused. Almost all the content is valuable
                   to leaders from a design or product management background. Around half of the
                   content could be valuable outside of a product development organization, for managers 
                   and leaders from many places. Just keep in mind you may need to adopt the content more

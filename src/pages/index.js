@@ -24,11 +24,7 @@ const IndexPage = props => {
             <div data-element="column" className="formkit-background"></div>
             <div data-element="column" className="formkit-column">
               <div className="formkit-header" data-element="header">
-                <h2>Want to be a more effective engineering leader?</h2>
-              </div>
-
-              <div className="subText">
-                Every week, you'll get an email that will challenge your thinking and provide new approaches to leadership. Also useful for product and design leaders! 
+                <h2>Engineering leadership weekly</h2>
               </div>
 
               <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
@@ -51,8 +47,12 @@ const IndexPage = props => {
                 </button>
               </div>
             
+              <div className="subText">
+                Also useful for product and design leaders! 
+              </div>
+
               <div className="formkit-disclaimer" data-element="disclaimer">
-                <p>The course is free, but a <a href="/courses">paid</a> version is available, and I offer a <a href="/courses">newsletter course</a> on frontline management.</p>
+                <p>A paid <a href="/courses">paid</a> version is also available. I also offer a <a href="/courses">newsletter course</a> on frontline management.</p>
                 <br /><p>I respect your privacy. Unsubscribe anytime.</p>
               </div>
 
@@ -112,7 +112,7 @@ const IndexPage = props => {
           <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
           <section className="subContainer2">
             <span className="subIcon"><FaUserPlus /></span>
-            <span className="subText">Engineering leadership paid course</span>
+            <span className="subText">Engineering leadership weekly (paid)</span>
           </section>
         </a>
 
