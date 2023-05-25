@@ -18,7 +18,7 @@ I can help you with these problems<sup>†</sup>:
 
 ## Hello
 
-My name is Jade Rubick. I advise startup founders and engineering leaders on how to build thriving engineering organizations. My specialty is humane, results-focused organizations.
+My name is Jade Rubick. I build thriving engineering organizations. My specialty is humane, results-focused organizations.
 
 I also like to share what I've learned. So I write blog posts on this site, and write newsletter based courses on engineering leadership. 
 
