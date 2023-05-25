@@ -47,22 +47,13 @@ const IndexPage = props => {
                 </button>
               </div>
             
-              <div className="subText">
-                Also useful for product and design leaders! 
-              </div>
-
               <div className="formkit-disclaimer" data-element="disclaimer">
-                <p>A paid <a href="/courses">paid</a> version is also available. I also offer a <a href="/courses">newsletter course</a> on frontline management.</p>
-                <br /><p>I respect your privacy. Unsubscribe anytime.</p>
-              </div>
+                <br /><p>Also useful for product and design leaders!
+                A <a href="/courses">paid</a> version is also available. I also offer a <a href="/courses">newsletter course</a> on frontline management.
+                I respect your privacy. Unsubscribe anytime.</p>
 
-              <form action="/courses" className="seva-form" method="get" data-sv-form="2891253" data-uid="3978146adc" data-format="inline" data-version="5" min-width="400 500 600 700 800">
-                <div data-element="fields" className="seva-fields formkit-fields">
-                  <button data-element="submit" className="formkit-submit">
-                    <span className="paid-version">Learn more</span>
-                  </button>
-                </div>
-              </form>
+                <br /><p><a href="/courses">Learn more</a></p>
+              </div>
 
               <div className="formkit-powered-by-convertkit-container">
               </div>
@@ -247,9 +238,6 @@ const IndexPage = props => {
             border-bottom-left-radius: 4px;
             font-weight: 400;
           }
-          .paid-version {
-            background-color: rgb(119, 190, 22)
-          }
           .formkit-input {
             color: rgb(0, 0, 0); 
             border-color: rgb(227, 227, 227); 
@@ -322,18 +310,18 @@ const IndexPage = props => {
             transition:border-color ease 300ms;
           }
           .formkit-form[data-uid="3978146adc"] .formkit-input::-webkit-input-placeholder{
-            color:inherit;
-            opacity:0.8;
+            color: rgb(139, 139, 139);
+            opacity:0.5;
           }
           .formkit-form[data-uid="3978146adc"] .formkit-input::-moz-placeholder{
-            color:inherit;
-            opacity:0.8;
+            color: rgb(139, 139, 139);
+            opacity:0.5;
           }
           .formkit-form[data-uid="3978146adc"] .formkit-input:-ms-input-placeholder{color:inherit;opacity:0.8;}
           .formkit-form[data-uid="3978146adc"] .formkit-input::placeholder{
-              color:inherit;
-              opacity:0.8;
-            }
+            color: rgb(139, 139, 139);
+            opacity:0.5;
+          }
           .formkit-form[data-uid="3978146adc"] [data-group="dropdown"]{
             position:relative;
             display:inline-block;
@@ -445,7 +433,8 @@ const IndexPage = props => {
             margin-top:15px;width:100%;
           }
           .formkit-disclaimer {
-            color: rgb(139, 139, 139); font-size: 13px;
+            color: rgb(139, 139, 139);
+            font-size: 13px;
           }
           .formkit-form[data-uid="3978146adc"] .formkit-disclaimer{margin:0 0 15px 0;}
           .formkit-form[data-uid="3978146adc"] .formkit-disclaimer > p{margin:0;}
