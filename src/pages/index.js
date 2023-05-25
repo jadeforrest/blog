@@ -416,8 +416,8 @@ const IndexPage = props => {
           }
           .formkit-header {
             color: rgb(77, 77, 77);
-            font-size: 27px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 600;
           }
           .formkit-form[data-uid="3978146adc"] .formkit-header{margin-top:0;margin-bottom:20px;}
           .formkit-form[data-uid="3978146adc"] .formkit-field{margin:0 0 10px 0;}
