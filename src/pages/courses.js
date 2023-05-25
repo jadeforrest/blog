@@ -26,10 +26,23 @@ const CoursePage = props => {
           <React.Fragment>
             <Article theme={theme}>
               <header>
-                <Headline title="Learn to build humane, effective engineering organizations" theme={theme} />
+                <Headline title="Weekly newsletter courses" theme={theme} />
               </header>
 
-              <p>I offer a couple of courses on leadership:</p>
+              <p>I offer a couple of newsletter courses on leadership:</p>
+
+              <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
+                <section className="subContainer2">
+                  <span className="subIcon"><FaUserPlus /></span>
+                  <span className="subText">Engineering leadership weekly</span>
+                </section>
+              </a>
+
+              <p>This is offered as a paid or <a href="/">free</a> course. Covers a wide range of 
+              topics for engineering, product, and design leaders. Click above to sign up or 
+              see the FAQ below.</p>
+
+              <p></p>
 
               <a href="https://rubick.ck.page/products/management-bootcamp" target="_blank">
                 <section className="subContainer2">
@@ -41,18 +54,6 @@ const CoursePage = props => {
               <p>This is a paid course. Designed for engineering managers who are just 
                 getting started or have some experience. Click above to sign up or see the FAQ below.</p>
 
-              <p></p>
-
-              <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
-                <section className="subContainer2">
-                  <span className="subIcon"><FaUserPlus /></span>
-                  <span className="subText">Engineering leadership weekly</span>
-                </section>
-              </a>
-
-              <p>This is offered as a paid or <a href="/">free</a> course. It is a class that covers a wide
-                range of topics for engineering, product, and design leaders. Click above to sign up or 
-                see the FAQ below.</p>
 
               <h2>About the courses</h2>
 
@@ -123,7 +124,7 @@ const CoursePage = props => {
                 </dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
-                <dd>The Frontline management bootcamp course is very engineering focused. Ironically, the 
+                <dd>The Frontline Management Bootcamp course is very engineering focused. Ironically, the 
                   Engineering Leadership Weekly is LESS engineering focused. Almost all the content is valuable
                   to leaders from a design or product management background. Around half of the
                   content could be valuable outside of a product development organization, for managers 
