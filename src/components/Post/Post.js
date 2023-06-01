@@ -33,10 +33,11 @@ const Post = props => {
       </header>
       <Bodytext content={post} theme={theme} />
 
+      <Author note={authornote} theme={theme} />
+
       <TalkyardCommentsIframe discussionId={post.frontmatter.discussionId} />
 
       <footer>
-         <Author note={authornote} theme={theme} />
          <NextPrev next={nextPost} prev={prevPost} theme={theme} />
       </footer>
     </React.Fragment>

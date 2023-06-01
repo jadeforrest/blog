@@ -3,4 +3,4 @@ title: author
 ---
 
 **Jade Rubick** \
-If you liked this post, [subscribe](/) to my newsletter course on engineering leadership, or my [frontline management course](/courses/). I also [advise growing startups](/about). [Contact me](/contact) to explore how we might work together. 
+Subscribe to [Engineering Leadership Weekly](/), or [Frontline Management](/courses/). I [advise startups](/about/) and help in a variety of ways. [Contact me](/contact/) to share feedback or explore how we might work together. 
