@@ -157,6 +157,10 @@ A General Manager is a person responsible for an organization. They might have s
 
 General Managers are used to separate an organization into divisions. The nice thing about this approach is that it is fractal -- you can choose to take it as far as you want to. But you can also just do it at the top level, and extend further downwards as needed.
 
+## Want help?
+
+If you haven't done these things before, it's often valuable to have an executive advisor. [Contact me](/about/) if you'd like to explore this!
+
 ## Thank you
 
 I’d like to thank [Alexa Stefanko](https://www.linkedin.com/in/alexa-stefanko-86646aa4/) and [Ben Bernard](https://www.linkedin.com/in/bernardben/) for contributing their thoughts to this blog post. And I’d like to thank [Jim Shore](https://www.jamesshore.com/) for suggesting I write this article. 
