@@ -56,7 +56,7 @@ In addition, by joining forces, the hiring team for the "bundle" can split up th
 
 ### Bundled hiring can drive better outcomes for underrepresented groups
 
-We were absolutely stunned by how effective bundled hiring was in improving our ability to attract candidates from underrepresented backgrounds. At New Relic, our bundled hire numbers were much better than our normal hiring process. We saw a dramatic jump in the representation of people we hired -- about 50% of the candidates came from an underrepresented background. 
+I was stunned by how effective bundled hiring was in improving our ability to attract candidates from underrepresented backgrounds. At New Relic, our bundled hire numbers were much better than our normal hiring process. We saw a dramatic jump in the representation of people we hired -- about 50% of the candidates came from an underrepresented background, versus 25% from our previous approach.
 
 Why was it so much better? I asked a lot of people, and here's what they said:
 
@@ -99,6 +99,6 @@ Bundled hiring makes sense once you start seeing duplication in the roles you're
 Did I miss anything? Do you have experience with bundled hiring elesewhere? I'd love to hear your thoughts or your experiences as you implement bundled hiring.  
 
 
-Thank you to [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for feedback and detail on how the bundled hires were run. Thank you to Amjith Ramanujam for the helpful suggestion to provide an early example of what bundled hiring is. [Matt LeBeau](https://www.linkedin.com/in/matt-lebeau-1652bb4/) shared his experience with me and pointed out some ways it hadn't worked well and the need for strong process management. [Beth Klem](https://www.linkedin.com/in/bethklem/) had good questions about the candidate experience that helped me improve that section. [Julie Pagano](https://juliepagano.com) had great feedback on the importance of knowing your team.  
+[Belinda Runkle](https://www.linkedin.com/in/belindarunkle/) introduced bundled hiring at New Relic, and that's where I first learned about it. She was inspired by [Iris Bohnet](https://scholar.harvard.edu/iris_bohnet)'s book, [What Works](https://scholar.harvard.edu/iris_bohnet/what-works). It's thanks to her that I was able to write this blog post at all. Thank you to [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for feedback and detail on how the bundled hires were run. Thank you to Amjith Ramanujam for the helpful suggestion to provide an early example of what bundled hiring is. [Matt LeBeau](https://www.linkedin.com/in/matt-lebeau-1652bb4/) shared his experience with me and pointed out some ways it hadn't worked well and the need for strong process management. [Beth Klem](https://www.linkedin.com/in/bethklem/) had good questions about the candidate experience that helped me improve that section. [Julie Pagano](https://juliepagano.com) had great feedback on the importance of knowing your team.  
 
 Image by <a href="https://pixabay.com/users/12019-12019/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=230112">David Mark</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=230112">Pixabay</a>
