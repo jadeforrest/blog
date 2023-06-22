@@ -25,7 +25,11 @@ The most interesting part of FAST agile is these self-organizing teams, so let�
 
 Every meeting, people volunteer to lead teams, and people volunteer to participate in those teams. When someone volunteers to steward a team, they step forward and say, “I’m going to work on [one of the top projects]”. People then join the teams that have been created and work in that area. The minimum team size is two, so you need people to “vote with their feet” to form the team.
 
+<re-img src="what-team.png" width="40%"></re-img>
+
 The teams formed do <span style="text-decoration:underline;">not</span> have to be around the priorities that product has laid out. For example, a team can form around improving the deploy pipeline, or improving monitoring for some flaky services. 
+
+<re-img src="other-priorities.png" width="40%"></re-img>
 
 Outside of the hour a week in meetings, people spend most of their time in their self-selected, self-organized teams. Theoretically, you could change teams twice a week. But in practice, people end up figuring out who they like to work with, and teams tend to [settle down after the first month or so](https://www.youtube.com/watch?v=WbPLjuvyCUA). They remain fluid enough that people can move as business needs shift, or people with expertise are needed in different areas. Moving teams is an expected, low-effort change. So what this means is that during the Collective meetings, there is a pattern of people recreating their teams, but the composition tends to not change as much as you might imagine.
 
@@ -156,6 +160,8 @@ When you scale organizations, you typically do so by scaling them “horizontall
 
 The complexity of the organization explodes as the number of people increases. If you have ten people in engineering, they can all communicate with each other. A hundred people in engineering cannot all talk with each other. And the codebase won’t fit in any individual’s head. So you segment this complexity into teams, and each team has an area they can focus on.
 
+<re-img src="scaling.png" width="50%"></re-img>
+
 FAST is interesting because it is an attempt to scale organizations “vertically”. Instead of adding more teams, FAST attempts to make _bigger teams_, called Collectives. The Collectives still own code, but the self-organized teams within that Collective do not. And you do still have to segment communication. But the teams are more dynamic and continually evolved. Instead of reshaping teams through reorgs, it is a continual, expected part of the way you operate. 
 
 Team size is a familiar topic for many heads of engineering. How large should teams be? Let’s delve into this topic a bit, as it helps us understand how FAST claims to scale better. 
@@ -176,6 +182,8 @@ Advantages of large teams
 
 * Flatter organization. An engineering organization with 150 engineers in it will have 3-4 directors with ten-person teams. It will have 6-8 directors and 1-2 VPs with five-person teams. Where does the confusion in an organization come from? Probably the leadership, so large teams can reduce confusion.
 * More resiliency. Someone can take vacation and the team can continue just fine.
+
+<re-img src="large-small-teams.png" width="70%"></re-img>
 
 So small teams are great within their team, but less ideal because there are so many of them that it increases organizational complexity. Larger teams are better for overall organizational complexity, but less ideal for performance within each team.
 
@@ -221,6 +229,8 @@ So, imagine you _could_ scale team size. Instead of teams being five or ten peop
 On the face of it, this is a ridiculous proposition. Teams that large are not effective. Even twelve-person teams are a stretch. I sometimes see the resumes of people who have had twenty or thirty people report to them. My immediate reaction is to think they worked at a terrible company. Having that many direct reports is an “organizational smell”. 
 
 The central premise of FAST agile is that if you add self-organization, and self-selecting teams within this larger Collective, you can scale your teams more _horizontally_. Each team (FAST calls them Collectives) can be much larger. And then the teams people work with on a day to day basis are self-assembled within those Collectives.
+
+<re-img src="profit.png" width="70%"></re-img>
 
 If the larger Collectives _were_ effective, they would reduce organizational complexity significantly. The typical software startup could go years longer before having to divide up into areas of responsibility. The codebase wouldn’t need to be rigorously segmented out into areas that each team owns. This would free up significant management time that managers could use to focus on the product and teams.
 
@@ -301,6 +311,8 @@ So although the jury is out on this, my hunch is that this practice has a lot of
 
 This isn’t mentioned in the FAST materials, but one thing that jumped out at me as being interesting about FAST is that you can experiment with it incrementally. 
 
+<re-img src="blob.png" width="60%"></re-img>
+
 You can implement FAST Agile on one team as an experiment, and then use a blob approach where you swallow additional teams over time. If it goes well, continue to swallow additional teams. If it doesn’t, abort the experiment.
 
 ## FAST should result in fewer reorgs
@@ -329,7 +341,7 @@ Many teams can feel like their process is designed as tools to control people. A
 
 FAST embraces self-organization as a fundamental component of its design. It’s so fundamental, it won’t work without self-organization. It requires a completely different toolkit for management, and it’s mostly (though not completely) incompatible with top down, hierarchical approaches. 
 
-Daniel Pink famously outlined [three aspects of intrinsic motivation](https://en.wikipedia.org/wiki/Drive:_The_Surprising_Truth_About_What_Motivates_Us):  \
+Daniel Pink famously outlined [three aspects of intrinsic motivation](https://en.wikipedia.org/wiki/Drive:_The_Surprising_Truth_About_What_Motivates_Us): 
 
 * **Autonomy** – A desire to be self directed, which increases engagement over compliance.
 * **Mastery** – The urge to get better skilled.
@@ -341,7 +353,9 @@ Self-organization also provides some handy signals that can keep a community of 
 
 Self-organization also allows people to deal with painful aspects of work that may not get attention in other companies. For example, if the test suite is terrible, someone can step forward to lead a team fixing that issue. It’s perfectly reasonable to do work that isn’t explicitly a business priority. But it’s in the open, and others have to join in for it to happen. This can help avoid feeling like you’re in a [feature factory](https://cutle.fish/blog/12-signs-youre-working-in-a-feature-factory). 
 
-Finally, you’re able to choose the people you work with every day. When I’ve seen self-organizing teams in the past, this was an unexpected benefit: people chose to work with people they wanted to work with. And those teams were much stronger than I expected. 
+Finally, you’re able to choose the people you work with every day. When I’ve seen self-organizing teams in the past, this was an unexpected benefit: people chose to work with people they wanted to work with. And those teams were much stronger than I expected.
+
+The thing this all would be balanced against is any new pains people would experience with FAST. One challenge might be with informal power dynamics, or potential politics. 
 
 ## Many environments are incompatible with FAST
 
@@ -370,6 +384,8 @@ You'll need to create constraints and means to incenvitize the right behavior. A
 Any organization can have bad actors, or people that aren’t aligned with the interests of that community. I remember once talking with an engineer who told me (I kid you not) that they didn’t think they had an obligation to produce value for their employer. Some engineers might want to focus on things that develop their skills or make them a more valuable employee, rather than things that are good for the company that employs them. 
 
 With FAST, you are signing up for managing a _community_ of people. 
+
+<re-img src="misery.png" width="40%"></re-img>
 
 In conventional situations, the hierarchy makes clear who is responsible for this. In FAST, I suspect it would be easy to try and avoid conflict and “let the members figure it out”. This could result in informal power networks dominating in a sort of [tyranny of structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). If you do use FAST, this is something I would guard against.
 
@@ -401,6 +417,8 @@ In FAST, the engineering manager role is less clear. You don’t have long-lived
 
 You could have engineering managers lead the self-assembled teams. Or you could have them be pure people managers. Or you could have them be player-coaches. 
 
+<re-img src="job.png" width="40%"></re-img>
+
 All of these have tradeoffs, and some pretty big downsides. FAST seems to diminish the need for as much engineering management. You still need people to hire, do performance management, and oversee process. But maybe not as much as in a conventional organization? I’ve seen many organizations suffer because they don’t value management as a discipline. But I would guess that FAST organizations need less management. 
 
 I’m really curious to see if this plays out, and want to hear from organizations that experiment with FAST. What do you do with management? 
@@ -410,6 +428,8 @@ I’m really curious to see if this plays out, and want to hear from organizatio
 Code ownership provides natural incentives for keeping code quality high. It’s in your self-interest, because your future self has to work in your present code. 
 
 In a shared code ownership situation, you have to go to greater lengths to ensure code quality. My recommendation would be pairing or mobbing as a required practice.
+
+<re-img src="ownership.png" width="40%"></re-img>
 
 You’ll also need stronger standards for code patterns. You’ll need code linting. And you’ll need some sort of architectural decision-making. You don’t want to have twenty patterns for how your frontend code handles state. These are problems you’ll have in most software organizations, but they’ll be much more pressing in an organization using FAST.
 
@@ -438,6 +458,8 @@ This isn’t super hard to do, but it is less common than conventional on-call p
 FAST has an optional role called a “Feature Steward”. They are kind of an expert for a particular feature, and are the point of contact around that feature for stakeholders. They aren’t required to work continuously on that feature, but are required to have a continuous understanding of it. 
 
 Like on-call, you’ll need a mapping of features to people with expertise on those features. This will be important for both bugs and support escalations. And you might as well combine it with on-call as well. You’ll need some way to triage issues to the right people. 
+
+<re-img src="steward.png" width="70%"></re-img>
 
 You’ll also need to make sure you have a mechanism for filling in knowledge gaps when expertise is isolated to one or two people. 
 
