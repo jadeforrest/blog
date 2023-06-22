@@ -21,7 +21,7 @@ Twice a week, the Collective meets. At the meeting:
 * **The product leader reiterates the vision and sets direction**. They give context on the top projects. They introduce new priorities as work completes, or priorities change. And typically they show the priorities in a visual way, on a wall or virtual equivalent. 
 * **People within the Collective self-organize** and self-select into smaller teams to deliver the top priority work. 
 
-The most interesting part of FAST agile is these self-organizing teams, so let’s describe them in a little more detail. How does that work?
+The most interesting part of FAST agile is these self-organizing teams, so let’s describe them in a little more detail.
 
 Every meeting, people volunteer to lead teams, and people volunteer to participate in those teams. When someone volunteers to steward a team, they step forward and say, “I’m going to work on [one of the top projects]”. People then join the teams that have been created and work in that area. The minimum team size is two, so you need people to “vote with their feet” to form the team.
 
@@ -144,6 +144,7 @@ As I see it, these are the tradeoffs of FAST agile:
 But…
 
 * Many environments are incompatible with FAST
+* You might have to manage self-management
 * FAST requires a lot of work
 * The FAST materials are full of jargon
 
@@ -360,6 +361,22 @@ The more qualities from this list your company has, the better the fit for FAST:
 
 The less these traits are true, the more headwinds you’ll face with FAST. I don’t think you need to be in a perfect environment for it. In some ways, I think wanting to be these things is more important than actually being these things. So perhaps the most important success factor is that leadership is on board with making space for it.
 
+## You might have to manage self-management
+
+Self-organizing systems can work effectively. But they aren't free. They are more like managing a community. 
+
+You'll need to create constraints and means to incenvitize the right behavior. And you'll need to carefully watch and manage to make sure things don't go off-track.
+
+Any organization can have bad actors, or people that aren’t aligned with the interests of that community. I remember once talking with an engineer who told me (I kid you not) that they didn’t think they had an obligation to produce value for their employer. Some engineers might want to focus on things that develop their skills or make them a more valuable employee, rather than things that are good for the company that employs them. 
+
+With FAST, you are signing up for managing a _community_ of people. 
+
+In conventional situations, the hierarchy makes clear who is responsible for this. In FAST, I suspect it would be easy to try and avoid conflict and “let the members figure it out”. This could result in informal power networks dominating in a sort of [tyranny of structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). If you do use FAST, this is something I would guard against.
+
+The other extreme would be to not let the group figure problems out, and to have management handle it completely. This could _also_ be harmful. 
+
+So FAST will require good facilitation, careful observation, and occasional intervention.  
+
 ## FAST requires a lot of work
 
 The biggest reason you might not want to experiment with FAST is that there is a lot of hidden work with FAST. It requires a lot of change in your organization, to an unfamiliar way of operating.
@@ -374,13 +391,7 @@ On conventional teams, you have a manager who oversees the work, and coaches ind
 
 On FAST teams, there isn’t really an obvious way to do performance reviews. Does the person’s manager even know what they’re doing or how they’re working? You can’t even evaluate “teams”, because they are transitory. 
 
-So the whole notion of performance management needs to be reinvented. While that may be a good idea anyway, it’s something that will require thought, and work. 
-
-Any organization can have bad actors, or people that aren’t aligned with the interests of that community. I remember once talking with an engineer who told me (I kid you not) that they didn’t think they had an obligation to produce value for their employer. Some engineers might want to focus on things that develop their skills or make them a more valuable employee, rather than things that are good for the company that employs them. 
-
-So all these benefits don’t come for free. With FAST, you are signing up for managing a _community_ of people, and you’ll need to make a lot of shit up. There will be conflict and there will be people that try to focus on themselves over the needs of the company or their coworkers. 
-
-In conventional situations, the hierarchy makes clear who is responsible for this. In FAST, I suspect it would be easy to try and avoid conflict and “let the members figure it out”. This could result in informal power networks dominating in a sort of [tyranny of structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). If you do use FAST, this is something I would guard against.
+So the whole notion of performance management needs to be reinvented. While that may be a good idea anyway, it’s something that will require thought, and invention. 
 
 ### What is the role of engineering managers in FAST?
 
