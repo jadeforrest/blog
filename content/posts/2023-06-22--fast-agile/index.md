@@ -7,7 +7,7 @@ discussionId: "fast-agile"
 description: "An introduction to FAST agile, describing how it works and what the tradeoffs of adopting it are"
 ---
 
-[FAST agile](https://www.fastagile.io/method) is the most interesting organizational practice I've learned about in a while. Today I share what FAST agile is, and explore whether it's worth experimenting with. Tl;dr? Quite compelling, but still experimental. 
+[FAST agile](https://www.fastagile.io/method) is the most interesting organizational practice I've learned about in a while. Today I share what FAST agile is, and explore whether it's worth experimenting with. TL;DR? Quite compelling, but still experimental. 
 
 <re-img src="surfing.jpg"></re-img>
 
