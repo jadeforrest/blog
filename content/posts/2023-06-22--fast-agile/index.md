@@ -505,6 +505,8 @@ _“What is Fluid Scaling Technology? Fluid Scaling Technology combines Open Spa
 
 So. Bad. And this is very representative. You’ll see lots of references to Collectives, Value Cycles, Open Technology, Teal transformation, Theory Y, etc. This is all presented with no explanation, and really even if it were explained it wouldn’t be helpful. They’re speaking to a niche audience of agile theorists, and focusing on attribution rather than usefulness.
 
+I expect this to improve over time, and have heard this is being improved.
+
 ## Conclusion
 
 So where does that leave us? Is FAST agile worth experimenting with? 
