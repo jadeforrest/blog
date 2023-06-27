@@ -1,6 +1,6 @@
 ---
 title: A detailed look at FAST agile -- a practice well worth your time
-tags: ["scaling", "complexity", "roles", "org-design", "delivery", "agile"]
+tags: ["scaling", "complexity", "roles", "org-design", "delivery", "agile", "dzone-featured"]
 cover: surfing.jpg
 author: Jade Rubick
 discussionId: "fast-agile"
