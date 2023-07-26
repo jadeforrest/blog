@@ -69,13 +69,13 @@ The important thing is to then think about the communication needs of these grou
 
 Here are a couple of other examples of this rule in practice: 
 
-*   You have a managers meeting, and you go from having four managers within your department to five, six, seven, and eight managers. As you approach eight managers, you should anticipate needing to split the group.  \
-\
--> I would usually divide this into two managers meetings, each led by a different leader. I might lead one of those meetings and have a director lead the other and report to me.  
+* You have a managers meeting, and you go from having four managers within your department to five, six, seven, and eight managers. As you approach eight managers, you should anticipate needing to split the group. 
 
-*   You’re working on a project with a lot of stakeholders. They’d all like to attend your weekly meeting, where you’ve typically done a lot of your problem-solving. At first it’s easiest to just add a few people to your existing meeting. But when the group gets too large, it becomes unwieldy.  \
- \
--> I would typically make a list of who the problem-solvers are, and who the stakeholders are, and either move the stakeholders to receive status communication, or give them good notes from the meeting. Or have a separate stakeholders meeting, where we share status and solicit feedback (That can be larger than eight people). One thing to look at in this situation is why there are so many stakeholders, and if that truly makes sense. I’ve seen times when there were eight stakeholders and two engineers working on a project. That's something to squint at. 
+    -> I would usually divide this into two managers meetings, each led by a different leader. I might lead one of those meetings and have a director lead the other and report to me.  
+
+* You’re working on a project with a lot of stakeholders. They’d all like to attend your weekly meeting, where you’ve typically done a lot of your problem-solving. At first it’s easiest to just add a few people to your existing meeting. But when the group gets too large, it becomes unwieldy. 
+
+    -> I would typically make a list of who the problem-solvers are, and who the stakeholders are, and either move the stakeholders to receive status communication, or give them good notes from the meeting. Or have a separate stakeholders meeting, where we share status and solicit feedback (That can be larger than eight people). One thing to look at in this situation is why there are so many stakeholders, and if that truly makes sense. I’ve seen times when there were eight stakeholders and two engineers working on a project. That's something to squint at. 
 
 ## It's not impossible to make decisions in larger groups
 
