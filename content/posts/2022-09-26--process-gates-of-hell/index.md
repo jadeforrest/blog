@@ -7,7 +7,7 @@ discussionId: "process-gates"
 description: "Describes the process gates, a common management trap. Managers use them to fix situations, but they often have the opposite of intended effect. Describes alternatives to process gates."
 ---
 
-Today, I’d like to talk about a common mistake leaders make. Let’s see if you can spot the pattern:
+A common leadership mistake is process gates. What are process gates? Let’s see if you can spot the pattern:
 
 * Engineering is shipping too many bugs, so you bring in a QA team that reviews everything before it goes out to production.
 * There has been a history of making poor architectural decisions, so you put in place an architecture review. 
@@ -17,7 +17,7 @@ Today, I’d like to talk about a common mistake leaders make. Let’s see if yo
 
 <re-img src="process-gates.jpg"></re-img>
 
-As a leader, you are a designer. Many times you’ll face organizational challenges that will require you to design solutions. The name for what you’re doing in all of these examples is adding “process gates”. (If this was a TV show, I’d have scary music play every time you read the word “process gates”)
+The name for what you’re doing in all of these examples is adding “process gates”. 
 
 ## What are the problems with process gates?
 
@@ -39,7 +39,7 @@ One of the dangers of process gates is that they’re difficult to remove. Becau
 
 Most engineering organizations focus on speed, but they should be focused on cycle time. Cycle time is the primary indicator of how successful your engineering organization will be. Or at least this is true for 99% of modern software-based product development. 
 
-This is an important concept, so if you don’t believe this already, please read my post on this topic: [What can air combat can teach us about software project failure](https://www.rubick.com/engineering-leaders-should-obsess-over-feedback-loops/)?
+This is an important concept, so if you don’t believe this already, please read my post on this topic: [What can air combat can teach us about software project failure](/engineering-leaders-should-obsess-over-feedback-loops/)?
 
 <re-img src="gate-of-slowing.png" width="50%"></re-img>
 
@@ -80,7 +80,7 @@ It is possible to use process gates responsibly. The best way to do so, is to ma
 
 Temporary process gates are something you use to get people to pay attention to things. Or you can use them so you can be made aware of exceptions that might show your process changes are inadequate. 
 
-My favorite example of this is as a method for moving to services. If you have a long-term initiative to move your organization to services, it can be quite painful at first to use services. The most elegant way to handle a servicification initiative is to spin up a team completely focused on eliminating the obstacles to services. Their job is to always work on the thing that is most standing in the way of people using services in new projects. The process gate to add is to say that all teams that are planning work need to share any pain points that are preventing them from doing work as services rather than in the monolith. 
+My favorite example of this is as a method for moving to services. If you have a long-term initiative to move your organization to services, it can be quite painful at first to use services. The most elegant way to handle a microservices initiative is to spin up a team completely focused on eliminating the obstacles to services. Their job is to always work on the thing that is most standing in the way of people using services in new projects. The process gate to add is to say that all teams that are planning work need to share any pain points that are preventing them from doing work as services rather than in the monolith. 
 
 Note that in this example, the process gate is very lightweight. You’re making people think about these things, and share some information with the team that is working on services. But you’re not truly making a process gate, because they’re not being blocked by this team. So in a lot of ways, it’s not even a real process gate. 
 
@@ -92,7 +92,7 @@ And also note that this process gate is helping this team focus its efforts in r
 
 You can also focus on making your process gate very narrowly scoped. If you have a high number of problematic PRs getting merged, you might want to have all PRs go through a set of experienced reviewers, for example. You can flip it around so it’s much more narrowly scoped: people go through a probationary period for a few months where other people review their PRs, and then they graduate to being able to merge them for peers. 
 
-For example, you have people tag their PR based on the risk level that it will cause problems. High risk PRs can be reviewed by the most experienced team members. One of the advantages of doing this narrow scoping is that you avoid _some_ of the problems with process gates. If the most experienced team members have to review everything, they’ll be overwhelmed and everything will take much longer. If it’s narrowly scoped, they’ll have less overall burden, so the increase in cycle time will be more modest. 
+As another example, you can have people tag their PR based on the risk level that it will cause problems. High risk PRs can be reviewed by the most experienced team members. One of the advantages of doing this narrow scoping is that you avoid _some_ of the problems with process gates. If the most experienced team members have to review everything, they’ll be overwhelmed and everything will take much longer. If it’s narrowly scoped, they’ll have less overall burden, so the increase in cycle time will be more modest. 
 
 A common way to scope down a process gate for PRs, for example, is for changes that involve a database migration to receive more scrutiny, because they can be more devastating when things go wrong.
 
