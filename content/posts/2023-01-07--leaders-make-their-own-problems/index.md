@@ -85,7 +85,7 @@ If you're an external processor, you might find it more useful to talk with othe
 
 A leader is _a person that asserts a future for a group of people_. 
 
-If you want to lead, you have to learn to make your own problems. You want the problems you're working on to be partially something you've generated. Because that is really the role of a leader: to scout out the upcoming terrain and prepare a group of people to navigate it. While you don't need to do all the scouting yourself, your need to have a way to make sure the future is explored and thought out.
+If you want to lead, you have to learn to make your own problems. You want the problems you're working on to be partially something you've generated. Because that is really the role of a leader: to scout out the upcoming terrain and prepare a group of people to navigate it. While you don't need to do all the scouting yourself, you need to have a way to make sure the future is explored and thought out.
 
 Hopefully, you'll find this post useful to develop and approach to navigating that future. If you've found other methods to do so, please share them with me!
 
