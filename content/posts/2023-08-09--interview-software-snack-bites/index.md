@@ -1,5 +1,5 @@
 ---
-title: Tactical advice for building effective eng teams, anti-patterns to avoid -- 🔥 podcast
+title: Tactical advice for building effective eng teams, anti-patterns to avoid -- podcast
 tags: ["podcast", "scaling", "roles", "delivery", "velocity"]
 cover: podcast.jpg
 author: Jade Rubick
@@ -7,7 +7,7 @@ discussionId: "ssb-interview"
 description: "I was interviewed for the Software Snack Bites podcast. This is a summary of that interview."
 ---
 
-[Shomik Ghosh](https://www.linkedin.com/in/shomik-ghosh-a5a71319/), Partner at [Boldstart Ventures](https://boldstart.vc), interviewed me for the [Software Snack Bites](https://shomik.substack.com) podcast. One founder described said, "this was fire" 🔥. 
+[Shomik Ghosh](https://www.linkedin.com/in/shomik-ghosh-a5a71319/), Partner at [Boldstart Ventures](https://boldstart.vc), interviewed me for the [Software Snack Bites](https://shomik.substack.com) podcast. One founder described said, "this was fire" 🔥.
 
 <re-img src="podcast.jpg"></re-img>
 
