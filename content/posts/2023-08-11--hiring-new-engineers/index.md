@@ -1,6 +1,6 @@
 ---
 title: The best approach I've seen for hiring new engineers
-tags: []
+tags: ["hiring", "mentorship", "onboarding", "recruiting"]
 cover: new.jpg
 author: Jade Rubick
 discussionId: "ignite-program"
