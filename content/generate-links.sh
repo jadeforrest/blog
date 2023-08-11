@@ -1,1 +1,1 @@
-ls -1 | awk -F-- '{ print "https://www.rubick.com/" $2 }'
+ls -1 posts | awk -F-- '{ print "https://www.rubick.com/" $2 }'
