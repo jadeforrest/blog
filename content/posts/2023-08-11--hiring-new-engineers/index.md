@@ -23,7 +23,9 @@ The post is a three part series. You can start here: [Running New Relic’s Igni
 
 ## Applicability
 
-I think a program of this size makes sense for a medium sized company or larger. I think we did this at New Relic when we had well over 60 teams. I can imagine this being done in a lot smaller organizations, but you probably want to have at _least_ 100 people in engineering before you even consider it. Probably much larger than that even.
+This program is most appropriate for medium sized companies or larger. But it mostly depends on how quickly you're hiring. At New Relic, we did it when we were well over 60 teams, but it could be done at an earlier stage. 
+
+[John](https://hachyderm.io/@djspinmonkey/110872453575362629): "if you hire at least 20-30 engineers annually, it's likely that 10-15 of them could be early career, which is easily enough to justify putting some resources into doing a good job with it... That's a higher ratio of early career engineers than many companies go with, and depending on the specific kind of engineering the company does, that may be reasonable. So, you'll want to adjust those ratios to whatever you're comfortable with, and consider what resulting hiring rate is needed to warrant an early career hiring program based on your particular circumstances."
 
 That said, a lot of the lessons from this can be applied to earlier stage companies. I think the design of this program is a really good thing to emulate.
 
