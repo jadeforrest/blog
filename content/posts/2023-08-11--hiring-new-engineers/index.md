@@ -31,7 +31,7 @@ That said, a lot of the lessons from this can be applied to earlier stage compan
 
 ## Thank you
 
-[John Hyland](https://www.linkedin.com/in/jhyland/) is a former colleague of mine, and the author of the post I feature here. Contact him if you're interested in further details after reading this post. I suspect he'd jump at a chance to do similar programs at other companies, and even to help others who are doing so.
+[John Hyland](https://www.linkedin.com/in/jhyland/) is a former colleague of mine, and the author of the post I feature here. Contact them if you're interested in further details after reading this post. I suspect they'd jump at a chance to do similar programs at other companies, and even to help others who are doing so.
 
 Image by <a href="https://pixabay.com/users/kim_hester-3648659/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1785760">kim_hester</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1785760">Pixabay</a>
 
