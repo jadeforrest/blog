@@ -22,7 +22,7 @@ This post is second in a series:
 
 To roll out Mini-Ms, you need to know what to optimize for. These principles can help you as you introduce Mini-Ms to make sure you’re focusing your efforts.
 
-1. **The single most important thing is that participants feel safe and able to be vulnerable**. All of your decisions around how to set things up should optimize for psychological safety. \
+1. **The single most important thing is that participants feel safe and able to be vulnerable**. All of your decisions around how to set things up should optimize for psychological safety. 
  \
 “[Mini-Ms should be] a safe place to vent, both about frustrations with the team that you manage or frustrations with your own manager or senior leaders. This is much healthier than bonding inappropriately with your tech leads or your organizational aunts and uncles. Encouraging this, without becoming overly negative, is always a balancing act. But I think a good Mini-M should feel slightly conspiratorial.” – Nic Benders 
 
