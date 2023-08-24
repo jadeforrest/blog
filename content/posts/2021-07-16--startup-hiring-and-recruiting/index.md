@@ -90,8 +90,6 @@ One of the bigger problems with the way companies hire is that they treat it lik
 
 ## Don’t rely on inbound candidates, use mining to find hidden candidates
 
-Make a list of people you wish you could attract to work at your company, even if it’s far-fetched. They should be people that you believe would make a difference if they worked at your company. Then see if you could put together a way you could attract them to your company. 
-
 One of the best ways I’ve found of bringing in candidates is using the social connections of the people already in the company. You have to be careful because this biases towards people that are similar to the people already in the company. But when you reach out and they already know someone there, it can be a lot easier to attract them, and they won’t feel like you’re a complete stranger. These two articles describe an excellent process for “mining your networks”:
 
 * [Mine your Network for Early Stage Hiring Gold](https://review.firstround.com/Mine-Your-Network-for-Early-Stage-Hiring-Gold)
