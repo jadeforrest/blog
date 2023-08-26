@@ -1,10 +1,10 @@
 ---
-title: The best approach I've seen for hiring new engineers
+title: The best approach I've seen for hiring junior engineers
 tags: ["hiring", "mentorship", "onboarding", "recruiting"]
 cover: new.jpg
 author: Jade Rubick
 discussionId: "ignite-program"
-description: "I share a wonderful writeup by John Hyland on the best program I've ever seen for hiring new engineers"
+description: "I share a wonderful writeup by John Hyland on the best program I've ever seen for hiring junior engineers"
 ---
 
 Hiring junior engineers is challenging. I've seen so many junior engineers get hired but then be supported poorly.
