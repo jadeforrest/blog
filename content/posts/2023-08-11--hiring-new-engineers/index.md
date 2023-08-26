@@ -13,13 +13,41 @@ There is a lot to write about this topic, but today I'd like to highlight a wond
 
 <re-img src="new.jpg"></re-img>
 
-John set up and ran the "Ignite" program for several years, and shares how it ran. It's kind of perfect! The junior engineers are hired, work in groups of junior engineers on real problems for the company. They then join teams for several weeks and contribute to those teams. After a few rotations, they're placed on a permanent team. 
+John set up and ran the "Ignite" program for several years, and shares how it ran. It's kind of perfect! 
+
+## How the Ignite program works
+
+1. The junior engineers are hired (either in cohorts or continuously).
+2. They go through a project-based onboarding for two weeks. The project is designed to introduce the basics of working with internal systems: Git, JIRA, standups, code reviews, retros, and so on. 
+3. They're assigned mentors.
+4. They go through several rotations with teams. These last several weeks. They work on real work for those teams, contributing in a couple of defined ways.
+5. They have various social and networking meetings, such as an alumni event, so new engineers can see what it looks like to be successful and also build social connections within the company.
+6. After a few rotations, they're placed on a permanent team. 
 
 There are a lot of interesting hacks they used to make this program work, so I highly recommend it if you're interested in the topic!
 
-What I like best about this program is it just seems so effective. The company gets much more effective junior engineers, who are less of a challenge for their teams when they start. They're well indoctrinated into the engineering processes before they even join the team. And they contribute even while they're getting trained. The engineers, in turn, have a much more positive experience, get to see a cross-section of the company and understand how the product works. And they have a cohort of fellow junior engineers they can rely on in the future. It's just really fine management work.
+What I like best about this program is it just seems so effective:
 
-The post is a three part series. You can start here: [Running New Relic’s Ignite Program, Part 1 - Hiring](https://djspinmonkey.github.io/2023/07/10/ignite-hiring/).
+## Advantage for companies
+
+* **Save money**. These programs can pay for themselves. It's less expensive to hire newer engineers. If successful, these programs can make it possible for engineering organizations to tilt hiring towards less experienced engineers, potentially saving signficant amounts of money.  Companies that are able to more successfully harness less experienced engineers will have a competitive advantage to other companies, due to improved cost efficiency. New engineers can have a higher retention rate than with inferior onboarding.
+
+* **Better value delivery**. Better onboarded engineers will deliver value sooner and better, producing more value. The program increases internal connections within the company and across teams, which can lead to innovation and better collaboration. During onboarding, can be a way to address high importance, but low criticality work, like tech debt. This can improve long-term company performance, because these things tend to drag down long-term delivery if left unattended to. Companies can benefit from greater internal diversity (which has been shown to improve product quality and decision-making)
+
+* **Less disruption**. New engineers are better oriented and less disruptive to their teams. They're able to contribute almost immediately.
+
+## Advantage for new engineers 
+
+* They are more likely to succeed.
+* They feel more valued because they're contributing more to the company.
+* They understand engineering processes so feel less disoriented as they join teams.
+* They are a better fit for their teams, because they've had the chance to see a couple of options.
+* They have a cohort of fellow junior engineers they can network with and get support from.
+
+## Advantage for the industry
+
+* Creates a better pathway for engineers to succeed and grow. The trades have well established apprenticeship programs -- these could fill a similar niche in software.
+* Improves diversity and inclusion in our field.
 
 ## Applicability
 
@@ -28,6 +56,10 @@ This program is most appropriate for medium sized companies or larger. But it mo
 [John](https://hachyderm.io/@djspinmonkey/110872453575362629): "if you hire at least 20-30 engineers annually, it's likely that 10-15 of them could be early career, which is easily enough to justify putting some resources into doing a good job with it... That's a higher ratio of early career engineers than many companies go with, and depending on the specific kind of engineering the company does, that may be reasonable. So, you'll want to adjust those ratios to whatever you're comfortable with, and consider what resulting hiring rate is needed to warrant an early career hiring program based on your particular circumstances."
 
 That said, a lot of the lessons from this can be applied to earlier stage companies. I think the design of this program is a really good thing to emulate.
+
+## Where is this fabulous post?
+
+The post is a three part series. You can start here: [Running New Relic’s Ignite Program, Part 1 - Hiring](https://djspinmonkey.github.io/2023/07/10/ignite-hiring/).
 
 ## Thank you
 
