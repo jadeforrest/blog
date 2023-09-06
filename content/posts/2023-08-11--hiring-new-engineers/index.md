@@ -1,6 +1,6 @@
 ---
 title: The best approach I've seen for hiring junior engineers
-tags: ["hiring", "mentorship", "onboarding", "recruiting"]
+tags: ["hiring", "mentorship", "onboarding", "recruiting", "dzone-featured", "hacker-news"]
 cover: new.jpg
 author: Jade Rubick
 discussionId: "ignite-program"
