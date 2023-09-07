@@ -53,7 +53,7 @@ Here’s how to implement this:
 
 ### Let me know your experiences
 
-This hasn’t been very widely adopted, so if you adopt it at your company, you’re going to be doing something new and innovative. Share your experiences with me on [Twitter (on this thread)](https://twitter.com/JadeRubick/status/1396878203654864901) or [LinkedIn (on this thread)](https://www.linkedin.com/posts/jaderubick_jade-rubick-use-holiday-focus-days-to-increase-activity-6802644096562421760-Sr-3) so we can learn from each other about what works and what doesn’t. And if you have critique or feedback, would love to hear it.
+This hasn’t been very widely adopted, so if you adopt it at your company, you’re going to be doing something new and innovative. Share your experiences with me, so we can learn from each other about what works and what doesn’t. And if you have critique or feedback, would love to hear it.
 
 _Thank you to [Bailey Douglass](https://www.linkedin.com/in/baileydouglass/) for her warning about the dangers of creating tiers of cultural support. And thank you to [Jim Lindley](https://www.linkedin.com/in/jim-lindley-b354312/) for pointing out this can be done locally, not just at a company level._
 
