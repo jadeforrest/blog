@@ -21,7 +21,7 @@ Over the years, I've come up with a simple way to align people on roles. It's wa
 
 I'm going to assume we're using this exercise between an Engineering Manager and a Product Manager. But you can use it for any roles.
 
-You'll first need a **whiteboard**. If you're not in person, you can do it with Google Doc, Miro, Notion, or Trello. Really most tools will work. 
+You'll first need a **whiteboard**. If you're not in person, you can do it with Google Docs, Miro, Notion, or Trello. Really most tools will work. 
 
 Start out by creating three columns on the whiteboard: 
 1. Write "Clearly Engineering Manager" as the first column, on the left. 
@@ -39,7 +39,7 @@ You can do this two ways:
 1. Have each person create a bunch of stickies, and then talk through each as you put them up.
 2. Or, you can have people put them up as they create them. Then review to make sure everyone agrees they are where you think they should be. 
 
-I usually use the second approach, as it is a little more time-efficient. Basically anything you have ANY disagreement or want to discuss should be moved to the middle column.
+I usually use the second approach, as it is a little more time-efficient. Basically anything you have ANY disagreement about or want to discuss should be moved to the middle column.
 
 Here's a messy version of how it might look after adding some responsibilities. In this example, both the Engineering Manager and Product Manager think they should be doing project reporting. And they've both worked in places before where their role was responsible for defining user stories for the team. 
 
@@ -95,7 +95,7 @@ Roles shouldn't be rigid. Every person is different, and every pair of people wi
 
 It should be a valid option to identify that one role owns an area of responsibility, but delegates that responsibility to the other role. For example, Engineering can be responsible for projects, but be totally buried in other work. So you can agree to have the Product Manager run the projects for a period of time.
 
-Also if you have standard role definitions, and want to change the lines between you, you should if it produces better outcomes. I find having the roles written up allows you to have more explicit conversations about these things. "Hey, it looks like you're responsible for project reporting. How would you feel about me doing the reporting, or helping you with it?"  
+If you have standard role definitions, there may be times when it isn't a good fit for your situation. In those cases, you might flex the responsibilities between you and someone else if you think it will product better outcomes. I find having the roles written up allows you to have more explicit conversations about these things. "Hey, it looks like you're responsible for project reporting. How would you feel about me doing the reporting, or helping you with it?"  
 
 ## Some people like RACI charts
 
