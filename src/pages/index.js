@@ -7,6 +7,7 @@ import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaUserPlus, FaRss, FaMastodon, FaLinkedin } from "react-icons/fa";
 import charity from "../images/png/charity.png";
+import rachel from "../images/png/rachel.png";
 
 
 const IndexPage = props => {
@@ -64,6 +65,7 @@ const IndexPage = props => {
         <p></p>
 
         <img src={charity} className="charity" width="100%" />
+        <img src={rachel} className="charity" width="65%" />
 
         <p></p>
 
