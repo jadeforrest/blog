@@ -14,13 +14,13 @@ I can help you with these problems<sup>†</sup>:
 
 <br />
 
-<p style="font-size: 12px;color:grey;" size="small">† I can help with a lot of other problems too. But people need to pattern-match you. See below for a longer list.</p>
+<p style="font-size: 12px;color:grey;" size="small">† I can help with a lot of other problems too. But people need to pattern-match you to a few things. See below for a longer list.</p>
 
 ## Hello
 
 My name is Jade Rubick. I build thriving engineering organizations. My specialty is humane, results-focused organizations.
 
-I also like to share what I've learned. So I write blog posts on this site, and write newsletter based courses on engineering leadership. 
+I also like to share what I've learned. So I write blog posts and have a newsletter course for beginning managers. Most of my blog posts are a part of Engineering Leadership Weekly: [sign up](/courses/), and you'll receive one a week, for a little over a year.
 
 [Contact me](/contact) if you'd like to discuss how I might be able to help your organization. You can see my background, companies I've worked with, and what people say about working with me on [LinkedIn](https://www.linkedin.com/in/jaderubick/). 
 
@@ -28,7 +28,7 @@ I also like to share what I've learned. So I write blog posts on this site, and 
 
 I help companies in a couple of ways:
 
-* Executive advisor. 
+* Executive advisor or coach. 
 * Fractional doer.
 * Interim VP of Engineering.
 
