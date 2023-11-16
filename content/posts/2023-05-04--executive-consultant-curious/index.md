@@ -209,7 +209,7 @@ So what is the answer to how much you should charge? You should charge as much a
 
 The startup and technical markets have been brutal over the last year. Many of my clients have had layoffs, and many have cut back on advisors or contractors. I’ve lost many clients since October 2022 as a result. But I’ve also seen a lot of interest from new leads.
 
-My overall read of the situation is that it’s becoming more competitive. More people are entering fractional, advisory, coaching, and interim work. I’m in a Slack group with 500+ fractional leaders. I’m sure many of those people are curious, but that’s a lot of leaders! 
+My overall read of the situation is that it’s becoming more competitive. More people are entering fractional, advisory, coaching, and interim work. I’m in a Slack group with 5000+ fractional leaders. I’m sure many of those people are curious, but that’s a lot of leaders! 
 
 As a result, people are needing to differentiate themselves, and the most experienced people are still making a good living at it. And the rest of the market is becoming less profitable and less desirable. This will probably result in non-differentiated work being paid less well, and overall being less desirable.
 
