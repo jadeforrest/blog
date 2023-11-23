@@ -40,7 +40,7 @@ Because the team is small enough, everyone has a pretty decent sense of what is 
 
 ## What happens with the team trap
 
-As the team grows, however, things start to break down. The leader works longer and longer hours. Yes, it seems harder and harder to get work done, and execution and quality seem to be slipping. Communication seems muddled, and you hear more people wondering about priorities or what the strategy is.
+As the team grows, however, things start to break down. The leader works longer and longer hours. Yet, it seems harder and harder to get work done, and execution and quality seem to be slipping. Communication seems muddled, and you hear more people wondering about priorities or what the strategy is.
 
 This is the Team Trap. You're heading towards failure, and unless you reshape things, it will get worse and worse!
 
