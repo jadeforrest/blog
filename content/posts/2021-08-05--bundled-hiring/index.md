@@ -11,11 +11,13 @@ description: "Bundled hiring is where you take multiple, similar positions, and 
 
 This is a part of a [series of articles on hiring and recruiting](/startup-hiring-and-recruiting). And a series of posts on [what works to improve diversity, equity, and inclusion](/equity-benefits-everyone).
 
-### Imagine filling a position in a week
+### Imagine filling a position in a week (or a day!)
+
+<re-img src="green.png" width="75%"></re-img>
 
 Several years ago, I was asked to build up a new team quickly. We seeded the team with a couple of people, and knew we would need to hire a few other positions rapidly. 
 
-Fortunately, we were using "bundled hiring" for these positions. For one of the first roles, I was able to extend an offer within a week! 
+Fortunately, we were using "bundled hiring" for these positions. For one of the first roles, I was able to extend an offer within a week! This wasn't unusual, in some cases we were able to hire in one day.
 
 ### What is bundled hiring?
 
@@ -99,6 +101,6 @@ Bundled hiring makes sense once you start seeing duplication in the roles you're
 Did I miss anything? Do you have experience with bundled hiring elesewhere? I'd love to hear your thoughts or your experiences as you implement bundled hiring.  
 
 
-[Belinda Runkle](https://www.linkedin.com/in/belindarunkle/) introduced bundled hiring at New Relic, and that's where I first learned about it. She was inspired by [Iris Bohnet](https://scholar.harvard.edu/iris_bohnet)'s book, [What Works](https://scholar.harvard.edu/iris_bohnet/what-works). It's thanks to her that I was able to write this blog post at all. Thank you to [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for feedback and detail on how the bundled hires were run. Thank you to Amjith Ramanujam for the helpful suggestion to provide an early example of what bundled hiring is. [Matt LeBeau](https://www.linkedin.com/in/matt-lebeau-1652bb4/) shared his experience with me and pointed out some ways it hadn't worked well and the need for strong process management. [Beth Klem](https://www.linkedin.com/in/bethklem/) had good questions about the candidate experience that helped me improve that section. [Julie Pagano](https://juliepagano.com) had great feedback on the importance of knowing your team.  
+[Belinda Runkle](https://www.linkedin.com/in/belindarunkle/) introduced bundled hiring at New Relic, and that's where I first learned about it. She was inspired by [Iris Bohnet](https://scholar.harvard.edu/iris_bohnet)'s book, [What Works](https://scholar.harvard.edu/iris_bohnet/what-works). It's thanks to her that I was able to write this blog post at all. Thank you to [Darin Swanson](https://www.linkedin.com/in/darinswanson/) for feedback and detail on how the bundled hires were run. Thank you to Amjith Ramanujam for the helpful suggestion to provide an early example of what bundled hiring is. [Matt LeBeau](https://www.linkedin.com/in/matt-lebeau-1652bb4/) shared his experience with me and pointed out some ways it hadn't worked well and the need for strong process management. [Beth Klem](https://www.linkedin.com/in/bethklem/) had good questions about the candidate experience that helped me improve that section. [Julie Pagano](https://juliepagano.com) had great feedback on the importance of knowing your team. Thank you [Bill Green](https://www.linkedin.com/in/bgreensre/) for sharing your experience of being hired in one day!
 
 Image by <a href="https://pixabay.com/users/12019-12019/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=230112">David Mark</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=230112">Pixabay</a>
