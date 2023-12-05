@@ -16,7 +16,7 @@ But others find this too expensive, even with the discount[^1]. So, I often find
 
 <re-img src="coaching.jpg"></re-img>
 
-I’m exploring the idea of doing **group leadership coaching**. This would be small groups of leaders, who would meet regularly, and each person would have some time for their topics. It would be well moderated, and you'd be able to learn learn from the topics other people bring to the conversation. I've run similar groups in the past, and found that a benefit is that people learn about topics they may not be paying attention to.
+I’m exploring the idea of doing **group leadership coaching**. This would be small groups of leaders, who would meet regularly, and each person would have some time for their topics. It would be well moderated, and you'd be able to learn from the topics other people bring to the conversation. I've run similar groups in the past, and found that a benefit is that people learn about topics they may not be paying attention to.
 
 If you think you might be interested in group coaching, can you fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSftpz2h0HyK5KpMHFQq7aaI1N-rd5MlI5CuyViweSVEw7YPRQ/viewform)? I'll play with the results and put together a proposal. If it looks good to you, maybe I'll see you in a group leadership session soon!
 
