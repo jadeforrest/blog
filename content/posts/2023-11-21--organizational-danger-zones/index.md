@@ -1,6 +1,6 @@
 ---
 title: Organizational danger zones
-tags: ["scaling", "delivery", "complexity", "org-design"]
+tags: ["scaling", "delivery", "complexity", "org-design", "dzone-featured"]
 cover: danger.jpg
 author: Jade Rubick
 discussionId: "org-danger-zones"
