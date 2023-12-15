@@ -25,6 +25,8 @@ During the meeting:
 1. Quickly summarize the feedback on the candidate
 2. Then move to the important part: go through the points people had disagreement about, and dig deeper on them, in a safe and curious way. For example: “Lisa, I noticed you were concerned about how the candidate communicated about their employer. But Josh said glowing things about how they talked about their team. Can you both share a little about that portion of the interview, what questions you asked and what you uncovered?”
 
+**Your objective is to get to a set of tradeoffs with the candidate**. You want the hiring manager to be able to say, Candidate A is stronger in these respects, and weaker in these respects. Candidate B has these other unique strengths, but is less well developed in these other areas. This gives the hiring manager the information they need to make an informed decision.
+
 ## Why this format works
 
 I’ve found that a lot of observations and assumptions break down when people have these type of discussions. An observation like, “they’re not very good at receiving feedback”, will become way more nuanced when you have a discussion about how you asked the question and what they said. And when people have opposing feedback, it forces your interviews to improve, because that conflict becomes apparent. 
