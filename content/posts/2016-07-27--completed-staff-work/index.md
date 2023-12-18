@@ -20,9 +20,9 @@ So, let me share with you one of the most powerful management concepts I’ve en
 
 ## An example of typical staff work
 
-Company X had a couple of engineers located in a coworking space in London. They were unhappy with the location—it had no windows, and they said it felt too tight. I talked about the issue with our facilities person, and he quickly located another location for us. But to make it happen he needed email approval from my manager.
+I was working at a company that had a team of engineers in London. They were working in a coworking space. The team said they didn't like the location. They said it had no windows, and that it felt too tight. 
 
-I composed an email to my manager that read something like this:
+I talked with the facilities person at our company. They located an alternative location. But I needed my manager's approval. So I wrote an email to my manager that read something like this. 
 
 _We’ve located a larger location for the London engineers. Their current office is cramped and has no window. The new office has a window, and enough room to fit 3 or 4 desks. The team looked at it and said it was perfect for their needs._
 
