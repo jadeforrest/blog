@@ -9,7 +9,7 @@ description: "Learn a handy exercise you can use to define boundaries between ro
 
 <re-img src="role-definition.jpg"></re-img>
 
-When you're working in a group, you need to know how to coordinate. Coordination requires a shared understanding of how everyone will work together. Most human groups define Roles. Roles help clarify boundaries and expectations for people working together.
+When you're working in a group, you need to know how to coordinate. Coordination requires a shared understanding of how everyone will work together. Most human groups define Roles to clarify boundaries and expectations. 
 
 For example, in sports, these roles are called Positions. To play well, you need all the positions to understand how to work with each other. And you need everyone to focus on their position. It would be ridiculous in football (aka soccer) to have everyone try and be the goalkeeper. 
 
