@@ -15,7 +15,11 @@ The easiest way to improve your hiring is to speed it up. Here is how to do that
 
 ## Hiring faster can drive immense improvements
 
-Imagine you had **perfect knowledge** of a candidate. You could decide instantly whether to give them an offer. So you give them an offer. And they decide within the next couple of days. How much more likely would you be to hire that candidate?
+Hiring for a position is a thoughtful and deliberate process. And it can take a lot of effort and time to get to the point where you're confident making a decision on a candidate. 
+
+But all that deliberation comes at a cost. Imagine your process took twice as long as it does now. Wouldn't that result in a lot of those candidates deciding to work elsewhere? 
+
+The same principle applies if you shorten the amount of time it takes to decide on a candidate. Imagine a theoretical situation where you could immediately decide on a candidate after they apply. How much more likely would it be that they would end up working for you? In my experience, this can result in dramatic improvements.
 
 <re-img src="apply-to-offer.png" width="50%"></re-img>
 
@@ -65,7 +69,7 @@ We've already optimized the number of steps, and turnaround time. The final opti
 
 One way to do this is to pre-schedule your team for interview times, so they're available for a certain number of interviews per week. Then you can offer times that are immediate, instead of far off in the future. 
 
-A side benefit of this is that you ensure your interview team is being scheduled a sane amount of time each week.
+By creating set times each week that are reserved for interviews, you avoid overloading your team with interviews on any given day or week.
 
 Now you're cooking with fire!
 
