@@ -1,5 +1,5 @@
 ---
-title: What can air combat can teach us about software project failure?
+title: What can air combat teach us about software project failure?
 tags: ["delivery", "velocity"]
 cover: f86-sabre.jpg
 author: Jade Rubick
@@ -48,6 +48,10 @@ One of the most common failures I see in engineering organizations is shipping b
 
 Part of the reason this is so valuable is that **velocity is a vector: it combines movement with a direction**. Incremental delivery helps ensure your direction fits your customer needs, so even if it were less efficient to be incremental, the results are almost always better.
 
-_Thanks to Alex Kroman for this post. He wrote a similar blog post a long time ago that disappeared from the internet. I basically stole this post by rewriting his post from memory. Then I remembered archive.org, and as I was writing up this thank you found his [original post](https://web.archive.org/web/20190624164845/http://alexkroman.com/what-the-f-86-can-teach-us-about-software-dev/)!_
+## Thank you
 
-_Images are courtesy of Wikipedia._
+Thanks to [Alex Kroman](https://www.linkedin.com/in/alexkroman/) for this post. He wrote a similar blog post a long time ago that disappeared from the internet. When I attempted to find it, he said it was gone. So, I wrote it from memory. Then I remembered archive.org, and as I was writing up this thank you found his [original post](https://web.archive.org/web/20190624164845/http://alexkroman.com/what-the-f-86-can-teach-us-about-software-dev/)!
+
+Thank you to [Andrea](https://types.pl/@roundcrisis) for pointing out a typo.
+
+Images are courtesy of Wikipedia.
