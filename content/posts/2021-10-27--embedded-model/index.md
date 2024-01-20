@@ -61,7 +61,7 @@ Encourage embeds to view their work team as their primary team. But don't neglec
 
 * **Negotiate how it works and take care onboarding**. A new embedded person has a more complex situation than new employees do. They have another manager, and things outside your team they may be paying attention to. Kick off the relationship with explicit conversations. Spend twice the care you would with onboarding a generalist employee.  
  \
-Gus Shaffer offers this advice: “One thing that I found helpful when embedding staff engineers was to conduct a standard Kick-off process with a Statement of Work as output. Early on I learned the hard way that leaving success criteria loose leads to lingering engagements / disappointment / confusion.”  
+Keizan Shaffer offers this advice: “One thing that I found helpful when embedding staff engineers was to conduct a standard Kick-off process with a Statement of Work as output. Early on I learned the hard way that leaving success criteria loose leads to lingering engagements / disappointment / confusion.”  
 
 * **Be clear who directs their work**. When negotiating an embedded situation, decide who directs their work. It can cause problems if both the home and work team managers assign work. This makes their output less predictable. Even worse than that, it causes surprises because it seems predictable until it isn't. This can make it hard to depend on the embedded person. 
 
@@ -129,6 +129,6 @@ See anything I missed? Disagree with this? Please let me know your thoughts!
 
 ## Thank you
 
-[Gus Shaffer](https://www.linkedin.com/in/gusshaffer/) provided a lot of feedback on an earlier version of this post, and had some good suggestions on how to embed effectively. 
+[Keizan Shaffer](https://www.linkedin.com/in/gusshaffer/) provided a lot of feedback on an earlier version of this post, and had some good suggestions on how to embed effectively. 
 
 Image by <a href="https://pixabay.com/users/publicdomainpictures-14/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=17109">PublicDomainPictures</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=17109">Pixabay</a>

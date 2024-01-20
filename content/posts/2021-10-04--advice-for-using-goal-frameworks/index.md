@@ -110,7 +110,7 @@ Goal frameworks are just one of many [coordination models](/coordination-models/
 
 ### Thank you
 
-Thank you to [Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) for pointing out the problem of over-specificity as a challenge with goal frameworks. And to [Gus Shaffer](https://www.linkedin.com/in/gusshaffer/) for suggesting I add an example to the “don’t use goal frameworks to manage projects” section. And to [Gustavo Aguiar](https://www.linkedin.com/in/gustavo-aguiar/) for edits and feedback. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) taught me some of the rules of thumb here. [Merlyn Albery-Speyer](https://github.com/curious-attempt-bunny) gave me feedback, suggested a different (and better) title, and pointed out typos. [Ian H Main](https://www.linkedin.com/in/ianmain/) pointed out some awkward language, and provided some helpful feedback.
+Thank you to [Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) for pointing out the problem of over-specificity as a challenge with goal frameworks. And to [Keizan Shaffer](https://www.linkedin.com/in/gusshaffer/) for suggesting I add an example to the “don’t use goal frameworks to manage projects” section. And to [Gustavo Aguiar](https://www.linkedin.com/in/gustavo-aguiar/) for edits and feedback. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) taught me some of the rules of thumb here. [Merlyn Albery-Speyer](https://github.com/curious-attempt-bunny) gave me feedback, suggested a different (and better) title, and pointed out typos. [Ian H Main](https://www.linkedin.com/in/ianmain/) pointed out some awkward language, and provided some helpful feedback.
 
 ### Feedback
 
