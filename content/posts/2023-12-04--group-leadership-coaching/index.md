@@ -15,7 +15,7 @@ So, I run **group leadership coaching** sessions. These are small groups of lead
 
 I have groups for team level, group of teams level, and organizational level leaders. Participants are technical or organizational leaders, and people aspiring to these roles.
 
-If you are interested in group leadership coaching, fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSftpz2h0HyK5KpMHFQq7aaI1N-rd5MlI5CuyViweSVEw7YPRQ/viewform). I'll see if there is a group with availability, and send you a proposal that includes the times, costs, and detailed information on how it works. If it looks good to you, maybe I'll see you in a group leadership session soon!
+If you are interested in group leadership coaching, fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSftpz2h0HyK5KpMHFQq7aaI1N-rd5MlI5CuyViweSVEw7YPRQ/viewform). I'll send you a proposal that includes the proposed time, cost, and detailed information on how it works. You can then decide if you want to proceed. Perhaps I'll see you in a group leadership session soon!
 
 ## Thank you
 
