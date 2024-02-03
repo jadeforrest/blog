@@ -11,9 +11,11 @@ I often have people approach me about coaching or advisory work. But they find i
 
 <re-img src="coaching.jpg"></re-img>
 
-I've started running **group coaching** sessions. These are small groups of leaders, who meet regularly. Each person has some time for their own topics. They are well facilitated, and each person learns from the other participants. Participants have told me the topics others bring are usually quite relevant to them. And often the diversity of perspectives gives you even better coaching than you would get from an individual.
+So, I run **group leadership coaching** sessions. These are small groups of leaders who meet regularly. Each person has some time for their own topics. They are well facilitated, and everybody learns from each other. You can often get better coaching from a well run group than from an individual. 
 
-If you are interested in group coaching, fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSftpz2h0HyK5KpMHFQq7aaI1N-rd5MlI5CuyViweSVEw7YPRQ/viewform). I'll see if there is a group with availability, and send you a proposal that includes the times, costs, and detailed information on how it works. If it looks good to you, maybe I'll see you in a group leadership session soon!
+I have groups for team level, group of teams level, and organizational level leaders. Participants are technical or organizational leaders, and people aspiring to these roles.
+
+If you are interested in group leadership coaching, fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSftpz2h0HyK5KpMHFQq7aaI1N-rd5MlI5CuyViweSVEw7YPRQ/viewform). I'll see if there is a group with availability, and send you a proposal that includes the times, costs, and detailed information on how it works. If it looks good to you, maybe I'll see you in a group leadership session soon!
 
 ## Thank you
 
