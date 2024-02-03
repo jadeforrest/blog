@@ -7,9 +7,9 @@ title: About
 
 I can help you with these problems<sup>†</sup>:
 
-1. Scaling engineering.
+1. Scaling engineering
 2. Helping leaders navigate unfamiliar terrain.
-3. Improving engineering delivery and quality.
+3. Improving product delivery and quality.
 4. Getting organizations to coordinate more effectively.
 
 <br />
@@ -31,12 +31,15 @@ I help companies in a couple of ways:
 * Executive advisor or coach. 
 * Fractional doer.
 * Interim VP of Engineering.
+* Group leadership coach
 
 As **executive advisor**, I meet weekly or biweekly with one or more leaders in your organization. We conduct working sessions where we problem-solve your current challenges. You bring context, I bring expertise, and together we come up with better solutions than either of us could individually.
 
 As a **fractional doer**, you point me at a problem in your organization, and I take care of it. You get the benefit of hiring someone with deep expertise who can produce amazing results in a short period of time. Fractional work also encompasses evaluation of an organization -- I can take a look at what is working and what isn't, and give you a list of recommendations. A benefit of fractional work is that you can hire a level of talent that would otherwise be unaffordable or inaccessible.
 
 As an **Interim VP of Engineering**, I take leadership for a limited period of time (usually 3-9 months). I improve the organization and hire my replacement.
+
+As a **group leadership coach**, I run group sessions for frontline managers, directors, and heads of engineering. Learn more [here](/group-leadership-coaching/).
 
 ## Is your company a fit?
 
