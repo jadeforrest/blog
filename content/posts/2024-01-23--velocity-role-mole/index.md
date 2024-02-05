@@ -51,6 +51,7 @@ If you’re working with a Mole, consider asking them questions like:
 
 * At their worst, Moles can be gossips. Just passing on rumors.
 * Moles also have to be careful to center themselves on the work. Some moles can enjoy the connections over the results.
+* I use the idea of "spying" on other teams for fun, but if a Mole is truly passing on secret information, that would undermine trust. Moles should be transparent about the fact that they're communicating with other parts of the organization.
 
 ## Want to practice being a Mole? 
 
@@ -98,7 +99,7 @@ Are you a Mole? Have you known other people that you now recognize as Moles? Let
 
 ## Thank you
 
-The first version of this was created when [Kirby Frugia](https://www.linkedin.com/in/kfrugia/), [Darin Swanson](https://www.linkedin.com/in/darinswanson/), and I huddled in a room and brainstormed behaviors. I believe [Keizan Shaffer](https://www.linkedin.com/in/gusshaffer/) and I also brainstormed a version of this for managers. 
+The first version of this was created when [Kirby Frugia](https://www.linkedin.com/in/kfrugia/), [Darin Swanson](https://www.linkedin.com/in/darinswanson/), and I huddled in a room and brainstormed behaviors. I believe [Keizan Shaffer](https://www.linkedin.com/in/gusshaffer/) and I also brainstormed a version of this for managers. Thank you to Paulette Johnson for the point about Moles undermining trust.
 
 Image by <a href="https://pixabay.com/users/lenzatic-15400574/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5821903">Roberto Lee Cortes</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5821903">Pixabay</a>
 
