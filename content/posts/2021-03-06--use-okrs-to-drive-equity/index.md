@@ -17,9 +17,9 @@ Improving your company to make things more fair for under-represented minorities
 
 ## OKRs are a good way to ensure you're making progress
 
-OKRs can be a way to drive improvements in equity. Executives and leaders pay attention to OKRs every day (or they should). So it can be a way to ensure that the company is improving in this dimension. This ultimately can lead to higher retention for everyone. 
+[Objectives and key results](https://en.wikipedia.org/wiki/Objectives_and_key_results) (OKRs), or other [goal frameworks](/advice-for-using-goal-frameworks/), can be a way to drive improvements in equity. Executives and leaders pay attention to OKRs every day (or they should). So it can be a way to ensure that the company is improving in this dimension. And this can result in higher retention, and a greater ability to attract candidates to your company.
 
-Smaller things can be done without OKRs. But for work that requires real programs to make them happen, OKRs can make sure htey get the attention they deserve. 
+Smaller things can be done without OKRs. But for work that requires real programs to make them happen, OKRs can make sure they get the attention they deserve. 
 
 ## Improvements stack up over time
 
