@@ -17,7 +17,7 @@ You can optimize for money or for schedule flexibility. Optimizing for money req
 
 For me the appeal was schedule flexibility rather than money. I enjoy the ability to shape my schedule. And I like that there are downtimes between large contracts. I make less than I would as a full-time engineering executive, but I have a lot more flexibility in my schedule.
 
-A second advantage for me is that I have accelerated certain types of learning. I’ve now worked at almost twenty startups. That gives me a skillset and a perspective I never had previously. I have much more certainty about which of my skills to apply in what situations. In a world where many engineering leaders learn by copying from their environment, this gives me a flexibility that I never had previously.
+A second advantage for me is that I have accelerated certain types of learning. I’ve now worked at more than twenty startups. That gives me a skillset and a perspective I never had previously. I have much more certainty about which of my skills to apply in what situations. In a world where many engineering leaders learn by copying from their environment, this gives me a rare amount of breadth.
 
 There are many disadvantages and tradeoffs that you should be aware of before jumping into consulting.
 
@@ -159,7 +159,7 @@ It’s hard to do multiple interim roles at a time, because they tend to want to
 
 The money for interim roles is fine. In my testing of the market, I’ve found it to be more price sensitive than I would expect. Pay is higher than being full-time, but only a little. Due to gaps between roles, it ends up not being lucrative.  
 
-Interim roles also tend to be intense. Some of the most challenging work I’ve ever done has been in interim roles. Why? People usually just want to hire a permanent person into a role. An interim role is best when things are on fire. They can also be useful when there isn’t a competent person to do the hiring for the full time role. But generally I’ve found these roles to involve a lot of firefighting. As a result, I’ve flirted with burnout a couple of times during interim roles.
+Interim roles also tend to be intense. Some of the most challenging work I’ve ever done has been in interim roles. Why? People usually just want to hire a permanent person into a role. An interim role is best when things are on fire. They can also be useful when there isn’t a competent person to do the hiring for the full time role. But generally I’ve found these roles to involve a lot of organizational firefighting. As a result, I’ve flirted with burnout a couple of times during interim roles.
 
 The flip side of things is that if you enjoy fixing urgent organizational challenges and making situations better for people (as I do), it can be rewarding work. And I’ve learned a great deal from my interim engagements. It’s a way of doing shorter-term engagements as a company but still have the ownership for the organization on your shoulders. 
 
