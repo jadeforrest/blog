@@ -21,16 +21,6 @@ Me: [What is he talking about?]
 
 I realized I was used to taking direction from others, and I had become a sort of "execution" focused manager. I didn't have any idea what my organization needed. I had no idea what the future should look like. I was managing my organization, not leading it.
 
-## Interrogate yourself
-
-I brought this up with an executive coach I was working with at the time. He encouraged me to set time aside every week to really think deeply about my area of the product.
-
-At first, it was hard to preserve the time I set aside. In my busy schedule, it seemed luxurious to save a couple hours just for thinking. But it quickly became some of the most valuable time I spent each week. 
-
-I would spend time each week thinking amount my organization, about the product, about how things were going. I researched other products that competed with mine. I spent time using the product. I thought critically about our technical and product failings. 
-
-I ended up developing a better sense of what possible futures I could create. I started to see possibilities that were invisible to me. I started to learn how to lead.
-
 ## Mental models: try and catch them all!
 
 At around this time, my manager challenged me to start using more mental models in how I assessed my organization. He suggested looking at the situation from the point of view of:
@@ -44,6 +34,30 @@ At around this time, my manager challenged me to start using more mental models 
 Most leaders use their own experience as their main mental model. Being able to add new mental models to your toolkit makes you more flexible. Each mental model can alter what you think the future should look like. And what the present should look like. It can also inform you of the actions you should take to make things happen.
 
 As I started developing a habit of looking at things from other mental models, I began to see blind spots in my previous ways of looking at the world. 
+
+## The limitations of role-based thinking
+
+It's useful to have a [clear definition of your role](/role-definition/). But your role definition can be overly contraining. If you define your success by if you're doing your role well, you're limiting the type of problem-solving you will engage in.
+
+For example, you might think of the role of Engineering as execution. This will limit you from thinking about the Product perspective. Yet, some of the magic happens when you're both thining about the intersection between these functions.
+
+Try using "we" thinking instead of "me" thinking. What can we do as a wider leadership group? How can my organization support what the company needs to be successful?
+
+## The limitations of incremental thinking
+
+Another challenge most leaders get into is thinking of situations incrementally, instead of thinking back from what MUST HAPPEN.
+
+An example of this was when I was working in a place that was a Rails shop. We were building some technology that would have more ideally been built in Java, and this was a long term effort, well worth doing it in the most appropriate language. Because I was thinking incrementally, I was thinking about how to build the software with our existing team. Not about how to create the team to build the software we needed to build.
+
+## Interrogate yourself
+
+I brought up being execution focused with the executive coach I was working with at the time. He encouraged me to set time aside every week to think deeply about my area of the product.
+
+At first, it was hard to preserve the time I set aside. In my busy schedule, it seemed luxurious to save a couple hours just for thinking. But it quickly became some of the most valuable time I spent each week. 
+
+I would spend time each week thinking amount my organization, about the product, about how things were going. I researched other products that competed with mine. I spent time using the product. I thought critically about our technical and product failings. 
+
+I ended up developing a better sense of what possible futures I could create. I started to see possibilities that were invisible to me. I started to learn how to lead.
 
 ## Interrogate yourself with what exactly?
 
@@ -75,7 +89,6 @@ Each week, I sat down and looked at an evolving set of questions. I would go thr
 ### Identify next actions
 
 * What actions should be taken?
-
 
 I found writing down the answers to these questions to be tremendously helpful. 
 
