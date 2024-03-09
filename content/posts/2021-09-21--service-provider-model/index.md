@@ -19,7 +19,7 @@ When a team is a Service Provider, they...
 * Are a dependency for those other teams. They do work for those teams. 
 * Do their work per ticket, per project, or per initiative. When their work is over, they either do work for someone else, or work on their own priorities. 
 
-Service Provider is a [coordination models](/coordination-models/). 
+Service Provider is a [coordination model](/coordination-models/). 
 
 ## What types of teams commonly adopt this model?
 
