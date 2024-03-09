@@ -61,13 +61,14 @@ Service Provider is a [coordination model](/coordination-models/).
 * It’s often best to have a long-term goal in mind which is a different coordination model, like [self-service](/platform-teams-and-the-self-service-model/). You can often scare up investment by selling that vision and showing progress towards it. This can take a long time to transition to, but be a highly valuable improvement. Combining [self-service](/platform-teams-and-the-self-service-model/) and a consultant approach can actually work pretty effectively. You get customer awareness by being a consultant, but continually aim to make your work product [self-service](/platform-teams-and-the-self-service-model/). This can also ease some of the transition pain to getting to a [self-service](/platform-teams-and-the-self-service-model/) model.
 * Functionally designed teams tend to move towards the service provider pattern. Sometimes this makes sense: if you have a lot of code that isn’t worked on frequently, or something that requires deep expertise or has highly demanding reliability requirements, or a different form of engineering. But barring those exceptional cases, I tend to make teams cross-functional in nature, to eliminate the need for a service provider pattern, and improve the coordination within a team.
 
-### Coordination models
+## Coordination models
 
 Service providers are just one of many [coordination models](/coordination-models/). Coordination models give you a menu of choices to choose from when solving your leadership coordination issues. 
 
-### Feedback
+## Feedback
 
 See anything I missed? Disagree with this? Please let me know your thoughts!
 
+## Thank you
 
 Image by <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2654004">Gerd Altmann</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2654004">Pixabay</a>
