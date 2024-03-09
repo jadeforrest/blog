@@ -9,32 +9,33 @@ description: "Service provider is the only pattern many platform teams have know
 
 <re-img src="service-provider.jpg"></re-img>
 
-One of the more common [coordination models](/coordination-models/) is the Service Provider model. When a team is a Service Provider, they...
+**The Service Provider is one of the most common and least effective coordination models in software engineering teams**. There are legitimate reasons to use this model, but you should avoid it unless you’re aware of the tradeoffs. 
+
+## What is a Service Provider?
+
+When a team is a Service Provider, they...
 
 * Have valuable skills they offer other teams.
 * Are a dependency for those other teams. They do work for those teams. 
 * Do their work per ticket, per project, or per initiative. When their work is over, they either do work for someone else, or work on their own priorities. 
 
-**The Service Provider model is one of the least effective coordination models in software engineering teams**. There are some legitimate reasons to use this model, but you should avoid it unless you’re aware of the tradeoffs. 
+Service Provider is a [coordination models](/coordination-models/). 
 
-
-### What types of teams commonly adopt this model?
+## What types of teams commonly adopt this model?
 
 * Design. 
 * IT.
 * Infrastructure and platform teams.
-* You even see it in functionally organized product teams, where a backend team might work on various APIs depending on the requests and needs from other teams. Or a frontend team might do work for various projects.
-* Even some cross-functional teams use this model, where they request things of each other in order to accomplish their own goals.
+* Functionally organized product teams. For example, a backend team might work on various APIs depending on the requests and needs from other teams. Or a frontend team might do work for various projects.
+* Some cross-functional teams use this model, where they request things of each other in order to accomplish their own goals.
 
-
-### Pros
+## Pros
 
 * **High utilization and efficiency**. Allows you to have a specialist that can apply their skills across a group of teams that may not need those skills continually. 
 * **Cost-effective**. You can often have less people serving a larger group of people than the alternatives.
 * **Maps nicely to org structure**. It’s often what a manager will naturally think of, so it’s what you will end up with if you don’t design something different. 
 
-
-### Cons
+## Cons
 
 * **High latency**. This pattern always leads to poor flow through your company, because to avoid doing so would require you to have excess capacity, and there is almost no tolerance in companies for having people “without work to do”. But this results in problems. You’ll have projects that can’t be delivered because your infra team is busy on something more important. You’ll have projects without a design and it will either be built poorly or delayed. You’ll have people unable to work because their machine is having problems. Leaders tend to underestimate the cost of latency. A way to avoid some of this trap is to have something else valuable that the team focuses on, so being a service provider is only a part of what the team does. If it’s easy for them to swap out that other work, then they can have spare capacity and consume the queue of work.
 * **Underfunded**. Funding for service providers tends to be treated as a cost, and often tends to get underfunded. So these teams will often struggle to keep ahead of a neverending queue of work. Scaling is typically done independently of other parts of the organization, which can lead to funding levels that are enough to avoid emergencies, but not enough to make your organization thrive. 
@@ -45,18 +46,16 @@ One of the more common [coordination models](/coordination-models/) is the Servi
 * **A lack of slack can lower innovation**. Since you’re moving from task to task or project to project, you often don’t get to see the larger patterns in an area, and have the time to explore larger impact changes to improve in those areas. Your work will tend to be more low level and tactical.
 * **Hard to manage incoming requests**. It can be hard to understand the context of the requesting teams, and understand how the work maps to the value delivered for the business. 
 
-
-### If you use this model
+## If you use this model
 
 * **Evaluate how realistic it is to service the needs of the organization**. You can often use measurements to keep an eye on things -- turnaround time for requests, or 95 percentile for turnaround time. If your engagements are longer-lasting, interview people and make sure you’re aware of the impact of projects that don’t get prioritization. Try to be conscious of the impact of latency, and of shifting priorities. If the team isn’t set up in a realistic way, it’s time to have some serious discussions about its future.
 * **Use automation projects to give your team higher leverage**. This is a balancing act, because you have to balance the need to help people with the need to get automation work completed. Sometimes the only way to dig your way out of the hole you’re in when using the service provider pattern is to make your customers less happy while you automate the improvements.
 * **Communicate prioritization and tradeoffs**. You want people to understand what they can expect from you and what they can’t. A big source of frustration dealing with service provider teams is not being able to predict whether they'll be able to give you something and how long it will take. 
 * **Switch to another model**. There are often better [coordination models](/coordination-models/) you can use, that you can gradually transition to.
 
+## Service provider versus other coordination models
 
-### Service provider versus other coordination models
-
-* I try to avoid this pattern whenever possible. I prefer [embedded](/embedded-model/) and consulting patterns with designers, [self-service](/platform-teams-and-the-self-service-model/) and consulting patterns with infrastructure, and a centralized liaison pattern with architecture. For software teams, I tend to prefer cross-functional independent executor teams, or self-service models. For IT, I’m not an expert on what makes sense -- let me know if you’ve seen alternative patterns that are more effective, or if a service provider model really is the best fit.
+* I try to avoid this pattern whenever possible. I prefer [embedded](/embedded-model/) and consulting patterns with designers, [self-service](/platform-teams-and-the-self-service-model/) and consulting patterns with infrastructure, and a centralized liaison pattern with architecture. For software teams, I tend to prefer cross-functional [independent executor](/independent-executor-model/) teams, or [self-service](/platform-teams-and-the-self-service-model/). For IT, I’m not an expert on what makes sense -- let me know if you’ve seen alternative patterns that are more effective, or if a service provider model really is the best fit.
 * If you can move from being a hard dependency to a soft dependency, that will make the organization more effective. You can sometimes do this by switching to a consultant model. For example, having teams do their own infrastructure work, but having an infrastructure team there to help with hard problems, can be a better model than having one team do infrastructure work for everyone. Ideally, with the consultant model you’re not actually doing the work, just guiding people on what needs to be done and best practices. There is a lot of nuance to this, we’ll discuss more in the Consultant post (soon).
 * One way to make other teams’ dependencies on you softer is to give them a default approach when you’re not able to help them. For example, designers might have a design library, and encourage people to “do their best” when design isn’t available to help. (A design library can be automation for designers). You can tell people not to plan on your team being able to do work for them unless they’re a “top 3 priority”. This is not at all ideal, but it’s better than the alternative of them planning for your help when it’s not realistic.
 * It’s often best to have a long-term goal in mind which is a different coordination model, like [self-service](/platform-teams-and-the-self-service-model/). You can often scare up investment by selling that vision and showing progress towards it. This can take a long time to transition to, but be a highly valuable improvement. Combining [self-service](/platform-teams-and-the-self-service-model/) and a consultant approach can actually work pretty effectively. You get customer awareness by being a consultant, but continually aim to make your work product [self-service](/platform-teams-and-the-self-service-model/). This can also ease some of the transition pain to getting to a [self-service](/platform-teams-and-the-self-service-model/) model.
