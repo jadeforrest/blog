@@ -55,7 +55,7 @@ The more tenuous your role, the less you will feel comfortable bringing up probl
 
 Humans are hierarchical creatures. Like other apes, we naturally think of ourselves in hierarchy. Leaders are constantly deferred to. They have their ideas validated as brilliant. In meeting after meeting, they see signs that their ideas are taken seriously. This reinforces confidence in leaders. 
 
-I’ve seen this spiral out of control, where leaders become aggressively confident, and dismissive of other people’s ideas. Other leaders emulate the behavior of the person on top, and the whole culture tilts towards risky behavior, and aggression. I imagine Uber was like this as a company. 
+I’ve seen this spiral out of control, where leaders become aggressively confident, and dismissive of other people’s ideas. Other leaders emulate the behavior of the person on top, and the whole culture tilts towards risky behavior, and aggression. 
 
 Think about the danger of being overconfident, with poor information on the state of the organization. Confidence is a valuable skill in a leader — overconfidence is a distorting trait in one. 
 
