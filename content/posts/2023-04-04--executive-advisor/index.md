@@ -89,7 +89,7 @@ Advisors can be expensive, and even feel out of reach for individuals. Why? Cons
 
 Advisors also have a lot of overhead to just be an advisor. To give you an idea from my own consulting: I have 4 or 5 hours of meetings with prospective clients for every client that signs up (and I think that’s a good ratio). I need to have about four hours of meetings a month just to be sustainable as a business, and it fluctuates greatly. I have to manage taxes, health insurance, and deal with unpaid vacation. When you add all these things up, the rates can end up being higher than you might expect. 
 
-I personally provide a 50% discount for individuals, because otherwise many of them can’t afford it. And many of them find even the discounted rate out of their reach.
+I personally provide a 50% discount for individuals, because otherwise many of them can’t afford it. And many of them find even the discounted rate out of their reach. (This is why I started offering [group leadership coaching](/group-leadership-coaching/).)
 
 If possible, go through your company. An easy way to ask about this is to ask if they offer executive coaches or executive advisors. If they don’t, ask if they’d be open to it. Many leaders don’t want to seem “weak” by asking for this. But many companies do offer this kind of investment in their employees, or are willing to. You may be surprised that the person you’re asking already uses an advisor!
 
