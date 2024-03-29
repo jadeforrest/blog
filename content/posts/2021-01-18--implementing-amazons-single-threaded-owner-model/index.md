@@ -159,7 +159,10 @@ General Managers are used to separate an organization into divisions. The nice t
 
 ## Want to hear a deep dive?
 
-I [interviewed Alexa Stefanko on the Single Threaded Owner model](https://podcasters.spotify.com/pod/show/decodingleadership/episodes/1-Alexa-Stefanko-on-the-Single-Threaded-Owner-model--product-metrics--and-how-training-alligators-is-different-than-training-people-e2hlbik) for my podcast, [Decoding Leadership](https://podcasters.spotify.com/pod/show/decodingleadership), and we did a deep dive on what made this so successful for her team. We talked about the other changes we made at the same time, and a lot more nuance than I was able to go into in this article. I hope you subscribe!
+I [interviewed Alexa Stefanko on the Single Threaded Owner model](https://podcasters.spotify.com/pod/show/decodingleadership/episodes/1-Alexa-Stefanko-on-the-Single-Threaded-Owner-model--product-metrics--and-how-training-alligators-is-different-than-training-people-e2hlbik) for my podcast, [Decoding Leadership](https://podcasters.spotify.com/pod/show/decodingleadership), and we did a deep dive on what made this so successful for her team. We talked about the other changes we made at the same time, and a lot more nuance than I was able to go into in this article. 
+
+You can also hear it directly below. If you like it, please subscribe!
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/1-Alexa-Stefanko-on-the-Single-Threaded-Owner-model--product-metrics--and-how-training-alligators-is-different-than-training-people-e2hlbik" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
 ## Want help?
 
