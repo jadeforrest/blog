@@ -10,7 +10,7 @@ const Footer = props => {
     <React.Fragment>
       <footer className="footer">
         <a href="https://github.com/jadeforrest/blog/">
-          This blog is open source. Last updated {buildTime}.
+          Last updated {buildTime}.
         </a>
         
       </footer> 
