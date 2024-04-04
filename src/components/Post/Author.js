@@ -32,16 +32,16 @@ const Author = props => {
           border-radius: 65% 75%;
           border: 1px solid ${theme.line.color};
           display: inline-block;
-          height: 50px;
+          height: 70px;
           margin: 5px 20px 0 0;
           overflow: hidden;
-          width: 50px;
+          width: 70px;
         }
         .avatar img {
           width: 100%;
         }
         .note {
-          font-size: 0.9em;
+          font-size: 1em;
           line-height: 1.6;
         }
         @from-width tablet {
