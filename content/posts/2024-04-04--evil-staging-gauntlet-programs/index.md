@@ -117,7 +117,7 @@ You’ll notice that they are analogous to test suites. They are always present,
 
 Objection: **you shouldn’t do this because it will cause failures in production**. Those failures will happen anyway – they will just come at an inconvenient time. This method gives teams time to prepare. It also communicates that the expectation is that you build things in a reliable way. Often, teams do not get this type of explicit guidance, and they can ironically be punished for building things in a reliable way.
 
-Objection: **production is already evil**. You're already getting lots of signal from your production environment, because things are failing a lot! So it can seem like a stretch to add more failures to your approach. But it is valuable to have the failures happen more predictably and consistently. If you only run out of disk space once a year, you're unlikely to know about that until you run out of disk space! But if you have that failure right after you commit a change that will cause a problem, it's much better to be able to know abou that right away.
+Objection: **production is already evil**. You're already getting lots of signal from your production environment, because things are failing a lot! So it can seem like a stretch to add more failures to your approach. But it is valuable to have the failures happen more predictably and consistently. If you only run out of disk space once a year, you're unlikely to know about that until you run out of disk space! But if you have that failure right after you commit a change that will cause a problem, it's much better to be able to know about that right away.
 
 I hope more companies experiment with variations like this! Let me know your experiences, and what you come up with!
 
