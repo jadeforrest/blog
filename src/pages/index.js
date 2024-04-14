@@ -65,7 +65,9 @@ const IndexPage = props => {
         <p></p>
 
         <img src={charity} className="charity" width="100%" />
+        <p></p>
         <img src={sarah} className="charity" width="100%" />
+        <p></p>
         <img src={rachel} className="charity" width="65%" />
 
         <p></p>
