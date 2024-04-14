@@ -2,10 +2,9 @@
 title: Decoding Leadership Podcast
 ---
 
-<re-img src="avatar-large.jpeg" hovereffect=true></re-img>
-
 Where we break down the elements of humane and effective leadership.
+
+<re-img src="decoding-leadership-6.png" width="60%"></re-img>
 
 https://podcasters.spotify.com/pod/show/decodingleadership
 
-<re-icons></re-icons>
