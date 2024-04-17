@@ -33,6 +33,8 @@ Each of us brings an essential part to the working session. I bring a lot of exp
 
 We talk through a few ways to solve each problem. And we review the tradeoffs of those approaches. I usually suggest solutions my clients wouldn’t consider. And I share tradeoffs they would miss. They in turn point out ways the environment may bias the solution in a particular direction. 
 
+As we work through these examples, we use them to clarify principles and mental models. That way, we are both solving an immediate problem, and building a muscle for addressing future problems. 
+
 Some of my clients use me to test their plans. They’ll share what they’re thinking, and have me walk through the tradeoffs, or suggest some alternatives they might not have thought of. 
 
 We walk out of these sessions with solid plans and new ways of addressing problems. It’s like pair programming, but for leadership!
@@ -91,7 +93,7 @@ Advisors also have a lot of overhead to just be an advisor. To give you an idea 
 
 I personally provide a 50% discount for individuals, because otherwise many of them can’t afford it. And many of them find even the discounted rate out of their reach. (This is why I started offering [group leadership coaching](/group-leadership-coaching/).)
 
-If possible, go through your company. An easy way to ask about this is to ask if they offer executive coaches or executive advisors. If they don’t, ask if they’d be open to it. Many leaders don’t want to seem “weak” by asking for this. But many companies do offer this kind of investment in their employees, or are willing to. You may be surprised that the person you’re asking already uses an advisor!
+If possible, go through your company. An easy way to ask about this is to ask if they offer executive coaches or executive advisors. If they don’t, ask if they’d be open to it. Many leaders don’t want to seem “weak” by asking for this. You would be surprised how common executive advisors are. Many companies do offer this kind of investment in their employees, or are willing to. You may be surprised that the person you’re asking already uses an advisor!
 
 Most advisors charge either hourly, or by the number of meetings. My own rates are monthly charges, based on the frequency we plan to meet. That seems to be pretty common. 
 
@@ -109,7 +111,7 @@ Another key difference is that advisors tend to have a more directive approach, 
 
 Overall, both advisors and coaches can be valuable resources for people seeking guidance and support, but they have different areas of focus and approaches.”</font>
 
-You’ll find that there is a continuum between the two. Most advisors also do some coaching. Some coaches also do some advising. 
+You’ll find that there is a continuum between the two. Most advisors also do some coaching. Some coaches also do some advising. I do both.
 
 My advice for engineering leaders is to find someone who leans towards advising. The reason for that is that having deep experience in engineering leadership is something that is worth a lot. There is a wide body of knowledge and expertise that you will be able to tap into from advisors that understand that domain well.
 
