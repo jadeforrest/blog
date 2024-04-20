@@ -14,7 +14,7 @@ description: "Describes a technique you can use to improve information flow with
 How do the people around you know what they need to know? I am going to share two techniques that you can use to improve information flow with the people you work with. 
 
 1. The first is a common technique, but often one that is poorly practiced: a weekly email.
-2. The second is called _infobits_. With infobits, you tracks _what_ to communicate out _to whom_. Experimenting with infobits has made a huge difference in my communication. 
+2. The second is called _infobits_. With infobits, you track _what_ to communicate out _to whom_. Experimenting with infobits has made a huge difference in my communication. 
 
 ## Don't ever let your boss be surprised
 
@@ -55,7 +55,7 @@ The challenge can be keeping track of all the people around you and who you’ve
 
 ## Introducing Infobits
 
-What I do now is to keep a log, just like I did in the past. Throughout the day, I write down little tidbits to remind me of things that happened. For example:
+Here's how I work when I use Infobits. I keep a log, just like I did in the past. Throughout the day, I write down little tidbits to remind me of things that happened. For example:
 
 <re-img src="infobit-notes.jpg"></re-img>
 
@@ -67,7 +67,7 @@ Then, I edit them based on that particular person’s information needs:
 
 <re-img src="infobits-edited.jpg"></re-img>
 
-## Considerations as you edit infobits
+## Considerations as you edit Infobits
 
 * How do you want people to respond to the information? Do you want it kept confidential? Do you want them to broadcast it to their team? Make that clear.
 * Consider whether this is for their information, or whether you want them to act upon it. If you call it infobits, the default is FYI.
@@ -84,9 +84,9 @@ I have done an experiment with doing this by Slack. I prefer the email, for a co
 
 Doing it by Slack is fine, but I recommend doing it on a cadence: daily, biweekly, or weekly. 
 
-## Why you should try infobits
+## Why you should try Infobits
 
-Writing infobits takes a little more time than the weekly email. Is it worth it? I’d encourage you to try it out for a couple of weeks, and see what kind of response you get.
+Writing Infobits takes a little more time than the weekly email. Is it worth it? I’d encourage you to try it out for a couple of weeks, and see what kind of response you get.
 
 My experience was that there were three surprises:
 
@@ -94,7 +94,7 @@ My experience was that there were three surprises:
 * Surprise #2: Suddenly everyone seemed to think I and my team were doing better work than we had been doing previously.
 * Surprise #3: Infobits also help build important business relationships. People really appreciate it when you are helping them to do their job better.
 
-I personally don't always do infobits. There is a cost to spending so much time on communication. But practicing infobits gave me a new skill. Whenever I notice information gaps, I can pull out infobits and use it to improve information flow.
+I personally don't always do Infobits. There is a cost to spending so much time on communication. But practicing Infobits gave me a new skill. Whenever I notice information gaps, I can pull out Infobits and use it to improve information flow.
 
 ## Information flow as a system
 
@@ -102,7 +102,7 @@ As you get more experienced in your career, you will have more latitude to influ
 
 For example, if you see that managers are always asking their team members for information, you can add demos or standups to ensure the managers are kept more abreast of things. Or you can emphasize different aspects of the management role. 
 
-One use of infobits is to _trace_ the information needs throughout the organization. Look at what information you're learning, think about where it came from and who needs to know it. With a lot of experience, you may not need to do the exercise, but early on in your career, it can be a helpful way to analyze the information needs of the people around you.
+One use of Infobits is to _trace_ the information needs throughout the organization. Look at what information you're learning, think about where it came from and who needs to know it. With a lot of experience, you may not need to do the exercise, but early on in your career, it can be a helpful way to analyze the information needs of the people around you.
 
 
 Thanks to [@Lariar](https://twitter.com/lariar) on Twitter for archiving this content so I could repost it. This was originally hosted on [Kate Matsudaira's](https://www.linkedin.com/in/katemats/) popforms. Also thank you to [Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/), who taught me many of the techniques in this blog post.
