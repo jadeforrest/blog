@@ -50,7 +50,7 @@ const IndexPage = props => {
             
               <div className="formkit-disclaimer" data-element="disclaimer">
                 <br /><p>Also useful for product and design leaders!
-                A <a href="/courses">paid</a> version is also available. I also offer a <a href="/courses">newsletter course</a> on frontline management.
+                A <a href="/courses">paid</a> version is also available. I also offer a <a href="/courses">newsletter course</a> for new managers.
                 I respect your privacy. Unsubscribe anytime.</p>
 
                 <br /><p><a href="/courses">Learn more</a></p>
@@ -66,39 +66,37 @@ const IndexPage = props => {
 
         <img src={charity} className="charity" width="100%" />
         <p></p>
-        <img src={sarah} className="charity" width="100%" />
-        <p></p>
-        <img src={rachel} className="charity" width="65%" />
-
-        <p></p>
-
-        <div>Read by leaders from <b>Salesforce</b>, <b>Gitlab</b>, <b>Slack</b>, <b>Netlify</b>, and many other companies.</div>
-
-        <p></p>
 
         <p>👋 Hi, I'm Jade Rubick.</p>
         
-        <p>I help 💻 startups and medium sized companies on how to organize people 🧑‍🦰 
+        <p>I help 💻 startups and medium sized companies to organize people 🧑‍🦰 better 
           to build great things together 🚀.</p>
 
-        <p>When you subscribe ✨ Engineering Leadership Weekly, 
+        <p>When you subscribe ✨ to Engineering Leadership Weekly, 
           you will receive an email 📧 each week with something that should be useful.
-          </p>
+        </p>
+
+        <img src={sarah} className="charity" width="100%" />
+        <p></p>
 
         <p>
-          The most common themes in my writing are principles and constraints that
-          govern how we work together, humane/sustainable management, and 
-          incremental/feedback rich product development. But you'll see
-          writing on many topics, including diversity/equity/inclusion, engineering
-          standards, running projects, and communication.</p>
+          The most common themes in my writing are </p>
+          <ul>
+            <li>Deconstructing how humans work together effectively to produce good results. Effective + humane management.</li>
+            <li>Incremental & feedback-rich product development.</li>
+            <li>Lots of specific management practices I've learned or invented.</li>
+          </ul>
+        <img src={rachel} className="charity" width="70%" />
+        <p></p>
 
         <p>I offer a <b>paid version</b> 💰 of this course. This supports 💚 my
-          writing -- the more support I get, the more I'll be able to write. Use your 
+          writing. Use your 
           "professional development" budget: pay for it and expense it. I've been so
           thankful 🙏 for the support!
           Although most of the material is the same, the paid version offers additional benefits, such as
           an optional 1-1 session. You can read more about the paid courses  
           <a href="/courses/"> here</a>.</p>
+
 
           <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
           <section className="subContainer2">
@@ -133,15 +131,20 @@ const IndexPage = props => {
         </a>
 
         <style jsx>{`
-          p,ul {
+          p {
             font-size: ${theme.font.size.m};
             line-height: ${theme.font.lineHeight.xxl};
             margin: 0 0 1.5em;
             margin-bottom: 40px;
           }
-
+          ul {
+            font-size: ${theme.font.size.s};
+            line-height: ${theme.font.lineHeight.xxl};
+            margin: 0 0 1.5em;
+            margin-bottom: 40px;
+          }
           li {
-            padding-top: 18px;
+            margin-left: 18px;
           }
           h4 {
             font-size: ${theme.font.size.m};
