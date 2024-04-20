@@ -9,4 +9,4 @@ title: author
  \
  \
 **Contact** \
-Point me at your organizational problems. I <a href="/about/" style="color:green;">advise startups</a> and help in a variety of ways.
+I <a href="/about/" style="color:green;">advise startups</a> and help in a variety of ways. <a href="/contact/">Contact me</a>.
