@@ -89,12 +89,12 @@ const IndexPage = props => {
         <img src={rachel} className="charity" width="70%" />
         <p></p>
 
-        <p>I offer a <b>paid version</b> 💰 of this course. This supports 💚 my
+        <p>I offer a <b>paid version</b> 💰 of Engineering Leadership Weekly. This supports 💚 my
           writing. Use your 
           "professional development" budget: pay for it and expense it. I've been so
           thankful 🙏 for the support!
           Although most of the material is the same, the paid version offers additional benefits, such as
-          an optional 1-1 session. You can read more about the paid courses  
+          an optional 1-1 session. You can read more about the paid newsletter and courses  
           <a href="/courses/"> here</a>.</p>
 
 
@@ -106,8 +106,9 @@ const IndexPage = props => {
         </a>
 
         <p></p>
-        <h4>You can also follow my writing in other ways:</h4>
-        <p></p>
+        <p>
+          You can also follow my writing in other ways:
+        </p>
 
         <a href="../rss.xml" target="_blank">
           <section className="subContainer">
