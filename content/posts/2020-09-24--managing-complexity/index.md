@@ -36,12 +36,12 @@ More people
 * ...make meetings less effective.
 * ...make old communication patterns ineffective. Typically, organizations go from many to many communication (broadcast everything, ask anyone anything!) to segmented communication to structured communication. 
 * ...lead to more relationships to navigate.
-* ...to keep aligned.
+* ... make alignment more difficult.
 
 More software
-* ...increasing cognitive load. Soon no single human can understand the whole picture. 
+* ...increases cognitive load. Soon no single human can understand the whole picture. 
 * ...has more patterns in it, making it harder to reason about.
-* ...which makes it harder to make big changes, because it requires more effort.
+* ...makes it harder to make big changes, because it requires more effort.
 
 More teams
 * ...which require coordination and dependencies between them to accomplish larger goals. 
