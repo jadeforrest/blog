@@ -29,61 +29,61 @@ Sometimes you might embed an expert on several teams. Or you might embed them in
 
 ## When to embed
 
-* **Embedding can be one of the best coordination models to use.** It is appropriate when you want specialists to collaborate within a team. I like embedding designers, product managers, sometimes SREs, sometimes architects, and sometimes QA. \
-\
-Embedding can be the easiest way to add specialist skills. In some organizations, you are not "allowed" to hire specialists into your organization. For example, an engineering leader can't hire a designer into their team. Embedding allows you to get around this. See later in this post for a discussion on this. 
+* **Embedding can be one of the best coordination models to use.** It is appropriate when you want specialists to collaborate within a team. I like embedding designers, product managers, sometimes SREs, sometimes architects, and sometimes QA. 
+
+* Embedding can be the easiest way to add specialist skills. In some organizations, you are not "allowed" to hire specialists into your organization. For example, an engineering leader can't hire a designer into their team. Embedding allows you to get around this. See later in this post for a discussion on this. 
 
 * **The embedded person’s work should be mostly aligned with the existing team**. It only makes sense to use embedding if you need collaboration. Embedding increases context, collaboration, and relationships within the team. 
 
-* **You can only embed up until a maximum team size.** If the team already has eight or nine people on it, you need to split the team, or not embed. This count includes other embedded people. \
-\
-The embedded model scales well with the growth in teams. Each new team gets a new member. It does reduce the maximum team size by one. A rule of thumb is that the specialist team member should add more value than a generalist would.  
+* **You can only embed up until a maximum team size.** If the team already has eight or nine people on it, you need to split the team, or not embed. This count includes other embedded people. 
 
-* **You are tying company investment to be proportional to the growth of these teams**. That can be good, or bad. Many supporting organizations should grow slower than the growth of teams. They need to become more efficient over time. Other specialists should grow at exactly the same rate as engineering. Embedding makes the most sense when the growth should be at the same rate. Embedding makes these growth plans part of the structure of the organization. If you know every product team needs a product designer, then that is a good thing. You know that the plan will account for those hires.  \
-\
-Sometimes specialist teams should grow slower. For example, a security team should grow slower than a proportion to engineering. They won’t achieve this goal with embedding, so other approaches might make better sense. You can still use embedding, but it should be temporary.
+* The embedded model scales well with the growth in teams. Each new team gets a new member. It does reduce the maximum team size by one. A rule of thumb is that the specialist team member should add more value than a generalist would.  
+
+* **You are tying company investment to be proportional to the growth of these teams**. That can be good, or bad. Many supporting organizations should grow slower than the growth of teams. They need to become more efficient over time. Other specialists should grow at exactly the same rate as engineering. Embedding makes the most sense when the growth should be at the same rate. Embedding makes these growth plans part of the structure of the organization. If you know every product team needs a product designer, then that is a good thing. You know that the plan will account for those hires.  
+
+* Sometimes specialist teams should grow slower. For example, a security team should grow slower than a proportion to engineering. They won’t achieve this goal with embedding, so other approaches might make better sense. You can still use embedding, but it should be temporary.
 
 ## How to embed well
 
-* **You may need a central team**. It’s common to need a centralized team even while embedding. This team is usually small. \
-\
-For example, a design organization might embed, but have a central team or two. This central team can work on a design system, or design research. \
-\
-An SRE organization might have a central SRE team as well. This team can work on standardized tooling, and [provide reliability information and reporting](/objective-expert-model/). This works together with embedding. \
-\
-This sort of pairing is natural. You may or may not need it to start. But you usually end up needing both.
+* **You may need a central team**. It’s common to need a centralized team even while embedding. This team is usually small. 
 
-* **Support the home team too**. Embeds maintain split allegiances. Embeds need support on both teams. Some people tend to make stronger attachments on their work team. Other people tend to make stronger attachments with their home team. \
-\
-Encourage embeds to view their work team as their primary team. But don't neglect the home team. Home teams can share practices and information among specialists. They act as a Community of Practice that can spread expertise throughout the company. 
+* For example, a design organization might embed, but have a central team or two. This central team can work on a design system, or design research. 
+
+* An SRE organization might have a central SRE team as well. This team can work on standardized tooling, and [provide reliability information and reporting](/objective-expert-model/). This works together with embedding. 
+
+* This sort of pairing is natural. You may or may not need it to start. But you usually end up needing both.
+
+* **Support the home team too**. Embeds maintain split allegiances. Embeds need support on both teams. Some people tend to make stronger attachments on their work team. Other people tend to make stronger attachments with their home team. 
+
+* Encourage embeds to view their work team as their primary team. But don't neglect the home team. Home teams can share practices and information among specialists. They act as a Community of Practice that can spread expertise throughout the company. 
 
 * **Don’t shift people around too frequently**. Part of the value of these long-term pairings is you build relationships and context. It is expensive to move people because it breaks these connections. Most embedded organizations tend to move people more than they should. It can be frustrating to have embeds on your team if you can't rely on them to stay. Yet it is tempting for the embed's manager to move people around. They want to react to changing needs, and sometimes there aren't enough people to go around. This can be a source of friction. 
 
 * **Negotiate how it works and take care onboarding**. A new embedded person has a more complex situation than new employees do. They have another manager, and things outside your team they may be paying attention to. Kick off the relationship with explicit conversations. Spend twice the care you would with onboarding a generalist employee.  
- \
-Keizan Shaffer offers this advice: “One thing that I found helpful when embedding staff engineers was to conduct a standard Kick-off process with a Statement of Work as output. Early on I learned the hard way that leaving success criteria loose leads to lingering engagements / disappointment / confusion.”  
+
+* Keizan Shaffer offers this advice: “One thing that I found helpful when embedding staff engineers was to conduct a standard Kick-off process with a Statement of Work as output. Early on I learned the hard way that leaving success criteria loose leads to lingering engagements / disappointment / confusion.”  
 
 * **Be clear who directs their work**. When negotiating an embedded situation, decide who directs their work. It can cause problems if both the home and work team managers assign work. This makes their output less predictable. Even worse than that, it causes surprises because it seems predictable until it isn't. This can make it hard to depend on the embedded person. 
 
-* **Clarify what type of work they’ll be doing**. Another thing to be specific about is the type of work you’re expecting them to do. For example, is the SRE joining the team to do operational work? Or are they there to help the team get better at operational work? \
-\
-Many companies focus on cross training and [T-shaped people](https://jchyip.medium.com/why-t-shaped-people-e8706198e437). They do this to create more flexible teams. And they see value in spreading that skillset within the team. If you can, make it explicit that the specialist won't do all the work. The goal is for them to help the team get better at that type of work. This won't always make sense. Team members can't internalize every specialty.  
+* **Clarify what type of work they’ll be doing**. Another thing to be specific about is the type of work you’re expecting them to do. For example, is the SRE joining the team to do operational work? Or are they there to help the team get better at operational work? 
+
+* Many companies focus on cross training and [T-shaped people](https://jchyip.medium.com/why-t-shaped-people-e8706198e437). They do this to create more flexible teams. And they see value in spreading that skillset within the team. If you can, make it explicit that the specialist won't do all the work. The goal is for them to help the team get better at that type of work. This won't always make sense. Team members can't internalize every specialty.  
 
 * **Good role definition can help clarify expectations**. Develop role definitions. Review expectations when they join the team. This will help both them and the team know what to expect.  
 
-* **Maintain good communication between managers**. If you’re the manager of the embedded person, check in with the manager of the team your person works with. Set up a regular cadence for checking in. It’s good customer service, and it’s also vital so you can offer good feedback and coaching to your direct report. \
-\
-For the embedded person, they are living in a sort of matrix-managed world. Although they don’t have two managers, in practice it can feel that way. They attend two sets of meetings. And their manager isn’t seeing their work. \
-\
-As a manager of an embedded team, make sure you have a way to assess your team members’ work and coach them. They need career development and support like any other employee. 
+* **Maintain good communication between managers**. If you’re the manager of the embedded person, check in with the manager of the team your person works with. Set up a regular cadence for checking in. It’s good customer service, and it’s also vital so you can offer good feedback and coaching to your direct report. 
+
+* For the embedded person, they are living in a sort of matrix-managed world. Although they don’t have two managers, in practice it can feel that way. They attend two sets of meetings. And their manager isn’t seeing their work. 
+
+* As a manager of an embedded team, make sure you have a way to assess your team members’ work and coach them. They need career development and support like any other employee. 
 
 * **Consider a "send back the embed" clause**. If you're the recipient of an embed, one of the bigger challenges you might face is if there are performance problems. I've faced the challenge several times where the home manager was defensive of their embedded person, and prioritized that over listening to my feedback about performance challenges. They're often not as close to the work, and they may be inclined to let it be your problem. Yet you lack the ability to hire and fire the right person, so when you truly are facing skill gaps or performance issues, it's a tricky issue. From a systems perspective, I favor having a part of your embed agreement be that you reserve the right to "send back" anyone having performance challenges. The home team manager can decide whether to let them go or put them on other teams, or what to do about it. I've seen poor embeds cause immense damage on teams -- the diffusion of responsibilities can make it extend too long.
 
 * **Be careful of meeting load**. Embeds will often have a higher meeting burden than other individual contributors. The easiest way to handle this is to keep their home commitments light.  
 
-* **Watch out for embedding with multiple teams**. Embeds with multiple teams have an even more complex situation. They have three or more teams they’re a part of, and they have a lot of relationships and complexity to navigate. It's usually best to pair them with the organization's leader. That way, the org leader can direct their work. This can help simplify some of the complexity they’re dealing with. \
-\
-When you don't align an embed with an org leader, it can get complicated. When a reorg occurs, you'll have to do your own reorganization. Even if less optimal, keep your organizational design aligned with the embed's organization. I've seen reorganizations with three separate hierarchies. It was a complete mess. 
+* **Watch out for embedding with multiple teams**. Embeds with multiple teams have an even more complex situation. They have three or more teams they’re a part of, and they have a lot of relationships and complexity to navigate. It's usually best to pair them with the organization's leader. That way, the org leader can direct their work. This can help simplify some of the complexity they’re dealing with. 
+
+* When you don't align an embed with an org leader, it can get complicated. When a reorg occurs, you'll have to do your own reorganization. Even if less optimal, keep your organizational design aligned with the embed's organization. I've seen reorganizations with three separate hierarchies. It was a complete mess. 
 
 ## Embedding versus other coordination models
 
