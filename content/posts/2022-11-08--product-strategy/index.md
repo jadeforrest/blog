@@ -149,7 +149,6 @@ These are worth thinking deeply about. How can you build a business where someon
 
 One exercise I like to do if you’re a market leader is to imagine what product you would build if you could take the best people from your company and to go off and create a competing product that would aim to destroy the original company. If you do this exercise, and your competition is pretty similar to what you come up with, you might be in trouble.
 
-
 ### Good strategy includes where you don’t plan to win
 
 Organizations also tend to want to do everything, so it’s important to make it explicit what you’re not planning to do. 
@@ -192,6 +191,10 @@ What I found is that we would often settle on some new possibilities that we wer
 
 Gregory Kim: “It might be worth mentioning adding rules for knowing when your strategy is good enough. I.e., would I stake my future livelihood on this? The more critical the need for success, the higher the bar should be for the strategy.”
 
+The strategy needs to solve these three things:
+1. Profitable
+2. Not easy to replicate
+3. Valuble to customers.
 
 ### Remember the opposite test
 
@@ -239,7 +242,7 @@ Once the Product Strategy has been finalized, it’s often a good next step to h
 
 You should make sure you make space for people to surface the tradeoffs and implications of executing against this new strategy. Your product strategy is a tool for improving and communicating your strategy, not holy scripture. You may not realize some of the tradeoffs you are making, so ask people to be explicit about what implications they see. Team should volunteer the things they’re giving up or deprioritizing, so everyone has full visibility into it. 
 
-Note that executing on the strategy is actually where the hardest work is. Alex Kroman shares some tips on how to execute on a strategy in my post on [Product Councils](/product-council/?utm_source=website-product-strategy&utm_medium=link&utm_campaign=product-strategy). 
+Alex Kroman shares some tips on how to execute on a strategy in my post on [Product Councils](/product-council/?utm_source=website-product-strategy&utm_medium=link&utm_campaign=product-strategy). 
 
 ## Thank you
 
