@@ -140,7 +140,7 @@ Trade offs to consider include:
 
 * **When will customers have contact with your work**? Moving it forward provides information earlier. A general pattern you will see in successful projects is early customer feedback, followed by increasing customer contact over time. 
 * **What information will you learn, and when**? You might do riskier milestones early, to explore areas you’re less confident about. Or you might do a milestone that is explicitly about testing some assumptions early on. 
-* **When will things be fully integrated**? Experienced engineers will start out with a steel thread, and keep it working at all points. Be suspicious of orderings that rely on a merging work later. 
+* **When will things be fully integrated**? Experienced engineers will start out with a [steel thread](/steel-threads/), and keep it working at all points. Be suspicious of orderings that rely on people merging their work later. 
 * **How much optionality do you give your future selves**? Sequencing that allows us to pivot to new priorities can be incredibly valuable. If you’re able to sequence a project so the value diminishes over time towards the end of the project, you can keep your projects lean by not implementing things that may be less valuable. This can also reduce technical debt over time. Just be sure that what you deliver early on is actually valuable when you deliver only part of it. 
 
 For example, let’s say your project is to create a Slack bot that displays charts from your application in a customer’s Slack channel. Here are two different ways you could break down this project: 
