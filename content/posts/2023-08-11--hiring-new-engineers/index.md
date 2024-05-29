@@ -61,6 +61,12 @@ That said, a lot of the lessons from this can be applied to earlier stage compan
 
 The post is a three part series. You can start here: [Running New Relic’s Ignite Program, Part 1 - Hiring](https://djspinmonkey.github.io/2023/07/10/ignite-hiring/).
 
+## Interview with John Hyland
+
+I interviewed John about their advice for people to make hiring and onboarding engineers successful. 
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/5--John-Hyland-on-early-career-engineers--decomposing-monoliths--and-the-preventable-problems-paradox-e2jpur2/a-ab9h52e" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ## Thank you
 
 [John Hyland](https://www.linkedin.com/in/jhyland/) is a former colleague of mine, and the author of the post I feature here. Contact them if you're interested in further details after reading this post. I suspect they'd jump at a chance to do similar programs at other companies, and even to help others who are doing so.
