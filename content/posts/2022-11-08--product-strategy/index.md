@@ -244,6 +244,8 @@ You should make sure you make space for people to surface the tradeoffs and impl
 
 Alex Kroman shares some tips on how to execute on a strategy in my post on [Product Councils](/product-council/?utm_source=website-product-strategy&utm_medium=link&utm_campaign=product-strategy). 
 
+I talk further about this topic in a Level Up podcast: [Product strategy pitfalls](/product-strategy-podcast/).
+
 ## Thank you
 
 Many people weighed in on early drafts of this post – any mistakes since then are probably my fault. Big thank you to [Nadya Boone Duke](https://www.linkedin.com/in/nadyaboone/), [Henry Shapiro](https://www.linkedin.com/in/shapirohenry/), and [Gregory Kim](https://www.linkedin.com/in/6502a/) for substantial critique and improvements. Gregory Kim suggested contrasting the value of product strategy to other coordination models. Nadya suggested adding in the current state of the product to the outline for a product strategy. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) not only introduced me to Michael Porter, but taught me the nuts and bolts of strategy. And he sent me a great message that provided the quote above on strategy. [Patrick Lightbody](https://www.linkedin.com/in/lightbody/) showed me an example of what a good product strategy could look like. [Todd Etchieson](https://www.linkedin.com/in/toddetchieson/), [Kevin McGuire](https://www.linkedin.com/in/mcgui/), and [Nic Benders](https://www.linkedin.com/in/benders/) taught me a lot about strategic thinking. Thank you to [@gabor](https://twitter.com/gabor) on Twitter for the great strategy quote. 
