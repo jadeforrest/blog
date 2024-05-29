@@ -164,6 +164,11 @@ I [interviewed Alexa Stefanko on the Single Threaded Owner model](https://podcas
 You can also hear it directly below. If you like it, please subscribe!
 <iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/1-Alexa-Stefanko-on-the-Single-Threaded-Owner-model--product-metrics--and-how-training-alligators-is-different-than-training-people-e2hlbik" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
+I also interviewed Jason Poole on some of the [challenges of the Single Threaded Owner model](https://podcasters.spotify.com/pod/show/decodingleadership/episodes/4--Jason-Poole-on-productengineeringdesign-mind-melds--managing-vs-leading--and-fast-decision-making-e2j0cb9). You can hear it below.
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/4--Jason-Poole-on-productengineeringdesign-mind-melds--managing-vs-leading--and-fast-decision-making-e2j0cb9/a-ab7dsst" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
+
 ## Want help?
 
 If you haven't done these things before, it's often valuable to have an executive advisor. [Contact me](/about/) if you'd like to explore this!
