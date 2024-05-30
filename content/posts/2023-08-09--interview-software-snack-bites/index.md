@@ -1,5 +1,5 @@
 ---
-title: Tactical advice for building effective eng teams, anti-patterns to avoid -- podcast
+title: Tactical advice for building effective eng teams, anti-patterns to avoid (Snack bites podcast)
 tags: ["podcast", "scaling", "roles", "delivery", "velocity"]
 cover: podcast.jpg
 author: Jade Rubick
