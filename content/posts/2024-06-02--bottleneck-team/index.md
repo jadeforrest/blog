@@ -83,6 +83,12 @@ Another thing I've seen work is to shift responsibilities. It should be done in 
 
 For example, I remember a team that was responsible for all of the scheduled jobs for the entire engineering organization. They owned hundreds of scheduled jobs. And this was one of their many responsibilities. In this case, it didn’t make a lot of sense for them to own these things, because the work these jobs did were more aligned with other teams’ responsibilities. So what the team successfully advocated for is to own the underlying scheduled jobs infrastructure, and the patterns for how scheduled jobs were run. They shifted the jobs themselves to the teams that were more closely aligned with those jobs. That sort of shifting of responsibilities can be a good move, because it reduces the surface area of your team. But it has to make sense for the wider organization, as these type of moves can be political.
 
+## Podcast on bottleneck teams
+
+I cover bottleneck teams in this episode of Decoding Leadership:
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/6--Jade-Rubick-on-the-dangers-of-fan-out-work--and-managing-a-bottleneck-team-e2k9fjf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ## Thank you
 
 Image by <a href="https://pixabay.com/users/matthiasboeckel-3930681/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4573634">Matthias Böckel</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4573634">Pixabay</a>

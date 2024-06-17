@@ -60,6 +60,12 @@ Here are a couple of approaches for dealing with fan out work:
 
 I'd love to hear your experiences with fan out work. Have you encountered similar challenges in your organization? How have you addressed them, and what strategies worked best for you?
 
+## Podcast on fan out work
+
+I cover the topic of fan out work in this episode of Decoding Leadership:
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/6--Jade-Rubick-on-the-dangers-of-fan-out-work--and-managing-a-bottleneck-team-e2k9fjf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ## Thank you
 
 Image by <a href="https://pixabay.com/users/avantrend-321510/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=497004">Werner Weisser</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=497004">Pixabay</a>
