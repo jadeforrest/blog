@@ -108,6 +108,12 @@ When you’re in a bro or macho culture, are there ways you can shape it as a le
 
 This is hard, but typical leadership work. It can be rewarding if it changes, but quite frustrating if there isn’t an openness to change. 
 
+## Podcast on this topic
+
+I cover macho leadership and bro culture in this episode of Decoding Leadership. It covers almost exactly the same content:
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1rjhVqjInCauFZ4qmjSWkd?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 ## Thank you
 
 Image by <a href="https://pixabay.com/users/bluebudgie-4333174/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2063084">Davie Bicker</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2063084">Pixabay</a>
