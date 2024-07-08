@@ -1,6 +1,6 @@
 ---
 title: Macho leadership and bro culture
-tags: ["communication", "leadership", "company-culture", "diversity-equity-inclusion"]
+tags: ["communication", "leadership", "company-culture", "diversity-equity-and-inclusion"]
 cover: macho.jpg
 author: Jade Rubick
 discussionId: "macho-bro"
