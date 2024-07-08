@@ -4,7 +4,7 @@ tags: ["company-culture","diversity-equity-and-inclusion","scaling","complexity"
 cover: org-work.jpg
 author: Jade Rubick
 discussionId: "org-work"
-description: "Organizational work "
+description: "Organizational work is how to make an organization get better over time, instead of the opposite."
 ---
 
 Organizational work is work that you do ON an organization, to make it more effective.
