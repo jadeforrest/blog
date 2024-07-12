@@ -110,6 +110,14 @@ For example, if you focus exclusively on organizational work, you might neglect 
 
 You also can fail by focusing on work that isn’t organizational work, because you’re not really building a better environment around you. 
 
+## Documentation
+
+Organizational work is easier to iterate on when process is like "source code": the source of truth for process, and something that is fluid and easy to change. 
+
+When you have things written down, it is easier to improve upon. You can practice the steps yourself when you use the process. And improving the process can often be as simple as updating the documentation.
+
+I've written about [how to make process be valuable and easy to change](https://www.rubick.com/engineering-handbook/).
+
 ## How to identify organizational work, and examples
 
 Usually the way I come up with organizational work is I spend some focused time on a writing assignment for myself. I’ll list the problems I see in my organization, and try to identify the most important ones to address. I think about what I might do about those most important problems, and those become potential organizational work projects. 
