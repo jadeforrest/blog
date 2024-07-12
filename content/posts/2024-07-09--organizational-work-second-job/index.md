@@ -116,7 +116,7 @@ Organizational work is easier to iterate on when process is like "source code": 
 
 When you have things written down, it is easier to improve upon. You can practice the steps yourself when you use the process. And improving the process can often be as simple as updating the documentation.
 
-I've written about [how to make process be valuable and easy to change](https://www.rubick.com/engineering-handbook/).
+I've written about [how to make process be valuable and easy to change](/engineering-handbook/).
 
 ## How to identify organizational work, and examples
 
