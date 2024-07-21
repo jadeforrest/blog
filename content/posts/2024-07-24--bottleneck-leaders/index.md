@@ -1,5 +1,5 @@
 ---
-title: Bottleneck leaders
+title: How to avoid being a bottleneck leader
 tags: ["scaling", "complexity", "leadership", "information-flow"]
 cover: bottleneck.jpg
 author: Jade Rubick
