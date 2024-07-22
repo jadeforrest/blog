@@ -30,7 +30,7 @@ People vet a job based on the job description. If it’s well-written, they may 
 
 * **Make sure you're following the law**. Some locations require you to post salary ranges (I believe Colorado is one such state). Other states require you to tell the pay scale of the job if requested ([California](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB168)). Consider posting the salary in the job description, even if it's not required.
 
-* **Be explicit about what requirements require**. [Women tend to not apply for a role unless they meet 100% of the requirements](https://hbr.org/2014/08/why-women-dont-apply-for-jobs-unless-theyre-100-qualified), while men will apply even if they only meet 60% of the qualifications. Add language like this: _If you feel like you don’t meet all of the requirements for this role, we encourage you to apply anyways. We know the confidence gap and imposter syndrome gets in the way of meeting incredible candidates, and don’t want it to get in the way of meeting you._ 
+* **Be explicit about what requirements require**. [Women tend to not apply for a role unless they meet 100% of the requirements](https://hbr.org/2014/08/why-women-dont-apply-for-jobs-unless-theyre-100-qualified), while men will apply even if they only meet 60% of the qualifications. Add language like this: _If you feel like you don’t meet all of the requirements for this role, we encourage you to apply anyway. We know the confidence gap and imposter syndrome gets in the way of meeting incredible candidates, and don’t want it to get in the way of meeting you._ 
 
 * **Prune your requirements** down to what is actually need for the role. Don't artificially constrain the position beyond what is essential for the role.
 
