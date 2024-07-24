@@ -128,6 +128,12 @@ To close, I’d like to leave you with my mental model for how you can assess yo
 
 You are judged by the output of your organization. And specifically, you’re judged by the difference you make on the organization. What do you make better? How do you improve things? What is the diff you apply to that organization?
 
+## Podcast on these topics
+
+Decoding Leadership is my podcast on leadership. I continue this topic in my episode on removing yourself from being a bottleneck.
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ## Thank yous
 
 The mental model for how to assess yourself as a Director comes pretty directly from the book [High Output Management](/management-books/?utm_source=website-new-director&utm_medium=link&utm_campaign=management-books). It is one of the [best books on engineering management](/management-books/?utm_source=website-new-director&utm_medium=link&utm_campaign=management-books). 

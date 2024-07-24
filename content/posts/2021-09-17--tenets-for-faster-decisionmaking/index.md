@@ -68,6 +68,13 @@ Tenets can be centralized and global. They can also be federated throughout the 
 
 Tenets are just one of many [coordination models](/coordination-models/). Coordination models give you a menu of choices to choose from when solving your leadership coordination issues. 
 
+## Podcast on related topics
+
+Decoding Leadership is my podcast on leadership. I talk about tenets in this episode on removing yourself from being a bottleneck.
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
+
 ## Thank you
 
 [Shaun Yelle](https://www.linkedin.com/in/shaunyelle/) for introducing me to tenets. [Seth Falcon](https://www.linkedin.com/in/sethfalcon/) for overall feedback, for pointing out the initial version had too many steps to implement tenets and basically rewriting it for me, for the interesting question about emergent tenets versus initializing a team with them, and for some excellent editing suggestions. [Matthew Finlayson](https://www.linkedin.com/in/matthewfinlayson1/) for feedback on this post and suggesting I go into more detail on how to implement tenets. 

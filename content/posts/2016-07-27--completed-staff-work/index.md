@@ -124,4 +124,12 @@ On the other hand, situations in which you aren’t able to give the go-ahead re
 
 I hope you find Completed Staff Work as useful as I have. I welcome your feedback.
 
+## Podcast on related topics
+
+Decoding Leadership is my podcast on leadership. I continue this topic in my episode on removing yourself from being a bottleneck.
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
+## Thank you
+
 I'd like to thank [Merlyn Albery-Speyer](https://github.com/curious-attempt-bunny) for extensive feedback and suggestions to improve this post. [Caleb Huitt](https://www.linkedin.com/in/cjhuitt/) helped me locate the Ladder of Leadership source after I'd forgotten it. Photo by <a href="https://freeimages.com/photographer/yankleber-44845">Yan Moura</a> from <a href="https://freeimages.com/">FreeImages</a>
