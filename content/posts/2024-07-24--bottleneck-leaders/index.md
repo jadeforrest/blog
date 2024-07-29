@@ -117,6 +117,27 @@ One way you could handle this is to gradually move your position in the hiring p
 
 It’s not going to work for you to hire every person in the company. So gradually move from doing the work, to inspecting it.  This helps train your organization to produce the outcomes you’re looking for.
 
+## Focus on outcomes and constraints
+
+One of the biggest mistakes bottleneck leaders make is they have an activity-based view of the world. 
+
+This is natural. When you're doing the work yourself, your evaluation of the situation naturally includes how it is done.
+
+But when leaders are trying to remove themselves as bottlenecks, they'll often dictate the activities, and delegate that to their subordinates. 
+
+This is harmful for a number of reasons:
+
+1. The person doesn't feel ownership of the work. Why? Because they aren't really grappling with the problem space. So they're just operating as a remote controlled version of you.
+2. You're not setting up the work for real delegation. Why? You're operating at too granular a level. This drags you into the weeds, and keeps you in a position of being a bottleneck.
+
+What you want to work towards (assuming your subordinate has the capacity to take on the work) is giving people a few things when you delegate:
+
+1. The outcome you're wanting to see.
+2. Some constraints to guide their decision-making.
+3. The next steps for synchronizing your thinking or inspecting the work, or making sure you're on the same page.
+
+**When you are a bottleneck, you should aim to give your subordinates Problems, not Solutions**.
+
 ## Use Tenets to give high level guidance
 
 Another way to disentangle yourself from being a bottleneck is through the use of Tenets. Tenets are a way to give people mental shortcuts that help them reason about common problems within the company. If you see people making decisions repeatedly that follow a pattern that you’re not happy with, tenets can be a good solution. 
