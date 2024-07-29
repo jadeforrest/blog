@@ -119,11 +119,11 @@ It’s not going to work for you to hire every person in the company. So gradual
 
 ## Focus on outcomes and constraints
 
-One of the biggest mistakes bottleneck leaders make is they have an activity-based view of the world. 
+One of the biggest mistakes bottleneck leaders make is to focus on activities.
 
-This is natural. When you're doing the work yourself, your evaluation of the situation naturally includes how it is done.
+This is natural. When you're doing the work yourself, your evaluation of the situation naturally includes _how_ it is done.
 
-But when leaders are trying to remove themselves as bottlenecks, they'll often dictate the activities, and delegate that to their subordinates. 
+But when leaders are trying to remove themselves as bottlenecks, they'll often dictate the _activities_, and delegate them to their subordinates. 
 
 This is harmful for a number of reasons:
 
