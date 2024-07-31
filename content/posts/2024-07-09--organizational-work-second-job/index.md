@@ -104,11 +104,17 @@ As your position in the company rises further and further up, the percent of you
 
 ## Balancing your two jobs
 
-I have seen leaders get into trouble with organizational work. You have to balance the two parts of the job. 
+I have seen leaders [get into trouble with organizational work](https://charity.wtf/2021/03/07/know-your-one-job-and-do-it-first/). Your first job is your first job, and organizational work, while important, is something you do if you're doing well at your first job.
 
-For example, if you focus exclusively on organizational work, you might neglect things that others view as your main job. I’ve seen leaders fall into this trap with things that seem like “cultural improvements”. Yes, they make the organization more effective. But if you do that work without holding down your core responsibilities, you'll brand yourself as a leader that is ineffective. And that will compromise your organizational work.
+If you focus exclusively on organizational work, you might neglect things that others view as your main job. I’ve seen leaders fall into this trap with things that seem like “cultural improvements”. Yes, they make the organization more effective. But if you do that work without holding down your core responsibilities, you'll brand yourself as a leader that is ineffective. And that will compromise your organizational work. (This is not to say cultural improvements aren't valuable, of course.)
 
-You also can fail by focusing on work that isn’t organizational work, because you’re not really building a better environment around you. 
+## All organizational work is not equally valuable
+
+All organizational work is not equal. And some organizational work can be essential to the company's success. For example, streamlining your hiring process may be part of your ability to hit your engineering goals over the next year.
+
+Sometimes when people describe the second job, they mean work that "isn't important" or core to the business. I don't usually use it this way. To me, the second job is about improving the organization around you to be more effective. Cultural work can fall into that category, but I don't use "second job" to refer to work that other people don't value.
+
+You also fail by focusing on work that isn’t organizational work, because you’re not really building a better environment around you. You can also fail if your organizational work isn't focused in the most valuable direction.
 
 ## Documentation
 
@@ -162,6 +168,6 @@ Decoding Leadership is my podcast on leadership. I cover this topic in one of th
 
 ## Thank you
 
-[Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) introduced me to the two jobs approach. He might have gotten it from somewhere, but he is the one I attribute it to because he baked it into my brain. [Ralph Bodenner](https://www.linkedin.com/in/ralphbodenner/) gave me some good ideas for improving this post, especially around how your second job is affected by your level of experience in the role. 
+[Bjorn Freeman-Benson](https://www.linkedin.com/in/bjornfreemanbenson/) introduced me to the two jobs approach. He probably got it from somewhere else, because I do see other people using the same terminology. But he is the one I attribute it to because he baked it into my brain. [Ralph Bodenner](https://www.linkedin.com/in/ralphbodenner/) gave me some good ideas for improving this post, especially around how your second job is affected by your level of experience in the role. [Ben Darfler](https://www.linkedin.com/in/bdarfler/) referred me to Charity Major's post on making sure you do your first job well. [Jeff Gray](https://www.linkedin.com/in/jeffgray/) initiated a discussion on LinkedIn on the foundational importance of the first job.
 
 Cover image by <a href="https://pixabay.com/users/kikkuru0606-431110/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1176892">kikkuru0606</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1176892">Pixabay</a>. Illustrations by Dalle.
