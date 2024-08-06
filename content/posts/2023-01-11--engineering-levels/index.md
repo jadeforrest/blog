@@ -81,7 +81,7 @@ We have four engineering titles:
 
 There are no standard titles for levels used in our industry. Every company’s system is different. This makes comparisons between companies fraught. A senior level at one company is not the same as a senior level at another place. It’s worth understanding our levels and the way we assess them, as you think about your career.
 
-It is difficult to proscribe the requirements for performing at a certain level. If the criteria are too broad, employees may not know what they need to do to advance. If the requirements are too specific, employees may become focused on checking boxes. We aim to incentivize a focus on areas that grow your skills.
+It is difficult to prescribe the requirements for performing at a certain level. If the criteria are too broad, employees may not know what they need to do to advance. If the requirements are too specific, employees may become focused on checking boxes. We aim to incentivize a focus on areas that grow your skills.
 
 The single most important thing for your leveling is your impact on the company. We can sum up the entire system by describing the impact we expect employees to have as they progress.
 
@@ -96,7 +96,7 @@ You’ll note that this is not a linear progression, especially at the top of th
 
 ## Fairness
 
-Leveling decisions can sometimes seem unfair, and we aim to create a fair promotion process. One important thing to understand is that levels are conservative by default. Once we put someone in a level, there isn’t a practical way to “take it back”. It can cause an otherwise excellent employee to look like they are underperforming at their level, which in some cases can only be remedied by managing them out of the company. So when we promote someone, we try to be sure that it’s the right decision. It’s better for everyone to have you perform solidly at a Senior 3 level than to struggle at a Lead 1 level.
+Leveling decisions can sometimes seem unfair, and we aim to create a fair promotion process. One important thing to understand is that levels are conservative by default. Once we put someone in a level, there isn’t a practical way to “take it back”. It can cause an otherwise excellent employee to look like they are underperforming at their level, which in some cases can only be remedied by managing them out of the company. So when we promote someone, we try to be sure that it’s the right decision. It’s better for everyone to have you perform solidly at a Senior 3 level than to struggle at a Staff 1 level.
 
 Because levels are conservative, you’ll often hear managers say that promotions are a lagging indicator of performance: You have to demonstrate that you’re performing at the next level, consistently, over a period of time. This can feel unfair. You might ask, "why am I delivering value at a Senior 1 level and only getting paid at a Software Engineer 3 level". But remember that promoting you is a risk for the company, and since the company doesn’t want to make a mistake and lose you, they’re risk-averse. You might be certain that you have all the skills of a senior engineer, but the more obvious that is, the more likely the promotion is to occur. 
 
