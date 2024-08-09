@@ -150,6 +150,7 @@ But…
 * Many environments are incompatible with FAST
 * You might have to manage self-management
 * FAST requires a lot of work
+* FAST can run counter to a desire to allocate people to areas
 * The FAST materials are full of jargon
 
 We’ll discuss each of these in turn.
@@ -301,7 +302,7 @@ There are a lot of assumptions built into this argument, and you might be able t
 
 FAST is new, so there isn’t a ton of evidence right now about whether FAST teams operate as effectively as conventional agile teams. But I suspect the answer to that question is yes. I have a couple of reasons to believe that. First of all, [Jim Shore](https://www.jamesshore.com/)’s preliminary experience with it [was quite positive](https://www.youtube.com/watch?v=WbPLjuvyCUA), and he’s someone I trust. 
 
-A second reason I am bullish on FAST is that I’ve had some experience with large groups of people doing self-organization. And I was surprised at how well it worked. 
+A second reason I am bullish on FAST is that I’ve had some experience with large groups of people doing self-organization. And I was surprised at how well it worked. And I have some experience with FAST, and found it to be an effective approach, though I didn't do it in a large Collective.
 
 In small companies, of course, you see a lot of self-organization. But as companies grow, you standardize things and remove self-organization except _within_ teams. However, one of the most interesting experiments I’ve been a part of was a large-scale self-organization event at New Relic. We redesigned all of our teams, and asked everyone in fifty software teams to select which team they wanted to be a part of. We had constraints on the skills needed for each team, and had defined what everyone needed to own. It ended up being way more successful than anybody anticipated, even us organizers. 
 
@@ -497,6 +498,10 @@ There is a lot of flexibility in this model. You could do the typical product-to
 
 So as you can see, there are many gaps in FAST. You’ll need to problem-solve the rest. 
 
+## FAST can run counter to a desire to allocate people to areas
+
+When I ran a FAST Collective, one unexpected source of friction with FAST I found was that you can have some situations where parts of the organization are wanting to see a dedicated effort to be allocated against their needs. You can do this with FAST, but there can be a pull towards allocating a team or a set of people against a stream of work.
+
 ## The FAST materials are full of jargon
 
 You may find the FAST website and manual confusing. You’ll have to navigate a lot of jargon and annoying terminology to get at the gold of FAST Agile. As an example, here’s the awful definition of FAST Agile that attempts to define the practice in [version 2.12 of the FAST Guide](https://www.fastagile.io/fast-guide):
@@ -504,8 +509,6 @@ You may find the FAST website and manual confusing. You’ll have to navigate a 
 _“What is Fluid Scaling Technology? Fluid Scaling Technology combines Open Space Technology and Open Allocation to create a lightweight, simple to understand, and simple to master method for organising people around work - that scales. FAST is the acronym for Fluid Scaling Technology. Fluid Scaling Technology for Agile is FAST Agile.”_
 
 So. Bad. And this is very representative. You’ll see lots of references to Collectives, Value Cycles, Open Technology, Teal transformation, Theory Y, etc. This is all presented with no explanation, and really even if it were explained it wouldn’t be helpful. They’re speaking to a niche audience of agile theorists, and focusing on attribution rather than usefulness.
-
-I expect this to improve over time, and have heard this is being improved.
 
 ## Conclusion
 
