@@ -477,7 +477,7 @@ FAST doesn’t describe how to handle incident retrospectives. I would recommend
 
 At the Collective meeting immediately following the incident, I would share what we learned, and also make an automatic priority for the next cycle be to do some of the work identified in the retrospective. 
 
-At New Relic, we didn’t use FAST, but we had a similar policy. We called it “Do Not Repeat Incidents” (DRI). It was among the best things we ever did for reliability. The rule was that DRI work was automatically more important than other priorities. Thus, an incident always resulted in either less scope, or a deadline getting pushed back. 
+At New Relic, we didn’t use FAST, but we had a similar policy. We called it “Don't Repeat Incidents” (DRI). It was among the best things we ever did for reliability. The rule was that DRI work was automatically more important than other priorities. Thus, an incident always resulted in either less scope, or a deadline getting pushed back. I have a whole post on [Don't Repeat Incidents](/dont-repeat-incidents/).
 
 ### How do designers work in FAST?
 
