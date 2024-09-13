@@ -149,6 +149,10 @@ These are worth thinking deeply about. How can you build a business where someon
 
 One exercise I like to do if you’re a market leader is to imagine what product you would build if you could take the best people from your company and to go off and create a competing product that would aim to destroy the original company. If you do this exercise, and your competition is pretty similar to what you come up with, you might be in trouble.
 
+How do you know if you've thought enough about this? 
+
+"An extremely simple test of whether you have thought deeply enough about the strategy is to ask if the strategy could be followed by another competitor. If the answer is yes than you haven’t gone deep enough to understand your strengths/weaknesses" -- Alex Kroman. 
+
 ### Good strategy includes where you don’t plan to win
 
 Organizations also tend to want to do everything, so it’s important to make it explicit what you’re not planning to do. 
@@ -248,7 +252,7 @@ I talk further about this topic in a Level Up podcast: [Product strategy pitfall
 
 ## Thank you
 
-Many people weighed in on early drafts of this post – any mistakes since then are probably my fault. Big thank you to [Nadya Boone Duke](https://www.linkedin.com/in/nadyaboone/), [Henry Shapiro](https://www.linkedin.com/in/shapirohenry/), and [Gregory Kim](https://www.linkedin.com/in/6502a/) for substantial critique and improvements. Gregory Kim suggested contrasting the value of product strategy to other coordination models. Nadya suggested adding in the current state of the product to the outline for a product strategy. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) not only introduced me to Michael Porter, but taught me the nuts and bolts of strategy. And he sent me a great message that provided the quote above on strategy. [Patrick Lightbody](https://www.linkedin.com/in/lightbody/) showed me an example of what a good product strategy could look like. [Todd Etchieson](https://www.linkedin.com/in/toddetchieson/), [Kevin McGuire](https://www.linkedin.com/in/mcgui/), and [Nic Benders](https://www.linkedin.com/in/benders/) taught me a lot about strategic thinking. Thank you to [@gabor](https://twitter.com/gabor) on Twitter for the great strategy quote. 
+Many people weighed in on early drafts of this post – any mistakes since then are probably my fault. Big thank you to [Nadya Boone Duke](https://www.linkedin.com/in/nadyaboone/), [Henry Shapiro](https://www.linkedin.com/in/shapirohenry/), and [Gregory Kim](https://www.linkedin.com/in/6502a/) for substantial critique and improvements. Gregory Kim suggested contrasting the value of product strategy to other coordination models. Nadya suggested adding in the current state of the product to the outline for a product strategy. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) not only introduced me to Michael Porter, but taught me the nuts and bolts of strategy. And he sent me a great message that provided a couple of quotes on strategy. [Patrick Lightbody](https://www.linkedin.com/in/lightbody/) showed me an example of what a good product strategy could look like. [Todd Etchieson](https://www.linkedin.com/in/toddetchieson/), [Kevin McGuire](https://www.linkedin.com/in/mcgui/), and [Nic Benders](https://www.linkedin.com/in/benders/) taught me a lot about strategic thinking. Thank you to [@gabor](https://twitter.com/gabor) on Twitter for the great strategy quote. 
 
 The profitable, not easy to copy, and valuable to customers framing was something I heard on [Lenny's Podcast](https://www.lennyspodcast.com). However, I wasn't able to find out which episode, so wasn't able to attribute it correctly.
 
