@@ -37,7 +37,7 @@ First, you have to decide your capacity for skip levels. That depends on you -- 
 
 I've managed the meetings a couple of ways:
 * One way was to keep track in a spreadsheet, and add meetings with people every week. 
-* I've also used a tool like [Donut](https://www.donut.com). Donut allows you to automatically invite people to 1-1s based on mutual availability on both people's calendars. The list of people to attend is based on who is in a Slack channel. It basically handles everything except getting the people into the Slack channel. The nice thing about this method is that you decide your capacity, and make sure people are in the room, and Donut handles everything else. 
+* I've also used a tool like [Donut](/tools-to-make-your-organization-better/). Donut allows you to automatically invite people to 1-1s based on mutual availability on both people's calendars. The list of people to attend is based on who is in a Slack channel. It basically handles everything except getting the people into the Slack channel. The nice thing about this method is that you decide your capacity, and make sure people are in the room, and Donut handles everything else. 
 
 ## Who do you meet with?
 

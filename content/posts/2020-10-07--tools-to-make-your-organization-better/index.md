@@ -19,7 +19,7 @@ Donut allows you to set up templates, that you can apply to various roles. So yo
 
 A second use of Donut is for *random pairings of people*. You set up a Slack room, and all the participants in that room will be randomly paired with each other, and sent calendar invites for times they're both available. It's a great way to automate random information flow in a company, simulating the random conversations you would have in person in an office. I loved how I would meet random people in the company and be able to ask them about their corner of the world. 
 
-I also used it for skip level 1-1 planning. Instead of using a spreadsheet to track a rotation of people, HeyTaco automated it. I had a Slack channel that had everyone in it anyway, so Donut would randomly pair us up for skip level 1-1s at times we were both available. 
+I also used it for [skip level 1-1](/skip-level-1-on-1s/) planning. Instead of using a spreadsheet to track a rotation of people, Donut automated it. I had a Slack channel that had everyone in it anyway, so Donut would randomly pair us up for skip level 1-1s at times we were both available. 
 
 Donut can do interesting things like pair 3 people together, or randomly select people from a group, so you can do things like have random pair programming sessions, or randomly select people to do gamedays each week. 
 
