@@ -70,7 +70,7 @@ You need to build a way to understand what is happening in your organization. Yo
 A few things you might try:
 
 * Look for meetings that give you signals that things are going well, or not going well. I found demos to be a particularly rich source of information, for example.
-* Do skip level 1-1s, to get a random sense of how things are going, and to establish connections throughout your organization.
+* Do [skip level 1-1s](/skip-level-1-on-1s/), to get a random sense of how things are going, and to establish connections throughout your organization.
 * Collect metrics from your managers, so you can have conversations about trends or things that seem to be going off track.
 * Look at the information tools can give you. Stats on reliability, how often people are paged, product usage metrics, and analytics tools can help fill in your picture of how things are going.
 

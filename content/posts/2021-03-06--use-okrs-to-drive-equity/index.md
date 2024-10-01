@@ -27,7 +27,7 @@ If you make improvements in a lasting way, every improvement you make adds to th
 
 ## Here are the steps to take
 
-* Listen to people's feedback. Ask where the pain points are. In the past, I've seen people use employee surveys, ERG groups, and direct 1-1s and skip level 1-1s to uncover what changes were most important to prioritize. Unless you're sensing these things, you're making guesses about what to improve. That's better than nothing, but you might make your first OKR be to set these things up if you lack them. 
+* Listen to people's feedback. Ask where the pain points are. In the past, I've seen people use employee surveys, ERG groups, and direct 1-1s and [skip level 1-1s](/skip-level-1-on-1s/) to uncover what changes were most important to prioritize. Unless you're sensing these things, you're making guesses about what to improve. That's better than nothing, but you might make your first OKR be to set these things up if you lack them. 
 * Choose one thing each quarter to improve. 
 * Craft an OKR out of that improvement.
 * Assign the work to someone. Be sure you rotate who gets the "equity work". Take care not to make it seem like the least important goal, or the goal nobody wants. And you don't have to be an underrepresented person in tech to do this work -- it should be spread around evenly. 

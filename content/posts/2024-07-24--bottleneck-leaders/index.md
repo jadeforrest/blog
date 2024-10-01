@@ -29,7 +29,7 @@ For example, you can use the number of Jira tickets, broken down by team, as an 
 
 A lot of director and above leadership is really about setting up an information system for yourself. You’ll often find that leaders have less idea of what is going on than anyone, because they’re furthest from the work. A good information system can help you stay abreast of what you value in your organization. 
 
-Indicators are one part of that information system, but you should look for anything that gives you a signal on how things are going. I list a number of ways to set up your information system in my “[advice for new directors](/advice-for-new-directors/)” post, including demos, skip level 1-1s, and indicators. You can also set up reporting so that people are feeding you the information you need.
+Indicators are one part of that information system, but you should look for anything that gives you a signal on how things are going. I list a number of ways to set up your information system in my “[advice for new directors](/advice-for-new-directors/)” post, including demos, [skip level 1-1s](/skip-level-1-on-1s/), and indicators. You can also set up reporting so that people are feeding you the information you need.
 
 How do you set up this information system? 
 
