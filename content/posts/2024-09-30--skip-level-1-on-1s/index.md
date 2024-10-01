@@ -43,6 +43,8 @@ I've managed the meetings a couple of ways:
 
 I've generally worked within small to medium sized organizations. In theory you can use skip levels at any sized organization. One thing you'll probably need to decide in a larger organization is whether you want to meet with 2 levels down, or all the way down. I suspect it's usually valuable to go all the way down, because that keeps you grounded to the work being built. But the tradeoff is that you get less opportunity to build relationships with managers in your organization.  
 
+Since I generally keep the number of meetings limited to what I'm comfortable with every week (usually one or two), this means as your organization size changes, the frequency you meet with people changes. It could take a year to get through the whole organization! 
+
 ## Some tips for skip levels
 
 ### Start off by telling people what to expect
@@ -73,6 +75,14 @@ I sometimes use skip levels to think through topics that are nascent and early.
 
 One danger of doing this is that you may signal to people that something needs attention. So this has to be done in a delicate way. I try to make it clear I'm speculating.
 
+### Use skip levels to verify communication or alignment
+
+One thing you can do with skip levels is ask questions about things you believe you've communicated. You'll be surprised how often people haven't really internalized it. It's a good sanity check for communication.
+
+You can also ask questions about the company strategy, or other alignment issues. It can be a good test of whether people are really aligned.
+
+Be sure to create a safe space for this. The goal is to test and learn, not to go after any individual. If you make anyone feel threatened, the entire skip level approach is sabotaged, and then you're just wasting everyone's time.
+
 ### Use skip levels to see patterns
 
 One thing you'll notice with skip levels is that you'll start hearing the same things from different people. This can often clue you in to problems you weren't paying attention to. But it can also give you false signals. Sometimes people that are really good at amplifying the problems they're concerned about will get a lot of other people to ALSO worry about those things. Even so, it's useful to keep a pulse on your organization.
@@ -82,5 +92,7 @@ One thing you'll notice with skip levels is that you'll start hearing the same t
 Sometimes you can be eager to help, and to show results. So you may be inclined to intervene in situations you shouldn't. Just be sensitive to the fact that this person reports to your manager. Sometimes the best course of action is to redirect them, but let them know you will help if they're not able to address the situation.
 
 ## Thank you
+
+[Emily Nakashima](https://www.linkedin.com/in/eanakashima/) sparked this post in a conversation, making me want to record some thoughts on it. Thank you, Emily! [Keizan Shaffer](https://www.linkedin.com/in/gusshaffer/) shared some elements of his skip level practice that helped me flesh out this post. He reminded me that you can use skip levels for communication and alignment testing. And also reminded me to emphasize that you will get through everyone, but the amount of time will vary depending on the size of your organization.
 
 Image by <a href="https://pixabay.com/users/dwilliam-720409/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=620529">DWilliam</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=620529">Pixabay</a>
