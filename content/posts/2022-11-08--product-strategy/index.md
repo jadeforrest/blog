@@ -151,7 +151,7 @@ One exercise I like to do if you’re a market leader is to imagine what product
 
 How do you know if you've thought enough about this? 
 
-"An extremely simple test of whether you have thought deeply enough about the strategy is to ask if the strategy could be followed by another competitor. If the answer is yes than you haven’t gone deep enough to understand your strengths/weaknesses" -- Alex Kroman. 
+"An extremely simple test of whether you have thought deeply enough about the strategy is to ask if the strategy could be followed by another competitor. If the answer is yes then you haven’t gone deep enough to understand your strengths/weaknesses" -- Alex Kroman. 
 
 ### Good strategy includes where you don’t plan to win
 
