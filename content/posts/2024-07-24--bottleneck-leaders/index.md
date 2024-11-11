@@ -178,9 +178,11 @@ I made this list of approached when I was writing down a list of advice for bott
 
 ## Podcast on this topic
 
-Decoding Leadership is my podcast on leadership. I cover this topic in one of the episodes: 
+Decoding Leadership is my podcast on leadership. I cover this topic in these episodes: 
 
 <iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/14--Alex-Kroman-on-building-strong-leadership-teams--product-taste--and-neurodivergent-mode-e2or5cp/a-abi15m0" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
 ## Thank you
 
