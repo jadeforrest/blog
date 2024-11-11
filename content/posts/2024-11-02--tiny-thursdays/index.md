@@ -79,6 +79,12 @@ I don’t have any regrets about Tiny Thursday. It’s been overall a big improv
 
 Tiny Thursdays has been a great change. Let me know if you experiment with it, or do something similar!
 
+## Decoding leadership podcast
+
+I covered much the same content in this podcast:
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/16--Jade-Rubick-on-Tiny-Thursdays-e2q8urb/a-abjq0q4" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ## Thank you
 
 [Tade Oyerinde](https://www.linkedin.com/in/tadeoyerinde/) came up with the idea of Tiny Thursdays, I believe. [Iris Hou](https://www.linkedin.com/in/irisghou/), [Sonia Sidhu](https://www.linkedin.com/in/sidhusonia/), and [Mateo Marcano](https://www.linkedin.com/in/mateo-marcano/) all helped implement and improve Tiny Thursdays.
