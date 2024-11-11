@@ -116,6 +116,8 @@ One nice quality of these retrospectives is that you’re starting in a quiet, c
 
 You can do an equivalent form of retrospective in person, using sticky notes, and calling things out as you put them up on the wall. It works, but it’s not quite the same. This is truly one of the few online forms of a meeting I find hard to replicate in person!
 
+As a side note, I think this form of simultaneous editing of docs to be an interesting pattern. It seems underexploited -- I bet there are a lot of similar things you could do in other meetings.
+
 ## Thank you
 
 I learned about Dot Voting from [Jim Shore](https://www.linkedin.com/in/jdlshore/). This took some inspiration from that. I think this format might have been something we came up with at Gremlin. I don’t remember who invented it – it might have been [Alexa Stefanko](https://www.linkedin.com/in/alexa-stefanko-86646aa4/), [Jason Poole](https://www.linkedin.com/in/jasonapoole/), or [Shaun Yelle](https://www.linkedin.com/in/shaunyelle/). Or me!
