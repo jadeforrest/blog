@@ -79,10 +79,13 @@ But one downside to the term is that it does imply a Hero who rushes in to save 
 
 <iframe src="https://creators.spotify.com/pod/show/decodingleadership/embed/episodes/17--Katie-Wilde-on-the-challenging-step-to-director--and-the-perverse-incentives-of-reliability-e2rgdth" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
-So all of this is to say, feel free to use your own terminology. 
+So all of this is to say, feel free to use your own terminology. Here are a couple of alternative terms I've heard:
+
+* **Goalie**. Try to stop the puck (interruption) from getting into the net (the rest of the team).
+* **Interrupt handler**. 
 
 ## Thank you
 
-This came out of the Support Hero role at New Relic. I don’t remember the history behind that, so if I should be crediting someone (or crediting myself!) sorry about that.
+The Goalie and Interrupt handler terms are from [Rich Lafferty](https://www.linkedin.com/in/richlafferty/). I learned and used this pattern from the "Support Hero" role at New Relic. I don’t remember the history behind that, so if I should be crediting someone (or crediting myself!) sorry about that.
 
 Image by <a href="https://pixabay.com/users/lovechicco-14817111/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8554882">Nikki Luijpers</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8554882">Pixabay</a>
