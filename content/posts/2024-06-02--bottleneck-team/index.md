@@ -63,9 +63,9 @@ But it is an approach that you can often employ.
 
 When you’re a bottleneck team, you are often highly thrashed and it can be hard to dig yourself out of the situation. Often I’ve found it useful to preserve focus. I typically use one of two approaches:
 
-### Hero role
+### Hero rotation
 
-A hero role is a rotation. The person (or persons) are responsible for taking all the interruptions for the team. They are the first line of defense, so they field questions, bug reports, support inquiries, and any other communication tasks.
+A hero role is a rotation. The person (or persons) are responsible for taking all the interruptions for the team. They are the first line of defense, so they field questions, bug reports, support inquiries, and any other communication tasks. I have a post on [Hero Rotations](/hero-rotation/).
 
 ### Cone of silence role
 
