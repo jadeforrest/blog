@@ -2,14 +2,6 @@
 title: author
 ---
 
-**Contact me!** 
-* I <a href="/about/" style="color:green;">advise startups</a>, coach leaders and help in lots of ways. <a href="/contact/">Contact me</a>.
- \
-**Subscribe** 
-* <a href="/" style="color:green;">Engineering Leadership Weekly newsletter</a> 
- 
+**I can help!** <a href="/about/" style="color:green;">Learn more</a> and <a href="/contact/">contact me</a>. 
 
-* <a href="/courses/" style="color:green;">Frontline Management newsletter</a> 
- 
-
-* <a href="https://podcasters.spotify.com/pod/show/decodingleadership" style="color:green;">Decoding leadership podcast</a>
+Or subscribe to my <a href="/courses" style="color:green;">newsletters</a> and <a href="https://podcasters.spotify.com/pod/show/decodingleadership" style="color:green;">podcast</a>.
