@@ -134,6 +134,10 @@ Decoding Leadership is my podcast on leadership. I continue this topic in my epi
 
 <iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
+[Katie Wilde](https://www.linkedin.com/in/katiewilde/) and I also talked about this topic at length in the episode below. We had very similar challenges when we were promoted into director roles, and developed similar strategies to cope:
+
+<iframe src="https://creators.spotify.com/pod/show/decodingleadership/embed/episodes/17--Katie-Wilde-on-the-challenging-step-to-director--and-the-perverse-incentives-of-reliability-e2rgdth/a-ablas7g" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ## Thank yous
 
 The mental model for how to assess yourself as a Director comes pretty directly from the book [High Output Management](/management-books/?utm_source=website-new-director&utm_medium=link&utm_campaign=management-books). It is one of the [best books on engineering management](/management-books/?utm_source=website-new-director&utm_medium=link&utm_campaign=management-books). 
