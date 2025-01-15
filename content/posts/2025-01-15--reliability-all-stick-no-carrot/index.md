@@ -1,5 +1,5 @@
 ---
-title: Reliability is all sticks, no carrots
+title: Reliability is all stick, no carrot
 tags: ["reliability"]
 cover: carrot.jpg
 author: Jade Rubick
