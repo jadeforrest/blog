@@ -402,8 +402,6 @@ Sometimes you are working within an organization where projects are the unit of 
 
 As always, I love to receive feedback on my writing. Let me know what you think – what resonates, what you have doubts about. And certainly let me know about your experiences implementing milestones. 
 
-And if you’re interested in receiving future posts, please [subscribe](/subscribe/). 
-
 ### Why listen to me on projects?
 
 I have a lot of experience with project management:
@@ -413,9 +411,15 @@ I have a lot of experience with project management:
 * I’ve studied project management theory. And,
 * I’ve designed and written project management software. 
 
+## Decoding leadership podcast
+
+I cover Minimal Marketable Features, and how we rolled them out at New Relic, in this podcast episode. It covers some of challenges we had getting people used to milestones.
+
+<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/18--Brent-Miller-on-team-self-selection-and-project-Upscale-e2t6gum" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
+
 ### Thank you
 
 This whole article owes a huge debt to [Jim Shore](https://www.jamesshore.com). He introduced the concept of a Minimum Marketable Feature to New Relic. It was the inspiration for this whole post. He has a lot of experience in this realm and the second edition of his book, [The Art of Agile Development](https://www.jamesshore.com/v2/books/aoad2), has just come out. Donald Reinertsen’s tweet is included in this article, and his book on [product development](https://www.amazon.com/gp/product/1935401009/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1935401009&linkCode=as2&tag=rubick-20&linkId=39ba093d846944abfd771cf91a87c209) is a master course in the principles behind product development. I’d also like to thank [anonymous VPE] who shared his study on project estimation with me and let me include it here.
-
 
 Image by <a href="https://pixabay.com/users/derrenner-14409/">derRenner</a> from <a href="https://pixabay.com/">Pixabay</a>
