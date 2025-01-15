@@ -4,7 +4,7 @@ tags: ["reliability"]
 cover: carrot.jpg
 author: Jade Rubick
 discussionId: "reliability-no-carrots"
-description: "The reliability space is all sticks, no carrots. Here are some ways to produce good results anyway"
+description: "The reliability space is all stick, no carrot. Here are some ways to produce good results anyway"
 ---
 
 I had a great conversation recently with [Katie Wilde](https://www.linkedin.com/in/katiewilde/) about the reliability space. (You can see or hear the conversation [here](https://creators.spotify.com/pod/show/decodingleadership/episodes/17--Katie-Wilde-on-the-challenging-step-to-director--and-the-perverse-incentives-of-reliability-e2rgdth/a-ablas7g)). She made a wonderful observation about reliability work: all of the incentives in the reliability space are wrong. Doing the right thing in reliability is almost always the thing that isn't rewarded.
