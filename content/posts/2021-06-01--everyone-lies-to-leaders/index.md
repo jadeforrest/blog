@@ -158,12 +158,16 @@ Many leaders stop developing their skills once they become leaders. An executive
 
 Since your plans may be based on poor information, and the people on the ground will have better information, it’s often good to roll out your plans incrementally. Involve people who have the most direct knowledge of the problem (or better yet, have the manager in that part of the organization solve it). But when you’re rolling out almost anything, roll it out like software: do previews to a wider and wider set of “customers”, and get feedback from them on the plan. See if they can improve on it, or if they can see problems with it. As you roll it out to each wider group of people, encourage them to offer feedback on the plan. You should have increased confidence in the plan as you proceed, because you’ll be hearing all the concerns and feedback as you expand its audience.
 
+## Another post I recommend
+
+Nadya Duke Booke wrote a great post on how "Extremely Upper Management" [may have different incentives, pressure, and information that you](https://www.nadyadukeboone.com/five-truths-to-improve-hard-conversations-with-people-in-power/?ref=nadya-dot-release-newsletter). I highly recommend it. 
 
 ## Let me know your feedback
 
-So those are some of the things I’ve observed and patterns I’ve seen to help leaders serve their organizations. I’d love to hear your thoughts on this topic. You can reply to [this thread on Twitter](https://twitter.com/JadeRubick/status/1399806521047863298), or [this post on LinkedIn](https://www.linkedin.com/posts/jaderubick_jade-rubick-everyone-lies-to-leaders-activity-6805572339548467201-h39F). What’s your biggest critique or response to this post? :) 
+So those are some of the things I’ve observed and patterns I’ve seen to help leaders serve their organizations. I’d love to hear your thoughts on this topic. 
 
+## Thank you
 
-_Thank you to [Marco Rogers](https://www.linkedin.com/in/marcorogers/) for teaching me about the pattern of leaders not making space for deep analysis._
+[Marco Rogers](https://www.linkedin.com/in/marcorogers/) helped me understand the pattern of leaders not making space for deep analysis.
 
 _Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?">OpenClipart-Vectors</a> from <a href="https://pixabay.com/">Pixabay</a>_
