@@ -4,7 +4,7 @@ import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaTag , FaRss , FaPaperPlane, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaTag , FaRss , FaPaperPlane, FaLinkedin } from "react-icons/fa";
 import config from "../../content/meta/config";
 
 const SubscribePage = props => {
@@ -60,7 +60,7 @@ const SubscribePage = props => {
 
               <p></p>
 
-              <p>And finally, there are lots of ways to be informed about new posts: RSS, Twitter, and LinkedIn all work!</p>
+              <p>And finally, you can follow new posts by RSS or LinkedIn or BlueSky</p>
 
               <a href="../rss.xml" target="_blank">
                 <section className="subContainer">
@@ -69,12 +69,12 @@ const SubscribePage = props => {
                 </section>
               </a>
 
-              <a href="https://twitter.com/JadeRubick" target="_blank">
+              {/* <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank">
                 <section className="subContainer">
-                    <span className="subIcon"><FaTwitter/></span>
-                    <span className="subText">Twitter</span>
+                    <span className="subIcon"><FaBluesky/></span>
+                    <span className="subText">BlueSky</span>
                 </section>
-              </a>
+              </a> */}
 
               <a href="https://rubick.ck.page/subscribe" target="_blank">
                 <section className="subContainer">
