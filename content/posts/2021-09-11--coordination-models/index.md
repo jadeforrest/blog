@@ -11,7 +11,7 @@ description: "This is a list of patterns you can apply to coordinate the work of
 
 As an organizational leader, you’ll face situations where you need to improve the way people work together. 
 
-This is a list of coordination models -- approaches you can take to coordinate the way people work together. They are very much like tools in a toolbox. You want to have a lot of familiarity with the tools you can use, and which tools make sense in what situation. 
+This is a list of coordination models -- approaches you can take to coordinate the way people work together. They are very much like tools in a toolbox. You want to have a lot of familiarity with the tools you can use, and which tools make sense in what situation. They thus are a [pattern language](https://en.wikipedia.org/wiki/Pattern_language) for coordinating humans in large groups. 
 
 I am writing longer posts on each of these coordination models. The links below are to those posts, and to drafts for future posts. 
 
@@ -68,12 +68,9 @@ Team coordination models are the models you turn to most regularly. Familiarize 
 16. **[Cousin team -- early draft](https://docs.google.com/document/d/1sWyl3qwtuIBcs7DXzyx1ITLHKaVzY82JDA_-zwe5wio/edit?usp=sharing)**. Change the management hierarchy so teams that need to collaborate have the same Director. 
 17. **[Community of practice -- draft](https://docs.google.com/document/d/1m3w2wmdwRzMMEskQ9ILdWvTGHYnKXk92GbRQ0uBSdxc/edit?usp=sharing)**. Support specialists across cross-functional teams by creating a group that shares information and practices, and often defines standards.
 
-
 ## More detail coming soon
 
 The linked in posts include more detail on each of these patterns. The posts with "draft" or "early draft" next to them are links to the Google Docs where I'm working on my writeups for those patterns. Please comment on those drafts if you'd like to see more detail -- that helps me see the demand for it, and also see where things are missing. I define "draft" as not done but possibly useful. I defined "early draft" as likely not useful.
-
-Also please [subscribe](https://www.rubick.com/subscribe/) to get notified as I post final versions of these coordination models!
 
 ## Thank you
 
