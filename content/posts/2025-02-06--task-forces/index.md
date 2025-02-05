@@ -95,7 +95,7 @@ These are some closely related models to the Task Force that you might consider:
 
 ## Coordination models
 
-Task Forces are one of many [Coordination Models](https://www.rubick.com/coordination-models/). I’ve written these up as a [pattern language](https://en.wikipedia.org/wiki/Pattern_language) for coordinating humans in large groups. 
+Task Forces are one of many [Coordination Models](/coordination-models/). I’ve written these up as a [pattern language](https://en.wikipedia.org/wiki/Pattern_language) for coordinating humans in large groups. 
 
 ## See also
 
