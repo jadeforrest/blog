@@ -223,6 +223,8 @@ For me, the main benefits have been that I can sometimes work a part-time schedu
 
 If you’re thinking about consulting, my advice is to only do it when you have a nest egg and can live without the income for six months. Give yourself a set amount of time. See if you get the traction you need. And if you don’t, you can always go back to full time work!
 
+The easiest way to become a consultant is to make your current employer into your first client. Is that a possibility?
+
 ## Thank you
 
 [Seth Falcon](https://sethfalcon.substack.com) reviewed a draft version of this and made some helpful suggestions. 
