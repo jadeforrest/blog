@@ -83,7 +83,6 @@ Clear your schedule, and read this book: [Understanding Michael Porter](https://
 
 A second book on putting together your strategy is [Good Strategy, Bad Strategy](http://goodbadstrategy.com). 
 
-
 ### Second, study your business and market
 
 You need to understand the market you’re in to make a good strategy. This seems obvious, but I’ve seen a lot of product leaders try to make a product strategy without fully understanding their customers. 
@@ -97,7 +96,6 @@ You should be able to answer these questions:
 5. Which trends are you well positioned to take advantage of? Which are you poorly positioned for?
 6. What is it like to purchase your product? What kind of an experience do people have when getting support, or learning your product?
 7. What is it like to sell your product? 
-
 
 ### Third, talk to a lot of people
 
@@ -249,6 +247,10 @@ You should make sure you make space for people to surface the tradeoffs and impl
 Alex Kroman shares some tips on how to execute on a strategy in my post on [Product Councils](/product-council/?utm_source=website-product-strategy&utm_medium=link&utm_campaign=product-strategy). 
 
 I talk further about this topic in a Level Up podcast: [Product strategy pitfalls](/product-strategy-podcast/).
+
+## See also
+
+I really liked this post on Lenny's Newsletter about the [mechanics of putting together a product strategy](https://open.substack.com/pub/lenny/p/strategy-blocks-an-operators-guide). 
 
 ## Thank you
 
