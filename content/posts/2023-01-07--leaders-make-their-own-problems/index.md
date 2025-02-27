@@ -37,7 +37,7 @@ As I started developing a habit of looking at things from other mental models, I
 
 ## The limitations of role-based thinking
 
-It's useful to have a [clear definition of your role](/role-definition/). But your role definition can be overly contraining. If you define your success by if you're doing your role well, you're limiting the type of problem-solving you will engage in.
+It's useful to have a [clear definition of your role](/role-definition/). But your role definition can be overly constraining. If you define your success by if you're doing your role well, you're limiting the type of problem-solving you will engage in.
 
 For example, you might think of the role of Engineering as execution. This will limit you from thinking about the Product perspective. Yet, some of the magic happens when you're both thining about the intersection between these functions.
 
@@ -55,7 +55,7 @@ I brought up being execution focused with the executive coach I was working with
 
 At first, it was hard to preserve the time I set aside. In my busy schedule, it seemed luxurious to save a couple hours just for thinking. But it quickly became some of the most valuable time I spent each week. 
 
-I would spend time each week thinking amount my organization, about the product, about how things were going. I researched other products that competed with mine. I spent time using the product. I thought critically about our technical and product failings. 
+I would spend time each week thinking abount my organization, about the product, about how things were going. I researched other products that competed with mine. I spent time using the product. I thought critically about our technical and product failings. 
 
 I ended up developing a better sense of what possible futures I could create. I started to see possibilities that were invisible to me. I started to learn how to lead.
 
@@ -104,4 +104,6 @@ Hopefully, you'll find this post useful to develop and approach to navigating th
 
 ## Thank you
 
-[Jim Ruppert](https://www.linkedin.com/in/jim-ruppert-0ba71/) helped me see that I didn't have a vision for my organization, and his gentle nudge helped me expand my horizons. [Robert Goldmann](https://www.linkedin.com/in/coachrg/) helped me learn the perspective I needed to lead better. He helped me develop some of the questions on this list. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) challenged me to consider things through multiple mental models. Thank you to [George Sudarkoff](https://sudarkoff.com) for feedback on the post and some minor edits. Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Pixabay</a>
+[Jim Ruppert](https://www.linkedin.com/in/jim-ruppert-0ba71/) helped me see that I didn't have a vision for my organization, and his gentle nudge helped me expand my horizons. [Robert Goldmann](https://www.linkedin.com/in/coachrg/) helped me learn the perspective I needed to lead better. He helped me develop some of the questions on this list. [Alex Kroman](https://www.linkedin.com/in/alexkroman/) challenged me to consider things through multiple mental models. Thank you to [George Sudarkoff](https://sudarkoff.com) for feedback on the post and some minor edits. [Nate Saul](https://www.linkedin.com/in/nsaul/) pointed out typos (oops!).
+
+Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1872665">Pixabay</a>
