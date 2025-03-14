@@ -20,9 +20,11 @@ Delivery is the yardstick that engineering organizations are measured by. After 
 
 If you follow this rule, your team creates more value over time. 
 
-## Organizations usually slow as they grow
+## Organizations usually slow over time
 
-As organizations grow, they become more complex. Exploding complexity gums up your flywheel. So typically, organizations become slower over time.
+We tend to forget the second part of that: making the wheels turn smoother each time. 
+
+So, over time, organizations become more complex. Growth usually results in more complexity. And, organizations add things more than they remove things. So exploding complexity gums up your flywheel. And you get slower.
 
 If the pedals of your bike become harder and harder to turn, you eventually will stall out. And unfortunately, that's what happens in a lot of engineering organizations.
 
@@ -30,7 +32,7 @@ One reading of [Innovator's Dilemna](https://en.wikipedia.org/wiki/The_Innovator
 
 ## What problems does complexity cause?
 
-Everything works when you're small. As you grow, these problems emerge:
+Everything works when you're small. As your complexity grows, these problems emerge:
 
 More people
 * ...make meetings less effective.
@@ -63,8 +65,11 @@ A large part of your role as a leader is to design the organization so it is as 
 
 In future posts, we'll cover a lot of techniques to be effective in organizations -- to lead effectively, to design organizations so people can thrive, to have the right structures to produce good results. We'll review the principles behind what causes these failures, so you can develop an intuitive feel of what is driving the challenges you face. 
 
+## About growth
+
+My writing isn't really about growing organizations. It's more about how people work together in groups. So even if you're in an organization that isn't growing rapidly, I think you'll find a lot of value!
 
 
-Thanks to [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham) for his great insights. I learned a lot working with him at [New Relic](https://www.newrelic.com). And thank you to [Nic Benders](https://www.linkedin.com/in/benders/), best office mate ever, who shared the flywheel idea with me, and taught me so many things!
+Thanks to [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham) for his great insights. I learned a lot working with him at [New Relic](https://www.newrelic.com). And thank you to [Nic Benders](https://www.linkedin.com/in/benders/), best office mate ever, who shared the flywheel idea with me, and taught me so many things! Thank you to [Igor Kalders](https://www.linkedin.com/in/igorkalders/) for a comment that made me see some ways to improve this post.
 
 _Photo by <a href="https://freeimages.com/photographer/gnmills-58346">Gavin Mills</a> from <a href="https://freeimages.com/">FreeImages</a>_
