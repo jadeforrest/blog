@@ -1,6 +1,6 @@
 ---
 title: Task Forces can solve (some of) your cross-functional challenges
-tags: ["coordination-models", "coordination-models-team", "meetings", ]
+tags: ["coordination-models", "coordination-models-team", "meetings"]
 cover: task-force.jpg
 author: Jade Rubick
 discussionId: "task-forces"
