@@ -46,7 +46,7 @@ Figuring out the time horizon for the problem helps you get clear on how respons
 
 One thing about deferring time bombs is that if you're doing that in one place, you're probably doing it in other places too. So a culture of deferment can result in all of your time bombs hitting at the same time.
 
-**(4) Look for two kinds of solutions**. Even if you decide to defer it, it can be useful to have a high level thought on what type of solutions you might employ. I usually look for type types of solutions: (A) a solution that fixes it forever, and (B) a solution that merely gets you to a situation where things are always getting a little better. If it's always getting a little better, you pretty much don't have to worry about it. But if the gap between these two types of solutions isn't major, you might want to bite the bullet and solve it for good. 
+**(4) Look for two kinds of solutions**. Even if you decide to defer it, it can be useful to have a high level thought on what type of solutions you might employ. I usually look for two types of solutions: (A) a solution that fixes it forever, and (B) a solution that merely gets you to a situation where things are always getting a little better. If it's always getting a little better, you pretty much don't have to worry about it. But if the gap between these two types of solutions isn't major, you might want to bite the bullet and solve it for good. 
 
 ## Example with software tests
 
@@ -130,4 +130,4 @@ I hope you found that useful. Let me know your experiences as you try this skill
 
 ## Thank you
 
-Image from <a href="https://pixabay.com/photos/san-francisco-california-houses-210230">Pixabay</a>. 
+[George Sudarkoff](https://sudarkoff.com) found a typo, thanks for pointing it out! Image from <a href="https://pixabay.com/photos/san-francisco-california-houses-210230">Pixabay</a>. 
