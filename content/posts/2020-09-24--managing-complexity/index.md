@@ -24,7 +24,7 @@ If you follow this rule, your team creates more value over time.
 
 We tend to forget the second part of that: making the wheels turn smoother each time. 
 
-So, over time, organizations become more complex. Growth usually results in more complexity. And, organizations add things more than they remove things. So exploding complexity gums up your flywheel. And you get slower.
+So, over time, organizations become more complex. Growth usually results in more complexity. And, [organizations add things more than they remove things](https://mollyg.substack.com/p/addition-vs-subtraction). So exploding complexity gums up your flywheel. And you get slower.
 
 If the pedals of your bike become harder and harder to turn, you eventually will stall out. And unfortunately, that's what happens in a lot of engineering organizations.
 
@@ -59,7 +59,7 @@ More leaders
 
 ## The race between complexity and leadership
 
-Growing an engineering organization is mathematical. You increase complexity with what you build and who you hire, and reduce complexity with many of the activities leaders take to streamline things. 
+Growing an organization is mathematical. You increase complexity with what you build and who you hire, and reduce complexity with many of the activities leaders take to streamline things. 
 
 A large part of your role as a leader is to design the organization so it is as clear and simple as possible. So it works for human beings. 
 
