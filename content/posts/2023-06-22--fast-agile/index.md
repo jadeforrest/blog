@@ -402,6 +402,10 @@ You can compare FaST to working in a new computer programming language. The new 
 
 So the biggest disadvantage of FaST is that it’s not a well established practice. You’ll need to make up a lot of things to deal with incompatibilities between how FaST operates, and conventional practices. Here are some examples:
 
+## Someone may undo all of your work
+
+FaST is incremental, so the cost of trying it out is low. But honestly a lot of leaders have their own approaches, and may see FaST as weird and non-standard. So a change in leadership can result in completely eliminating all the work you've done to create this innovative system. That's just a practical downside.
+
 ### How does performance management work?
 
 On conventional teams, you have a manager who oversees the work, and coaches individuals. You have performance reviews, and if someone isn’t a good fit, the manager can intervene. Although there are problems with performance reviews, most people understand how they work, and they serve a purpose in the organization.
@@ -504,11 +508,13 @@ When I ran a FaST Collective, one unexpected source of friction with FaST I foun
 
 ## The FaST materials are full of jargon
 
-You may find the FaST website and manual confusing. You’ll have to navigate a lot of jargon and annoying terminology to get at the gold of FaST Agile. As an example, here’s the awful definition of FaST Agile that attempts to define the practice in [version 2.12 of the FaST Guide](https://www.fastagile.io/fast-guide):
+You may find the FaST website and manual confusing. You’ll have to navigate a lot of jargon and annoying terminology to get at the gold of FaST. As an example, here’s the awful definition of FaST Agile that attempts to define the practice in [version 2.12 of the FaST Guide](https://www.fastagile.io/fast-guide):
 
 _“What is Fluid Scaling Technology? Fluid Scaling Technology combines Open Space Technology and Open Allocation to create a lightweight, simple to understand, and simple to master method for organising people around work - that scales. FAST is the acronym for Fluid Scaling Technology. Fluid Scaling Technology for Agile is FAST Agile.”_
 
 So. Bad. And this is very representative. You’ll see lots of references to Collectives, Value Cycles, Open Technology, Teal transformation, Theory Y, etc. This is all presented with no explanation, and really even if it were explained it wouldn’t be helpful. They’re speaking to a niche audience of agile theorists, and focusing on attribution rather than usefulness.
+
+They also will change terminology frequently. They used to be FAST Agile, then they were FaST. I find it excrutiating.
 
 ## Conclusion
 
