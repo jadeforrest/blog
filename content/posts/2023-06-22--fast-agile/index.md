@@ -1,19 +1,19 @@
 ---
-title: A detailed look at FAST agile -- a practice well worth your time
+title: A detailed look at FaST agile -- a practice well worth your time
 tags: ["scaling", "complexity", "roles", "org-design", "delivery", "agile", "dzone-featured"]
 cover: surfing.jpg
 author: Jade Rubick
 discussionId: "fast-agile"
-description: "An introduction to FAST agile, describing how it works and what the tradeoffs of adopting it are"
+description: "An introduction to FaST, describing how it works and what the tradeoffs of adopting it are"
 ---
 
-[FAST agile](https://www.fastagile.io/method) is the most interesting organizational practice I've learned about in a while. Today I share what FAST agile is, and explore whether it's worth experimenting with. TL;DR? Quite compelling, but still experimental. 
+[FaST](https://www.fastagile.io/method) is the most interesting organizational practice I've learned about in a while. Today I share what FaST is, and explore whether it's worth experimenting with. TL;DR? Quite compelling, but still experimental. 
 
 <re-img src="surfing.jpg"></re-img>
 
-## What is FAST Agile?
+## What is Fluid Scaling Technology (FaST)?
 
-[FAST Agile](https://www.fastagile.io/method) is an agile software variant. FAST focuses on self-organization within very large teams. These large teams are called Collectives. They can be a few people, to as many as 150 people[^1].
+[FaST](https://www.fastagile.io/method) is an agile software variant. FaST focuses on self-organization within very large teams. These large teams are called Collectives. They can be a few people, to as many as 150 people[^1].
 
 Twice a week, the Collective meets. At the meeting:
 
@@ -21,7 +21,7 @@ Twice a week, the Collective meets. At the meeting:
 * **The product leader reiterates the vision and sets direction**. They give context on the top projects. They introduce new priorities as work completes, or priorities change. And typically they show the priorities in a visual way, on a wall or virtual equivalent. 
 * **People within the Collective self-organize** and self-select into smaller teams to deliver the top priority work. 
 
-The most interesting part of FAST agile is these self-organizing teams, so let’s describe them in a little more detail.
+The most interesting part of FaST is these self-organizing teams, so let’s describe them in a little more detail.
 
 Every meeting, people volunteer to lead teams, and people volunteer to participate in those teams. When someone volunteers to steward a team, they step forward and say, “I’m going to work on [one of the top projects]”. People then join the teams that have been created and work in that area. The minimum team size is two, so you need people to “vote with their feet” to form the team.
 
@@ -33,12 +33,12 @@ The teams formed do <span style="text-decoration:underline;">not</span> have to 
 
 Outside of the hour a week in meetings, people spend most of their time in their self-selected, self-organized teams. Theoretically, you could change teams twice a week. But in practice, people end up figuring out who they like to work with, and teams tend to [settle down after the first month or so](https://www.youtube.com/watch?v=WbPLjuvyCUA). They remain fluid enough that people can move as business needs shift, or people with expertise are needed in different areas. Moving teams is an expected, low-effort change. So what this means is that during the Collective meetings, there is a pattern of people recreating their teams, but the composition tends to not change as much as you might imagine.
 
-There are a lot of other details like how bugs and on-call are handled. I’ll cover some of these topics later. But the basic core of FAST agile is these self-selecting teams, working within a larger Collective, on projects. The Collective meetings are structured, and focused on giving context on the needs of the business, and communicating progress against those priorities.
+There are a lot of other details like how bugs and on-call are handled. I’ll cover some of these topics later. But the basic core of FaST is these self-selecting teams, working within a larger Collective, on projects. The Collective meetings are structured, and focused on giving context on the needs of the business, and communicating progress against those priorities.
 
 
 ## Summary of differences
 
-FAST is much different than the way most agile software organizations run today. Here are the differences as I see them:
+FaST is much different than the way most agile software organizations run today. Here are the differences as I see them:
 
 
 <table cellspacing="0">
@@ -47,7 +47,7 @@ FAST is much different than the way most agile software organizations run today.
    </td>
    <td><strong>Common practice</strong> (SCRUM, Kanban, or “Lightweight Agile”)
    </td>
-   <td><strong>FAST Agile</strong>
+   <td><strong>FaST</strong>
    </td>
   </tr>
   <tr  valign="top">
@@ -96,7 +96,7 @@ Practices need to be more standardized, or you will have problems. Standardizing
    </td>
    <td>The ideal architecture is microservices. Large monoliths need to be well-factored. Generally messy outside microservice environments. 
    </td>
-   <td>I would expect FAST to be more agnostic about architecture. Should work with monolithic codebases or microservice environments. And with a blend. Should make moving to microservice environments more gradual.
+   <td>I would expect FaST to be more agnostic about architecture. Should work with monolithic codebases or microservice environments. And with a blend. Should make moving to microservice environments more gradual.
    </td>
   </tr>
   <tr valign="top">
@@ -126,36 +126,36 @@ Thus, retention will vary significantly by company.
    </td>
    <td>I expect practices can vary, similar to common agile practices. 
 <br /><br />
-However, FAST lends itself to employee retention because it is aligned with <em>intrinsic motivation</em>. Employees can choose who they work with, what they work on, and get reinforcement that their work matters.
+However, FaST lends itself to employee retention because it is aligned with <em>intrinsic motivation</em>. Employees can choose who they work with, what they work on, and get reinforcement that their work matters.
 <br /><br />
 I would expect this to result in better overall satisfaction. One challenge might be politics. Self-governed groups sometimes deal with conflict poorly, so that could backfire.
    </td>
   </tr>
 </table>
 
-As you can see, FAST is a very different approach than what most companies are doing today. 
+As you can see, FaST is a very different approach than what most companies are doing today. 
 
 ## So what are the tradeoffs?
 
-As I see it, these are the tradeoffs of FAST agile:
+As I see it, these are the tradeoffs of FaST agile:
 
-* FAST may offer better organizational scalability
-* FAST can be experimented with incrementally
-* FAST should result in fewer reorgs
-* FAST makes it easier to respond to changing priorities
-* FAST could be better for intrinsic motivation and retention
+* FaST may offer better organizational scalability
+* FaST can be experimented with incrementally
+* FaST should result in fewer reorgs
+* FaST makes it easier to respond to changing priorities
+* FaST could be better for intrinsic motivation and retention
 
 But…
 
-* Many environments are incompatible with FAST
+* Many environments are incompatible with FaST
 * You might have to manage self-management
-* FAST requires a lot of work
-* FAST can run counter to a desire to allocate people to areas
-* The FAST materials are full of jargon
+* FaST requires a lot of work
+* FaST can run counter to a desire to allocate people to areas
+* The FaST materials are full of jargon
 
 We’ll discuss each of these in turn.
 
-## FAST may offer better organizational scalability
+## FaST may offer better organizational scalability
 
 When you scale organizations, you typically do so by scaling them “horizontally”. You grow the organization a team at a time. Each of these teams own a slice of the product, and you often have a platform organization that makes the product teams more effective. 
 
@@ -163,9 +163,9 @@ The complexity of the organization explodes as the number of people increases. I
 
 <re-img src="scaling.png" width="50%"></re-img>
 
-FAST is interesting because it is an attempt to scale organizations “vertically”. Instead of adding more teams, FAST attempts to make _bigger teams_, called Collectives. The Collectives still own code, but the self-organized teams within that Collective do not. And you do still have to segment communication. But the teams are more dynamic and continually evolved. Instead of reshaping teams through reorgs, it is a continual, expected part of the way you operate. 
+FaST is interesting because it is an attempt to scale organizations “vertically”. Instead of adding more teams, FaST attempts to make _bigger teams_, called Collectives. The Collectives still own code, but the self-organized teams within that Collective do not. And you do still have to segment communication. But the teams are more dynamic and continually evolved. Instead of reshaping teams through reorgs, it is a continual, expected part of the way you operate. 
 
-Team size is a familiar topic for many heads of engineering. How large should teams be? Let’s delve into this topic a bit, as it helps us understand how FAST claims to scale better. 
+Team size is a familiar topic for many heads of engineering. How large should teams be? Let’s delve into this topic a bit, as it helps us understand how FaST claims to scale better. 
 
 
 ### How large should teams be? 
@@ -190,7 +190,7 @@ So small teams are great within their team, but less ideal because there are so 
 
 The approach many leaders take is to make large teams that focus on fewer streams of work. This reduces internal team complexity, and also reduces organizational complexity.
 
-You can look at FAST as an approach which tries to achieve even greater organizational simplicity through ridiculously large teams. And it tried to get the benefits of having small self-assembling teams as well. 
+You can look at FaST as an approach which tries to achieve even greater organizational simplicity through ridiculously large teams. And it tried to get the benefits of having small self-assembling teams as well. 
 
 ### Scaling organizations is challenging work
 
@@ -221,15 +221,15 @@ Growing engineering organizations is a real skill. It requires a deep understand
 * Setting up platform organizations and developer experience initiatives to combat complexity.
 * Etc.
 
-Even if you have people with this expertise, it requires a lot of effort from your management team to deal with scaling. So if FAST can scale better, you’ll unlock a lot of the potential of your management team to focus on something else. And, because your step-order changes occur so much less frequently, you could potentially be making your organization much easier to manage.
+Even if you have people with this expertise, it requires a lot of effort from your management team to deal with scaling. So if FaST can scale better, you’ll unlock a lot of the potential of your management team to focus on something else. And, because your step-order changes occur so much less frequently, you could potentially be making your organization much easier to manage.
 
-### A thought experiment around FAST agile
+### A thought experiment around FaST agile
 
 So, imagine you _could_ scale team size. Instead of teams being five or ten people, what if you could have effective twenty-person teams? Or sixty-person teams?
 
 On the face of it, this is a ridiculous proposition. Teams that large are not effective. Even twelve-person teams are a stretch. I sometimes see the resumes of people who have had twenty or thirty people report to them. My immediate reaction is to think they worked at a terrible company. Having that many direct reports is an “organizational smell”. 
 
-The central premise of FAST agile is that if you add self-organization, and self-selecting teams within this larger Collective, you can scale your teams more _horizontally_. Each team (FAST calls them Collectives) can be much larger. And then the teams people work with on a day to day basis are self-assembled within those Collectives.
+The central premise of FaST agile is that if you add self-organization, and self-selecting teams within this larger Collective, you can scale your teams more _horizontally_. Each team (FaST calls them Collectives) can be much larger. And then the teams people work with on a day to day basis are self-assembled within those Collectives.
 
 <re-img src="profit.png" width="70%"></re-img>
 
@@ -245,7 +245,7 @@ If it does, then it will offer a way to scale organizations that is potentially 
    </td>
    <td>How many six person teams (conventional teams)
    </td>
-   <td>How many Collectives (FAST)
+   <td>How many Collectives (FaST)
    </td>
   </tr>
   <tr valign="top">
@@ -298,49 +298,49 @@ If it does, then it will offer a way to scale organizations that is potentially 
   </tr>
 </table>
 
-There are a lot of assumptions built into this argument, and you might be able to poke some holes in it. But even if you do, FAST is essentially allowing for a larger organizational unit to own an area of the product and codebase. 
+There are a lot of assumptions built into this argument, and you might be able to poke some holes in it. But even if you do, FaST is essentially allowing for a larger organizational unit to own an area of the product and codebase. 
 
-FAST is new, so there isn’t a ton of evidence right now about whether FAST teams operate as effectively as conventional agile teams. But I suspect the answer to that question is yes. I have a couple of reasons to believe that. First of all, [Jim Shore](https://www.jamesshore.com/)’s preliminary experience with it [was quite positive](https://www.youtube.com/watch?v=WbPLjuvyCUA), and he’s someone I trust. 
+FaST is new, so there isn’t a ton of evidence right now about whether FaST teams operate as effectively as conventional agile teams. But I suspect the answer to that question is yes. I have a couple of reasons to believe that. First of all, [Jim Shore](https://www.jamesshore.com/)’s preliminary experience with it [was quite positive](https://www.youtube.com/watch?v=WbPLjuvyCUA), and he’s someone I trust. 
 
-A second reason I am bullish on FAST is that I’ve had some experience with large groups of people doing self-organization. And I was surprised at how well it worked. And I have some experience with FAST, and found it to be an effective approach, though I didn't do it in a large Collective.
+A second reason I am bullish on FaST is that I’ve had some experience with large groups of people doing self-organization. And I was surprised at how well it worked. And I have some experience with FaST, and found it to be an effective approach, though I didn't do it in a large Collective.
 
 In small companies, of course, you see a lot of self-organization. But as companies grow, you standardize things and remove self-organization except _within_ teams. However, one of the most interesting experiments I’ve been a part of was a large-scale self-organization event at New Relic. We redesigned all of our teams, and asked everyone in fifty software teams to select which team they wanted to be a part of. We had constraints on the skills needed for each team, and had defined what everyone needed to own. It ended up being way more successful than anybody anticipated, even us organizers. 
 
 So although the jury is out on this, my hunch is that this practice has a lot of potential in the right contexts.
 
-## FAST can be experimented with incrementally
+## FaST can be experimented with incrementally
 
-This isn’t mentioned in the FAST materials, but one thing that jumped out at me as being interesting about FAST is that you can experiment with it incrementally. 
+This isn’t mentioned in the FaST materials, but one thing that jumped out at me as being interesting about FaST is that you can experiment with it incrementally. 
 
 <re-img src="blob.png" width="60%"></re-img>
 
-You can implement FAST Agile on one team as an experiment, and then use a blob approach where you swallow additional teams over time. If it goes well, continue to swallow additional teams. If it doesn’t, abort the experiment.
+You can implement FaST Agile on one team as an experiment, and then use a blob approach where you swallow additional teams over time. If it goes well, continue to swallow additional teams. If it doesn’t, abort the experiment.
 
-## FAST should result in fewer reorgs
+## FaST should result in fewer reorgs
 
 Change happens in organizations. Priorities shift, people leave, areas of the product have unexpected growth. Previous technical decisions bite you and you have to do additional work. New opportunities arise that require investment. 
 
 All of these things have an impact on the structure of your organization. You have a set of teams, each of which have their own areas of ownership. As this change happens, you refactor your organization over time to perform the best you can. These refactorings are “reorgs”, and in growing organizations, they can happen frequently!
 
-Reorgs should be a lot less frequent with FAST. The unit of reorganization is so large that you shouldn’t have to do it as often. 
+Reorgs should be a lot less frequent with FaST. The unit of reorganization is so large that you shouldn’t have to do it as often. 
 
 A potential downside of this is that you don’t have teams with defined areas of responsibility. So you could have a diffusion of responsibility and have a poorly maintained code commons. (We’ll talk about this a bit later)
 
-## FAST makes it easier to respond to changing priorities
+## FaST makes it easier to respond to changing priorities
 
 When priorities change in conventionally structured teams, you have teams set up to do the work. If that team structure doesn’t support the new priorities, you have to refactor your organization.
 
-For FAST, changes in priority are more fluid and continuous. As long as the responsibilities lie within the Collective, the teams just organize themselves around the work, and it’s like another day. 
+For FaST, changes in priority are more fluid and continuous. As long as the responsibilities lie within the Collective, the teams just organize themselves around the work, and it’s like another day. 
 
 The Collective meeting structure also makes changing priorities less dramatic. You essentially have a built-in All Hands twice a week. At the Collective meetings, you can continually communicate context and educate your team on your customers and market. This should help keep your team better aligned.
 
 When I contrast that approach to something like Quarterly OKRs, it seems more fluid and like it would do a better job of aligning people. It does require a committed effort from the product leader to continually share context and priorities. But some of the best teams I’ve been a part of had a product leader acting in this fashion, so I suspect this is time well spent.
 
-## FAST could be better for intrinsic motivation and retention
+## FaST could be better for intrinsic motivation and retention
 
 Many teams can feel like their process is designed as tools to control people. And it can feel like working on an assembly line. 
 
-FAST embraces self-organization as a fundamental component of its design. It’s so fundamental, it won’t work without self-organization. It requires a completely different toolkit for management, and it’s mostly (though not completely) incompatible with top down, hierarchical approaches. 
+FaST embraces self-organization as a fundamental component of its design. It’s so fundamental, it won’t work without self-organization. It requires a completely different toolkit for management, and it’s mostly (though not completely) incompatible with top down, hierarchical approaches. 
 
 Daniel Pink famously outlined [three aspects of intrinsic motivation](https://en.wikipedia.org/wiki/Drive:_The_Surprising_Truth_About_What_Motivates_Us): 
 
@@ -348,7 +348,7 @@ Daniel Pink famously outlined [three aspects of intrinsic motivation](https://en
 * **Mastery** – The urge to get better skilled.
 * **Purpose** – The desire to do something that has meaning and is important. Businesses that only focus on profits without valuing purpose will end up with poor customer service and unhappy employees.
 
-With FAST, you’re able to self-direct your work, helping you feel autonomy. You’re able to choose to focus on work that improves your skills, achieving a sense of mastery. And you’re constantly reminded of how your work is connected to what’s important for the business, helping you feel a sense of purpose. So although it’s not guaranteed, I see a potential for organizations implementing FAST to see high retention rates.
+With FaST, you’re able to self-direct your work, helping you feel autonomy. You’re able to choose to focus on work that improves your skills, achieving a sense of mastery. And you’re constantly reminded of how your work is connected to what’s important for the business, helping you feel a sense of purpose. So although it’s not guaranteed, I see a potential for organizations implementing FaST to see high retention rates.
 
 Self-organization also provides some handy signals that can keep a community of people working better together. The “jerk manager” type of person gets a signal that their behavior isn’t welcome. How? They step forward to lead a team, and say the work they want to do. If nobody joins their team, the work doesn’t happen, and the team doesn’t form (teams have a minimum of two or three people on them, or they don’t happen). 
 
@@ -356,25 +356,25 @@ Self-organization also allows people to deal with painful aspects of work that m
 
 Finally, you’re able to choose the people you work with every day. When I’ve seen self-organizing teams in the past, this was an unexpected benefit: people chose to work with people they wanted to work with. And those teams were much stronger than I expected.
 
-The thing this all would be balanced against is any new pains people would experience with FAST. One challenge might be with informal power dynamics, or potential politics. 
+The thing this all would be balanced against is any new pains people would experience with FaST. One challenge might be with informal power dynamics, or potential politics. 
 
-## Many environments are incompatible with FAST
+## Many environments are incompatible with FaST
 
-Because FAST is so new, it is riskier to implement. FAST won’t make sense in every situation. And there are more unknowns. It’s best to think of it as an experimental approach. 
+Because FaST is so new, it is riskier to implement. FaST won’t make sense in every situation. And there are more unknowns. It’s best to think of it as an experimental approach. 
 
-Which environments are most conducive to trying FAST out? And where should you avoid FAST?
+Which environments are most conducive to trying FaST out? And where should you avoid FaST?
 
-The more qualities from this list your company has, the better the fit for FAST: 
+The more qualities from this list your company has, the better the fit for FaST: 
 
 * An interest in management innovation and experimentation.
 * High trust, low-fear environments. Or at least a desire to avoid command and control in leadership.
 * A good guide or facilitator of the process. Someone who can run an effective Collective meeting, set up the process, evaluate and actively manage it. Someone who understands organizational dynamics and how humans in groups work together. (You could hire me for this).
-* A medium to high rate of change in priorities. FAST is less useful if priorities aren’t shifting.
+* A medium to high rate of change in priorities. FaST is less useful if priorities aren’t shifting.
 * A team that is collaborative, self-directed, high-performing, and continuously learning.
 * A leadership team that can figure out its priorities. 
 * You have a product leader who can talk about the priorities and business context at each Collective meeting. And they can communicate effectively. 
 
-The less these traits are true, the more headwinds you’ll face with FAST. I don’t think you need to be in a perfect environment for it. In some ways, I think wanting to be these things is more important than actually being these things. So perhaps the most important success factor is that leadership is on board with making space for it.
+The less these traits are true, the more headwinds you’ll face with FaST. I don’t think you need to be in a perfect environment for it. In some ways, I think wanting to be these things is more important than actually being these things. So perhaps the most important success factor is that leadership is on board with making space for it.
 
 ## You might have to manage self-management
 
@@ -384,45 +384,45 @@ You'll need to create constraints and means to incenvitize the right behavior. A
 
 Any organization can have bad actors, or people that aren’t aligned with the interests of that community. I remember once talking with an engineer who told me (I kid you not) that they didn’t think they had an obligation to produce value for their employer. Some engineers might want to focus on things that develop their skills or make them a more valuable employee, rather than things that are good for the company that employs them. 
 
-With FAST, you are signing up for managing a _community_ of people. 
+With FaST, you are signing up for managing a _community_ of people. 
 
 <re-img src="misery.png" width="40%"></re-img>
 
-In conventional situations, the hierarchy makes clear who is responsible for this. In FAST, I suspect it would be easy to try and avoid conflict and “let the members figure it out”. This could result in informal power networks dominating in a sort of [tyranny of structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). If you do use FAST, this is something I would guard against.
+In conventional situations, the hierarchy makes clear who is responsible for this. In FaST, I suspect it would be easy to try and avoid conflict and “let the members figure it out”. This could result in informal power networks dominating in a sort of [tyranny of structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). If you do use FaST, this is something I would guard against.
 
 The other extreme would be to not let the group figure problems out, and to have management handle it completely. This could _also_ be harmful. 
 
-So FAST will require good facilitation, careful observation, and occasional intervention.  
+So FaST will require good facilitation, careful observation, and occasional intervention.  
 
-## FAST requires a lot of work
+## FaST requires a lot of work
 
-The biggest reason you might not want to experiment with FAST is that there is a lot of hidden work with FAST. It requires a lot of change in your organization, to an unfamiliar way of operating.
+The biggest reason you might not want to experiment with FaST is that there is a lot of hidden work with FaST. It requires a lot of change in your organization, to an unfamiliar way of operating.
 
-You can compare FAST to working in a new computer programming language. The new language seems promising because it has so many new ergonomic features that it seems way better than anything you’ve seen before. But, you don’t have frameworks and libraries written in this new language. So you’ll have to build a lot of it yourself. 
+You can compare FaST to working in a new computer programming language. The new language seems promising because it has so many new ergonomic features that it seems way better than anything you’ve seen before. But, you don’t have frameworks and libraries written in this new language. So you’ll have to build a lot of it yourself. 
 
-So the biggest disadvantage of FAST is that it’s not a well established practice. You’ll need to make up a lot of things to deal with incompatibilities between how FAST operates, and conventional practices. Here are some examples:
+So the biggest disadvantage of FaST is that it’s not a well established practice. You’ll need to make up a lot of things to deal with incompatibilities between how FaST operates, and conventional practices. Here are some examples:
 
 ### How does performance management work?
 
 On conventional teams, you have a manager who oversees the work, and coaches individuals. You have performance reviews, and if someone isn’t a good fit, the manager can intervene. Although there are problems with performance reviews, most people understand how they work, and they serve a purpose in the organization.
 
-On FAST teams, there isn’t really an obvious way to do performance reviews. Does the person’s manager even know what they’re doing or how they’re working? You can’t even evaluate “teams”, because they are transitory. 
+On FaST teams, there isn’t really an obvious way to do performance reviews. Does the person’s manager even know what they’re doing or how they’re working? You can’t even evaluate “teams”, because they are transitory. 
 
 So the whole notion of performance management needs to be reinvented. While that may be a good idea anyway, it’s something that will require thought, and invention. 
 
-### What is the role of engineering managers in FAST?
+### What is the role of engineering managers in FaST?
 
 There are a lot of ways to structure an engineering manager role. I generally recommend having the [engineering manager responsible for project management](/engineering-manager-vs-tech-lead/) because it gets them to work side by side with their team, without putting them in an area where the power differential causes problems. There are a lot of valid ways of defining the engineering manager role, but that’s one I tend to gravitate to.
 
-In FAST, the engineering manager role is less clear. You don’t have long-lived teams, so it’s harder for the engineering manager to work side by side with their direct reports. 
+In FaST, the engineering manager role is less clear. You don’t have long-lived teams, so it’s harder for the engineering manager to work side by side with their direct reports. 
 
 You could have engineering managers lead the self-assembled teams. Or you could have them be pure people managers. Or you could have them be player-coaches. 
 
 <re-img src="job.png" width="40%"></re-img>
 
-All of these have tradeoffs, and some pretty big downsides. FAST seems to diminish the need for as much engineering management. You still need people to hire, do performance management, and oversee process. But maybe not as much as in a conventional organization? I’ve seen many organizations suffer because they don’t value management as a discipline. But I would guess that FAST organizations need less management. 
+All of these have tradeoffs, and some pretty big downsides. FaST seems to diminish the need for as much engineering management. You still need people to hire, do performance management, and oversee process. But maybe not as much as in a conventional organization? I’ve seen many organizations suffer because they don’t value management as a discipline. But I would guess that FaST organizations need less management. 
 
-I’m really curious to see if this plays out, and want to hear from organizations that experiment with FAST. What do you do with management? 
+I’m really curious to see if this plays out, and want to hear from organizations that experiment with FaST. What do you do with management? 
 
 ### How will you ensure code quality without areas of ownership?
 
@@ -432,31 +432,31 @@ In a shared code ownership situation, you have to go to greater lengths to ensur
 
 <re-img src="ownership.png" width="40%"></re-img>
 
-You’ll also need stronger standards for code patterns. You’ll need code linting. And you’ll need some sort of architectural decision-making. You don’t want to have twenty patterns for how your frontend code handles state. These are problems you’ll have in most software organizations, but they’ll be much more pressing in an organization using FAST.
+You’ll also need stronger standards for code patterns. You’ll need code linting. And you’ll need some sort of architectural decision-making. You don’t want to have twenty patterns for how your frontend code handles state. These are problems you’ll have in most software organizations, but they’ll be much more pressing in an organization using FaST.
 
-One thing a lot of organizations under-invest in is training and communication around effective software design patterns. And conversations to make sure everyone is aligned on which approaches to use, and when. These are probably even more important in a FAST organization.
+One thing a lot of organizations under-invest in is training and communication around effective software design patterns. And conversations to make sure everyone is aligned on which approaches to use, and when. These are probably even more important in a FaST organization.
 
-Shared code ownership is a practice that has some precedent. It would be worth spending the time to dig into how to be successful with it if you proceed with FAST.
+Shared code ownership is a practice that has some precedent. It would be worth spending the time to dig into how to be successful with it if you proceed with FaST.
 
 ### What happens with multiple Collectives and crossing Collective boundaries?
 
-Work that crosses Collective boundaries is essentially undefined in FAST. And large initiatives requiring high degrees of coordination are also under-specified by FAST. So you’d have to invent solutions to these situations. 
+Work that crosses Collective boundaries is essentially undefined in FaST. And large initiatives requiring high degrees of coordination are also under-specified by FaST. So you’d have to invent solutions to these situations. 
 
-Any organization large enough to have multiple Collectives using FAST will run into cross-Collective projects. The patterns for addressing these things will be similar or analogous to how you resolve it on a smaller scale. But this is largely uncharted territory, as far as I know. So you’ll need to be using some [coordination models](/coordination-models/) to solve these problems when they arise. It will be an act of invention.
+Any organization large enough to have multiple Collectives using FaST will run into cross-Collective projects. The patterns for addressing these things will be similar or analogous to how you resolve it on a smaller scale. But this is largely uncharted territory, as far as I know. So you’ll need to be using some [coordination models](/coordination-models/) to solve these problems when they arise. It will be an act of invention.
 
-### How does FAST deal with on-call?
+### How does FaST deal with on-call?
 
-On-call isn’t specifically mentioned in the [FAST guide](https://drive.google.com/file/d/1KXGGHH9hvk8G_eWCtm0kRWDGumfuhz8c/view). So you’ll need to invent a scheme to deal with it. 
+On-call isn’t specifically mentioned in the [FaST guide](https://drive.google.com/file/d/1KXGGHH9hvk8G_eWCtm0kRWDGumfuhz8c/view). So you’ll need to invent a scheme to deal with it. 
 
 In conventional teams, the standard advice for on-call is to have each team responsible for its own operations. And to have everyone on the team on call. This implies you should have teams of at least four people so the burden isn’t too bad. The thinking is that having teams on call for their work product incentivizes them to bake reliability in. This helps them ensure they have a decent on-call schedule. 
 
-With FAST, you might create an on-call rotation that has tiers (follow this runbook and escalate if that doesn’t fix it). And you’ll need to explicitly keep a map of who is able to support what. This won’t map to your teams.
+With FaST, you might create an on-call rotation that has tiers (follow this runbook and escalate if that doesn’t fix it). And you’ll need to explicitly keep a map of who is able to support what. This won’t map to your teams.
 
 This isn’t super hard to do, but it is less common than conventional on-call practices, and will require management attention.
 
 ### What about fixing bugs and support escalations?
 
-FAST has an optional role called a “Feature Steward”. They are kind of an expert for a particular feature, and are the point of contact around that feature for stakeholders. They aren’t required to work continuously on that feature, but are required to have a continuous understanding of it. 
+FaST has an optional role called a “Feature Steward”. They are kind of an expert for a particular feature, and are the point of contact around that feature for stakeholders. They aren’t required to work continuously on that feature, but are required to have a continuous understanding of it. 
 
 Like on-call, you’ll need a mapping of features to people with expertise on those features. This will be important for both bugs and support escalations. And you might as well combine it with on-call as well. You’ll need some way to triage issues to the right people. 
 
@@ -472,39 +472,39 @@ None of these are hard problems to solve, but they are management work. And ever
 
 ### What about reliability incidents and incident retrospectives?
 
-FAST does not define how incidents are handled. Your on-call patterns will largely determine how incidents are handled, and will likely involve whoever knows how to fix the situation being pulled in to fix it.
+FaST does not define how incidents are handled. Your on-call patterns will largely determine how incidents are handled, and will likely involve whoever knows how to fix the situation being pulled in to fix it.
 
-FAST doesn’t describe how to handle incident retrospectives. I would recommend doing something like the following: schedule an incident retrospective to happen before the next Collective meeting. One of the aims of the retrospective would be to identify a few pieces of work that could be done that would either reduce the likelihood or severity of whatever caused the incident. Another would be to learn all you can from the incident. 
+FaST doesn’t describe how to handle incident retrospectives. I would recommend doing something like the following: schedule an incident retrospective to happen before the next Collective meeting. One of the aims of the retrospective would be to identify a few pieces of work that could be done that would either reduce the likelihood or severity of whatever caused the incident. Another would be to learn all you can from the incident. 
 
 At the Collective meeting immediately following the incident, I would share what we learned, and also make an automatic priority for the next cycle be to do some of the work identified in the retrospective. 
 
-At New Relic, we didn’t use FAST, but we had a similar policy. We called it “Don't Repeat Incidents” (DRI). It was among the best things we ever did for reliability. The rule was that DRI work was automatically more important than other priorities. Thus, an incident always resulted in either less scope, or a deadline getting pushed back. I have a whole post on [Don't Repeat Incidents](/dont-repeat-incidents/).
+At New Relic, we didn’t use FaST, but we had a similar policy. We called it “Don't Repeat Incidents” (DRI). It was among the best things we ever did for reliability. The rule was that DRI work was automatically more important than other priorities. Thus, an incident always resulted in either less scope, or a deadline getting pushed back. I have a whole post on [Don't Repeat Incidents](/dont-repeat-incidents/).
 
-### How do designers work in FAST?
+### How do designers work in FaST?
 
 A challenge many designers have is focusing on working with the engineering team, or doing work ahead of the engineering team. Or have them operate both ways. You’ll hear strong arguments for both ways of working. 
 
-FAST doesn’t specify how this should work, so you’ll need to decide for yourself. Do designers sign up for the teams to work on? Or are they a service organization, which work ahead on things, and act as [consultants](/coordination-models/) when people need something from them? You’ll need to decide. I would probably have the designers sign up and be part of the teams, but again this is an example of the type of decisions you’ll need to make when adopting FAST. 
+FaST doesn’t specify how this should work, so you’ll need to decide for yourself. Do designers sign up for the teams to work on? Or are they a service organization, which work ahead on things, and act as [consultants](/coordination-models/) when people need something from them? You’ll need to decide. I would probably have the designers sign up and be part of the teams, but again this is an example of the type of decisions you’ll need to make when adopting FaST. 
 
-### How do product managers work in FAST?
+### How do product managers work in FaST?
 
-The product role in FAST is mostly to prioritize and communicate priorities. There is a lot that isn’t really described in the FAST manual about the work outside of that. 
+The product role in FaST is mostly to prioritize and communicate priorities. There is a lot that isn’t really described in the FaST manual about the work outside of that. 
 
-The assumption in the FAST manual seems to be that the product managers inspire and communicate, and then the engineers work on the features. 
+The assumption in the FaST manual seems to be that the product managers inspire and communicate, and then the engineers work on the features. 
 
 To the degree that you can, I would get engineers talking with customers, and have them gain expertise in the product area they are working in. Ideally, they would be doing the work, demoing it to customers, and getting feedback on it from them. Having the product managers facilitate that, and leveling up the engineers’ ability to do that effectively, could be a valuable part of their work. 
 
 There is a lot of flexibility in this model. You could do the typical product-to-engineering handoff, or you could have them discover and problem-solve the space together, with customers.
 
-So as you can see, there are many gaps in FAST. You’ll need to problem-solve the rest. 
+So as you can see, there are many gaps in FaST. You’ll need to problem-solve the rest. 
 
-## FAST can run counter to a desire to allocate people to areas
+## FaST can run counter to a desire to allocate people to areas
 
-When I ran a FAST Collective, one unexpected source of friction with FAST I found was that you can have some situations where parts of the organization are wanting to see a dedicated effort to be allocated against their needs. You can do this with FAST, but there can be a pull towards allocating a team or a set of people against a stream of work.
+When I ran a FaST Collective, one unexpected source of friction with FaST I found was that you can have some situations where parts of the organization are wanting to see a dedicated effort to be allocated against their needs. You can do this with FaST, but there can be a pull towards allocating a team or a set of people against a stream of work.
 
-## The FAST materials are full of jargon
+## The FaST materials are full of jargon
 
-You may find the FAST website and manual confusing. You’ll have to navigate a lot of jargon and annoying terminology to get at the gold of FAST Agile. As an example, here’s the awful definition of FAST Agile that attempts to define the practice in [version 2.12 of the FAST Guide](https://www.fastagile.io/fast-guide):
+You may find the FaST website and manual confusing. You’ll have to navigate a lot of jargon and annoying terminology to get at the gold of FaST Agile. As an example, here’s the awful definition of FaST Agile that attempts to define the practice in [version 2.12 of the FaST Guide](https://www.fastagile.io/fast-guide):
 
 _“What is Fluid Scaling Technology? Fluid Scaling Technology combines Open Space Technology and Open Allocation to create a lightweight, simple to understand, and simple to master method for organising people around work - that scales. FAST is the acronym for Fluid Scaling Technology. Fluid Scaling Technology for Agile is FAST Agile.”_
 
@@ -512,17 +512,23 @@ So. Bad. And this is very representative. You’ll see lots of references to Col
 
 ## Conclusion
 
-So where does that leave us? Is FAST agile worth experimenting with? 
+So where does that leave us? Is FaST worth experimenting with? 
 
 I believe the answer to that is yes, but with caution, and in the right contexts. You can play around with it within individual teams. And if you have leadership support, experiment with it gradually within larger organizations. 
 
 Please share with me if you do experiment with it. And if you’d like help rolling it out in your organization, contact me. I’ll either help you directly, or connect you with others who can help.
 
+## Further discussion
+
+I talked with Jim Shore about his experience with FaST on Decoding Leadership. One topic we talked about that I haven't seen anywhere else is the role of management on FaST teams.
+
+<iframe src="https://open.spotify.com/embed/episode/3cMqA8dqblT1Ux6qms8K8v/video?utm_source=generator" width="400" height="102" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 ## Thank you
 
 Early versions of this post were… really bad. I’d like to thank [Seth Falcon](https://www.linkedin.com/in/sethfalcon/) and [Davy Stevenson](https://davystevenson.com/) for their critique. They both pointed out some major problems with the post that made me back up and rethink my approach. And they made some excellent points that I incorporated into their own sections of the post. Eventually, I rewrote most of the post, and I was much happier with the outcome. Thank you! Seth has a [newsletter on engineering leadership](https://sethfalcon.substack.com) worth checking out, and Davy (like me) does [startup advising and coaching](https://davystevenson.com/). 
 
-[Jim Shore](https://www.jamesshore.com) introduced me to FAST agile. He has some [excellent talks](https://www.youtube.com/watch?v=WbPLjuvyCUA) on his experiences with it. And we’ve met a few times and discussed the implications and implementation of FAST. Jim is the author of [The Art of Agile Development](https://www.jamesshore.com/v2/books). 
+[Jim Shore](https://www.jamesshore.com) introduced me to FaST agile. He has some [excellent talks](https://www.youtube.com/watch?v=WbPLjuvyCUA) on his experiences with it. And we’ve met a few times and discussed the implications and implementation of FaST. Jim is the author of [The Art of Agile Development](https://www.jamesshore.com/v2/books). 
 
 Image by <a href="https://pixabay.com/users/kanenori-4749850/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2192675">Kanenori</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2192675">Pixabay</a>
 
