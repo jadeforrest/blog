@@ -114,7 +114,7 @@ This can also change the way you relate to other departments. You can talk with 
 
 ## Talking about time bombs
 
-The only thing I find unfortuante about building this skill is that it can be thankless. Yes, you'll feel very smart when you see problems other people aren't seeing. But a lot of time this means you're fixing issues nobody is aware of.
+The only thing I find unfortunate about building this skill is that it can be thankless. Yes, you'll feel very smart when you see problems other people aren't seeing. But a lot of time this means you're fixing issues nobody is aware of.
 
 One thing I've found useful when talking about these type of problems is to come up with a really succinct phrase that gets at why it's important. Sometimes time bombs are existential, that's perfect. For example,
 
@@ -130,4 +130,6 @@ I hope you found that useful. Let me know your experiences as you try this skill
 
 ## Thank you
 
-[George Sudarkoff](https://sudarkoff.com) found a typo, thanks for pointing it out! Image from <a href="https://pixabay.com/photos/san-francisco-california-houses-210230">Pixabay</a>. 
+[George Sudarkoff](https://sudarkoff.com) and Linda Nguyen both found typos in the post and let me know about it. Really appreciate that! 
+
+Image from <a href="https://pixabay.com/photos/san-francisco-california-houses-210230">Pixabay</a>. 
