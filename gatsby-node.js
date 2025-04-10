@@ -63,6 +63,18 @@ exports.createPages = ({ graphql, actions }) => {
     toPath: `/posts/`,
     isPermanent: true,
   });
+  
+  createRedirect({
+    fromPath: `/blogger/one-entry`,
+    toPath: `/posts/`,
+    isPermanent: true,
+  });
+  
+  createRedirect({
+    fromPath: `/blogger/one-entry/*`,
+    toPath: `/posts/`,
+    isPermanent: true,
+  });
 
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");

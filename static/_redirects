@@ -8,3 +8,7 @@ https://rubick.com/* https://www.rubick.com/:splat 301!
 # Redirect old OpenACS related content to posts page
 /openacs/getting_started/ /posts/ 301!
 /openacs/* /posts/ 301!
+
+# Redirect blogger URLs
+/blogger/one-entry /posts/ 301!
+/blogger/one-entry?* /posts/ 301!
