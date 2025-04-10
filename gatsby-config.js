@@ -57,6 +57,25 @@ module.exports = {
             resolve: "gatsby-remark-component-parent2div",
             options: { components: ["re-icons", "re-img", "re-tracedsvg-gallery"] }
           },
+          `gatsby-plugin-sharp`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              backgroundColor: "transparent",
+              tracedSVG: { color: '#f9ebd2' }
+            }
+          },
+          {
+            resolve: `gatsby-remark-rehype-images`,
+            options: {
+              tag: 're-img',
+              maxWidth: 800,
+              quality: 90,
+              tracedSVG: { color: '#f9ebd2' },
+              generateTracedSVG: true
+            }
+          },
 
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -90,6 +109,8 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,

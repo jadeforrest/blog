@@ -80,7 +80,19 @@ exports.createPages = ({ graphql, actions }) => {
                           title
                           tags
                           cover {
-                              publicURL
+                              children {
+                                  ... on ImageSharp {
+                                      fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
+                                          tracedSVG
+                                          aspectRatio
+                                          src
+                                          srcSet
+                                          srcWebp
+                                          srcSetWebp
+                                          sizes
+                                      }
+                                  }
+                              }
                           }
                       }
                   }

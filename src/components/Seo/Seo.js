@@ -14,7 +14,7 @@ const Seo = (props) => {
 
   const title = config.shortSiteTitle + " - " + (postTitle || pageTitle);
   const description = postDescription ? postDescription : config.siteDescription;
-  const imagePath = postCover && postCover.publicURL ? postCover.publicURL : config.siteImage;
+  const imagePath = postCover && postCover.childImageSharp ? postCover.childImageSharp.resize.src : config.siteImage;
   const url =
      config.siteUrl + (config.pathPrefix ? config.pathPrefix : "") + (postSlug ? postSlug : "");
  const domain = useStaticQuery(plausibleDomainQuery).site.siteMetadata.plausibleDomain;

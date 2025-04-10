@@ -25,7 +25,26 @@ const ReTracedSVGGallery = (props) => {
                   node {
                     id
                     absolutePath
-                    publicURL
+                    childImageSharp {
+                        fluid(
+                            maxWidth: 800,
+                            maxHeight: 360,
+                            cropFocus: CENTER,
+                            quality: 90,
+                            traceSVG: {
+                                color: "#f9ebd2",
+                            }
+                        ) {
+                            tracedSVG
+                            aspectRatio
+                            src
+                            srcSet
+                            srcWebp
+                            srcSetWebp
+                            sizes
+                            originalImg
+                        }
+                    }
                   }
                 }
               }
@@ -35,21 +54,13 @@ const ReTracedSVGGallery = (props) => {
 
             return (
                 <>
-                    {data.allFile.edges.map((item,i) => (
-                        <img 
+                    {data.allFile.edges.map((item,i) =>
+                        <ReImg
                             key={`svggal${i}`}
-                            src={item.node.publicURL}
-                            alt=""
-                            style={{ 
-                                width: '100%', 
-                                margin: '15px 0', 
-                                transition: 'all 0.3s',
-                                ':hover': {
-                                    transform: 'scale(1.1)'
-                                }
-                            }}
+                            fluid={item.node.childImageSharp.fluid}
+                            hovereffect={true}
                         />
-                    ))}
+                    )}
                 </>
             )
             

@@ -10,8 +10,20 @@ const Hero = props => {
     <StaticQuery
         query={graphql`
           query HeroBgQuery {
-            bgFile: file(relativePath: { eq: "png/hero-background.png" }) {
-              publicURL
+            bgDesktop: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
+              resize(width: 1200, quality: 90, cropFocus: CENTER) {
+                src
+              }
+            }
+            bgTablet: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
+              resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
+                src
+              }
+            }
+            bgMobile: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
+              resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
+                src
+              }
             }
           }
         `}
@@ -23,8 +35,9 @@ const Hero = props => {
             separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
           };
 
-          // Using the same image for all device sizes since we removed imageSharp
-          const heroImage = data.bgFile ? data.bgFile.publicURL : "";
+          const bgDesktop = data.bgDesktop ? data.bgDesktop.resize.src : "";
+          const bgTablet = data.bgTablet ? data.bgTablet.resize.src : "";
+          const bgMobile = data.bgMobile ? data.bgMobile.resize.src : "";
 
           return (
             <React.Fragment>
@@ -47,7 +60,7 @@ const Hero = props => {
               .hero {
                 align-items: center;
                 background: ${theme.hero.background};
-                background-image: url(${heroImage});
+                background-image: url(${bgMobile});
                 background-size: cover;
                 color: ${theme.text.color.primary.inverse};
                 display: flex;
@@ -125,7 +138,7 @@ const Hero = props => {
       
               @from-width tablet {
                 .hero {
-                  background-image: url(${heroImage});
+                  background-image: url(${bgTablet});
                 }
       
                 h1 {
@@ -140,7 +153,7 @@ const Hero = props => {
       
               @from-width desktop {
                 .hero {
-                  background-image: url(${heroImage});
+                  background-image: url(${bgDesktop});
                 }
       
                 h1 {
