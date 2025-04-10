@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": [
     "google",
     "prettier",
@@ -8,10 +8,14 @@
     "plugin:react/recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": 2016,
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
+    },
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
     }
   },
   "plugins": ["prettier", "react", "jsx-a11y", "import", "graphql"],

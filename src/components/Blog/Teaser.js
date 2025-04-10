@@ -17,9 +17,7 @@ const Teaser = (props) => {
         title,
         tags,
         author,
-        cover: {
-          children: [{ fluid }],
-        },
+        cover,
       },
     },
     index
@@ -30,7 +28,7 @@ const Teaser = (props) => {
       <li>
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} loading={index == 0 ? "eager" : "lazy"} />
+            <img src={cover ? cover.publicURL : ""} alt={title} loading={index == 0 ? "eager" : "lazy"} />
           </div>
           <h1>
             {title} <FaArrowRight className="arrow" />
