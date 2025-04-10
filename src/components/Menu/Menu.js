@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-require("core-js/fn/array/from");
+require("core-js/es/array/from");
 
 import { FaBook, FaHome, FaTag, FaUser, FaSeedling, FaPodcast } from "react-icons/fa/";
 
