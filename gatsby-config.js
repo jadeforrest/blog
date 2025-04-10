@@ -15,6 +15,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-jsx`, // the plugin's code is inserted directly to gatsby-node.js and gatsby-ssr.js files
     `gatsby-plugin-styled-jsx-postcss`, // as above
+    `gatsby-plugin-meta-redirect`, // Create redirects at build time
     {
       resolve: `gatsby-plugin-layout`,
       options: {

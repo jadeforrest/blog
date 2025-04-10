@@ -4,3 +4,7 @@ https://rubick.com/* https://www.rubick.com/:splat 301!
 /blog / 301!
 /subscribe / 301!
 /sitemap.xml /sitemap/sitemap-index.xml 301!
+
+# Redirect old OpenACS related content to posts page
+/openacs/getting_started/ /posts/ 301!
+/openacs/* /posts/ 301!

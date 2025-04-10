@@ -49,7 +49,20 @@ function createPaginationJSON(pathSuffix, pagePosts) {
 }
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+  
+  // Create redirects
+  createRedirect({
+    fromPath: `/openacs/getting_started/`,
+    toPath: `/posts/`,
+    isPermanent: true,
+  });
+  
+  createRedirect({
+    fromPath: `/openacs/*`,
+    toPath: `/posts/`,
+    isPermanent: true,
+  });
 
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");
