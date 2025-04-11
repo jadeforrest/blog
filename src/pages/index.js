@@ -5,7 +5,8 @@ import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaUserPlus, FaRss, FaMastodon, FaLinkedin } from "react-icons/fa";
+import { FaUserPlus, FaRss, FaLinkedin } from "react-icons/fa";
+import { FaHashtag } from "react-icons/fa6";
 import charity from "../images/png/charity.png";
 import rachel from "../images/png/rachel.png";
 import sarah from "../images/png/sarah.png";
@@ -117,10 +118,10 @@ const IndexPage = props => {
           </section>
         </a>
 
-        <a href="https://tech.lgbt/@jadeforrest" target="_blank">
+        <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank">
           <section className="subContainer">
-            <span className="subIcon"><FaMastodon /></span>
-            <span className="subText">Mastodon</span>
+            <span className="subIcon"><FaHashtag /></span>
+            <span className="subText">Bluesky</span>
           </section>
         </a>
 
