@@ -87,7 +87,7 @@ class Header extends React.Component {
         </header>
         <div className={`availability-container ${scrollDirection === "down" ? "hide" : ""}`}>
           <Link to="/about/" className="availability">
-            Availability: waiting list for interim roles, available for interim, individual and group coaching
+            Availability: waiting list for interim roles, available for advising, individual and group coaching
           </Link>
         </div>
         <VisibilitySensor onChange={this.visibilitySensorChange}>
