@@ -18,6 +18,11 @@
     }
   },
   "plugins": ["prettier", "react", "jsx-a11y", "import", "graphql"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "browser": true,
     "es6": true,
