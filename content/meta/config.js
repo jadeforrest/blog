@@ -10,6 +10,7 @@ module.exports = {
   /* author */
   authorName: "Jade Rubick",
   authorTwitterAccount: "@jaderubick",
+  authorTwitter: "https://twitter.com/jaderubick",
   authorGithub: "https://github.com/jadeforrest",
   authorLinkedin: "https://www.linkedin.com/in/jaderubick/",
 

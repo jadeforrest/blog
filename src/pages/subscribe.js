@@ -5,6 +5,7 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaTag , FaRss , FaPaperPlane, FaLinkedin } from "react-icons/fa";
+import { FaSquareThreads } from "react-icons/fa6";
 import config from "../../content/meta/config";
 
 const SubscribePage = props => {
@@ -69,12 +70,12 @@ const SubscribePage = props => {
                 </section>
               </a>
 
-              {/* <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank">
+              <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank">
                 <section className="subContainer">
-                    <span className="subIcon"><FaBluesky/></span>
-                    <span className="subText">BlueSky</span>
+                    <span className="subIcon"><FaSquareThreads/></span>
+                    <span className="subText">Bluesky</span>
                 </section>
-              </a> */}
+              </a>
 
               <a href="https://rubick.ck.page/subscribe" target="_blank">
                 <section className="subContainer">
