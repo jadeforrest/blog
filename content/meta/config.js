@@ -9,8 +9,7 @@ module.exports = {
 
   /* author */
   authorName: "Jade Rubick",
-  authorTwitterAccount: "@jaderubick",
-  authorTwitter: "https://twitter.com/jaderubick",
+  authorBluesky: "https://bsky.app/profile/jaderubick.bsky.social",
   authorGithub: "https://github.com/jadeforrest",
   authorLinkedin: "https://www.linkedin.com/in/jaderubick/",
 

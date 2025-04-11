@@ -5,7 +5,7 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaTag , FaRss , FaPaperPlane, FaLinkedin } from "react-icons/fa";
-import { FaSquareThreads } from "react-icons/fa6";
+import { FaHashtag } from "react-icons/fa6";
 import config from "../../content/meta/config";
 
 const SubscribePage = props => {
@@ -61,7 +61,7 @@ const SubscribePage = props => {
 
               <p></p>
 
-              <p>And finally, you can follow new posts by RSS or LinkedIn or BlueSky</p>
+              <p>And finally, you can follow new posts by RSS, LinkedIn, or Bluesky</p>
 
               <a href="../rss.xml" target="_blank">
                 <section className="subContainer">
@@ -72,7 +72,7 @@ const SubscribePage = props => {
 
               <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank">
                 <section className="subContainer">
-                    <span className="subIcon"><FaSquareThreads/></span>
+                    <span className="subIcon"><FaHashtag/></span>
                     <span className="subText">Bluesky</span>
                 </section>
               </a>
