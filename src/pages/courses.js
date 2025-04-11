@@ -39,8 +39,8 @@ const CoursePage = props => {
               </a>
 
               <p>This is offered as a paid or <a href="/">free</a> course. Covers a wide range of 
-              topics for engineering, product, and design leaders. Click above to sign up or 
-              see the FAQ below.</p>
+              topics for engineering, product, and design leaders. This contains most of the writing on rubick.com,
+              sent once a week to your email. Click above to sign up or see the FAQ below.</p>
 
               <p></p>
 
