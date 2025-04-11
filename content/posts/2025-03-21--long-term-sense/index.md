@@ -1,6 +1,6 @@
 ---
 title: How to develop a sixth sense for the long-term
-tags: []
+tags: ["product-management","scaling","complexity","leadership"]
 cover: slope.jpg
 author: Jade Rubick
 discussionId: "long-term-slope"
