@@ -51,6 +51,11 @@ class Header extends React.Component {
               {(width) => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
            </ScreenWidthContext.Consumer>
         </header>
+        <div className="availability-container">
+          <Link to="/about/" className="availability">
+            Availability: waiting list for interim roles, available for interim, individual and group coaching
+          </Link>
+        </div>
         <VisibilitySensor onChange={this.visibilitySensorChange}>
           <div className="sensor" />
         </VisibilitySensor>
@@ -80,6 +85,7 @@ class Header extends React.Component {
                 flex-shrink: 0;
               }
             }
+            
 
             &.homepage {
               position: absolute;
@@ -121,6 +127,28 @@ class Header extends React.Component {
             }
           }
 
+          .availability-container {
+            display: flex;
+            justify-content: center;
+            background-color: ${theme.color.neutral.white};
+            border-bottom: 1px solid ${theme.color.neutral.gray.c};
+            padding: ${theme.space.xs} 0;
+            position: relative;
+            z-index: 4;
+            
+            :global(a.availability) {
+              font-size: 0.75em;
+              color: #6b8a7d; /* greyish green */
+              text-decoration: none;
+              text-align: center;
+              max-width: 90%;
+              
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+          
           .sensor {
             display: block;
             position: absolute;
@@ -145,6 +173,9 @@ class Header extends React.Component {
           @below desktop {
             :global(a.logoType) {
               visibility: hidden;
+            }
+            .availability-container {
+              display: none;
             }
             .header.homepage {
               .logo {
@@ -192,7 +223,16 @@ class Header extends React.Component {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1;
+            z-index: 5;
+           }
+           
+          .header.fixed + .availability-container {
+            position: fixed;
+            top: ${theme.header.height.fixed};
+            left: 0;
+            right: 0;
+            z-index: 4;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
            }
 
           .header.fixed h1 {
@@ -202,6 +242,7 @@ class Header extends React.Component {
             .header.fixed h2 {
                display: none;
              }
+             
 
              .header.homepage:not(.fixed) {
                :global(a.logoType),
