@@ -12,9 +12,43 @@ import avatar from "../../images/jpg/avatar.jpg";
 class Header extends React.Component {
   state = {
     fixed: false,
+    scrollDirection: "up",
+    prevScrollY: 0,
   };
 
-    visibilitySensorChange = (val) => {
+  componentDidMount() {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", this.handleScroll);
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== "undefined") {
+      window.removeEventListener("scroll", this.handleScroll);
+    }
+  }
+
+  handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const { prevScrollY, scrollDirection } = this.state;
+    
+    // Only change direction if we've scrolled at least 5px in the new direction
+    // This prevents rapid toggling when scrolling small amounts
+    if (
+      (currentScrollY > prevScrollY + 5 && scrollDirection !== "down") || 
+      (currentScrollY < prevScrollY - 5 && scrollDirection !== "up")
+    ) {
+      this.setState({
+        scrollDirection: currentScrollY > prevScrollY ? "down" : "up",
+      });
+    }
+    
+    this.setState({
+      prevScrollY: currentScrollY
+    });
+  };
+
+  visibilitySensorChange = (val) => {
     if (val) {
       this.setState({ fixed: false });
     } else {
@@ -30,7 +64,7 @@ class Header extends React.Component {
 
   render() {
     const { path, theme } = this.props;
-    const { fixed } = this.state;
+    const { fixed, scrollDirection } = this.state;
 
     return (
       <React.Fragment>
@@ -51,7 +85,7 @@ class Header extends React.Component {
               {(width) => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
            </ScreenWidthContext.Consumer>
         </header>
-        <div className="availability-container">
+        <div className={`availability-container ${scrollDirection === "down" ? "hide" : ""}`}>
           <Link to="/about/" className="availability">
             Availability: waiting list for interim roles, available for interim, individual and group coaching
           </Link>
@@ -135,6 +169,17 @@ class Header extends React.Component {
             padding: ${theme.space.xs} 0;
             position: relative;
             z-index: 4;
+            max-height: 2rem;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+            
+            &.hide {
+              max-height: 0;
+              padding: 0;
+              opacity: 0;
+              border-bottom: none;
+            }
             
             :global(a.availability) {
               font-size: 0.75em;
@@ -233,6 +278,10 @@ class Header extends React.Component {
             right: 0;
             z-index: 4;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            
+            &.hide {
+              box-shadow: none;
+            }
            }
 
           .header.fixed h1 {
