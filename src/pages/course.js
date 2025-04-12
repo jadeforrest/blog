@@ -26,10 +26,10 @@ const CoursePage = props => {
           <React.Fragment>
             <Article theme={theme}>
               <header>
-                <Headline title="Management course" theme={theme} />
+                <Headline title="Frontline management course" theme={theme} />
               </header>
 
-              <p>I offer a newsletter-based course on management:</p>
+              <p>I offer a newsletter-based course on engineering management:</p>
 
               <a href="https://rubick.ck.page/products/management-bootcamp" target="_blank">
                 <section className="subContainer2">
@@ -39,7 +39,7 @@ const CoursePage = props => {
               </a>
 
               <p>This is a paid course delivered via newsletter. It's designed for engineering managers who are just 
-                getting started or have some experience. Click above to sign up or see the FAQ below.</p>
+                getting started or have some experience.</p>
 
               <h2>About the course</h2>
 
@@ -62,9 +62,7 @@ const CoursePage = props => {
                 </dd>
 
                 <dt>Is there any interaction with other students?</dt>
-                <dd>The Frontline Management Bootcamp course has a private Slack group you can 
-                  opt to participate in. It's like a support group for managers! You can
-                  ask questions there and get answers from your peers and from Jade. 
+                <dd>Not currently. I did have a Slack community for participants, but we haven't had a critical mass yet.
                 </dd>
 
                 <dt>I can't afford your course, but really want to take it</dt>
@@ -74,13 +72,12 @@ const CoursePage = props => {
                 <dt>How much email will I be receiving, and for how long?</dt>
                 <dd>The Frontline Management Bootcamp course is delivered weekly. It is a five month course. 
                   <br /><br />
-                  After the course, you may get occasional emails, as I add additional content.
+                  After the course, you will get all the content from the Engineering Leadership Weekly newsletter. That is another year plus of newsletters. 
                 </dd>
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
-                <dd>Yes, that should work just fine. The only downside is that you
-                  might receive two emails on the same day. There are also a few lessons I've 
-                  included in both the newsletter and course, so you'll receive a couple of duplicates.
+                <dd>You can, but if you're thinking about that, I would just sign up for the course. At the end of the course, you will automatically transition into receiving the newsletter.
+                  You will get a few duplicate emails, but not many.
                 </dd>
 
                 <dt>If I pay for the course and don't like it, can I get a refund?</dt>
@@ -97,7 +94,7 @@ const CoursePage = props => {
                 </dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
-                <dd>The Frontline Management Bootcamp course is very engineering focused. It's best suited for
+                <dd>The Frontline Management course is very engineering focused. It's best suited for
                   engineering managers, though some content may be applicable to other technical disciplines.
                 </dd>
               </dl>              

@@ -77,9 +77,6 @@ const IndexPage = props => {
           you will receive an email 📧 each week with something that should be useful.
         </p>
 
-        <img src={sarah} className="charity" width="100%" />
-        <p></p>
-
         <p>
           The most common themes in my writing are </p>
           <ul>
@@ -87,8 +84,6 @@ const IndexPage = props => {
             <li>Incremental & feedback-rich product development.</li>
             <li>Lots of specific management practices I've learned or invented.</li>
           </ul>
-        <img src={rachel} className="charity" width="70%" />
-        <p></p>
 
         <p>I offer a <b>paid version</b> 💰 of Engineering Leadership Weekly. This supports 💚 my
           writing. Use your 
@@ -96,7 +91,7 @@ const IndexPage = props => {
           thankful 🙏 for the support!
           Although most of the material is the same, the paid version offers additional benefits, such as
           an optional 1-1 session. You can read more about the <a href="/newsletter/">newsletter</a> and 
-          <a href="/course/">management course</a>.</p>
+          <a href="/course/"> frontline management course</a>.</p>
 
 
           <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
@@ -105,6 +100,14 @@ const IndexPage = props => {
             <span className="subText">Engineering leadership weekly (paid)</span>
           </section>
         </a>
+
+        <p></p>
+
+        <img src={sarah} className="charity" width="100%" />
+        <p></p>
+
+        <img src={rachel} className="charity" width="70%" />
+        <p></p>
 
         <p></p>
         <p>

@@ -26,10 +26,10 @@ const NewsletterPage = props => {
           <React.Fragment>
             <Article theme={theme}>
               <header>
-                <Headline title="Engineering Leadership Newsletter" theme={theme} />
+                <Headline title="Engineering Leadership Weekly" theme={theme} />
               </header>
 
-              <p>I offer a weekly newsletter on engineering leadership:</p>
+              <p>I offer a weekly newsletter on leadership:</p>
 
               <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
                 <section className="subContainer2">
@@ -40,24 +40,13 @@ const NewsletterPage = props => {
 
               <p>This newsletter is offered as paid or <a href="/">free</a>. It covers a wide range of 
               topics for engineering, product, and design leaders. This contains most of the writing on rubick.com,
-              sent once a week to your email. Click above to sign up or see the FAQ below.</p>
+              sent once a week to your email.</p>
 
               <h2>About the newsletter</h2>
 
               <dl>
                 <dt>What is the format for this newsletter?</dt>
                 <dd>It is an email-based newsletter sent weekly.</dd>
-
-                <dt>How much time does this newsletter require?</dt>
-                <dd>The amount of time you devote to it depends on you.<br /><br />
-
-                  For Engineering Leadership Weekly, most of the content is ideas and 
-                  inspiration for your practice.
-                </dd>
-
-                <dt>Are there assessments or quizzes with this newsletter?</dt>
-                <dd>No. The newsletter does not have any assessments.
-                </dd>
 
                 <dt>How is the paid version of Engineering Leadership Weekly different than the free version?</dt>
                 <dd>The paid version includes a 1-1 session with me, and also supports my
@@ -67,9 +56,8 @@ const NewsletterPage = props => {
                   financially viable.
                 </dd>
 
-                <dt>I can't afford the paid version, but really want to take it</dt>
-                <dd><a href="/contact/">Contact me!</a> I'll set you up.
-                </dd>
+                <dt>Where do I sign up for the free version?</dt>
+                <dd>It is on the <a href="/">main page</a> of rubick.com</dd>
 
                 <dt>How much email will I be receiving, and for how long?</dt>
                 <dd>Engineering Leadership Weekly is a weekly email with over a year's content. 
@@ -78,9 +66,8 @@ const NewsletterPage = props => {
                 </dd>
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
-                <dd>Yes, that should work just fine. The only downside is that you
-                  might receive two emails on the same day. There are also a few lessons I've 
-                  included in both the newsletter and course, so you'll receive a couple of duplicates.
+                <dd>You can, but if you're thinking about that, I would just sign up for the course. At the end of the course, you will automatically transition into receiving the newsletter.
+                  You will get a few duplicate emails, but not many.
                 </dd>
 
                 <dt>If I pay for the newsletter and don't like it, can I get a refund?</dt>
