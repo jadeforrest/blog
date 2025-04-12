@@ -112,7 +112,7 @@ Some of your instincts may be untrustworthy. For example, when deciding whether 
 
 Many managers gradually reduce the amount of support and mentorship they receive as they go up the hierarchy. I think they do this because they’re expected to be experts. 
 
-This is foolish. As you change roles, and move through different parts of the organization, your skills will need to grow. So seek out people who can mentor you. Seek out peers that can give you feedback. Start your own [Mini-M support group](/mini-m-support-groups/?utm_source=website-new-director&utm_medium=link&utm_campaign=mini-ms) for Directors. [Contact me](/contact/?utm_source=website-new-director&utm_medium=link&utm_campaign=contact) or another experienced leader to advise or coach you. Read books and subscribe to newsletters that stretch your thinking (such as [my newsletter for engineering leaders](/courses/?utm_source=website-new-director&utm_medium=link&utm_campaign=subscribe))
+This is foolish. As you change roles, and move through different parts of the organization, your skills will need to grow. So seek out people who can mentor you. Seek out peers that can give you feedback. Start your own [Mini-M support group](/mini-m-support-groups/?utm_source=website-new-director&utm_medium=link&utm_campaign=mini-ms) for Directors. [Contact me](/contact/?utm_source=website-new-director&utm_medium=link&utm_campaign=contact) or another experienced leader to advise or coach you. Read books and subscribe to newsletters that stretch your thinking (such as [my newsletter for engineering leaders](/newsletter/?utm_source=website-new-director&utm_medium=link&utm_campaign=subscribe))
 
 ## Beware the distortions of power
 

@@ -5,7 +5,7 @@ import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaUserPlus, FaRss, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaRss, FaLinkedin } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa6";
 import charity from "../images/png/charity.png";
 import rachel from "../images/png/rachel.png";
@@ -51,10 +51,10 @@ const IndexPage = props => {
             
               <div className="formkit-disclaimer" data-element="disclaimer">
                 <br /><p>Also useful for product and design leaders!
-                A <a href="/courses">paid</a> version is also available. I also offer a <a href="/courses">newsletter course</a> for new managers.
+                A <a href="/newsletter">paid</a> version is also available. I also offer a <a href="/course">newsletter course</a> for new managers.
                 I respect your privacy. Unsubscribe anytime.</p>
 
-                <br /><p><a href="/courses">Learn more</a></p>
+                <br /><p><a href="/newsletter">Learn more</a></p>
               </div>
 
               <div className="formkit-powered-by-convertkit-container">
@@ -95,13 +95,13 @@ const IndexPage = props => {
           "professional development" budget: pay for it and expense it. I've been so
           thankful 🙏 for the support!
           Although most of the material is the same, the paid version offers additional benefits, such as
-          an optional 1-1 session. You can read more about the paid newsletter and courses  
-          <a href="/courses/"> here</a>.</p>
+          an optional 1-1 session. You can read more about the <a href="/newsletter/">newsletter</a> and 
+          <a href="/course/">management course</a>.</p>
 
 
           <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
           <section className="subContainer2">
-            <span className="subIcon"><FaUserPlus /></span>
+            <span className="subIcon"><FaEnvelope /></span>
             <span className="subText">Engineering leadership weekly (paid)</span>
           </section>
         </a>

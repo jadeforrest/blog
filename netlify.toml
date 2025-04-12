@@ -4,3 +4,9 @@
 
 [build]
   command = "npm install --legacy-peer-deps && npm run build"
+  
+[[redirects]]
+  from = "/courses/*"
+  to = "/newsletter"
+  status = 301
+  force = true

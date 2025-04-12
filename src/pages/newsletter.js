@@ -4,10 +4,10 @@ import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaUserPlus, FaSeedling } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 import config from "../../content/meta/config";
 
-const CoursePage = props => {
+const NewsletterPage = props => {
 
   return (
     <StaticQuery
@@ -26,112 +26,83 @@ const CoursePage = props => {
           <React.Fragment>
             <Article theme={theme}>
               <header>
-                <Headline title="Weekly newsletter courses" theme={theme} />
+                <Headline title="Engineering Leadership Newsletter" theme={theme} />
               </header>
 
-              <p>I offer a couple of newsletter courses on leadership:</p>
+              <p>I offer a weekly newsletter on engineering leadership:</p>
 
               <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
                 <section className="subContainer2">
-                  <span className="subIcon"><FaUserPlus /></span>
+                  <span className="subIcon"><FaEnvelope /></span>
                   <span className="subText">Engineering leadership weekly</span>
                 </section>
               </a>
 
-              <p>This is offered as a paid or <a href="/">free</a> course. Covers a wide range of 
+              <p>This newsletter is offered as paid or <a href="/">free</a>. It covers a wide range of 
               topics for engineering, product, and design leaders. This contains most of the writing on rubick.com,
               sent once a week to your email. Click above to sign up or see the FAQ below.</p>
 
-              <p></p>
-
-              <a href="https://rubick.ck.page/products/management-bootcamp" target="_blank">
-                <section className="subContainer2">
-                  <span className="subIcon"><FaSeedling /></span>
-                  <span className="subText">Frontline management bootcamp</span>
-                </section>
-              </a>
-
-              <p>This is a paid course. Designed for engineering managers who are just 
-                getting started or have some experience. Click above to sign up or see the FAQ below.</p>
-
-
-              <h2>About the courses</h2>
+              <h2>About the newsletter</h2>
 
               <dl>
-                <dt>What is the format for these classes?</dt>
-                <dd>They are email-based newsletter courses.</dd>
+                <dt>What is the format for this newsletter?</dt>
+                <dd>It is an email-based newsletter sent weekly.</dd>
 
-                <dt>How much time do these courses require?</dt>
-                <dd>For all of the courses, the amount of time you devote to them depends on you.<br /><br />
+                <dt>How much time does this newsletter require?</dt>
+                <dd>The amount of time you devote to it depends on you.<br /><br />
 
                   For Engineering Leadership Weekly, most of the content is ideas and 
-                  inspiration for your practice. <br /><br />
-                  
-                  The Frontline Management Bootcamp course has some assignments. But all assignments
-                  are optional, and it's up to you to decide which you want to integrate
-                  into your management practice. For example, there is an assignment to 
-                  set up your support network, with some suggestions for how to do so. 
-                  You don't have to do any of them, but you'll probably find it helpful. 
+                  inspiration for your practice.
                 </dd>
 
-                <dt>Are there assessments or quizzes with these courses?</dt>
-                <dd>No. The courses do not have an assessment.
-                </dd>
-
-                <dt>Is there any interaction with other students?</dt>
-                <dd>The Frontline Management Bootcamp course has a private Slack group you can 
-                  opt to participate in. It's like a support group for managers! You can
-                  ask questions there and get answers from your peers and from Jade. 
+                <dt>Are there assessments or quizzes with this newsletter?</dt>
+                <dd>No. The newsletter does not have any assessments.
                 </dd>
 
                 <dt>How is the paid version of Engineering Leadership Weekly different than the free version?</dt>
                 <dd>The paid version includes a 1-1 session with me, and also supports my
-                  writing. If you're able to do the paid version, please do. These courses 
-                  are something I do because I want people to pass on the things I've learned. 
+                  writing. If you're able to do the paid version, please do. This newsletter 
+                  is something I do because I want people to pass on the things I've learned. 
                   I can make much better money doing other work. So this helps make it 
                   financially viable.
                 </dd>
 
-                <dt>I can't afford your classes, but really want to take them</dt>
+                <dt>I can't afford the paid version, but really want to take it</dt>
                 <dd><a href="/contact/">Contact me!</a> I'll set you up.
                 </dd>
 
                 <dt>How much email will I be receiving, and for how long?</dt>
-                <dd>Engineering Leadership Weekly course is a weekly email with over a year's content. 
+                <dd>Engineering Leadership Weekly is a weekly email with over a year's content. 
                   <br /><br />
-                  The Frontline Management Bootcamp course is also weekly. It is a five month course. 
-                  <br /><br />
-                  After either course, you may get occasional emails, as I add additional content.
+                  After the newsletter, you may get occasional emails, as I add additional content.
                 </dd>
 
-                <dt>Can I sign up for both classes?</dt>
+                <dt>Can I sign up for both the newsletter and course?</dt>
                 <dd>Yes, that should work just fine. The only downside is that you
-                  might receive two email on the same day. There are also a few lessons I've 
-                  included in both courses, so you'll receive a couple of duplicates.
+                  might receive two emails on the same day. There are also a few lessons I've 
+                  included in both the newsletter and course, so you'll receive a couple of duplicates.
                 </dd>
 
-                <dt>If I pay for the course and don't like it, can I get a refund?</dt>
+                <dt>If I pay for the newsletter and don't like it, can I get a refund?</dt>
                 <dd>Yes, I provide refunds with no questions asked, for two months after the
-                  course starts. <a href="/contact/">Contact me</a>.
+                  newsletter starts. <a href="/contact/">Contact me</a>.
                 </dd>
 
                 <dt>Is it annoying to unsubscribe if I'm finished with it?</dt>
                 <dd>Every email has an unsubscribe link in it. It should be super easy.
                 </dd>
 
-                <dt>How do I give you feedback on any of the course content?</dt>
+                <dt>How do I give you feedback on any of the newsletter content?</dt>
                 <dd>You can reply to any email and I'll read it. I really appreciate feedback!
                 </dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
-                <dd>The Frontline Management Bootcamp course is very engineering focused. Ironically, the 
-                  Engineering Leadership Weekly is LESS engineering focused. Almost all the content is valuable
-                  to leaders from a design or product management background. Around half of the
-                  content could be valuable outside of a product development organization, for managers 
-                  and leaders from many places. Just keep in mind you may need to adopt the content more
-                  to your local situation. 
+                <dd>Ironically, the Engineering Leadership Weekly is LESS engineering focused than the name suggests. 
+                  Almost all the content is valuable to leaders from a design or product management background. 
+                  Around half of the content could be valuable outside of a product development organization, 
+                  for managers and leaders from many places. Just keep in mind you may need to adopt the content more
+                  to your local situation.
                 </dd>
-
               </dl>              
 
               <style jsx>{`
@@ -193,7 +164,7 @@ const CoursePage = props => {
                 }
               `}</style>
             </Article>
-            <Seo pageTitle="Courses"/>
+            <Seo pageTitle="Leadership Newsletter"/>
           </React.Fragment>
         )}
       }
@@ -201,4 +172,4 @@ const CoursePage = props => {
   )
 };
 
-export default CoursePage;
+export default NewsletterPage;

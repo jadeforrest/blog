@@ -20,7 +20,7 @@ I can help you with these problems<sup>†</sup>:
 
 My name is Jade Rubick. I build thriving engineering organizations. My specialty is humane, results-focused organizations.
 
-I also like to share what I've learned. So I write blog posts and have a newsletter course for beginning managers. Most of my blog posts are a part of Engineering Leadership Weekly: [sign up](/courses/), and you'll receive one a week, for a little over a year.
+I also like to share what I've learned. So I write blog posts and have a newsletter course for beginning managers. Most of my blog posts are a part of Engineering Leadership Weekly: [sign up](/newsletter/), and you'll receive one a week, for a little over a year.
 
 [Contact me](/contact) if you'd like to discuss how I might be able to help your organization. You can see my background, companies I've worked with, and what people say about working with me on [LinkedIn](https://www.linkedin.com/in/jaderubick/). 
 
