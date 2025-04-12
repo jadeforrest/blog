@@ -10,19 +10,25 @@ const Hero = props => {
     <StaticQuery
         query={graphql`
           query HeroBgQuery {
-            bgDesktop: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-              resize(width: 1200, quality: 90, cropFocus: CENTER) {
-                src
+            bgDesktop: file(relativePath: { regex: "/hero-background/" }) {
+              childImageSharp {
+                resize(width: 1200, quality: 90, cropFocus: CENTER) {
+                  src
+                }
               }
             }
-            bgTablet: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-              resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
-                src
+            bgTablet: file(relativePath: { regex: "/hero-background/" }) {
+              childImageSharp {
+                resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
+                  src
+                }
               }
             }
-            bgMobile: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-              resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
-                src
+            bgMobile: file(relativePath: { regex: "/hero-background/" }) {
+              childImageSharp {
+                resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
+                  src
+                }
               }
             }
           }
@@ -35,9 +41,9 @@ const Hero = props => {
             separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
           };
 
-          const bgDesktop = data.bgDesktop ? data.bgDesktop.resize.src : "";
-          const bgTablet = data.bgTablet ? data.bgTablet.resize.src : "";
-          const bgMobile = data.bgMobile ? data.bgMobile.resize.src : "";
+          const bgDesktop = data.bgDesktop?.childImageSharp?.resize?.src || "";
+          const bgTablet = data.bgTablet?.childImageSharp?.resize?.src || "";
+          const bgMobile = data.bgMobile?.childImageSharp?.resize?.src || "";
 
           return (
             <React.Fragment>

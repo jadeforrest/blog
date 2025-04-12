@@ -16,6 +16,7 @@ module.exports = {
     `gatsby-plugin-styled-jsx`, // the plugin's code is inserted directly to gatsby-node.js and gatsby-ssr.js files
     `gatsby-plugin-styled-jsx-postcss`, // as above
     `gatsby-plugin-meta-redirect`, // Create redirects at build time
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
@@ -64,7 +65,7 @@ module.exports = {
             options: {
               maxWidth: 800,
               backgroundColor: "transparent",
-              tracedSVG: { color: '#f9ebd2' }
+              quality: 90
             }
           },
           {
@@ -73,8 +74,7 @@ module.exports = {
               tag: 're-img',
               maxWidth: 800,
               quality: 90,
-              tracedSVG: { color: '#f9ebd2' },
-              generateTracedSVG: true
+              useGatsbyImage: true
             }
           },
 
@@ -193,7 +193,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   limit: 1000,
-                  sort: { order: DESC, fields: [fields___prefix] },
+                  sort: { fields: {prefix: DESC} },
                   filter: {
                     fields: {
                       prefix: { regex: "/[0-9]{4}.*/" },

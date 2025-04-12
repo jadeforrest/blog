@@ -1,6 +1,7 @@
 import React from 'react';
 import theme from "../../theme/theme.yaml";
 import { StaticQuery, graphql } from "gatsby";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import ReImg from "./ReImg";
 
 const ReTracedSVGGallery = (props) => {
@@ -16,34 +17,22 @@ const ReTracedSVGGallery = (props) => {
                   relativePath: { regex: "/.*(jpg|jpeg|png)/" },
                   sourceInstanceName: { regex: "/(posts)/" }
                 },
-                sort: {
-                  fields: [name]
-                  order: [DESC]
-                }
+                sort: { name: DESC }
               ) {
                 edges {
                   node {
                     id
                     absolutePath
                     childImageSharp {
-                        fluid(
-                            maxWidth: 800,
-                            maxHeight: 360,
-                            cropFocus: CENTER,
+                        gatsbyImageData(
+                            width: 800,
+                            height: 360,
+                            transformOptions: {
+                                cropFocus: CENTER,
+                            },
                             quality: 90,
-                            traceSVG: {
-                                color: "#f9ebd2",
-                            }
-                        ) {
-                            tracedSVG
-                            aspectRatio
-                            src
-                            srcSet
-                            srcWebp
-                            srcSetWebp
-                            sizes
-                            originalImg
-                        }
+                            placeholder: BLURRED
+                        )
                     }
                   }
                 }
@@ -57,7 +46,7 @@ const ReTracedSVGGallery = (props) => {
                     {data.allFile.edges.map((item,i) =>
                         <ReImg
                             key={`svggal${i}`}
-                            fluid={item.node.childImageSharp.fluid}
+                            fluid={item.node.childImageSharp.gatsbyImageData}
                             hovereffect={true}
                         />
                     )}

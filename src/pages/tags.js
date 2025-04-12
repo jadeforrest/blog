@@ -94,7 +94,7 @@ export const query = graphql`
       filter: {
         fileAbsolutePath: { regex: "//[0-9]+.*--/" }
       }
-      sort: { fields: [fields___prefix], order: DESC }
+      sort: { fields: {prefix: DESC} }
     ) {
       edges {
         node {

@@ -90,7 +90,7 @@ exports.createPages = ({ graphql, actions }) => {
           {
             allMarkdownRemark(
               filter: { fields: { slug: { ne: null } } }
-              sort: { fields: [fields___prefix, fields___slug] order: DESC }
+              sort: [{ fields: { prefix: DESC }}, { fields: { slug: ASC }}]
             ) {
                 edges {
                   node {
@@ -107,15 +107,13 @@ exports.createPages = ({ graphql, actions }) => {
                           cover {
                               children {
                                   ... on ImageSharp {
-                                      fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
-                                          tracedSVG
-                                          aspectRatio
-                                          src
-                                          srcSet
-                                          srcWebp
-                                          srcSetWebp
-                                          sizes
-                                      }
+                                      gatsbyImageData(
+                                          width: 800,
+                                          height: 360,
+                                          transformOptions: { cropFocus: CENTER },
+                                          quality: 90,
+                                          placeholder: BLURRED
+                                      )
                                   }
                               }
                           }

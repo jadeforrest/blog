@@ -2,7 +2,7 @@ import { FaArrowRight } from "react-icons/fa/";
 import { FaCalendar } from "react-icons/fa/";
 import { FaTag } from "react-icons/fa/";
 import { FaUser } from "react-icons/fa/";
-import Picture from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
@@ -18,7 +18,7 @@ const Teaser = (props) => {
         tags,
         author,
         cover: {
-          children: [{ fluid }] = [{ fluid: null }],
+          children: [{ gatsbyImageData = null }] = [{ gatsbyImageData: null }],
         },
       },
     },
@@ -30,7 +30,13 @@ const Teaser = (props) => {
       <li>
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} loading={index == 0 ? "eager" : "lazy"} />
+            {gatsbyImageData && (
+              <GatsbyImage 
+                image={gatsbyImageData} 
+                alt={title}
+                loading={index == 0 ? "eager" : "lazy"} 
+              />
+            )}
           </div>
           <h1>
             {title} <FaArrowRight className="arrow" />

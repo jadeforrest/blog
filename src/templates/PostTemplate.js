@@ -63,6 +63,7 @@ export const postQuery = graphql`
         tags
         cover {
           childImageSharp {
+            gatsbyImageData(width: 800, placeholder: BLURRED)
             resize(width: 800) {
               src
             }

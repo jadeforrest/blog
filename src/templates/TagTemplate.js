@@ -52,7 +52,7 @@ export const tagQuery = graphql`
   query PostsByTag($tag: String) {
     allMarkdownRemark(
       limit: 1000
-      sort: { fields: [fields___prefix], order: DESC }
+      sort: { fields: {prefix: DESC} }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
