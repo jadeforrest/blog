@@ -3,9 +3,8 @@
    Modified by Baobab Koodaa.
 */
 
-import * as React from 'react';
-
-const throttle = require('lodash.throttle');
+import React, { Component, ReactNode, RefObject, createRef } from 'react';
+import throttle from 'lodash.throttle';
 
 export interface InfiniteScrollProps {
   /**
@@ -34,29 +33,30 @@ export interface InfiniteScrollProps {
   throttle?: number;
 
   /** Children */
-  children?: any;
+  children?: ReactNode;
 
   /**
    * Callback for convenient inline rendering and wrapping
    */
-  render?: (a: object) => any;
+  render?: (props: { sentinel: JSX.Element; children: ReactNode }) => JSX.Element;
 
   /**
    * A React component to act as wrapper
    */
-  component?: any;
+  component?: React.ComponentType<{ sentinel: JSX.Element; children?: ReactNode }>;
 }
 
-export class InfiniteScroll extends React.Component<InfiniteScrollProps, {}> {
+export class InfiniteScroll extends Component<InfiniteScrollProps> {
   public static defaultProps: Pick<InfiniteScrollProps, 'threshold' | 'throttle'> = {
     threshold: 100,
     throttle: 64,
   };
-  private sentinel: HTMLDivElement;
+
+  private sentinelRef: RefObject<HTMLDivElement> = createRef();
   private scrollHandler: () => void;
   private resizeHandler: () => void;
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.scrollHandler = throttle(this.checkWindowScroll, this.props.throttle);
     this.resizeHandler = throttle(this.checkWindowScroll, this.props.throttle);
 
@@ -64,41 +64,42 @@ export class InfiniteScroll extends React.Component<InfiniteScrollProps, {}> {
     window.addEventListener('resize', this.resizeHandler);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     window.removeEventListener('scroll', this.scrollHandler);
     window.removeEventListener('resize', this.resizeHandler);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(): void {
     // This fixes edge case where initial content is not enough to enable scrolling on a large screen.
     this.checkWindowScroll();
   }
 
-  checkWindowScroll = () => {
+  checkWindowScroll = (): void => {
     if (this.props.isLoading) {
       return;
     }
 
     if (
       this.props.hasMore &&
-      this.sentinel.getBoundingClientRect().top - window.innerHeight <
+      this.sentinelRef.current &&
+      this.sentinelRef.current.getBoundingClientRect().top - window.innerHeight <
       this.props.threshold!
     ) {
       this.props.onLoadMore();
     }
   }
 
-  render() {
-    const sentinel = <div ref={i => this.sentinel = i} />;
+  render(): JSX.Element {
+    const sentinel = <div ref={this.sentinelRef} />;
 
-    if(this.props.render) {
+    if (this.props.render) {
       return this.props.render({
         sentinel,
         children: this.props.children
       });
     }
 
-    if(this.props.component) {
+    if (this.props.component) {
       const Container = this.props.component;
       return (
         <Container sentinel={sentinel}>
@@ -116,4 +117,4 @@ export class InfiniteScroll extends React.Component<InfiniteScrollProps, {}> {
   }
 }
 
-export default React.createFactory(InfiniteScroll);
+export default InfiniteScroll;
