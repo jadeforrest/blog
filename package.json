@@ -106,6 +106,7 @@
     "postcss-loader": "^7.0.1",
     "postcss-media-variables": "^2.0.1",
     "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^10.1.5",
     "postcss-sorting": "^7.0.1",
     "postcss-text-remove-gap": "^1.1.1",
     "postcss-utilities": "^0.8.4",

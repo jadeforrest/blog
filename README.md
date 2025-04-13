@@ -5,7 +5,6 @@ My blog is located at [https://www.rubick.com](https://www.rubick.com).
 ## TODO Improvements
 
 - Update TypeScript to v5.x and add proper `tsconfig.json` configuration file
-- Modernize PostCSS configuration by replacing deprecated `postcss-cssnext` with `postcss-preset-env`
 - Migrate from `styled-jsx` to a more modern CSS-in-JS solution like `styled-components` or `emotion`
 - Modernize component structure with React hooks and better TypeScript patterns
 

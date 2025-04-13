@@ -11,9 +11,13 @@ module.exports = ctx => ({
       defaultLineHeight: "0"
     },
     "postcss-nested": {},
-    "postcss-cssnext": {
+    "postcss-preset-env": {
+      autoprefixer: false,
+      stage: 1,
       features: {
-        autoprefixer: false
+        'custom-properties': true,
+        'custom-media-queries': true,
+        'nesting-rules': true
       }
     }
   }
@@ -25,5 +29,4 @@ module.exports = ctx => ({
 //   "properties-order": "alphabetical",
 //   "unspecified-properties-position": "bottom"
 // },
-// "postcss-utilities": {},
-// "postcss-cssnext": {}
+// "postcss-utilities": {}
