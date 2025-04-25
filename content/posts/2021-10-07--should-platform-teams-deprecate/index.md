@@ -59,6 +59,10 @@ If the platform team is unable to do the work, they should at least organize and
 
 See anything I missed? Disagree with this? Please let me know your thoughts!
 
+### Further reading
+
+For an excellent approach to API deprecation that minimizes user pain while maintaining technical progress, see Will Larson's article on [API Deprecation Strategy](https://lethain.com/api-deprecation-strategy/).
+
 ## Thank you
 
 [Ben Bernard](https://www.linkedin.com/in/bernardben/) provided feedback on an earlier version of this article, and gave me insight into what he's seen at Amazon and Google and other places around deprecation. At Amazon they called this "owning your clients". [Ralph Bodenner](https://www.linkedin.com/in/ralphbodenner/) and I talked through the incentivizes and challenges of getting companies to work this way, and some of the failure modes we've seen in the past. He provided feedback on an earlier version of this post. [Marcos Wright-Kuhns](https://www.linkedin.com/in/marcoswk/) pointed out some other aspects of deprecation, like security and consistency, that helped me flesh out the "sometimes deprecation is necessary" section. [Eric Dobbs](https://www.linkedin.com/in/dobbse/) shared a helpful talk from [Laura Nolan](https://www.linkedin.com/in/laura-nolan-bb7429/) on [how to choose to kill or migrate something in place](https://leaddev.com/leaddev-live/kill-it-fire-or-not-kill-it-fire) (registration required). 
