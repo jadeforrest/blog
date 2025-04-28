@@ -1,5 +1,5 @@
 ---
-title: About
+title: Jade Rubick
 ---
 <re-img src="avatar-large.jpeg" hovereffect=true></re-img>
 

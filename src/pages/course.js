@@ -5,6 +5,7 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaSeedling } from "react-icons/fa";
+import rachel from "../images/png/rachel.png";
 import config from "../../content/meta/config";
 
 const CoursePage = props => {
@@ -40,6 +41,9 @@ const CoursePage = props => {
 
               <p>This is a paid course delivered via newsletter. It's designed for engineering managers who are just 
                 getting started or have some experience.</p>
+
+              <img src={rachel} className="charity" width="50%" />
+              <p></p>
 
               <h2>About the course</h2>
 

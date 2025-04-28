@@ -5,6 +5,7 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaEnvelope } from "react-icons/fa";
+import sarah from "../images/png/sarah.png";
 import config from "../../content/meta/config";
 
 const NewsletterPage = props => {
@@ -34,13 +35,17 @@ const NewsletterPage = props => {
               <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
                 <section className="subContainer2">
                   <span className="subIcon"><FaEnvelope /></span>
-                  <span className="subText">Engineering leadership weekly</span>
+                  <span className="subText">Engineering leadership weekly (paid)</span>
                 </section>
               </a>
 
               <p>This newsletter is offered as paid or <a href="/">free</a>. It covers a wide range of 
               topics for engineering, product, and design leaders. This contains most of the writing on rubick.com,
               sent once a week to your email.</p>
+
+              <img src={sarah} className="charity" width="100%" />
+              <p></p>
+
 
               <h2>About the newsletter</h2>
 

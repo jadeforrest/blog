@@ -8,8 +8,6 @@ import Seo from "../components/Seo";
 import { FaEnvelope, FaRss, FaLinkedin } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa6";
 import charity from "../images/png/charity.png";
-import rachel from "../images/png/rachel.png";
-import sarah from "../images/png/sarah.png";
 
 const IndexPage = props => {
 
@@ -50,11 +48,7 @@ const IndexPage = props => {
               </div>
             
               <div className="formkit-disclaimer" data-element="disclaimer">
-                <br /><p>Also useful for product and design leaders!
-                A <a href="/newsletter">paid</a> version is also available. I also offer a <a href="/course">newsletter course</a> for new managers.
-                I respect your privacy. Unsubscribe anytime.</p>
-
-                <br /><p><a href="/newsletter">Learn more</a></p>
+                <p>Tips for engineering and product leaders. Also available as a <a href="/newsletter">paid</a> newsletter with 1-1 sessions.</p>
               </div>
 
               <div className="formkit-powered-by-convertkit-container">
@@ -67,52 +61,6 @@ const IndexPage = props => {
 
         <img src={charity} className="charity" width="100%" />
         <p></p>
-
-        <p>👋 Hi, I'm Jade Rubick.</p>
-        
-        <p>I help 💻 startups and medium sized companies to organize people 🧑‍🦰 better 
-          to build great things together 🚀.</p>
-
-        <p>When you subscribe ✨ to Engineering Leadership Weekly, 
-          you will receive an email 📧 each week with something that should be useful.
-        </p>
-
-        <p>
-          The most common themes in my writing are </p>
-          <ul>
-            <li>Deconstructing how humans work together effectively to produce good results. Effective + humane management.</li>
-            <li>Incremental & feedback-rich product development.</li>
-            <li>Lots of specific management practices I've learned or invented.</li>
-          </ul>
-
-        <p>I offer a <b>paid version</b> 💰 of Engineering Leadership Weekly. This supports 💚 my
-          writing. Use your 
-          "professional development" budget: pay for it and expense it. I've been so
-          thankful 🙏 for the support!
-          Although most of the material is the same, the paid version offers additional benefits, such as
-          an optional 1-1 session. You can read more about the <a href="/newsletter/">newsletter</a> and 
-          <a href="/course/"> frontline management course</a>.</p>
-
-
-          <a href="https://rubick.ck.page/products/engineering-leadership-course" target="_blank">
-          <section className="subContainer2">
-            <span className="subIcon"><FaEnvelope /></span>
-            <span className="subText">Engineering leadership weekly (paid)</span>
-          </section>
-        </a>
-
-        <p></p>
-
-        <img src={sarah} className="charity" width="100%" />
-        <p></p>
-
-        <img src={rachel} className="charity" width="70%" />
-        <p></p>
-
-        <p></p>
-        <p>
-          You can also follow my writing in other ways:
-        </p>
 
         <a href="../rss.xml" target="_blank">
           <section className="subContainer">
