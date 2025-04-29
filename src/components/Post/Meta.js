@@ -4,6 +4,17 @@ import { Link } from "gatsby";
 import { currDate } from "../../utils/helpers";
 import { FaUser, FaTag, FaCalendar } from "react-icons/fa/";
 
+/**
+ * Meta component that displays post metadata like date, author, and tags
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.author] - Author name
+ * @param {string[]} [props.tags] - Array of post tags
+ * @param {Object} props.theme - Theme object for styling
+ * @param {string} [props.lastEdit] - Last edit date
+ * @param {string} [props.prefix] - Date prefix, defaults to current date
+ * @returns {React.ReactElement} Meta component
+ */
 const Meta = (props) => {
   const { author: authorName, tags, theme, lastEdit } = props;
   const prefix = props.prefix || currDate(); /* Intent: get date placeholder for viewing drafts. */
@@ -80,8 +91,11 @@ const Meta = (props) => {
 };
 
 Meta.propTypes = {
-  tags: PropTypes.array,
+  author: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
   theme: PropTypes.object.isRequired,
+  lastEdit: PropTypes.string,
+  prefix: PropTypes.string
 };
 
 export default Meta;
