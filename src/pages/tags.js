@@ -8,38 +8,37 @@ import Headline from "../components/Article/Headline";
 import List from "../components/List";
 import Seo from "../components/Seo";
 
-const TagsPage = props => {
+const TagsPage = (props) => {
   const {
     data: {
-      posts: { edges: posts }
-    }
+      posts: { edges: posts },
+    },
   } = props;
 
   // Create tags list
   const tagsPosts = {};
-  posts.forEach(edge => {
-    
+  posts.forEach((edge) => {
     const {
       node: {
-        frontmatter: { tags }
-      }
+        frontmatter: { tags },
+      },
     } = edge;
 
     if (tags && tags != null) {
-      tags.forEach(tag => {
+      tags.forEach((tag) => {
         if (tag && tag != null) {
           if (!tagsPosts[tag]) {
             tagsPosts[tag] = [];
           }
           tagsPosts[tag].push(edge);
         }
-      })
+      });
     }
   });
 
   const tagList = [];
 
-  for (var tag in tagsPosts) {
+  for (const tag in tagsPosts) {
     tagList.push([tag, tagsPosts[tag]]);
   }
 
@@ -49,7 +48,7 @@ const TagsPage = props => {
         <header>
           <Headline title="Posts by tag" theme={theme} />
         </header>
-        {tagList.map(item => (
+        {tagList.map((item) => (
           <section key={item[0]}>
             <h2>
               <FaTag /> {item[0]}
@@ -62,7 +61,6 @@ const TagsPage = props => {
           h2 {
             margin: 0 0 0.5em;
             color: ${theme.color.neutral.gray.j};
-            
           }
           @from-width desktop {
             :global(a:hover) {
@@ -76,25 +74,23 @@ const TagsPage = props => {
         `}</style>
       </Article>
 
-      <Seo pageTitle="Tags"/>
+      <Seo pageTitle="Tags" />
     </React.Fragment>
   );
 };
 
 TagsPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
 };
 
 export default TagsPage;
 
-//eslint-disable-next-line no-undef
+// eslint-disable-next-line no-undef
 export const query = graphql`
   query PostsQuery {
     posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "//[0-9]+.*--/" }
-      }
-      sort: { fields: {prefix: DESC} }
+      filter: { fileAbsolutePath: { regex: "//[0-9]+.*--/" } }
+      sort: { fields: { prefix: DESC } }
     ) {
       edges {
         node {

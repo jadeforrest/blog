@@ -2,18 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, useStaticQuery } from "gatsby";
 
-const Footer = props => {
+const Footer = (props) => {
   const { theme } = props;
-  const buildTime = useStaticQuery(query).site.buildTime
+  const buildTime = useStaticQuery(query).site.buildTime;
 
   return (
     <React.Fragment>
       <footer className="footer">
-        <a href="https://github.com/jadeforrest/blog/">
-          Last updated {buildTime}.
-        </a>
-        
-      </footer> 
+        <a href="https://github.com/jadeforrest/blog/">Last updated {buildTime}.</a>
+      </footer>
 
       {/* --- STYLES --- */}
       <style jsx>{`
@@ -34,7 +31,7 @@ const Footer = props => {
 };
 
 Footer.propTypes = {
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Footer;
@@ -45,4 +42,4 @@ const query = graphql`
       buildTime(formatString: "MMM DD, YYYY HH:mm")
     }
   }
-`
+`;

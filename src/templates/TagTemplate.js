@@ -8,18 +8,18 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
 
-const TagTemplate = props => {
+const TagTemplate = (props) => {
   const {
     pageContext: { tag },
     data: {
-      allMarkdownRemark: { totalCount, edges }
-    }
+      allMarkdownRemark: { totalCount, edges },
+    },
   } = props;
 
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
-        {theme => (
+        {(theme) => (
           <Article theme={theme}>
             <header>
               <Headline theme={theme}>
@@ -42,7 +42,7 @@ const TagTemplate = props => {
 
 TagTemplate.propTypes = {
   data: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired
+  pageContext: PropTypes.object.isRequired,
 };
 
 export default TagTemplate;
@@ -52,7 +52,7 @@ export const tagQuery = graphql`
   query PostsByTag($tag: String) {
     allMarkdownRemark(
       limit: 1000
-      sort: { fields: {prefix: DESC} }
+      sort: { fields: { prefix: DESC } }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount

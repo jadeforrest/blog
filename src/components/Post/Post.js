@@ -7,9 +7,9 @@ import Meta from "./Meta";
 import Author from "./Author";
 import NextPrev from "./NextPrev";
 
-import TalkyardCommentsIframe from '@debiki/gatsby-plugin-talkyard';
+import TalkyardCommentsIframe from "@debiki/gatsby-plugin-talkyard";
 
-const Post = props => {
+const Post = (props) => {
   const {
     post,
     post: {
@@ -17,12 +17,12 @@ const Post = props => {
       htmlAst,
       fields: { prefix, slug },
       frontmatter: { title, author, tags, discussionId, description },
-      parent: { modifiedTime }
+      parent: { modifiedTime },
     },
     authornote,
     next: nextPost,
     prev: prevPost,
-    theme
+    theme,
   } = props;
 
   return (
@@ -38,7 +38,7 @@ const Post = props => {
       <TalkyardCommentsIframe discussionId={post.frontmatter.discussionId} />
 
       <footer>
-         <NextPrev next={nextPost} prev={prevPost} theme={theme} />
+        <NextPrev next={nextPost} prev={prevPost} theme={theme} />
       </footer>
     </React.Fragment>
   );
@@ -49,7 +49,7 @@ Post.propTypes = {
   authornote: PropTypes.string.isRequired,
   next: PropTypes.object,
   prev: PropTypes.object,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Post;

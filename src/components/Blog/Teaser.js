@@ -17,12 +17,10 @@ const Teaser = (props) => {
         title,
         tags,
         author,
-        cover: {
-          children: [{ gatsbyImageData = null }] = [{ gatsbyImageData: null }],
-        },
+        cover: { children: [{ gatsbyImageData = null }] = [{ gatsbyImageData: null }] },
       },
     },
-    index
+    index,
   } = props;
 
   return (
@@ -31,10 +29,10 @@ const Teaser = (props) => {
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
             {gatsbyImageData && (
-              <GatsbyImage 
-                image={gatsbyImageData} 
+              <GatsbyImage
+                image={gatsbyImageData}
                 alt={title}
-                loading={index == 0 ? "eager" : "lazy"} 
+                loading={index == 0 ? "eager" : "lazy"}
               />
             )}
           </div>
@@ -49,7 +47,7 @@ const Teaser = (props) => {
               <FaUser size={18} /> {author}
             </span> */}
             {tags &&
-	      tags.map((tag =>
+              tags.map((tag) => (
                 <span key={tag}>
                   <FaTag size={18} /> {tag}
                 </span>
@@ -173,7 +171,7 @@ const Teaser = (props) => {
             box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
             margin-top: 20px;
             margin-bottom: 20px;
-            
+
             &:first-child {
               margin-top: 0;
             }
@@ -214,8 +212,8 @@ const Teaser = (props) => {
             padding: ${`0 calc(${theme.space.default} * 2)`};
           }
           li:hover {
-             border: 1px solid ${theme.line.color};
-             box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid ${theme.line.color};
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
           }
           li:hover:after {
             bottom: ${`calc(${theme.space.default} * -2.5)`};

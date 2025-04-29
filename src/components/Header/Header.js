@@ -31,20 +31,20 @@ class Header extends React.Component {
   handleScroll = () => {
     const currentScrollY = window.scrollY;
     const { prevScrollY, scrollDirection } = this.state;
-    
+
     // Only change direction if we've scrolled at least 5px in the new direction
     // This prevents rapid toggling when scrolling small amounts
     if (
-      (currentScrollY > prevScrollY + 5 && scrollDirection !== "down") || 
+      (currentScrollY > prevScrollY + 5 && scrollDirection !== "down") ||
       (currentScrollY < prevScrollY - 5 && scrollDirection !== "up")
     ) {
       this.setState({
         scrollDirection: currentScrollY > prevScrollY ? "down" : "up",
       });
     }
-    
+
     this.setState({
-      prevScrollY: currentScrollY
+      prevScrollY: currentScrollY,
     });
   };
 
@@ -71,23 +71,24 @@ class Header extends React.Component {
         <header className={`header ${this.getHeaderSize()}`}>
           <Link to="/" className="logoType">
             <div className="logo">
-		<img
-		  src={config.gravatarImgMd5 == "" ? avatar : config.gravatarImgMd5 }
-		  alt={config.siteTitle}
-		/>
+              <img
+                src={config.gravatarImgMd5 == "" ? avatar : config.gravatarImgMd5}
+                alt={config.siteTitle}
+              />
             </div>
             <div className="type">
               <div className="h1menu">{config.headerTitle}</div>
               <div className="h2menu">{config.headerSubTitle}</div>
             </div>
           </Link>
-            <ScreenWidthContext.Consumer>
-              {(width) => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
-           </ScreenWidthContext.Consumer>
+          <ScreenWidthContext.Consumer>
+            {(width) => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
+          </ScreenWidthContext.Consumer>
         </header>
         <div className={`availability-container ${scrollDirection === "down" ? "hide" : ""}`}>
           <Link to="/about/" className="availability">
-            Availability: waiting list for interim roles, available for advising, individual and group coaching
+            Availability: waiting list for interim roles, available for advising, individual and
+            group coaching
           </Link>
         </div>
         <VisibilitySensor onChange={this.visibilitySensorChange}>
@@ -119,7 +120,6 @@ class Header extends React.Component {
                 flex-shrink: 0;
               }
             }
-            
 
             &.homepage {
               position: absolute;
@@ -173,27 +173,27 @@ class Header extends React.Component {
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
             opacity: 1;
-            
+
             &.hide {
               max-height: 0;
               padding: 0;
               opacity: 0;
               border-bottom: none;
             }
-            
+
             :global(a.availability) {
               font-size: 0.75em;
               color: #6b8a7d; /* greyish green */
               text-decoration: none;
               text-align: center;
               max-width: 90%;
-              
+
               &:hover {
                 text-decoration: underline;
               }
             }
           }
-          
+
           .sensor {
             display: block;
             position: absolute;
@@ -260,48 +260,47 @@ class Header extends React.Component {
               border-bottom: 2px solid ${theme.color.menu.border};
             }
 
-          .header.fixed {
-            height: ${theme.header.height.fixed};
-            background-color: ${theme.color.neutral.white};
-            left: 0;
-            padding: 0 ${theme.space.m};
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 5;
-           }
-           
-          .header.fixed + .availability-container {
-            position: fixed;
-            top: ${theme.header.height.fixed};
-            left: 0;
-            right: 0;
-            z-index: 4;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            
-            &.hide {
-              box-shadow: none;
+            .header.fixed {
+              height: ${theme.header.height.fixed};
+              background-color: ${theme.color.neutral.white};
+              left: 0;
+              padding: 0 ${theme.space.m};
+              position: fixed;
+              top: 0;
+              width: 100%;
+              z-index: 5;
             }
-           }
 
-          .header.fixed h1 {
-            margin: ${theme.space.stack.xxs};
-          }
+            .header.fixed + .availability-container {
+              position: fixed;
+              top: ${theme.header.height.fixed};
+              left: 0;
+              right: 0;
+              z-index: 4;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+              &.hide {
+                box-shadow: none;
+              }
+            }
+
+            .header.fixed h1 {
+              margin: ${theme.space.stack.xxs};
+            }
 
             .header.fixed h2 {
-               display: none;
-             }
-             
+              display: none;
+            }
 
-             .header.homepage:not(.fixed) {
-               :global(a.logoType),
-               h1 {
-                 color: ${theme.color.neutral.white};
-               }
-               h2 {
-                 color: ${theme.color.neutral.gray.d};
-               }
-             }
+            .header.homepage:not(.fixed) {
+              :global(a.logoType),
+              h1 {
+                color: ${theme.color.neutral.white};
+              }
+              h2 {
+                color: ${theme.color.neutral.gray.d};
+              }
+            }
             .header :global(a.logoType) {
               text-align: left;
               flex-direction: row;

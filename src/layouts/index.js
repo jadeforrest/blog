@@ -10,7 +10,7 @@ export const ScreenWidthContext = React.createContext(0);
 
 import themeObjectFromYaml from "../theme/theme.yaml";
 
-import 'typeface-open-sans/index.css'
+import "typeface-open-sans/index.css";
 
 class Layout extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ class Layout extends React.Component {
     this.state = {
       screenWidth: 0,
       headerMinimized: false,
-      theme: themeObjectFromYaml
+      theme: themeObjectFromYaml,
     };
   }
 
@@ -27,7 +27,7 @@ class Layout extends React.Component {
 
   componentDidMount() {
     this.setState({
-      screenWidth: getScreenWidth()
+      screenWidth: getScreenWidth(),
     });
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.resizeThrottler, false);
@@ -57,10 +57,7 @@ class Layout extends React.Component {
       <ThemeContext.Provider value={this.state.theme}>
         <ScreenWidthContext.Provider value={this.state.screenWidth}>
           <div className="highest-container">
-            <Header
-              path={this.props.location.pathname}
-              theme={this.state.theme}
-            />
+            <Header path={this.props.location.pathname} theme={this.state.theme} />
             <main>{children}</main>
             <Footer theme={this.state.theme} />
           </div>
@@ -77,7 +74,8 @@ class Layout extends React.Component {
             html {
               box-sizing: border-box;
             }
-            html, body {
+            html,
+            body {
               height: 100%;
             }
             #___gatsby {
@@ -94,14 +92,14 @@ class Layout extends React.Component {
               padding: 0;
             }
             body {
-              font-family: 'Open Sans', 'Arial', 'sans-serif';
+              font-family: "Open Sans", "Arial", "sans-serif";
               font-weight: 400;
             }
             h1,
             h2,
             h3 {
               font-weight: 600;
-              font-family: 'Open Sans', 'Arial', 'sans-serif';
+              font-family: "Open Sans", "Arial", "sans-serif";
               line-height: 1.1;
               letter-spacing: -0.03em;
               margin: 0;
@@ -113,7 +111,7 @@ class Layout extends React.Component {
               margin: 0;
             }
             strong {
-              font-family: 'Open Sans', 'Arial', 'sans-serif';
+              font-family: "Open Sans", "Arial", "sans-serif";
               font-weight: 600;
             }
             a {
@@ -124,22 +122,25 @@ class Layout extends React.Component {
               width: auto;
               display: block;
             }
-            table, th, td {
-              border: 1px solid #DDD;
+            table,
+            th,
+            td {
+              border: 1px solid #ddd;
             }
-            th, td {
+            th,
+            td {
               padding: 5px;
             }
           `}</style>
         </ScreenWidthContext.Provider>
       </ThemeContext.Provider>
-    )
+    );
   }
 }
 
 Layout.propTypes = {
   children: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export default Layout;

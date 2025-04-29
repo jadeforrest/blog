@@ -5,27 +5,32 @@ import { Link } from "gatsby";
 import { FaArrowRight } from "react-icons/fa/";
 import { FaArrowLeft } from "react-icons/fa/";
 
-const NextPrev = props => {
+const NextPrev = (props) => {
   const {
     theme,
     next: {
       fields: { prefix: nextPrefix, slug: nextSlug } = {},
-      frontmatter: { title: nextTitle } = {}
+      frontmatter: { title: nextTitle } = {},
     } = {},
     prev: {
       fields: { prefix: prevPrefix, slug: prevSlug } = {},
-      frontmatter: { title: prevTitle } = {}
-    } = {}
+      frontmatter: { title: prevTitle } = {},
+    } = {},
   } = props;
 
-  const flexb = (nextSlug && prevSlug ? "50%" : "100%") /* If only one link available, it can take 100% of space. */
+  const flexb =
+    nextSlug && prevSlug
+      ? "50%"
+      : "100%"; /* If only one link available, it can take 100% of space. */
 
-  if (!nextSlug && !prevSlug) return (<span></span>); /* If neither prev nor next is available, don't put weird empty space there. */
+  if (!nextSlug && !prevSlug)
+    return (
+      <span></span>
+    ); /* If neither prev nor next is available, don't put weird empty space there. */
 
   return (
     <React.Fragment>
       <div className="links">
-
         {nextSlug && (
           <Link to={nextSlug}>
             <span className="next-link-text">
@@ -143,7 +148,7 @@ const NextPrev = props => {
 NextPrev.propTypes = {
   next: PropTypes.object,
   prev: PropTypes.object,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default NextPrev;
