@@ -1,7 +1,5 @@
 import React from "react";
-import theme from "../../theme/theme.yaml";
 import { StaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import ReImg from "./ReImg";
 
 const ReTracedSVGGallery = (props) => {

@@ -6,7 +6,7 @@ import ReImg from "./ReImg";
 import ReTracedSVGGallery from "./ReTracedSVGGallery";
 import { Link } from "gatsby";
 
-const renderAst = new rehypeReact({
+const RenderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     "re-icons": Icons,
@@ -18,13 +18,13 @@ const renderAst = new rehypeReact({
 
 const Bodytext = (props) => {
   const { content, theme } = props;
-  const html = props.content.html;
 
   return (
     <React.Fragment>
       {/* Render markdown with Custom Components */}
-      <div className="bodytext">{renderAst(content.htmlAst)}</div>
+      <div className="bodytext">{RenderAst(content.htmlAst)}</div>
 
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         .bodytext {
           animation-name: bodytextEntry;
@@ -104,7 +104,9 @@ const Bodytext = (props) => {
 };
 
 Bodytext.propTypes = {
-  content: PropTypes.object.isRequired,
+  content: PropTypes.shape({
+    htmlAst: PropTypes.object.isRequired,
+  }).isRequired,
   theme: PropTypes.object.isRequired,
 };
 

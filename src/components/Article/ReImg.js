@@ -1,6 +1,5 @@
-import { Link, graphql, StaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
+import PropTypes from "prop-types";
 import theme from "../../theme/theme.yaml";
 
 // Helper to convert old fluid format to a compatible format for rendering
@@ -81,6 +80,7 @@ const ReImg = (props) => {
             style={relativeStyle}
           />
         </div>
+        {/* eslint-disable-next-line react/no-unknown-property */}
         <style jsx>{`
           .imgContainer {
             position: relative;
@@ -207,6 +207,18 @@ const ReImg = (props) => {
       `}</style>
     </a>
   );
+};
+
+ReImg.propTypes = {
+  fluid: PropTypes.object,
+  rehyped: PropTypes.string,
+  href: PropTypes.string,
+  src: PropTypes.string,
+  title: PropTypes.string,
+  alt: PropTypes.string,
+  meme: PropTypes.bool,
+  width: PropTypes.string,
+  hovereffect: PropTypes.bool,
 };
 
 export default ReImg;

@@ -9,6 +9,7 @@ const Headline = (props) => {
       {title ? <h1>{title}</h1> : <h1>{children}</h1>}
 
       {/* --- STYLES --- */}
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         h1 {
           font-size: ${theme.font.size.xxl};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import theme from "../../theme/theme.yaml";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa6";
@@ -21,6 +22,7 @@ const WebPresenceIcons = () => {
         </a>
         {/* <a href={config.authorUnsplash} target="_blank"><Unsplash/></a> */}
       </div>
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         .wrapper {
           text-align: center;
@@ -55,5 +57,7 @@ const WebPresenceIcons = () => {
     </div>
   );
 };
+
+WebPresenceIcons.propTypes = {};
 
 export default WebPresenceIcons;

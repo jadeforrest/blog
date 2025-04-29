@@ -9,6 +9,7 @@ const Article = (props) => {
       <article className="article">{children}</article>
 
       {/* --- STYLES --- */}
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         .article {
           padding: ${theme.space.inset.default};

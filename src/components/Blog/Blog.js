@@ -24,6 +24,7 @@ const Blog = (props) => {
       </main>
 
       {/* --- STYLES --- */}
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         .main {
           padding: 0 ${theme.space.inset.default};
