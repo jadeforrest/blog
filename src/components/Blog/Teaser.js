@@ -7,6 +7,22 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
+/**
+ * Teaser component that displays a preview of a blog post
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.theme - Theme object for styling
+ * @param {Object} props.post - Post data
+ * @param {string} props.post.excerpt - Post excerpt
+ * @param {Object} props.post.fields - Post fields
+ * @param {string} props.post.fields.slug - Post URL slug
+ * @param {string} props.post.fields.prefix - Post date prefix
+ * @param {Object} props.post.frontmatter - Post frontmatter
+ * @param {string} props.post.frontmatter.title - Post title
+ * @param {string[]} props.post.frontmatter.tags - Post tags
+ * @param {Object} props.post.frontmatter.cover - Post cover image
+ * @param {number} props.index - Index of the post in the list
+ */
 const Teaser = (props) => {
   const {
     theme,
@@ -253,8 +269,27 @@ const Teaser = (props) => {
 };
 
 Teaser.propTypes = {
-  post: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  post: PropTypes.shape({
+    excerpt: PropTypes.string.isRequired,
+    fields: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+      prefix: PropTypes.string.isRequired
+    }).isRequired,
+    frontmatter: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      tags: PropTypes.arrayOf(PropTypes.string),
+      author: PropTypes.string,
+      cover: PropTypes.shape({
+        children: PropTypes.arrayOf(
+          PropTypes.shape({
+            gatsbyImageData: PropTypes.object
+          })
+        )
+      })
+    }).isRequired
+  }).isRequired,
+  index: PropTypes.number.isRequired
 };
 
 export default Teaser;
