@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { GatsbyImage } from "gatsby-plugin-image";
 import theme from "../../theme/theme.yaml";
 
 // Helper to convert old fluid format to a compatible format for rendering
