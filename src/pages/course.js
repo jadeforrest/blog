@@ -45,7 +45,7 @@ const CoursePage = (props) => {
               </a>
 
               <p>
-                This is a paid course delivered via newsletter. It's designed for engineering
+                This is a paid course delivered via newsletter. It&apos;s designed for engineering
                 managers who are just getting started or have some experience.
               </p>
 
@@ -64,10 +64,10 @@ const CoursePage = (props) => {
                   <br />
                   <br />
                   The Frontline Management Bootcamp course has some assignments. But all assignments
-                  are optional, and it's up to you to decide which you want to integrate into your
+                  are optional, and it&apos;s up to you to decide which you want to integrate into your
                   management practice. For example, there is an assignment to set up your support
-                  network, with some suggestions for how to do so. You don't have to do any of them,
-                  but you'll probably find it helpful.
+                  network, with some suggestions for how to do so. You don&apos;t have to do any of them,
+                  but you&apos;ll probably find it helpful.
                 </dd>
 
                 <dt>Are there assessments or quizzes with this course?</dt>
@@ -75,13 +75,13 @@ const CoursePage = (props) => {
 
                 <dt>Is there any interaction with other students?</dt>
                 <dd>
-                  Not currently. I did have a Slack community for participants, but we haven't had a
+                  Not currently. I did have a Slack community for participants, but we haven&apos;t had a
                   critical mass yet.
                 </dd>
 
-                <dt>I can't afford your course, but really want to take it</dt>
+                <dt>I can&apos;t afford your course, but really want to take it</dt>
                 <dd>
-                  <a href="/contact/">Contact me!</a> I'll set you up.
+                  <a href="/contact/">Contact me!</a> I&apos;ll set you up.
                 </dd>
 
                 <dt>How much email will I be receiving, and for how long?</dt>
@@ -96,26 +96,26 @@ const CoursePage = (props) => {
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
                 <dd>
-                  You can, but if you're thinking about that, I would just sign up for the course.
+                  You can, but if you&apos;re thinking about that, I would just sign up for the course.
                   At the end of the course, you will automatically transition into receiving the
                   newsletter. You will get a few duplicate emails, but not many.
                 </dd>
 
-                <dt>If I pay for the course and don't like it, can I get a refund?</dt>
+                <dt>If I pay for the course and don&apos;t like it, can I get a refund?</dt>
                 <dd>
                   Yes, I provide refunds with no questions asked, for two months after the course
                   starts. <a href="/contact/">Contact me</a>.
                 </dd>
 
-                <dt>Is it annoying to unsubscribe if I'm finished with it?</dt>
+                <dt>Is it annoying to unsubscribe if I&apos;m finished with it?</dt>
                 <dd>Every email has an unsubscribe link in it. It should be super easy.</dd>
 
                 <dt>How do I give you feedback on any of the course content?</dt>
-                <dd>You can reply to any email and I'll read it. I really appreciate feedback!</dd>
+                <dd>You can reply to any email and I&apos;ll read it. I really appreciate feedback!</dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
                 <dd>
-                  The Frontline Management course is very engineering focused. It's best suited for
+                  The Frontline Management course is very engineering focused. It&apos;s best suited for
                   engineering managers, though some content may be applicable to other technical
                   disciplines.
                 </dd>
