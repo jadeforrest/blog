@@ -38,8 +38,8 @@ So how do you go about implementing demo-driven development?
 
 The first thing to do, if you haven’t done it already, is to introduce weekly or biweekly demos (I'll use weekly during this post, but you can substitute biweekly if that makes more sense for you). You can structure them many different ways, but to start with:
 
-* Have each team demo their work every week. 
-* Rotate the person doing the demo, and have them demo the work for the team. This helps ensure that everyone gets recognized for the team’s work, and gives engineers practice with the valuable skill of showing their work. You can also have each person demo their own work or the work of the people working on something.
+* Have each team demo their work every week. If you're doing this within a team, have each team member demo their work.
+* For each group of people working on something, rotate the person that demos that work. This helps ensure that everyone gets recognized for the team’s work, and gives engineers practice with the valuable skill of showing their work.
 * The demos can be done in a meeting, or asynchronously recorded and posted in a room in Slack. If you do it asynchronously, copy what I learned from Bjorn Freeman-Benson: ask each team to do a two-minute video. Suggest to people that they ask questions in Slack threads, and use Slack react emoji to cheer on accomplishments. I like to tell people to spend 10 minutes on a 2 minute video, to prevent the recordings from being too large of a time suck to produce. 
 
 Be prepared to tweak the format until it feels good for the people involved. Here are a few things to be careful of, or that you might want to tweak after you've gotten demos set up:
