@@ -124,6 +124,10 @@ Something like that can really help people see why it's important. Another examp
 
 "Support tickets are rising at an unsustainable rate. At the current trend, engineering will be completely focused on support within 18 months, and not delivering any new value to the business". Holy moly, that got my attention.
 
+## Other approaches
+
+Molly Graham has a great rule of thumb called the "[10x the problem](https://mollyg.substack.com/p/10x)" rule. The idea is to ask how bad the situation would be if you had 10x the scale (number of customers, number of tickets, amount of work, etc). Rules of thumb like this are an excellent way to help you explore long-term consequences. 
+
 ## Feedback
 
 I hope you found that useful. Let me know your experiences as you try this skill out!
