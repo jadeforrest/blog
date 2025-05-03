@@ -8,8 +8,12 @@ import Seo from "../components/Seo";
 import { FaEnvelope, FaRss, FaLinkedin } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa6";
 import charity from "../images/png/charity.png";
+import RecentPosts from "../components/Blog/RecentPosts";
 
 const IndexPage = (props) => {
+  const { data } = props;
+  const posts = data.allMarkdownRemark.edges;
+
   return (
     <React.Fragment>
       <Article theme={theme}>
@@ -81,6 +85,8 @@ const IndexPage = (props) => {
 
         <img src={charity} className="charity" width="100%" />
         <p></p>
+
+        <RecentPosts theme={theme} posts={posts} />
 
         <a href="../rss.xml" target="_blank" rel="noreferrer">
           <section className="subContainer">
@@ -734,6 +740,45 @@ const IndexPage = (props) => {
   );
 };
 
-IndexPage.propTypes = {};
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { fields: { source: { eq: "posts" } } }
+      sort: { fields: { prefix: DESC } }
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          fields {
+            slug
+            prefix
+          }
+          frontmatter {
+            title
+            cover {
+              children {
+                ... on ImageSharp {
+                  gatsbyImageData(
+                    width: 800
+                    height: 360
+                    transformOptions: { cropFocus: CENTER }
+                    quality: 90
+                    placeholder: BLURRED
+                  )
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
