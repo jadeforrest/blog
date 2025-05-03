@@ -1,7 +1,8 @@
 import { FaTag } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
+import _ from "lodash";
 import theme from "../theme/theme.yaml";
 import Article from "../components/Article/";
 import Headline from "../components/Article/Headline";
@@ -39,7 +40,9 @@ const TagsPage = (props) => {
   const tagList = [];
 
   for (const tag in tagsPosts) {
-    tagList.push([tag, tagsPosts[tag]]);
+    if (Object.prototype.hasOwnProperty.call(tagsPosts, tag)) {
+      tagList.push([tag, tagsPosts[tag]]);
+    }
   }
 
   return (
@@ -51,7 +54,9 @@ const TagsPage = (props) => {
         {tagList.map((item) => (
           <section key={item[0]}>
             <h2>
-              <FaTag /> {item[0]}
+              <Link to={`/tag/${_.kebabCase(item[0])}/`}>
+                <FaTag /> {item[0]}
+              </Link>
             </h2>
             <List edges={item[1]} theme={theme} />
           </section>
@@ -62,8 +67,13 @@ const TagsPage = (props) => {
             margin: 0 0 0.5em;
             color: ${theme.color.neutral.gray.j};
           }
+          h2 :global(a) {
+            color: ${theme.color.neutral.gray.j};
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+          }
           @from-width desktop {
-            :global(a:hover) {
+            h2 :global(a:hover) {
               color: ${theme.color.brand.primary};
             }
           }
