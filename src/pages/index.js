@@ -6,8 +6,8 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaEnvelope, FaRss, FaLinkedin } from "react-icons/fa";
-import { FaHashtag } from "react-icons/fa6";
 import charity from "../images/png/charity.png";
+import Butterfly from "../images/svg-icons/butterfly.svg";
 import RecentPosts from "../components/Blog/RecentPosts";
 
 const IndexPage = (props) => {
@@ -100,7 +100,7 @@ const IndexPage = (props) => {
         <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank" rel="noreferrer">
           <section className="subContainer">
             <span className="subIcon">
-              <FaHashtag />
+              <Butterfly className="butterflyIcon" />
             </span>
             <span className="subText">Bluesky</span>
           </section>
@@ -186,6 +186,10 @@ const IndexPage = (props) => {
             padding-right: 10px;
             :global(svg) {
               fill: ${theme.color.brand.primary};
+            }
+            :global(.butterflyIcon) {
+              width: 1em;
+              height: 1em;
             }
           }
 

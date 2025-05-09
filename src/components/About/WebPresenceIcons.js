@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import theme from "../../theme/theme.yaml";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaHashtag } from "react-icons/fa6";
 import config from "../../../content/meta/config";
+import Butterfly from "../../images/svg-icons/butterfly.svg";
 // import Codeforces from "../../images/svg-icons/codeforces.svg";
 // import Unsplash from "../../images/svg-icons/unsplash.svg";
 
@@ -18,7 +18,7 @@ const WebPresenceIcons = () => {
           <FaLinkedin />
         </a>
         <a href={config.authorBluesky} target="_blank" rel="noreferrer">
-          <FaHashtag />
+          <Butterfly className="butterflyIcon" />
         </a>
         {/* <a href={config.authorUnsplash} target="_blank"><Unsplash/></a> */}
       </div>
@@ -33,6 +33,10 @@ const WebPresenceIcons = () => {
           :global(svg) {
             margin: 10px;
             fill: ${theme.color.brand.primary} !important;
+          }
+          :global(.butterflyIcon) {
+            width: 1em;
+            height: 1em;
           }
         }
         @from-width tablet {

@@ -5,7 +5,7 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaTag, FaRss, FaPaperPlane, FaLinkedin } from "react-icons/fa";
-import { FaHashtag } from "react-icons/fa6";
+import Butterfly from "../images/svg-icons/butterfly.svg";
 import config from "../../content/meta/config";
 
 const SubscribePage = (props) => {
@@ -90,7 +90,7 @@ const SubscribePage = (props) => {
               >
                 <section className="subContainer">
                   <span className="subIcon">
-                    <FaHashtag />
+                    <Butterfly className="butterflyIcon" />
                   </span>
                   <span className="subText">Bluesky</span>
                 </section>
@@ -167,6 +167,10 @@ const SubscribePage = (props) => {
                   padding-right: 10px;
                   :global(svg) {
                     fill: ${theme.color.brand.primary};
+                  }
+                  :global(.butterflyIcon) {
+                    width: 1em;
+                    height: 1em;
                   }
                 }
               `}</style>
