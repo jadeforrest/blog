@@ -35,13 +35,13 @@ const CoursePage = (props) => {
                 href="https://rubick.ck.page/products/management-bootcamp"
                 target="_blank"
                 rel="noreferrer"
+                className="subContainer2"
               >
-                <section className="subContainer2">
-                  <span className="subIcon">
-                    <FaSeedling />
-                  </span>
-                  <span className="subText">Frontline management bootcamp</span>
-                </section>
+                <span className="subIcon">
+                  <FaSeedling />
+                </span>
+                <span className="subText">Start Management Bootcamp</span>
+                <span className="ctaSubtext">5-Month Course</span>
               </a>
 
               <p>
@@ -148,35 +148,85 @@ const CoursePage = (props) => {
 
                 .subContainer2 {
                   display: inline-block;
-                  border-radius: 6px;
-                  padding: 10px;
-                  padding-bottom: 0px;
+                  border-radius: 12px;
+                  padding: 24px 32px;
                   margin-right: 30px;
                   margin-bottom: 20px;
-                  min-width: 130px;
-                  border: 1px solid ${theme.color.neutral.gray.d};
-                  background-color: ${theme.color.brand.primaryLight};
+                  min-width: 300px;
+                  border: none;
+                  background: linear-gradient(135deg, ${theme.color.special.attention}, #d86519);
+                  box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+                  transform: translateY(0);
+                  position: relative;
+                  text-decoration: none;
+                  
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 12px;
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+                    pointer-events: none;
+                  }
+                  
                   :hover {
-                    border: 1px solid #ccc;
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                    background: linear-gradient(135deg, #f5832a, ${theme.color.special.attention});
+                    
                     .subText {
-                      color: ${theme.color.brand.primary};
+                      transform: scale(1.02);
                     }
+                    .subIcon :global(svg) {
+                      transform: scale(1.1);
+                    }
+                  }
+                  
+                  :active {
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 15px rgba(227, 114, 34, 0.3);
                   }
                 }
 
                 .subText {
-                  text-align: right;
+                  text-align: center;
                   font-size: 20px;
-                  color: ${theme.color.neutral.gray.j};
+                  font-weight: ${theme.font.weight.bold};
+                  color: ${theme.color.neutral.white};
+                  margin-top: 12px;
+                  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                  letter-spacing: 0.5px;
+                  transition: all 0.2s ease;
+                  text-transform: uppercase;
                 }
 
                 .subIcon {
-                  vertical-align: middle;
-                  font-size: 40px;
-                  padding-right: 10px;
+                  display: block;
+                  text-align: center;
+                  font-size: 48px;
+                  margin-bottom: 12px;
                   :global(svg) {
-                    fill: ${theme.color.brand.primary};
+                    fill: ${theme.color.neutral.white};
+                    transition: transform 0.2s ease;
+                    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
                   }
+                }
+                
+                .ctaSubtext {
+                  display: block;
+                  text-align: center;
+                  font-size: 14px;
+                  font-weight: 400;
+                  color: rgba(255, 255, 255, 0.9);
+                  margin-top: 4px;
+                  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                  text-transform: none;
+                  letter-spacing: 0.3px;
                 }
               `}</style>
             </Article>
