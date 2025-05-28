@@ -60,7 +60,7 @@ Then you also show everyone that you can reply to other people with indented mes
 * Maria: Our standups aren’t feeling very useful to me. I’m finding it’s breaking up my focus for the morning. +Jen +Xavier
     * Jen: Is the goal to make sure we communicate? Or to share information? Or what? I think our team needs more context sharing, and wonder if doing more show and tell would be helpful.
 
-Because everyone is editing at once, after ten minutes, you’ll have a full set of thoughts on the week. And you’ll be surprised, there might be entire conversations that have happend already. 
+Because everyone is editing at once, after ten minutes, you’ll have a full set of thoughts on the week. And you’ll be surprised, there might be entire conversations that have happened already. 
 
 ## Dot voting to go deep
 
@@ -120,6 +120,6 @@ As a side note, I think this form of simultaneous editing of docs to be an inter
 
 ## Thank you
 
-I learned about Dot Voting from [Jim Shore](https://www.linkedin.com/in/jdlshore/). This took some inspiration from that. I think this format might have been something we came up with at Gremlin. I don’t remember who invented it – it might have been [Alexa Stefanko](https://www.linkedin.com/in/alexa-stefanko-86646aa4/), [Jason Poole](https://www.linkedin.com/in/jasonapoole/), or [Shaun Yelle](https://www.linkedin.com/in/shaunyelle/). Or me!
+I learned about Dot Voting from [Jim Shore](https://www.linkedin.com/in/jdlshore/). This took some inspiration from that. I think this format might have been something we came up with at Gremlin. I don’t remember who invented it – it might have been [Alexa Stefanko](https://www.linkedin.com/in/alexa-stefanko-86646aa4/), [Jason Poole](https://www.linkedin.com/in/jasonapoole/), or [Shaun Yelle](https://www.linkedin.com/in/shaunyelle/). Or me! Thank you to [Cailin Laughlin](https://www.linkedin.com/in/cailin-laughlin-7546a617a/) for pointing out a typo.
 
 Image by <a href="https://pixabay.com/users/analogicus-8164369/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3358873">Tom</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3358873">Pixabay</a>
