@@ -1,6 +1,6 @@
 ---
 title: Reflecting power - using power you don't have
-tags: []
+tags: ["leadership", "communication"]
 cover: reflection.jpg
 author: Jade Rubick
 discussionId: "reflecting-power"
