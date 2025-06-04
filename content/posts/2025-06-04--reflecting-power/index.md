@@ -128,4 +128,4 @@ So that's the idea of reflecting power. Let me know what you think!
 
 ## Thank you
 
-Craig Fecteau suggested this topic, a long while back. Thank you to [Diana Larsen](https://www.dianalarsen.com/about) for the concept of “influencing action”. Thank you to the unknown person who shared the cover photo on [Pixabay](https://pixabay.com/photos/lake-conifers-clouds-trees-sky-1679708/)
+[Craig Fecteau](https://www.linkedin.com/in/craigfecteau) suggested this topic, a long while back. Thank you to [Diana Larsen](https://www.dianalarsen.com/about) for the concept of “influencing action”. Thank you to the unknown person who shared the cover photo on [Pixabay](https://pixabay.com/photos/lake-conifers-clouds-trees-sky-1679708/)
