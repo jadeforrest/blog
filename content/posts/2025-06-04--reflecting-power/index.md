@@ -44,12 +44,12 @@ Some **direct actions** might be:
 * Prioritize the work.
 * Ask someone that reports to you to work on something.
 
-Some **indirect actions**:
+Some **influencing actions**:
 * Suggest to someone that they prioritize something.
 * Share an observation with someone.
 * Ask someone for help.
 
-Indirect actions are actions for things not within your direct control. But they are within someone else’s direct control. Reflected Power is an example of using indirect action. 
+Influencing actions are actions for things not within your direct control. But they are within someone else’s direct control. Reflected Power is an example of using an influencing action. 
 
 So when you see that it is outside your direct authority, but someone in a position of authority could be influenced to lend you their authority, that’s Reflected Power.
 
