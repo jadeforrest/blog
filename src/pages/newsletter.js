@@ -147,30 +147,36 @@ const NewsletterPage = (props) => {
                   min-width: 300px;
                   border: none;
                   background: linear-gradient(135deg, ${theme.color.special.attention}, #d86519);
-                  box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                  box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   cursor: pointer;
                   transition: all 0.2s ease;
                   transform: translateY(0);
                   position: relative;
                   text-decoration: none;
-                  
+
                   &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     top: 0;
                     left: 0;
                     right: 0;
                     bottom: 0;
                     border-radius: 12px;
-                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+                    background: linear-gradient(
+                      135deg,
+                      rgba(255, 255, 255, 0.1),
+                      rgba(255, 255, 255, 0.05)
+                    );
                     pointer-events: none;
                   }
-                  
+
                   :hover {
                     transform: translateY(-3px);
-                    box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                    box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     background: linear-gradient(135deg, #f5832a, ${theme.color.special.attention});
-                    
+
                     .subText {
                       transform: scale(1.02);
                     }
@@ -178,7 +184,7 @@ const NewsletterPage = (props) => {
                       transform: scale(1.1);
                     }
                   }
-                  
+
                   :active {
                     transform: translateY(-1px);
                     box-shadow: 0 4px 15px rgba(227, 114, 34, 0.3);
@@ -208,7 +214,7 @@ const NewsletterPage = (props) => {
                     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
                   }
                 }
-                
+
                 .ctaSubtext {
                   display: block;
                   text-align: center;

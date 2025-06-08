@@ -95,7 +95,7 @@ Meta.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
   theme: PropTypes.object.isRequired,
   lastEdit: PropTypes.string,
-  prefix: PropTypes.string
+  prefix: PropTypes.string,
 };
 
 export default Meta;

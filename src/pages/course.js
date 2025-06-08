@@ -64,10 +64,10 @@ const CoursePage = (props) => {
                   <br />
                   <br />
                   The Frontline Management Bootcamp course has some assignments. But all assignments
-                  are optional, and it&apos;s up to you to decide which you want to integrate into your
-                  management practice. For example, there is an assignment to set up your support
-                  network, with some suggestions for how to do so. You don&apos;t have to do any of them,
-                  but you&apos;ll probably find it helpful.
+                  are optional, and it&apos;s up to you to decide which you want to integrate into
+                  your management practice. For example, there is an assignment to set up your
+                  support network, with some suggestions for how to do so. You don&apos;t have to do
+                  any of them, but you&apos;ll probably find it helpful.
                 </dd>
 
                 <dt>Are there assessments or quizzes with this course?</dt>
@@ -75,8 +75,8 @@ const CoursePage = (props) => {
 
                 <dt>Is there any interaction with other students?</dt>
                 <dd>
-                  Not currently. I did have a Slack community for participants, but we haven&apos;t had a
-                  critical mass yet.
+                  Not currently. I did have a Slack community for participants, but we haven&apos;t
+                  had a critical mass yet.
                 </dd>
 
                 <dt>I can&apos;t afford your course, but really want to take it</dt>
@@ -96,9 +96,9 @@ const CoursePage = (props) => {
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
                 <dd>
-                  You can, but if you&apos;re thinking about that, I would just sign up for the course.
-                  At the end of the course, you will automatically transition into receiving the
-                  newsletter. You will get a few duplicate emails, but not many.
+                  You can, but if you&apos;re thinking about that, I would just sign up for the
+                  course. At the end of the course, you will automatically transition into receiving
+                  the newsletter. You will get a few duplicate emails, but not many.
                 </dd>
 
                 <dt>If I pay for the course and don&apos;t like it, can I get a refund?</dt>
@@ -111,12 +111,14 @@ const CoursePage = (props) => {
                 <dd>Every email has an unsubscribe link in it. It should be super easy.</dd>
 
                 <dt>How do I give you feedback on any of the course content?</dt>
-                <dd>You can reply to any email and I&apos;ll read it. I really appreciate feedback!</dd>
+                <dd>
+                  You can reply to any email and I&apos;ll read it. I really appreciate feedback!
+                </dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
                 <dd>
-                  The Frontline Management course is very engineering focused. It&apos;s best suited for
-                  engineering managers, though some content may be applicable to other technical
+                  The Frontline Management course is very engineering focused. It&apos;s best suited
+                  for engineering managers, though some content may be applicable to other technical
                   disciplines.
                 </dd>
               </dl>
@@ -155,30 +157,36 @@ const CoursePage = (props) => {
                   min-width: 300px;
                   border: none;
                   background: linear-gradient(135deg, ${theme.color.special.attention}, #d86519);
-                  box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                  box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                   cursor: pointer;
                   transition: all 0.2s ease;
                   transform: translateY(0);
                   position: relative;
                   text-decoration: none;
-                  
+
                   &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     top: 0;
                     left: 0;
                     right: 0;
                     bottom: 0;
                     border-radius: 12px;
-                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+                    background: linear-gradient(
+                      135deg,
+                      rgba(255, 255, 255, 0.1),
+                      rgba(255, 255, 255, 0.05)
+                    );
                     pointer-events: none;
                   }
-                  
+
                   :hover {
                     transform: translateY(-3px);
-                    box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                    box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
                     background: linear-gradient(135deg, #f5832a, ${theme.color.special.attention});
-                    
+
                     .subText {
                       transform: scale(1.02);
                     }
@@ -186,7 +194,7 @@ const CoursePage = (props) => {
                       transform: scale(1.1);
                     }
                   }
-                  
+
                   :active {
                     transform: translateY(-1px);
                     box-shadow: 0 4px 15px rgba(227, 114, 34, 0.3);
@@ -216,7 +224,7 @@ const CoursePage = (props) => {
                     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
                   }
                 }
-                
+
                 .ctaSubtext {
                   display: block;
                   text-align: center;

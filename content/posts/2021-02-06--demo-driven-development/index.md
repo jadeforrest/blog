@@ -1,6 +1,6 @@
 ---
 title: Demo-driven development
-tags: ["project-management", "delivery", "hacker-news"]
+tags: ["project-management", "delivery", "hacker-news", "popular"]
 cover: fast.jpg
 author: Jade Rubick
 discussionId: "demo-driven-development"

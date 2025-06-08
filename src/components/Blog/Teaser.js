@@ -274,7 +274,7 @@ Teaser.propTypes = {
     excerpt: PropTypes.string.isRequired,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,
-      prefix: PropTypes.string.isRequired
+      prefix: PropTypes.string.isRequired,
     }).isRequired,
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -283,13 +283,13 @@ Teaser.propTypes = {
       cover: PropTypes.shape({
         children: PropTypes.arrayOf(
           PropTypes.shape({
-            gatsbyImageData: PropTypes.object
+            gatsbyImageData: PropTypes.object,
           })
-        )
-      })
-    }).isRequired
+        ),
+      }),
+    }).isRequired,
   }).isRequired,
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
 };
 
 export default Teaser;

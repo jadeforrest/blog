@@ -7,7 +7,10 @@ import config from "../../../content/meta/config";
 // Helper function to determine the canonical URL for different page types
 const getCanonicalUrl = (postSlug, url, pageTitle) => {
   // For the home/index page (special case)
-  if (!postSlug && (pageTitle === "Rubick.com" || url === config.siteUrl || url === config.siteUrl + "/")) {
+  if (
+    !postSlug &&
+    (pageTitle === "Rubick.com" || url === config.siteUrl || url === config.siteUrl + "/")
+  ) {
     return "https://www.rubick.com";
   }
 

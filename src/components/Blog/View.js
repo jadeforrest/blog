@@ -107,22 +107,22 @@ View.propTypes = {
     hasMore: PropTypes.func.isRequired,
     loadMore: PropTypes.func.isRequired,
     useInfiniteScroll: PropTypes.bool.isRequired,
-    items: PropTypes.array
+    items: PropTypes.array,
   }).isRequired,
   pageContext: PropTypes.shape({
     initialPosts: PropTypes.array.isRequired,
-    currentPage: PropTypes.number.isRequired
+    currentPage: PropTypes.number.isRequired,
   }).isRequired,
   theme: PropTypes.shape({
     hero: PropTypes.shape({
-      hide: PropTypes.bool.isRequired
+      hide: PropTypes.bool.isRequired,
     }).isRequired,
     color: PropTypes.shape({
       brand: PropTypes.shape({
-        primaryLight: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
-  }).isRequired
+        primaryLight: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default View;
