@@ -4,25 +4,31 @@ import rehypeReact from "rehype-react";
 import Icons from "../../components/About/WebPresenceIcons";
 import ReImg from "./ReImg";
 import ReTracedSVGGallery from "./ReTracedSVGGallery";
+import PostsByTag from "../PostsByTag";
 import { Link } from "gatsby";
-
-const RenderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    "re-icons": Icons,
-    "re-img": ReImg,
-    "re-link": Link,
-    "re-tracedsvg-gallery": ReTracedSVGGallery,
-  },
-}).Compiler;
 
 const Bodytext = (props) => {
   const { content, theme } = props;
 
+  // Create a wrapper for PostsByTag that has access to theme
+  const PostsByTagWithTheme = (props) => <PostsByTag {...props} theme={theme} />;
+
+  // eslint-disable-next-line new-cap
+  const renderAst = new rehypeReact({
+    createElement: React.createElement,
+    components: {
+      "re-icons": Icons,
+      "re-img": ReImg,
+      "re-link": Link,
+      "re-tracedsvg-gallery": ReTracedSVGGallery,
+      "re-posts-by-tag": PostsByTagWithTheme,
+    },
+  }).Compiler;
+
   return (
     <React.Fragment>
       {/* Render markdown with Custom Components */}
-      <div className="bodytext">{RenderAst(content.htmlAst)}</div>
+      <div className="bodytext">{renderAst(content.htmlAst)}</div>
 
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`

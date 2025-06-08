@@ -93,16 +93,9 @@ Some typical fractional projects:
 
 **Engineering levels and compensation**. I’ve developed engineering levels three times now. And I've developed compensation for engineering several times in the past. Usually there is a historical challenge and a going-forward challenge. I have a great interest in solutions that are effective and fair. 
 
-## This blog
+## Most popular posts
 
-I write because I enjoy sharing what I've learned. Writing can be thankless unless you hear feedback, so I appreciate it when people [contact me](/contact/) to share their reactions.  
-
-My most popular posts have been: 
-
-* [Great engineering teams focus on milestones instead of projects](/milestones-not-projects/)
-* [How to build siloes and decrease collaboration](/how-to-build-silos-and-decrease-collaboration/)
-* [Coordination models -- tools for getting teams to work well together](/coordination-models/) (especially the [the independent executor model](/independent-executor-model/) and [self-service model](/platform-teams-and-the-self-service-model/) posts)
-* [How to implement pay equity](/implementing-pay-equity/)
+<re-posts-by-tag tag="popular" limit="5"></re-posts-by-tag>
 
 This blog's code is open sourced on [GitHub](https://www.github.com/jadeforrest/blog/) thanks to [Atte Juvonen](https://github.com/baobabKoodaa/blog) and others before him. Feel free to submit corrections or use the code to create your own blog (but do not host my content elsewhere).
 
