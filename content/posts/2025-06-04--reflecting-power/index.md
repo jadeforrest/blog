@@ -59,7 +59,7 @@ So when you see that it is outside your direct authority, but someone in a posit
 The basic move is just to ask them.
 
 Here are some examples:
-* You can ask your manager to kick off the project publicly, so everyone has the organizational context, and your project is “blessed” with as a priority.
+* You can ask your manager to kick off the project publicly, so everyone has the organizational context, and your project is “blessed” as a priority.
 * You can ask them to give you a temporary role or title.
 * You can ask them to show up at a meeting to show it’s important.
 * You can ghost write an email for them, and ask them to edit it and send it off.
@@ -95,7 +95,7 @@ I wouldn’t do this unilaterally or in a sneaky way. But let’s say you’ve s
 
 You can and should talk with the head of engineering about that. One thing you could suggest is that you two do a joint presentation on the high level themes of the year, in a month. And you can work together on that presentation. 
 
-This is actually delegating laterally – you’re giving him a lot of work to do. But you’re partnering on it, and you’ve hopefully given a lot of context as to why it’s important and worthwhile. 
+This is actually delegating laterally – you’re giving them a lot of work to do. But you’re partnering on it, and you’ve hopefully given a lot of context as to why it’s important and worthwhile. 
 
 Other forms of this might be that you’d like some help reinforcing a message to another part of the organization. You can ask that other leader to reflect that to their org. 
 
