@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build and Development
 - Build: `npm run build`
-- Develop: `npm run develop` or `npm run devhost` (for network access)
+- Develop: `npm run develop` or `npm run devhost` (for network access). But when doing this for verification, just prompt me and I will do it manually and let you know the response.
 - Format code: `npm run format`
 - Lint: `npm run lint` (all errors/warnings) or `npm run lint-errors` (errors only)
 - Style lint: `npm run stylelint`
