@@ -125,6 +125,12 @@ Explain the types of problems you’d like to see delegated to you, and the ways
 
 So that's the idea of reflecting power. Let me know what you think!
 
+## Podcast on this topic
+
+A podcast version of this post is available on Decoding Leadership: 
+
+<iframe src="https://creators.spotify.com/pod/show/decodingleadership/embed/episodes/26--Jade-Rubick-on-reflecting-power-e33n0gd" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 
 ## Thank you
 
