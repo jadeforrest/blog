@@ -1,6 +1,6 @@
 ---
 title: Advice for new directors
-tags: ["scaling", "information-flow", "onboarding", "mentorship", "leadership", "roles", "dzone-featured"]
+tags: ["scaling", "information-flow", "onboarding", "mentorship", "leadership", "roles", "dzone-featured", "popular"]
 cover: director.jpg
 author: Jade Rubick
 discussionId: "new-director"
