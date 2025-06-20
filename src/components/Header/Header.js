@@ -85,12 +85,14 @@ class Header extends React.Component {
             {(width) => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
           </ScreenWidthContext.Consumer>
         </header>
-        <div className={`availability-container ${scrollDirection === "down" ? "hide" : ""}`}>
-          <Link to="/about/" className="availability">
-            Availability: waiting list for interim roles, available for advising, individual and
-            group coaching
-          </Link>
-        </div>
+        {!path.startsWith("/wiki/") && (
+          <div className={`availability-container ${scrollDirection === "down" ? "hide" : ""}`}>
+            <Link to="/about/" className="availability">
+              Availability: waiting list for interim roles, available for advising, individual and
+              group coaching
+            </Link>
+          </div>
+        )}
         <VisibilitySensor onChange={this.visibilitySensorChange}>
           <div className="sensor" />
         </VisibilitySensor>

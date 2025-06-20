@@ -11,14 +11,19 @@ const WikiTemplate = (props) => {
   const { pageContext } = props;
 
   // Generate GitHub edit URL based on the page slug
-  const slug = pageContext.slug.endsWith('/') ? pageContext.slug.slice(0, -1) : pageContext.slug;
+  let slug = pageContext.slug.endsWith("/") ? pageContext.slug.slice(0, -1) : pageContext.slug;
+  // Handle the root wiki page case
+  if (slug === "") {
+    slug = "/index";
+  }
   const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki${slug}.md`;
 
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
         {(theme) => (
-          <React.Fragment>
+          <div className="wiki-template">
+            <React.Fragment>
             <div className="wiki-edit-header">
               <a
                 href={githubEditUrl}
@@ -41,7 +46,17 @@ const WikiTemplate = (props) => {
                 border-bottom: 1px solid ${theme.color.neutral.gray.c};
                 padding: ${theme.space.xs} 0;
                 position: relative;
-                z-index: 3;
+                z-index: 6;
+              }
+
+              @from-width desktop {
+                .wiki-edit-header {
+                  position: fixed;
+                  top: ${theme.header.height.fixed};
+                  left: 0;
+                  right: 0;
+                  z-index: 6;
+                }
               }
 
               .wiki-edit-link {
@@ -56,13 +71,14 @@ const WikiTemplate = (props) => {
                 text-decoration: underline;
               }
 
-              @below desktop {
-                .wiki-edit-header {
-                  display: none;
+              @from-width desktop {
+                :global(.wiki-template) :global(.article) {
+                  margin-top: calc(${theme.space.xs} * 2 + 1.5em);
                 }
               }
             `}</style>
-          </React.Fragment>
+            </React.Fragment>
+          </div>
         )}
       </ThemeContext.Consumer>
 
