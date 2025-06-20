@@ -79,6 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");
     const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
+    const wikiTemplate = path.resolve("./src/templates/WikiTemplate.js");
     const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
     
     const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
@@ -134,8 +135,10 @@ exports.createPages = ({ graphql, actions }) => {
         // Don't leak drafts into production.
         if (activeEnv == "production") {
           items = items.filter(item => 
-            item.node.fields.prefix &&
-            !(item.node.fields.prefix+"").startsWith("draft")
+            (item.node.fields.prefix &&
+            !(item.node.fields.prefix+"").startsWith("draft")) ||
+            item.node.fields.source === "wiki" ||
+            item.node.fields.source === "pages"
           )
         }
 
@@ -198,6 +201,22 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: slug,
             component: pageTemplate,
+            context: {
+              slug,
+              source
+            }
+          });
+        });
+
+        // and wiki pages.
+        const wikiPages = items.filter(item => item.node.fields.source === "wiki");
+        wikiPages.forEach(({ node }) => {
+          const slug = node.fields.slug;
+          const source = node.fields.source;
+
+          createPage({
+            path: `/wiki${slug}`,
+            component: wikiTemplate,
             context: {
               slug,
               source

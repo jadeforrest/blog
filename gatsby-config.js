@@ -47,6 +47,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/wiki/`,
+        name: "wiki"
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `parts`,
         path: `${__dirname}/content/parts/`
       }
