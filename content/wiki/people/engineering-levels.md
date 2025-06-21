@@ -2,7 +2,7 @@
 title: Engineering levels
 ---
 
-I have engineering levels I've used at a couple of companies. https://www.rubick.com/engineering-levels/
+I have engineering levels [I've used at a couple of companies](https://www.rubick.com/engineering-levels/).
 
 Dropbox has great formatting, similar to Carta.
 
