@@ -214,12 +214,45 @@ exports.createPages = ({ graphql, actions }) => {
           const slug = node.fields.slug;
           const source = node.fields.source;
 
+          // For wiki pages: remove trailing slash from markdown pages to distinguish from directory indexes
+          const wikiPath = `/wiki${slug}`.replace(/\/$/, "");
+
           createPage({
-            path: `/wiki${slug}`,
+            path: wikiPath,
             component: wikiTemplate,
             context: {
               slug,
               source
+            }
+          });
+        });
+
+        // Create directory index pages for wiki subdirectories
+        const wikiDirectories = new Set();
+        wikiPages.forEach(({ node }) => {
+          const slug = node.fields.slug;
+          const pathParts = slug.replace(/^\//, "").replace(/\/$/, "").split("/");
+          
+          // Only add directory paths, not the final file part
+          // A directory exists if there are multiple path parts (more than just the filename)
+          if (pathParts.length > 1) {
+            // Build directory paths, excluding the last part (which is the filename)
+            let currentPath = "";
+            for (let i = 0; i < pathParts.length - 1; i++) {
+              currentPath += "/" + pathParts[i];
+              wikiDirectories.add(currentPath);
+            }
+          }
+        });
+
+        // Create pages for each directory
+        wikiDirectories.forEach(dirPath => {
+          createPage({
+            path: `/wiki${dirPath}/`,
+            component: wikiTemplate,
+            context: {
+              slug: `${dirPath}/`,
+              source: "wiki"
             }
           });
         });

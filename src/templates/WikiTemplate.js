@@ -7,24 +7,42 @@ import Article from "../components/Article";
 import Page from "../components/Page";
 import { ThemeContext } from "../layouts";
 
-const buildWikiStructure = (wikiPages) => {
+const buildWikiStructure = (wikiPages, filterPath = null) => {
   const structure = {};
 
   wikiPages.forEach(({ node }) => {
     const slug = node.fields.slug;
     const title = node.frontmatter.title;
 
-    // Skip the index page itself
+    // Skip the root index page itself
     if (slug === "/" || slug === "/index/") {
       return;
+    }
+
+    // If filtering for a specific path, only include pages in that path
+    if (filterPath) {
+      const normalizedSlug = slug.replace(/^\//, "").replace(/\/$/, "");
+      const normalizedFilter = filterPath.replace(/^\//, "").replace(/\/$/, "");
+
+      // Skip if page is not in the filtered directory
+      if (!normalizedSlug.startsWith(normalizedFilter + "/")) {
+        return;
+      }
     }
 
     // Remove leading slash and split path
     const pathParts = slug.replace(/^\//, "").replace(/\/$/, "").split("/");
 
+    // If filtering, adjust the path parts to be relative to the filter
+    let adjustedParts = pathParts;
+    if (filterPath) {
+      const filterParts = filterPath.replace(/^\//, "").replace(/\/$/, "").split("/");
+      adjustedParts = pathParts.slice(filterParts.length);
+    }
+
     let current = structure;
-    for (let i = 0; i < pathParts.length - 1; i++) {
-      const dir = pathParts[i];
+    for (let i = 0; i < adjustedParts.length - 1; i++) {
+      const dir = adjustedParts[i];
       if (!current[dir]) {
         current[dir] = { isDirectory: true, children: {} };
       }
@@ -32,7 +50,7 @@ const buildWikiStructure = (wikiPages) => {
     }
 
     // Add the page
-    const fileName = pathParts[pathParts.length - 1];
+    const fileName = adjustedParts[adjustedParts.length - 1];
     current[fileName] = {
       isDirectory: false,
       title: title,
@@ -90,8 +108,15 @@ const WikiTemplate = (props) => {
   }
   const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki${slug}.md`;
 
-  // Check if this is the index page
-  const isIndexPage = pageContext.slug === "/" || pageContext.slug === "/index/";
+  // Check if this is an index page (root or subdirectory)
+  // An index page is when we don't have page content (markdown file doesn't exist)
+  // OR it's the root wiki index
+  const isRootIndexPage = pageContext.slug === "/" || pageContext.slug === "/index/";
+  const isSubdirectoryIndexPage = !page && pageContext.slug.endsWith("/") && pageContext.slug !== "/";
+  const isIndexPage = isRootIndexPage || isSubdirectoryIndexPage;
+
+  // Get the directory path for subdirectory index pages
+  const directoryPath = isSubdirectoryIndexPage ? pageContext.slug : null;
 
   return (
     <React.Fragment>
@@ -114,9 +139,19 @@ const WikiTemplate = (props) => {
               <Article theme={theme}>
                 {isIndexPage && allWikiPages ? (
                   <div>
-                    <h1>{page.frontmatter.title}</h1>
+                    <h1>
+                      {page
+                        ? page.frontmatter.title
+                        : directoryPath
+                        ? directoryPath.replace(/\/$/, "").split("/").pop()
+                        : "Wiki"}
+                    </h1>
                     <div style={{ marginTop: "2em" }}>
-                      {renderWikiStructure(buildWikiStructure(allWikiPages.edges), 0, theme)}
+                      {renderWikiStructure(
+                        buildWikiStructure(allWikiPages.edges, directoryPath),
+                        0,
+                        theme
+                      )}
                     </div>
                   </div>
                 ) : (
