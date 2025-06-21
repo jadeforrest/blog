@@ -118,6 +118,57 @@ const WikiTemplate = (props) => {
   // Get the directory path for subdirectory index pages
   const directoryPath = isSubdirectoryIndexPage ? pageContext.slug : null;
 
+  // Build breadcrumbs for navigation
+  const buildBreadcrumbs = () => {
+    const currentSlug = pageContext.slug;
+    const breadcrumbs = [];
+    
+    // Always start with the root wiki
+    breadcrumbs.push({
+      title: "Wiki",
+      path: "/wiki/",
+      isActive: currentSlug === "/" || currentSlug === "/index/"
+    });
+
+    // If we're not at the root, build the path
+    if (currentSlug !== "/" && currentSlug !== "/index/") {
+      const pathParts = currentSlug.replace(/^\//, "").replace(/\/$/, "").split("/");
+      
+      // Build breadcrumbs for each directory level
+      let currentPath = "";
+      for (let i = 0; i < pathParts.length; i++) {
+        currentPath += "/" + pathParts[i];
+        const isLastPart = i === pathParts.length - 1;
+        const isDirectory = isLastPart && currentSlug.endsWith("/");
+        
+        // For the last part, check if it's a directory index or a page
+        const title = pathParts[i];
+        const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+        
+        if (isLastPart && !isDirectory) {
+          // This is a page, use the page title if available
+          const pageTitle = page ? page.frontmatter.title : capitalizedTitle;
+          breadcrumbs.push({
+            title: pageTitle,
+            path: null, // Current page, no link
+            isActive: true
+          });
+        } else {
+          // This is a directory
+          breadcrumbs.push({
+            title: capitalizedTitle,
+            path: `/wiki${currentPath}/`,
+            isActive: isLastPart
+          });
+        }
+      }
+    }
+
+    return breadcrumbs;
+  };
+
+  const breadcrumbs = buildBreadcrumbs();
+
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
@@ -136,6 +187,25 @@ const WikiTemplate = (props) => {
                   </a>
                 </div>
               )}
+              
+              {/* Breadcrumbs */}
+              {breadcrumbs.length > 1 && (
+                <div className="wiki-breadcrumbs">
+                  {breadcrumbs.map((crumb, index) => (
+                    <span key={index} className="breadcrumb-item">
+                      {index > 0 && <span className="breadcrumb-separator"> › </span>}
+                      {crumb.path ? (
+                        <Link to={crumb.path} className="breadcrumb-link">
+                          {crumb.title}
+                        </Link>
+                      ) : (
+                        <span className="breadcrumb-current">{crumb.title}</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              )}
+              
               <Article theme={theme}>
                 {isIndexPage && allWikiPages ? (
                   <div>
@@ -192,6 +262,48 @@ const WikiTemplate = (props) => {
                   text-decoration: underline;
                 }
 
+                .wiki-breadcrumbs {
+                  padding: ${theme.space.xs} 20px;
+                  background-color: ${theme.color.neutral.white};
+                  border-bottom: 1px solid ${theme.color.neutral.gray.d};
+                  font-size: 0.85em;
+                  color: ${theme.color.neutral.gray.g};
+                }
+
+                .breadcrumb-item {
+                  display: inline;
+                }
+
+                .breadcrumb-separator {
+                  color: ${theme.color.neutral.gray.f};
+                  margin: 0 0.5em;
+                }
+
+                .breadcrumb-link {
+                  color: ${theme.color.brand.primary};
+                  text-decoration: none;
+                }
+
+                .breadcrumb-link:hover {
+                  text-decoration: underline;
+                }
+
+                .breadcrumb-current {
+                  color: ${theme.color.neutral.gray.g};
+                  font-weight: 600;
+                }
+
+                @from-width desktop {
+                  .wiki-breadcrumbs {
+                    position: fixed;
+                    top: ${isIndexPage ? theme.header.height.fixed : `calc(${theme.header.height.fixed} + ${theme.space.xs} * 2 + 1px)`};
+                    left: 0;
+                    right: 0;
+                    z-index: 5;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                  }
+                }
+
                 @from-width desktop {
                   :global(.wiki-template) :global(.article) {
                     margin-top: calc(${theme.space.xs} * 2 + 1.5em);
@@ -200,7 +312,7 @@ const WikiTemplate = (props) => {
 
                 @from-width desktop {
                   .wiki-template :global(.article) {
-                    margin-top: ${isIndexPage ? "0" : `calc(${theme.space.xs} * 2 + 1.5em)`};
+                    margin-top: ${isIndexPage ? `calc(${theme.space.xs} + 1em)` : `calc(${theme.space.xs} * 4 + 2.5em)`};
                   }
                 }
               `}</style>
