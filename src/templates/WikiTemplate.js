@@ -188,25 +188,24 @@ const WikiTemplate = (props) => {
                 </div>
               )}
               
-              {/* Breadcrumbs */}
-              {breadcrumbs.length > 1 && (
-                <div className="wiki-breadcrumbs">
-                  {breadcrumbs.map((crumb, index) => (
-                    <span key={index} className="breadcrumb-item">
-                      {index > 0 && <span className="breadcrumb-separator"> › </span>}
-                      {crumb.path ? (
-                        <Link to={crumb.path} className="breadcrumb-link">
-                          {crumb.title}
-                        </Link>
-                      ) : (
-                        <span className="breadcrumb-current">{crumb.title}</span>
-                      )}
-                    </span>
-                  ))}
-                </div>
-              )}
-              
               <Article theme={theme}>
+                {/* Breadcrumbs inside article */}
+                {breadcrumbs.length > 1 && (
+                  <div className="wiki-breadcrumbs">
+                    {breadcrumbs.map((crumb, index) => (
+                      <span key={index} className="breadcrumb-item">
+                        {index > 0 && <span className="breadcrumb-separator"> › </span>}
+                        {crumb.path ? (
+                          <Link to={crumb.path} className="breadcrumb-link">
+                            {crumb.title}
+                          </Link>
+                        ) : (
+                          <span className="breadcrumb-current">{crumb.title}</span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 {isIndexPage && allWikiPages ? (
                   <div>
                     <h1>
@@ -263,8 +262,8 @@ const WikiTemplate = (props) => {
                 }
 
                 .wiki-breadcrumbs {
-                  padding: ${theme.space.xs} 20px;
-                  background-color: ${theme.color.neutral.white};
+                  padding: ${theme.space.xs} 0;
+                  margin-bottom: ${theme.space.s};
                   border-bottom: 1px solid ${theme.color.neutral.gray.d};
                   font-size: 0.85em;
                   color: ${theme.color.neutral.gray.g};
@@ -294,25 +293,8 @@ const WikiTemplate = (props) => {
                 }
 
                 @from-width desktop {
-                  .wiki-breadcrumbs {
-                    position: fixed;
-                    top: ${isIndexPage ? theme.header.height.fixed : `calc(${theme.header.height.fixed} + ${theme.space.xs} * 2 + 1px)`};
-                    left: 0;
-                    right: 0;
-                    z-index: 5;
-                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-                  }
-                }
-
-                @from-width desktop {
-                  :global(.wiki-template) :global(.article) {
-                    margin-top: calc(${theme.space.xs} * 2 + 1.5em);
-                  }
-                }
-
-                @from-width desktop {
                   .wiki-template :global(.article) {
-                    margin-top: ${isIndexPage ? `calc(${theme.space.xs} + 1em)` : `calc(${theme.space.xs} * 4 + 2.5em)`};
+                    margin-top: ${isIndexPage ? `0` : `calc(${theme.space.xs} * 2 + 1.5em)`};
                   }
                 }
               `}</style>
