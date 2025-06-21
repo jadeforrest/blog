@@ -99,16 +99,18 @@ const WikiTemplate = (props) => {
         {(theme) => (
           <div className="wiki-template">
             <React.Fragment>
-              <div className="wiki-edit-header">
-                <a
-                  href={githubEditUrl}
-                  className="wiki-edit-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Edit this page on github
-                </a>
-              </div>
+              {!isIndexPage && (
+                <div className="wiki-edit-header">
+                  <a
+                    href={githubEditUrl}
+                    className="wiki-edit-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Edit this page on github
+                  </a>
+                </div>
+              )}
               <Article theme={theme}>
                 {isIndexPage && allWikiPages ? (
                   <div>
@@ -158,6 +160,12 @@ const WikiTemplate = (props) => {
                 @from-width desktop {
                   :global(.wiki-template) :global(.article) {
                     margin-top: calc(${theme.space.xs} * 2 + 1.5em);
+                  }
+                }
+
+                @from-width desktop {
+                  .wiki-template :global(.article) {
+                    margin-top: ${isIndexPage ? "0" : `calc(${theme.space.xs} * 2 + 1.5em)`};
                   }
                 }
               `}</style>
