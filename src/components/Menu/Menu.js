@@ -25,7 +25,6 @@ class Menu extends React.Component {
       { to: "/decoding-leadership/", label: "Podcast", icon: FaPodcast },
       { to: "/newsletter/", label: "Newsletter", icon: FaEnvelope },
       { to: "/course/", label: "Course", icon: FaSeedling },
-      { to: "/tags/", label: "Tags", icon: FaTag },
       { to: "/about/", label: "About", icon: FaUser },
       { to: "/wiki/", label: "Wiki", icon: FaBookOpen },
     ];
