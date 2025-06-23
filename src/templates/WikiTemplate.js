@@ -112,7 +112,8 @@ const WikiTemplate = (props) => {
   // An index page is when we don't have page content (markdown file doesn't exist)
   // OR it's the root wiki index
   const isRootIndexPage = pageContext.slug === "/" || pageContext.slug === "/index/";
-  const isSubdirectoryIndexPage = !page && pageContext.slug.endsWith("/") && pageContext.slug !== "/";
+  const isSubdirectoryIndexPage =
+    !page && pageContext.slug.endsWith("/") && pageContext.slug !== "/";
   const isIndexPage = isRootIndexPage || isSubdirectoryIndexPage;
 
   // Get the directory path for subdirectory index pages
@@ -122,43 +123,43 @@ const WikiTemplate = (props) => {
   const buildBreadcrumbs = () => {
     const currentSlug = pageContext.slug;
     const breadcrumbs = [];
-    
+
     // Always start with the root wiki
     breadcrumbs.push({
       title: "Wiki",
       path: "/wiki/",
-      isActive: currentSlug === "/" || currentSlug === "/index/"
+      isActive: currentSlug === "/" || currentSlug === "/index/",
     });
 
     // If we're not at the root, build the path
     if (currentSlug !== "/" && currentSlug !== "/index/") {
       const pathParts = currentSlug.replace(/^\//, "").replace(/\/$/, "").split("/");
-      
+
       // Build breadcrumbs for each directory level
       let currentPath = "";
       for (let i = 0; i < pathParts.length; i++) {
         currentPath += "/" + pathParts[i];
         const isLastPart = i === pathParts.length - 1;
         const isDirectory = isLastPart && currentSlug.endsWith("/");
-        
+
         // For the last part, check if it's a directory index or a page
         const title = pathParts[i];
         const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
-        
+
         if (isLastPart && !isDirectory) {
           // This is a page, use the page title if available
           const pageTitle = page ? page.frontmatter.title : capitalizedTitle;
           breadcrumbs.push({
             title: pageTitle,
             path: null, // Current page, no link
-            isActive: true
+            isActive: true,
           });
         } else {
           // This is a directory
           breadcrumbs.push({
             title: capitalizedTitle,
             path: `/wiki${currentPath}/`,
-            isActive: isLastPart
+            isActive: isLastPart,
           });
         }
       }
@@ -187,7 +188,7 @@ const WikiTemplate = (props) => {
                   </a>
                 </div>
               )}
-              
+
               <Article theme={theme}>
                 {/* Breadcrumbs inside article */}
                 {breadcrumbs.length > 1 && (

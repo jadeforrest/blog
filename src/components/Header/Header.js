@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import VisibilitySensor from "react-visibility-sensor";
+import { FaHome } from "react-icons/fa/";
 
 import { ScreenWidthContext } from "../../layouts";
 import config from "../../../content/meta/config";
@@ -77,8 +78,11 @@ class Header extends React.Component {
               />
             </div>
             <div className="type">
-              <div className="h1menu">{config.headerTitle}</div>
+              <div className="h1menu">{config.headerTitle} </div>
               <div className="h2menu">{config.headerSubTitle}</div>
+            </div>
+            <div className="home-icon">
+              <FaHome />
             </div>
           </Link>
           <ScreenWidthContext.Consumer>
@@ -117,6 +121,14 @@ class Header extends React.Component {
               display: flex;
               flex-direction: "column";
               color: ${theme.text.color.primary};
+
+              .home-icon {
+                margin-right: ${theme.space.xs};
+                display: flex;
+                align-items: center;
+                font-size: ${theme.font.size.s};
+                color: ${theme.text.color.primary};
+              }
 
               .logo {
                 flex-shrink: 0;
@@ -308,6 +320,10 @@ class Header extends React.Component {
               flex-direction: row;
               flex-shrink: 0;
               width: auto;
+
+              .home-icon {
+                margin-right: ${theme.space.xs};
+              }
             }
 
             .logo {
