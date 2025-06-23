@@ -21,7 +21,7 @@ class Menu extends React.Component {
     this.itemList = React.createRef();
 
     this.items = [
-      { to: "/posts/", label: "Posts", icon: FaBook },
+      { to: "/posts/", label: "Blog", icon: FaBook },
       { to: "/decoding-leadership/", label: "Podcast", icon: FaPodcast },
       { to: "/newsletter/", label: "Newsletter", icon: FaEnvelope },
       { to: "/course/", label: "Course", icon: FaSeedling },
