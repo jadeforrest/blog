@@ -18,7 +18,7 @@ const RecentPosts = (props) => {
   return (
     <React.Fragment>
       <div className="recent-posts">
-        <h2>Recent Articles</h2>
+        <h2>Recent posts</h2>
         <div className="posts-container">
           {posts.map((post, index) => {
             const {
@@ -61,7 +61,7 @@ const RecentPosts = (props) => {
         </div>
         <div className="view-all">
           <Link to="/posts">
-            View All Articles <FaArrowRight />
+            View all posts <FaArrowRight />
           </Link>
         </div>
       </div>
