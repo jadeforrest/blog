@@ -11,8 +11,6 @@ title: 1:1 Meetings
 
 ## 1:1 Structure and Rules
 
-I'm not sure of the source for this -- could have been someone from my private engineering leadership group.
-
 ### Who do you have 1:1’s with?
 
 * Direct reports
@@ -197,3 +195,7 @@ Skip-level 1:1’s are how you can orient yourself to the department and what pr
 * On a scale of 1-10, rate your overall satisfaction with your employment at this company. What is the number one reason you get out of bed in the morning and come to work?
 
 Additional 1:1 Question List: https://jasonevanish.com/2014/05/29/101-questions-to-ask-in-1-on-1s/
+
+## Thank you
+
+Most of this content is from [Matthew Finlayson](https://www.linkedin.com/in/matthewfinlayson1/)'s 1-1 notes.
