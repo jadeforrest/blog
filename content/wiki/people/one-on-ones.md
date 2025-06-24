@@ -116,7 +116,8 @@ Skip-level 1:1’s are how you can orient yourself to the department and what pr
 
 (Source uncertain)
 
-* Tell me about one coworker that you feel does a particularly good job. List three things that motivate you to do your work each day.
+* Tell me about one coworker that you feel does a particularly good job.
+* List three things that motivate you to do your work each day.
 * What is a mistake you made recently that you learned a lot from?
 * Are there any areas of your job that you would like additional training in? What is the biggest challenge we will face this year?
 * Tell me about your long-term career goals.
