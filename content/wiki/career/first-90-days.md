@@ -56,7 +56,7 @@ title: First 90 days
 
 The only point I'd add is to connect with some of the board members in the first 30-60 days, if you are leading product (with CEO approval, of course). Find out what the board sees as the company's opportunity and any challenges to augment what the CEO and other execs share with you as the company's goals.
 
-## N's advice
+## [Nadya Duke Boone](https://www.linkedin.com/in/nadyaboone/)'s advice
 
 Some things that helped me in a previous role:
 
