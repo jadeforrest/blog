@@ -14,3 +14,4 @@ title: Growing into director plus roles
 * Talk with finance people and review costs, models, etc.
 * Talk with sales engineers.
 * Talk with people in the growth function. Understand the numbers they track and care about.
+* You can get an MBA, or do an equivalent amount of self-study, although that's high effort.
