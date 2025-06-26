@@ -16,6 +16,7 @@ title: AI coding
 * Document driven (need link)
 * [An iterative approach that makes your genie less insane over time](https://ghuntley.com/stdlib/) Stdlib from Ghuntley (Cursor)
 * [A structured approach to coding](https://www.youtube.com/watch?v=fD4ktSkNCw4&t=1701s) by Ryan Carson. For Cursor but generally relevant.
+* [Kent Beck described a TDD and tidy first](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes) approach he calls augmented coding. 
 
 ## Adoption
 
