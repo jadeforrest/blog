@@ -9,4 +9,8 @@ title: Growing into director plus roles
 ## Learning more about the business
 
 * Someone recommended this newsletter to [learn SaaS business context](https://substack.com/@cloudedjudgement)
-
+* [Financial modeling for startups, an introduction](https://www.fivecastfinancial.com/guides/financial-modeling-for-startups-an-introduction/)
+* [Rule of 40](https://www.cloudzero.com/blog/rule-of-40/)
+* Talk with finance people and review costs, models, etc.
+* Talk with sales engineers.
+* Talk with people in the growth function. Understand the numbers they track and care about.
