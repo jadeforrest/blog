@@ -12,4 +12,11 @@ title: Information technology and security
 * "Security -> CTO. Security handles SOC, Pentests, design review, and supports GTM, including pre-sales and marketing material. At some point I may move IT under Security."
 * "(120 people) IT & Security -> VP of Engineering. Worked well."
 
-          
+## Admin access for engineers
+
+How do folks approach admin access to laptops for devs?
+
+* General concensus has been that it is normal to give admin access.
+* If you want them to manage risk have them take security training. Acceptable use policy.
+* Can be a sticking point on SOC2-ish audits.
+* "We use a tool called Admin By Request on the Mac now, which primarily exists to make the user exist unprivileged and then grants admin to that user temporarily when you self-serve activate it. Like using sudo instead of always being logged in as root. Unfortunately, it sounds simple, but something about it offends the gods, and so it causes a lot of strange performance issues. On balance, I don’t think it is a win. (But it could be if it worked better.) To prevent installing unapproved software, the endpoint security software builds a list of everything installed and IT puts things on a block list. This used to be rare, but after some spicy incidents, we now immediately ban most things that are not clearly dev related."
