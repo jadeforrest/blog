@@ -69,6 +69,7 @@ const Seo = (props) => {
 
 Seo.propTypes = {
   data: PropTypes.object,
+  pageTitle: PropTypes.string,
 };
 
 const plausibleDomainQuery = graphql`

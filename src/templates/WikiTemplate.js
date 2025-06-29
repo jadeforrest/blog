@@ -304,7 +304,18 @@ const WikiTemplate = (props) => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo data={page} />
+      <Seo
+        data={page}
+        pageTitle={
+          page
+            ? page.frontmatter.title
+            : isRootIndexPage
+            ? "Wiki"
+            : directoryPath
+            ? directoryPath.replace(/\/$/, "").split("/").pop()
+            : "Wiki"
+        }
+      />
     </React.Fragment>
   );
 };
