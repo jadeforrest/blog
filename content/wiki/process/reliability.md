@@ -25,3 +25,7 @@ Some great resources:
 * https://github.com/danluu/post-mortems (a collection of post-mortems)
 * https://blog.cloudflare.com/cloudflare-incident-on-october-30-2023
 * https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-analytics-outage
+
+## Setting up rotations on Slack
+
+* [Using Slack Workflows and Google Sheets for free rotations](https://orlevy.medium.com/how-to-set-up-a-round-robin-workflow-in-slack-using-google-sheets-508dbcb3bc1e)
