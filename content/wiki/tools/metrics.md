@@ -2,6 +2,11 @@
 title: Metrics tooling
 ---
 
+## DORA measurements
+
+* https://devlake.apache.org/ "does a good job of pulling metrics for free".
+* Datadog has a DORA module that is "free".
+
 ## SonarQube
 
 I have an acquaintance that is doing some due diligence on SonarQube, and I offered to collect some information for him. Anyone have experience with it or similar tools, and willing to answer these questions?
