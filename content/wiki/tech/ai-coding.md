@@ -27,3 +27,7 @@ title: AI coding
 
 * [Revenge of the Junior Developer](https://sourcegraph.com/blog/revenge-of-the-junior-developer) - Steve Yegge (who has a vested interest in this) lays out his vision of where this is going: agents, agent fleets, etc.
 
+## AI topics
+
+Should probably have its own page
+* [How AI agents software fits into companies](https://lethain.com/what-can-agents-do/)
