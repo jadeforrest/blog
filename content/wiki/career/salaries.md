@@ -10,4 +10,3 @@ title: Engineering leader salaries
 
 * https://www.linkedin.com/posts/kevinjurovich\_entrepreneurship-startups-compensation-activity-7060327795641503744-kyMm
 
-          

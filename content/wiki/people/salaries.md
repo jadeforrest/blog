@@ -6,6 +6,8 @@ title: Salaries for engineering and product
 
 * [What great engineering managers need to know about comp and equity](https://www.rubick.com/compensation-and-equity/)
 
+* [Good LinkedIn post on equity](https://www.linkedin.com/posts/marcbaselga_friend-i-got-an-amazing-offer-50000-shares-activity-7279515466664992768-P09C/) some things to think about when taking equity in an offer
+
 ## Implementing pay equity / point based pay
 
 * [Role based pay](https://medium.com/@colleenwheelermccreary/innovating-on-compensation-role-based-pay-f70db5fd18e5) - an experience report on implementing pay equity
