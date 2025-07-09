@@ -18,7 +18,7 @@ Here is a [good description of the process](https://www.cio.com/article/308431/w
 
 ## A handy template spreadsheet
 
-* Jade created a template spreadsheet that does real-time nine-boxing based on the values within a spreadsheet. Can be used during calibration meetings, because it also allows you to do leveling within the context of a nine-box calibration.
+* Jade created a [template spreadsheet](https://docs.google.com/spreadsheets/d/1YxSBVCTQz1j7N1O03dF7k6tx_EZigpiVzgOaNngCoJU/edit?gid=1076158596#gid=1076158596) that does real-time nine-boxing based on the values within a spreadsheet. Can be used during calibration meetings, because it also allows you to do leveling within the context of a nine-box calibration.
 
 ## Variation
 
