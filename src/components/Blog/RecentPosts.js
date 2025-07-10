@@ -59,10 +59,17 @@ const RecentPosts = (props) => {
             );
           })}
         </div>
-        <div className="view-all">
-          <Link to="/posts">
-            View all posts <FaArrowRight />
-          </Link>
+        <div className="view-all-links">
+          <div className="view-all-tags">
+            <Link to="/tags">
+              View all tags <FaArrowRight />
+            </Link>
+          </div>
+          <div className="view-all-posts">
+            <Link to="/posts">
+              View all posts <FaArrowRight />
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -140,12 +147,23 @@ const RecentPosts = (props) => {
           fill: ${theme.color.brand.primary};
         }
 
-        .view-all {
-          text-align: right;
+        .view-all-links {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           margin-top: ${theme.space.m};
         }
 
-        .view-all :global(a) {
+        .view-all-tags {
+          text-align: left;
+        }
+
+        .view-all-posts {
+          text-align: right;
+        }
+
+        .view-all-tags :global(a),
+        .view-all-posts :global(a) {
           color: ${theme.color.brand.primary};
           font-size: ${theme.font.size.s};
           font-weight: 600;
@@ -155,16 +173,19 @@ const RecentPosts = (props) => {
           transition: all ${theme.time.duration.default};
         }
 
-        .view-all :global(a:hover) {
+        .view-all-tags :global(a:hover),
+        .view-all-posts :global(a:hover) {
           color: ${theme.color.brand.primaryDark};
         }
 
-        .view-all :global(svg) {
+        .view-all-tags :global(svg),
+        .view-all-posts :global(svg) {
           margin-left: ${theme.space.xs};
           transition: transform ${theme.time.duration.default};
         }
 
-        .view-all :global(a:hover svg) {
+        .view-all-tags :global(a:hover svg),
+        .view-all-posts :global(a:hover svg) {
           transform: translateX(4px);
         }
 
