@@ -12,4 +12,4 @@ updated at: Wed Feb 19 2025 22:20:17 GMT+0000 (Coordinated Universal Time)
 
 ## Compensation
 
-* Posthog has a [very nice calculator for their roles][(https://posthog.com/handbook/people/compensation)          
+* Posthog has a [very nice calculator for their roles](https://posthog.com/handbook/people/compensation)          
