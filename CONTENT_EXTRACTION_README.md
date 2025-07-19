@@ -130,82 +130,94 @@ This creates a curated collection of the most valuable insights from your entire
 
 ---
 
-# Buffer Publishing Script - `extract-to-buffer.js`
+# LinkedIn Publishing Script - `extract-to-linkedin.js`
 
-This script takes the extracted content files and automatically posts them to Buffer for social media scheduling.
+This script posts extracted content to LinkedIn as article shares, creating professional posts with URL preview cards. Designed for daily automated posting.
 
 ## Prerequisites
 
-- Buffer account with API access
-- Buffer access token
-- Buffer profile IDs for the accounts you want to post to
+- LinkedIn account
+- LinkedIn access token with `w_member_social` scope
+- LinkedIn Developer App (for generating tokens)
+
+## Key Features
+
+- **Single Daily Post**: Always posts one item (perfect for cron jobs)
+- **Article Share Format**: Creates rich URL previews automatically
+- **Token Expiration Handling**: Clear guidance when 60-day token expires
+- **Dry Run Mode**: Test without posting
+- **Duplicate Prevention**: Tracks sent posts in `linkedin-sent.json`
 
 ## Setup
 
-### 1. Get Buffer API Credentials
+### 1. Create LinkedIn Developer App
 
-1. Go to [Buffer Developers](https://buffer.com/developers/api) and create an app
-2. Generate an access token
-3. Get your profile IDs from Buffer
+1. Go to [LinkedIn Developers](https://www.linkedin.com/developers/)
+2. Create a new app
+3. Add required scopes: `w_member_social`, `r_liteprofile`
+4. Generate access token
 
-### 2. Set Environment Variables
+### 2. Set Environment Variable
 
 ```bash
-export BUFFER_ACCESS_TOKEN="your_access_token_here"
-export BUFFER_PROFILE_IDS="profile_id_1,profile_id_2"
-```
-
-Or create a `.env` file:
-```bash
-BUFFER_ACCESS_TOKEN=your_access_token_here
-BUFFER_PROFILE_IDS=profile_id_1,profile_id_2
+export LINKEDIN_ACCESS_TOKEN="your_access_token_here"
 ```
 
 ## Usage
 
 ```bash
 # Make script executable (first time only)
-chmod +x extract-to-buffer.js
+chmod +x extract-to-linkedin.js
 
-# Test mode - posts only the first extract to see if everything works
-node extract-to-buffer.js --test-mode
+# Dry run - test without posting
+./extract-to-linkedin.js --dry-run
 
-# Post all unsent extracts to Buffer
-node extract-to-buffer.js
+# Post next item in queue (daily usage)
+./extract-to-linkedin.js
 
-# Or run directly
-./extract-to-buffer.js --test-mode
-./extract-to-buffer.js
+# Or with node
+node extract-to-linkedin.js --dry-run
+node extract-to-linkedin.js
 ```
 
 ## How It Works
 
-1. **Content Parsing**: Reads all `.txt` files from `extracted-content/` directory
-2. **Format Processing**: Parses alternating text/URL pairs from each file
-3. **Duplicate Prevention**: Tracks sent posts in `buffer-sent.json` to avoid reposts
-4. **Buffer API**: Posts content with text, URL, and link preview
-5. **Rate Limiting**: Waits 1 second between posts (60/minute limit)
+1. **Queue Processing**: Posts the first unsent item from extracted content
+2. **LinkedIn API**: Creates article share with your text as commentary
+3. **URL Preview**: LinkedIn automatically generates rich preview card
+4. **Tracking**: Marks item as sent in `linkedin-sent.json`
+5. **Rate Limiting**: Single post per run (ideal for daily scheduling)
 
 ## Post Format
 
-Each post includes:
-- The extracted text as the main content
-- The original blog post URL as an attached link
-- Automatic URL shortening (enabled by default)
+Each LinkedIn post includes:
+- Your extracted text as the main commentary
+- Automatic URL preview card with title, description, and image
+- Public visibility (connects with your professional network)
 
-## Tracking and Recovery
+Example output:
+```
+People don't generally value reliability that much unless the site is down, or things are really bad.
 
-- **Sent History**: `buffer-sent.json` tracks all posted content with timestamps
-- **Resume Capability**: Script automatically skips already-posted content
-- **Error Recovery**: Failed posts don't affect subsequent ones
+[LinkedIn automatically shows preview card for: https://www.rubick.com/reliability-all-stick-no-carrot/]
+```
 
-## Test Mode
+## Scheduling for Daily Posts
 
-Always use `--test-mode` first to verify:
-- Environment variables are correct
-- Content parsing works properly
-- Only processes the first extract
-- Shows what would be posted without actually posting
+### Using Cron (Linux/Mac)
+```bash
+# Add to crontab: post daily at 9 AM
+0 9 * * * cd /path/to/blog && ./extract-to-linkedin.js >> linkedin-posts.log 2>&1
+```
+
+### Manual Usage
+```bash
+# Check what would be posted next
+./extract-to-linkedin.js --dry-run
+
+# Post it
+./extract-to-linkedin.js
+```
 
 ## File Structure
 
@@ -215,66 +227,96 @@ extracted-content/
 ├── post2.txt
 └── all-extracts.txt            # Ignored by script
 
-buffer-sent.json                 # Tracking file (auto-created)
+linkedin-sent.json               # Tracking file (auto-created)
+linkedin-posts.log              # Optional log file for cron
 ```
 
-## Example Usage Session
+## Example Output
 
 ```bash
-# First, test the setup
-node extract-to-buffer.js --test-mode
+$ ./extract-to-linkedin.js --dry-run
+Starting LinkedIn posting in DRY RUN mode...
+Found 45 extracted posts
+12 already sent, 33 remaining
+Processing: "People don't generally value reliability that much..." from 2025-01-15--reliability-all-stick-no-carrot.txt
+[DRY RUN] Posting: "People don't generally value reliability that much..."
+  Would post to LinkedIn with URL: https://www.rubick.com/reliability-all-stick-no-carrot/
 
-# Output:
-# Starting Buffer posting in TEST MODE (first post only)...
-# Using 2 Buffer profile(s)
-# Found 45 extracted posts
-# 0 already sent, 45 to post
-# [TEST MODE] Posting: "People don't generally value reliability that much..."
-#   Would post to Buffer with URL: https://www.rubick.com/reliability-all-stick-no-carrot/
+=== Summary ===
+Dry run: Posted 1 update successfully
+Tracking file: ./linkedin-sent.json
+Total posts sent to date: 12
+Remaining posts in queue: 32
+```
 
-# If test looks good, run for real
-node extract-to-buffer.js
+## Token Management
 
-# Output:
-# Starting Buffer posting...
-# Using 2 Buffer profile(s)  
-# Found 45 extracted posts
-# 0 already sent, 45 to post
-# Posting: "People don't generally value reliability that much..."
-#   ✓ Posted successfully (ID: abc123)
-# [... continues for all posts ...]
-# === Summary ===
-# Posted 45 update(s), 0 failed
+### Token Lifespan
+- LinkedIn access tokens expire after ~60 days
+- Script provides clear error messages when tokens expire
+- No automatic refresh available (LinkedIn limitation)
+
+### Re-authentication Process
+1. When token expires, script shows authentication error
+2. Generate new token from LinkedIn Developer console
+3. Update `LINKEDIN_ACCESS_TOKEN` environment variable
+4. Resume posting
+
+### Token Security
+```bash
+# Store token securely
+echo 'export LINKEDIN_ACCESS_TOKEN="your_token"' >> ~/.bashrc
+
+# Or use environment file (don't commit to git)
+echo 'LINKEDIN_ACCESS_TOKEN=your_token' > .env
 ```
 
 ## Troubleshooting
 
-### Environment Variables
-```bash
-# Check if variables are set
-echo $BUFFER_ACCESS_TOKEN
-echo $BUFFER_PROFILE_IDS
+### Authentication Errors
 ```
+LinkedIn API authentication failed. Token may be expired.
+```
+**Solution**: Generate new access token and update environment variable.
 
-### API Errors
-- **Invalid token**: Check your Buffer access token
-- **Invalid profile**: Verify profile IDs are correct
-- **Rate limit**: Script handles this automatically
+### No Posts Found
+```
+All posts have already been sent!
+```
+**Solution**: All content has been posted. Run content extraction to generate new posts.
 
-### Content Issues
-- Script ignores empty files and `all-extracts.txt`
-- Requires alternating text/URL format in source files
-- Use test mode to verify content parsing
+### Permission Errors
+```
+LinkedIn API error 403: Insufficient permissions
+```
+**Solution**: Ensure your LinkedIn app has `w_member_social` scope enabled.
 
-## Buffer Profile Setup
+### Rate Limiting
+LinkedIn allows 150 requests/day per member. Single daily posts stay well within limits.
 
-To get your Buffer profile IDs:
-1. Use Buffer's API explorer or
-2. Check browser network tab when viewing profiles or
-3. Use a tool like Postman to call `/profiles.json` endpoint
+## Best Practices
 
-## Security Notes
+### Content Quality
+- Script posts your extracted content exactly as written
+- Ensure extracted content is professionally appropriate
+- LinkedIn article shares work best with insightful commentary
 
-- Never commit `buffer-sent.json` if it contains sensitive data
-- Store API credentials securely (environment variables, not in code)
-- Consider using Buffer's posting schedules rather than immediate posting
+### Posting Strategy
+- Run daily at consistent times for best engagement
+- Monitor LinkedIn analytics to optimize posting times
+- Consider LinkedIn's professional audience when extracting content
+
+### Security
+- Never commit `linkedin-sent.json` or tokens to version control
+- Rotate access tokens periodically
+- Use environment variables, not hardcoded credentials
+
+## Why LinkedIn API?
+
+LinkedIn's API provides several advantages for professional content sharing:
+
+- **Professional Audience**: Reach your professional network with relevant insights
+- **Rich Preview Cards**: Automatic URL previews with title, description, and image
+- **Article Share Format**: Perfect for blog content with commentary
+- **Daily Posting**: Single post approach works well for professional content
+- **Native Integration**: Posts appear natural in LinkedIn feed
