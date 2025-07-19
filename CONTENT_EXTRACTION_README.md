@@ -1,74 +1,37 @@
-# Content Extraction Scripts
+# Content Extraction Script
 
-This directory contains scripts to analyze markdown files in your blog and extract the most interesting content using AI. Each script creates individual output files for each markdown page, containing the best extracts along with full URLs.
+This script analyzes markdown files in your blog and extracts the most interesting content using Claude Code CLI. It creates individual output files for each markdown page, containing the best extracts along with full URLs.
 
-## Available Scripts
+## The Script - `extract-content.js`
 
-### 1. Python Script (Recommended) - `extract-content.py`
-
-The most feature-complete version with support for multiple AI providers.
+Uses Claude Code CLI for AI analysis with intelligent fallback to heuristics if Claude Code is unavailable.
 
 **Features:**
-- Supports Anthropic Claude API
-- Supports OpenAI API  
-- Fallback analysis using heuristics
+- Uses Claude Code CLI for high-quality content analysis
+- Fallback analysis using smart heuristics 
 - Creates individual files and a master compilation
-- JSON summary with statistics
+- Processes all markdown posts automatically
+- Generates proper URLs for each extract
 
 **Prerequisites:**
-```bash
-# Install required packages
-pip install anthropic openai  # or just the one you plan to use
-```
-
-**Setup:**
-```bash
-# For Anthropic Claude
-export ANTHROPIC_API_KEY="your-api-key-here"
-
-# For OpenAI GPT-4
-export OPENAI_API_KEY="your-api-key-here"
-```
+- Node.js installed
+- Claude Code CLI installed and configured (optional - script has fallback)
 
 **Usage:**
 ```bash
-# Using Anthropic Claude (default)
-python extract-content.py
+# Make script executable (first time only)
+chmod +x extract-content.js
 
-# Using OpenAI
-python extract-content.py --provider openai
-
-# Using fallback analysis (no API required)
-python extract-content.py --provider fallback
-
-# Custom directories
-python extract-content.py --content-dir ./content/posts --output-dir ./my-extracts
-```
-
-### 2. Node.js with Claude Code - `extract-content-claude.js`
-
-Uses Claude Code CLI for analysis with fallback to heuristics.
-
-**Prerequisites:**
-- Claude Code CLI installed and configured
-
-**Usage:**
-```bash
-node extract-content-claude.js
-```
-
-### 3. Basic Node.js Script - `extract-content.js`
-
-Basic framework with placeholder AI functions.
-
-**Usage:**
-```bash
+# Run the script
 node extract-content.js
+
+# Or run directly
+./extract-content.js
 ```
 
 ## Output Structure
 
-All scripts create:
+The script creates:
 
 ```
 extracted-content/
@@ -76,8 +39,7 @@ extracted-content/
 ├── 2021-05-11--unusual-tips-to-keep-slack-from-becoming-a-nightmare.txt
 ├── 2022-07-19--shit-shield.txt
 ├── ...
-├── all-extracts.txt     # Master file with all extracts
-└── summary.json         # Statistics and metadata (Python script only)
+└── all-extracts.txt     # Master file with all extracts
 ```
 
 ### Individual File Format
@@ -114,36 +76,34 @@ The AI analysis prioritizes:
 
 ## Customization
 
-### Changing the Base URL
-```bash
-python extract-content.py --base-url "https://yourdomain.com"
-```
+### Changing Configuration
 
-### Different Content Directory
-```bash
-python extract-content.py --content-dir "./my-content/posts"
+Edit the configuration variables at the top of `extract-content.js`:
+
+```javascript
+const BASE_URL = 'https://yourdomain.com';  // Change base URL
+const CONTENT_DIR = './content/posts';       // Change content directory
+const OUTPUT_DIR = './extracted-content';   // Change output directory
 ```
 
 ### Modifying Analysis Criteria
 
-Edit the AI prompt in any script to change what type of content gets extracted. Look for the prompt variable and modify the "Focus on:" section.
+Edit the AI prompt in the `analyzeWithClaudeCode` function to change what type of content gets extracted. Look for the prompt variable and modify the "Focus on:" section.
 
 ## Troubleshooting
 
-### API Key Issues
-- Make sure your API keys are properly set as environment variables
-- Check that you have sufficient API credits/quota
-- Verify your API key has the correct permissions
+### Claude Code Issues
+- If Claude Code CLI is not available, the script automatically falls back to heuristic analysis
+- Make sure you have Claude Code installed: `npm install -g @anthropic/claude-code` (or appropriate installation method)
+- Check that Claude Code is properly configured and authenticated
 
 ### No Extracts Generated
-- The script will fall back to heuristic analysis if AI fails
+- The script will fall back to heuristic analysis if Claude Code fails
 - Check that your markdown files have substantial content (>100 characters)
 - Ensure front matter is properly formatted with `---` delimiters
 
 ### Permission Errors
 ```bash
-chmod +x extract-content.py
-chmod +x extract-content-claude.js
 chmod +x extract-content.js
 ```
 
