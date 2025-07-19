@@ -338,25 +338,12 @@ async function main() {
     }
   }
   
-  // Create a master file with all extracts
-  const masterFile = path.join(OUTPUT_DIR, 'all-extracts.txt');
-  const allExtracts = [];
-  
-  for (const result of results) {
-    if (fs.existsSync(result.outputPath)) {
-      const content = fs.readFileSync(result.outputPath, 'utf8');
-      allExtracts.push(content);
-    }
-  }
-  
-  fs.writeFileSync(masterFile, allExtracts.join('\n\n---\n\n'));
   
   // Summary
   console.log('\n=== Summary ===');
   console.log(`Processed ${results.length} files${testMode ? ' (test mode)' : ''}`);
   console.log(`Output directory: ${OUTPUT_DIR}`);
   console.log(`Total extracts: ${results.reduce((sum, r) => sum + r.extractCount, 0)}`);
-  console.log(`Master file: ${masterFile}`);
 }
 
 // Run the script

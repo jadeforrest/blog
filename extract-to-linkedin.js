@@ -38,7 +38,7 @@ function saveSentTracking(tracking) {
  */
 function parseExtractedContent() {
   const files = fs.readdirSync(EXTRACTED_DIR)
-    .filter(file => file.endsWith('.txt') && file !== 'all-extracts.txt')
+    .filter(file => file.endsWith('.txt'))
     .sort();
 
   const allPosts = [];
