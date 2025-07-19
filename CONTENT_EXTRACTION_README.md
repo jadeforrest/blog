@@ -127,3 +127,154 @@ https://www.rubick.com/reliability-all-stick-no-carrot/
 ```
 
 This creates a curated collection of the most valuable insights from your entire blog, perfect for sharing, referencing, or creating social media content.
+
+---
+
+# Buffer Publishing Script - `extract-to-buffer.js`
+
+This script takes the extracted content files and automatically posts them to Buffer for social media scheduling.
+
+## Prerequisites
+
+- Buffer account with API access
+- Buffer access token
+- Buffer profile IDs for the accounts you want to post to
+
+## Setup
+
+### 1. Get Buffer API Credentials
+
+1. Go to [Buffer Developers](https://buffer.com/developers/api) and create an app
+2. Generate an access token
+3. Get your profile IDs from Buffer
+
+### 2. Set Environment Variables
+
+```bash
+export BUFFER_ACCESS_TOKEN="your_access_token_here"
+export BUFFER_PROFILE_IDS="profile_id_1,profile_id_2"
+```
+
+Or create a `.env` file:
+```bash
+BUFFER_ACCESS_TOKEN=your_access_token_here
+BUFFER_PROFILE_IDS=profile_id_1,profile_id_2
+```
+
+## Usage
+
+```bash
+# Make script executable (first time only)
+chmod +x extract-to-buffer.js
+
+# Test mode - posts only the first extract to see if everything works
+node extract-to-buffer.js --test-mode
+
+# Post all unsent extracts to Buffer
+node extract-to-buffer.js
+
+# Or run directly
+./extract-to-buffer.js --test-mode
+./extract-to-buffer.js
+```
+
+## How It Works
+
+1. **Content Parsing**: Reads all `.txt` files from `extracted-content/` directory
+2. **Format Processing**: Parses alternating text/URL pairs from each file
+3. **Duplicate Prevention**: Tracks sent posts in `buffer-sent.json` to avoid reposts
+4. **Buffer API**: Posts content with text, URL, and link preview
+5. **Rate Limiting**: Waits 1 second between posts (60/minute limit)
+
+## Post Format
+
+Each post includes:
+- The extracted text as the main content
+- The original blog post URL as an attached link
+- Automatic URL shortening (enabled by default)
+
+## Tracking and Recovery
+
+- **Sent History**: `buffer-sent.json` tracks all posted content with timestamps
+- **Resume Capability**: Script automatically skips already-posted content
+- **Error Recovery**: Failed posts don't affect subsequent ones
+
+## Test Mode
+
+Always use `--test-mode` first to verify:
+- Environment variables are correct
+- Content parsing works properly
+- Only processes the first extract
+- Shows what would be posted without actually posting
+
+## File Structure
+
+```
+extracted-content/
+├── post1.txt                    # Source content files
+├── post2.txt
+└── all-extracts.txt            # Ignored by script
+
+buffer-sent.json                 # Tracking file (auto-created)
+```
+
+## Example Usage Session
+
+```bash
+# First, test the setup
+node extract-to-buffer.js --test-mode
+
+# Output:
+# Starting Buffer posting in TEST MODE (first post only)...
+# Using 2 Buffer profile(s)
+# Found 45 extracted posts
+# 0 already sent, 45 to post
+# [TEST MODE] Posting: "People don't generally value reliability that much..."
+#   Would post to Buffer with URL: https://www.rubick.com/reliability-all-stick-no-carrot/
+
+# If test looks good, run for real
+node extract-to-buffer.js
+
+# Output:
+# Starting Buffer posting...
+# Using 2 Buffer profile(s)  
+# Found 45 extracted posts
+# 0 already sent, 45 to post
+# Posting: "People don't generally value reliability that much..."
+#   ✓ Posted successfully (ID: abc123)
+# [... continues for all posts ...]
+# === Summary ===
+# Posted 45 update(s), 0 failed
+```
+
+## Troubleshooting
+
+### Environment Variables
+```bash
+# Check if variables are set
+echo $BUFFER_ACCESS_TOKEN
+echo $BUFFER_PROFILE_IDS
+```
+
+### API Errors
+- **Invalid token**: Check your Buffer access token
+- **Invalid profile**: Verify profile IDs are correct
+- **Rate limit**: Script handles this automatically
+
+### Content Issues
+- Script ignores empty files and `all-extracts.txt`
+- Requires alternating text/URL format in source files
+- Use test mode to verify content parsing
+
+## Buffer Profile Setup
+
+To get your Buffer profile IDs:
+1. Use Buffer's API explorer or
+2. Check browser network tab when viewing profiles or
+3. Use a tool like Postman to call `/profiles.json` endpoint
+
+## Security Notes
+
+- Never commit `buffer-sent.json` if it contains sensitive data
+- Store API credentials securely (environment variables, not in code)
+- Consider using Buffer's posting schedules rather than immediate posting
