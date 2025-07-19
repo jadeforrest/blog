@@ -203,8 +203,10 @@ async function analyzeWithClaudeCode(content, title) {
     }
   }
 
-  // Return the best extracts, up to 4 total
-  return allExtracts.slice(0, 4);
+  // For multiple chunks, allow up to 4 extracts per chunk
+  // For single chunk, limit to 4 total
+  const maxExtracts = chunks.length > 1 ? chunks.length * 4 : 4;
+  return allExtracts.slice(0, maxExtracts);
 }
 
 /**
