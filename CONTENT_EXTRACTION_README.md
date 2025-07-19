@@ -22,11 +22,15 @@ Uses Claude Code CLI for AI analysis with intelligent fallback to heuristics if 
 # Make script executable (first time only)
 chmod +x extract-content.js
 
-# Run the script
+# Run the script on all files
 node extract-content.js
+
+# Test mode - process only the first markdown file for faster iteration
+node extract-content.js --test-mode
 
 # Or run directly
 ./extract-content.js
+./extract-content.js --test-mode
 ```
 
 ## Output Structure

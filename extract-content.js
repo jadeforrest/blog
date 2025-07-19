@@ -80,11 +80,42 @@ function generateUrl(filePath) {
 }
 
 /**
- * Use Claude Code to analyze content
+ * Split content into chunks of reasonable size
  */
-function analyzeWithClaudeCode(content, title) {
+function splitContentIntoChunks(content, maxChunkSize = 6000) {
+  if (content.length <= maxChunkSize) {
+    return [content];
+  }
+
+  const chunks = [];
+  const paragraphs = content.split('\n\n');
+  let currentChunk = '';
+
+  for (const paragraph of paragraphs) {
+    // If adding this paragraph would exceed the limit, start a new chunk
+    if (currentChunk.length + paragraph.length + 2 > maxChunkSize && currentChunk.length > 0) {
+      chunks.push(currentChunk.trim());
+      currentChunk = paragraph;
+    } else {
+      currentChunk += (currentChunk ? '\n\n' : '') + paragraph;
+    }
+  }
+
+  // Add the last chunk if it has content
+  if (currentChunk.trim()) {
+    chunks.push(currentChunk.trim());
+  }
+
+  return chunks;
+}
+
+/**
+ * Use Claude Code to analyze a single chunk of content
+ */
+function analyzeChunkWithClaudeCode(content, title, chunkIndex, totalChunks) {
   return new Promise((resolve, reject) => {
-    const prompt = `Analyze this blog post and extract 2-4 of the most interesting, valuable, or insightful sentences or short passages. Each extract should be 1-3 sentences long and capture key insights, practical advice, or thought-provoking ideas.
+    const chunkInfo = totalChunks > 1 ? ` (Part ${chunkIndex + 1} of ${totalChunks})` : '';
+    const prompt = `Analyze this blog post${chunkInfo} and extract 1-3 of the most interesting, valuable, or insightful sentences or short passages. Each extract should be 1-3 sentences long and capture key insights, practical advice, or thought-provoking ideas.
 
 Focus on:
 - Actionable advice
@@ -92,19 +123,20 @@ Focus on:
 - Memorable quotes or principles
 - Practical frameworks or models
 
-Title: ${title}
+Title: ${title}${chunkInfo}
 
 Content:
 ${content}
 
-Return only the extracted passages, one per line, without quotes or additional formatting. Each extract should be a complete thought that stands alone.`;
+IMPORTANT: Return ONLY the exact text from the original blog post - no analysis, commentary, or introductory phrases. Do not include phrases like "Based on my analysis" or "here are the insights". Extract the actual sentences/passages verbatim from the source content. One extract per line, no quotes or additional formatting.`;
 
-    const claude = spawn('claude', ['--no-cache'], {
+    const claude = spawn('claude', ['--print'], {
       stdio: ['pipe', 'pipe', 'pipe']
     });
 
     let output = '';
     let error = '';
+    let stdinClosed = false;
 
     claude.stdout.on('data', (data) => {
       output += data.toString();
@@ -114,22 +146,65 @@ Return only the extracted passages, one per line, without quotes or additional f
       error += data.toString();
     });
 
+    claude.on('error', (err) => {
+      reject(new Error(`Claude spawn error: ${err.message}`));
+    });
+
     claude.on('close', (code) => {
       if (code === 0) {
         const extracts = output
           .split('\n')
           .map(line => line.trim())
           .filter(line => line.length > 20) // Filter out short lines
-          .slice(0, 4); // Limit to 4 extracts
+          .slice(0, 3); // Limit to 3 extracts per chunk
         resolve(extracts);
       } else {
-        reject(new Error(`Claude process exited with code ${code}: ${error}`));
+        reject(new Error(`Claude process exited with code ${code}: ${error || 'No error details'}`));
       }
     });
 
-    claude.stdin.write(prompt);
-    claude.stdin.end();
+    // Handle stdin errors gracefully
+    claude.stdin.on('error', (err) => {
+      if (!stdinClosed && err.code !== 'EPIPE') {
+        reject(new Error(`Claude stdin error: ${err.message}`));
+      }
+    });
+
+    try {
+      claude.stdin.write(prompt);
+      claude.stdin.end();
+      stdinClosed = true;
+    } catch (err) {
+      reject(new Error(`Failed to write to Claude: ${err.message}`));
+    }
+
+    // Timeout after 30 seconds
+    setTimeout(() => {
+      claude.kill('SIGTERM');
+      reject(new Error('Claude analysis timed out after 30 seconds'));
+    }, 30000);
   });
+}
+
+/**
+ * Use Claude Code to analyze content (handles chunking automatically)
+ */
+async function analyzeWithClaudeCode(content, title) {
+  const chunks = splitContentIntoChunks(content);
+  const allExtracts = [];
+
+  for (let i = 0; i < chunks.length; i++) {
+    try {
+      const chunkExtracts = await analyzeChunkWithClaudeCode(chunks[i], title, i, chunks.length);
+      allExtracts.push(...chunkExtracts);
+    } catch (error) {
+      console.log(`    ⚠ Failed to analyze chunk ${i + 1}/${chunks.length}: ${error.message}`);
+      // Continue with other chunks even if one fails
+    }
+  }
+
+  // Return the best extracts, up to 4 total
+  return allExtracts.slice(0, 4);
 }
 
 /**
@@ -208,7 +283,11 @@ async function processFile(filePath) {
  * Main function
  */
 async function main() {
-  console.log('Starting content extraction with Claude Code...');
+  // Parse command line arguments
+  const args = process.argv.slice(2);
+  const testMode = args.includes('--test-mode');
+  
+  console.log(testMode ? 'Starting content extraction in TEST MODE (first file only)...' : 'Starting content extraction with Claude Code...');
   
   // Create output directory
   if (!fs.existsSync(OUTPUT_DIR)) {
@@ -216,8 +295,10 @@ async function main() {
   }
   
   // Find all markdown files
-  const markdownFiles = findMarkdownFiles();
-  console.log(`Found ${markdownFiles.length} markdown files`);
+  const allMarkdownFiles = findMarkdownFiles();
+  const markdownFiles = testMode ? allMarkdownFiles.slice(0, 1) : allMarkdownFiles;
+  
+  console.log(`Found ${allMarkdownFiles.length} markdown files${testMode ? `, processing first 1 in test mode` : ''}`);
   
   // Process each file
   const results = [];
@@ -245,7 +326,7 @@ async function main() {
   
   // Summary
   console.log('\n=== Summary ===');
-  console.log(`Processed ${results.length} files`);
+  console.log(`Processed ${results.length} files${testMode ? ' (test mode)' : ''}`);
   console.log(`Output directory: ${OUTPUT_DIR}`);
   console.log(`Total extracts: ${results.reduce((sum, r) => sum + r.extractCount, 0)}`);
   console.log(`Master file: ${masterFile}`);
