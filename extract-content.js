@@ -247,6 +247,22 @@ function fallbackAnalysis(content, title) {
 }
 
 /**
+ * Check if a file has already been processed
+ */
+function isFileProcessed(filePath) {
+  const fileName = path.basename(path.dirname(filePath)) + '.txt';
+  const outputPath = path.join(OUTPUT_DIR, fileName);
+  
+  if (!fs.existsSync(outputPath)) {
+    return false;
+  }
+  
+  // Check if the file has content (more than just empty/whitespace)
+  const content = fs.readFileSync(outputPath, 'utf8');
+  return content.trim().length > 0;
+}
+
+/**
  * Process a single markdown file
  */
 async function processFile(filePath) {
@@ -298,9 +314,18 @@ async function main() {
   
   // Find all markdown files
   const allMarkdownFiles = findMarkdownFiles();
-  const markdownFiles = testMode ? allMarkdownFiles.slice(0, 1) : allMarkdownFiles;
   
-  console.log(`Found ${allMarkdownFiles.length} markdown files${testMode ? `, processing first 1 in test mode` : ''}`);
+  // Filter out already processed files unless in test mode
+  const unprocessedFiles = testMode ? allMarkdownFiles : allMarkdownFiles.filter(file => !isFileProcessed(file));
+  const markdownFiles = testMode ? allMarkdownFiles.slice(0, 1) : unprocessedFiles;
+  
+  const skippedCount = allMarkdownFiles.length - unprocessedFiles.length;
+  console.log(`Found ${allMarkdownFiles.length} markdown files${testMode ? `, processing first 1 in test mode` : `, ${skippedCount} already processed, ${unprocessedFiles.length} to process`}`);
+  
+  if (!testMode && unprocessedFiles.length === 0) {
+    console.log('All files have already been processed!');
+    return;
+  }
   
   // Process each file
   const results = [];
@@ -345,5 +370,6 @@ module.exports = {
   generateUrl,
   analyzeWithClaudeCode,
   fallbackAnalysis,
-  processFile
+  processFile,
+  isFileProcessed
 };
