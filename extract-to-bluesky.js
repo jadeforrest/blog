@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const http = require('http');
+const { URL } = require('url');
 
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
@@ -191,6 +193,258 @@ async function refreshBlueskySession(refreshJwt) {
 }
 
 /**
+ * Fetch URL content and extract metadata for website cards
+ */
+function fetchUrlMetadata(url) {
+  return new Promise((resolve) => {
+    try {
+      const urlObj = new URL(url);
+      const client = urlObj.protocol === 'https:' ? https : http;
+      
+      const options = {
+        hostname: urlObj.hostname,
+        port: urlObj.port || (urlObj.protocol === 'https:' ? 443 : 80),
+        path: urlObj.pathname + urlObj.search,
+        method: 'GET',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; BlueskyBot/1.0)',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        },
+        timeout: 5000
+      };
+
+      const req = client.request(options, (res) => {
+        let data = '';
+        let finished = false;
+        
+        // Handle redirects
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          req.destroy();
+          // Simple redirect - just use the URL as fallback for now
+          resolve({ title: url, description: '', image: null });
+          return;
+        }
+        
+        // Only process successful responses
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+          req.destroy();
+          resolve({ title: url, description: '', image: null });
+          return;
+        }
+        
+        // Only process HTML content
+        const contentType = res.headers['content-type'] || '';
+        if (!contentType.includes('text/html')) {
+          req.destroy();
+          resolve({ title: url, description: '', image: null });
+          return;
+        }
+
+        res.on('data', (chunk) => {
+          if (finished) return;
+          data += chunk;
+          // Stop collecting data once we have enough for meta tags
+          if (data.length > 100000) {
+            finished = true;
+            res.destroy();
+            try {
+              const metadata = extractMetaTags(data, url);
+              resolve(metadata);
+            } catch (error) {
+              resolve({ title: url, description: '', image: null });
+            }
+          }
+        });
+        
+        res.on('end', () => {
+          if (finished) return;
+          finished = true;
+          try {
+            const metadata = extractMetaTags(data, url);
+            resolve(metadata);
+          } catch (error) {
+            resolve({ title: url, description: '', image: null });
+          }
+        });
+
+        res.on('error', () => {
+          if (finished) return;
+          finished = true;
+          resolve({ title: url, description: '', image: null });
+        });
+      });
+
+      req.on('error', () => {
+        resolve({ title: url, description: '', image: null });
+      });
+
+      req.on('timeout', () => {
+        req.destroy();
+        resolve({ title: url, description: '', image: null });
+      });
+
+      req.setTimeout(5000, () => {
+        req.destroy();
+        resolve({ title: url, description: '', image: null });
+      });
+
+      req.end();
+    } catch (error) {
+      resolve({ title: url, description: '', image: null });
+    }
+  });
+}
+
+/**
+ * Extract meta tags from HTML content
+ */
+function extractMetaTags(html, baseUrl) {
+  const metadata = { title: baseUrl, description: '', image: null };
+  
+  // Extract title
+  const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+  const ogTitleMatch = html.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']*)["']/i);
+  
+  if (ogTitleMatch) {
+    metadata.title = ogTitleMatch[1].trim();
+  } else if (titleMatch) {
+    metadata.title = titleMatch[1].trim();
+  }
+  
+  // Extract description
+  const ogDescMatch = html.match(/<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']*)["']/i);
+  const descMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i);
+  
+  if (ogDescMatch) {
+    metadata.description = ogDescMatch[1].trim();
+  } else if (descMatch) {
+    metadata.description = descMatch[1].trim();
+  }
+  
+  // Extract image
+  const ogImageMatch = html.match(/<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']*)["']/i);
+  
+  if (ogImageMatch) {
+    const imageUrl = ogImageMatch[1].trim();
+    // Convert relative URLs to absolute
+    if (imageUrl.startsWith('//')) {
+      metadata.image = 'https:' + imageUrl;
+    } else if (imageUrl.startsWith('/')) {
+      const urlObj = new URL(baseUrl);
+      metadata.image = `${urlObj.protocol}//${urlObj.host}${imageUrl}`;
+    } else if (imageUrl.startsWith('http')) {
+      metadata.image = imageUrl;
+    }
+  }
+  
+  return metadata;
+}
+
+/**
+ * Upload image blob to Bluesky
+ */
+function uploadBlob(imageUrl, session) {
+  return new Promise((resolve, reject) => {
+    if (!imageUrl) {
+      resolve(null);
+      return;
+    }
+
+    const urlObj = new URL(imageUrl);
+    const client = urlObj.protocol === 'https:' ? https : http;
+    
+    const options = {
+      hostname: urlObj.hostname,
+      port: urlObj.port || (urlObj.protocol === 'https:' ? 443 : 80),
+      path: urlObj.pathname + urlObj.search,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; BlueskyBot/1.0)'
+      }
+    };
+
+    const req = client.request(options, (res) => {
+      const chunks = [];
+      let totalLength = 0;
+      
+      // Check content type
+      const contentType = res.headers['content-type'] || '';
+      if (!contentType.startsWith('image/')) {
+        resolve(null);
+        return;
+      }
+
+      res.on('data', (chunk) => {
+        chunks.push(chunk);
+        totalLength += chunk.length;
+        
+        // Limit image size to 1MB
+        if (totalLength > 1024 * 1024) {
+          res.destroy();
+          resolve(null);
+        }
+      });
+      
+      res.on('end', () => {
+        const imageBuffer = Buffer.concat(chunks);
+        
+        // Upload to Bluesky
+        const uploadOptions = {
+          hostname: 'bsky.social',
+          port: 443,
+          path: '/xrpc/com.atproto.repo.uploadBlob',
+          method: 'POST',
+          headers: {
+            'Content-Type': contentType,
+            'Content-Length': imageBuffer.length,
+            'Authorization': `Bearer ${session.accessJwt}`
+          }
+        };
+
+        const uploadReq = https.request(uploadOptions, (uploadRes) => {
+          let responseData = '';
+          
+          uploadRes.on('data', (chunk) => {
+            responseData += chunk;
+          });
+          
+          uploadRes.on('end', () => {
+            try {
+              if (uploadRes.statusCode >= 200 && uploadRes.statusCode < 300) {
+                const response = JSON.parse(responseData);
+                resolve(response.blob);
+              } else {
+                resolve(null);
+              }
+            } catch (error) {
+              resolve(null);
+            }
+          });
+        });
+
+        uploadReq.on('error', () => {
+          resolve(null);
+        });
+
+        uploadReq.write(imageBuffer);
+        uploadReq.end();
+      });
+    });
+
+    req.on('error', () => {
+      resolve(null);
+    });
+
+    req.setTimeout(10000, () => {
+      req.destroy();
+      resolve(null);
+    });
+
+    req.end();
+  });
+}
+
+/**
  * Get or create Bluesky session using stored tokens or app password
  */
 async function getBlueskySession(config) {
@@ -226,7 +480,7 @@ async function getBlueskySession(config) {
 }
 
 /**
- * Post to Bluesky
+ * Post to Bluesky with website card embed
  */
 async function postToBluesky(post, session, options = {}) {
   const { dryRun = false } = options;
@@ -234,17 +488,61 @@ async function postToBluesky(post, session, options = {}) {
   console.log(`${dryRun ? '[DRY RUN] ' : ''}Posting: "${post.text.substring(0, 50)}..."`);
   
   if (dryRun) {
-    console.log(`  Would post to Bluesky with URL: ${post.url}`);
+    console.log(`  Would post to Bluesky with URL card: ${post.url}`);
     return { success: true, dryRun: true };
   }
 
   try {
-    // Create the post record
+    // Fetch URL metadata for website card with timeout
+    console.log(`  Fetching metadata for: ${post.url}`);
+    let metadata;
+    try {
+      // Add a Promise race with timeout
+      metadata = await Promise.race([
+        fetchUrlMetadata(post.url),
+        new Promise((resolve) => setTimeout(() => {
+          resolve({ title: post.url, description: '', image: null });
+        }, 8000))
+      ]);
+    } catch (error) {
+      console.log(`  Metadata fetch failed, using fallback`);
+      metadata = { title: post.url, description: '', image: null };
+    }
+    
+    // Upload thumbnail if available
+    let thumbBlob = null;
+    if (metadata.image) {
+      console.log(`  Uploading thumbnail...`);
+      try {
+        thumbBlob = await Promise.race([
+          uploadBlob(metadata.image, session),
+          new Promise((resolve) => setTimeout(() => resolve(null), 10000))
+        ]);
+      } catch (error) {
+        console.log(`  Thumbnail upload failed, continuing without image`);
+        thumbBlob = null;
+      }
+    }
+    
+    // Create the post record with embed
     const record = {
-      text: `${post.text}\n\n${post.url}`,
+      text: post.text,
       createdAt: new Date().toISOString(),
-      langs: ['en']
+      langs: ['en'],
+      embed: {
+        $type: 'app.bsky.embed.external',
+        external: {
+          uri: post.url,
+          title: metadata.title || post.url,
+          description: metadata.description || ''
+        }
+      }
     };
+    
+    // Add thumbnail if available
+    if (thumbBlob) {
+      record.embed.external.thumb = thumbBlob;
+    }
 
     // Create the post data for AT Protocol
     const postData = {
@@ -254,7 +552,7 @@ async function postToBluesky(post, session, options = {}) {
     };
 
     const response = await makeBlueskyRequest('com.atproto.repo.createRecord', postData, session.accessJwt);
-    console.log(`  ✓ Posted successfully (URI: ${response.uri || 'unknown'})`);
+    console.log(`  ✓ Posted successfully with card embed (URI: ${response.uri || 'unknown'})`);
     return { success: true, response };
   } catch (error) {
     console.error(`  ✗ Failed to post: ${error.message}`);
@@ -378,7 +676,7 @@ async function main() {
       console.error('');
       console.error('Method 1 - App Password (Recommended):');
       console.error('1. Create a Bluesky account at https://bsky.app');
-      console.error('2. Generate an app password in Settings > App Passwords');
+      console.error('2. Generate an app password in Settings > Privacy and Seuciryt > App Passwords');
       console.error('3. Set: export BLUESKY_IDENTIFIER="your-handle.bsky.social"');
       console.error('4. Set: export BLUESKY_APP_PASSWORD="xxxx-xxxx-xxxx-xxxx"');
       console.error('');
@@ -408,5 +706,8 @@ module.exports = {
   createBlueskySession,
   refreshBlueskySession,
   getBlueskySession,
-  isAppPasswordFormat
+  isAppPasswordFormat,
+  fetchUrlMetadata,
+  extractMetaTags,
+  uploadBlob
 };
