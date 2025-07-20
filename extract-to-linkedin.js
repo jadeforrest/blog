@@ -83,13 +83,14 @@ function makeLinkedInRequest(endpoint, data, accessToken) {
     const options = {
       hostname: 'api.linkedin.com',
       port: 443,
-      path: `/v2${endpoint}`,
+      path: `/rest${endpoint}`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData),
         'Authorization': `Bearer ${accessToken}`,
-        'X-Restli-Protocol-Version': '2.0.0'
+        'X-Restli-Protocol-Version': '2.0.0',
+        'LinkedIn-Version': '202501'
       }
     };
 
@@ -143,7 +144,7 @@ async function getPersonUrn(accessToken) {
     const options = {
       hostname: 'api.linkedin.com',
       port: 443,
-      path: '/v2/people/(id~)',
+      path: '/v2/userinfo',
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
@@ -161,8 +162,9 @@ async function getPersonUrn(accessToken) {
       res.on('end', () => {
         try {
           if (res.statusCode >= 200 && res.statusCode < 300) {
-            const profile = JSON.parse(responseData);
-            resolve(profile.id);
+            const userInfo = JSON.parse(responseData);
+            // userinfo endpoint returns 'sub' field containing the person ID
+            resolve(userInfo.sub);
           } else {
             if (res.statusCode === 401) {
               reject(new Error('LinkedIn API authentication failed. Token may be expired. Please re-authenticate.'));
@@ -185,7 +187,7 @@ async function getPersonUrn(accessToken) {
 }
 
 /**
- * Post an article share to LinkedIn
+ * Post an article share to LinkedIn using Posts API
  */
 async function postToLinkedIn(post, accessToken, options = {}) {
   const { dryRun = false } = options;
@@ -202,30 +204,28 @@ async function postToLinkedIn(post, accessToken, options = {}) {
     const personId = await getPersonUrn(accessToken);
     const authorUrn = `urn:li:person:${personId}`;
 
-    // Create the LinkedIn post data for article share
+    // Create the LinkedIn post data using Posts API format
     const postData = {
       author: authorUrn,
-      lifecycleState: 'PUBLISHED',
-      specificContent: {
-        'com.linkedin.ugc.ShareContent': {
-          shareCommentary: {
-            text: post.text
-          },
-          shareMediaCategory: 'ARTICLE',
-          media: [
-            {
-              status: 'READY',
-              originalUrl: post.url
-            }
-          ]
+      commentary: post.text,
+      visibility: 'PUBLIC',
+      distribution: {
+        feedDistribution: 'MAIN_FEED',
+        targetEntities: [],
+        thirdPartyDistributionChannels: []
+      },
+      content: {
+        article: {
+          source: post.url,
+          title: post.text.substring(0, 100) + '...',
+          description: post.text
         }
       },
-      visibility: {
-        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
-      }
+      lifecycleState: 'PUBLISHED',
+      isReshareDisabledByAuthor: false
     };
 
-    const response = await makeLinkedInRequest('/ugcPosts', postData, accessToken);
+    const response = await makeLinkedInRequest('/posts', postData, accessToken);
     console.log(`  ✓ Posted successfully (ID: ${response.id || 'unknown'})`);
     return { success: true, response };
   } catch (error) {
