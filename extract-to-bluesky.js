@@ -1,0 +1,321 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+
+// Configuration
+const EXTRACTED_DIR = './extracted-content';
+const SENT_TRACKING_FILE = './bluesky-sent.json';
+const BLUESKY_API_BASE = 'https://bsky.social/xrpc';
+
+/**
+ * Load tracking data for sent posts
+ */
+function loadSentTracking() {
+  if (!fs.existsSync(SENT_TRACKING_FILE)) {
+    return {};
+  }
+  
+  try {
+    const data = fs.readFileSync(SENT_TRACKING_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.warn(`Warning: Could not parse tracking file: ${error.message}`);
+    return {};
+  }
+}
+
+/**
+ * Save tracking data for sent posts
+ */
+function saveSentTracking(tracking) {
+  fs.writeFileSync(SENT_TRACKING_FILE, JSON.stringify(tracking, null, 2));
+}
+
+/**
+ * Parse extracted content files into text/URL pairs
+ */
+function parseExtractedContent() {
+  const files = fs.readdirSync(EXTRACTED_DIR)
+    .filter(file => file.endsWith('.txt'))
+    .sort();
+
+  const allPosts = [];
+
+  for (const file of files) {
+    const filePath = path.join(EXTRACTED_DIR, file);
+    const content = fs.readFileSync(filePath, 'utf8').trim();
+    
+    if (!content) continue;
+
+    const lines = content.split('\n').map(line => line.trim()).filter(line => line);
+    
+    // Parse alternating text/URL pairs
+    for (let i = 0; i < lines.length; i += 2) {
+      if (i + 1 < lines.length) {
+        const text = lines[i];
+        const url = lines[i + 1];
+        
+        // Create unique ID for this post
+        const postId = `${file}_${i}`;
+        
+        allPosts.push({
+          id: postId,
+          text: text,
+          url: url,
+          sourceFile: file
+        });
+      }
+    }
+  }
+
+  return allPosts;
+}
+
+/**
+ * Make HTTP request to Bluesky API
+ */
+function makeBlueskyRequest(endpoint, data, accessToken, method = 'POST') {
+  return new Promise((resolve, reject) => {
+    const postData = data ? JSON.stringify(data) : '';
+    
+    const options = {
+      hostname: 'bsky.social',
+      port: 443,
+      path: `/xrpc/${endpoint}`,
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
+      }
+    };
+
+    if (postData) {
+      options.headers['Content-Length'] = Buffer.byteLength(postData);
+    }
+
+    const req = https.request(options, (res) => {
+      let responseData = '';
+      
+      res.on('data', (chunk) => {
+        responseData += chunk;
+      });
+      
+      res.on('end', () => {
+        try {
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            const jsonResponse = responseData ? JSON.parse(responseData) : {};
+            resolve(jsonResponse);
+          } else {
+            let errorMessage;
+            try {
+              const errorData = JSON.parse(responseData);
+              errorMessage = errorData.message || errorData.error || JSON.stringify(errorData);
+            } catch {
+              errorMessage = responseData || `HTTP ${res.statusCode}`;
+            }
+            
+            if (res.statusCode === 401) {
+              reject(new Error(`Bluesky API authentication failed. Token may be expired. Please re-authenticate. Details: ${errorMessage}`));
+            } else {
+              reject(new Error(`Bluesky API error ${res.statusCode}: ${errorMessage}`));
+            }
+          }
+        } catch (error) {
+          reject(new Error(`Invalid JSON response: ${responseData}`));
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      reject(new Error(`Request error: ${error.message}`));
+    });
+
+    if (postData) {
+      req.write(postData);
+    }
+    req.end();
+  });
+}
+
+/**
+ * Create a session with Bluesky (authenticate)
+ */
+async function createBlueskySession(identifier, password) {
+  const sessionData = {
+    identifier: identifier,
+    password: password
+  };
+
+  try {
+    const response = await makeBlueskyRequest('com.atproto.server.createSession', sessionData, null);
+    return {
+      accessJwt: response.accessJwt,
+      refreshJwt: response.refreshJwt,
+      did: response.did,
+      handle: response.handle
+    };
+  } catch (error) {
+    throw new Error(`Failed to create Bluesky session: ${error.message}`);
+  }
+}
+
+/**
+ * Post to Bluesky
+ */
+async function postToBluesky(post, session, options = {}) {
+  const { dryRun = false } = options;
+  
+  console.log(`${dryRun ? '[DRY RUN] ' : ''}Posting: "${post.text.substring(0, 50)}..."`);
+  
+  if (dryRun) {
+    console.log(`  Would post to Bluesky with URL: ${post.url}`);
+    return { success: true, dryRun: true };
+  }
+
+  try {
+    // Create the post record
+    const record = {
+      text: `${post.text}\n\n${post.url}`,
+      createdAt: new Date().toISOString(),
+      langs: ['en']
+    };
+
+    // Create the post data for AT Protocol
+    const postData = {
+      repo: session.did,
+      collection: 'app.bsky.feed.post',
+      record: record
+    };
+
+    const response = await makeBlueskyRequest('com.atproto.repo.createRecord', postData, session.accessJwt);
+    console.log(`  ✓ Posted successfully (URI: ${response.uri || 'unknown'})`);
+    return { success: true, response };
+  } catch (error) {
+    console.error(`  ✗ Failed to post: ${error.message}`);
+    throw error;
+  }
+}
+
+/**
+ * Get environment variables with validation
+ */
+function getConfig() {
+  const identifier = process.env.BLUESKY_IDENTIFIER;
+  const password = process.env.BLUESKY_PASSWORD;
+
+  if (!identifier || !password) {
+    throw new Error('BLUESKY_IDENTIFIER and BLUESKY_PASSWORD environment variables are required');
+  }
+
+  return {
+    identifier,
+    password
+  };
+}
+
+/**
+ * Main function
+ */
+async function main() {
+  // Parse command line arguments
+  const args = process.argv.slice(2);
+  const dryRun = args.includes('--dry-run');
+  
+  console.log(dryRun ? 'Starting Bluesky posting in DRY RUN mode...' : 'Starting Bluesky posting (single post)...');
+
+  try {
+    // Get configuration
+    const { identifier, password } = getConfig();
+
+    // Create Bluesky session
+    console.log('Authenticating with Bluesky...');
+    const session = await createBlueskySession(identifier, password);
+    console.log(`Authenticated as @${session.handle}`);
+
+    // Load sent tracking
+    const sentTracking = loadSentTracking();
+
+    // Parse extracted content
+    const allPosts = parseExtractedContent();
+    console.log(`Found ${allPosts.length} extracted posts`);
+
+    // Filter out already sent posts
+    const unsentPosts = allPosts.filter(post => !sentTracking[post.id]);
+    console.log(`${allPosts.length - unsentPosts.length} already sent, ${unsentPosts.length} remaining`);
+
+    if (unsentPosts.length === 0) {
+      console.log('All posts have already been sent!');
+      return;
+    }
+
+    // Randomly select an unsent post
+    const randomIndex = Math.floor(Math.random() * unsentPosts.length);
+    const postToProcess = unsentPosts[randomIndex];
+    console.log(`Processing: "${postToProcess.text.substring(0, 50)}..." from ${postToProcess.sourceFile}`);
+
+    try {
+      const result = await postToBluesky(postToProcess, session, { dryRun });
+      
+      if (!dryRun) {
+        // Mark as sent in tracking
+        sentTracking[postToProcess.id] = {
+          sentAt: new Date().toISOString(),
+          text: postToProcess.text,
+          url: postToProcess.url,
+          sourceFile: postToProcess.sourceFile,
+          dryRun: false
+        };
+        
+        // Save tracking after successful post
+        saveSentTracking(sentTracking);
+      }
+      
+      console.log('\n=== Summary ===');
+      console.log(`${dryRun ? 'Dry run: ' : ''}Posted 1 update successfully`);
+      console.log(`Tracking file: ${SENT_TRACKING_FILE}`);
+      console.log(`Total posts sent to date: ${Object.keys(sentTracking).length}`);
+      console.log(`Remaining posts in queue: ${unsentPosts.length - 1}`);
+
+    } catch (error) {
+      console.error(`Failed to post "${postToProcess.text.substring(0, 30)}...": ${error.message}`);
+      
+      // Provide helpful guidance for common errors
+      if (error.message.includes('authentication failed') || error.message.includes('expired')) {
+        console.error('\n💡 Authentication Help:');
+        console.error('Your Bluesky credentials may be incorrect or your account may be suspended.');
+        console.error('Please verify your BLUESKY_IDENTIFIER and BLUESKY_PASSWORD environment variables.');
+      }
+      
+      process.exit(1);
+    }
+
+  } catch (error) {
+    console.error('Error:', error.message);
+    
+    if (error.message.includes('BLUESKY_IDENTIFIER') || error.message.includes('BLUESKY_PASSWORD')) {
+      console.error('\n💡 Setup Help:');
+      console.error('1. Create a Bluesky account at https://bsky.app');
+      console.error('2. Set: export BLUESKY_IDENTIFIER="your-handle.bsky.social" (or email)');
+      console.error('3. Set: export BLUESKY_PASSWORD="your_password_here"');
+      console.error('4. Run the script again');
+      console.error('\nNote: Consider using an app password for better security.');
+    }
+    
+    process.exit(1);
+  }
+}
+
+// Run the script
+if (require.main === module) {
+  main().catch(console.error);
+}
+
+module.exports = {
+  parseExtractedContent,
+  postToBluesky,
+  loadSentTracking,
+  saveSentTracking,
+  createBlueskySession
+};
