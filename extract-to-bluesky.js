@@ -140,12 +140,24 @@ function makeBlueskyRequest(endpoint, data, accessToken, method = 'POST') {
 }
 
 /**
+ * Validate app password format (xxxx-xxxx-xxxx-xxxx)
+ */
+function isAppPasswordFormat(password) {
+  return /^[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}$/.test(password);
+}
+
+/**
  * Create a session with Bluesky (authenticate)
  */
-async function createBlueskySession(identifier, password) {
+async function createBlueskySession(identifier, appPassword) {
+  // Validate app password format
+  if (!isAppPasswordFormat(appPassword)) {
+    throw new Error('Invalid app password format. App passwords should be in format: xxxx-xxxx-xxxx-xxxx');
+  }
+
   const sessionData = {
     identifier: identifier,
-    password: password
+    password: appPassword
   };
 
   try {
@@ -159,6 +171,58 @@ async function createBlueskySession(identifier, password) {
   } catch (error) {
     throw new Error(`Failed to create Bluesky session: ${error.message}`);
   }
+}
+
+/**
+ * Refresh an existing Bluesky session
+ */
+async function refreshBlueskySession(refreshJwt) {
+  try {
+    const response = await makeBlueskyRequest('com.atproto.server.refreshSession', {}, refreshJwt);
+    return {
+      accessJwt: response.accessJwt,
+      refreshJwt: response.refreshJwt,
+      did: response.did,
+      handle: response.handle
+    };
+  } catch (error) {
+    throw new Error(`Failed to refresh Bluesky session: ${error.message}`);
+  }
+}
+
+/**
+ * Get or create Bluesky session using stored tokens or app password
+ */
+async function getBlueskySession(config) {
+  // Option 1: Use stored access token if available
+  if (config.accessToken && config.did) {
+    console.log('Using stored access token...');
+    return {
+      accessJwt: config.accessToken,
+      refreshJwt: config.refreshToken,
+      did: config.did,
+      handle: config.handle || 'unknown'
+    };
+  }
+
+  // Option 2: Use refresh token to get new access token
+  if (config.refreshToken) {
+    console.log('Refreshing session with refresh token...');
+    try {
+      return await refreshBlueskySession(config.refreshToken);
+    } catch (error) {
+      console.warn(`Failed to refresh session: ${error.message}`);
+      console.log('Falling back to app password authentication...');
+    }
+  }
+
+  // Option 3: Create new session with app password
+  if (config.identifier && config.appPassword) {
+    console.log('Creating new session with app password...');
+    return await createBlueskySession(config.identifier, config.appPassword);
+  }
+
+  throw new Error('No valid authentication method available. Provide either access token, refresh token, or identifier/app password.');
 }
 
 /**
@@ -203,15 +267,28 @@ async function postToBluesky(post, session, options = {}) {
  */
 function getConfig() {
   const identifier = process.env.BLUESKY_IDENTIFIER;
-  const password = process.env.BLUESKY_PASSWORD;
+  const appPassword = process.env.BLUESKY_APP_PASSWORD;
+  const accessToken = process.env.BLUESKY_ACCESS_TOKEN;
+  const refreshToken = process.env.BLUESKY_REFRESH_TOKEN;
+  const did = process.env.BLUESKY_DID;
+  const handle = process.env.BLUESKY_HANDLE;
 
-  if (!identifier || !password) {
-    throw new Error('BLUESKY_IDENTIFIER and BLUESKY_PASSWORD environment variables are required');
+  // Check if we have at least one valid authentication method
+  const hasAppPassword = identifier && appPassword;
+  const hasAccessToken = accessToken && did;
+  const hasRefreshToken = refreshToken;
+
+  if (!hasAppPassword && !hasAccessToken && !hasRefreshToken) {
+    throw new Error('Authentication required: Set either BLUESKY_ACCESS_TOKEN+BLUESKY_DID, BLUESKY_REFRESH_TOKEN, or BLUESKY_IDENTIFIER+BLUESKY_APP_PASSWORD');
   }
 
   return {
     identifier,
-    password
+    appPassword,
+    accessToken,
+    refreshToken,
+    did,
+    handle
   };
 }
 
@@ -227,11 +304,11 @@ async function main() {
 
   try {
     // Get configuration
-    const { identifier, password } = getConfig();
+    const config = getConfig();
 
-    // Create Bluesky session
+    // Get Bluesky session
     console.log('Authenticating with Bluesky...');
-    const session = await createBlueskySession(identifier, password);
+    const session = await getBlueskySession(config);
     console.log(`Authenticated as @${session.handle}`);
 
     // Load sent tracking
@@ -284,8 +361,9 @@ async function main() {
       // Provide helpful guidance for common errors
       if (error.message.includes('authentication failed') || error.message.includes('expired')) {
         console.error('\n💡 Authentication Help:');
-        console.error('Your Bluesky credentials may be incorrect or your account may be suspended.');
-        console.error('Please verify your BLUESKY_IDENTIFIER and BLUESKY_PASSWORD environment variables.');
+        console.error('Your Bluesky credentials may be incorrect, expired, or your account may be suspended.');
+        console.error('If using app password, verify it\'s in format: xxxx-xxxx-xxxx-xxxx');
+        console.error('If using access token, it may have expired - try using refresh token instead.');
       }
       
       process.exit(1);
@@ -294,13 +372,23 @@ async function main() {
   } catch (error) {
     console.error('Error:', error.message);
     
-    if (error.message.includes('BLUESKY_IDENTIFIER') || error.message.includes('BLUESKY_PASSWORD')) {
+    if (error.message.includes('Authentication required')) {
       console.error('\n💡 Setup Help:');
+      console.error('Choose one of these authentication methods:');
+      console.error('');
+      console.error('Method 1 - App Password (Recommended):');
       console.error('1. Create a Bluesky account at https://bsky.app');
-      console.error('2. Set: export BLUESKY_IDENTIFIER="your-handle.bsky.social" (or email)');
-      console.error('3. Set: export BLUESKY_PASSWORD="your_password_here"');
-      console.error('4. Run the script again');
-      console.error('\nNote: Consider using an app password for better security.');
+      console.error('2. Generate an app password in Settings > App Passwords');
+      console.error('3. Set: export BLUESKY_IDENTIFIER="your-handle.bsky.social"');
+      console.error('4. Set: export BLUESKY_APP_PASSWORD="xxxx-xxxx-xxxx-xxxx"');
+      console.error('');
+      console.error('Method 2 - Access Token (Advanced):');
+      console.error('1. Set: export BLUESKY_ACCESS_TOKEN="your_access_token"');
+      console.error('2. Set: export BLUESKY_DID="your_did"');
+      console.error('3. Optionally: export BLUESKY_REFRESH_TOKEN="your_refresh_token"');
+      console.error('');
+      console.error('Method 3 - Refresh Token:');
+      console.error('1. Set: export BLUESKY_REFRESH_TOKEN="your_refresh_token"');
     }
     
     process.exit(1);
@@ -317,5 +405,8 @@ module.exports = {
   postToBluesky,
   loadSentTracking,
   saveSentTracking,
-  createBlueskySession
+  createBlueskySession,
+  refreshBlueskySession,
+  getBlueskySession,
+  isAppPasswordFormat
 };
