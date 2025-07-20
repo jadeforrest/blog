@@ -104,7 +104,7 @@ One way to speed things up is to monitor how the “onsite” interview goes, by
 
 ## Improve the visibility of your hiring pipeline
 
-One of the challenges I've had with a lot of applicant trackng systems is that it is hard to know which candidates are waiting on us. And it's hard to get a sense of how we're doing as a team in responding. 
+One of the challenges I've had with a lot of applicant tracking systems is that it is hard to know which candidates are waiting on us. And it's hard to get a sense of how we're doing as a team in responding. 
 
 A tool I have not used, but would check out if I were using [Greenhouse](https://www.greenhouse.io) or [Lever](https://www.lever.co), is [TalentWall](https://talentwall.io). It visualizes your candidate pipeline as a kanban board, and shows how you're doing and what needs to be done for each candidate. Super valuable! Maksim Koutun describes his experiences with it [here](https://medium.com/flo-health/engineering-hiring-strategy-at-flo-health-657dfb9b725). Let me know your experiences with it -- I have not used it. Also let me know if you've used any other tools that help you visualize your hiring pipeline.
 
