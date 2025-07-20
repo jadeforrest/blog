@@ -281,8 +281,9 @@ async function main() {
       return;
     }
 
-    // Always process only the first unsent post (daily posting behavior)
-    const postToProcess = unsentPosts[0];
+    // Randomly select an unsent post
+    const randomIndex = Math.floor(Math.random() * unsentPosts.length);
+    const postToProcess = unsentPosts[randomIndex];
     console.log(`Processing: "${postToProcess.text.substring(0, 50)}..." from ${postToProcess.sourceFile}`);
 
     try {
