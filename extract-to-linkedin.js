@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const http = require('http');
+const { URL } = require('url');
 
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
@@ -137,6 +139,138 @@ function makeLinkedInRequest(endpoint, data, accessToken) {
 }
 
 /**
+ * Fetch URL content and extract metadata for page titles
+ */
+function fetchUrlMetadata(url) {
+  return new Promise((resolve) => {
+    try {
+      const urlObj = new URL(url);
+      const client = urlObj.protocol === 'https:' ? https : http;
+      
+      const options = {
+        hostname: urlObj.hostname,
+        port: urlObj.port || (urlObj.protocol === 'https:' ? 443 : 80),
+        path: urlObj.pathname + urlObj.search,
+        method: 'GET',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; LinkedInBot/1.0)',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        },
+        timeout: 5000
+      };
+
+      const req = client.request(options, (res) => {
+        let data = '';
+        let finished = false;
+        
+        // Handle redirects
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          req.destroy();
+          // Simple redirect - just use the URL as fallback for now
+          resolve({ title: url, description: '' });
+          return;
+        }
+        
+        // Only process successful responses
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+          req.destroy();
+          resolve({ title: url, description: '' });
+          return;
+        }
+        
+        // Only process HTML content
+        const contentType = res.headers['content-type'] || '';
+        if (!contentType.includes('text/html')) {
+          req.destroy();
+          resolve({ title: url, description: '' });
+          return;
+        }
+
+        res.on('data', (chunk) => {
+          if (finished) return;
+          data += chunk;
+          // Stop collecting data once we have enough for meta tags
+          if (data.length > 100000) {
+            finished = true;
+            res.destroy();
+            try {
+              const metadata = extractMetaTags(data, url);
+              resolve(metadata);
+            } catch (error) {
+              resolve({ title: url, description: '' });
+            }
+          }
+        });
+        
+        res.on('end', () => {
+          if (finished) return;
+          finished = true;
+          try {
+            const metadata = extractMetaTags(data, url);
+            resolve(metadata);
+          } catch (error) {
+            resolve({ title: url, description: '' });
+          }
+        });
+
+        res.on('error', () => {
+          if (finished) return;
+          finished = true;
+          resolve({ title: url, description: '' });
+        });
+      });
+
+      req.on('error', () => {
+        resolve({ title: url, description: '' });
+      });
+
+      req.on('timeout', () => {
+        req.destroy();
+        resolve({ title: url, description: '' });
+      });
+
+      req.setTimeout(5000, () => {
+        req.destroy();
+        resolve({ title: url, description: '' });
+      });
+
+      req.end();
+    } catch (error) {
+      resolve({ title: url, description: '' });
+    }
+  });
+}
+
+/**
+ * Extract meta tags from HTML content
+ */
+function extractMetaTags(html, baseUrl) {
+  const metadata = { title: baseUrl, description: '' };
+  
+  // Extract title
+  const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+  const ogTitleMatch = html.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']*)["']/i);
+  
+  if (ogTitleMatch) {
+    metadata.title = ogTitleMatch[1].trim();
+  } else if (titleMatch) {
+    metadata.title = titleMatch[1].trim();
+  }
+  
+  // Extract description
+  const ogDescMatch = html.match(/<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']*)["']/i);
+  const descMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i);
+  
+  if (ogDescMatch) {
+    metadata.description = ogDescMatch[1].trim();
+  } else if (descMatch) {
+    metadata.description = descMatch[1].trim();
+  }
+  
+  return metadata;
+}
+
+/**
  * Get LinkedIn Person URN for the authenticated user
  */
 async function getPersonUrn(accessToken) {
@@ -204,6 +338,22 @@ async function postToLinkedIn(post, accessToken, options = {}) {
     const personId = await getPersonUrn(accessToken);
     const authorUrn = `urn:li:person:${personId}`;
 
+    // Fetch URL metadata for page title
+    console.log(`  Fetching metadata for: ${post.url}`);
+    let metadata;
+    try {
+      // Add a Promise race with timeout
+      metadata = await Promise.race([
+        fetchUrlMetadata(post.url),
+        new Promise((resolve) => setTimeout(() => {
+          resolve({ title: post.url, description: '' });
+        }, 8000))
+      ]);
+    } catch (error) {
+      console.log(`  Metadata fetch failed, using fallback`);
+      metadata = { title: post.url, description: '' };
+    }
+
     // Create the LinkedIn post data using Posts API format
     const postData = {
       author: authorUrn,
@@ -217,8 +367,8 @@ async function postToLinkedIn(post, accessToken, options = {}) {
       content: {
         article: {
           source: post.url,
-          title: post.text.substring(0, 100) + '...',
-          description: post.text
+          title: metadata.title || post.url,
+          description: metadata.description || post.text
         }
       },
       lifecycleState: 'PUBLISHED',
@@ -346,5 +496,7 @@ module.exports = {
   postToLinkedIn,
   loadSentTracking,
   saveSentTracking,
-  getPersonUrn
+  getPersonUrn,
+  fetchUrlMetadata,
+  extractMetaTags
 };
