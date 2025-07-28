@@ -31,11 +31,11 @@ const NextPrev = (props) => {
   return (
     <React.Fragment>
       <div className="links">
-        {nextSlug && (
-          <Link to={nextSlug}>
+        {prevSlug && (
+          <Link to={prevSlug}>
             <span className="next-link-text">
               <h4>
-                {nextTitle} <time>{nextPrefix} </time>
+                {prevTitle} <time>{prevPrefix} </time>
               </h4>
             </span>
             <span className="next-arrow live-arrow">
@@ -43,14 +43,14 @@ const NextPrev = (props) => {
             </span>
           </Link>
         )}
-        {prevSlug && (
-          <Link to={prevSlug}>
+        {nextSlug && (
+          <Link to={nextSlug}>
             <span className="live-arrow">
               <FaArrowLeft />
             </span>
             <span className="prev-link-text">
               <h4>
-                {prevTitle} <time>{prevPrefix}</time>
+                {nextTitle} <time>{nextPrefix}</time>
               </h4>
             </span>
           </Link>
