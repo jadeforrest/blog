@@ -71,4 +71,8 @@ A lot of the inspiration and content for this came from this Decoding Leadership
 
 <iframe src="https://creators.spotify.com/pod/show/decodingleadership/embed/episodes/17--Katie-Wilde-on-the-challenging-step-to-director--and-the-perverse-incentives-of-reliability-e2rgdth/a-ablas7g" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
+You might also enjoy this discussion with Beth Adele Long. It covers leaders role in incidents, and coordination during incidents, among other topics.
+
+<iframe src="https://creators.spotify.com/pod/profile/decodingleadership/embed/episodes/27--Beth-Adele-Long-on-reliability-and-leadership-e36873b" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 Image by <a href="https://pixabay.com/users/maxmann-665103/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2309814">Th G</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2309814">Pixabay</a>
