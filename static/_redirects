@@ -5,6 +5,11 @@ https://rubick.com/* https://www.rubick.com/:splat 301!
 /subscribe / 301!
 /sitemap.xml /sitemap/sitemap-index.xml 301!
 
+# Redirect legacy URLs
+/Home / 301!
+/aquarium/* /posts/ 301!
+/books/* /posts/ 301!
+
 # Redirect old OpenACS related content to posts page
 /openacs/getting_started/ /posts/ 301!
 /openacs/arch /posts/ 301!
