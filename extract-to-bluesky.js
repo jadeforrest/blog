@@ -676,7 +676,7 @@ async function main() {
       console.error('');
       console.error('Method 1 - App Password (Recommended):');
       console.error('1. Create a Bluesky account at https://bsky.app');
-      console.error('2. Generate an app password in Settings > Privacy and Seuciryt > App Passwords');
+      console.error('2. Generate an app password in Settings > Privacy and Security > App Passwords');
       console.error('3. Set: export BLUESKY_IDENTIFIER="your-handle.bsky.social"');
       console.error('4. Set: export BLUESKY_APP_PASSWORD="xxxx-xxxx-xxxx-xxxx"');
       console.error('');
