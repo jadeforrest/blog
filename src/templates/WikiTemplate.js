@@ -56,9 +56,20 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
       return;
     }
 
-    // Skip directory landing pages (like /business/)
+    // Skip directory landing pages that correspond to index files
+    // These are pages like /business/ where there's also a /business/index/ file
     if (slug.endsWith("/") && slug.split("/").length === 3) {
-      return;
+      const normalizedSlug = slug.replace(/\/$/, "");
+      const hasIndexFile = wikiPages.some(({ node: indexNode }) => {
+        const indexSlug = indexNode.fields.slug;
+        return indexSlug === `${normalizedSlug}/index/` || indexSlug === `${normalizedSlug}/index`;
+      });
+      
+      // Skip directory landing pages only if they have explicit index files
+      if (hasIndexFile) {
+        return;
+      }
+      // Otherwise, treat pages with trailing slashes as regular pages
     }
 
     // If filtering for a specific path, only include pages in that path
@@ -73,6 +84,7 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
     }
 
     // Remove leading slash and split path
+    // For pages that end with slash, we still want to treat them as pages, not directories
     const pathParts = slug.replace(/^\//, "").replace(/\/$/, "").split("/");
 
     // If filtering, adjust the path parts to be relative to the filter
@@ -100,7 +112,6 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
       }
       // Ensure we have a valid directory structure
       if (!current[dir] || !current[dir].children) {
-        console.warn(`Invalid directory structure at ${dir}`, current[dir]);
         current[dir] = {
           isDirectory: true,
           children: {},
