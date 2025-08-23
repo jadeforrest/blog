@@ -151,20 +151,65 @@ const renderWikiStructure = (structure, level = 0, theme) => {
             const item = structure[key];
 
             if (item.isDirectory) {
-              const pageCount = countPagesInDirectory(item.children);
               return (
-                <div key={key} className="wiki-category-card">
-                  <div className="wiki-category-header">
-                    <h3 className="wiki-category-title">
-                      <span className="wiki-category-icon">{item.icon}</span>
+                <div 
+                  key={key} 
+                  className="wiki-category-card"
+                  style={{
+                    border: '3px solid #999999',
+                    borderRadius: '8px',
+                    padding: '24px',
+                    marginBottom: '24px',
+                    backgroundColor: 'white',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                    display: 'block',
+                    width: '100%'
+                  }}
+                >
+                  <div 
+                    className="wiki-category-header"
+                    style={{
+                      marginBottom: '16px',
+                      paddingBottom: '8px',
+                      borderBottom: '1px solid #ccc'
+                    }}
+                  >
+                    <h3 
+                      className="wiki-category-title"
+                      style={{
+                        margin: 0,
+                        fontSize: '1.4em',
+                        fontWeight: 600,
+                        display: 'flex',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <span 
+                        className="wiki-category-icon"
+                        style={{ marginRight: '12px' }}
+                      >
+                        {item.icon}
+                      </span>
                       {item.title}
                     </h3>
-                    <span className="wiki-page-count">{pageCount} pages</span>
                   </div>
                   {item.description && (
-                    <div className="wiki-category-description">{item.description}</div>
+                    <div 
+                      className="wiki-category-description"
+                      style={{
+                        color: '#6b7280',
+                        fontSize: '1em',
+                        marginBottom: '16px',
+                        lineHeight: 1.5
+                      }}
+                    >
+                      {item.description}
+                    </div>
                   )}
-                  <div className="wiki-category-content">
+                  <div 
+                    className="wiki-category-content"
+                    style={{ marginTop: '16px' }}
+                  >
                     {renderWikiStructure(item.children, level + 1, theme)}
                   </div>
                 </div>
@@ -424,71 +469,34 @@ const WikiTemplate = (props) => {
 
                 /* New wiki grid styles */
                 .wiki-grid {
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                  gap: ${theme.space.xl};
+                  display: block;
                   margin-top: ${theme.space.xl};
                   padding: 0;
                 }
 
-                @from-width tablet {
-                  .wiki-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-                    gap: ${theme.space.xxl || theme.space.xl};
-                  }
-                }
-
-                @from-width desktop {
-                  .wiki-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-                  }
-                }
 
                 .wiki-category-card {
-                  background: ${theme.color.neutral.white};
-                  border: 1px solid ${theme.color.neutral.gray.c};
-                  border-radius: 12px;
-                  padding: ${theme.space.l};
-                  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-                  transition: all 0.3s ease;
-                  position: relative;
-                  overflow: hidden;
+                  background: white !important;
+                  border: 3px solid #999999 !important;
+                  outline: 2px solid #666666 !important;
+                  border-radius: 8px !important;
+                  padding: 24px !important;
+                  margin: 24px 0 !important;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+                  display: block !important;
+                  width: 100% !important;
+                  box-sizing: border-box !important;
                 }
 
                 .wiki-category-card:hover {
-                  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-                  transform: translateY(-2px);
-                  border-color: ${theme.color.brand.primary};
-                }
-
-                .wiki-category-card::before {
-                  content: "";
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  height: 4px;
-                  background: linear-gradient(
-                    90deg,
-                    ${theme.color.brand.primary},
-                    ${theme.color.brand.primaryActive || theme.color.brand.primary}
-                  );
-                  opacity: 0;
-                  transition: opacity 0.3s ease;
-                }
-
-                .wiki-category-card:hover::before {
-                  opacity: 1;
+                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
+                  border-color: #2563eb !important;
                 }
 
                 .wiki-category-header {
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
                   margin-bottom: ${theme.space.m};
-                  flex-wrap: wrap;
-                  gap: ${theme.space.s};
+                  padding-bottom: ${theme.space.s};
+                  border-bottom: 1px solid ${theme.color.neutral.gray.c};
                 }
 
                 .wiki-category-title {
@@ -507,18 +515,9 @@ const WikiTemplate = (props) => {
                   font-size: 1.2em;
                   flex-shrink: 0;
                   line-height: 1;
+                  margin-right: ${theme.space.s};
                 }
 
-                .wiki-page-count {
-                  font-size: 0.75em;
-                  font-weight: 500;
-                  color: ${theme.color.neutral.gray.g};
-                  background: ${theme.color.neutral.gray.b};
-                  padding: 4px 10px;
-                  border-radius: 12px;
-                  white-space: nowrap;
-                  flex-shrink: 0;
-                }
 
                 .wiki-category-description {
                   color: ${theme.color.neutral.gray.h};
@@ -529,9 +528,7 @@ const WikiTemplate = (props) => {
                 }
 
                 .wiki-category-content {
-                  border-top: 1px solid ${theme.color.neutral.gray.b};
-                  padding-top: ${theme.space.m};
-                  margin-top: ${theme.space.s};
+                  margin-top: ${theme.space.m};
                 }
 
                 .wiki-single-page-card {
@@ -585,7 +582,7 @@ const WikiTemplate = (props) => {
                 }
 
                 .wiki-page-item {
-                  margin-bottom: ${theme.space.xs};
+                  margin-bottom: ${theme.space.s};
                 }
 
                 .wiki-page-link {
