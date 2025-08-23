@@ -249,8 +249,35 @@ const renderWikiStructure = (structure, level = 0, theme) => {
               );
             } else {
               return (
-                <li key={key} className="wiki-page-item">
-                  <Link to={`/wiki${item.slug}`} className="wiki-page-link">
+                <li 
+                  key={key} 
+                  className="wiki-page-item"
+                  style={{ 
+                    paddingLeft: '0px',
+                    listStyle: 'none',
+                    display: 'flex',
+                    alignItems: 'flex-start'
+                  }}
+                >
+                  <span style={{ 
+                    marginRight: '8px', 
+                    marginLeft: '24px', 
+                    color: '#9CA3AF',
+                    fontSize: '1.2em',
+                    lineHeight: '1.4em'
+                  }}>
+                    •
+                  </span>
+                  <Link 
+                    to={`/wiki${item.slug}`} 
+                    className="wiki-page-link"
+                    style={{
+                      color: '#2563EB',
+                      textDecoration: 'none',
+                      fontSize: '0.95em',
+                      lineHeight: '1.4em'
+                    }}
+                  >
                     {item.title}
                   </Link>
                 </li>
@@ -583,6 +610,7 @@ const WikiTemplate = (props) => {
 
                 .wiki-page-item {
                   margin-bottom: ${theme.space.s};
+                  padding-left: ${theme.space.l};
                 }
 
                 .wiki-page-link {
@@ -603,6 +631,7 @@ const WikiTemplate = (props) => {
                   content: "•";
                   color: ${theme.color.neutral.gray.f};
                   margin-right: ${theme.space.xs};
+                  margin-left: ${theme.space.l};
                 }
 
                 /* Nested directory styles */
