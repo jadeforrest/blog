@@ -105,15 +105,20 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
         if (metadata.description !== undefined) current[dir].description = metadata.description;
       }
       
-      // Ensure we have a valid directory structure
+      // Ensure we have a valid directory structure (but don't overwrite existing metadata)
       if (!current[dir] || !current[dir].children) {
-        current[dir] = {
-          isDirectory: true,
-          children: {},
-          title: dir.charAt(0).toUpperCase() + dir.slice(1),
-          icon: "📁",
-          description: null,
-        };
+        if (!current[dir]) {
+          current[dir] = {
+            isDirectory: true,
+            children: {},
+            title: dir.charAt(0).toUpperCase() + dir.slice(1),
+            icon: "📁",
+            description: null,
+          };
+        } else {
+          // Just ensure children exists without overwriting metadata
+          current[dir].children = current[dir].children || {};
+        }
       }
       current = current[dir].children;
     }
@@ -334,9 +339,36 @@ const renderWikiStructure = (structure, level = 0, theme) => {
           } else {
             return (
               <div key={key} className="wiki-single-page-card">
-                <Link to={`/wiki${item.slug}`} className="wiki-page-link">
-                  {item.title}
-                </Link>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  {item.icon && (
+                    <span style={{ 
+                      fontSize: '1.2em', 
+                      flexShrink: 0,
+                      lineHeight: '1.4em'
+                    }}>
+                      {item.icon}
+                    </span>
+                  )}
+                  <div style={{ flex: 1 }}>
+                    <Link to={`/wiki${item.slug}`} className="wiki-page-link" style={{ 
+                      fontSize: '1.1em',
+                      fontWeight: 500,
+                      display: 'block',
+                      marginBottom: item.description ? '4px' : '0'
+                    }}>
+                      {item.title}
+                    </Link>
+                    {item.description && (
+                      <div style={{
+                        color: '#6b7280',
+                        fontSize: '0.95em',
+                        lineHeight: 1.5
+                      }}>
+                        {item.description}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             );
           }
