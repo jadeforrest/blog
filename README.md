@@ -30,11 +30,11 @@ You are free to use this repo to create your own blog (code in the repo is MIT l
 
 - Setup like a typical Gatsby project. If you run into trouble:
   - Install nvm to manage different Node versions
-  - Use nvm to switch your Node version to v16: `nvm use v16`
-  - Install v4 of gatsby-cli globally: `npm install -g gatsby-cli@latest-v4`
+  - Use nvm to switch your Node version to v18: `nvm use v18`
+  - Install v5 of gatsby-cli globally: `npm install -g gatsby-cli@latest`
   - Install other dependencies: `npm install`.
-  - Run in development mode with `gatsby develop`.
-  - Run in production mode with `gatsby build && gatsby serve`.
+  - Run in development mode with `npm run develop`.
+  - Run in production mode with `npm run build && npx gatsby serve`.
 - Make it your own
    - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
    - Search all files for "atte".
