@@ -585,221 +585,46 @@ const WikiTemplate = (props) => {
                 )}
               </Article>
 
-              <style jsx>{`
-                .wiki-edit-header {
-                  display: flex;
-                  justify-content: center;
-                  background-color: ${theme.color.neutral.white};
-                  border-bottom: 1px solid ${theme.color.neutral.gray.c};
-                  padding: ${theme.space.xs} 0;
-                  position: relative;
-                  z-index: 6;
-                }
-
-                @from-width desktop {
-                  .wiki-edit-header {
-                    position: fixed;
-                    top: ${theme.header.height.fixed};
-                    left: 0;
-                    right: 0;
-                    z-index: 6;
+              <style dangerouslySetInnerHTML={{
+                __html: `
+                  .wiki-template h1 {
+                    margin: 2em 0 1em !important;
+                    line-height: 1.3 !important;
+                    padding: 1em 0 0.5em 0 !important;
                   }
-                }
-
-                .wiki-edit-link {
-                  font-size: 0.75em;
-                  color: #6b8a7d;
-                  text-decoration: none;
-                  text-align: center;
-                  max-width: 90%;
-                }
-
-                .wiki-edit-link:hover {
-                  text-decoration: underline;
-                }
-
-                .wiki-breadcrumbs {
-                  padding: ${theme.space.xs} 0;
-                  margin-bottom: ${theme.space.s};
-                  border-bottom: 1px solid ${theme.color.neutral.gray.d};
-                  font-size: 0.85em;
-                  color: ${theme.color.neutral.gray.g};
-                }
-
-                .breadcrumb-item {
-                  display: inline;
-                }
-
-                .breadcrumb-separator {
-                  color: ${theme.color.neutral.gray.f};
-                  margin: 0 0.5em;
-                }
-
-                .breadcrumb-link {
-                  color: ${theme.color.brand.primary};
-                  text-decoration: none;
-                }
-
-                .breadcrumb-link:hover {
-                  text-decoration: underline;
-                }
-
-                .breadcrumb-current {
-                  color: ${theme.color.neutral.gray.g};
-                  font-weight: 600;
-                }
-
-                /* New wiki grid styles */
-                .wiki-grid {
-                  display: block;
-                  margin-top: ${theme.space.xl};
-                  padding: 0;
-                }
-
-
-                .wiki-category-card {
-                  background: white !important;
-                  border: 3px solid #999999 !important;
-                  outline: 2px solid #666666 !important;
-                  border-radius: 8px !important;
-                  padding: 24px !important;
-                  margin: 24px 0 !important;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-                  display: block !important;
-                  width: 100% !important;
-                  box-sizing: border-box !important;
-                }
-
-                .wiki-category-card:hover {
-                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
-                  border-color: #2563eb !important;
-                }
-
-                .wiki-category-header {
-                  margin-bottom: ${theme.space.m};
-                  padding-bottom: ${theme.space.s};
-                  border-bottom: 1px solid ${theme.color.neutral.gray.c};
-                }
-
-                .wiki-category-title {
-                  margin: 0;
-                  font-size: 1.4em;
-                  font-weight: 600;
-                  color: ${theme.color.neutral.gray.j};
-                  flex: 1;
-                  line-height: 1.3;
-                  display: flex;
-                  align-items: center;
-                  gap: ${theme.space.s};
-                }
-
-                .wiki-category-icon {
-                  font-size: 1.2em;
-                  flex-shrink: 0;
-                  line-height: 1;
-                  margin-right: ${theme.space.s};
-                }
-
-
-                .wiki-category-description {
-                  color: ${theme.color.neutral.gray.h};
-                  font-size: 1em;
-                  margin-bottom: ${theme.space.m};
-                  line-height: 1.5;
-                  font-weight: 400;
-                }
-
-                .wiki-category-content {
-                  margin-top: ${theme.space.m};
-                }
-
-                .wiki-single-page-card {
-                  background: ${theme.color.neutral.white};
-                  border: 1px solid ${theme.color.neutral.gray.d};
-                  border-radius: 8px;
-                  padding: ${theme.space.m};
-                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-                  transition: box-shadow 0.2s ease, transform 0.2s ease;
-                }
-
-                .wiki-single-page-card:hover {
-                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                  transform: translateY(-1px);
-                }
-
-                .wiki-single-page-card .wiki-page-link {
-                  display: flex;
-                  align-items: center;
-                  gap: ${theme.space.xs};
-                  color: ${theme.color.brand.primary};
-                  text-decoration: none;
-                  font-weight: 500;
-                }
-
-                .wiki-single-page-card .wiki-page-link:hover {
-                  color: ${theme.color.brand.primaryActive};
-                }
-
-                .wiki-page-icon {
-                  font-size: 1.2em;
-                  flex-shrink: 0;
-                }
-
-                .wiki-page-title {
-                  flex: 1;
-                }
-
-                /* Page content styles */
-                .wiki-page-content {
-                  margin-bottom: ${theme.space.xl};
-                  padding-bottom: ${theme.space.l};
-                  border-bottom: 2px solid ${theme.color.neutral.gray.c};
-                }
-
-                /* List styles for pages */
-                .wiki-page-list {
-                  list-style: none;
-                  padding: 0;
-                  margin: 0;
-                }
-
-                .wiki-page-item {
-                  margin-bottom: ${theme.space.s};
-                  padding-left: ${theme.space.l};
-                }
-
-
-                /* Nested directory styles */
-                .wiki-nested-directory {
-                  margin-bottom: ${theme.space.m};
-                }
-
-                .wiki-nested-directory-title {
-                  display: flex;
-                  align-items: center;
-                  gap: ${theme.space.xs};
-                  font-weight: 600;
-                  color: ${theme.color.neutral.gray.i};
-                  margin-bottom: ${theme.space.s};
-                  font-size: 1em;
-                  padding: ${theme.space.xs} 0;
-                }
-
-                .wiki-nested-icon {
-                  font-size: 1.1em;
-                  flex-shrink: 0;
-                }
-
-                .wiki-nested-children {
-                  margin-left: ${theme.space.m};
-                }
-
-                @from-width desktop {
-                  .wiki-template :global(.article) {
-                    margin-top: ${isIndexPage ? `0` : `calc(${theme.space.xs} * 2 + 1.5em)`};
+                  
+                  .wiki-template h2 {
+                    margin: 2.5em 0 1.2em !important;
+                    line-height: 1.4 !important;
+                    padding: 1.5em 0 0.8em 0 !important;
                   }
-                }
-              `}</style>
+                  
+                  .wiki-template h3 {
+                    margin: 2em 0 1em !important;
+                    line-height: 1.4 !important;
+                    padding: 1em 0 0.5em 0 !important;
+                  }
+                  
+                  .wiki-template p {
+                    margin: 0 0 1.8em 0 !important;
+                    line-height: 1.7 !important;
+                    padding-bottom: 0.5em !important;
+                  }
+                  
+                  .wiki-template ul {
+                    margin: 0 0 1.8em 0 !important;
+                    line-height: 1.7 !important;
+                    padding-bottom: 1em !important;
+                  }
+                  
+                  .wiki-template li {
+                    margin: 0.8em 0 !important;
+                    line-height: 1.7 !important;
+                    padding: 0.3em 0 !important;
+                  }
+                `
+              }} />
+
             </React.Fragment>
           </div>
         )}
