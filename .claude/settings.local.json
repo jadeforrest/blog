@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm view:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx eslint:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:learn.microsoft.com)",
+      "WebFetch(domain:learn.microsoft.com)"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": false
+}
