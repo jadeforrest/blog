@@ -1,5 +1,7 @@
 ---
 title: Prioritization
+icon: 🗑️
+description: Frameworks and approaches for project prioritization including economic modeling, DRICE methodology, and Black Swan Farming.
 created at: Tue Nov 07 2023 14:19:20 GMT+0000 (Coordinated Universal Time)
 updated at: Thu Nov 09 2023 11:48:33 GMT+0000 (Coordinated Universal Time)
 ---

@@ -1,5 +1,7 @@
 ---
 title: OKRs and goal setting
+icon: 🎯
+description: Resources for goal frameworks including OKRs, W Framework, and alternative approaches to objective setting and measurement.
 ---
 
 * [Jade's advice on goal frameworks](https://www.rubick.com/fast-agile/) like OKRs (biggest advice, don't use OKRs for projects)

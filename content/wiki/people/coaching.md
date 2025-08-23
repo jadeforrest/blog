@@ -1,5 +1,7 @@
 ---
 title: Coaching and developing people
+icon: 🌱
+description: Resources for coaching and developing high-performing team members
 ---
 
 * [Developing high performers](https://mollyg.substack.com/p/developing-high-performers) is a wonderful post from Molly G about how to accelerate the growth of capable people.

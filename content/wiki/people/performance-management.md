@@ -1,5 +1,7 @@
-
+---
 title: Performance management
+icon: 🎤
+description: Framework and resources for effective performance management processes
 created at: Fri Dec 16 2022 01:41:22 GMT+0000 (Coordinated Universal Time)
 updated at: Thu Jan 19 2023 16:46:33 GMT+0000 (Coordinated Universal Time)
 ---

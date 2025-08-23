@@ -1,5 +1,7 @@
 ---
 title: Executive coaches
+icon: 🎯
+description: Executive coaches, advisors, and how to find career mentorship
 ---
 
 ## Executive coach recommendations

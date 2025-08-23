@@ -1,5 +1,7 @@
 ---
 title: AI coding
+icon: 🤖
+description: AI-powered development tools, workflows, and best practices for augmented coding with Claude Code, Cursor, and other AI assistants.
 ---
 
 ## Monitoring the situation

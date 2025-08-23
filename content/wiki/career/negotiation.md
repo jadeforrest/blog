@@ -1,5 +1,7 @@
 ---
 title: Interviewing and negotiating for a VPE role
+icon: 🤝
+description: Negotiation strategies, equity terms, and interview advice for VPE roles
 ---
 
 ## Equity and equity terms

@@ -1,5 +1,7 @@
 ---
 title: Recruiting
+icon: 🔍
+description: LinkedIn mining, recruitment process outsourcing, and building company brand for hiring
 ---
 
 ## Trello like view for hiring process

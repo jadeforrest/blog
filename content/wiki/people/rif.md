@@ -1,5 +1,7 @@
 ---
 title: RIFs - Reduction in Forces
+icon: 🚨
+description: Lessons and best practices for managing layoffs and workforce reductions
 ---
 
 **Layoff lessons**

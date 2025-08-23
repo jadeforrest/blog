@@ -1,5 +1,7 @@
 ---
 title: Trainings
+icon: 🎓
+description: Management training programs and executive presence coaching resources
 ---
 
 ## Management training

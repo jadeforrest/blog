@@ -1,5 +1,7 @@
 ---
 title: Diversity equity and inclusion
+icon: 🤝
+description: Resources and strategies for building inclusive, diverse, and equitable workplaces
 ---
 
 ## Metrics

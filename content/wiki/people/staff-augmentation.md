@@ -1,5 +1,7 @@
 ---
 title: Staff augmentation
+icon: 👥
+description: Recommended companies for outsourcing and staff augmentation services
 ---
 
 > Note: won't add to this list unless you're someone I know talking about your positive experience with a staff augmentation company.

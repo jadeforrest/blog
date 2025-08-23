@@ -1,5 +1,7 @@
 ---
 title: Engineering manager levels
+icon: 🔧
+description: Career progression frameworks and ladders for engineering management roles
 ---
 
 ## Public ladders

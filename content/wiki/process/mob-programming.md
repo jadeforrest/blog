@@ -1,5 +1,7 @@
 ---
 title: Mob programming
+icon: 👥
+description: Survey results and best practices for effective mob programming, including when to use it and ground rules for success.
 ---
 
 ## Survey results on mobbing

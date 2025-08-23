@@ -1,5 +1,7 @@
 ---
 title: Metrics tooling
+icon: 📈
+description: Engineering metrics and measurement tools including DORA metrics, SonarQube code quality analysis, and Core4 framework insights.
 ---
 
 ## DORA measurements

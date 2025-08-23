@@ -1,5 +1,7 @@
 ---
 title: Feature flags
+icon: 🏴
+description: Feature flag platforms and vendors including LaunchDarkly, DevCycle, and PostHog for controlled feature rollouts and experimentation.
 ---
 
 ## Vendors

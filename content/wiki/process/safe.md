@@ -1,5 +1,7 @@
 ---
 title: Scaled agile framework (SAFe)
+icon: ⚠️
+description: Critical analysis of SAFe methodology, survey results on its appropriateness in startups, and resources on its limitations.
 ---
 
 ## Is it appropriate in a startup?

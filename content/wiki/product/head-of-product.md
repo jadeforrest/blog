@@ -1,5 +1,7 @@
 ---
 title: Advice for (new) head of product
+icon: 🎯
+description: Essential first 90 days guidance and key responsibilities for new head of product roles, including stakeholder management and strategic direction setting.
 ---
 
 ## First 90 days advice

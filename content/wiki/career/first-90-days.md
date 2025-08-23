@@ -1,5 +1,7 @@
 ---
 title: First 90 days
+icon: 📅
+description: Strategies and advice for the first 90 days in a new leadership role
 ---
 
 ## Lara Hogan's advice

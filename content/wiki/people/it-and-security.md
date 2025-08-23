@@ -1,5 +1,7 @@
 ---
 title: Information technology and security
+icon: 🔒
+description: IT and security reporting structures, admin access policies, and organizational placement
 ---
 
 ## Where IT and security report in to

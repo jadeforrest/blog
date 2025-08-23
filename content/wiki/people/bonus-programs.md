@@ -1,5 +1,7 @@
 ---
 title: Bonus programs
+icon: 🎁
+description: Different types of bonus programs and their tradeoffs
 ---
 
 ## Don't forget Goodhart's Law

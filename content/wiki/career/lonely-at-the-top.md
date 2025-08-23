@@ -1,5 +1,7 @@
 ---
 title: Lonely at the top
+icon: 🌄
+description: Dealing with executive isolation and building support networks
 ---
 
 It can be lonely as an executive. Advice from others:

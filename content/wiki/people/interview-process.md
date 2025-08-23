@@ -1,5 +1,7 @@
 ---
 title: Interview process
+icon: 💼
+description: Best practices for interviewing, candidate review meetings, and bias reduction tools
 ---
 
 ## Engineering take home interviews

@@ -1,5 +1,7 @@
 ---
 title: Executive search firms
+icon: 🔍
+description: Executive search firms for technology leadership roles
 ---
 
 ## Using executive search firms

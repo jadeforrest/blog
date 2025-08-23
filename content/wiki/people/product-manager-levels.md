@@ -1,5 +1,7 @@
 ---
 title: Product management levels
+icon: 📎
+description: Career ladders, paths, and compensation frameworks for product management roles
 created at: Sun Feb 02 2025 18:04:19 GMT+0000 (Coordinated Universal Time)
 updated at: Wed Feb 19 2025 22:20:17 GMT+0000 (Coordinated Universal Time)
 ---

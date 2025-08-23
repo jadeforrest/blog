@@ -1,5 +1,7 @@
 ---
 title: Reliability
+icon: 🔧
+description: Resources for building reliable systems including on-call best practices, incident management, and customer communication strategies.
 ---
 
 ## Retrospective Prime Directive

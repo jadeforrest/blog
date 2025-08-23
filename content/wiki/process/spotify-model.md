@@ -1,5 +1,7 @@
 ---
 title: Spotify model
+icon: 🎵
+description: Overview of the functional and matrix organizational structure known as the Spotify model, including variations and adaptations.
 ---
 
 Ah, the infamous Spotify model. Functionally organized, matrix organized, with lots of funny new terms!

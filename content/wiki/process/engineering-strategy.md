@@ -1,5 +1,7 @@
 ---
 title: Engineering strategy
+icon: 🎯
+description: Frameworks for developing engineering strategy, including problem-solving approaches and aligning with product strategy.
 ---
 
 > Do others here leverage some type of engineering strategy in conjunction with a product strategy? I was wondering if that would be a good way to give my head of engineering a place to explore and communicate our architectural and operational options moving forward and the assumptions guiding them. Or, if it would just end up feeling like strategy overload.

@@ -1,5 +1,7 @@
 ---
 title: Metrics
+icon: 📈
+description: Guidance on engineering productivity metrics, board reporting, and approaches to measuring individual and organizational performance.
 ---
 
 ## Productivity metrics

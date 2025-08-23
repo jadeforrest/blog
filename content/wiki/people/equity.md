@@ -1,5 +1,7 @@
 ---
 title: Equity and option grants
+icon: 💰
+description: Frameworks for sizing option grants, refresh grants, and equity compensation
 ---
 
 ## Sizing option grants

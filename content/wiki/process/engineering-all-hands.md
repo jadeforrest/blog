@@ -1,5 +1,7 @@
 ---
 title: Engineering All Hands
+icon: 🗣️
+description: Best practices for conducting effective engineering all-hands meetings, including topics, formats, and Q&A strategies.
 ---
 
 > Does anyone do an Engineering All Hands? If so, what topics do you discuss?

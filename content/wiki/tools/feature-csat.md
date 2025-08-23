@@ -1,5 +1,7 @@
 ---
 title: In-product feature announcements and surveys
+icon: 📝
+description: Tools and platforms for in-product user surveys, feature announcements, CSAT measurements, and user onboarding flows.
 ---
 
 ## In product feature announcements, surveys, measurements

@@ -1,5 +1,7 @@
 ---
 title: Nine boxes - Performance, Potential
+icon: 🗓️
+description: 3x3 grid tool for evaluating employee performance and potential during talent reviews
 ---
 
 ## What is it

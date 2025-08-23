@@ -1,5 +1,7 @@
 ---
 title: Data teams
+icon: 📊
+description: Building and leading data teams and analytics functions
 ---
 
 ## Building a new data function

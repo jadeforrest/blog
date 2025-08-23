@@ -1,5 +1,7 @@
 ---
 title: Remote work
+icon: 🏠
+description: Remote work effectiveness, global team tools, and distributed workforce management
 ---
 
 ## Tradeoffs and nuance

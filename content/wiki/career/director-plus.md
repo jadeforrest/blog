@@ -1,5 +1,7 @@
 ---
 title: Growing into director plus roles
+icon: 🎆
+description: Transitioning to director+ roles and learning business context
 ---
 
 ## Adjusting to Director+ roles

@@ -1,5 +1,7 @@
-
+---
 title: Decision-making
+icon: ⚖️
+description: Models and frameworks for effective decision-making in teams and organizations
 ---
 
 ## Models

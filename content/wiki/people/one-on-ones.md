@@ -1,5 +1,7 @@
 ---
 title: 1:1 Meetings
+icon: 💬
+description: Comprehensive guide to conducting effective one-on-one meetings with direct reports
 ---
 
 ## Not status

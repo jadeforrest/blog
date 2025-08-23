@@ -1,5 +1,7 @@
 ---
 title: Engineering leader salaries
+icon: 💰
+description: Salary information and equity compensation for engineering leaders
 ---
 
 ## Sources

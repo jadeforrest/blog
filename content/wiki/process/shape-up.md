@@ -1,5 +1,7 @@
 ---
 title: Shape Up
+icon: 🔷
+description: Comprehensive overview of Basecamp's Shape Up methodology including six-week cycles, shaping, betting, and scope management techniques.
 ---
 
 Jade's notes

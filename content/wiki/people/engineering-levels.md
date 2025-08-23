@@ -1,5 +1,7 @@
 ---
 title: Engineering levels
+icon: 📊
+description: Career ladders and level frameworks for engineering roles
 ---
 
 I have engineering levels [I've used at a couple of companies](https://www.rubick.com/engineering-levels/).

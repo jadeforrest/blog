@@ -1,5 +1,7 @@
 ---
 title: Pull requests, branching, git
+icon: 🔀
+description: Best practices for pull request size, git strategies, and code review workflows including trunk-based vs git flow approaches.
 ---
 
 ## Size of PRs

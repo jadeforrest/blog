@@ -1,5 +1,7 @@
 ---
 title: Fluid Scaling Technology (FaST)
+icon: ⚡
+description: Overview of FaST agile methodology focusing on collective self-organization, visual goal representation, and short sync cycles.
 ---
 
 ## Resources

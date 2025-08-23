@@ -1,5 +1,7 @@
 ---
 title: Salaries for engineering and product
+icon: 💲
+description: Compensation data, pay equity implementation, and salary benchmarking tools
 ---
 
 ## General overview of comp and equity

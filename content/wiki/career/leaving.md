@@ -1,5 +1,7 @@
 ---
 title: Exit/Leaving a company
+icon: 🚪
+description: Guidelines for leaving a company and managing equity options
 ---
 
 ## Dealing with equity

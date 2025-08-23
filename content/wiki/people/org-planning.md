@@ -1,5 +1,7 @@
 ---
 title: Org planning
+icon: 🏢
+description: Organizational design, power structures, and frameworks for scaling team structures
 ---
 
 ## Use power structures deliberately

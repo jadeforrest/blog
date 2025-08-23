@@ -1,5 +1,7 @@
 ---
 title: Onboarding
+icon: 🎆
+description: Programs, software, and strategies for effective employee onboarding processes
 ---
 
 ## Programs

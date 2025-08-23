@@ -1,5 +1,7 @@
 ---
 title: Team gift ideas
+icon: 🎁
+description: Creative ideas for team rewards, recognition gifts, and team celebrations
 ---
 
 Want to give team gifts? 

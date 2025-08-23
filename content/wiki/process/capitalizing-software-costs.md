@@ -1,5 +1,7 @@
 ---
 title: Capitalizing software costs
+icon: 💰
+description: Understanding software cost capitalization rules, tax implications, and the impact of Section 174 on tech company finances.
 ---
 
 * Usually really worthwhile, but super painful.
