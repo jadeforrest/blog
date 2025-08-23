@@ -248,6 +248,11 @@ const renderWikiStructure = (structure, level = 0, theme) => {
                 </li>
               );
             } else {
+              // Skip entries with no title or empty title
+              if (!item.title || item.title.trim() === '') {
+                return null;
+              }
+              
               return (
                 <li 
                   key={key} 
