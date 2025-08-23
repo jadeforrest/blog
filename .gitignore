@@ -73,3 +73,8 @@ yarn-error.log
 report/
 
 *~
+
+# Generated content
+bluesky-sent.json
+linkedin-sent.json
+extracted-content/
