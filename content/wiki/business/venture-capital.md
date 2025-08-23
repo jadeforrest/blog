@@ -1,5 +1,7 @@
 ---
 title: Venture capital
+icon: 🚀
+description: Venture capital, fundraising, and startup investment resources
 ---
 
 * [Female founded VC firms](https://thefutureisfemale.notion.site/6504695b68d44560bb2a35e21326cef9?v=829a595d4e0b4b2fb5c274475a784d7f)

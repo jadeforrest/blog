@@ -45,6 +45,8 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
   wikiPages.forEach(({ node }) => {
     const slug = node.fields.slug;
     const title = node.frontmatter.title;
+    const icon = node.frontmatter.icon;
+    const description = node.frontmatter.description;
 
     // Skip the root index page itself
     if (slug === "/" || slug === "/index/") {
@@ -126,6 +128,8 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
         isDirectory: false,
         title: title,
         slug: normalizedSlug,
+        icon: icon,
+        description: description,
       };
     }
   });
@@ -151,87 +155,192 @@ const countPagesInDirectory = (children) => {
 const renderWikiStructure = (structure, level = 0, theme) => {
   if (level === 0) {
     // Root level - use card-based layout
+    const items = Object.keys(structure).sort();
+    const hasAnyItemsWithMetadata = items.some(key => {
+      const item = structure[key];
+      return !item.isDirectory && item.icon && item.description;
+    });
+
+    // If we have individual pages with metadata, wrap them in a single card
+    if (hasAnyItemsWithMetadata) {
+      return (
+        <div className="wiki-grid">
+          <div 
+            className="wiki-category-card"
+            style={{
+              border: '3px solid #999999',
+              borderRadius: '8px',
+              padding: '24px',
+              marginBottom: '24px',
+              backgroundColor: 'white',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              display: 'block',
+              width: '100%'
+            }}
+          >
+            <div className="wiki-category-content">
+              {items.map((key) => {
+                const item = structure[key];
+
+                if (item.isDirectory) {
+                  return (
+                    <div key={key} className="wiki-nested-directory">
+                      <div className="wiki-nested-directory-title">
+                        <span className="wiki-nested-icon">{item.icon || "📁"}</span>
+                        {item.title || key}/
+                      </div>
+                      <div className="wiki-nested-children">
+                        {renderWikiStructure(item.children, level + 1, theme)}
+                      </div>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div 
+                      key={key} 
+                      className="wiki-page-item-with-metadata"
+                      style={{
+                        marginBottom: '20px',
+                        paddingBottom: '16px',
+                        borderBottom: items.indexOf(key) < items.length - 1 ? '1px solid #e5e7eb' : 'none'
+                      }}
+                    >
+                      <div 
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          marginBottom: '8px'
+                        }}
+                      >
+                        {item.icon && (
+                          <span 
+                            style={{ 
+                              marginRight: '12px', 
+                              fontSize: '1.2em',
+                              flexShrink: 0,
+                              lineHeight: '1.4em'
+                            }}
+                          >
+                            {item.icon}
+                          </span>
+                        )}
+                        <div style={{ flex: 1 }}>
+                          <Link 
+                            to={`/wiki${item.slug}`}
+                            style={{
+                              color: '#2563EB',
+                              textDecoration: 'none',
+                              fontSize: '1.1em',
+                              fontWeight: 500,
+                              lineHeight: '1.4em'
+                            }}
+                          >
+                            {item.title}
+                          </Link>
+                          {item.description && (
+                            <div 
+                              style={{
+                                color: '#6b7280',
+                                fontSize: '0.95em',
+                                marginTop: '4px',
+                                lineHeight: 1.5
+                              }}
+                            >
+                              {item.description}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Original logic for directories and simple pages
     return (
       <div className="wiki-grid">
-        {Object.keys(structure)
-          .sort()
-          .map((key) => {
-            const item = structure[key];
+        {items.map((key) => {
+          const item = structure[key];
 
-            if (item.isDirectory) {
-              return (
+          if (item.isDirectory) {
+            return (
+              <div 
+                key={key} 
+                className="wiki-category-card"
+                style={{
+                  border: '3px solid #999999',
+                  borderRadius: '8px',
+                  padding: '24px',
+                  marginBottom: '24px',
+                  backgroundColor: 'white',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                  display: 'block',
+                  width: '100%'
+                }}
+              >
                 <div 
-                  key={key} 
-                  className="wiki-category-card"
+                  className="wiki-category-header"
                   style={{
-                    border: '3px solid #999999',
-                    borderRadius: '8px',
-                    padding: '24px',
-                    marginBottom: '24px',
-                    backgroundColor: 'white',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    display: 'block',
-                    width: '100%'
+                    marginBottom: '16px',
+                    paddingBottom: '8px',
+                    borderBottom: '1px solid #ccc'
                   }}
                 >
-                  <div 
-                    className="wiki-category-header"
+                  <h3 
+                    className="wiki-category-title"
                     style={{
-                      marginBottom: '16px',
-                      paddingBottom: '8px',
-                      borderBottom: '1px solid #ccc'
+                      margin: 0,
+                      fontSize: '1.4em',
+                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center'
                     }}
                   >
-                    <h3 
-                      className="wiki-category-title"
-                      style={{
-                        margin: 0,
-                        fontSize: '1.4em',
-                        fontWeight: 600,
-                        display: 'flex',
-                        alignItems: 'center'
-                      }}
+                    <span 
+                      className="wiki-category-icon"
+                      style={{ marginRight: '12px' }}
                     >
-                      <span 
-                        className="wiki-category-icon"
-                        style={{ marginRight: '12px' }}
-                      >
-                        {item.icon}
-                      </span>
-                      {item.title}
-                    </h3>
-                  </div>
-                  {item.description && (
-                    <div 
-                      className="wiki-category-description"
-                      style={{
-                        color: '#6b7280',
-                        fontSize: '1em',
-                        marginBottom: '16px',
-                        lineHeight: 1.5
-                      }}
-                    >
-                      {item.description}
-                    </div>
-                  )}
-                  <div 
-                    className="wiki-category-content"
-                    style={{ marginTop: '16px' }}
-                  >
-                    {renderWikiStructure(item.children, level + 1, theme)}
-                  </div>
-                </div>
-              );
-            } else {
-              return (
-                <div key={key} className="wiki-single-page-card">
-                  <Link to={`/wiki${item.slug}`} className="wiki-page-link">
+                      {item.icon}
+                    </span>
                     {item.title}
-                  </Link>
+                  </h3>
                 </div>
-              );
-            }
-          })}
+                {item.description && (
+                  <div 
+                    className="wiki-category-description"
+                    style={{
+                      color: '#6b7280',
+                      fontSize: '1em',
+                      marginBottom: '16px',
+                      lineHeight: 1.5
+                    }}
+                  >
+                    {item.description}
+                  </div>
+                )}
+                <div 
+                  className="wiki-category-content"
+                  style={{ marginTop: '16px' }}
+                >
+                  {renderWikiStructure(item.children, level + 1, theme)}
+                </div>
+              </div>
+            );
+          } else {
+            return (
+              <div key={key} className="wiki-single-page-card">
+                <Link to={`/wiki${item.slug}`} className="wiki-page-link">
+                  {item.title}
+                </Link>
+              </div>
+            );
+          }
+        })}
       </div>
     );
   } else {
