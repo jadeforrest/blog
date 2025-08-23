@@ -5,6 +5,7 @@ const path = require('path');
 const https = require('https');
 const http = require('http');
 const { URL } = require('url');
+const { execSync } = require('child_process');
 
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
@@ -487,9 +488,15 @@ async function postToBluesky(post, session, options = {}) {
   
   console.log(`${dryRun ? '[DRY RUN] ' : ''}Posting: "${post.text.substring(0, 50)}..."`);
   
+  // Process content length (truncate or shorten if over 300 characters)
+  const processedText = await processContentLength(post.text);
+  
   if (dryRun) {
     console.log(`  Would post to Bluesky with URL card: ${post.url}`);
-    return { success: true, dryRun: true };
+    if (processedText !== post.text) {
+      console.log(`  Content was processed from ${post.text.length} to ${processedText.length} characters`);
+    }
+    return { success: true, dryRun: true, processedText };
   }
 
   try {
@@ -526,7 +533,7 @@ async function postToBluesky(post, session, options = {}) {
     
     // Create the post record with embed
     const record = {
-      text: post.text,
+      text: processedText,
       createdAt: new Date().toISOString(),
       langs: ['en'],
       embed: {
@@ -553,10 +560,51 @@ async function postToBluesky(post, session, options = {}) {
 
     const response = await makeBlueskyRequest('com.atproto.repo.createRecord', postData, session.accessJwt);
     console.log(`  ✓ Posted successfully with card embed (URI: ${response.uri || 'unknown'})`);
-    return { success: true, response };
+    return { success: true, response, processedText };
   } catch (error) {
     console.error(`  ✗ Failed to post: ${error.message}`);
     throw error;
+  }
+}
+
+/**
+ * Truncate or shorten content using Claude Code if over 300 characters
+ */
+async function processContentLength(text) {
+  if (text.length <= 300) {
+    return text;
+  }
+  
+  console.log(`  Content is ${text.length} characters, attempting to shorten...`);
+  console.log(`  Original: "${text}"`);
+  
+  try {
+    // Use Claude Code to generate a shorter version
+    const prompt = `Please create a shorter version of this content that is under 300 characters while preserving the main message:\n\n${text}`;
+    
+    // Execute claude command with the prompt, using stdin to avoid shell escaping issues
+    const result = execSync('claude', { 
+      input: prompt,
+      encoding: 'utf8',
+      timeout: 30000 // 30 second timeout
+    });
+    
+    const shortened = result.trim();
+    
+    if (shortened.length <= 300 && shortened.length > 0) {
+      console.log(`  ✓ Shortened from ${text.length} to ${shortened.length} characters using Claude Code`);
+      console.log(`  Shortened: "${shortened}"`);
+      return shortened;
+    } else {
+      console.log(`  Claude Code response was ${shortened.length} characters, falling back to truncation`);
+      throw new Error('Claude response too long or empty');
+    }
+  } catch (error) {
+    console.log(`  Claude Code shortening failed (${error.message}), truncating to 300 characters`);
+    const truncated = text.substring(0, 297) + '...';
+    console.log(`  Truncated: "${truncated}"`);
+    // Fallback to simple truncation
+    return truncated;
   }
 }
 
@@ -637,7 +685,7 @@ async function main() {
         // Mark as sent in tracking
         sentTracking[postToProcess.id] = {
           sentAt: new Date().toISOString(),
-          text: postToProcess.text,
+          text: result.processedText || postToProcess.text,
           url: postToProcess.url,
           sourceFile: postToProcess.sourceFile,
           dryRun: false
