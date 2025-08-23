@@ -695,7 +695,7 @@ const WikiTemplate = (props) => {
                   transform: translateY(-1px);
                 }
 
-                .wiki-page-link {
+                .wiki-single-page-card .wiki-page-link {
                   display: flex;
                   align-items: center;
                   gap: ${theme.space.xs};
@@ -704,7 +704,7 @@ const WikiTemplate = (props) => {
                   font-weight: 500;
                 }
 
-                .wiki-page-link:hover {
+                .wiki-single-page-card .wiki-page-link:hover {
                   color: ${theme.color.brand.primaryActive};
                 }
 
@@ -736,26 +736,6 @@ const WikiTemplate = (props) => {
                   padding-left: ${theme.space.l};
                 }
 
-                .wiki-page-link {
-                  color: ${theme.color.brand.primary};
-                  text-decoration: none;
-                  font-size: 0.95em;
-                  padding: ${theme.space.xs} 0;
-                  display: block;
-                  transition: color 0.2s ease;
-                }
-
-                .wiki-page-link:hover {
-                  color: ${theme.color.brand.primaryActive || theme.color.brand.primary};
-                  text-decoration: underline;
-                }
-
-                .wiki-page-link:before {
-                  content: "•";
-                  color: ${theme.color.neutral.gray.f};
-                  margin-right: ${theme.space.xs};
-                  margin-left: ${theme.space.l};
-                }
 
                 /* Nested directory styles */
                 .wiki-nested-directory {
