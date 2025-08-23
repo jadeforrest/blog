@@ -524,108 +524,105 @@ const WikiTemplate = (props) => {
       <ThemeContext.Consumer>
         {(theme) => (
           <div className="wiki-template">
-            <React.Fragment>
-              {!isIndexPage && (
-                <div className="wiki-edit-header">
-                  <a
-                    href={githubEditUrl}
-                    className="wiki-edit-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Edit this page on github
-                  </a>
+            {!isIndexPage && (
+              <div className="wiki-edit-header">
+                <a
+                  href={githubEditUrl}
+                  className="wiki-edit-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Edit this page on github
+                </a>
+              </div>
+            )}
+
+            <Article theme={theme}>
+              {/* Breadcrumbs inside article */}
+              {breadcrumbs.length > 1 && (
+                <div className="wiki-breadcrumbs">
+                  {breadcrumbs.map((crumb, index) => (
+                    <span key={index} className="breadcrumb-item">
+                      {index > 0 && <span className="breadcrumb-separator"> › </span>}
+                      {crumb.path ? (
+                        <Link to={crumb.path} className="breadcrumb-link">
+                          {crumb.title}
+                        </Link>
+                      ) : (
+                        <span className="breadcrumb-current">{crumb.title}</span>
+                      )}
+                    </span>
+                  ))}
                 </div>
               )}
-
-              <Article theme={theme}>
-                {/* Breadcrumbs inside article */}
-                {breadcrumbs.length > 1 && (
-                  <div className="wiki-breadcrumbs">
-                    {breadcrumbs.map((crumb, index) => (
-                      <span key={index} className="breadcrumb-item">
-                        {index > 0 && <span className="breadcrumb-separator"> › </span>}
-                        {crumb.path ? (
-                          <Link to={crumb.path} className="breadcrumb-link">
-                            {crumb.title}
-                          </Link>
-                        ) : (
-                          <span className="breadcrumb-current">{crumb.title}</span>
-                        )}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {isIndexPage && allWikiPages ? (
-                  <div>
-                    <h1>
-                      {page
-                        ? page.frontmatter.title
-                        : directoryPath
-                        ? directoryPath.replace(/\/$/, "").split("/").pop()
-                        : "Wiki"}
-                    </h1>
-                    {/* Show page content if it exists (for directory index pages) */}
-                    {page && page.html && (
-                      <div
-                        className="wiki-page-content"
-                        dangerouslySetInnerHTML={{ __html: page.html }}
-                      />
+              {isIndexPage && allWikiPages ? (
+                <div>
+                  <h1>
+                    {page
+                      ? page.frontmatter.title
+                      : directoryPath
+                      ? directoryPath.replace(/\/$/, "").split("/").pop()
+                      : "Wiki"}
+                  </h1>
+                  {/* Show page content if it exists (for directory index pages) */}
+                  {page && page.html && (
+                    <div
+                      className="wiki-page-content"
+                      dangerouslySetInnerHTML={{ __html: page.html }}
+                    />
+                  )}
+                  <div style={{ marginTop: "2em" }}>
+                    {renderWikiStructure(
+                      buildWikiStructure(allWikiPages.edges, directoryPath),
+                      0,
+                      theme
                     )}
-                    <div style={{ marginTop: "2em" }}>
-                      {renderWikiStructure(
-                        buildWikiStructure(allWikiPages.edges, directoryPath),
-                        0,
-                        theme
-                      )}
-                    </div>
                   </div>
-                ) : (
-                  <Page page={page} theme={theme} />
-                )}
-              </Article>
+                </div>
+              ) : (
+                <Page page={page} theme={theme} />
+              )}
+            </Article>
 
-              <style dangerouslySetInnerHTML={{
-                __html: `
-                  .wiki-template h1 {
-                    margin: 2em 0 1em !important;
-                    line-height: 1.3 !important;
-                    padding: 1em 0 0.5em 0 !important;
-                  }
-                  
-                  .wiki-template h2 {
-                    margin: 2.5em 0 1.2em !important;
-                    line-height: 1.4 !important;
-                    padding: 1.5em 0 0.8em 0 !important;
-                  }
-                  
-                  .wiki-template h3 {
-                    margin: 2em 0 1em !important;
-                    line-height: 1.4 !important;
-                    padding: 1em 0 0.5em 0 !important;
-                  }
-                  
-                  .wiki-template p {
-                    margin: 0 0 1.8em 0 !important;
-                    line-height: 1.7 !important;
-                    padding-bottom: 0.5em !important;
-                  }
-                  
-                  .wiki-template ul {
-                    margin: 0 0 1.8em 0 !important;
-                    line-height: 1.7 !important;
-                    padding-bottom: 1em !important;
-                  }
-                  
-                  .wiki-template li {
-                    margin: 0.8em 0 !important;
-                    line-height: 1.7 !important;
-                    padding: 0.3em 0 !important;
-                  }
-                `
-              }} />
-
-            </React.Fragment>
+            {/* --- STYLES --- */}
+            {/* eslint-disable-next-line react/no-unknown-property */}
+            <style jsx global>{`
+              .wiki-template h1 {
+                margin: 2em 0 1em !important;
+                line-height: 1.3 !important;
+                padding: 1em 0 0.5em 0 !important;
+              }
+              
+              .wiki-template h2 {
+                margin: 2.5em 0 1.2em !important;
+                line-height: 1.4 !important;
+                padding: 1.5em 0 0.8em 0 !important;
+              }
+              
+              .wiki-template h3 {
+                margin: 2em 0 1em !important;
+                line-height: 1.4 !important;
+                padding: 1em 0 0.5em 0 !important;
+              }
+              
+              .wiki-template p {
+                margin: 0 0 1.8em 0 !important;
+                line-height: 1.7 !important;
+                padding-bottom: 0.5em !important;
+              }
+              
+              .wiki-template ul {
+                margin: 0 0 1.8em 0 !important;
+                line-height: 1.7 !important;
+                padding-bottom: 1em !important;
+              }
+              
+              .wiki-template li {
+                margin: 0.8em 0 !important;
+                line-height: 1.7 !important;
+                padding: 0.3em 0 !important;
+              }
+            `}</style>
           </div>
         )}
       </ThemeContext.Consumer>
