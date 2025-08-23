@@ -56,21 +56,8 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
       return;
     }
 
-    // Skip directory landing pages that correspond to index files
-    // These are pages like /business/ where there's also a /business/index/ file
-    if (slug.endsWith("/") && slug.split("/").length === 3) {
-      const normalizedSlug = slug.replace(/\/$/, "");
-      const hasIndexFile = wikiPages.some(({ node: indexNode }) => {
-        const indexSlug = indexNode.fields.slug;
-        return indexSlug === `${normalizedSlug}/index/` || indexSlug === `${normalizedSlug}/index`;
-      });
-      
-      // Skip directory landing pages only if they have explicit index files
-      if (hasIndexFile) {
-        return;
-      }
-      // Otherwise, treat pages with trailing slashes as regular pages
-    }
+    // Don't skip directory landing pages - we need them to build the directory structure
+    // The index files provide metadata, but the directory pages provide the structure
 
     // If filtering for a specific path, only include pages in that path
     if (filterPath) {
@@ -97,11 +84,11 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
     let current = structure;
     for (let i = 0; i < adjustedParts.length - 1; i++) {
       const dir = adjustedParts[i];
+      // Get metadata for this directory
+      const dirPath = "/" + pathParts.slice(0, i + 1).join("/");
+      const metadata = directoryMetadata[dirPath] || {};
+      
       if (!current[dir]) {
-        // Get metadata for this directory
-        const dirPath = "/" + pathParts.slice(0, i + 1).join("/");
-        const metadata = directoryMetadata[dirPath] || {};
-
         current[dir] = {
           isDirectory: true,
           children: {},
@@ -109,7 +96,13 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
           icon: metadata.icon || "📁",
           description: metadata.description,
         };
+      } else {
+        // Directory already exists, but update with metadata if we have it
+        if (metadata.title) current[dir].title = metadata.title;
+        if (metadata.icon) current[dir].icon = metadata.icon;
+        if (metadata.description !== undefined) current[dir].description = metadata.description;
       }
+      
       // Ensure we have a valid directory structure
       if (!current[dir] || !current[dir].children) {
         current[dir] = {
@@ -126,14 +119,18 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
     // Add the page
     const fileName = adjustedParts[adjustedParts.length - 1];
     if (current && typeof current === "object") {
+      // For wiki pages, remove trailing slash to match the actual page URLs created in gatsby-node.js
+      const normalizedSlug = slug.endsWith("/") && !slug.endsWith("/index/") ? slug.replace(/\/$/, "") : slug;
+      
       current[fileName] = {
         isDirectory: false,
         title: title,
-        slug: slug,
+        slug: normalizedSlug,
       };
     }
   });
 
+  
   return structure;
 };
 
@@ -321,9 +318,10 @@ const WikiTemplate = (props) => {
   // Check if this is an index page (root or subdirectory)
   // An index page is when we don't have page content (markdown file doesn't exist)
   // OR it's the root wiki index
+  // OR it's a subdirectory that ends with "/" (which means it should show directory listing)
   const isRootIndexPage = pageContext.slug === "/" || pageContext.slug === "/index/";
   const isSubdirectoryIndexPage =
-    !page && pageContext.slug.endsWith("/") && pageContext.slug !== "/";
+    pageContext.slug.endsWith("/") && pageContext.slug !== "/";
   const isIndexPage = isRootIndexPage || isSubdirectoryIndexPage;
 
   // Get the directory path for subdirectory index pages
