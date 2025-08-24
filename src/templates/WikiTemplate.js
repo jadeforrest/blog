@@ -588,21 +588,24 @@ const WikiTemplate = (props) => {
             {/* eslint-disable-next-line react/no-unknown-property */}
             <style jsx global>{`
               .wiki-template h1 {
-                margin: 2em 0 1em !important;
+                margin: 0.5em 0 0.2em !important;
                 line-height: 1.3 !important;
-                padding: 1em 0 0.5em 0 !important;
+                padding: 0.2em 0 0.1em 0 !important;
+                font-size: 2.5em !important;
               }
               
               .wiki-template h2 {
-                margin: 2.5em 0 1.2em !important;
+                margin: 0.6em 0 0.3em !important;
                 line-height: 1.4 !important;
-                padding: 1.5em 0 0.8em 0 !important;
+                padding: 0.4em 0 0.2em 0 !important;
+                font-size: 2em !important;
               }
               
               .wiki-template h3 {
-                margin: 2em 0 1em !important;
+                margin: 0.5em 0 0.2em !important;
                 line-height: 1.4 !important;
-                padding: 1em 0 0.5em 0 !important;
+                padding: 0.2em 0 0.1em 0 !important;
+                font-size: 1.6em !important;
               }
               
               .wiki-template p {
@@ -618,9 +621,9 @@ const WikiTemplate = (props) => {
               }
               
               .wiki-template li {
-                margin: 0.8em 0 !important;
+                margin: 0.3em 0 !important;
                 line-height: 1.7 !important;
-                padding: 0.3em 0 !important;
+                padding: 0.1em 0 !important;
               }
             `}</style>
           </div>
