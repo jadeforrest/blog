@@ -37,12 +37,12 @@ One thing I like about Fellow is that it helps me plan out my week more effectiv
 
 <re-img src="reclaimai.png"></re-img>
 
-[ReclaimAI](https://reclaim.ai/) is a tool to make your calendar more productive. It has a number of really useful tools to help you:
+[ReclaimAI](https://reclaim.ai/r/s/L8iue) is a tool to make your calendar more productive. It has a number of really useful tools to help you:
 
 * A calendar sync tool, that moves entries between your personal and work calendar. This can make sure your personal items that happen during your work day (like going to the doctor) are blocked off. Reclaim even puts travel time around the entries! 
 * Habits, which allow you to put in place blocks of time that flexibly move around your existing calendar entries, but ensure they happen anyway. For example, you can set a daily lunch schedule, that moves a bit if you have something else scheduled. Or you can set some time every Friday afternoon to write up a report at the end of the week. It's a nice way to make sure you do things you need to every week, but flexible enough it moves around your existing schedule.
-* Tasks, which is a way to declare what you need to get done, and it will block off the time in your calendar for it. Again, it's sensitive to what's already there. You need 4 hours to finish a presentation? It will find the time for it, and block it off. 
+* Tasks, which is a way to declare what you need to get done, and it will block off the time in your calendar for it. Again, it's sensitive to what's already there. You need 4 hours to finish a presentation? It will find the time for it, and block it off. I absolutely love this and need it in my life. It means I can put things in my todo list, categorize them, and then never think about them again. There is a page on the Reclaim site that shows me any commitments I've made that I might not be able to keep.
 
-Full disclosure, I know the team behind Reclaim. But I've been using it for a while now and find it invaluable. Try it out!
+Full disclosure, I know the team behind Reclaim. But I've been using it for a while now and find it invaluable. I also put a referral link in there, as I might as well get credit if you use it. But it's something I recommend without reservation. Try it out!
 
 _Photo by <a href="https://freeimages.com/photographer/3lum-29424">Michael P***</a> from <a href="https://freeimages.com/">FreeImages</a>_
