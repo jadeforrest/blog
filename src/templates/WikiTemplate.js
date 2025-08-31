@@ -89,7 +89,7 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
       // Get metadata for this directory
       const dirPath = "/" + pathParts.slice(0, i + 1).join("/");
       const metadata = directoryMetadata[dirPath] || {};
-      
+
       if (!current[dir]) {
         current[dir] = {
           isDirectory: true,
@@ -104,7 +104,7 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
         if (metadata.icon) current[dir].icon = metadata.icon;
         if (metadata.description !== undefined) current[dir].description = metadata.description;
       }
-      
+
       // Ensure we have a valid directory structure (but don't overwrite existing metadata)
       if (!current[dir] || !current[dir].children) {
         if (!current[dir]) {
@@ -127,8 +127,9 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
     const fileName = adjustedParts[adjustedParts.length - 1];
     if (current && typeof current === "object") {
       // For wiki pages, remove trailing slash to match the actual page URLs created in gatsby-node.js
-      const normalizedSlug = slug.endsWith("/") && !slug.endsWith("/index/") ? slug.replace(/\/$/, "") : slug;
-      
+      const normalizedSlug =
+        slug.endsWith("/") && !slug.endsWith("/index/") ? slug.replace(/\/$/, "") : slug;
+
       current[fileName] = {
         isDirectory: false,
         title: title,
@@ -139,7 +140,6 @@ const buildWikiStructure = (wikiPages, filterPath = null) => {
     }
   });
 
-  
   return structure;
 };
 
@@ -161,7 +161,7 @@ const renderWikiStructure = (structure, level = 0, theme) => {
   if (level === 0) {
     // Root level - use card-based layout
     const items = Object.keys(structure).sort();
-    const hasAnyItemsWithMetadata = items.some(key => {
+    const hasAnyItemsWithMetadata = items.some((key) => {
       const item = structure[key];
       return !item.isDirectory && item.icon && item.description;
     });
@@ -170,17 +170,17 @@ const renderWikiStructure = (structure, level = 0, theme) => {
     if (hasAnyItemsWithMetadata) {
       return (
         <div className="wiki-grid">
-          <div 
+          <div
             className="wiki-category-card"
             style={{
-              border: '3px solid #999999',
-              borderRadius: '8px',
-              padding: '24px',
-              marginBottom: '24px',
-              backgroundColor: 'white',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-              display: 'block',
-              width: '100%'
+              border: "3px solid #999999",
+              borderRadius: "8px",
+              padding: "24px",
+              marginBottom: "24px",
+              backgroundColor: "white",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              display: "block",
+              width: "100%",
             }}
           >
             <div className="wiki-category-content">
@@ -201,54 +201,55 @@ const renderWikiStructure = (structure, level = 0, theme) => {
                   );
                 } else {
                   return (
-                    <div 
-                      key={key} 
+                    <div
+                      key={key}
                       className="wiki-page-item-with-metadata"
                       style={{
-                        marginBottom: '20px',
-                        paddingBottom: '16px',
-                        borderBottom: items.indexOf(key) < items.length - 1 ? '1px solid #e5e7eb' : 'none'
+                        marginBottom: "20px",
+                        paddingBottom: "16px",
+                        borderBottom:
+                          items.indexOf(key) < items.length - 1 ? "1px solid #e5e7eb" : "none",
                       }}
                     >
-                      <div 
+                      <div
                         style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          marginBottom: '8px'
+                          display: "flex",
+                          alignItems: "flex-start",
+                          marginBottom: "8px",
                         }}
                       >
                         {item.icon && (
-                          <span 
-                            style={{ 
-                              marginRight: '12px', 
-                              fontSize: '1.2em',
+                          <span
+                            style={{
+                              marginRight: "12px",
+                              fontSize: "1.2em",
                               flexShrink: 0,
-                              lineHeight: '1.4em'
+                              lineHeight: "1.4em",
                             }}
                           >
                             {item.icon}
                           </span>
                         )}
                         <div style={{ flex: 1 }}>
-                          <Link 
+                          <Link
                             to={`/wiki${item.slug}`}
                             style={{
-                              color: '#2563EB',
-                              textDecoration: 'none',
-                              fontSize: '1.1em',
+                              color: "#2563EB",
+                              textDecoration: "none",
+                              fontSize: "1.1em",
                               fontWeight: 500,
-                              lineHeight: '1.4em'
+                              lineHeight: "1.4em",
                             }}
                           >
                             {item.title}
                           </Link>
                           {item.description && (
-                            <div 
+                            <div
                               style={{
-                                color: '#6b7280',
-                                fontSize: '0.95em',
-                                marginTop: '4px',
-                                lineHeight: 1.5
+                                color: "#6b7280",
+                                fontSize: "0.95em",
+                                marginTop: "4px",
+                                lineHeight: 1.5,
                               }}
                             >
                               {item.description}
@@ -274,64 +275,58 @@ const renderWikiStructure = (structure, level = 0, theme) => {
 
           if (item.isDirectory) {
             return (
-              <div 
-                key={key} 
+              <div
+                key={key}
                 className="wiki-category-card"
                 style={{
-                  border: '3px solid #999999',
-                  borderRadius: '8px',
-                  padding: '24px',
-                  marginBottom: '24px',
-                  backgroundColor: 'white',
-                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                  display: 'block',
-                  width: '100%'
+                  border: "3px solid #999999",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  marginBottom: "24px",
+                  backgroundColor: "white",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                  display: "block",
+                  width: "100%",
                 }}
               >
-                <div 
+                <div
                   className="wiki-category-header"
                   style={{
-                    marginBottom: '16px',
-                    paddingBottom: '8px',
-                    borderBottom: '1px solid #ccc'
+                    marginBottom: "16px",
+                    paddingBottom: "8px",
+                    borderBottom: "1px solid #ccc",
                   }}
                 >
-                  <h3 
+                  <h3
                     className="wiki-category-title"
                     style={{
                       margin: 0,
-                      fontSize: '1.4em',
+                      fontSize: "1.4em",
                       fontWeight: 600,
-                      display: 'flex',
-                      alignItems: 'center'
+                      display: "flex",
+                      alignItems: "center",
                     }}
                   >
-                    <span 
-                      className="wiki-category-icon"
-                      style={{ marginRight: '12px' }}
-                    >
+                    <span className="wiki-category-icon" style={{ marginRight: "12px" }}>
                       {item.icon}
                     </span>
                     {item.title}
                   </h3>
                 </div>
                 {item.description && (
-                  <div 
+                  <div
                     className="wiki-category-description"
                     style={{
-                      color: '#6b7280',
-                      fontSize: '1em',
-                      marginBottom: '16px',
-                      lineHeight: 1.5
+                      color: "#6b7280",
+                      fontSize: "1em",
+                      marginBottom: "16px",
+                      lineHeight: 1.5,
                     }}
                   >
                     {item.description}
                   </div>
                 )}
-                <div 
-                  className="wiki-category-content"
-                  style={{ marginTop: '16px' }}
-                >
+                <div className="wiki-category-content" style={{ marginTop: "16px" }}>
                   {renderWikiStructure(item.children, level + 1, theme)}
                 </div>
               </div>
@@ -339,31 +334,39 @@ const renderWikiStructure = (structure, level = 0, theme) => {
           } else {
             return (
               <div key={key} className="wiki-single-page-card">
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
                   {item.icon && (
-                    <span style={{ 
-                      fontSize: '1.2em', 
-                      flexShrink: 0,
-                      lineHeight: '1.4em'
-                    }}>
+                    <span
+                      style={{
+                        fontSize: "1.2em",
+                        flexShrink: 0,
+                        lineHeight: "1.4em",
+                      }}
+                    >
                       {item.icon}
                     </span>
                   )}
                   <div style={{ flex: 1 }}>
-                    <Link to={`/wiki${item.slug}`} className="wiki-page-link" style={{ 
-                      fontSize: '1.1em',
-                      fontWeight: 500,
-                      display: 'block',
-                      marginBottom: item.description ? '4px' : '0'
-                    }}>
+                    <Link
+                      to={`/wiki${item.slug}`}
+                      className="wiki-page-link"
+                      style={{
+                        fontSize: "1.1em",
+                        fontWeight: 500,
+                        display: "block",
+                        marginBottom: item.description ? "4px" : "0",
+                      }}
+                    >
                       {item.title}
                     </Link>
                     {item.description && (
-                      <div style={{
-                        color: '#6b7280',
-                        fontSize: '0.95em',
-                        lineHeight: 1.5
-                      }}>
+                      <div
+                        style={{
+                          color: "#6b7280",
+                          fontSize: "0.95em",
+                          lineHeight: 1.5,
+                        }}
+                      >
                         {item.description}
                       </div>
                     )}
@@ -398,38 +401,40 @@ const renderWikiStructure = (structure, level = 0, theme) => {
               );
             } else {
               // Skip entries with no title or empty title
-              if (!item.title || item.title.trim() === '') {
+              if (!item.title || item.title.trim() === "") {
                 return null;
               }
-              
+
               return (
-                <li 
-                  key={key} 
+                <li
+                  key={key}
                   className="wiki-page-item"
-                  style={{ 
-                    paddingLeft: '0px',
-                    listStyle: 'none',
-                    display: 'flex',
-                    alignItems: 'flex-start'
+                  style={{
+                    paddingLeft: "0px",
+                    listStyle: "none",
+                    display: "flex",
+                    alignItems: "flex-start",
                   }}
                 >
-                  <span style={{ 
-                    marginRight: '8px', 
-                    marginLeft: '24px', 
-                    color: '#9CA3AF',
-                    fontSize: '1.2em',
-                    lineHeight: '1.4em'
-                  }}>
+                  <span
+                    style={{
+                      marginRight: "8px",
+                      marginLeft: "24px",
+                      color: "#9CA3AF",
+                      fontSize: "1.2em",
+                      lineHeight: "1.4em",
+                    }}
+                  >
                     •
                   </span>
-                  <Link 
-                    to={`/wiki${item.slug}`} 
+                  <Link
+                    to={`/wiki${item.slug}`}
                     className="wiki-page-link"
                     style={{
-                      color: '#2563EB',
-                      textDecoration: 'none',
-                      fontSize: '0.95em',
-                      lineHeight: '1.4em'
+                      color: "#2563EB",
+                      textDecoration: "none",
+                      fontSize: "0.95em",
+                      lineHeight: "1.4em",
                     }}
                   >
                     {item.title}
@@ -444,9 +449,23 @@ const renderWikiStructure = (structure, level = 0, theme) => {
 };
 
 const WikiTemplate = (props) => {
-  const page = props.data.page;
+  let page = props.data.page;
   const allWikiPages = props.data.allWikiPages;
   const { pageContext } = props;
+
+  // For directory pages without direct content, try to find the index page
+  if (!page && pageContext.slug.endsWith("/") && pageContext.slug !== "/") {
+    const indexSlug = pageContext.slug + "index/";
+    const indexPageNode = allWikiPages.edges.find(({ node }) => node.fields.slug === indexSlug);
+    if (indexPageNode) {
+      page = {
+        id: indexPageNode.node.id,
+        html: indexPageNode.node.html,
+        htmlAst: indexPageNode.node.htmlAst,
+        frontmatter: indexPageNode.node.frontmatter,
+      };
+    }
+  }
 
   // Generate GitHub edit URL based on the page slug
   let slug = pageContext.slug.endsWith("/") ? pageContext.slug.slice(0, -1) : pageContext.slug;
@@ -454,19 +473,34 @@ const WikiTemplate = (props) => {
   if (slug === "") {
     slug = "/index";
   }
+  // For directory pages that use index content, point to the index.md file
+  if (pageContext.slug.endsWith("/") && pageContext.slug !== "/" && page) {
+    slug = slug + "/index";
+  }
   const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki${slug}.md`;
 
   // Check if this is an index page (root or subdirectory)
-  // An index page is when we don't have page content (markdown file doesn't exist)
-  // OR it's the root wiki index
-  // OR it's a subdirectory that ends with "/" (which means it should show directory listing)
+  // Index pages show directory listings. We distinguish:
+  // - Root wiki index: "/" or "/index/"
+  // - Directory index pages: "/tools/index/" (explicit index pages)
+  // - Directory pages: "/tools/" (auto-generated, no direct markdown content)
+  // - Regular pages: have direct page content, even if slug ends with "/"
   const isRootIndexPage = pageContext.slug === "/" || pageContext.slug === "/index/";
-  const isSubdirectoryIndexPage =
-    pageContext.slug.endsWith("/") && pageContext.slug !== "/";
-  const isIndexPage = isRootIndexPage || isSubdirectoryIndexPage;
+  const isDirectoryIndexPage = pageContext.slug.endsWith("/index/");
+  // Directory page: ends with "/" but NOT "/index/"
+  const isDirectoryPage =
+    pageContext.slug.endsWith("/") &&
+    pageContext.slug !== "/" &&
+    !pageContext.slug.endsWith("/index/");
+  const isIndexPage = isRootIndexPage || isDirectoryIndexPage || isDirectoryPage;
 
   // Get the directory path for subdirectory index pages
-  const directoryPath = isSubdirectoryIndexPage ? pageContext.slug : null;
+  const directoryPath =
+    isDirectoryIndexPage || isDirectoryPage
+      ? pageContext.slug.endsWith("/index/")
+        ? pageContext.slug.replace("/index/", "/")
+        : pageContext.slug
+      : null;
 
   // Build breadcrumbs for navigation
   const buildBreadcrumbs = () => {
@@ -524,19 +558,6 @@ const WikiTemplate = (props) => {
       <ThemeContext.Consumer>
         {(theme) => (
           <div className="wiki-template">
-            {!isIndexPage && (
-              <div className="wiki-edit-header">
-                <a
-                  href={githubEditUrl}
-                  className="wiki-edit-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Edit this page on github
-                </a>
-              </div>
-            )}
-
             <Article theme={theme}>
               {/* Breadcrumbs inside article */}
               {breadcrumbs.length > 1 && (
@@ -553,6 +574,29 @@ const WikiTemplate = (props) => {
                       )}
                     </span>
                   ))}
+                </div>
+              )}
+              
+              {/* Edit link after breadcrumbs */}
+              {pageContext.slug !== "/" && pageContext.slug !== "/index/" && page && (
+                <div className="wiki-edit-header" style={{marginBottom: '20px', textAlign: 'right'}}>
+                  <a
+                    href={githubEditUrl}
+                    className="wiki-edit-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: '0.9em',
+                      color: '#666',
+                      textDecoration: 'none',
+                      border: '1px solid #ddd',
+                      padding: '4px 8px',
+                      borderRadius: '4px',
+                      display: 'inline-block'
+                    }}
+                  >
+                    Edit this page on github
+                  </a>
                 </div>
               )}
               {isIndexPage && allWikiPages ? (
@@ -593,33 +637,33 @@ const WikiTemplate = (props) => {
                 padding: 0.2em 0 0.1em 0 !important;
                 font-size: 2.5em !important;
               }
-              
+
               .wiki-template h2 {
                 margin: 0.6em 0 0.3em !important;
                 line-height: 1.4 !important;
                 padding: 0.4em 0 0.2em 0 !important;
                 font-size: 2em !important;
               }
-              
+
               .wiki-template h3 {
                 margin: 0.5em 0 0.2em !important;
                 line-height: 1.4 !important;
                 padding: 0.2em 0 0.1em 0 !important;
                 font-size: 1.6em !important;
               }
-              
+
               .wiki-template p {
                 margin: 0 0 1.8em 0 !important;
                 line-height: 1.7 !important;
                 padding-bottom: 0.5em !important;
               }
-              
+
               .wiki-template ul {
                 margin: 0 0 1.8em 0 !important;
                 line-height: 1.7 !important;
                 padding-bottom: 1em !important;
               }
-              
+
               .wiki-template li {
                 margin: 0.3em 0 !important;
                 line-height: 1.7 !important;
@@ -670,6 +714,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          id
+          html
+          htmlAst
           fields {
             slug
           }
