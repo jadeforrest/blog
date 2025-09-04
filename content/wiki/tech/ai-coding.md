@@ -33,3 +33,4 @@ description: AI-powered development tools, workflows, and best practices for aug
 
 Should probably have its own page
 * [How AI agents software fits into companies](https://lethain.com/what-can-agents-do/)
+* [Double standard for women using AI](https://www.linkedin.com/posts/lpeate_the-most-interesting-ai-paper-ive-read-in-activity-7368796283416793092-36WR?utm_medium=ios_app&rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA)
