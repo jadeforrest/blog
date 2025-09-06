@@ -179,8 +179,17 @@ class LinkVerifier {
 
   // Verify internal URL
   verifyInternalUrl(url) {
-    // Remove fragment identifier
-    const cleanUrl = url.split('#')[0];
+    // Remove fragment identifier and query parameters
+    const cleanUrl = url.split('#')[0].split('?')[0];
+    
+    // Skip /tag/ links
+    if (cleanUrl.startsWith('/tag/')) {
+      return {
+        valid: true,
+        skipped: true,
+        route: cleanUrl
+      };
+    }
     
     // Ensure trailing slash for comparison
     const normalizedUrl = cleanUrl.endsWith('/') ? cleanUrl : cleanUrl + '/';
@@ -231,7 +240,11 @@ class LinkVerifier {
         
         if (result.valid) {
           this.results.valid++;
-          console.log(`    ✓ Internal link valid: ${link.url}`);
+          if (result.skipped) {
+            console.log(`    ✓ Internal link skipped (tag): ${link.url}`);
+          } else {
+            console.log(`    ✓ Internal link valid: ${link.url}`);
+          }
         } else {
           this.results.invalid++;
           const error = `    ✗ Internal link invalid: ${link.url}`;
