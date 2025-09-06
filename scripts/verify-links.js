@@ -11,6 +11,9 @@ class LinkVerifier {
     this.contentDir = contentDir;
     this.siteUrl = siteUrl;
     this.internalRoutes = new Set();
+    this.cacheFile = path.join(__dirname, '.link-cache.json');
+    this.cache = {};
+    this.cacheExpiry = 14 * 24 * 60 * 60 * 1000; // 2 weeks in milliseconds
     this.results = {
       total: 0,
       valid: 0,
@@ -84,6 +87,36 @@ class LinkVerifier {
     }
   }
 
+  // Load cache from file
+  loadCache() {
+    try {
+      if (fs.existsSync(this.cacheFile)) {
+        const cacheData = fs.readFileSync(this.cacheFile, 'utf-8');
+        this.cache = JSON.parse(cacheData);
+      }
+    } catch (err) {
+      console.log('Warning: Could not load cache file, starting fresh');
+      this.cache = {};
+    }
+  }
+
+  // Save cache to file
+  saveCache() {
+    try {
+      fs.writeFileSync(this.cacheFile, JSON.stringify(this.cache, null, 2));
+    } catch (err) {
+      console.log('Warning: Could not save cache file');
+    }
+  }
+
+  // Check if cached entry is still valid
+  isCacheValid(cacheEntry) {
+    return cacheEntry && 
+           cacheEntry.timestamp && 
+           cacheEntry.valid === true &&
+           (Date.now() - cacheEntry.timestamp) < this.cacheExpiry;
+  }
+
   // Extract all links from markdown content
   extractLinks(content) {
     const links = [];
@@ -119,6 +152,17 @@ class LinkVerifier {
 
   // Verify external URL with rate limiting
   async verifyExternalUrl(url) {
+    // Check cache first
+    const cachedResult = this.cache[url];
+    if (this.isCacheValid(cachedResult)) {
+      return { 
+        valid: true, 
+        status: 'CACHED', 
+        cached: true,
+        originalStatus: cachedResult.status
+      };
+    }
+
     // Skip known problematic domains to speed up verification
     const skipDomains = ['pixabay.com', 'linkedin.com', 'twitter.com'];
     try {
@@ -145,11 +189,22 @@ class LinkVerifier {
             'User-Agent': 'Mozilla/5.0 (compatible; LinkVerifier/1.0)'
           }
         }, (res) => {
-          resolve({
+          const result = {
             valid: res.statusCode >= 200 && res.statusCode < 400,
             status: res.statusCode,
             redirected: res.statusCode >= 300 && res.statusCode < 400
-          });
+          };
+          
+          // Cache valid results only
+          if (result.valid) {
+            this.cache[url] = {
+              valid: true,
+              status: result.status,
+              timestamp: Date.now()
+            };
+          }
+          
+          resolve(result);
         });
 
         req.on('error', (err) => {
@@ -222,7 +277,12 @@ class LinkVerifier {
         
         if (result.valid) {
           this.results.valid++;
-          const statusMsg = result.skipped ? 'SKIPPED' : (result.status || 'OK');
+          let statusMsg = result.status || 'OK';
+          if (result.cached) {
+            statusMsg = `CACHED (${result.originalStatus})`;
+          } else if (result.skipped) {
+            statusMsg = 'SKIPPED';
+          }
           console.log(`    ✓ Valid (${statusMsg})`);
         } else {
           this.results.invalid++;
@@ -283,6 +343,9 @@ class LinkVerifier {
 
   // Run verification
   async verify() {
+    console.log('Loading cache...');
+    this.loadCache();
+    
     console.log('Building internal routes...');
     this.buildInternalRoutes();
     
@@ -293,6 +356,9 @@ class LinkVerifier {
     for (const file of markdownFiles) {
       await this.processFile(file);
     }
+    
+    console.log('\nSaving cache...');
+    this.saveCache();
     
     this.printSummary();
   }
