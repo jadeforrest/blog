@@ -20,6 +20,11 @@ class LinkVerifier {
       invalid: 0,
       errors: []
     };
+    
+    // Always use the full content structure for route building, even when checking a subdirectory
+    this.routeContentDir = this.contentDir.includes('content/') ? 
+      this.contentDir.substring(0, this.contentDir.indexOf('content/') + 7) : 
+      this.contentDir;
   }
 
   // Build internal routes based on Gatsby routing rules
@@ -27,7 +32,7 @@ class LinkVerifier {
     const routes = new Set(['/']);
 
     // Add posts (date--slug becomes /slug/)
-    const postsDir = path.join(this.contentDir, 'posts');
+    const postsDir = path.join(this.routeContentDir, 'posts');
     if (fs.existsSync(postsDir)) {
       const postDirs = fs.readdirSync(postsDir, { withFileTypes: true })
         .filter(dirent => dirent.isDirectory());
@@ -41,23 +46,33 @@ class LinkVerifier {
       }
     }
 
-    // Add pages
-    const pagesDir = path.join(this.contentDir, 'pages');
+    // Add pages  
+    const pagesDir = path.join(this.routeContentDir, 'pages');
     if (fs.existsSync(pagesDir)) {
       const pageDirs = fs.readdirSync(pagesDir, { withFileTypes: true })
         .filter(dirent => dirent.isDirectory());
       
       for (const dir of pageDirs) {
-        const separatorIndex = dir.name.indexOf('--');
-        if (separatorIndex !== -1) {
-          const slug = dir.name.substring(separatorIndex + 2);
-          routes.add(`/${slug}/`);
+        // Handle numbered prefixes like "1--about" -> "about"
+        const numberPrefixMatch = dir.name.match(/^\d+--(.+)$/);
+        if (numberPrefixMatch) {
+          routes.add(`/${numberPrefixMatch[1]}/`);
+        } else {
+          // Handle regular double-dash format
+          const separatorIndex = dir.name.indexOf('--');
+          if (separatorIndex !== -1) {
+            const slug = dir.name.substring(separatorIndex + 2);
+            routes.add(`/${slug}/`);
+          } else {
+            // Fallback: add the directory name as-is
+            routes.add(`/${dir.name}/`);
+          }
         }
       }
     }
 
     // Add wiki pages (/wiki/path/)
-    const wikiDir = path.join(this.contentDir, 'wiki');
+    const wikiDir = path.join(this.routeContentDir, 'wiki');
     if (fs.existsSync(wikiDir)) {
       this.addWikiRoutes(wikiDir, '/wiki', routes);
     }
@@ -67,6 +82,7 @@ class LinkVerifier {
     routes.add('/contact/');
     routes.add('/newsletter/');
     routes.add('/course/');
+    routes.add('/subscribe/');
 
     this.internalRoutes = routes;
     console.log(`Built ${routes.size} internal routes`);
@@ -121,15 +137,48 @@ class LinkVerifier {
   extractLinks(content) {
     const links = [];
     
-    // Markdown links: [text](url)
-    const markdownLinkRegex = /\[([^\]]*)\]\(([^)]+)\)/g;
+    // Parse markdown links with proper parentheses balancing
+    const linkStartRegex = /\[([^\]]*)\]\(/g;
     let match;
-    while ((match = markdownLinkRegex.exec(content)) !== null) {
-      links.push({
-        text: match[1],
-        url: match[2],
-        type: 'markdown'
-      });
+    while ((match = linkStartRegex.exec(content)) !== null) {
+      const text = match[1];
+      const urlStart = match.index + match[0].length;
+      
+      // Find the matching closing parenthesis by counting nested parentheses
+      let parenCount = 1;
+      let urlEnd = urlStart;
+      
+      while (urlEnd < content.length && parenCount > 0) {
+        const char = content[urlEnd];
+        if (char === '(') {
+          parenCount++;
+        } else if (char === ')') {
+          parenCount--;
+        }
+        if (parenCount > 0) {
+          urlEnd++;
+        }
+      }
+      
+      if (parenCount === 0) {
+        let url = content.substring(urlStart, urlEnd).trim();
+        
+        // Handle URLs with titles: url "title" or url 'title'
+        const spaceIndex = url.indexOf(' ');
+        if (spaceIndex > 0) {
+          const afterSpace = url.substring(spaceIndex + 1).trim();
+          if ((afterSpace.startsWith('"') && afterSpace.endsWith('"')) ||
+              (afterSpace.startsWith("'") && afterSpace.endsWith("'"))) {
+            url = url.substring(0, spaceIndex);
+          }
+        }
+        
+        links.push({
+          text: text,
+          url: url,
+          type: 'markdown'
+        });
+      }
     }
 
     // HTML links: <a href="url">
@@ -233,7 +282,7 @@ class LinkVerifier {
   }
 
   // Verify internal URL
-  verifyInternalUrl(url) {
+  verifyInternalUrl(url, currentFilePath) {
     // Remove fragment identifier and query parameters
     const cleanUrl = url.split('#')[0].split('?')[0];
     
@@ -243,6 +292,27 @@ class LinkVerifier {
         valid: true,
         skipped: true,
         route: cleanUrl
+      };
+    }
+    
+    // Handle relative file paths (images, etc.)
+    if (!cleanUrl.startsWith('/')) {
+      // Check if it's a file that exists relative to the current markdown file
+      const currentDir = path.dirname(currentFilePath);
+      const filePath = path.join(currentDir, cleanUrl);
+      
+      if (fs.existsSync(filePath)) {
+        return {
+          valid: true,
+          relativePath: cleanUrl,
+          resolvedPath: filePath
+        };
+      }
+      
+      return {
+        valid: false,
+        relativePath: cleanUrl,
+        attemptedPath: filePath
       };
     }
     
@@ -296,12 +366,14 @@ class LinkVerifier {
         }
       } else {
         // Internal link
-        const result = this.verifyInternalUrl(link.url);
+        const result = this.verifyInternalUrl(link.url, filePath);
         
         if (result.valid) {
           this.results.valid++;
           if (result.skipped) {
             console.log(`    ✓ Internal link skipped (tag): ${link.url}`);
+          } else if (result.relativePath) {
+            console.log(`    ✓ Relative file found: ${link.url}`);
           } else {
             console.log(`    ✓ Internal link valid: ${link.url}`);
           }
@@ -309,9 +381,17 @@ class LinkVerifier {
           this.results.invalid++;
           const error = `    ✗ Internal link invalid: ${link.url}`;
           console.log(error);
+          
+          let errorMsg;
+          if (result.attemptedPath) {
+            errorMsg = `File not found: ${result.relativePath}`;
+          } else {
+            errorMsg = `Route not found: ${result.route}`;
+          }
+          
           fileResults.links.push({
             ...link,
-            error: `Route not found: ${result.route}`,
+            error: errorMsg,
             valid: false
           });
         }
