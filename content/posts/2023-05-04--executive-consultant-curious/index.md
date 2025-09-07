@@ -233,6 +233,6 @@ The easiest way to become a consultant is to make your current employer into you
 
 [John Hartley](https://www.linkedin.com/in/hartleyjohn/) reviewed early versions of this post and provided excellent feedback and suggestions. Much of the structure was influenced by his suggestions!
 
-[Mike Dauber](https://www.amplifypartners.com/investment-team/mike-dauber) gave me the advice to focus my offering as a consultant to be narrow enough that people could easily understand what I was doing. 
+[Mike Dauber](https://www.amplifypartners.com/team/mike-dauber) gave me the advice to focus my offering as a consultant to be narrow enough that people could easily understand what I was doing. 
 
 Image by <a href="https://pixabay.com/users/susuma-5497159/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2376144">SusuMa</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2376144">Pixabay</a>

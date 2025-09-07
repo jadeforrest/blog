@@ -98,7 +98,9 @@ class LinkVerifier {
         this.addWikiRoutes(path.join(dir, item.name), subPath, routes);
       } else if (item.name.endsWith('.md')) {
         const filename = item.name.replace('.md', '');
+        // Add both with and without trailing slash for wiki pages
         routes.add(`${basePath}/${filename}`);
+        routes.add(`${basePath}/${filename}/`);
       }
     }
   }
@@ -213,7 +215,7 @@ class LinkVerifier {
     }
 
     // Skip known problematic domains to speed up verification
-    const skipDomains = ['pixabay.com', 'linkedin.com', 'twitter.com'];
+    const skipDomains = ['pixabay.com', 'linkedin.com', 'twitter.com', 'amazon.com'];
     try {
       const urlObj = new URL(url);
       if (skipDomains.some(domain => urlObj.hostname.includes(domain))) {
@@ -233,11 +235,67 @@ class LinkVerifier {
           port: urlObj.port,
           path: urlObj.pathname + urlObj.search,
           method: 'HEAD',
-          timeout: 5000,
+          timeout: 15000,
           headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; LinkVerifier/1.0)'
+            'User-Agent': 'Mozilla/5.0 (compatible; LinkVerifier/1.0)',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate'
           }
         }, (res) => {
+          // If HEAD request returns 405, try GET request
+          if (res.statusCode === 405) {
+            const getReq = client.request({
+              hostname: urlObj.hostname,
+              port: urlObj.port,
+              path: urlObj.pathname + urlObj.search,
+              method: 'GET',
+              timeout: 15000,
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; LinkVerifier/1.0)',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate'
+              }
+            }, (getRes) => {
+              const result = {
+                valid: getRes.statusCode >= 200 && getRes.statusCode < 400,
+                status: getRes.statusCode,
+                redirected: getRes.statusCode >= 300 && getRes.statusCode < 400,
+                fallbackMethod: 'GET'
+              };
+              
+              // Cache valid results only
+              if (result.valid) {
+                this.cache[url] = {
+                  valid: true,
+                  status: result.status,
+                  timestamp: Date.now()
+                };
+              }
+              
+              resolve(result);
+            });
+            
+            getReq.on('error', (err) => {
+              resolve({
+                valid: false,
+                error: err.message
+              });
+            });
+            
+            getReq.on('timeout', () => {
+              getReq.destroy();
+              resolve({
+                valid: false,
+                error: 'Request timeout'
+              });
+            });
+            
+            getReq.end();
+            return;
+          }
+          
           const result = {
             valid: res.statusCode >= 200 && res.statusCode < 400,
             status: res.statusCode,

@@ -47,7 +47,7 @@ Most job postings also turn away a large percentage of good candidates unnecessa
 ## Make your application process painless (for everyone)
 
 * Make sure your application process allows people to specify the pronouns they use. Make it optional (as not everyone wants to be “outed”). Make sure your team uses those pronouns during the interview process.
-* Don’t require gender as part of the application process. It can be an [awful experience for applicants](https://nonbinarymomblog.wordpress.com/2021/07/09/box-ticking-and-other-problems-when-nonbinary-teens-get-jobs/). If you have to require it for some reason, explain what to expect, apologetically.
+* Don't require gender as part of the application process. It can be an awful experience for applicants. If you have to require it for some reason, explain what to expect, apologetically.
 * Apply for the job and see what the process looks like. Test it out! How long until you get a reply? What flow do you go through? Are there unnecessary steps? Most people don’t know what their own interview process is like!
 
 ## Create an interview plan
