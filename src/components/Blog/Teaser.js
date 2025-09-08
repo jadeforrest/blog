@@ -136,7 +136,7 @@ const Teaser = (props) => {
           background: transparent;
 
           :global(svg) {
-            fill: ${theme.icon.color};
+            fill: ${theme.text.color.accent.teal};
             margin: ${theme.space.inline.xs};
           }
           span {
@@ -244,7 +244,7 @@ const Teaser = (props) => {
               }
               :global(.arrow) {
                 opacity: 1;
-                stroke: ${theme.color.special.attention};
+                stroke: ${theme.text.color.accent.orange};
                 transform: translateX(0);
               }
             }
@@ -253,8 +253,8 @@ const Teaser = (props) => {
             }
             :global(.arrow) {
               display: inline-block;
-              fill: ${theme.color.special.attention};
-              stroke: ${theme.color.special.attention};
+              fill: ${theme.text.color.accent.orange};
+              stroke: ${theme.text.color.accent.orange};
               stroke-width: 40;
               stroke-linecap: round;
               opacity: 0;

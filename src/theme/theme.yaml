@@ -57,6 +57,15 @@ color:
     black: '#000000'
     blue: &color-blue '#3875b9'
   
+  # Accent colors to complement the main blue (#3875b9)
+  accent:
+    orange: &color-accent-orange '#E67E22'      # Complementary orange for CTAs and highlights
+    coral: &color-accent-coral '#FF6B6B'        # Warm coral for attention-grabbing elements
+    gold: &color-accent-gold '#F39C12'          # Golden accent for premium/featured content
+    teal: &color-accent-teal '#17A2B8'          # Cool teal for secondary actions
+    mint: &color-accent-mint '#20C997'          # Fresh mint green for success states
+    purple: &color-accent-purple '#6F42C1'     # Rich purple for creative elements
+    
   brand:
     primary: &color-brand-primary '#3875b9' #'#E39E22' #'#07889B' #'#C0B283' #'#856084' #'#616247'
     primaryLight: *color-gray-1 #'#f9ebd2'
@@ -69,6 +78,10 @@ color:
     darkActive: '#709425'
   special:
     attention: &color-special-attention '#E37222' #'#76323F' #'#E37222' #'#C0B283' #'#624761'
+    success: &color-special-success '#20C997'  # mint green for success states
+    warning: &color-special-warning '#F39C12'  # gold for warnings
+    error: &color-special-error '#FF6B6B'     # coral for errors
+    info: &color-special-info '#17A2B8'       # teal for info
 # FONT
 font:
   # font options
@@ -115,6 +128,13 @@ text:
     primaryInverse: *color-white
     brand: *color-brand-primary
     attention: *color-special-attention
+    accent:
+      orange: '#E67E22'
+      coral: '#FF6B6B'
+      gold: '#F39C12'
+      teal: '#17A2B8'
+      mint: '#20C997'
+      purple: '#6F42C1'
   lineHeight:
     default: *font-line-height-l
   maxWidth:

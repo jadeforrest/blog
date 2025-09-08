@@ -57,7 +57,7 @@ const Item = (props) => {
             }
 
             :global(a:hover) {
-              color: ${theme.color.brand.primary};
+              color: ${theme.text.color.accent.orange};
               background: color(white alpha(-60%));
             }
 
@@ -66,11 +66,11 @@ const Item = (props) => {
             }
 
             &:hover :global(svg) {
-              fill: ${theme.color.brand.primary};
+              fill: ${theme.text.color.accent.orange};
               opacity: 1;
 
               :global(.hero) & :global(svg) {
-                fill: green;
+                fill: ${theme.text.color.accent.mint};
               }
             }
           }
@@ -86,7 +86,7 @@ const Item = (props) => {
             & :global(a.inHiddenItem) {
               color: ${theme.text.color.primary};
               &:hover {
-                color: ${theme.color.brand.primary};
+                color: ${theme.text.color.accent.teal};
               }
             }
           }

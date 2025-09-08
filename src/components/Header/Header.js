@@ -197,13 +197,14 @@ class Header extends React.Component {
 
             :global(a.availability) {
               font-size: 0.75em;
-              color: #6b8a7d; /* greyish green */
+              color: ${theme.text.color.accent.mint};
               text-decoration: none;
               text-align: center;
               max-width: 90%;
 
               &:hover {
                 text-decoration: underline;
+                color: ${theme.text.color.accent.teal};
               }
             }
           }

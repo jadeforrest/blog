@@ -54,7 +54,7 @@ const Meta = (props) => {
           color: ${theme.color.neutral.gray.j};
 
           :global(svg) {
-            fill: ${theme.icon.color};
+            fill: ${theme.text.color.accent.purple};
             margin: ${theme.space.inline.xs};
           }
           span {
@@ -81,7 +81,7 @@ const Meta = (props) => {
               -webkit-transition: all 0.5s ease-in-out;
               -moz-transition: all 0.5s ease-in-out;
               transform: scale(1.3);
-              color: ${theme.color.brand.primary};
+              color: ${theme.text.color.accent.gold};
             }
           }
         }
