@@ -7,7 +7,7 @@ discussionId: "commit"
 description: "Commitments trade slower velocity for higher predictability. Is that what you really want?"
 ---
 
-One of the more common practices I see on engineering teams is pulled directly from Scrum: the sprint commitment. You want accountability, right? So you have the team commit to what they’ll accomplish during the sprint. 
+Many engineering teams have sprint **commitments**. You want accountability, right? So you have the team commit to what they’ll accomplish during the sprint. 
 
 <re-img src="commit.jpg"></re-img>
 
@@ -35,6 +35,10 @@ You have to have psychological safety for this to work. And, importantly, you ha
 If you don’t have an environment that supports this type of safe, honest appraisal of the situation, then you may have to fall back on a commit based approach. Stick to sandbagging, carefully deciding what you can agree to, and making sure you look good. 
 
 There are times when predictability is more important than velocity. In those cases, definitely go for a commit based approach. But I think most teams should be focusing on operating in a high trust environment, setting clear goals, and introspecting and continuous improvement to deliver the most they can each week.
+
+## This is a general principal
+
+This is bigger than just sprint commitments. This is a general aspect of human behavior. The more you increase the cost of something, the less you'll get of it.
 
 ## Thank you
 

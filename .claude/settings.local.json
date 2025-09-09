@@ -9,7 +9,11 @@
       "WebFetch(domain:learn.microsoft.com)",
       "WebFetch(domain:learn.microsoft.com)",
       "Bash(npm run lint:*)",
-      "Bash(npm run format:*)"
+      "Bash(npm run format:*)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.amazon.com)",
+      "Bash(cat:*)",
+      "WebFetch(domain:bsky.app)"
     ],
     "deny": []
   },
