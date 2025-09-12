@@ -71,6 +71,9 @@ This isn’t to say using goals is a bad idea. You should be familiar with all t
 
 "One issue I see is that there is a natural inclination to create a strategy that encompasses 100% of the activities of the company. It's not bad to do it that way, but it's not necessary. Some things have inertia. You only really need to include things in the strategy when they need to change. Focus on those things and everything else will be fine." -- Alex Kroman
 
+## A few other common problems with strategies.
+
+I've written about some other common failure modes of strategies: [they don't hurt, they don't outline "the diff" against now, or they don't tell a story](/strategy-shoulds/). 
 
 ## How to put together a good strategy
 
