@@ -1,16 +1,10 @@
 ---
-title: Trainings
-icon: 🎓
-description: Management training programs and executive presence coaching resources
+title: Trust
+icon: 🤝
+description: Topics about trust
 ---
 
-## Management training
+* [Use this equation to determine diagnose and repair trust](https://review.firstround.com/use-this-equation-to-determine-diagnose-and-repair-trust/) - try an exercise of evaluating the people around you!
 
-* [Mini-M support groups](https://www.rubick.com/mini-m-support-groups/)
-* [Frontline management training](https://www.rubick.com/courses/) email course, by me
+* Say / Do ratio. The ratio is detrmined by what you say, divided by how much you do. Higher is more trustworthy.
 
-## Executive presence
-
-* https://www.snpnet.com/ Highly recommended by Jade
-
-          
