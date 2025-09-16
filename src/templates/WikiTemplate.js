@@ -477,7 +477,7 @@ const WikiTemplate = (props) => {
   if (pageContext.slug.endsWith("/") && pageContext.slug !== "/" && page) {
     slug = slug + "/index";
   }
-  const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki${slug}.md`;
+  const githubEditUrl = `https://github.com/jadeforrest/blog/blob/master/content/wiki${slug}.md`;
 
   // Check if this is an index page (root or subdirectory)
   // Index pages show directory listings. We distinguish:
