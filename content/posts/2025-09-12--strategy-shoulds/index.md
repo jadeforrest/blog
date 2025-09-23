@@ -49,4 +49,6 @@ If you find this useful, or you have feedback, I love to hear it. And I'm [happy
 
 ## Thank you
 
+Strategy should be uncomfortable was a distillation of something I had been thinking about, but was driven home by [Molly Graham](https://www.linkedin.com/in/mograham/) in a [LinkedIn post](https://www.linkedin.com/posts/mograham_claire-hughes-johnson-has-a-phrase-i-love-activity-7365701223460646912--YpR/). She in turn was quoting [Claire Hughes Johnson](https://www.linkedin.com/in/claire-hughes-johnson-7058/), of Stripe, who said "Strategy should hurt".
+
 Image by <a href="https://pixabay.com/users/chienba-13521602/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8318376">chiến nguyễn bá</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8318376">Pixabay</a>
