@@ -12,6 +12,7 @@ description: Guidance on engineering productivity metrics, board reporting, and 
 * [The SPACE of Developer Productivity - ACM Queue](https://queue.acm.org/detail.cfm?id=3454124)
 * [Measuring engineering organizations](https://lethain.com/measuring-engineering-organizations/) by Lethain
 * See also [Metrics tooling](/wiki/tools/metrics/)
+* [CORE 4](https://www.lennysnewsletter.com/p/introducing-core-4-the-best-way-to) is a good approach. PR Throughput, Developer Experience Index, Change Failure Rate, and % of time spent on new capabilities. 
 
 ## Engineering reporting at a board meeting
 
