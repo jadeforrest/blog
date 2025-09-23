@@ -8,7 +8,7 @@ description: Recommended companies for outsourcing and staff augmentation servic
 
 ## A few companies that have been recommended to me
 
-* [BairesDev](https://www.bairesdev.com/landing/success-stories) "Solid team, happy to far, wish they were cheaper. Located across central and south america"
+* [BairesDev](https://www.bairesdev.com/landing/success-stories) "Solid team, happy so far, wish they were cheaper. Located across central and south america"
 * [Bytex](https://bytex.net/) "would talk with them again if I switched jobs". Romania-based. 
 * [Clarolab](https://www.linkedin.com/in/franciscovives/) "Based in Argentina, limited capacity but they do great work"
 * [Monterail](https://www.monterail.com/) "Great experience with them, they are fully embedded, mostly UI focused. In Poland"
