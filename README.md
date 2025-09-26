@@ -1,6 +1,6 @@
 # Blog
 
-My blog is located at [https://www.rubick.com](https://www.rubick.com). 
+My blog is located at [https://www.rubick.com](https://www.rubick.com)
 
 ## TODO Improvements
 
