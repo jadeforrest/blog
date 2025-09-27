@@ -21,7 +21,7 @@ Something analogous happens with humans.
 
 I first noticed this when as a manager I took on more and more responsibilities. I had 12-13 direct reports, several teams, and six or seven projects. It all seemed like a lot of work, but manageable.
 
-But all the sudden, it wasn't manageable any more. Just keeping track of everything that was going consumed all my bandwidth. I had very little capacity to actually do very much work. Even worse, I didn't have the bandwidth to actually make my situation better. I was stuck.
+But all the sudden, it wasn't manageable any more. Just keeping track of everything that was going on consumed all my bandwidth. I had very little capacity to actually do very much work. Even worse, I didn't have the bandwidth to actually make my situation better. I was stuck.
 
 I thought this was a rare thing, but it kept happening to me. Over and over in my career, I've hit **thrash mode** and had to deal with it.
 
