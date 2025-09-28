@@ -45,9 +45,7 @@ const NewsletterPage = (props) => {
               </a>
 
               <p>
-                This newsletter is offered as paid or <a href="/">free</a>. It covers a wide range
-                of topics for engineering, product, and design leaders. This contains most of the
-                writing on rubick.com, sent once a week to your email.
+                  The newsletter basically feeds you most of the content from my blog, but on a weekly schedule.
               </p>
 
               <img src={sarah} className="charity" width="100%" />
@@ -56,18 +54,12 @@ const NewsletterPage = (props) => {
               <h2>About the newsletter</h2>
 
               <dl>
-                <dt>What is the format for this newsletter?</dt>
-                <dd>It is an email-based newsletter sent weekly.</dd>
-
                 <dt>
                   How is the paid version of Engineering Leadership Weekly different than the free
                   version?
                 </dt>
                 <dd>
-                  The paid version includes a 1-1 session with me, and also supports my writing. If
-                  you're able to do the paid version, please do. This newsletter is something I do
-                  because I want people to pass on the things I've learned. I can make much better
-                  money doing other work. So this helps make it financially viable.
+                  It's not different. But the paid version supports my writing.
                 </dd>
 
                 <dt>Where do I sign up for the free version?</dt>
@@ -77,10 +69,10 @@ const NewsletterPage = (props) => {
 
                 <dt>How much email will I be receiving, and for how long?</dt>
                 <dd>
-                  Engineering Leadership Weekly is a weekly email with over a year's content.
-                  <br />
-                  <br />
-                  After the newsletter, you may get occasional emails, as I add additional content.
+                    Engineering Leadership Weekly is a weekly email with almost two weeks's content.
+                    <br />
+                    <br />
+                    When you get to the end, you'll get less frequent emails, since I write less frequently than once a week.
                 </dd>
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
