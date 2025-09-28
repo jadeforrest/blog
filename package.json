@@ -55,6 +55,7 @@
     "react-share": "^4.4.0",
     "react-visibility-sensor": "^5.1.1",
     "rehype-react": "^7.1.1",
+    "rss-parser": "^3.13.0",
     "styled-jsx": "^3.0.2",
     "styled-jsx-plugin-postcss": "^4.0.1",
     "styled-jsx-plugin-stylelint": "^0.1.0",
@@ -75,7 +76,8 @@
     "lint": "eslint \"src/**/*.js\" \"src/**/*.tsx\"",
     "stylelint": "stylelint src/**/*.js",
     "generate-app-icons": "sh ./scripts/generate-app-icons.sh",
-    "verify-links": "node scripts/verify-links.js"
+    "verify-links": "node scripts/verify-links.js",
+    "refresh-podcast": "node scripts/refresh-podcast.js"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
