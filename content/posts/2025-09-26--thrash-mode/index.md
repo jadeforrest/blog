@@ -54,7 +54,7 @@ I expect it will happen to you many times in your career.
 
 3. **Redefine big things into small things**. Sometimes you can just decide not to do a big thing for now. Do a smaller version of it. Delay it. Sometimes you can decide to not complete something, but just make sure it's always getting better. 
 
-4. **Look at trends and structure**. Sometimes I find that people miss that the long-term trend is running against them. Or that the structure of the situation is just not going to work. Sometimes you can use this freed up bandwidth to figure out how to untangle that situation. Do you need a new architecture, and new self-service approach? Sometimes you can figure out what the solution needs to look like, and then pitch a solution.
+4. **Look at trends and structure**. Sometimes I find that people miss that the long-term trend is running against them. Or that the structure of the situation is just not going to work. Sometimes you can use this freed up bandwidth to figure out how to untangle that situation. Do you need a new architecture, or a new self-service approach? Sometimes you can figure out what the solution needs to look like, and then pitch a solution.
 
 ## My toolchain for thinking about less
 
