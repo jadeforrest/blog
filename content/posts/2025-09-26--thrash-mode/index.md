@@ -9,7 +9,7 @@ description: "What do you do when you are too busy to do anything?"
 
 If you're in a growing organization, you will experience **thrash mode**. Thrash mode is when you are underwater. When you are too busy to do anything.
 
-This post is **not about prioritization**. It's about how to get unstuck when don't have the capacity to get unstuck.
+This post is **not about prioritization**. It's about how to get unstuck when you don't have the capacity to get unstuck.
 
 <re-img src="thrash.jpg"></re-img>
 
