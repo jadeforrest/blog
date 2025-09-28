@@ -42,7 +42,7 @@ I expect it will happen to you many times in your career.
 
 ### Clear up some bandwidth
 
-1. **Clear your schedule**. You have to do this pretty harshly. Cancel every meeting. Or at least start from the assumption you'll cancel every meeting.
+1. **Clear your schedule**. you might clear next week. Be harsh. Cancel every meeting. Or at least start from the assumption you'll cancel every meeting.
 2. **Cancel your 1-1s**. When I said clear your schedule, I meant it. You may feel bad about it, but you're not being useful right now. You need to clear up some bandwidth, or you'll never get better.
 3. **Pretend you're on vacation**. These three top items are really emphasizing the same thing, you have to clear up some temporary bandwidth. So put on a vacation message in your email. Mark yourself out of office. Do what you need to to clear up some bandwidth. 
 
