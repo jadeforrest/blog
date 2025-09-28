@@ -48,7 +48,7 @@ I expect it will happen to you many times in your career.
 
 ### Figure out what gives you more bandwidth
 
-1. **Make a list** of anything that will structurally improve your situation. Usually this includes: delegation and giving away responsibilities, finishing up things that aren't done, restructuring meetings run themselves, big pushes to get something vital done like hiring. Focus the list on things that free up future bandwidth.
+1. **Make a list** of anything that will structurally improve your situation. Usually this includes: delegation and giving away responsibilities, finishing up things that aren't done, restructuring meetings to run themselves, big pushes to get something vital done like hiring. Focus the list on things that free up future bandwidth.
 
 2. **Track less things**. Decide on things you're going to let go poorly. Decide on things you're going to reset expectations for. All of these are things that give you more bandwidth to focus on your priorities.
 
