@@ -15,7 +15,7 @@ Things are changing pretty rapidly, so I have hesitated to write down observatio
 
 We use data lakes to drive charts and analytics. We dump all of our company data in these lakes, and find a lot of useful ways to make better decisions with that data.
 
-It's possible that Slack will be the data lake for LLMs. It has a million integrations that allow you to feed valuable context into channels in Slack. LLMS are language models, and can use text in a lot of interesting ways, especially when augmented by tooling that supports selecting the right content.
+I'm really not sure if this observation holds water (let me know what you think), but it's possible that Slack will be the data lake for LLMs. It has a million integrations that allow you to feed valuable context into channels in Slack. LLMS are language models, and can use text in a lot of interesting ways, especially when augmented by tooling that supports selecting the right content.
 
 This is a much better user interface for a data lake, because you can ask your company questions, and get summaries and responses back that are in your own language. And you get references to the source.
 
@@ -53,7 +53,14 @@ Standard XP and CI/CD practices are becoming even more high leverage. Investing 
 
 If your agent can get better context, or test its results as it works, it can keep going on a problem, or self-correct. It seems like this will be the thing that drives a lot of the productivity gains over the next year.
 
-Developer workflows are even more essential: reducing unnecessary code review steps, linting, unit tests, integration tests, end to end tests. Synthetic monitoring, observability tooling.
+Developer workflows are even more essential: reducing unnecessary code review steps, improved linting, unit tests, integration tests, end to end tests. Synthetic monitoring, observability tooling.
+
+## The cost of evergreen
+
+One thing that has surprised me about coding agents is that they're often pretty good at upgrading things. I've seen a number of times where upgrades are just much less expensive to make than they were in the past. I've even seen some pretty surprising examples of LLMs doing some tricky things during upgrades that I didn't expect.
+
+So the calculous of how expensive software is to maintain is changing. This could result in a lot of legacy software being revitalized.
+
 
 ## Thank you
 
