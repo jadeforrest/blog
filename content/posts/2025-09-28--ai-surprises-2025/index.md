@@ -23,9 +23,11 @@ So my suggestion here is to not sleep on the summarization and AI features of Sl
 
 It's too soon to know how real this will be, but anecdotally, I've heard of one company that eliminated a significant amount of meetings. Most were information sharing meetings.
 
+This doesn't feel like the right solution, and it may be a bad approach. But I think it's *interesting*. It kind of shows a directional way that communication and companies might change in the short future.
+
 Interestingly, I think remote companies might be better positioned to capitalize on this that in person companies.
 
-Think of all of us as beings, engaged in communication. Making decisions, and creating things. LLMs become a part of that ecosystem of communication. If most everything that is said within a company is written down, then we get some really weird properties of being able to be summarize, process, and interacte with a much wider pool of information than we did in the past. In the same way that augmented reality is a hybrid of the computer world and the real world, LLMs could weave their way into the fabric of our communication within companies.
+Think of all of us as beings, engaged in communication. Making decisions, and creating things. LLMs become a part of that ecosystem of communication. If most everything that is said within a company is written down, then we get some really weird properties of being able to be summarize, process, and interact with a much wider pool of information than we did in the past. In the same way that augmented reality is a hybrid of the computer world and the real world, LLMs could weave their way into the fabric of our communication within companies.
 
 Your ability to sense your own company goes up significantly. Product managers probably have a very different role, because their ability to sense and integrate information in their companies is augmented. It all becomes "on demand". 
 
