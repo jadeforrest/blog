@@ -45,7 +45,8 @@ const NewsletterPage = (props) => {
               </a>
 
               <p>
-                  The newsletter basically feeds you most of the content from my blog, but on a weekly schedule.
+                The newsletter basically feeds you most of the content from my blog, but on a weekly
+                schedule.
               </p>
 
               <img src={sarah} className="charity" width="100%" />
@@ -58,9 +59,7 @@ const NewsletterPage = (props) => {
                   How is the paid version of Engineering Leadership Weekly different than the free
                   version?
                 </dt>
-                <dd>
-                  It's not different. But the paid version supports my writing.
-                </dd>
+                <dd>It's not different. But the paid version supports my writing.</dd>
 
                 <dt>Where do I sign up for the free version?</dt>
                 <dd>
@@ -69,10 +68,11 @@ const NewsletterPage = (props) => {
 
                 <dt>How much email will I be receiving, and for how long?</dt>
                 <dd>
-                    Engineering Leadership Weekly is a weekly email with almost two weeks's content.
-                    <br />
-                    <br />
-                    When you get to the end, you'll get less frequent emails, since I write less frequently than once a week.
+                  Engineering Leadership Weekly is a weekly email with almost two weeks's content.
+                  <br />
+                  <br />
+                  When you get to the end, you'll get less frequent emails, since I write less
+                  frequently than once a week.
                 </dd>
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
