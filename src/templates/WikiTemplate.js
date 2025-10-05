@@ -453,6 +453,9 @@ const WikiTemplate = (props) => {
   const allWikiPages = props.data.allWikiPages;
   const { pageContext } = props;
 
+  // Track if we're using index content for a directory page
+  let usingIndexContent = false;
+
   // For directory pages without direct content, try to find the index page
   if (!page && pageContext.slug.endsWith("/") && pageContext.slug !== "/") {
     const indexSlug = pageContext.slug + "index/";
@@ -464,6 +467,7 @@ const WikiTemplate = (props) => {
         htmlAst: indexPageNode.node.htmlAst,
         frontmatter: indexPageNode.node.frontmatter,
       };
+      usingIndexContent = true;
     }
   }
 
@@ -473,9 +477,19 @@ const WikiTemplate = (props) => {
   if (slug === "") {
     slug = "/index";
   }
-  // For directory pages that use index content, point to the index.md file
+  // For directory pages that serve index.md files, add /index to the GitHub URL
+  // This includes both fallback cases and pages that are directory indexes
   if (pageContext.slug.endsWith("/") && pageContext.slug !== "/" && page) {
-    slug = slug + "/index";
+    // A directory index page has sub-pages under it, while a regular page does not
+    // Check if there are other pages that start with this slug (indicating it's a directory)
+    const slugPrefix = pageContext.slug;
+    const hasSubPages = allWikiPages.edges.some(
+      ({ node }) => node.fields.slug !== pageContext.slug && node.fields.slug.startsWith(slugPrefix)
+    );
+
+    if (hasSubPages || usingIndexContent) {
+      slug = slug + "/index";
+    }
   }
   const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki${slug}.md`;
 
@@ -576,23 +590,26 @@ const WikiTemplate = (props) => {
                   ))}
                 </div>
               )}
-              
+
               {/* Edit link after breadcrumbs */}
               {pageContext.slug !== "/" && pageContext.slug !== "/index/" && page && (
-                <div className="wiki-edit-header" style={{marginBottom: '20px', textAlign: 'right'}}>
+                <div
+                  className="wiki-edit-header"
+                  style={{ marginBottom: "20px", textAlign: "right" }}
+                >
                   <a
                     href={githubEditUrl}
                     className="wiki-edit-link"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      fontSize: '0.9em',
-                      color: '#666',
-                      textDecoration: 'none',
-                      border: '1px solid #ddd',
-                      padding: '4px 8px',
-                      borderRadius: '4px',
-                      display: 'inline-block'
+                      fontSize: "0.9em",
+                      color: "#666",
+                      textDecoration: "none",
+                      border: "1px solid #ddd",
+                      padding: "4px 8px",
+                      borderRadius: "4px",
+                      display: "inline-block",
                     }}
                   >
                     Edit this page on github
