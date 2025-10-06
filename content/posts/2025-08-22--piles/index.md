@@ -1,5 +1,5 @@
 ---
-title: Piles point out your problems
+title: Piles point out your problems aka why your AI coding is slowing things down
 tags: ["complexity", "delivery", "prioritization"]
 cover: piles.jpg
 author: Jade Rubick
