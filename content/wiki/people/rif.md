@@ -28,7 +28,7 @@ Look at the strategy.
 * Are there things you should stop doing? 
 * Lines of business you should cut? 
 * Should you change your go-to-market strategy? 
-*Is now the time to think about a bigger pivot?
+* Is now the time to think about a bigger pivot?
 * If you are a “people-heavy” business (sales, teaching, store fronts, etc), should you shift your strategy to software? How would you do that? What would it take to get there?
 * Try an exercise of rebuilding the company from the ground up
 
