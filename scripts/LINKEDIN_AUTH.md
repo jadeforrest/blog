@@ -21,7 +21,7 @@ Follow these steps:
 
 1. Get a new LinkedIn access token:
    - Go to your LinkedIn app's authentication page. (https://developer.linkedin.com, then click My apps, then Share post app, then Auth tab, Click on Oauth 2.0 tools, then create a new access token)
-   - Generate a new access token with `w_member_social` scope
+   - Generate a new access token with `w_member_social` scope. I also added openid, profile, and email.
 
 2. Update the token in `../source-linkedin-token`:
    ```bash
