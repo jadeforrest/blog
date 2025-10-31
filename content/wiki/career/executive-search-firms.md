@@ -30,7 +30,7 @@ Jade heard this report through someone: We went with https://www.erevena.com/ , 
 
 ## Riviera 🇺🇲
 
-Jade: I've seen companies report mixed results from Riviera. One company I worked with in 2021 was thrilled with the quality of candidates. And they were extraordinary. Another company had challenges but ultimately found someone. But they had to have a few hard meetings to make it happen. I think Riviera has expanded a lot, so it can depend on who you work with.
+Riviera is probably the most well established executive recruiting company in tech. A company I worked with in 2021 was thrilled with the quality of candidates. And I've worked with them recently and been quite impressed. I did have a client in 2022 or so that had challenges with them, but worked through them and ultimately found someone they were happy with. I think Riviera has expanded a lot, so it can depend on who you work with. 
 
 Their fee structure (to companies hiring) at one point was something like this:
 
