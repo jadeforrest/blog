@@ -8,6 +8,7 @@ description: Transitioning to director+ roles and learning business context
 
 * Jade has written up his learnings on the topic in [advice for new directors](https://www.rubick.com/advice-for-new-directors/)
 * Ileanell Perez wrote about [her experience in an interim Director of Engineering](https://www.honeycomb.io/blog/nothing-prepares-you-first-director-role) role.
+* Rands wrote about the way he's crystalized executive leadership [become the consequence](https://randsinrepose.com/archives/become-the-consequence/)
 
 ## Learning more about the business
 
