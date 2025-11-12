@@ -7,7 +7,7 @@ discussionId: "consultant-curious"
 description: "I share what I've learned about being a leadership consultant"
 ---
 
-I’ve been doing advisory, fractional, and interim engineering leadership consulting for a couple of years now. People in my network contact me often because they are considering it for themselves. I wrote this up to share what I’ve learned over the years about being a consultant. 
+I’ve been doing advisory, fractional, and interim engineering leadership consulting for more than five years now. People in my network contact me often because they are considering it for themselves. I wrote this up to share what I’ve learned over the years about being a consultant. 
 
 <re-img src="goats.jpg"></re-img>
 
@@ -17,7 +17,7 @@ You can optimize for money or for schedule flexibility. Optimizing for money req
 
 For me the appeal was schedule flexibility rather than money. I enjoy the ability to shape my schedule. And I like that there are downtimes between large contracts. I make less than I would as a full-time engineering executive, but I have a lot more flexibility in my schedule.
 
-A second advantage for me is that I have accelerated certain types of learning. I’ve now worked at more than twenty startups. That gives me a skillset and a perspective I never had previously. I have much more certainty about which of my skills to apply in what situations. In a world where many engineering leaders learn by copying from their environment, this gives me a rare amount of breadth.
+A second advantage for me is that I have accelerated certain types of learning. I’ve now worked at more than thirty startups. That gives me a skillset and a perspective I never had previously. I have much more certainty about which of my skills to apply in what situations. In a world where many engineering leaders learn by copying from their environment, this gives me a rare amount of breadth.
 
 There are many disadvantages and tradeoffs that you should be aware of before jumping into consulting.
 
@@ -38,12 +38,12 @@ What overhead?
 * Set up your own 401k plan.
 * Set up liability insurance.
 * Deal with contracts. Negotiate contracts. Hire lawyers to create standard contracts.
-* Pay estimated taxes. Pay additional local taxes if you’re a business. Potentially declare yourself as an S-Corporation, so you can save tens of thousands of US dollars a year on taxes. But deal with all the overhead of running a corporation. Sign up for services like [Formations](https://formationscorp.com) or [Collective](https://www.collective.com). ([Let me know](/contact/?utm_source=website-formations-consultant-curious&utm_medium=link&utm_campaign=consultant-curious) if you want a referral to Formations).
+* Pay estimated taxes. Pay additional local taxes if you’re a business. Potentially declare yourself as an S-Corporation, so you can save tens of thousands of US dollars a year on taxes. But deal with all the overhead of running a corporation.
 * Network, and be helpful to people. Talk with other contractors to figure all this stuff out.
 
 The amount of time this takes varies depending on the type of contracting you do. And it can vary seasonally or between contracts. But you should expect to spend a _significant_ amount of time on these things.
 
-Note that a lot of these things are flexible. They may depend on your appetite for risk, and your willingness to be less profitable. And you can ease into them. You may decide to not incorporate as a business, or get S-corp tax advantages, just to keep things simple. However, even if you keep it simple, you should expect a lot of overhead. 
+Note that a lot of these things are flexible. They may depend on your appetite for risk, and your willingness to be less profitable. And you can ease into them. You may decide to not incorporate as a business, or forgo S-corp tax advantages, just to keep things simple. However, even if you keep it simple, you should expect a lot of overhead. 
 
 ## Finding clients is the major challenge
 
@@ -79,9 +79,9 @@ One piece of advice I received early on was to narrow my focus so that it’s ea
 
 People will pigeonhole you. So it’s often better to specialize than to be a generalist. Why? People will only pattern match you against one or two things. You want people to think about you as an option when a problem comes up. 
 
-I struggled with specializing, because I’ve been doing this work for a long time, and I’ve been fortunate enough to work in situations where I acquired deep skills in many areas. But nobody is going to pattern-match me into all of those areas. So I chose a couple and focused all of my communication around those areas. 
+I struggled with specializing, because I’ve been doing this work for a long time, and I’ve been fortunate enough to work in situations where I acquired deep skills in many areas. But nobody is going to pattern-match me into all of those areas. So I chose a couple and focused all of my communication around those areas. But I probably don't do this as much as I should.
 
-You probably should have a level of experience in your area that is unassailable. If you’re doing leadership consulting, for example, you probably should have gotten a VP title or two. If you’re focused on founder consulting for startups, you should have started a few startups.
+You should have a level of experience in your area that is unassailable. If you’re doing leadership consulting, for example, you probably should have gotten a VP title or two. If you’re focused on founder consulting for startups, you should have started a few startups.
 
 This is not to say there isn’t space for less experienced people in consulting. But I think it’s a tougher road to travel. You’d need a deeper network, or better connections. Something else to balance out the lack of depth in your area.
 
@@ -117,7 +117,7 @@ This is not to say you don’t have work relationships as a consultant. They’r
 
 When I left my first VP of Engineering role, I had been at that company for almost nine years. I had no idea how applicable the things I had learned were to other companies. 
 
-Several years into consulting, I’ve now worked at almost twenty startups. I have a _very clear_ perspective on what works in what contexts.
+Several years into consulting, I’ve now worked at thirty startups. I have a _very clear_ perspective on what works in what contexts.
 
 I like to describe full-time work as depth-focused learning. You’re learning deeply within a certain company context. You’re going deep on a particular company and situation. 
 
@@ -149,7 +149,7 @@ Your effectiveness can be hampered by the focus or topics your client wants to d
 
 ## About interim roles
 
-I’ve had four interim roles to date, so let me share some observations of what these roles are like. 
+I’ve had six interim roles to date, so let me share some observations of what these roles are like. 
 
 In my experience, they average about six months in length. The shortest was three months, and the longest was nine months long. 
 
@@ -159,15 +159,15 @@ It’s hard to do multiple interim roles at a time, because they tend to want to
 
 The money for interim roles is fine. In my testing of the market, I’ve found it to be more price sensitive than I would expect. Pay is higher than being full-time, but only a little. Due to gaps between roles, it ends up not being lucrative.  
 
-Interim roles also tend to be intense. Some of the most challenging work I’ve ever done has been in interim roles. Why? People usually just want to hire a permanent person into a role. An interim role is best when things are on fire. They can also be useful when there isn’t a competent person to do the hiring for the full time role. But generally I’ve found these roles to involve a lot of organizational firefighting. As a result, I’ve flirted with burnout a couple of times during interim roles.
+Interim roles also tend to be intense. Some of the most challenging work I’ve ever done has been in interim roles. Why? People usually just want to hire a permanent person into a role. An interim role is often required when things are **on fire**. They can also be useful when there isn’t a competent person to do the hiring for the full time role. But generally I’ve found these roles to involve a lot of organizational firefighting. As a result, I’ve flirted with burnout a couple of times during interim roles.
 
 The flip side of things is that if you enjoy fixing urgent organizational challenges and making situations better for people (as I do), it can be rewarding work. And I’ve learned a great deal from my interim engagements. It’s a way of doing shorter-term engagements as a company but still have the ownership for the organization on your shoulders. 
 
-One oddity of interim roles is that you’re not free to make change in the same way you are as a permanent person. You only want to make changes that the next person wouldn’t want to revert. Some of my more innovative practices I don’t roll out, because I mostly want to make changes that are going to be reversed. In a full-time role, I would have more time to institutionalize these things, so that provides more flexibility.
+One oddity of interim roles is that you’re not free to make change in the same way you are as a permanent person. You only want to make changes that the next person wouldn’t want to revert. I avoid some of the more innovative practices in my toolkit, because I don't want the next leader to roll them back. In a full-time role, I would have more time to institutionalize these things, so that provides more flexibility.
 
 One thing to watch out for is the hatchet job. You’ll sometimes be brought in to do the dirty work, like laying off a bunch of people. My biggest learning doing interim roles is that it is important to understand the situation you’re getting into, and make sure you’re aligned with the people hiring you on the course of action to take.
 
-Another important factor is to assess how many people you can do work through. I’ve had a couple of times I’ve done interim roles only to discover there weren’t any managers to do the work. I ended up doing mostly hiring work. That is fine, but it ended up delaying my impact on the company by months. 
+Another important factor is to assess how many people you can do work through. I’ve had a couple of times I’ve done interim roles only to discover there weren’t any managers to do the work. I ended up doing mostly hiring. That is fine, but it ended up delaying my impact on the company by months. 
 
 ## About fractional roles
 
@@ -175,7 +175,7 @@ Fractional roles are roles where they’re hiring you for a fraction of your tim
 
 ### Project work
 
-This is work where the person hiring you points you at a problem, and your job is to make it better. For example, a leader might hire you to [uplevel the whole management team](/mini-m-support-groups/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious). Or to hire up some new teams, and improve their hiring process. Or they might hire you to roll out an incident management process. Or to set up engineering levels. Or to set up a data team for engineering. 
+This is work where the person hiring you points you at a problem, and your job is to make it better. For example, a leader might hire you to [uplevel the whole management team](/mini-m-support-groups/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious). Or to hire up some new teams, and improve their hiring process. Or they might hire you to roll out an incident management process. To get them onto continuous integration. Or to set up engineering levels. Or to set up a data team for engineering. 
 
 These roles make sense when they have confidence in your ability to do this work. And when they don’t have someone internally they can point at that problem. Or alternatively, when you have expertise they don’t have in-house. 
 
@@ -193,7 +193,7 @@ The challenge with these roles is assessing how much work is actually required o
 
 Advisory work is where you have working sessions together. They’re similar to coaching. I’ve written a [whole post on advisory work](/executive-advisor/?utm_source=website-consultant-curious&utm_medium=link&utm_campaign=consultant-curious).
 
-This type of work is enjoyable, but the main challenge is finding enough clients to make the work sustainable. Most people seem to merge this work with other types of work.
+This type of work is enjoyable, but the main challenge is finding enough clients to make the work sustainable. Most people seem to merge this work with other types of work, because they can't get enough advisory clients.
 
 ## Tip: how much should I charge?
 
@@ -207,9 +207,9 @@ So what is the answer to how much you should charge? You should charge as much a
 
 ## About the economy
 
-The startup and technical markets have been brutal over the last year. Many of my clients have had layoffs, and many have cut back on advisors or contractors. I’ve lost many clients since October 2022 as a result. But I’ve also seen a lot of interest from new leads.
+The startup and technical markets have been brutal. Many of my clients have had layoffs, and many have cut back on advisors or contractors. I’ve lost some clients due to the economic climate. But I also seem to be doing better every year, even through these times.
 
-My overall read of the situation is that it’s becoming more competitive. More people are entering fractional, advisory, coaching, and interim work. I’m in a Slack group with 5000+ fractional leaders. I’m sure many of those people are curious, but that’s a lot of leaders! 
+My overall read of the situation is that it’s becoming more competitive. More people are entering fractional, advisory, coaching, and interim work. I once joined a Slack group with 5000+ fractional leaders. I’m sure many of those people are curious, but that’s a lot of leaders! 
 
 As a result, people are needing to differentiate themselves, and the most experienced people are still making a good living at it. And the rest of the market is becoming less profitable and less desirable. This will probably result in non-differentiated work being paid less well, and overall being less desirable.
 
