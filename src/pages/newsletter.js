@@ -234,6 +234,8 @@ const NewsletterPage = (props) => {
                   margin-right: 30px;
                   margin-bottom: 20px;
                   min-width: 300px;
+                  width: 463px;
+                  max-width: 100%;
                   border: 2px solid ${theme.color.brand.primary};
                   background: ${theme.color.neutral.white};
                   cursor: pointer;
