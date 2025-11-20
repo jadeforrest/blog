@@ -78,7 +78,7 @@ const TagTemplate = (props) => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo pageTitle="Posts with tag" />
+      <Seo pageTitle="Posts with tag" pathname={props.location.pathname} />
     </React.Fragment>
   );
 };

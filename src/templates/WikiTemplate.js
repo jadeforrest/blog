@@ -702,6 +702,7 @@ const WikiTemplate = (props) => {
             ? directoryPath.replace(/\/$/, "").split("/").pop()
             : "Wiki"
         }
+        pathname={props.location.pathname}
       />
     </React.Fragment>
   );

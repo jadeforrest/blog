@@ -220,7 +220,7 @@ const NewsletterPage = (props) => {
                 }
               `}</style>
             </Article>
-            <Seo pageTitle="Leadership Newsletter" />
+            <Seo pageTitle="Leadership Newsletter" pathname={props.location.pathname} />
           </React.Fragment>
         );
       }}

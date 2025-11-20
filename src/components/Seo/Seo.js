@@ -4,23 +4,18 @@ import { Helmet } from "react-helmet-async";
 import { useStaticQuery, graphql } from "gatsby";
 import config from "../../../content/meta/config";
 
-// Helper function to determine the canonical URL for different page types
-const getCanonicalUrl = (postSlug, url, pageTitle) => {
-  // For the home/index page (special case)
-  if (
-    !postSlug &&
-    (pageTitle === "Rubick.com" || url === config.siteUrl || url === config.siteUrl + "/")
-  ) {
-    return "https://www.rubick.com";
-  }
+// Helper function to determine the canonical URL
+// Strips query parameters while preserving the pathname exactly as Gatsby serves it
+const getCanonicalUrl = (pathname) => {
+  // Strip query parameters and hash from pathname if present
+  const cleanPath = pathname ? pathname.split("?")[0].split("#")[0] : "/";
 
-  // For all other pages (posts, tags, about, etc.), use the full URL
-  // This ensures we respect the site's routing structure
-  return url;
+  // Construct the full canonical URL
+  return `${config.siteUrl}${cleanPath}`;
 };
 
 const Seo = (props) => {
-  const { data } = props;
+  const { data, pathname } = props;
   const pageTitle = props.pageTitle;
   const postTitle = ((data || {}).frontmatter || {}).title;
   const postDescription = ((data || {}).frontmatter || {}).description;
@@ -39,6 +34,9 @@ const Seo = (props) => {
   const domain = useStaticQuery(plausibleDomainQuery).site.siteMetadata.plausibleDomain;
   const imagePathWithDomain = "https://" + domain + "/" + imagePath.replace(/^\//, "");
 
+  // Generate canonical URL from pathname (strips query params)
+  const canonicalUrl = getCanonicalUrl(pathname || path);
+
   return (
     <Helmet
       htmlAttributes={{
@@ -55,10 +53,8 @@ const Seo = (props) => {
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imagePathWithDomain} />
       <meta property="og:type" content="website" />
-      {/* Only add canonical for homepage and pages with a slug */}
-      {(postSlug || pageTitle === "Rubick.com") && (
-        <link rel="canonical" href={getCanonicalUrl(postSlug, url, pageTitle)} />
-      )}
+      {/* Canonical URL - always present, strips query parameters */}
+      <link rel="canonical" href={canonicalUrl} />
       {/* Plausible Analytics */}
       {typeof window !== "undefined" && (
         <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js" />
@@ -70,6 +66,7 @@ const Seo = (props) => {
 Seo.propTypes = {
   data: PropTypes.object,
   pageTitle: PropTypes.string,
+  pathname: PropTypes.string,
 };
 
 const plausibleDomainQuery = graphql`

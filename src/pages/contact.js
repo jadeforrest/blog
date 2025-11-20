@@ -16,7 +16,7 @@ const ContactPage = (props) => {
         </header>
         <Contact theme={theme} />
       </Article>
-      <Seo pageTitle="Contact" />
+      <Seo pageTitle="Contact" pathname={props.location.pathname} />
     </React.Fragment>
   );
 };

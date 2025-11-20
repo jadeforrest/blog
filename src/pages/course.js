@@ -238,7 +238,7 @@ const CoursePage = (props) => {
                 }
               `}</style>
             </Article>
-            <Seo pageTitle="Management Course" />
+            <Seo pageTitle="Management Course" pathname={props.location.pathname} />
           </React.Fragment>
         );
       }}

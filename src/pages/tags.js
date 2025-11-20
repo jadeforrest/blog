@@ -84,7 +84,7 @@ const TagsPage = (props) => {
         `}</style>
       </Article>
 
-      <Seo pageTitle="Tags" />
+      <Seo pageTitle="Tags" pathname={props.location.pathname} />
     </React.Fragment>
   );
 };

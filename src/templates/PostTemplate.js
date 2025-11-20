@@ -27,7 +27,7 @@ const PostTemplate = (props) => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo data={post} />
+      <Seo data={post} pathname={props.location.pathname} />
     </React.Fragment>
   );
 };

@@ -739,7 +739,7 @@ const IndexPage = (props) => {
           }
         `}</style>
       </Article>
-      <Seo pageTitle="Rubick.com" />
+      <Seo pageTitle="Rubick.com" pathname={props.location.pathname} />
     </React.Fragment>
   );
 };

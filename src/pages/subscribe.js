@@ -175,7 +175,7 @@ const SubscribePage = (props) => {
                 }
               `}</style>
             </Article>
-            <Seo pageTitle="Subscribe" />
+            <Seo pageTitle="Subscribe" pathname={props.location.pathname} />
           </React.Fragment>
         );
       }}
