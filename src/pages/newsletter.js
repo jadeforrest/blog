@@ -44,6 +44,14 @@ const NewsletterPage = (props) => {
                 <span className="ctaSubtext">Supporter Edition</span>
               </a>
 
+              <a href="/" className="subContainerFree">
+                <span className="subIcon">
+                  <FaEnvelope />
+                </span>
+                <span className="subText">Get the Free Version</span>
+                <span className="ctaSubtext">Standard Edition</span>
+              </a>
+
               <p>
                 The newsletter basically feeds you most of the content from my blog, but on a weekly
                 schedule.
@@ -217,6 +225,68 @@ const NewsletterPage = (props) => {
                   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                   text-transform: none;
                   letter-spacing: 0.3px;
+                }
+
+                .subContainerFree {
+                  display: inline-block;
+                  border-radius: 12px;
+                  padding: 24px 32px;
+                  margin-right: 30px;
+                  margin-bottom: 20px;
+                  min-width: 300px;
+                  border: 2px solid ${theme.color.brand.primary};
+                  background: ${theme.color.neutral.white};
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+                  transform: translateY(0);
+                  text-decoration: none;
+
+                  :hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                    border-color: ${theme.color.brand.primaryDark};
+
+                    .subText {
+                      color: ${theme.color.brand.primaryDark};
+                      transform: scale(1.02);
+                    }
+                    .subIcon :global(svg) {
+                      fill: ${theme.color.brand.primaryDark};
+                      transform: scale(1.1);
+                    }
+                  }
+
+                  :active {
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                  }
+
+                  .subText {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: ${theme.font.weight.bold};
+                    color: ${theme.color.brand.primary};
+                    margin-top: 12px;
+                    display: block;
+                    text-transform: uppercase;
+                    transition: all 0.2s ease;
+                  }
+
+                  .subIcon {
+                    display: block;
+                    text-align: center;
+                    font-size: 48px;
+                    margin-bottom: 12px;
+                    :global(svg) {
+                      fill: ${theme.color.brand.primary};
+                      transition: transform 0.2s ease;
+                    }
+                  }
+
+                  .ctaSubtext {
+                    color: ${theme.color.neutral.gray.g};
+                    text-shadow: none;
+                  }
                 }
               `}</style>
             </Article>
