@@ -80,15 +80,18 @@ const RecentPosts = (props) => {
         }
 
         h2 {
-          font-size: ${theme.font.size.l};
+          font-size: ${theme.heading.size.h2};
+          line-height: ${theme.heading.lineHeight.h2};
+          font-weight: ${theme.heading.weight};
           margin: ${theme.space.stack.m};
           text-align: center;
+          color: ${theme.color.neutral.gray.j};
         }
 
         h3 {
-          font-size: ${theme.font.size.m};
+          font-size: ${theme.heading.size.h3};
+          line-height: ${theme.heading.lineHeight.h3};
           margin: 0 0 ${theme.space.xs} 0;
-          line-height: 1.2;
         }
 
         .posts-container {

@@ -121,6 +121,14 @@ const NewsletterPage = (props) => {
                   margin-bottom: 40px;
                 }
 
+                h2 {
+                  font-size: ${theme.heading.size.h2};
+                  line-height: ${theme.heading.lineHeight.h2};
+                  font-weight: ${theme.heading.weight};
+                  color: ${theme.color.neutral.gray.j};
+                  margin: 1.5em 0 0.75em;
+                }
+
                 dl {
                   line-height: ${theme.font.lineHeight.xxl};
                   margin: 0 0 1.5em;
@@ -128,14 +136,16 @@ const NewsletterPage = (props) => {
                 }
 
                 dt {
-                  margin-top: 20px;
+                  margin-top: 30px;
                   font-weight: bold;
-                  font-size: ${theme.font.size.s};
+                  font-size: ${theme.font.size.m};
+                  line-height: 1.4;
                 }
 
                 dd {
-                  margin-top: 20px;
-                  font-size: ${theme.font.size.xs};
+                  margin-top: 12px;
+                  font-size: ${theme.font.size.s};
+                  line-height: ${theme.font.lineHeight.xxl};
                 }
 
                 .subContainer2 {
