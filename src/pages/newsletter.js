@@ -300,6 +300,28 @@ const NewsletterPage = (props) => {
                     text-shadow: none;
                   }
                 }
+
+                @media (max-width: 600px) {
+                  .subContainer2 {
+                    display: block;
+                    width: 100%;
+                    max-width: 100%;
+                    min-width: unset;
+                    margin-right: 0;
+                    margin-bottom: 16px;
+                    padding: 20px 20px;
+                  }
+
+                  .subContainerFree {
+                    display: block;
+                    width: 100%;
+                    max-width: 100%;
+                    min-width: unset;
+                    margin-right: 0;
+                    margin-bottom: 16px;
+                    padding: 20px 20px;
+                  }
+                }
               `}</style>
             </Article>
             <Seo pageTitle="Leadership Newsletter" pathname={props.location.pathname} />

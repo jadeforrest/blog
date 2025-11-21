@@ -108,6 +108,15 @@ const IndexPage = (props) => {
             }
           }
 
+          @media (max-width: 600px) {
+            .subContainer {
+              display: block;
+              margin: 0 auto 16px auto;
+              min-width: 200px;
+              max-width: 300px;
+              text-align: center;
+            }
+          }
 
         `}</style>
       </Article>
