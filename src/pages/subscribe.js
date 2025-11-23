@@ -7,6 +7,7 @@ import Seo from "../components/Seo";
 import { FaTag, FaRss, FaPaperPlane, FaLinkedin } from "react-icons/fa";
 import Butterfly from "../images/svg-icons/butterfly.svg";
 import config from "../../content/meta/config";
+import SubscribeLink from "../components/SubscribeLink";
 
 const SubscribePage = (props) => {
   return (
@@ -35,27 +36,18 @@ const SubscribePage = (props) => {
 
               <p>Get a weekly email course on engineering leadership!</p>
 
-              <a href="https://rubick.ck.page/subscribe" target="_blank" rel="noreferrer">
-                <section className="subContainer">
-                  <span className="subIcon">
-                    <FaPaperPlane />
-                  </span>
-                  <span className="subText">Free Course</span>
-                </section>
-              </a>
+              <SubscribeLink
+                href="https://rubick.ck.page/subscribe"
+                icon={<FaPaperPlane />}
+                text="Free Course"
+              />
 
-              <a
+              <SubscribeLink
                 href="https://rubick.ck.page/products/engineering-leadership-course"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <section className="subContainer2">
-                  <span className="subIcon">
-                    <FaPaperPlane />
-                  </span>
-                  <span className="subText">Paid course</span>
-                </section>
-              </a>
+                icon={<FaPaperPlane />}
+                text="Paid course"
+                highlighted
+              />
 
               <p></p>
 
@@ -74,45 +66,25 @@ const SubscribePage = (props) => {
 
               <p>And finally, you can follow new posts by RSS, LinkedIn, or Bluesky</p>
 
-              <a href="../rss.xml" target="_blank" rel="noreferrer">
-                <section className="subContainer">
-                  <span className="subIcon">
-                    <FaRss />
-                  </span>
-                  <span className="subText">RSS</span>
-                </section>
-              </a>
+              <SubscribeLink href="../rss.xml" icon={<FaRss />} text="RSS" />
 
-              <a
+              <SubscribeLink
                 href="https://bsky.app/profile/jaderubick.bsky.social"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <section className="subContainer">
-                  <span className="subIcon">
-                    <Butterfly className="butterflyIcon" />
-                  </span>
-                  <span className="subText">Bluesky</span>
-                </section>
-              </a>
+                icon={<Butterfly className="butterflyIcon" />}
+                text="Bluesky"
+              />
 
-              <a href="https://rubick.ck.page/subscribe" target="_blank" rel="noreferrer">
-                <section className="subContainer">
-                  <span className="subIcon">
-                    <FaPaperPlane />
-                  </span>
-                  <span className="subText">Email</span>
-                </section>
-              </a>
+              <SubscribeLink
+                href="https://rubick.ck.page/subscribe"
+                icon={<FaPaperPlane />}
+                text="Email"
+              />
 
-              <a href="https://www.linkedin.com/in/jaderubick/" target="_blank" rel="noreferrer">
-                <section className="subContainer">
-                  <span className="subIcon">
-                    <FaLinkedin />
-                  </span>
-                  <span className="subText">LinkedIn</span>
-                </section>
-              </a>
+              <SubscribeLink
+                href="https://www.linkedin.com/in/jaderubick/"
+                icon={<FaLinkedin />}
+                text="LinkedIn"
+              />
 
               <style jsx>{`
                 p {
@@ -120,58 +92,6 @@ const SubscribePage = (props) => {
                   line-height: ${theme.font.lineHeight.xxl};
                   margin: 0 0 1.5em;
                   margin-bottom: 40px;
-                }
-
-                .subContainer {
-                  display: inline-block;
-                  border-radius: 6px;
-                  padding: 10px;
-                  padding-bottom: 0px;
-                  margin-right: 30px;
-                  min-width: 130px;
-                  border: 1px solid ${theme.color.neutral.gray.d};
-                  :hover {
-                    border: 1px solid #ccc;
-                    .subText {
-                      color: ${theme.color.brand.primary};
-                    }
-                  }
-                }
-
-                .subContainer2 {
-                  display: inline-block;
-                  border-radius: 6px;
-                  padding: 10px;
-                  padding-bottom: 0px;
-                  margin-right: 30px;
-                  min-width: 130px;
-                  border: 1px solid ${theme.color.neutral.gray.d};
-                  background-color: ${theme.color.brand.primaryLight};
-                  :hover {
-                    border: 1px solid #ccc;
-                    .subText {
-                      color: ${theme.color.brand.primary};
-                    }
-                  }
-                }
-
-                .subText {
-                  text-align: right;
-                  font-size: 20px;
-                  color: ${theme.color.neutral.gray.j};
-                }
-
-                .subIcon {
-                  vertical-align: middle;
-                  font-size: 40px;
-                  padding-right: 10px;
-                  :global(svg) {
-                    fill: ${theme.color.brand.primary};
-                  }
-                  :global(.butterflyIcon) {
-                    width: 1em;
-                    height: 1em;
-                  }
                 }
               `}</style>
             </Article>

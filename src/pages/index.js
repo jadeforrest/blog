@@ -10,6 +10,7 @@ import charity from "../images/png/charity.png";
 import Butterfly from "../images/svg-icons/butterfly.svg";
 import RecentPosts from "../components/Blog/RecentPosts";
 import ConvertKitForm from "../components/ConvertKitForm";
+import SubscribeLink from "../components/SubscribeLink";
 
 const IndexPage = (props) => {
   const { data } = props;
@@ -31,32 +32,19 @@ const IndexPage = (props) => {
 
         <RecentPosts theme={theme} posts={posts} />
 
-        <a href="../rss.xml" target="_blank" rel="noreferrer">
-          <section className="subContainer">
-            <span className="subIcon">
-              <FaRss />
-            </span>
-            <span className="subText">RSS</span>
-          </section>
-        </a>
+        <SubscribeLink href="../rss.xml" icon={<FaRss />} text="RSS" />
 
-        <a href="https://bsky.app/profile/jaderubick.bsky.social" target="_blank" rel="noreferrer">
-          <section className="subContainer">
-            <span className="subIcon">
-              <Butterfly className="butterflyIcon" />
-            </span>
-            <span className="subText">Bluesky</span>
-          </section>
-        </a>
+        <SubscribeLink
+          href="https://bsky.app/profile/jaderubick.bsky.social"
+          icon={<Butterfly className="butterflyIcon" />}
+          text="Bluesky"
+        />
 
-        <a href="https://www.linkedin.com/in/jaderubick/" target="_blank" rel="noreferrer">
-          <section className="subContainer">
-            <span className="subIcon">
-              <FaLinkedin />
-            </span>
-            <span className="subText">LinkedIn</span>
-          </section>
-        </a>
+        <SubscribeLink
+          href="https://www.linkedin.com/in/jaderubick/"
+          icon={<FaLinkedin />}
+          text="LinkedIn"
+        />
 
         <style jsx>{`
           p {
@@ -74,50 +62,6 @@ const IndexPage = (props) => {
           li {
             margin-left: 18px;
           }
-          .subContainer {
-            display: inline-block;
-            border-radius: 6px;
-            padding: 10px;
-            padding-bottom: 0px;
-            margin-right: 30px;
-            min-width: 130px;
-            border: 1px solid ${theme.color.neutral.gray.d};
-            :hover {
-              border: 1px solid #ccc;
-              .subText {
-                color: ${theme.color.brand.primary};
-              }
-            }
-          }
-
-          .subText {
-            color: ${theme.color.neutral.gray.j};
-            margin-bottom: 18px;
-          }
-
-          .subIcon {
-            vertical-align: middle;
-            font-size: 40px;
-            padding-right: 10px;
-            :global(svg) {
-              fill: ${theme.color.brand.primary};
-            }
-            :global(.butterflyIcon) {
-              width: 1em;
-              height: 1em;
-            }
-          }
-
-          @media (max-width: 600px) {
-            .subContainer {
-              display: block;
-              margin: 0 auto 16px auto;
-              min-width: 200px;
-              max-width: 300px;
-              text-align: center;
-            }
-          }
-
         `}</style>
       </Article>
       <Seo pageTitle="Rubick.com" pathname={props.location.pathname} />
