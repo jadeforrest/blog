@@ -18,7 +18,7 @@ Someone recommended them to Jade.
 
 ## Artisanal Talent 🇺🇲
 
-Jade was recruited out of New Relic by Artisanal Talent. He also referred several companies to them, and they always said they were happy with the results. Their model seems to be to go deeper with candidates, and take on fewer clients. And to find a good mutual match. However, I do think they're been growing and scaling the company quite a bit, so I'm not sure how true this still is. Also, the person who started Artisinal Talent that I liked working with so much has left to start Fusion Talent. 
+Jade was recruited out of New Relic by Artisanal Talent. He also referred several companies to them, and they always said they were happy with the results. Their model seems to be to go deeper with candidates, and take on fewer clients. And to find a good mutual match. However, I do think they're been growing and scaling the company quite a bit, so I'm not sure how true this still is. Also, the person who started Artisinal Talent that I liked working with so much has left to start Fusion Talent. From LinkedIn, found these as clients of theirs: Abnormal AI, Airtable, Apollo.io, Benchling, Databricks, Hashicorp, Confluent, Notion, Rippling, Temporal, Datadog, Harvey, Ramp, Wiz, dbt Labs, Clickhouse, UiPath.
 
 ## Fusion Talent **🇺🇸**
 
