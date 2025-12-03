@@ -14,3 +14,6 @@ updated at: Thu Nov 09 2023 11:48:33 GMT+0000 (Coordinated Universal Time)
 
 * [DRICE](https://open.substack.com/pub/lenny/p/introducing-drice-a-modern-prioritization) - Start out with Reach, Impact, Confidence, Effort. But then add in return on investment, or basically dev time divided by dollars.
 
+## Kano prioritization
+
+* [The Complete Guide to Kano prioritization](https://foldingburritos.com/blog/kano-model/). Satisfaction, disatisfaction, must haves. A very good guide.
