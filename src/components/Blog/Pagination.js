@@ -3,6 +3,15 @@ import React from "react";
 import { Link } from "gatsby";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
+/**
+ * Pagination component for navigating between pages
+ * @param {Object} props - Component props
+ * @param {Object} props.pageContext - Page context with pagination info
+ * @param {number} props.pageContext.currentPage - Current page number
+ * @param {number} props.pageContext.numPages - Total number of pages
+ * @param {Object} props.theme - Theme object for styling
+ * @returns {React.ReactElement} Pagination component
+ */
 const Pagination = (props) => {
   const { currentPage, numPages } = props.pageContext;
   const isFirst = currentPage === 1 || !currentPage;
@@ -144,6 +153,12 @@ const Pagination = (props) => {
   );
 };
 
+/**
+ * Select which page numbers to display in pagination
+ * @param {number} currentPage - Current page number
+ * @param {number} countPages - Total number of pages
+ * @returns {Array<number|string>} Array of page numbers or "dots" placeholders
+ */
 function selectRelevantPageLinks(currentPage, countPages) {
   const visiblePageNumbers = [];
   if (countPages <= 10) {

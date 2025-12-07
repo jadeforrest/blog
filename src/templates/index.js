@@ -7,6 +7,10 @@ import { ThemeContext } from "../layouts";
 
 /** Template for "home" page with infinite scroll and fallback to pagination. */
 class IndexPage extends React.Component {
+  /**
+   * Render the index page
+   * @returns {React.ReactElement} Index page component
+   */
   render() {
     return (
       <GlobalStateContext.Consumer>

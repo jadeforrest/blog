@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * Custom HTML component for Gatsby
+ * @class HTML
+ * @extends {React.Component}
+ */
 export default class HTML extends React.Component {
+  /**
+   * Render the HTML document structure
+   * @returns {React.ReactElement} HTML document
+   */
   render() {
     return (
       <html {...this.props.htmlAttributes}>
