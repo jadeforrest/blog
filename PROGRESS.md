@@ -14,7 +14,7 @@
 - ✅ 31 images optimized by Astro's asset pipeline
 - ✅ Markdown to HTML conversion with smartypants
 - ✅ Posts route to root level (not /posts/)
-- ✅ Production build succeeds: 107 pages (101 posts + 6 pagination pages)
+- ✅ Production build succeeds: 160 pages (101 posts + 6 pagination pages + 52 tag pages + 1 tags index)
 - ✅ Full styling with theme variables
 - ✅ BaseLayout with header and footer
 - ✅ Article styling matches Gatsby design
@@ -26,14 +26,16 @@
 - ✅ Navigation between homepage and posts
 - ✅ Pagination with Previous/Next controls (6 pages total)
 - ✅ Cover images displayed on homepage post list (200x150px, responsive)
-- ❌ No "View all tags" / "View all posts" links
+- ✅ Tag pages with dynamic generation (52 unique tags)
+- ✅ "View all tags" page with post counts
+- ✅ Individual tag pages filtering posts by tag
 
 ## Next Steps
 - Phase 5: Polish & Additional Features
   - ✅ Add pagination to homepage
   - ✅ Add cover images/thumbnails to homepage post list
-  - Add "View all tags" page
-  - Create tag pages (e.g., /tags/communication/)
+  - ✅ Add "View all tags" page
+  - ✅ Create tag pages (e.g., /tags/communication/)
   - Create about page
   - Test remaining functionality
   - Add RSS feed if needed
