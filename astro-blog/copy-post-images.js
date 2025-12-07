@@ -65,4 +65,20 @@ function copyImages() {
   console.log(`\nTotal: Copied ${copiedCount} images from ${postDirs.length} posts`);
 }
 
+function copyAboutPageAssets() {
+  // Copy avatar image from old Gatsby content to public/about
+  const sourceAvatar = "../content/pages/1--about/avatar-large.jpeg";
+  const targetDir = "public/about";
+  const targetAvatar = path.join(targetDir, "avatar-large.jpeg");
+
+  if (fs.existsSync(sourceAvatar)) {
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    fs.copyFileSync(sourceAvatar, targetAvatar);
+    console.log("\nCopied avatar image for about page");
+  }
+}
+
 copyImages();
+copyAboutPageAssets();

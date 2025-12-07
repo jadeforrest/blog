@@ -1,0 +1,474 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SocialIcons from "../components/SocialIcons";
+
+// Get posts with "popular" tag, sorted by date, limit to 5
+const allPosts = await getCollection("posts");
+const popularPosts = allPosts
+  .filter((post) => post.data.tags && post.data.tags.includes("popular"))
+  .map((post) => {
+    // Extract date from post id (YYYY-MM-DD--slug format)
+    const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
+    const date = dateMatch ? dateMatch[1] : post.data.date || "";
+
+    // Extract slug
+    const slug = post.id
+      .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
+      .replace(/\/index\.(md|mdx)$/, "");
+
+    return {
+      ...post,
+      date,
+      slug,
+    };
+  })
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 5);
+---
+
+<BaseLayout
+  title="About Jade Rubick - Engineering Leadership Consultant"
+  description="Jade Rubick builds thriving engineering organizations. Learn about his expertise in scaling engineering, product delivery, and organizational coordination."
+>
+  <div class="about-page">
+    <div class="about-header">
+      <img
+        src="/about/avatar-large.jpeg"
+        alt="Jade Rubick"
+        class="avatar"
+      />
+    </div>
+
+    <section class="about-content">
+      <h2>TL;DR</h2>
+
+      <p>I can help you with these problems<sup>†</sup>:</p>
+
+      <ol>
+        <li>Scaling engineering</li>
+        <li>Helping leaders navigate unfamiliar terrain.</li>
+        <li>Improving product delivery and quality.</li>
+        <li>Getting organizations to coordinate more effectively.</li>
+      </ol>
+
+      <p class="footnote">
+        † I can help with a lot of other problems too. But people need to
+        pattern-match you to a few things. See below for a longer list.
+      </p>
+
+      <h2>Hello</h2>
+
+      <p>
+        My name is Jade Rubick. I build thriving engineering organizations. My
+        specialty is humane, results-focused organizations.
+      </p>
+
+      <p>
+        I also like to share what I've learned. So I write blog posts and have a
+        newsletter course for beginning managers. Most of my blog posts are a
+        part of Engineering Leadership Weekly: <a href="/newsletter/"
+          >sign up</a
+        >, and you'll receive one a week, for a little over a year.
+      </p>
+
+      <p>
+        <a href="/contact">Contact me</a> if you'd like to discuss how I might be
+        able to help your organization. You can see my background, companies I've
+        worked with, and what people say about working with me on <a
+          href="https://www.linkedin.com/in/jaderubick/">LinkedIn</a
+        >.
+      </p>
+
+      <h2>How I help</h2>
+
+      <p>I help companies in a couple of ways:</p>
+
+      <ul>
+        <li>Executive advisor or coach.</li>
+        <li>Fractional doer.</li>
+        <li>Interim VP of Engineering.</li>
+        <li>Group leadership coach</li>
+      </ul>
+
+      <p>
+        As <strong>executive advisor</strong>, I meet weekly or biweekly with one
+        or more leaders in your organization. We conduct working sessions where we
+        problem-solve your current challenges. You bring context, I bring expertise,
+        and together we come up with better solutions than either of us could individually.
+      </p>
+
+      <p>
+        As a <strong>fractional doer</strong>, you point me at a problem in your
+        organization, and I take care of it. You get the benefit of hiring someone
+        with deep expertise who can produce amazing results in a short period of
+        time. Fractional work also encompasses evaluation of an organization -- I
+        can take a look at what is working and what isn't, and give you a list of
+        recommendations. A benefit of fractional work is that you can hire a level
+        of talent that would otherwise be unaffordable or inaccessible.
+      </p>
+
+      <p>
+        As an <strong>Interim VP of Engineering</strong>, I take leadership for a
+        limited period of time (usually 3-9 months). I improve the organization
+        and hire my replacement.
+      </p>
+
+      <p>
+        As a <strong>group leadership coach</strong>, I run group sessions for
+        frontline managers, directors, and heads of engineering. Learn more <a
+          href="/group-leadership-coaching/">here</a
+        >.
+      </p>
+
+      <h2>Is your company a fit?</h2>
+
+      <p>
+        I work with companies that deliver software, across most industries. I
+        avoid crypto engagements.
+      </p>
+
+      <p>
+        My approach is to focus on both effectiveness and sustainability.
+        Companies that treat employees like resources or cogs aren't going to be
+        a good fit.
+      </p>
+
+      <p>
+        I focus on companies with 10-100 engineers. I have experience outside of
+        both ends of that, however, so feel free to contact me if you want to
+        explore a fit.
+      </p>
+
+      <h2>Fractional projects</h2>
+
+      <p>Some typical fractional projects:</p>
+
+      <ul>
+        <li>
+          I need to hire a lot of people quickly and need someone to improve our
+          hiring practices.
+        </li>
+
+        <li>
+          We need to uplevel our engineering management team. How can I improve
+          things as quickly as possible?
+        </li>
+
+        <li>
+          Engineering delivery and quality has been degrading over time. What do
+          we do?
+        </li>
+
+        <li>
+          We're getting to the size we need to break up into multiple teams.
+        </li>
+
+        <li>I need to implement engineering levels and salary bands.</li>
+      </ul>
+
+      <h2>Areas of expertise</h2>
+
+      <p>
+        <strong>Execution issues</strong>. Engineering departments exist to
+        create value for the company and for customers. But the most common
+        failure mode of an engineering organization is for delivery to stall. I
+        can help diagnose and address what is getting in the way of the team
+        being effective.
+      </p>
+
+      <p>
+        <strong>Leveling up another engineering leader</strong>. If you have an
+        engineering leader who is effective but inexperienced, I can help. Many
+        challenges they face will be "anti-intuitive". The solutions evade smart
+        people, and unless you have the right mental models, you can fail. I've
+        worked with many promising but less experienced leaders, and helped them
+        have the impact the company requires of them.
+      </p>
+
+      <p>
+        <strong>Hiring (strategy, process)</strong>. Why should anyone want to
+        work for your company? I can help you <a
+          href="/creating-a-hiring-strategy/">work out your strategy</a
+        > for getting the best talent you can in the door. Some companies distinguish
+        themselves by their work culture. Other companies attract candidates by the
+        problem space they are in. Others may offer their employees freedoms, such
+        as working on open source, or short work weeks. To hire in this competitive
+        environment, you need a good hiring strategy. And you need a good retention
+        strategy. Your hiring process also needs to be competitive. The <a
+          href="/how-to-speed-up-hiring/"
+          >time you take to move candidates through your hiring pipeline</a
+        > can decide whether that candidate becomes an employee. I can help you improve
+        your candidate experience and hiring funnel. You can see examples of some
+        of the things I recommend <a href="/startup-hiring-and-recruiting/"
+          >here</a
+        >.
+      </p>
+
+      <p>
+        <strong>Quality and tech debt</strong>. Many teams get mired in technical
+        debt or are unable to release quality software. I can help with
+        improvements that will help them be proud of their work. And help them
+        make progress on intractable technical debt.
+      </p>
+
+      <p>
+        <strong>Reliability practices</strong>. If your engineers struggle with
+        poor reliability, I can help. Generally, this means setting up process for
+        incidents, communication, and follow-up work.
+      </p>
+
+      <p>
+        <strong>Distributed work</strong>. I have nine years of experience in
+        distributed organizations. And I have decades of experience in colocated
+        organizations. I can help you navigate how to manage remote work.
+      </p>
+
+      <p>
+        <strong>Organizational structure</strong>. I can help you design your
+        engineering organization for growth. Engineering teams bias towards
+        patterns that don't scale. I understand the math and the art of designing
+        organization structure. You can see my writing on <a
+          href="/coordination-models/">coordination models</a
+        >, <a href="/how-to-build-silos-and-decrease-collaboration/">silos</a>,
+        and <a href="/tag/org-design">organizational design</a>.
+      </p>
+
+      <p>
+        <strong>Early stage scaling</strong>. Companies that are beginning to
+        grow are often tempted to hire an engineering leader early. I can help
+        you navigate your organizations' needs so you can hire the skills you
+        need at the right time.
+      </p>
+
+      <p>
+        <strong>Diversity, equity, and inclusion</strong>. I will be the first to
+        recommend not bringing in a white male to help with DE&I. I can be useful
+        here, though. My experience is both with hiring and retention. At New
+        Relic, we achieved an employee NPS score that was equal across
+        demographic groups. At Gremlin, I increased underrepresented
+        representation in engineering from 7% to 38% in a little over a year.
+        What helps is engineering levels, fair compensation, a good promotion
+        process, and a humane hiring process. Underrepresented minorities are the
+        best test of company culture. Improvements you make for them usually make
+        the company better for everyone: improving retention and hiring.
+      </p>
+
+      <p>
+        <strong>Incremental delivery</strong>. Incremental delivery is a powerful
+        source of competitive advantage. It results in higher feedback, so your
+        projects more often hit the mark. Perceived velocity increases, because
+        customers see more improvements. Yet, companies often struggle to make
+        progress on this.
+      </p>
+
+      <p>
+        <strong>Project visibility</strong>. Sometimes it can seem like
+        engineering isn't doing anything. This is often the result of poor
+        project reporting and communication. What is useful here is something
+        lightweight that improves accountability and oversight.
+      </p>
+
+      <p>
+        <strong>Servicification</strong>. I was a leader in New Relic's
+        servicification effort. Moving to services can stall an engineering
+        organization for years. I can make these efforts much less problematic. I
+        even have some experimental approaches that may avoid most of the pain of
+        servicification altogether.
+      </p>
+
+      <p>
+        <strong>Employee retention</strong>. Engineers are in demand, and it can
+        be hard to build a work culture that keeps them engaged and happy. I can
+        help advise on what it takes to build a work environment that allows
+        people to do their best work, and makes them want to stay at your
+        company. And I can help arrest retention challenges.
+      </p>
+
+      <p>
+        <strong>Engineering levels and compensation</strong>. I've developed
+        engineering levels three times now. And I've developed compensation for
+        engineering several times in the past. Usually there is a historical
+        challenge and a going-forward challenge. I have a great interest in
+        solutions that are effective and fair.
+      </p>
+
+      <h2>Most popular posts</h2>
+
+      <div class="popular-posts">
+        {
+          popularPosts.map((post) => (
+            <article class="popular-post">
+              <h3>
+                <a href={`/${post.slug}/`}>{post.data.title}</a>
+              </h3>
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="github-note">
+        This blog's code is open sourced on <a
+          href="https://www.github.com/jadeforrest/blog/">GitHub</a
+        > thanks to <a href="https://github.com/baobabKoodaa/blog"
+          >Atte Juvonen</a
+        > and others before him. Feel free to submit corrections or use the code
+        to create your own blog (but do not host my content elsewhere).
+      </p>
+
+      <div class="social-icons-container">
+        <SocialIcons client:only="react" />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: var(--space-l);
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-content {
+    font-size: 1.05em;
+    line-height: var(--text-line-height-default);
+  }
+
+  .about-content h2 {
+    font-size: var(--heading-size-h2);
+    line-height: var(--heading-line-height-h2);
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-m);
+    color: var(--text-color-primary);
+  }
+
+  .about-content h3 {
+    font-size: var(--heading-size-h3);
+    line-height: var(--heading-line-height-h3);
+    margin-top: var(--space-m);
+    margin-bottom: var(--space-s);
+    color: var(--text-color-primary);
+  }
+
+  .about-content p {
+    margin-bottom: var(--space-m);
+  }
+
+  .about-content a {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+  }
+
+  .about-content a:hover {
+    color: var(--color-brand-hover);
+  }
+
+  .about-content ul,
+  .about-content ol {
+    margin-bottom: var(--space-m);
+    padding-left: var(--space-l);
+  }
+
+  .about-content li {
+    margin-bottom: var(--space-s);
+  }
+
+  .footnote {
+    font-size: 12px;
+    color: grey;
+    margin-top: var(--space-m);
+  }
+
+  .popular-posts {
+    margin: var(--space-m) 0;
+  }
+
+  .popular-post {
+    margin-bottom: var(--space-s);
+  }
+
+  .popular-post h3 {
+    font-size: var(--font-size-m);
+    margin: 0;
+  }
+
+  .popular-post h3 a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+
+  .popular-post h3 a:hover {
+    color: var(--color-brand-hover);
+    text-decoration: underline;
+  }
+
+  .github-note {
+    margin-top: var(--space-l);
+    padding-top: var(--space-m);
+    border-top: 1px solid var(--background-color-alt);
+    font-size: var(--font-size-s);
+  }
+
+  .social-icons-container {
+    margin-top: var(--space-l);
+    text-align: center;
+  }
+
+  .social-icons-container :global(.social-icons-wrapper) {
+    display: inline-block;
+  }
+
+  .social-icons-container :global(.icons) {
+    display: flex;
+    gap: var(--space-m);
+    font-size: 40px;
+    justify-content: center;
+  }
+
+  .social-icons-container :global(.icons a) {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-icons-container :global(.icons a:hover) {
+    color: var(--color-brand-hover);
+    transform: translateY(-4px);
+  }
+
+  .social-icons-container :global(.icons svg) {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+
+  @media (max-width: 599px) {
+    .avatar {
+      width: 180px;
+      height: 180px;
+    }
+
+    .social-icons-container :global(.icons) {
+      font-size: 32px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .about-content {
+      padding: 0 var(--space-m);
+    }
+  }
+</style>
