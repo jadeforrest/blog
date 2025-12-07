@@ -244,7 +244,24 @@ module.exports = {
       options: {
         name: "pages",
         engine: "flexsearch",
-        engineOptions: "speed",
+        engineOptions: {
+          encode: "icase",
+          tokenize: "forward",
+          threshold: 1,
+          resolution: 3,
+          depth: 2,
+          stemmer: {
+            "e": "",
+            "s": "",
+            "ing": "",
+            "ly": "",
+            "ed": "",
+            "er": "",
+            "est": "",
+            "es": "",
+            "ies": "y"
+          }
+        },
         query: `
           {
             allMarkdownRemark(
@@ -279,15 +296,22 @@ module.exports = {
               // Skip drafts
               return !node.fields.slug.includes("--draft");
             })
-            .map(node => ({
-              id: node.id,
-              slug: node.fields.slug,
-              title: node.frontmatter.title,
-              tags: node.frontmatter.tags || [],
-              excerpt: node.excerpt,
-              description: node.frontmatter.description,
-              date: node.fields.prefix
-            }))
+            .map(node => {
+              // Wiki pages need /wiki prefix, pages and posts don't
+              const slug = node.fields.source === "wiki"
+                ? `/wiki${node.fields.slug}`.replace(/\/$/, "")
+                : node.fields.slug;
+
+              return {
+                id: node.id,
+                slug: slug,
+                title: node.frontmatter.title,
+                tags: node.frontmatter.tags || [],
+                excerpt: node.excerpt,
+                description: node.frontmatter.description,
+                date: node.fields.prefix
+              };
+            })
       }
     }
   ]
