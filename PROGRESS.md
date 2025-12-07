@@ -1,18 +1,19 @@
 # Migration Progress
 
 **Last Updated:** December 7, 2024
-**Current Phase:** 4 - All Posts Migrated ✅
-**Working State:** All 101 posts migrated and building successfully!
+**Current Phase:** 4 - All Posts Migrated & Images Working ✅
+**Working State:** All 101 posts migrated, building successfully, images working!
 
 ## What's Working
 - ✅ Astro dev server configured
 - ✅ Content collections with schema
-- ✅ All 101 posts migrated from Gatsby
-- ✅ MDX support with custom ReImg component
-- ✅ Images display correctly with Astro asset handling (31 images optimized)
+- ✅ All 101 posts migrated from Gatsby (converted from .md to .mdx)
+- ✅ Custom remark plugin transforms <re-img> tags to standard <img> tags
+- ✅ All images working (cover images + inline images)
+- ✅ 31 images optimized by Astro's asset pipeline
 - ✅ Markdown to HTML conversion with smartypants
 - ✅ Posts route to root level (not /posts/)
-- ✅ Production build succeeds with all posts
+- ✅ Production build succeeds: 102 pages (1 homepage + 101 posts)
 - ✅ Full styling with theme variables
 - ✅ BaseLayout with header and footer
 - ✅ Article styling matches Gatsby design
@@ -22,16 +23,17 @@
 - ✅ Homepage with post list (all 101 posts)
 - ✅ Posts sorted by date (newest first)
 - ✅ Navigation between homepage and posts
-- ❌ No images in post list (Gatsby version had cover images)
+- ❌ No cover images in post list on homepage (Gatsby version had thumbnails)
 - ❌ No "View all tags" / "View all posts" links
-- ❌ Haven't tested posts with custom MDX components beyond ReImg
+- ❌ No pagination on homepage (showing all 101 posts at once)
 
 ## Next Steps
-- Phase 5: Test & Polish
-  - Test posts with different formats (MD vs MDX)
-  - Test posts with images
-  - Add pagination to homepage (101 posts is a lot!)
-  - Consider adding post excerpts to homepage
+- Phase 5: Polish & Additional Features
+  - Add pagination to homepage
+  - Add cover images/thumbnails to homepage post list
+  - Add "View all tags" page
+  - Test remaining functionality (tags pages, about page, etc.)
+  - Add RSS feed if needed
 
 ## Blockers
 - None
