@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SocialIcons from "../components/SocialIcons";
+import { FaLinkedin } from "react-icons/fa";
+---
+
+<BaseLayout
+  title="Contact | Jade Rubick - Engineering Leadership"
+  description="Get in touch with Jade Rubick"
+>
+  <div class="contact-page">
+    <header class="contact-header">
+      <h1>Contact</h1>
+    </header>
+
+    <div class="contact-content">
+      <p>
+        I can be reached at <strong>jade at rubick dot com</strong>.
+      </p>
+      <p>
+        And on LinkedIn:{" "}
+        <a
+          href="https://www.linkedin.com/in/jaderubick/"
+          target="_blank"
+          rel="noreferrer"
+          class="linkedin-link"
+        >
+          <FaLinkedin size={20} />
+        </a>
+      </p>
+
+      <div class="social-icons-container">
+        <SocialIcons client:only="react" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    margin-bottom: var(--space-l);
+    text-align: center;
+  }
+
+  .contact-header h1 {
+    font-size: var(--heading-size-h1);
+    line-height: var(--heading-line-height-h1);
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-m);
+  }
+
+  .contact-content {
+    font-size: var(--font-size-m);
+    line-height: var(--text-line-height-default);
+  }
+
+  .contact-content p {
+    margin-bottom: var(--space-m);
+  }
+
+  .linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .linkedin-link:hover {
+    color: var(--color-brand-hover);
+  }
+
+  .linkedin-link :global(svg) {
+    margin-left: var(--space-xs);
+  }
+
+  .social-icons-container {
+    margin-top: var(--space-xl);
+    text-align: center;
+  }
+
+  .social-icons-container :global(.social-icons-wrapper) {
+    display: inline-block;
+  }
+
+  .social-icons-container :global(.icons) {
+    display: flex;
+    gap: var(--space-m);
+    font-size: 40px;
+    justify-content: center;
+  }
+
+  .social-icons-container :global(.icons a) {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-icons-container :global(.icons a:hover) {
+    color: var(--color-brand-hover);
+    transform: translateY(-4px);
+  }
+
+  .social-icons-container :global(.icons svg) {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+
+  @media (max-width: 599px) {
+    .social-icons-container :global(.icons) {
+      font-size: 32px;
+    }
+  }
+</style>
