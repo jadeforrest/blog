@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialIcons from "../components/SocialIcons";
+import { FaCalendar } from "react-icons/fa";
 
 // Get posts with "popular" tag, sorted by date, limit to 5
 const allPosts = await getCollection("posts");
@@ -298,10 +299,35 @@ const popularPosts = allPosts
       <div class="popular-posts">
         {
           popularPosts.map((post) => (
-            <article class="popular-post">
-              <h3>
-                <a href={`/${post.slug}/`}>{post.data.title}</a>
-              </h3>
+            <article class="post-item">
+              {post.data.cover && (
+                <a href={`/${post.slug}/`} class="post-image-link">
+                  <img
+                    src={`/${post.slug}/${post.data.cover}`}
+                    alt={post.data.title}
+                    class="post-image"
+                  />
+                </a>
+              )}
+              <div class="post-content">
+                <h3>
+                  <a href={`/${post.slug}/`}>{post.data.title}</a>
+                </h3>
+                <div class="post-meta">
+                  <span class="post-date">
+                    <FaCalendar size={14} /> {post.date}
+                  </span>
+                </div>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="post-tags">
+                    {post.data.tags.map((tag) => (
+                      <a href={`/tags/${tag}/`} class="tag-chip">
+                        #{tag}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </article>
           ))
         }
@@ -393,26 +419,103 @@ const popularPosts = allPosts
   }
 
   .popular-posts {
-    margin: var(--space-m) 0;
+    margin: var(--space-l) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
   }
 
-  .popular-post {
+  .post-item {
+    display: flex;
+    border-radius: var(--size-radius-default);
+    overflow: hidden;
+    background: var(--color-neutral-white);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all var(--time-duration-default);
     margin-bottom: var(--space-s);
   }
 
-  .popular-post h3 {
-    font-size: var(--font-size-m);
-    margin: 0;
+  .post-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   }
 
-  .popular-post h3 a {
-    color: var(--color-brand-primary);
+  .post-image-link {
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .post-item:hover .post-image {
+    transform: scale(1.05);
+  }
+
+  .post-content {
+    flex: 1;
+    padding: var(--space-m);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-content h3 {
+    font-size: var(--heading-size-h3);
+    line-height: var(--heading-line-height-h3);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .post-content h3 a {
+    color: var(--text-color-primary);
     text-decoration: none;
   }
 
-  .popular-post h3 a:hover {
-    color: var(--color-brand-hover);
-    text-decoration: underline;
+  .post-content h3 a:hover {
+    color: var(--color-brand-primary);
+  }
+
+  .post-meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-gray-j);
+  }
+
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .post-date :global(svg) {
+    color: var(--color-brand-primary);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-s);
+  }
+
+  .tag-chip {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-s);
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-primary);
+    background-color: var(--background-color-alt);
+    border-radius: var(--size-radius-small);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tag-chip:hover {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-white);
   }
 
   .github-note {
@@ -464,11 +567,20 @@ const popularPosts = allPosts
     .social-icons-container :global(.icons) {
       font-size: 32px;
     }
+
+    .post-image-link {
+      width: 120px;
+      height: 90px;
+    }
   }
 
   @media (min-width: 600px) {
     .about-content {
       padding: 0 var(--space-m);
+    }
+
+    .post-item {
+      margin-bottom: var(--space-m);
     }
   }
 </style>
