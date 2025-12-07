@@ -29,20 +29,35 @@ async function fixHtmlTags() {
     let modified = false;
 
     // Fix multi-line table cells: <td>content</td> or <td attrs>content</td> on multiple lines
-    // This may need to run multiple times to catch nested cases
+    // Handle cells with content spanning multiple lines
     let prevContent;
+    let iterations = 0;
     do {
       prevContent = content;
-      // Pattern 1: Tag with content on next line
-      content = content.replace(/<(td|th)([^>]*)>([^<]*)\n\s*<\/(td|th)>/g, (match, tag1, attrs, cellContent, tag2) => {
-        modified = true;
-        return `<${tag1}${attrs}>${cellContent.trim()}</${tag2}>`;
+      iterations++;
+
+      // Pattern: Match td/th tags with content spanning multiple lines
+      // This handles cases like:
+      // <td>line1
+      // line2
+      // line3</td>
+      content = content.replace(/<(td|th)([^>]*)>([\s\S]*?)<\/(td|th)>/g, (match, tag1, attrs, cellContent, tag2) => {
+        // Only modify if the content contains newlines
+        if (cellContent.includes('\n')) {
+          modified = true;
+          // Replace all newlines and excessive whitespace with single spaces
+          // But preserve <br /> tags
+          const cleanedContent = cellContent
+            .replace(/\n\s*/g, '\n') // Normalize line breaks
+            .replace(/\n(?!<br|$)/g, ' ') // Replace line breaks with spaces except before <br tags or end
+            .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+            .trim();
+          return `<${tag1}${attrs}>${cleanedContent}</${tag2}>`;
+        }
+        return match;
       });
-      // Pattern 2: Tag with content split across lines with whitespace
-      content = content.replace(/<(td|th)([^>]*)>\s*([^<\n]+)\s*\n+\s*([^<]*?)\s*<\/(td|th)>/g, (match, tag1, attrs, content1, content2, tag2) => {
-        modified = true;
-        return `<${tag1}${attrs}>${content1.trim()} ${content2.trim()}</${tag2}>`;
-      });
+
+      if (iterations > 5) break; // Safety limit
     } while (content !== prevContent);
 
     if (modified) {
