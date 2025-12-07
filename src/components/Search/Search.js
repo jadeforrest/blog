@@ -141,7 +141,7 @@ const Search = (props) => {
             <ul>
               <li>Search by title, tags, or keywords</li>
               <li>Use keyboard shortcuts for faster navigation</li>
-              <li>Results include both blog posts and wiki articles</li>
+              <li>Results include blog posts, wiki articles, about, course, and newsletter pages</li>
             </ul>
           </div>
         )}

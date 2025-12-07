@@ -267,7 +267,7 @@ module.exports = {
             allMarkdownRemark(
               filter: {
                 fields: { slug: { ne: null } }
-                fileAbsolutePath: { regex: "/(posts|wiki)/" }
+                fileAbsolutePath: { regex: "/(posts|wiki|pages)/" }
               }
             ) {
               nodes {
@@ -290,14 +290,15 @@ module.exports = {
         ref: "id",
         index: ["title", "tags", "excerpt", "description"],
         store: ["id", "slug", "title", "tags", "date"],
-        normalizer: ({ data }) =>
-          data.allMarkdownRemark.nodes
+        normalizer: ({ data }) => {
+          // Index markdown content
+          const markdownPages = data.allMarkdownRemark.nodes
             .filter(node => {
               // Skip drafts
               return !node.fields.slug.includes("--draft");
             })
             .map(node => {
-              // Wiki pages need /wiki prefix, pages and posts don't
+              // Wiki pages need /wiki prefix, posts and pages don't
               const slug = node.fields.source === "wiki"
                 ? `/wiki${node.fields.slug}`.replace(/\/$/, "")
                 : node.fields.slug;
@@ -311,7 +312,50 @@ module.exports = {
                 description: node.frontmatter.description,
                 date: node.fields.prefix
               };
-            })
+            });
+
+          // Add static JSX pages to search index
+          const staticPages = [
+            {
+              id: "page-home",
+              slug: "/",
+              title: "Rubick.com - Engineering Leadership",
+              tags: ["leadership", "engineering", "blog"],
+              excerpt: "Learn to build humane, effective engineering organizations. Blog posts, newsletter, and course on engineering leadership and management.",
+              description: "Learn to build humane, effective engineering organizations",
+              date: null
+            },
+            {
+              id: "page-about",
+              slug: "/about/",
+              title: "About Jade Rubick - Engineering Leadership Consultant",
+              tags: ["about", "consulting", "advisor", "fractional", "interim"],
+              excerpt: "I build thriving engineering organizations. I help with scaling engineering, leadership coaching, product delivery, hiring, quality, and organizational structure. Available for executive advisory, fractional work, and interim VP of Engineering roles.",
+              description: "Engineering leadership consultant specializing in scaling, hiring, and organizational design",
+              date: null
+            },
+            {
+              id: "page-course",
+              slug: "/course/",
+              title: "Frontline Management Bootcamp",
+              tags: ["course", "management", "leadership", "engineering managers"],
+              excerpt: "A 5-month email-based course for engineering managers who are just getting started or have some experience. Learn practical management skills delivered weekly.",
+              description: "Email-based course for new engineering managers",
+              date: null
+            },
+            {
+              id: "page-newsletter",
+              slug: "/newsletter/",
+              title: "Engineering Leadership Weekly",
+              tags: ["newsletter", "leadership", "engineering", "management"],
+              excerpt: "Weekly newsletter on engineering leadership. Get blog content delivered to your inbox on a weekly schedule. Available in free and supporter editions.",
+              description: "Weekly newsletter on engineering leadership and management",
+              date: null
+            }
+          ];
+
+          return [...markdownPages, ...staticPages];
+        }
       }
     }
   ]
