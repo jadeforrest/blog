@@ -22,7 +22,10 @@ export async function getStaticPaths() {
 }
 
 const { post, date } = Astro.props;
-const { Content } = await post.render();
+const { Content, components } = await post.render();
+
+// Import MDX components for custom elements like <re-img>
+import MDXComponents from "../components/MDXComponents.jsx";
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
@@ -51,7 +54,7 @@ const { Content } = await post.render();
     </header>
 
     <div class="post-content">
-      <Content />
+      <Content components={MDXComponents} />
     </div>
   </article>
 </BaseLayout>

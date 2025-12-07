@@ -20,7 +20,10 @@
       "Bash(ls:*)",
       "Bash(npm outdated:*)",
       "Bash(du:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(test:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   },
