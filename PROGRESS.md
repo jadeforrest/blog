@@ -29,6 +29,7 @@
 - ✅ Tag pages with dynamic generation (52 unique tags)
 - ✅ "View all tags" page with post counts
 - ✅ Individual tag pages filtering posts by tag
+- ✅ Tags displayed on homepage post listings with clickable links
 
 ## Next Steps
 - Phase 5: Polish & Additional Features
