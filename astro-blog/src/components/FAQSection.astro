@@ -1,0 +1,43 @@
+---
+interface Props {
+  variant?: "default" | "compact";
+}
+
+const { variant = "default" } = Astro.props;
+---
+
+<dl class:list={["faq-section", variant]}>
+  <slot />
+</dl>
+
+<style>
+  .faq-section {
+    line-height: var(--text-line-height-default);
+    margin: 0 0 1.5em;
+    margin-bottom: 40px;
+  }
+
+  .faq-section :global(dt) {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: var(--font-size-m);
+    line-height: 1.4;
+  }
+
+  .faq-section.compact :global(dt) {
+    margin-top: 20px;
+    font-size: var(--font-size-s);
+    line-height: 1;
+  }
+
+  .faq-section :global(dd) {
+    margin-top: 12px;
+    font-size: var(--font-size-s);
+    line-height: var(--text-line-height-default);
+  }
+
+  .faq-section.compact :global(dd) {
+    margin-top: 20px;
+    font-size: var(--font-size-xs);
+  }
+</style>

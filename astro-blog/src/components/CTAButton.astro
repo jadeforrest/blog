@@ -1,0 +1,185 @@
+---
+interface Props {
+  href: string;
+  mainText: string;
+  subText: string;
+  variant?: "primary" | "secondary";
+  isExternal?: boolean;
+}
+
+const {
+  href,
+  mainText,
+  subText,
+  variant = "primary",
+  isExternal = true,
+} = Astro.props;
+
+const linkProps = isExternal ? { target: "_blank", rel: "noreferrer" } : {};
+---
+
+<a
+  href={href}
+  {...linkProps}
+  class={variant === "primary" ? "cta-button-primary" : "cta-button-secondary"}
+>
+  <span class="cta-icon">
+    <slot name="icon" />
+  </span>
+  <span class="cta-text">{mainText}</span>
+  <span class="cta-subtext">{subText}</span>
+</a>
+
+<style>
+  .cta-button-primary,
+  .cta-button-secondary {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    min-width: 300px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateY(0);
+    position: relative;
+  }
+
+  .cta-button-primary {
+    border: none;
+    background: linear-gradient(135deg, var(--color-special-attention), #d86519);
+    box-shadow:
+      0 6px 20px rgba(227, 114, 34, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .cta-button-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+    pointer-events: none;
+  }
+
+  .cta-button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 8px 25px rgba(227, 114, 34, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #f5832a, var(--color-special-attention));
+  }
+
+  .cta-button-primary:hover .cta-text {
+    transform: scale(1.02);
+  }
+
+  .cta-button-primary:hover .cta-icon :global(svg) {
+    transform: scale(1.1);
+  }
+
+  .cta-button-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(227, 114, 34, 0.3);
+  }
+
+  .cta-button-secondary {
+    width: 463px;
+    max-width: 100%;
+    border: 2px solid var(--color-brand-primary);
+    background: var(--color-neutral-white);
+  }
+
+  .cta-button-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-brand-hover);
+  }
+
+  .cta-button-secondary:hover .cta-text {
+    color: var(--color-brand-hover);
+    transform: scale(1.02);
+  }
+
+  .cta-button-secondary:hover .cta-icon :global(svg) {
+    fill: var(--color-brand-hover);
+    transform: scale(1.1);
+  }
+
+  .cta-button-secondary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .cta-button-secondary .cta-text {
+    color: var(--color-brand-primary);
+  }
+
+  .cta-button-secondary .cta-icon :global(svg) {
+    fill: var(--color-brand-primary);
+  }
+
+  .cta-button-secondary .cta-subtext {
+    color: var(--color-neutral-gray-g);
+    text-shadow: none;
+  }
+
+  .cta-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-white);
+    margin-top: 12px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .cta-icon {
+    display: block;
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .cta-icon :global(svg) {
+    fill: var(--color-neutral-white);
+    transition: transform 0.2s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .cta-subtext {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-transform: none;
+    letter-spacing: 0.3px;
+  }
+
+  @media (max-width: 600px) {
+    .cta-button-primary,
+    .cta-button-secondary {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: unset;
+      margin-right: 0;
+      margin-bottom: 16px;
+      padding: 20px 20px;
+    }
+  }
+</style>
