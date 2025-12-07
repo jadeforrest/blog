@@ -99,6 +99,15 @@ const { posts, tag } = Astro.props;
                   <FaCalendar size={14} /> {post.date}
                 </span>
               </div>
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="post-tags">
+                  {post.data.tags.map((tagName) => (
+                    <a href={`/tags/${tagName}/`} class="tag-chip">
+                      #{tagName}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </article>
         ))
@@ -216,7 +225,6 @@ const { posts, tag } = Astro.props;
   .post-meta {
     font-size: var(--font-size-xs);
     color: var(--color-neutral-gray-j);
-    margin-top: auto;
   }
 
   .post-date {
@@ -227,6 +235,29 @@ const { posts, tag } = Astro.props;
 
   .post-date :global(svg) {
     color: var(--color-brand-primary);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-s);
+  }
+
+  .tag-chip {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-s);
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-primary);
+    background-color: var(--background-color-alt);
+    border-radius: var(--size-radius-small);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tag-chip:hover {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-white);
   }
 
   @media (max-width: 599px) {
