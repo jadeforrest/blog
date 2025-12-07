@@ -1,0 +1,300 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Parser from "rss-parser";
+
+// Fetch podcast episodes at build time
+const RSS_URL = "https://anchor.fm/s/f420aba8/podcast/rss";
+const MAX_EPISODES = 5;
+
+const parser = new Parser({
+  customFields: {
+    item: [["content:encoded", "contentEncoded"]],
+  },
+});
+
+let episodes: any[] = [];
+try {
+  const feed = await parser.parseURL(RSS_URL);
+  episodes = (feed.items || []).slice(0, MAX_EPISODES);
+} catch (error) {
+  console.error("Error fetching podcast feed:", error);
+}
+
+function stripHtml(value: string): string {
+  return value.replace(/<[^>]*>/g, " ");
+}
+
+function normalizeWhitespace(value: string): string {
+  return value.trim().replace(/\s+/g, " ");
+}
+
+function formatDate(dateInput: string | Date): string {
+  const date = new Date(dateInput);
+  if (isNaN(date.valueOf())) {
+    return "Recently";
+  }
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+---
+
+<BaseLayout
+  title="Decoding Leadership Podcast | Jade Rubick"
+  description="Where we break down the elements of humane and effective leadership"
+>
+  <div class="podcast-page">
+    <div class="podcast-intro">
+      <div class="intro-text">
+        <p>Where we break down the elements of humane and effective leadership.</p>
+        <img
+          src="/images/decoding-leadership-6.png"
+          alt="Decoding Leadership Podcast"
+          class="podcast-logo"
+        />
+        <p>
+          <a
+            href="https://podcasters.spotify.com/pod/show/decodingleadership"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="listen-link"
+          >
+            Listen to Decoding Leadership
+          </a>
+        </p>
+      </div>
+      <div class="testimonial">
+        <blockquote>
+          "This is hands down one of the best podcast discussions on incident
+          management, coordination, and reliability I've seen in ages!
+          Fantastic conversation between Beth Adele Long and Jade Rubick on the
+          Decoding Leadership podcast. Definitely worth a listen for anyone
+          working in this space."
+        </blockquote>
+        <p class="attribution">
+          — <a
+            href="https://www.resiliumlabs.com"
+            target="_blank"
+            rel="noopener noreferrer">Adrian Hornsby</a
+          >
+          <a
+            href="https://www.linkedin.com/posts/adhorn_beth-adele-long-on-reliability-and-leadership-activity-7366471477837127682-ZXfV?rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA"
+            target="_blank"
+            rel="noopener noreferrer">on LinkedIn</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <section class="latest-episodes">
+      <h2>Latest Episodes</h2>
+      <div class="episode-grid">
+        {
+          episodes.map((episode) => {
+            const title = episode.title || "Untitled episode";
+            const link = episode.link || "#";
+            const isoDate =
+              episode.isoDate || episode.pubDate || new Date().toISOString();
+            const formattedDate = formatDate(isoDate);
+            const descriptionSource =
+              episode.contentSnippet ||
+              episode.content ||
+              episode.contentEncoded ||
+              "";
+            const description = normalizeWhitespace(
+              stripHtml(descriptionSource)
+            );
+
+            return (
+              <article class="episode-card">
+                <h3>{title}</h3>
+                <time datetime={new Date(isoDate).toISOString()}>
+                  {formattedDate}
+                </time>
+                <p>{description}</p>
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="listen-button"
+                >
+                  Listen now
+                </a>
+              </article>
+            );
+          })
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .podcast-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .podcast-intro {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+  }
+
+  .intro-text {
+    flex: 0 0 40%;
+  }
+
+  .intro-text p {
+    font-size: var(--font-size-m);
+    line-height: var(--text-line-height-default);
+    margin-bottom: var(--space-m);
+  }
+
+  .podcast-logo {
+    width: 60%;
+    max-width: 300px;
+    border-radius: var(--size-radius-default);
+    margin: var(--space-m) 0;
+  }
+
+  .listen-link {
+    color: var(--color-brand-primary);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+
+  .listen-link:hover {
+    color: var(--color-brand-hover);
+    text-decoration: underline;
+  }
+
+  .testimonial {
+    flex: 1;
+    padding-left: 1rem;
+  }
+
+  .testimonial blockquote {
+    font-style: italic;
+    margin: 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    line-height: var(--text-line-height-default);
+  }
+
+  .attribution {
+    text-align: right;
+    margin-top: 1rem;
+    font-size: var(--font-size-s);
+  }
+
+  .attribution a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+
+  .attribution a:hover {
+    color: var(--color-brand-hover);
+    text-decoration: underline;
+  }
+
+  .latest-episodes h2 {
+    font-size: var(--heading-size-h2);
+    line-height: var(--heading-line-height-h2);
+    margin-top: 0;
+    margin-bottom: var(--space-l);
+    color: var(--text-color-primary);
+  }
+
+  .episode-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: 2rem 0;
+  }
+
+  .episode-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .episode-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+  }
+
+  .episode-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--text-color-primary);
+  }
+
+  .episode-card time {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+
+  .episode-card p {
+    margin: 0;
+    color: #334155;
+    line-height: 1.6;
+    font-size: var(--font-size-s);
+  }
+
+  .listen-button {
+    align-self: flex-start;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 9999px;
+    background: #0f172a;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+  }
+
+  .listen-button:hover {
+    background: #1e293b;
+  }
+
+  @media (max-width: 768px) {
+    .podcast-intro {
+      flex-direction: column;
+    }
+
+    .intro-text {
+      flex: 1;
+    }
+
+    .testimonial {
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .episode-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .podcast-logo {
+      width: 80%;
+    }
+  }
+</style>
