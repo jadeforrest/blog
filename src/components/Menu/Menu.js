@@ -10,6 +10,7 @@ import {
   FaPodcast,
   FaEnvelope,
   FaBookOpen,
+  FaSearch,
 } from "react-icons/fa/";
 
 import Item from "./Item";
@@ -27,6 +28,7 @@ class Menu extends React.Component {
       { to: "/course/", label: "Course", icon: FaSeedling },
       { to: "/about/", label: "About", icon: FaUser },
       { to: "/wiki/", label: "Wiki", icon: FaBookOpen },
+      { to: "/search/", label: "Search", icon: FaSearch },
     ];
 
     this.renderedItems = []; // will contain references to rendered DOM elements of menu

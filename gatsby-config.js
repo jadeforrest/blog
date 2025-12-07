@@ -238,6 +238,57 @@ module.exports = {
       options: {
         include: /svg-icons/
       }
+    },
+    {
+      resolve: "gatsby-plugin-local-search",
+      options: {
+        name: "pages",
+        engine: "flexsearch",
+        engineOptions: "speed",
+        query: `
+          {
+            allMarkdownRemark(
+              filter: {
+                fields: { slug: { ne: null } }
+                fileAbsolutePath: { regex: "/(posts|wiki)/" }
+              }
+            ) {
+              nodes {
+                id
+                fields {
+                  slug
+                  prefix
+                  source
+                }
+                frontmatter {
+                  title
+                  tags
+                  description
+                }
+                excerpt
+              }
+            }
+          }
+        `,
+        ref: "id",
+        index: ["title", "tags", "excerpt", "description"],
+        store: ["id", "slug", "title", "tags", "date"],
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes
+            .filter(node => {
+              // Skip drafts
+              return !node.fields.slug.includes("--draft");
+            })
+            .map(node => ({
+              id: node.id,
+              slug: node.fields.slug,
+              title: node.frontmatter.title,
+              tags: node.frontmatter.tags || [],
+              excerpt: node.excerpt,
+              description: node.frontmatter.description,
+              date: node.fields.prefix
+            }))
+      }
     }
   ]
 };
