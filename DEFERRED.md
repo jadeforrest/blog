@@ -41,6 +41,15 @@
 **Effort:** Low
 **Notes:** Removed `<style jsx>` tag that caused "Received `true` for a non-boolean attribute `jsx`" warning. Can add back as inline styles or use Astro's scoped styling.
 
+## #6 - Replace Spotify Decoding Leadership Podcast Embeds
+**Phase:** Post-Launch
+**Reason:** Privacy/performance concerns, focus on core functionality first
+**Current Implementation:** Spotify iframe embeds (`<iframe src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/..."`)
+**Better Approach:** Replace with simpler podcast links or custom embed component that doesn't make calls to Sentry or trigger OAuth2/content blocker issues
+**Affected Posts:** 20 posts contain Spotify embeds
+**Effort:** Low-Medium
+**Notes:** Current Spotify embeds make calls to Sentry and have OAuth2 pages that get blocked by content blockers. Could replace with direct links to podcast episodes, or create a lightweight custom embed component that respects privacy.
+
 ---
 
 ## Template for New Entries
