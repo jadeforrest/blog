@@ -1,0 +1,248 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { FaCalendar } from "react-icons/fa";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPosts = await getCollection("posts");
+
+  // Build a map of tag -> posts
+  const tagMap = new Map<string, typeof allPosts>();
+
+  allPosts.forEach((post) => {
+    if (post.data.tags) {
+      post.data.tags.forEach((tag) => {
+        if (!tagMap.has(tag)) {
+          tagMap.set(tag, []);
+        }
+        tagMap.get(tag)!.push(post);
+      });
+    }
+  });
+
+  // Generate paths for each tag
+  return Array.from(tagMap.entries()).map(([tag, posts]) => {
+    // Sort posts by date (newest first)
+    const sortedPosts = posts
+      .map((post) => {
+        // Parse YYYY-MM-DD--slug format
+        const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
+        const date = dateMatch ? dateMatch[1] : post.data.date || "";
+
+        const slug = post.id
+          .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
+          .replace(/\/index\.(md|mdx)$/, "");
+
+        return {
+          ...post,
+          date,
+          slug,
+        };
+      })
+      .sort((a, b) => b.date.localeCompare(a.date));
+
+    return {
+      params: { tag },
+      props: { posts: sortedPosts, tag },
+    };
+  });
+};
+
+type Props = {
+  posts: Array<{
+    id: string;
+    slug: string;
+    data: {
+      title: string;
+      cover?: string;
+      tags?: string[];
+    };
+    date: string;
+  }>;
+  tag: string;
+};
+
+const { posts, tag } = Astro.props;
+---
+
+<BaseLayout
+  title={`Posts tagged "${tag}" - Engineering Leadership Blog`}
+  description={`All posts about ${tag}`}
+>
+  <div class="tag-page">
+    <header class="tag-header">
+      <h1>Posts tagged: <span class="tag-highlight">{tag}</span></h1>
+      <p class="tag-count">{posts.length} post{posts.length !== 1 ? "s" : ""}</p>
+      <a href="/tags/" class="back-link">← View all tags</a>
+    </header>
+
+    <div class="posts-container">
+      {
+        posts.map((post) => (
+          <article class="post-item">
+            {post.data.cover && (
+              <a href={`/${post.slug}/`} class="post-image-link">
+                <img
+                  src={`/${post.slug}/${post.data.cover}`}
+                  alt={post.data.title}
+                  class="post-image"
+                />
+              </a>
+            )}
+            <div class="post-content">
+              <h3>
+                <a href={`/${post.slug}/`}>{post.data.title}</a>
+              </h3>
+              <div class="post-meta">
+                <span class="post-date">
+                  <FaCalendar size={14} /> {post.date}
+                </span>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tag-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .tag-header {
+    margin-bottom: var(--space-l);
+    text-align: center;
+  }
+
+  .tag-header h1 {
+    font-size: var(--heading-size-h1);
+    line-height: var(--heading-line-height-h1);
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-s);
+  }
+
+  .tag-highlight {
+    color: var(--color-brand-primary);
+  }
+
+  .tag-count {
+    font-size: var(--font-size-m);
+    color: var(--color-neutral-gray-j);
+    margin-bottom: var(--space-m);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: var(--font-size-s);
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-m);
+    border-radius: var(--size-radius-small);
+    background-color: var(--background-color-alt);
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-white);
+  }
+
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    max-width: 100%;
+  }
+
+  .post-item {
+    display: flex;
+    border-radius: var(--size-radius-default);
+    overflow: hidden;
+    background: var(--color-neutral-white);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all var(--time-duration-default);
+    margin-bottom: var(--space-s);
+  }
+
+  .post-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .post-image-link {
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .post-item:hover .post-image {
+    transform: scale(1.05);
+  }
+
+  .post-content {
+    flex: 1;
+    padding: var(--space-m);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-content h3 {
+    font-size: var(--heading-size-h3);
+    line-height: var(--heading-line-height-h3);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .post-content h3 a {
+    color: var(--text-color-primary);
+    text-decoration: none;
+  }
+
+  .post-content h3 a:hover {
+    color: var(--color-brand-primary);
+  }
+
+  .post-meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-gray-j);
+    margin-top: auto;
+  }
+
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .post-date :global(svg) {
+    color: var(--color-brand-primary);
+  }
+
+  @media (max-width: 599px) {
+    .post-image-link {
+      width: 120px;
+      height: 90px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .posts-container {
+      margin-top: var(--space-l);
+    }
+
+    .post-item {
+      margin-bottom: var(--space-m);
+    }
+  }
+</style>
