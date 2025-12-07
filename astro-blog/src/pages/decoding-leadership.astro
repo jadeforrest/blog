@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Parser from "rss-parser";
+import { FaCalendar } from "react-icons/fa";
+import { formatDate } from "../utils/formatDate";
 
 // Fetch podcast episodes at build time
 const RSS_URL = "https://anchor.fm/s/f420aba8/podcast/rss";
@@ -26,18 +28,6 @@ function stripHtml(value: string): string {
 
 function normalizeWhitespace(value: string): string {
   return value.trim().replace(/\s+/g, " ");
-}
-
-function formatDate(dateInput: string | Date): string {
-  const date = new Date(dateInput);
-  if (isNaN(date.valueOf())) {
-    return "Recently";
-  }
-  return new Intl.DateTimeFormat("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  }).format(date);
 }
 ---
 
@@ -110,9 +100,9 @@ function formatDate(dateInput: string | Date): string {
             return (
               <article class="episode-card">
                 <h3>{title}</h3>
-                <time datetime={new Date(isoDate).toISOString()}>
-                  {formattedDate}
-                </time>
+                <p class="episode-meta">
+                  <FaCalendar size={14} /> {formattedDate}
+                </p>
                 <p>{description}</p>
                 <a
                   href={link}
@@ -211,67 +201,70 @@ function formatDate(dateInput: string | Date): string {
   }
 
   .episode-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
     margin: 2rem 0;
   }
 
   .episode-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
-    padding: 1.5rem;
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+    border-radius: var(--size-radius-default);
+    overflow: hidden;
+    background: var(--color-neutral-white);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all var(--time-duration-default);
+    margin-bottom: var(--space-s);
+    padding: var(--space-m);
   }
 
   .episode-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   }
 
   .episode-card h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.4;
+    font-size: var(--heading-size-h3);
+    line-height: var(--heading-line-height-h3);
+    margin: 0 0 var(--space-xs) 0;
     color: var(--text-color-primary);
   }
 
-  .episode-card time {
-    font-size: 0.9rem;
-    color: #64748b;
+  .episode-meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-gray-j);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin: 0 0 var(--space-s) 0;
+  }
+
+  .episode-meta :global(svg) {
+    color: var(--color-brand-primary);
   }
 
   .episode-card p {
-    margin: 0;
-    color: #334155;
+    margin: 0 0 var(--space-s) 0;
+    color: var(--color-neutral-gray-j);
     line-height: 1.6;
     font-size: var(--font-size-s);
   }
 
   .listen-button {
-    align-self: flex-start;
-    margin-top: auto;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.55rem 1rem;
-    border-radius: 9999px;
-    background: #0f172a;
-    color: #ffffff;
+    padding: var(--space-xs) var(--space-m);
+    border-radius: var(--size-radius-small);
+    background: var(--color-brand-primary);
+    color: var(--color-neutral-white);
     text-decoration: none;
     font-weight: 600;
     transition: background 0.2s ease;
+    font-size: var(--font-size-s);
   }
 
   .listen-button:hover {
-    background: #1e293b;
+    background: var(--color-brand-hover);
   }
 
   @media (max-width: 768px) {
@@ -286,15 +279,15 @@ function formatDate(dateInput: string | Date): string {
     .testimonial {
       padding-left: 0;
     }
-  }
-
-  @media (max-width: 640px) {
-    .episode-grid {
-      grid-template-columns: 1fr;
-    }
 
     .podcast-logo {
       width: 80%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .episode-card {
+      margin-bottom: var(--space-m);
     }
   }
 </style>

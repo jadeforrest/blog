@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { FaCalendar } from "react-icons/fa";
+import { formatDate } from "../../utils/formatDate";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getCollection("posts");
@@ -96,7 +97,7 @@ const { posts, tag } = Astro.props;
               </h3>
               <div class="post-meta">
                 <span class="post-date">
-                  <FaCalendar size={14} /> {post.date}
+                  <FaCalendar size={14} /> {formatDate(post.date)}
                 </span>
               </div>
               {post.data.tags && post.data.tags.length > 0 && (

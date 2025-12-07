@@ -3,6 +3,7 @@ import type { GetStaticPaths, Page } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { FaCalendar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { formatDate } from "../utils/formatDate";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   // Get all posts and sort by date (newest first)
@@ -71,7 +72,7 @@ const posts = page.data;
                 </h3>
                 <div class="post-meta">
                   <span class="post-date">
-                    <FaCalendar size={14} /> {post.date}
+                    <FaCalendar size={14} /> {formatDate(post.date)}
                   </span>
                 </div>
                 {post.data.tags && post.data.tags.length > 0 && (

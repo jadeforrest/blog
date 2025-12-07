@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialIcons from "../components/SocialIcons";
 import { FaCalendar } from "react-icons/fa";
+import { formatDate } from "../utils/formatDate";
 
 // Get posts with "popular" tag, sorted by date, limit to 5
 const allPosts = await getCollection("posts");
@@ -315,7 +316,7 @@ const popularPosts = allPosts
                 </h3>
                 <div class="post-meta">
                   <span class="post-date">
-                    <FaCalendar size={14} /> {post.date}
+                    <FaCalendar size={14} /> {formatDate(post.date)}
                   </span>
                 </div>
                 {post.data.tags && post.data.tags.length > 0 && (
