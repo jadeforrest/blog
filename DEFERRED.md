@@ -50,6 +50,15 @@
 **Effort:** Low-Medium
 **Notes:** Current Spotify embeds make calls to Sentry and have OAuth2 pages that get blocked by content blockers. Could replace with direct links to podcast episodes, or create a lightweight custom embed component that respects privacy.
 
+## #7 - Optimize Thumbnail Images for Homepage
+**Phase:** Phase 5 (Pagination & Polish)
+**Reason:** Get thumbnails working quickly, optimize later for performance
+**Current Implementation:** Full-resolution cover images served as thumbnails (200x150px on desktop, 120x90px on mobile)
+**Better Approach:** Use Astro's image optimization to generate responsive thumbnails at appropriate sizes. Could use `astro:assets` with `<Image>` component or generate multiple sizes during build.
+**Affected Files:** `src/pages/[...page].astro`
+**Effort:** Low-Medium
+**Notes:** Current implementation serves full-sized images (often several hundred KB) which are then scaled down by CSS. This wastes bandwidth and slows page load. Astro's built-in image optimization can generate optimized thumbnails at the exact dimensions needed. Would reduce page weight significantly.
+
 ---
 
 ## Template for New Entries

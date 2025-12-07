@@ -25,13 +25,13 @@
 - ✅ Posts sorted by date (newest first)
 - ✅ Navigation between homepage and posts
 - ✅ Pagination with Previous/Next controls (6 pages total)
-- ❌ No cover images in post list on homepage (Gatsby version had thumbnails)
+- ✅ Cover images displayed on homepage post list (200x150px, responsive)
 - ❌ No "View all tags" / "View all posts" links
 
 ## Next Steps
 - Phase 5: Polish & Additional Features
   - ✅ Add pagination to homepage
-  - Add cover images/thumbnails to homepage post list
+  - ✅ Add cover images/thumbnails to homepage post list
   - Add "View all tags" page
   - Create tag pages (e.g., /tags/communication/)
   - Create about page
