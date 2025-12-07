@@ -6,7 +6,6 @@ import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaEnvelope } from "react-icons/fa";
 import sarah from "../images/png/sarah.png";
-import config from "../../content/meta/config";
 import CTAButton from "../components/CTAButton";
 import FAQSection from "../components/FAQSection";
 

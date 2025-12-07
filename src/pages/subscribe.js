@@ -4,9 +4,8 @@ import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaTag, FaRss, FaPaperPlane, FaLinkedin } from "react-icons/fa";
+import { FaRss, FaPaperPlane, FaLinkedin } from "react-icons/fa";
 import Butterfly from "../images/svg-icons/butterfly.svg";
-import config from "../../content/meta/config";
 import SubscribeLink from "../components/SubscribeLink";
 
 const SubscribePage = (props) => {

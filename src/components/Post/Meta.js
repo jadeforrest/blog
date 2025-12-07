@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { currDate } from "../../utils/helpers";
-import { FaUser, FaTag, FaCalendar } from "react-icons/fa/";
+import { FaTag, FaCalendar } from "react-icons/fa/";
 
 /**
  * Meta component that displays post metadata like date, author, and tags
@@ -16,10 +16,8 @@ import { FaUser, FaTag, FaCalendar } from "react-icons/fa/";
  * @returns {React.ReactElement} Meta component
  */
 const Meta = (props) => {
-  const { author: authorName, tags, theme, lastEdit } = props;
+  const { tags, theme } = props;
   const prefix = props.prefix || currDate(); /* Intent: get date placeholder for viewing drafts. */
-
-  // TODO: lastEdit
 
   return (
     <p className="meta">

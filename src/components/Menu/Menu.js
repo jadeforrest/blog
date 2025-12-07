@@ -4,7 +4,6 @@ require("core-js/es/array/from");
 
 import {
   FaBook,
-  FaTag,
   FaUser,
   FaSeedling,
   FaPodcast,

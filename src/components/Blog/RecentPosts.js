@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { FaCalendar } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
@@ -23,7 +23,6 @@ const RecentPosts = (props) => {
           {posts.map((post, index) => {
             const {
               node: {
-                excerpt,
                 fields: { slug, prefix },
                 frontmatter: {
                   title,

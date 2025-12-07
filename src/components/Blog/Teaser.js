@@ -1,8 +1,7 @@
 import { FaArrowRight } from "react-icons/fa/";
 import { FaCalendar } from "react-icons/fa/";
 import { FaTag } from "react-icons/fa/";
-import { FaUser } from "react-icons/fa/";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
@@ -32,7 +31,6 @@ const Teaser = (props) => {
       frontmatter: {
         title,
         tags,
-        author,
         cover: { children: [{ gatsbyImageData = null }] = [{ gatsbyImageData: null }] },
       },
     },

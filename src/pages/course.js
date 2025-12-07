@@ -6,7 +6,6 @@ import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaSeedling } from "react-icons/fa";
 import rachel from "../images/png/rachel.png";
-import config from "../../content/meta/config";
 import CTAButton from "../components/CTAButton";
 import FAQSection from "../components/FAQSection";
 
