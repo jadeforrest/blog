@@ -32,17 +32,6 @@ const ReImg = ({ src, alt, title, width, href }) => {
           style={imgStyle}
         />
       </div>
-      <style jsx>{`
-        .img-container {
-          position: relative;
-        }
-        .img-container img {
-          transition: transform 300ms ease-in-out;
-        }
-        .img-container img:hover {
-          transform: scale(1.05);
-        }
-      `}</style>
     </a>
   );
 };

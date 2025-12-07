@@ -1,0 +1,125 @@
+:root {
+  /* Colors - Brand */
+  --color-brand-primary: #3875b9;
+  --color-brand-primary-light: #fafaf9;
+  --color-brand-primary-dark: #b67a0e;
+  --color-brand-hover: #c09f80;
+
+  /* Colors - Neutral */
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-gray-a: #fafaf9;
+  --color-neutral-gray-b: #f3f2f2;
+  --color-neutral-gray-c: #ecebea;
+  --color-neutral-gray-d: #dddbda;
+  --color-neutral-gray-e: #c9c7c5;
+  --color-neutral-gray-f: #b0adab;
+  --color-neutral-gray-g: #969492;
+  --color-neutral-gray-h: #706e6b;
+  --color-neutral-gray-i: #514f4d;
+  --color-neutral-gray-j: #666;
+  --color-neutral-gray-k: #2b2826;
+  --color-neutral-blue: #3875b9;
+
+  /* Colors - Accent */
+  --color-accent-orange: #e67e22;
+  --color-accent-coral: #ff6b6b;
+  --color-accent-gold: #f39c12;
+  --color-accent-teal: #17a2b8;
+  --color-accent-mint: #20c997;
+  --color-accent-purple: #6f42c1;
+
+  /* Colors - Special */
+  --color-special-attention: #e37222;
+  --color-special-success: #20c997;
+  --color-special-warning: #f39c12;
+  --color-special-error: #ff6b6b;
+  --color-special-info: #17a2b8;
+
+  /* Spacing */
+  --space-default: 20px;
+  --space-xxs: 2px;
+  --space-xs: 5px;
+  --space-s: 10px;
+  --space-m: 20px;
+  --space-l: 40px;
+  --space-xl: 80px;
+  --space-inset-xs: 5px;
+  --space-inset-s: 10px;
+  --space-inset-m: 20px;
+  --space-inset-l: 40px;
+  --space-stack-xxs: 0 0 2px 0;
+  --space-stack-xs: 0 0 5px 0;
+  --space-stack-s: 0 0 10px 0;
+  --space-stack-m: 0 0 20px 0;
+  --space-stack-l: 0 0 40px 0;
+  --space-inline-xxs: 0 2px 0 0;
+  --space-inline-xs: 0 5px 0 0;
+  --space-inline-s: 0 10px 0 0;
+  --space-inline-m: 0 20px 0 0;
+  --space-inline-l: 0 40px 0 0;
+
+  /* Sizes */
+  --size-radius-default: 10px;
+  --size-radius-small: 5px;
+  --size-article-max-width: 700px;
+
+  /* Typography - Font Family */
+  --font-family-base: "Open Sans", Arial, sans-serif;
+  --font-family-heading: "Open Sans", Arial, sans-serif;
+
+  /* Typography - Font Size */
+  --font-size-xxs: 0.8em;
+  --font-size-xs: 0.95em;
+  --font-size-s: 1.1em;
+  --font-size-m: 1.35em;
+  --font-size-l: 1.7em;
+  --font-size-xl: 2em;
+  --font-size-xxl: 2.2em;
+  --font-size-xxxl: 2.8em;
+
+  /* Typography - Line Height */
+  --line-height-xs: 1.1;
+  --line-height-s: 1.2;
+  --line-height-m: 1.3;
+  --line-height-l: 1.4;
+  --line-height-xl: 1.5;
+  --line-height-xxl: 1.6;
+  --line-height-reset: 1;
+
+  /* Typography - Font Weight */
+  --font-weight-standard: 400;
+  --font-weight-bold: 600;
+
+  /* Heading Sizes */
+  --heading-size-h1: 2em;
+  --heading-size-h2: 2.4em;
+  --heading-size-h3: 1.8em;
+  --heading-line-height-h1: 1.1;
+  --heading-line-height-h2: 1.2;
+  --heading-line-height-h3: 1.3;
+  --heading-weight: 600;
+
+  /* Text Colors */
+  --text-color-primary: #666;
+  --text-color-primary-inverse: #ffffff;
+  --text-color-brand: #3875b9;
+  --text-color-attention: #e37222;
+  --text-line-height-default: 1.4;
+  --text-max-width-tablet: 650px;
+  --text-max-width-desktop: 700px;
+
+  /* Background Colors */
+  --background-color-primary: #ffffff;
+  --background-color-alt: #fafaf9;
+  --background-color-brand: #3875b9;
+
+  /* Header */
+  --header-height-default: 50px;
+  --header-height-fixed: 50px;
+  --header-height-homepage: 50px;
+
+  /* Time/Animation */
+  --time-duration-default: 0.5s;
+  --time-duration-long: 1s;
+}

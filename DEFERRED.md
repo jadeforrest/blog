@@ -30,16 +30,16 @@
 **Better Approach:** Port full Gatsby ReImg with GatsbyImage, hover effects, and image optimization
 **Components:** src/components/markdown/ReImg.jsx
 **Effort:** Low-Medium
-**Notes:** Current version works but lacks Gatsby's sophisticated image handling (fluid images, base64 placeholders, hover effects). Good enough for launch.
+**Notes:** Current version works but lacks Gatsby's sophisticated image handling (fluid images, base64 placeholders, hover effects). Good enough for launch. Image width is constrained by article max-width which looks good.
 
-## #5 - Constrain Image Width on Large Screens
-**Phase:** Phase 1 (First Post Working)
-**Reason:** Get images displaying first, refine layout later
-**Current Implementation:** Images take up 100% width regardless of screen size
-**Better Approach:** Add max-width constraint for images on larger screens (e.g., max-width: 800px or similar) with centering
-**Components:** src/components/markdown/ReImg.jsx or article styles
+## #5 - Add Image Hover Effect Back to ReImg
+**Phase:** Phase 2 (Basic Layout & Styling)
+**Reason:** Removed styled-jsx to fix warning, lost hover effect
+**Current Implementation:** Images display correctly but no hover scale effect
+**Better Approach:** Add CSS to ReImg component or use scoped Astro styles. Original effect was: `.img-container img:hover { transform: scale(1.05); }` with transition
+**Components:** src/components/markdown/ReImg.jsx
 **Effort:** Low
-**Notes:** Images should be full-width on mobile but constrained on desktop for better readability and layout.
+**Notes:** Removed `<style jsx>` tag that caused "Received `true` for a non-boolean attribute `jsx`" warning. Can add back as inline styles or use Astro's scoped styling.
 
 ---
 

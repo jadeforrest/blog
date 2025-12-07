@@ -1,0 +1,130 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteTitle = "Jade Rubick - Engineering Leadership";
+const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+        <div class="header-container">
+          <a href="/" class="site-logo">Jade Rubick</a>
+          <nav class="site-nav">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <p>&copy; {new Date().getFullYear()} Jade Rubick. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  @import "../styles/global.css";
+
+  .site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-header {
+    background-color: var(--background-color-primary);
+    border-bottom: 1px solid var(--color-neutral-gray-c);
+    height: var(--header-height-default);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-m);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-logo {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+  }
+
+  .site-logo:hover {
+    color: var(--color-brand-primary);
+  }
+
+  .site-nav {
+    display: flex;
+    gap: var(--space-m);
+  }
+
+  .site-nav a {
+    color: var(--text-color-primary);
+    font-size: 1rem;
+  }
+
+  .site-nav a:hover {
+    color: var(--color-brand-primary);
+  }
+
+  .site-main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--space-l) var(--space-m);
+  }
+
+  .site-footer {
+    background-color: var(--background-color-alt);
+    border-top: 1px solid var(--color-neutral-gray-c);
+    padding: var(--space-l) 0;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-m);
+    text-align: center;
+    color: var(--text-color-primary);
+    font-size: var(--font-size-xs);
+  }
+
+  .footer-container p {
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,88 @@
+@import "./variables.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-standard);
+  font-size: 1rem;
+  line-height: var(--text-line-height-default);
+  color: var(--text-color-primary);
+  background-color: var(--background-color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--heading-weight);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--heading-size-h1);
+  line-height: var(--heading-line-height-h1);
+}
+
+h2 {
+  font-size: var(--heading-size-h2);
+  line-height: var(--heading-line-height-h2);
+}
+
+h3 {
+  font-size: var(--heading-size-h3);
+  line-height: var(--heading-line-height-h3);
+}
+
+p {
+  margin: 0 0 var(--space-m) 0;
+}
+
+a {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-brand-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--background-color-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: var(--background-color-alt);
+  padding: var(--space-m);
+  border-radius: var(--size-radius-default);
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
