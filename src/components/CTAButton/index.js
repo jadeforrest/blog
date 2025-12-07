@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import theme from "../../theme/theme.yaml";
 
 const CTAButton = ({ href, icon, mainText, subText, variant = "primary", isExternal = true }) => {
-  const linkProps = isExternal
-    ? { target: "_blank", rel: "noreferrer" }
-    : {};
+  const linkProps = isExternal ? { target: "_blank", rel: "noreferrer" } : {};
 
   return (
     <>
@@ -29,8 +27,7 @@ const CTAButton = ({ href, icon, mainText, subText, variant = "primary", isExter
           min-width: 300px;
           border: none;
           background: linear-gradient(135deg, ${theme.color.special.attention}, #d86519);
-          box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 20px rgba(227, 114, 34, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
           cursor: pointer;
           transition: all 0.2s ease;
           transform: translateY(0);
@@ -55,8 +52,7 @@ const CTAButton = ({ href, icon, mainText, subText, variant = "primary", isExter
 
           :hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35),
-              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(227, 114, 34, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
             background: linear-gradient(135deg, #f5832a, ${theme.color.special.attention});
 
             .ctaText {

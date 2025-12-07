@@ -3,18 +3,16 @@ import PropTypes from "prop-types";
 import theme from "../../theme/theme.yaml";
 
 const SubscribeLink = ({ href, icon, text, highlighted = false, isExternal = true }) => {
-    const linkProps = isExternal
-        ? { target: "_blank", rel: "noreferrer" }
-        : {};
+  const linkProps = isExternal ? { target: "_blank", rel: "noreferrer" } : {};
 
-    return (
-        <>
-            <a href={href} {...linkProps} className={highlighted ? "linkHighlighted" : "linkContainer"}>
-                <span className="linkIcon">{icon}</span>
-                <span className="linkText">{text}</span>
-            </a>
+  return (
+    <>
+      <a href={href} {...linkProps} className={highlighted ? "linkHighlighted" : "linkContainer"}>
+        <span className="linkIcon">{icon}</span>
+        <span className="linkText">{text}</span>
+      </a>
 
-            <style jsx>{`
+      <style jsx>{`
         .linkContainer,
         .linkHighlighted {
           display: inline-block;
@@ -69,16 +67,16 @@ const SubscribeLink = ({ href, icon, text, highlighted = false, isExternal = tru
           }
         }
       `}</style>
-        </>
-    );
+    </>
+  );
 };
 
 SubscribeLink.propTypes = {
-    href: PropTypes.string.isRequired,
-    icon: PropTypes.node.isRequired,
-    text: PropTypes.string.isRequired,
-    highlighted: PropTypes.bool,
-    isExternal: PropTypes.bool,
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
+  text: PropTypes.string.isRequired,
+  highlighted: PropTypes.bool,
+  isExternal: PropTypes.bool,
 };
 
 export default SubscribeLink;

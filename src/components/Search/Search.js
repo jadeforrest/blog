@@ -23,9 +23,7 @@ const Search = (props) => {
     switch (event.key) {
       case "ArrowDown":
         event.preventDefault();
-        setSelectedIndex((prev) =>
-          prev < results.length - 1 ? prev + 1 : prev
-        );
+        setSelectedIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
         break;
       case "ArrowUp":
         event.preventDefault();
@@ -54,7 +52,7 @@ const Search = (props) => {
     if (selectedIndex >= 0 && resultsRef.current[selectedIndex]) {
       resultsRef.current[selectedIndex].scrollIntoView({
         behavior: "smooth",
-        block: "nearest"
+        block: "nearest",
       });
     }
   }, [selectedIndex]);
@@ -81,7 +79,8 @@ const Search = (props) => {
             autoComplete="off"
           />
           <div className="keyboard-hint">
-            Press <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>Enter</kbd> to select, <kbd>Esc</kbd> to clear
+            Press <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>Enter</kbd> to select, <kbd>Esc</kbd>{" "}
+            to clear
           </div>
         </div>
 
@@ -110,16 +109,16 @@ const Search = (props) => {
                         {result.tags && result.tags.length > 0 && (
                           <div className="result-tags">
                             {result.tags.slice(0, 5).map((tag, idx) => (
-                              <span key={idx} className="tag">{tag}</span>
+                              <span key={idx} className="tag">
+                                {tag}
+                              </span>
                             ))}
                             {result.tags.length > 5 && (
                               <span className="tag-more">+{result.tags.length - 5} more</span>
                             )}
                           </div>
                         )}
-                        {result.date && (
-                          <div className="result-date">{result.date}</div>
-                        )}
+                        {result.date && <div className="result-date">{result.date}</div>}
                       </a>
                     </li>
                   ))}
@@ -141,7 +140,9 @@ const Search = (props) => {
             <ul>
               <li>Search by title, tags, or keywords</li>
               <li>Use keyboard shortcuts for faster navigation</li>
-              <li>Results include blog posts, wiki articles, about, course, and newsletter pages</li>
+              <li>
+                Results include blog posts, wiki articles, about, course, and newsletter pages
+              </li>
             </ul>
           </div>
         )}

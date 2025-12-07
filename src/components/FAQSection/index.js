@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import theme from "../../theme/theme.yaml";
 
 const FAQSection = ({ children, variant = "default" }) => {
-    return (
-        <>
-            <dl className="faqSection">{children}</dl>
+  return (
+    <>
+      <dl className="faqSection">{children}</dl>
 
-            <style jsx>{`
+      <style jsx>{`
         .faqSection {
           line-height: ${theme.font.lineHeight.xxl};
           margin: 0 0 1.5em;
@@ -27,13 +27,13 @@ const FAQSection = ({ children, variant = "default" }) => {
           line-height: ${theme.font.lineHeight.xxl};
         }
       `}</style>
-        </>
-    );
+    </>
+  );
 };
 
 FAQSection.propTypes = {
-    children: PropTypes.node.isRequired,
-    variant: PropTypes.oneOf(["default", "compact"]),
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(["default", "compact"]),
 };
 
 export default FAQSection;
