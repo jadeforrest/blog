@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
-import { FaArrowDown } from "react-icons/fa/";
+import { FaArrowDown } from "react-icons/fa";
 
 const Hero = (props) => {
   const theme = props.theme;

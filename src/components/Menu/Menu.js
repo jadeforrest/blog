@@ -10,7 +10,7 @@ import {
   FaEnvelope,
   FaBookOpen,
   FaSearch,
-} from "react-icons/fa/";
+} from "react-icons/fa";
 
 import Item from "./Item";
 import Expand from "./Expand";

@@ -1,4 +1,4 @@
-import { FaAngleUp } from "react-icons/fa/";
+import { FaAngleUp } from "react-icons/fa";
 import PropTypes from "prop-types";
 import React from "react";
 

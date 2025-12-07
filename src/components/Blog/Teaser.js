@@ -1,6 +1,6 @@
-import { FaArrowRight } from "react-icons/fa/";
-import { FaCalendar } from "react-icons/fa/";
-import { FaTag } from "react-icons/fa/";
+import { FaArrowRight } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa";
+import { FaTag } from "react-icons/fa";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { currDate } from "../../utils/helpers";
-import { FaTag, FaCalendar } from "react-icons/fa/";
+import { FaTag, FaCalendar } from "react-icons/fa";
 
 /**
  * Meta component that displays post metadata like date, author, and tags

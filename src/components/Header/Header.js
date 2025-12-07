@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import VisibilitySensor from "react-visibility-sensor";
-import { FaHome } from "react-icons/fa/";
+import { FaHome } from "react-icons/fa";
 
 import { ScreenWidthContext } from "../../layouts";
 import config from "../../../content/meta/config";
