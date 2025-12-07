@@ -78,3 +78,8 @@ report/
 bluesky-sent.json
 linkedin-sent.json
 extracted-content/
+
+# Astro blog
+astro-blog/node_modules/
+astro-blog/dist/
+astro-blog/.astro/
