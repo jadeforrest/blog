@@ -127,7 +127,7 @@ const Search = (props) => {
             ) : (
               <div className="no-results">
                 <div className="no-results-icon">🔍</div>
-                <div className="no-results-text">No results found for "{query}"</div>
+                <div className="no-results-text">No results found for &quot;{query}&quot;</div>
                 <div className="no-results-hint">Try different keywords or check your spelling</div>
               </div>
             )}

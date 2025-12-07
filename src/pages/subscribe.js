@@ -52,12 +52,12 @@ const SubscribePage = (props) => {
               <p></p>
 
               <p>
-                Each week, you receive an email that describes something useful. If you've read my
+                Each week, you receive an email that describes something useful. If you&apos;ve read my
                 posts in the past and learned from them, sign up!{" "}
               </p>
 
               <p>
-                The paid version is a great use for a "professional development" budget. Pay for it
+                The paid version is a great use for a &quot;professional development&quot; budget. Pay for it
                 and expense it. The paid version helps me develop more curriculum, and will have
                 some other benefits.
               </p>

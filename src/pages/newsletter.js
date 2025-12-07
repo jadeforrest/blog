@@ -65,7 +65,7 @@ const NewsletterPage = (props) => {
                   How is the paid version of Engineering Leadership Weekly different than the free
                   version?
                 </dt>
-                <dd>It's not different. But the paid version supports my writing.</dd>
+                <dd>It&apos;s not different. But the paid version supports my writing.</dd>
 
                 <dt>Where do I sign up for the free version?</dt>
                 <dd>
@@ -74,31 +74,31 @@ const NewsletterPage = (props) => {
 
                 <dt>How much email will I be receiving, and for how long?</dt>
                 <dd>
-                  Engineering Leadership Weekly is a weekly email with almost two weeks's content.
+                  Engineering Leadership Weekly is a weekly email with almost two weeks&apos;s content.
                   <br />
                   <br />
-                  When you get to the end, you'll get less frequent emails, since I write less
+                  When you get to the end, you&apos;ll get less frequent emails, since I write less
                   frequently than once a week.
                 </dd>
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
                 <dd>
-                  You can, but if you're thinking about that, I would just sign up for the course.
+                  You can, but if you&apos;re thinking about that, I would just sign up for the course.
                   At the end of the course, you will automatically transition into receiving the
                   newsletter. You will get a few duplicate emails, but not many.
                 </dd>
 
-                <dt>If I pay for the newsletter and don't like it, can I get a refund?</dt>
+                <dt>If I pay for the newsletter and don&apos;t like it, can I get a refund?</dt>
                 <dd>
                   Yes, I provide refunds with no questions asked, for two months after the
                   newsletter starts. <a href="/contact/">Contact me</a>.
                 </dd>
 
-                <dt>Is it annoying to unsubscribe if I'm finished with it?</dt>
+                <dt>Is it annoying to unsubscribe if I&apos;m finished with it?</dt>
                 <dd>Every email has an unsubscribe link in it. It should be super easy.</dd>
 
                 <dt>How do I give you feedback on any of the newsletter content?</dt>
-                <dd>You can reply to any email and I'll read it. I really appreciate feedback!</dd>
+                <dd>You can reply to any email and I&apos;ll read it. I really appreciate feedback!</dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
                 <dd>
