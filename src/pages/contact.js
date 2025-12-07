@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Contact from "../components/Contact";
@@ -19,6 +20,10 @@ const ContactPage = (props) => {
   );
 };
 
-ContactPage.propTypes = {};
+ContactPage.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ContactPage;

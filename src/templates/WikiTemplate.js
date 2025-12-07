@@ -711,6 +711,9 @@ const WikiTemplate = (props) => {
 WikiTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default WikiTemplate;

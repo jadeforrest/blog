@@ -91,6 +91,9 @@ const TagsPage = (props) => {
 
 TagsPage.propTypes = {
   data: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default TagsPage;

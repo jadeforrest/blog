@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
@@ -142,6 +143,12 @@ const CoursePage = (props) => {
       }}
     />
   );
+};
+
+CoursePage.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default CoursePage;

@@ -29,6 +29,9 @@ class IndexPage extends React.Component {
 
 IndexPage.propTypes = {
   pageContext: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default IndexPage;

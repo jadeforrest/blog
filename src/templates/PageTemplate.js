@@ -26,6 +26,9 @@ const PageTemplate = (props) => {
 
 PageTemplate.propTypes = {
   data: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default PageTemplate;

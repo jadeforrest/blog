@@ -70,6 +70,9 @@ const IndexPage = (props) => {
 
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export const query = graphql`
