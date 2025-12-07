@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Message Delivered | Jade Rubick - Engineering Leadership"
+  description="Thank you for contacting Jade Rubick"
+>
+  <div class="success-page">
+    <div class="success-content">
+      <h1>Delivered</h1>
+      <p>Thanks for reaching out. Your message is safely in my inbox.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .success-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-m);
+    text-align: center;
+  }
+
+  .success-content {
+    background: var(--color-neutral-white);
+    border-radius: var(--size-radius-default);
+    padding: var(--space-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .success-content h1 {
+    font-size: var(--heading-size-h1);
+    line-height: var(--heading-line-height-h1);
+    color: var(--color-brand-primary);
+    margin-bottom: var(--space-m);
+  }
+
+  .success-content p {
+    font-size: var(--font-size-m);
+    line-height: var(--text-line-height-default);
+    color: var(--color-neutral-gray-j);
+  }
+
+  @media (max-width: 599px) {
+    .success-content {
+      padding: var(--space-l);
+    }
+  }
+</style>
