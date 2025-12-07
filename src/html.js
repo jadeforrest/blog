@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 export default class HTML extends React.Component {
   /**
    * Render the HTML document structure
-   * @returns {React.ReactElement} HTML document
+   * @return {React.ReactElement} HTML document
    */
   render() {
     return (

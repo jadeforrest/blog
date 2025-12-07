@@ -9,7 +9,7 @@ import { ThemeContext } from "../layouts";
 class IndexPage extends React.Component {
   /**
    * Render the index page
-   * @returns {React.ReactElement} Index page component
+   * @return {React.ReactElement} Index page component
    */
   render() {
     return (

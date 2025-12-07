@@ -1,6 +1,6 @@
 /**
  * Get the current screen width
- * @returns {number|undefined} The window inner width, or undefined if window is not available
+ * @return {number|undefined} The window inner width, or undefined if window is not available
  */
 export function getScreenWidth() {
   if (typeof window !== `undefined`) {
@@ -10,7 +10,7 @@ export function getScreenWidth() {
 
 /**
  * Check if the screen is wide (>= 1024px)
- * @returns {boolean|undefined} True if screen is wide, false otherwise, or undefined if window is not available
+ * @return {boolean|undefined} True if screen is wide, false otherwise, or undefined if window is not available
  */
 export function isWideScreen() {
   if (typeof window !== `undefined`) {
@@ -39,7 +39,7 @@ export function timeoutThrottlerHandler(timeouts, name, delay, handler) {
 
 /**
  * Get current date in YYYY-MM-DD format
- * @returns {string} Current date formatted as YYYY-MM-DD
+ * @return {string} Current date formatted as YYYY-MM-DD
  */
 export function currDate() {
   const today = new Date();

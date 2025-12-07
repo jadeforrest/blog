@@ -1,0 +1,1847 @@
+{
+  "http://google.com": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913564026
+  },
+  "https://www.github.com/jadeforrest/blog/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913564189
+  },
+  "https://github.com/baobabKoodaa/blog": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913564801
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913565157
+  },
+  "https://www.resiliumlabs.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913565574
+  },
+  "http://openacs.org": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913568195
+  },
+  "https://en.wikipedia.org/wiki/Completed_staff_work": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913568455
+  },
+  "http://www.dolan-heitlinger.com/quote/stafwork.htm": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913568980
+  },
+  "https://davidmarquet.com/my-story/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913569436
+  },
+  "https://intentbasedleadership.com/product/ladder-of-leadership-wallet-cards-starter-pack-bundle-of-25/": {
+    "valid": true,
+    "status": 308,
+    "timestamp": 1763913569664
+  },
+  "https://newsletter.weskao.com/p/why-high-performers-make-assertions": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913570126
+  },
+  "https://github.com/curious-attempt-bunny": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913570375
+  },
+  "https://freeimages.com/photographer/yankleber-44845": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913570583
+  },
+  "https://freeimages.com/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913570637
+  },
+  "https://www.flickr.com/photos/157270154@N05/38470246986/in/photolist-21Bu59s-5JXmXU-4yteqL-M64hnU-aTwT5p-qWVeJB-4ENFAf-2c42pT-89arbM-2gvDE1D-X6faQ9-2iJy6EC-KjHNZ2-9ypUSk-9uWhEu-GFxx12-8Zyfi9-9iax5p-2gKmdqa-abkiF-n5upB-2hgrHfK-2gHrAMC-3hJEN-6vBa7e-f74aNT-7x7sgx-8NEDtn-2cNHhqF-2f4Wa2r-2hgufW7-2g9g2F6-48Uq82-5FKUZg-bnFPLK-5mSD7V-7LzzgB-QEWVU-K6cjEh-25RrorP-aUmjR-6vrQh6-cekdhG-77E1md-jPNYy-jPNXH-2jAPwFz-cpYwHb-2gHqQir-cAr9cm": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913571253
+  },
+  "https://darylll.medium.com/how-to-measure-option-grants-implied-value-method-bbca1a05add7": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187347823
+  },
+  "https://en.wikipedia.org/wiki/Ward_Cunningham": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913571507
+  },
+  "https://agilemanifesto.org": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913571873
+  },
+  "https://mollyg.substack.com/p/addition-vs-subtraction": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913572457
+  },
+  "https://en.wikipedia.org/wiki/The_Innovator%27s_Dilemma": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913572556
+  },
+  "https://www.newrelic.com": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913572721
+  },
+  "https://freeimages.com/photographer/gnmills-58346": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913572767
+  },
+  "https://www.donut.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913573050
+  },
+  "https://www.heytaco.chat/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913573252
+  },
+  "https://fellow.app": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913573733
+  },
+  "https://reclaim.ai/r/s/L8iue": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913573980
+  },
+  "https://freeimages.com/photographer/3lum-29424": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913574027
+  },
+  "https://types.pl/@roundcrisis": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913586179
+  },
+  "https://medium.engineering/engineering-interviews-grading-rubric-8b409bec021f": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187356149
+  },
+  "https://docs.google.com/document/d/1WlkzpOMoQnmaG5wVTjV2JFtbis1ykKjlaE0unO8XbEA/edit#": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913586693
+  },
+  "http://gender-decoder.katmatfield.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913588199
+  },
+  "https://heathbrothers.com/books/upstream/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913589176
+  },
+  "https://christineying.com/2014/10/23/three-legged-stool/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913589443
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/1-Alexa-Stefanko-on-the-Single-Threaded-Owner-model--product-metrics--and-how-training-alligators-is-different-than-training-people-e2hlbik": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913589552
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/4--Jason-Poole-on-productengineeringdesign-mind-melds--managing-vs-leading--and-fast-decision-making-e2j0cb9": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913589685
+  },
+  "https://www.jamesshore.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913590165
+  },
+  "https://www.jamesshore.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913590425
+  },
+  "https://en.wikipedia.org/wiki/Objectives_and_key_results": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913591086
+  },
+  "https://slack.com/help/articles/115004855143-Manage-who-can-notify-a-channel-or-workspace": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913591483
+  },
+  "https://en.wikipedia.org/wiki/Rosh_Hashanah": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913591582
+  },
+  "https://en.wikipedia.org/wiki/Yom_Kippur": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913591864
+  },
+  "https://en.wikipedia.org/wiki/Eid_al-Fitr": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913591960
+  },
+  "https://en.wikipedia.org/wiki/Eid_al-Adha": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913592045
+  },
+  "https://en.wikipedia.org/wiki/Juneteenth": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913592142
+  },
+  "https://www.brex.com/blog/unlimited-pto/": {
+    "valid": true,
+    "status": 308,
+    "timestamp": 1763913592404
+  },
+  "https://en.wikipedia.org/wiki/Stonewall_riots": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913592584
+  },
+  "https://en.wikipedia.org/wiki/International_Transgender_Day_of_Visibility": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913592687
+  },
+  "https://www.gremlin.com/blog/dave-rensin-chaos-engineering-for-people-systems-chaos-conf-2019/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913593016
+  },
+  "https://www.nadyadukeboone.com/five-truths-to-improve-hard-conversations-with-people-in-power/?ref=nadya-dot-release-newsletter": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913593328
+  },
+  "https://en.wikipedia.org/wiki/Multi-armed_bandit": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913593423
+  },
+  "https://codahale.com/work-is-work/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187361102
+  },
+  "https://newrelic.com/blog/best-practices/engineering-standards": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913593750
+  },
+  "https://algorithmstoliveby.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913594430
+  },
+  "https://review.firstround.com/Mine-Your-Network-for-Early-Stage-Hiring-Gold": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913594762
+  },
+  "https://medium.com/pitch-perfect/mining-your-linkedin-for-potential-hires-50f33d85762f": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187363032
+  },
+  "https://www.gem.com/product/sourcing": {
+    "valid": true,
+    "status": 308,
+    "timestamp": 1763913595307
+  },
+  "https://flatfile.com/careers/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913595654
+  },
+  "https://singularityhub.com/2021/07/09/icelands-4-day-work-week-trial-was-a-smashing-success-will-it-start-a-new-trend/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913595759
+  },
+  "https://sahillavingia.com/work": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913595912
+  },
+  "https://www.managers.org.uk/knowledge-and-insights/listicle/the-five-business-benefits-of-a-diverse-team/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913597018
+  },
+  "https://hbr.org/2016/04/if-theres-only-one-woman-in-your-candidate-pool-theres-statistically-no-chance-shell-be-hired": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913597530
+  },
+  "https://www.greenhouse.io": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913597776
+  },
+  "https://www.lever.co": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913598134
+  },
+  "https://talentwall.io": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913598702
+  },
+  "https://medium.com/flo-health/engineering-hiring-strategy-at-flo-health-657dfb9b725": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187366279
+  },
+  "https://www.reachsuite.io": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913599068
+  },
+  "https://textio.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913599359
+  },
+  "https://joblint.org/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913599972
+  },
+  "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB168": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913600201
+  },
+  "https://hbr.org/2014/08/why-women-dont-apply-for-jobs-unless-theyre-100-qualified": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913600609
+  },
+  "https://scholar.harvard.edu/iris_bohnet": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913600880
+  },
+  "https://scholar.harvard.edu/iris_bohnet/what-works": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913600931
+  },
+  "https://juliepagano.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913601315
+  },
+  "https://chrislaing.net/blog/the-memo/#fn:1": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913601768
+  },
+  "https://www.merriam-webster.com/dictionary/coordination": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913602075
+  },
+  "https://en.wikipedia.org/wiki/Pattern_language": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913602583
+  },
+  "https://docs.google.com/document/d/1ye7xBs3ND65smawfRLnBJmzZV14OcfEj_SoEv2demzE/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913603096
+  },
+  "https://docs.google.com/document/d/1nmYfkr39hGZgFN_yCst3Vj0KllJIONDKM1972E5pUMk/edit#heading=h.7ypbft3tfbvx": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913603590
+  },
+  "https://docs.google.com/document/d/1sx5uh_HtOsZwK9nomltPoegKSY2rKJEfdz3vVVPZ42c/edit": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913604021
+  },
+  "https://docs.google.com/document/d/1DwEuSQEOWf-zlGKRnMRbadl7vIgrDAwS0XxuWnt5md0/edit#": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913604352
+  },
+  "https://docs.google.com/document/d/1Q1BrD_nvxFvFvwYoi_oLzoCWUWU2_OEW3wJBCshZ1MM/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913604724
+  },
+  "https://docs.google.com/document/d/1WE0I3k68VmoY-VbJmYDgkRvDw8pfMIHaQd9XhVNLc2g/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913605247
+  },
+  "https://docs.google.com/document/d/1vjzOKMMklph0xz1CjMjbL9VB3bGXGhPiNO3I31UrVls/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913605592
+  },
+  "https://docs.google.com/document/d/1HnnyKTrEgrF9vgGebUgtTVEfnXriF11zjz6BOmv5qyQ/edit#heading=h.w1lvwhpcxlwv": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913606482
+  },
+  "https://docs.google.com/document/d/1v7P5niBSV3hFU2oyHJ2XwirbT5EAWhYLBbcUAOEAJyU/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913607072
+  },
+  "https://docs.google.com/document/d/1pFFGC3p0PSvLwn9n-sMSV8uKIha6Dl9ENjiiYQdaDwI/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913607397
+  },
+  "https://docs.google.com/document/d/1uHQgnUh3oL0blVaY0fGjd00kh-4WZ9-8nDIwRfEtTKE/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913607866
+  },
+  "https://docs.google.com/document/d/1t3wqqsh7GGLeC_gAmzrvJtimA__9XIshew-ZeJDknXo/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913608212
+  },
+  "https://docs.google.com/document/d/1sWyl3qwtuIBcs7DXzyx1ITLHKaVzY82JDA_-zwe5wio/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913608748
+  },
+  "https://docs.google.com/document/d/1m3w2wmdwRzMMEskQ9ILdWvTGHYnKXk92GbRQ0uBSdxc/edit?usp=sharing": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913609228
+  },
+  "https://charity.wtf": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913609558
+  },
+  "https://www.rubick.com/service-provider-model/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913610121
+  },
+  "https://www.youtube.com/watch?v=dYUa4Ud2ND4": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913610858
+  },
+  "https://en.wikipedia.org/wiki/Facade_pattern": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913610949
+  },
+  "https://en.wikipedia.org/wiki/OKR": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913611204
+  },
+  "https://www.rubick.com/demo-driven-development/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913612019
+  },
+  "https://en.wikipedia.org/wiki/Moral_hazard": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913612277
+  },
+  "https://lethain.com/api-deprecation-strategy/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913612491
+  },
+  "https://leaddev.com/leaddev-live/kill-it-fire-or-not-kill-it-fire": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913612998
+  },
+  "https://jchyip.medium.com/why-t-shaped-people-e8706198e437": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187377485
+  },
+  "https://blog.get-merit.com/the-role-of-the-tech-lead/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913613386
+  },
+  "https://www.scrumalliance.org/ScrumRedesignDEVSite/media/ScrumAllianceMedia/Files%20and%20PDFs/Community/Articles/2015/SCRUM-in-Agile.pdf": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913613716
+  },
+  "https://svpg.com/product-manager-vs-product-owner-revisited/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913613811
+  },
+  "https://www.elgato.com/en/cam-link/camera-check": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913613946
+  },
+  "https://www.atomos.com/compatible-cameras": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913614486
+  },
+  "https://docs.google.com/document/d/1PjocFpojp771gmmn22JcApPj-Sc_RqAKWvpXTIhz-aU/edit": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913615014
+  },
+  "https://www.elgato.com/en/multi-mount-system": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913615066
+  },
+  "https://krisp.ai": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913615166
+  },
+  "https://getlumina.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913615895
+  },
+  "https://mattstauffer.com/blog/setting-up-your-webcam-lights-and-audio-for-remote-work-podcasting-videos-and-streaming/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913616730
+  },
+  "https://en.wikipedia.org/wiki/Milestone": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913616827
+  },
+  "https://techbeacon.com/app-dev-testing/noestimates-debate-unbiased-look-origins-arguments-thought-leaders-behind-movement": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913617688
+  },
+  "https://blackswanfarming.com/experience-report-maersk-line/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913617827
+  },
+  "https://www.jamesshore.com/v2/books/aoad2": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913618099
+  },
+  "https://newrelic.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913618143
+  },
+  "https://www.blameless.com": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913618447
+  },
+  "https://www.jeli.io": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913618969
+  },
+  "https://firehydrant.io": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913619224
+  },
+  "https://incident.io": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913620011
+  },
+  "https://hyperbo.la/w/nemawashi/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913620199
+  },
+  "http://hemingwayapp.com": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913620531
+  },
+  "https://fathom.video": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913620716
+  },
+  "https://www.snpnet.com/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913621070
+  },
+  "https://www.holloway.com/g/equity-compensation": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913621307
+  },
+  "https://docs.google.com/spreadsheets/d/1BitwAueqIAhN3nXk1oW-cCyyT5sK0D5pElddkrwMx6M/edit#gid=0": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913621758
+  },
+  "https://radford.aon.com/products/surveys": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913622325
+  },
+  "https://www.pave.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913622459
+  },
+  "https://levels.fyi": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913622548
+  },
+  "https://www.rallyworks.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913622875
+  },
+  "https://newsletter.pragmaticengineer.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913623301
+  },
+  "https://www.forbes.com/advisor/business/raci-chart/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913625317
+  },
+  "https://ukblacktech.com/stock-photos/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913625764
+  },
+  "https://techcrunch.com/2010/03/14/key-to-gmail/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913626435
+  },
+  "https://www.rubick.com/advice-for-using-goal-frameworks/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913626737
+  },
+  "https://www.rubick.com/tenets-for-faster-decisionmaking/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913627126
+  },
+  "https://www.rubick.com/exploration-and-exploitation-in-technical-standards/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913627567
+  },
+  "https://www.rubick.com/coordination-models/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913627865
+  },
+  "https://wisewords.blog/book-summaries/understanding-michael-porter/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913629300
+  },
+  "https://open.substack.com/pub/lenny/p/strategy-blocks-an-operators-guide": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913644579
+  },
+  "https://www.lennyspodcast.com": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913644657
+  },
+  "https://sudarkoff.com": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913645079
+  },
+  "https://www.progression.fyi/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913645314
+  },
+  "https://dresscode.renttherunway.com/blog/ladder": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913645742
+  },
+  "https://medium.com/building-carta/engineering-levels-at-carta-d33db2a55a20": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187396504
+  },
+  "https://amychanta.beehiiv.com/p/reimagining-think-career-development": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913647038
+  },
+  "https://www.gremlin.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913647160
+  },
+  "https://press.stripe.com/an-elegant-puzzle": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913647590
+  },
+  "https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913647892
+  },
+  "https://www.danpink.com/books/drive/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913648285
+  },
+  "https://teamtopologies.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913648716
+  },
+  "https://smile.amazon.com/Understanding-Michael-Porter-Essential-Competition/dp/1422160599": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1757187399237
+  },
+  "http://amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009/ref=sr_1_1?crid=17NYJJRUHMUDX&dchild=1&keywords=principles+of+product+development+flow&qid=1609270568&s=books&sprefix=principles+of+product%2Cstripbooks%2C222&sr=1-1": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1757187399625
+  },
+  "https://blackswanfarming.com/black-swan-farming-using-cost-of-delay/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913648945
+  },
+  "https://agilecoffee.com/leancoffee/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913649568
+  },
+  "https://newrelic.com/blog/nerd-life/how-engineering-leaders-benefit-from-unique-mini-m-groups": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913649671
+  },
+  "https://web.archive.org/web/20200927080312/https://blog.newrelic.com/product-news/engineering-management-peer-groups/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913650862
+  },
+  "https://mollyg.substack.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913651178
+  },
+  "https://marcorogers.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913651462
+  },
+  "https://randsinrepose.com/welcome-to-rands-leadership-slack/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913651844
+  },
+  "https://about.gitlab.com/handbook/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913651952
+  },
+  "https://refer.slite.com/9a4s8hl7i0ta": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913652315
+  },
+  "https://www.huntress.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913652913
+  },
+  "https://www.fastagile.io/fast-guide": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913653342
+  },
+  "https://en.wikipedia.org/w/index.php?title=Special:Log&logid=53361687": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913653713
+  },
+  "https://www.cs.du.edu/~snarayan/sada/docs/steelthreads.pdf": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913654168
+  },
+  "https://wiki.c2.com/?TracerBullets": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913654377
+  },
+  "https://wiki.c2.com/?WalkingSkeleton": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913654418
+  },
+  "https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913654581
+  },
+  "https://docs.google.com/document/u/0/d/1Cvyg4lOupG-e1mJBs5RGXpQ1D5rZgJiIwDhfn1vhKJg/edit": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913654977
+  },
+  "https://formationscorp.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187405027
+  },
+  "https://www.collective.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187405229
+  },
+  "https://jonathanstark.com/hbin": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913655304
+  },
+  "https://sethfalcon.substack.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913655936
+  },
+  "https://www.fastagile.io/method": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913656216
+  },
+  "https://www.youtube.com/watch?v=WbPLjuvyCUA": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913657126
+  },
+  "https://teamtopologies.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913657336
+  },
+  "https://en.wikipedia.org/wiki/Drive:_The_Surprising_Truth_About_What_Motivates_Us": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913657506
+  },
+  "https://cutle.fish/blog/12-signs-youre-working-in-a-feature-factory": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913658410
+  },
+  "https://www.jofreeman.com/joreen/tyranny.htm": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913659327
+  },
+  "https://drive.google.com/file/d/1KXGGHH9hvk8G_eWCtm0kRWDGumfuhz8c/view": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913659825
+  },
+  "https://davystevenson.com/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913660196
+  },
+  "https://www.jamesshore.com/v2/books": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913660542
+  },
+  "https://www.agilefluency.org/model.php": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913660987
+  },
+  "https://boldstart.vc": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913661622
+  },
+  "https://shomik.substack.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913661949
+  },
+  "https://shomik.substack.com/p/16-jade-rubick-ex-vpe-at-new-relic#details": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913662282
+  },
+  "https://podcasts.apple.com/us/podcast/software-snack-bites/id1669999483": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913662503
+  },
+  "https://open.spotify.com/show/5voKCX3gQXRqGPZm1z29Ot?si=lK4W6WQCTjmWIQhWbEGIWw&nd=1": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913663104
+  },
+  "https://hachyderm.io/@djspinmonkey/110872453575362629": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913663717
+  },
+  "https://djspinmonkey.github.io/2023/07/10/ignite-hiring/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913663890
+  },
+  "https://docs.google.com/forms/d/e/1FAIpQLSftpz2h0HyK5KpMHFQq7aaI1N-rd5MlI5CuyViweSVEw7YPRQ/viewform": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913664228
+  },
+  "https://www.rubick.com/increase-your-impact-with-upstream-thinking/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913664587
+  },
+  "https://www.srepath.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913665046
+  },
+  "https://www.srepath.com/danger-of-unreliable-platform-engineering/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913665430
+  },
+  "https://www.gremlin.com/community/tutorials/chaos-engineering-the-history-principles-and-practice": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913665561
+  },
+  "https://en.wikipedia.org/wiki/Microservices": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913665730
+  },
+  "https://netflix.github.io/chaosmonkey/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913665872
+  },
+  "https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.gameday.en.html": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187412508
+  },
+  "https://martinfowler.com/bliki/DeploymentPipeline.html": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913666293
+  },
+  "https://github.com/lorin/awesome-limits": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913666957
+  },
+  "https://www.honeycomb.io": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913667156
+  },
+  "https://www.datadoghq.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913667334
+  },
+  "https://cloud.google.com/blog/products/management-tools/sre-error-budgets-and-maintenance-windows": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913671144
+  },
+  "https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-sli-vs-slo-vs-sla": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913674642
+  },
+  "https://www.opslevel.com/podcasts": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913674749
+  },
+  "https://www.opslevel.com/podcasts/can-engineering-leaders-be-both-nice-and-effective": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913674843
+  },
+  "https://charity.wtf/2021/03/07/know-your-one-job-and-do-it-first/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913675223
+  },
+  "https://govleaders.org/completed-staff-work.htm": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913675979
+  },
+  "https://youtu.be/FX03FnvIE0g?si=OduyolVmeDYQEhRK&t=929": {
+    "valid": true,
+    "status": 303,
+    "timestamp": 1763913676140
+  },
+  "https://www.pagerduty.com/platform/jeli/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913676355
+  },
+  "https://firehydrant.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913676961
+  },
+  "https://www.blameless.com/blog/what-are-blameless-postmortems-do-they-work-how": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913677099
+  },
+  "https://surfingcomplexity.blog/2023/04/15/missing-the-forest-for-the-trees-the-component-substitution-fallacy/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913677421
+  },
+  "https://sre.google/sre-book/embracing-risk/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913677874
+  },
+  "https://sre.google/sre-book/table-of-contents/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913677951
+  },
+  "https://youtu.be/uTdAFTaE7Do": {
+    "valid": true,
+    "status": 303,
+    "timestamp": 1763913678165
+  },
+  "https://campus.edu": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913678304
+  },
+  "https://www.rubick.com/completed-staff-work/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913678613
+  },
+  "https://www.nngroup.com/articles/dot-voting/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913680102
+  },
+  "https://creators.spotify.com/pod/show/decodingleadership/episodes/17--Katie-Wilde-on-the-challenging-step-to-director--and-the-perverse-incentives-of-reliability-e2rgdth/a-ablas7g": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913680502
+  },
+  "https://www.datadoghq.com/knowledge-center/distributed-tracing/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913680664
+  },
+  "https://www.rubick.com/milestones-not-projects/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913681054
+  },
+  "https://creators.spotify.com/pod/show/decodingleadership/episodes/19--Jade-Rubick-using-task-forces-to-solve-complex-leadership-challenges-e2u5hvj": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913681328
+  },
+  "https://youtu.be/xHib3C2T3tQ": {
+    "valid": true,
+    "status": 303,
+    "timestamp": 1763913681445
+  },
+  "https://mollyg.substack.com/p/10x": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913681840
+  },
+  "https://joshua.herzig-marx.com/pm-resources": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913682250
+  },
+  "https://www.lennysnewsletter.com/p/community": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913682726
+  },
+  "https://womenpm.org/join-our-community/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913684698
+  },
+  "https://www.mindtheproduct.com/product-management-slack-community/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913685149
+  },
+  "https://www.lennysnewsletter.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913685569
+  },
+  "https://cutlefish.substack.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913685754
+  },
+  "https://www.lennysnewsletter.com/podcast": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913686047
+  },
+  "https://www.svpg.com/product-management-start-here/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913686283
+  },
+  "https://www.svpg.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913686439
+  },
+  "https://www.dianalarsen.com/about": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913687229
+  },
+  "https://www.rubick.com/equity-benefits-everyone/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913687496
+  },
+  "https://en.wikipedia.org/wiki/Theory_of_constraints": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913687590
+  },
+  "https://www.tomtunguz.com/what-ive-learned-ma/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913688307
+  },
+  "https://www.professoraxelrod.com/p/the-tech-job-meltdown": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913688789
+  },
+  "https://thefutureisfemale.notion.site/6504695b68d44560bb2a35e21326cef9?v=829a595d4e0b4b2fb5c274475a784d7f": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913689600
+  },
+  "https://www.lennysnewsletter.com/p/your-startup-idea-probably-isnt-venture": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913690241
+  },
+  "https://www.rubick.com/executive-advisor/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913690577
+  },
+  "https://www.rubick.com/advice-for-new-directors/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913690971
+  },
+  "https://substack.com/@cloudedjudgement": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913691650
+  },
+  "https://www.fivecastfinancial.com/guides/financial-modeling-for-startups-an-introduction/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913692185
+  },
+  "https://www.cloudzero.com/blog/rule-of-40/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913692731
+  },
+  "https://maven.com/giff-constable/financial-fluency": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913693095
+  },
+  "https://trueplatform.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913693329
+  },
+  "https://charity.wtf/2025/07/09/thoughts-on-motivation-and-my-40-year-career/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913693389
+  },
+  "https://lethain.com/forty-year-career/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913693507
+  },
+  "https://mollyg.substack.com/p/developing-high-performers": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913694029
+  },
+  "https://lethain.com/layers-of-context/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913694140
+  },
+  "https://marcorogers.com/blog/advice-for-engineers-from-a-manager": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913694421
+  },
+  "https://larahogan.me/blog/the-art-of-the-tick-tock-doc/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913694833
+  },
+  "https://benn.substack.com/p/your-companys-values-will-be-used": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913695712
+  },
+  "https://benn.substack.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913695987
+  },
+  "https://medium.com/sequoia-capital/role-of-a-data-science-manager-2c69264511d3": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187435186
+  },
+  "https://hbr.org/2021/05/how-to-measure-inclusion-in-the-workplace": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913697451
+  },
+  "https://www.rubick.com/engineering-levels/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913697806
+  },
+  "https://dropbox.github.io/dbx-career-framework/m3_engineering_manager.html": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913697952
+  },
+  "https://assets.ctfassets.net/1wryd5vd9xez/3gb7ZSi95ipFegjuMWupGo/bcb0dd0253297bff48a4ad083b28d924/-Public-_Block_Engineering_Career_Ladder.pdf": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913698385
+  },
+  "https://medium.com/making-meetup/engineering-ladders-at-meetup-caacbea4916e": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187437186
+  },
+  "https://blog.prototypr.io/the-branching-career-path-63a4ff592e29": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187438132
+  },
+  "http://www.paulgraham.com/equity.html": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913699369
+  },
+  "https://www.lennysnewsletter.com/p/how-to-hire-your-first-growth-team": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913699914
+  },
+  "https://homework.adhoc.team/assignments/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913700084
+  },
+  "https://www.rubick.com/interviewing-engineering-managers/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913700550
+  },
+  "https://lethain.com/interviewing-eng-executives/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913700676
+  },
+  "https://www.rubick.com/candidate-review-meeting/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913701064
+  },
+  "https://jeanhsu.substack.com/p/all-about-career-history-interviews": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913701473
+  },
+  "https://newsletter.weskao.com/p/stop-trying-to-change-your-manager?utm_source=substack&publication_id=289208&post_id=170216804": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913701818
+  },
+  "https://www.cio.com/article/308431/what-is-the-9-box-talent-review-a-matrix-for-identifying-top-performers.html": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913702756
+  },
+  "https://docs.google.com/spreadsheets/d/1YxSBVCTQz1j7N1O03dF7k6tx_EZigpiVzgOaNngCoJU/edit?gid=1076158596#gid=1076158596": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913703236
+  },
+  "https://lethain.com/engineering-onboarding-programs/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913703367
+  },
+  "https://www.donut.com/solutions/onboarding/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913703523
+  },
+  "https://www.welcometothejungle.com/en/articles/btc-michael-lopp-interview-management": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913704298
+  },
+  "https://larahogan.me/blog/first-one-on-one-questions/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913704411
+  },
+  "https://getlighthouse.com/blog/management-concept/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913704506
+  },
+  "https://www.rubick.com/skip-level-1-on-1s/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913704849
+  },
+  "https://jwongworks.com/blog/2019/4/16/the-skip-level-1-1": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913705427
+  },
+  "https://randsinrepose.com/archives/the-update-the-vent-and-the-disaster/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913705624
+  },
+  "https://www.productleaders.blog/blog/product-manager-career-paths": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913706097
+  },
+  "https://runthebusiness.substack.com/p/the-pm-career-ladder-your-unofficial": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913706838
+  },
+  "https://www.lennysnewsletter.com/p/product-management-career-ladders": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913707271
+  },
+  "https://posthog.com/handbook/people/compensation": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913707410
+  },
+  "https://lethain.com/building-prestige/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913707519
+  },
+  "https://www.brightmntn.com/posts/retention-risk-matrix": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913710734
+  },
+  "https://www.rubick.com/compensation-and-equity/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913712035
+  },
+  "https://medium.com/@colleenwheelermccreary/innovating-on-compensation-role-based-pay-f70db5fd18e5": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187445599
+  },
+  "https://mollyg.substack.com/p/implementing-compensation-for-startups": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913712498
+  },
+  "https://www.rubick.com/implementing-pay-equity/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913712751
+  },
+  "https://www.pave.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913712841
+  },
+  "https://www.bairesdev.com/landing/success-stories": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913713088
+  },
+  "https://bytex.net/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913713511
+  },
+  "https://www.monterail.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913713652
+  },
+  "https://www.rubick.com/mini-m-support-groups/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913714347
+  },
+  "https://www.rubick.com/courses/": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913714587
+  },
+  "https://lethain.com/capitalize-engineering-costs/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913714710
+  },
+  "https://mastodon.social/@lethain/109519307428668896": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913715326
+  },
+  "https://www.rubick.com/engineering-handbook/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913716235
+  },
+  "https://komoroske.com/slime-mold/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913716461
+  },
+  "https://craftingengstrategy.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913716702
+  },
+  "https://www.rubick.com/fast-agile/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913717293
+  },
+  "https://mollyg.substack.com/p/i-hate-okrs-and-other-thoughts-about": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913717816
+  },
+  "https://review.firstround.com/the-secret-to-a-great-planning-process-lessons-from-airbnb-and-eventbrite/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913718191
+  },
+  "https://www.svpg.com/team-objectives-overview/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913718443
+  },
+  "https://queue.acm.org/detail.cfm?id=3454124": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187451539
+  },
+  "https://lethain.com/measuring-engineering-organizations/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913718699
+  },
+  "https://lethain.com/planning/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913719430
+  },
+  "https://open.substack.com/pub/lenny/p/introducing-drice-a-modern-prioritization": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913719628
+  },
+  "https://mollyg.substack.com/p/mapping-your-companys-year-how-to": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913719971
+  },
+  "https://youtu.be/_w6TwnLCFwA?si=R69Y2OuHa5w837PW": {
+    "valid": true,
+    "status": 303,
+    "timestamp": 1763913720342
+  },
+  "https://sapling-scm.com/docs/introduction/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913720510
+  },
+  "https://orlevy.medium.com/how-to-set-up-a-round-robin-workflow-in-slack-using-google-sheets-508dbcb3bc1e": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757187452968
+  },
+  "https://safedelusion.com/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913721265
+  },
+  "https://duckduckgo.com/assets/hiring/how_we_work.pdf": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913721374
+  },
+  "https://medium.com/venturehq/things-i-did-as-murals-chief-product-officer-ea5b33e894fc": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1757187454764
+  },
+  "https://www.lennysnewsletter.com/p/the-ultimate-guide-to-willingness": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913721961
+  },
+  "https://www.pricingio.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913722170
+  },
+  "https://theblueowl.substack.com/p/writing-tips-from-the-presidents-daily-brief-c4d96e9fa0c2": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913722691
+  },
+  "https://www.rubick.com/weekly-project-plans/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913723080
+  },
+  "https://www.rubick.com/tag/project-management": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913723410
+  },
+  "https://www.youtube.com/watch?v=NGdx-f-aGXs": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913724234
+  },
+  "https://www.youtube.com/@anthropic-ai/streams": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913724483
+  },
+  "https://www.anthropic.com/engineering/claude-code-best-practices": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913724691
+  },
+  "https://ghuntley.com/stdlib/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913724767
+  },
+  "https://www.youtube.com/watch?v=fD4ktSkNCw4&t=1701s": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913725445
+  },
+  "https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913725800
+  },
+  "https://ferd.ca/the-gap-through-which-we-praise-the-machine.html": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913726795
+  },
+  "https://open.substack.com/pub/ghiculescu/p/nobody-codes-here-anymore?r=8j0ru": {
+    "valid": true,
+    "status": 302,
+    "timestamp": 1763913727059
+  },
+  "https://sourcegraph.com/blog/revenge-of-the-junior-developer": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913727369
+  },
+  "https://lethain.com/what-can-agents-do/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913727473
+  },
+  "https://www.userflow.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913727836
+  },
+  "https://userpilot.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913727947
+  },
+  "https://launchdarkly.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913728171
+  },
+  "https://devcycle.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913728537
+  },
+  "https://posthog.com/docs/feature-flags": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913728627
+  },
+  "https://www.lennysnewsletter.com/p/introducing-core-4-the-best-way-to": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913719301
+  },
+  "https://www.amazon.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1757190202999
+  },
+  "https://en.wikipedia.org/wiki/USS_Santa_Fe_(SSN-763)": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913569081
+  },
+  "https://en.wikipedia.org/wiki/John_Boyd_(military_strategist)": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913574121
+  },
+  "https://web.archive.org/web/20190624164845/http://alexkroman.com/what-the-f-86-can-teach-us-about-software-dev/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913585679
+  },
+  "https://en.wikipedia.org/wiki/Consensus_(computer_science)": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913591183
+  },
+  "https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/899837/mcdp-1/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913602492
+  },
+  "https://en.wikipedia.org/wiki/Intent_(military)": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913612187
+  },
+  "https://www.amplifypartners.com/team/mike-dauber": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913656043
+  },
+  "https://thehill.com/opinion/technology/4228100-does-working-from-home-damage-productivity-just-look-at-the-data/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913710396
+  },
+  "https://news.ycombinator.com/item?id=44226145": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913715849
+  },
+  "https://news.ycombinator.com/user?id=davidkunz": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913590755
+  },
+  "https://news.ycombinator.com/item?id=27417551": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913590995
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/29--Charity-Majors-on-building-organizations-you-can-believe-in-e38akdc": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913565697
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/28--Lena-Reinhard-on-making-space-for-leadership-that-matters-e36tcqo": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913565811
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/27--Beth-Adele-Long-on-reliability-and-leadership-e36873b": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913565918
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/26--Jade-Rubick-on-reflecting-power-e33n0gd": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913566098
+  },
+  "https://podcasters.spotify.com/pod/show/decodingleadership/episodes/25--Molly-Graham-on-Google-to-Glue-e332rfq": {
+    "valid": true,
+    "status": 301,
+    "timestamp": 1763913566214
+  },
+  "https://en.wikipedia.org/wiki/Thrashing_(computer_science)": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913687679
+  },
+  "https://japancloud.jp/en/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913689392
+  },
+  "https://www.honeycomb.io/blog/nothing-prepares-you-first-director-role": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913691132
+  },
+  "https://randsinrepose.com/archives/become-the-consequence/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913691335
+  },
+  "https://randsinrepose.com/archives/so-you-want-to-be-promoted-pt-1/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913694608
+  },
+  "https://newsletter.weskao.com/p/sales-not-logistics": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913695255
+  },
+  "https://mollyg.substack.com/p/decision-making": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913696610
+  },
+  "https://mollyg.substack.com/p/disagree-and-lets-see": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913697009
+  },
+  "https://review.firstround.com/how-to-lead-and-rally-a-company-through-a-layoff/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913711119
+  },
+  "https://mollyg.substack.com/p/layoffs": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913711638
+  },
+  "https://review.firstround.com/use-this-equation-to-determine-diagnose-and-repair-trust/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913714015
+  },
+  "https://simonwillison.net/2025/Oct/7/vibe-engineering/": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913726176
+  },
+  "https://www.glean.com": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913727623
+  },
+  "https://en.wikipedia.org/wiki/Software_Package_Data_Exchange": {
+    "valid": true,
+    "status": 200,
+    "timestamp": 1763913728812
+  }
+}

@@ -74,7 +74,8 @@ const NewsletterPage = (props) => {
 
                 <dt>How much email will I be receiving, and for how long?</dt>
                 <dd>
-                  Engineering Leadership Weekly is a weekly email with almost two weeks&apos;s content.
+                  Engineering Leadership Weekly is a weekly email with almost two weeks&apos;s
+                  content.
                   <br />
                   <br />
                   When you get to the end, you&apos;ll get less frequent emails, since I write less
@@ -83,9 +84,9 @@ const NewsletterPage = (props) => {
 
                 <dt>Can I sign up for both the newsletter and course?</dt>
                 <dd>
-                  You can, but if you&apos;re thinking about that, I would just sign up for the course.
-                  At the end of the course, you will automatically transition into receiving the
-                  newsletter. You will get a few duplicate emails, but not many.
+                  You can, but if you&apos;re thinking about that, I would just sign up for the
+                  course. At the end of the course, you will automatically transition into receiving
+                  the newsletter. You will get a few duplicate emails, but not many.
                 </dd>
 
                 <dt>If I pay for the newsletter and don&apos;t like it, can I get a refund?</dt>
@@ -98,7 +99,9 @@ const NewsletterPage = (props) => {
                 <dd>Every email has an unsubscribe link in it. It should be super easy.</dd>
 
                 <dt>How do I give you feedback on any of the newsletter content?</dt>
-                <dd>You can reply to any email and I&apos;ll read it. I really appreciate feedback!</dd>
+                <dd>
+                  You can reply to any email and I&apos;ll read it. I really appreciate feedback!
+                </dd>
 
                 <dt>How relevant is this content for non-engineering managers and leaders?</dt>
                 <dd>
