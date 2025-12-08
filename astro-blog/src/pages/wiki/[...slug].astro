@@ -35,6 +35,9 @@ export async function getStaticPaths() {
 const { entry, isIndex } = Astro.props;
 const { Content } = await entry.render();
 
+// GitHub edit URL
+const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki/${entry.id}`;
+
 // Get all wiki entries for directory listing
 const allWikiEntries = isIndex ? await getCollection("wiki") : [];
 const currentDir = entry.id.replace(/\/index\.md$/, "").replace(/^index\.md$/, "");
@@ -66,6 +69,16 @@ const entriesInDir = isIndex
 <BaseLayout title={entry.data.title} description={entry.data.description}>
   <article class="wiki-page" data-pagefind-body>
     <header class="wiki-header">
+      <div class="wiki-edit-link-container">
+        <a
+          href={githubEditUrl}
+          class="wiki-edit-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Edit this page on github
+        </a>
+      </div>
       <h1 data-pagefind-meta="title">
         {entry.data.icon && <span class="wiki-icon">{entry.data.icon}</span>}
         {entry.data.title}
@@ -120,6 +133,25 @@ const entriesInDir = isIndex
 
   .wiki-header {
     margin-bottom: var(--space-l);
+  }
+
+  .wiki-edit-link-container {
+    margin-bottom: var(--space-s);
+  }
+
+  .wiki-edit-link {
+    font-size: 0.9em;
+    color: #666;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .wiki-edit-link:hover {
+    background-color: var(--background-color-alt);
+    border-color: #bbb;
   }
 
   .wiki-header h1 {
