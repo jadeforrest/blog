@@ -54,6 +54,41 @@ const posts = page.data;
     {
       page.currentPage === 1 && (
         <>
+          <div class="newsletter-signup">
+            <script src="https://f.convertkit.com/ckjs/ck.5.js" is:inline></script>
+            <form
+              action="https://app.convertkit.com/forms/2891253/subscriptions"
+              class="convertkit-form"
+              method="post"
+              data-sv-form="2891253"
+              data-uid="3978146adc"
+            >
+              <div class="form-content">
+                <div class="form-column">
+                  <h2>Engineering leadership weekly</h2>
+                  <ul class="form-errors" data-element="errors"></ul>
+                  <div class="form-fields">
+                    <input
+                      class="form-input"
+                      name="email_address"
+                      aria-label="Email Address"
+                      placeholder="Email Address"
+                      required
+                      type="email"
+                    />
+                    <button type="submit" class="form-submit">
+                      Sign me up!
+                    </button>
+                  </div>
+                  <p class="form-disclaimer">
+                    Tips for engineering and product leaders. Also available as a{" "}
+                    <a href="/newsletter">paid</a> newsletter with 1-1 sessions.
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+
           <div class="charity-container">
             <img
               src="/images/charity.png"
@@ -159,6 +194,106 @@ const posts = page.data;
     line-height: var(--heading-line-height-h1);
     color: var(--text-color-primary);
     margin-bottom: var(--space-m);
+  }
+
+  /* Newsletter signup form */
+  .newsletter-signup {
+    margin: var(--space-l) 0;
+  }
+
+  .convertkit-form {
+    background-color: #f9fafb;
+    border-radius: var(--size-radius-default);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .form-content {
+    width: 100%;
+  }
+
+  .form-column {
+    padding: var(--space-l);
+  }
+
+  .form-column h2 {
+    color: #4d4d4d;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-m) 0;
+  }
+
+  .form-errors {
+    background: #fde8e2;
+    border: 1px solid #f2643b;
+    border-radius: var(--size-radius-small);
+    color: #ea4110;
+    list-style: none;
+    margin: 0 0 var(--space-m) 0;
+    padding: var(--space-s);
+    display: none;
+  }
+
+  .form-errors:not(:empty) {
+    display: block;
+  }
+
+  .form-fields {
+    margin-bottom: var(--space-m);
+  }
+
+  .form-input {
+    width: 100%;
+    background: #ffffff;
+    font-size: 15px;
+    padding: 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: var(--size-radius-small);
+    margin-bottom: var(--space-s);
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-brand-primary);
+  }
+
+  .form-input::placeholder {
+    color: #8b8b8b;
+    opacity: 0.5;
+  }
+
+  .form-submit {
+    width: 100%;
+    border: 0;
+    border-radius: var(--size-radius-small);
+    color: #ffffff;
+    background-color: var(--color-brand-primary);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    transition: background-color 0.3s ease;
+  }
+
+  .form-submit:hover {
+    background-color: var(--color-brand-hover);
+  }
+
+  .form-disclaimer {
+    color: #8b8b8b;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .form-disclaimer a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+
+  .form-disclaimer a:hover {
+    text-decoration: underline;
   }
 
   .charity-container {
