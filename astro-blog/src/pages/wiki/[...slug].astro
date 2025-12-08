@@ -38,8 +38,28 @@ const { Content } = await entry.render();
 // GitHub edit URL
 const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki/${entry.id}`;
 
-// Get all wiki entries for directory listing
-const allWikiEntries = isIndex ? await getCollection("wiki") : [];
+// Get all wiki entries for breadcrumbs and directory listing
+const allWikiEntries = await getCollection("wiki");
+
+// Build breadcrumbs
+const slug = Astro.params.slug || "";
+const pathParts = slug ? slug.split("/").filter(Boolean) : [];
+const breadcrumbs = [{ label: "Wiki", url: "/wiki/" }];
+
+let currentPath = "";
+for (const part of pathParts) {
+  currentPath += (currentPath ? "/" : "") + part;
+  const breadcrumbEntry = allWikiEntries.find((e) => {
+    const entrySlug = e.id.replace(/\.md$/, "").replace(/\/index$/, "");
+    return entrySlug === currentPath || entrySlug === currentPath + "/index";
+  });
+
+  const label = breadcrumbEntry?.data.title || part.replace(/-/g, " ");
+  breadcrumbs.push({
+    label,
+    url: `/wiki/${currentPath}/`
+  });
+}
 const currentDir = entry.id.replace(/\/index\.md$/, "").replace(/^index\.md$/, "");
 
 // Filter entries in current directory
@@ -79,6 +99,22 @@ const entriesInDir = isIndex
           Edit this page on github
         </a>
       </div>
+      {breadcrumbs.length > 1 && (
+        <nav class="breadcrumbs">
+          {breadcrumbs.map((crumb, index) => (
+            <span class="breadcrumb-item">
+              {index < breadcrumbs.length - 1 ? (
+                <>
+                  <a href={crumb.url}>{crumb.label}</a>
+                  <span class="breadcrumb-separator"> / </span>
+                </>
+              ) : (
+                <span class="breadcrumb-current">{crumb.label}</span>
+              )}
+            </span>
+          ))}
+        </nav>
+      )}
       <h1 data-pagefind-meta="title">
         {entry.data.icon && <span class="wiki-icon">{entry.data.icon}</span>}
         {entry.data.title}
@@ -152,6 +188,34 @@ const entriesInDir = isIndex
   .wiki-edit-link:hover {
     background-color: var(--background-color-alt);
     border-color: #bbb;
+  }
+
+  .breadcrumbs {
+    margin: var(--space-m) 0;
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-gray-j);
+  }
+
+  .breadcrumb-item {
+    display: inline;
+  }
+
+  .breadcrumbs a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-neutral-gray-j);
+    margin: 0 var(--space-xs);
+  }
+
+  .breadcrumb-current {
+    color: var(--text-color-primary);
   }
 
   .wiki-header h1 {

@@ -1,4 +1,6 @@
 ---
+import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch } from "react-icons/fa";
+
 interface Props {
   title: string;
   description?: string;
@@ -7,6 +9,20 @@ interface Props {
 const { title, description } = Astro.props;
 const siteTitle = "Jade Rubick - Engineering Leadership";
 const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+const currentPath = Astro.url.pathname;
+const isHomepage = currentPath === "/";
+const isWikiPage = currentPath.startsWith("/wiki/");
+
+// Format build time
+const buildDate = new Date();
+const buildTime = buildDate.toLocaleString("en-US", {
+  month: "short",
+  day: "2-digit",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
 ---
 
 <!doctype html>
@@ -26,17 +42,64 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   </head>
   <body>
     <div class="site-wrapper">
-      <header class="site-header">
+      <header class={`site-header ${isHomepage ? "homepage" : ""}`}>
         <div class="header-container">
-          <a href="/" class="site-logo">Jade Rubick</a>
+          <a href="/" class="logo-type">
+            <div class="logo">
+              <img src="/images/avatar.jpg" alt="Jade Rubick" />
+            </div>
+            <div class="type">
+              <div class="h1menu">jade rubick</div>
+              <div class="h2menu"></div>
+            </div>
+            <div class="home-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              </svg>
+            </div>
+          </a>
           <nav class="site-nav">
-            <a href="/">Home</a>
-            <a href="/about/">About</a>
-            <a href="/wiki/">Wiki</a>
-            <a href="/search/">Search</a>
+            <a href="/posts/">
+              <FaBook size={16} />
+              <span>Blog</span>
+            </a>
+            <a href="/decoding-leadership/">
+              <FaPodcast size={16} />
+              <span>Podcast</span>
+            </a>
+            <a href="/newsletter/">
+              <FaEnvelope size={16} />
+              <span>Newsletter</span>
+            </a>
+            <a href="/course/">
+              <FaSeedling size={16} />
+              <span>Course</span>
+            </a>
+            <a href="/about/">
+              <FaUser size={16} />
+              <span>About</span>
+            </a>
+            <a href="/wiki/">
+              <FaBookOpen size={16} />
+              <span>Wiki</span>
+            </a>
+            <a href="/search/">
+              <FaSearch size={16} />
+              <span>Search</span>
+            </a>
           </nav>
         </div>
       </header>
+
+      {!isWikiPage && (
+        <div class="availability-container" id="availability-banner">
+          <a href="/about/" class="availability">
+            Availability: waiting list for interim roles, available for advising, individual and group coaching
+          </a>
+        </div>
+      )}
+
+      <div class="sensor"></div>
 
       <main class="site-main">
         <slot />
@@ -44,10 +107,48 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 
       <footer class="site-footer">
         <div class="footer-container">
-          <p>&copy; {new Date().getFullYear()} Jade Rubick. All rights reserved.</p>
+          <a href="https://github.com/jadeforrest/blog/" class="last-updated">
+            Last updated {buildTime}.
+          </a>
         </div>
       </footer>
     </div>
+
+    <script>
+      // Scroll direction detection for availability banner
+      let prevScrollY = 0;
+      let scrollDirection = "up";
+
+      function handleScroll() {
+        const currentScrollY = window.scrollY;
+        const banner = document.getElementById("availability-banner");
+        const header = document.querySelector(".site-header");
+
+        if (!banner || !header) return;
+
+        // Detect scroll direction with 5px threshold
+        if (currentScrollY > prevScrollY + 5 && scrollDirection !== "down") {
+          scrollDirection = "down";
+          banner.classList.add("hide");
+        } else if (currentScrollY < prevScrollY - 5 && scrollDirection !== "up") {
+          scrollDirection = "up";
+          banner.classList.remove("hide");
+        }
+
+        // Add/remove fixed class based on scroll position
+        if (currentScrollY > 100) {
+          header.classList.add("fixed");
+        } else {
+          header.classList.remove("fixed");
+        }
+
+        prevScrollY = currentScrollY;
+      }
+
+      if (typeof window !== "undefined") {
+        window.addEventListener("scroll", handleScroll);
+      }
+    </script>
   </body>
 </html>
 
@@ -61,16 +162,37 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   }
 
   .site-header {
+    z-index: 5;
+    padding-bottom: 0 !important;
+    align-items: center;
+    justify-content: center;
     background-color: var(--background-color-primary);
-    border-bottom: 1px solid var(--color-neutral-gray-c);
+    display: flex;
     height: var(--header-height-default);
-    position: sticky;
+    position: relative;
     top: 0;
-    z-index: 100;
+    width: 100%;
+  }
+
+  .site-header.homepage {
+    position: absolute;
+    background-color: transparent;
+  }
+
+  .site-header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color-primary);
+    border-bottom: 2px solid var(--color-neutral-gray-c);
+    padding: 0 var(--space-m);
+    z-index: 5;
   }
 
   .header-container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 var(--space-m);
     height: 100%;
@@ -79,14 +201,71 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
     justify-content: space-between;
   }
 
-  .site-logo {
-    font-size: var(--font-size-m);
-    font-weight: var(--font-weight-bold);
+  .logo-type {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
     color: var(--text-color-primary);
+    text-decoration: none;
   }
 
-  .site-logo:hover {
-    color: var(--color-brand-primary);
+  .logo {
+    border-radius: var(--size-radius-small);
+    border: 1px solid #eee;
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    margin-right: var(--space-s);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.5s;
+  }
+
+  .site-header.homepage .logo {
+    height: 60px;
+    width: 60px;
+    border: none;
+  }
+
+  .site-header.fixed .logo {
+    height: 36px;
+    width: 36px;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .type {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .h1menu {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-standard);
+    margin-bottom: var(--space-xxs);
+  }
+
+  .h2menu {
+    font-weight: var(--font-weight-standard);
+    font-size: var(--font-size-xxs);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .site-header.fixed .h2menu {
+    display: none;
+  }
+
+  .home-icon {
+    margin-left: var(--space-xs);
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-s);
+    color: var(--text-color-primary);
   }
 
   .site-nav {
@@ -97,10 +276,79 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   .site-nav a {
     color: var(--text-color-primary);
     font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .site-nav a :global(svg) {
+    flex-shrink: 0;
   }
 
   .site-nav a:hover {
     color: var(--color-brand-primary);
+  }
+
+  .availability-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color-primary);
+    border-bottom: 1px solid var(--color-neutral-gray-c);
+    padding: var(--space-xs) 0;
+    position: relative;
+    z-index: 4;
+    max-height: 2rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+  }
+
+  .availability-container.hide {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    border-bottom: none;
+  }
+
+  .site-header.homepage + .availability-container {
+    margin-top: var(--header-height-default);
+  }
+
+  .site-header.fixed + .availability-container {
+    position: fixed;
+    top: var(--header-height-default);
+    left: 0;
+    right: 0;
+    z-index: 4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .site-header.fixed + .availability-container.hide {
+    box-shadow: none;
+  }
+
+  .availability {
+    font-size: 0.75em;
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .availability:hover {
+    text-decoration: underline;
+    color: var(--color-brand-hover);
+  }
+
+  .sensor {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    height: 1px;
   }
 
   .site-main {
@@ -112,21 +360,34 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   }
 
   .site-footer {
-    background-color: var(--background-color-alt);
-    border-top: 1px solid var(--color-neutral-gray-c);
-    padding: var(--space-l) 0;
+    background-color: var(--background-color-primary);
+    padding: var(--space-m);
+    text-align: center;
+    color: var(--color-neutral-gray-g);
+    font-size: var(--font-size-xxs);
   }
 
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--space-m);
-    text-align: center;
-    color: var(--text-color-primary);
-    font-size: var(--font-size-xs);
   }
 
-  .footer-container p {
-    margin: 0;
+  .last-updated {
+    color: var(--color-neutral-gray-g);
+    text-decoration: none;
+  }
+
+  .last-updated:hover {
+    text-decoration: underline;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .logo-type {
+      visibility: hidden;
+    }
+    .availability-container {
+      display: none;
+    }
   }
 </style>

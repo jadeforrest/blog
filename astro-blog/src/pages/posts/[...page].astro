@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { FaCalendar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { formatDate } from "../utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   // Get all posts and sort by date (newest first)
@@ -43,30 +43,15 @@ const posts = page.data;
 ---
 
 <BaseLayout
-  title="Learn to build humane, effective engineering organizations"
+  title="Blog Posts"
   description="Engineering leadership blog by Jade Rubick"
 >
-  <div class="homepage">
-    <header class="homepage-header">
-      <h1>Learn to build humane, effective engineering organizations</h1>
+  <div class="posts-page">
+    <header class="posts-header">
+      <h1>Blog Posts</h1>
     </header>
 
-    {
-      page.currentPage === 1 && (
-        <>
-          <div class="charity-container">
-            <img
-              src="/images/charity.png"
-              alt="Charity"
-              class="charity-image"
-            />
-          </div>
-        </>
-      )
-    }
-
-    <div class="recent-posts">
-      <h2>Recent posts</h2>
+    <div class="posts-list">
       <div class="posts-container">
         {
           posts.map((post) => (
@@ -144,44 +129,25 @@ const posts = page.data;
 </BaseLayout>
 
 <style>
-  .homepage {
+  .posts-page {
     max-width: 800px;
     margin: 0 auto;
   }
 
-  .homepage-header {
+  .posts-header {
     margin-bottom: var(--space-l);
     text-align: center;
   }
 
-  .homepage-header h1 {
+  .posts-header h1 {
     font-size: var(--heading-size-h1);
     line-height: var(--heading-line-height-h1);
     color: var(--text-color-primary);
     margin-bottom: var(--space-m);
   }
 
-  .charity-container {
-    margin: var(--space-l) 0;
-  }
-
-  .charity-image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .recent-posts {
+  .posts-list {
     margin: var(--space-default) 0;
-  }
-
-  .recent-posts h2 {
-    font-size: var(--heading-size-h2);
-    line-height: var(--heading-line-height-h2);
-    font-weight: var(--font-weight-bold);
-    margin: var(--space-m) 0;
-    text-align: center;
-    color: var(--color-neutral-gray-j);
   }
 
   .posts-container {
