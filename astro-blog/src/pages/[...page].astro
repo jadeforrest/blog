@@ -47,10 +47,6 @@ const posts = page.data;
   description="Engineering leadership blog by Jade Rubick"
 >
   <div class="homepage">
-    <header class="homepage-header">
-      <h1>Learn to build humane, effective engineering organizations</h1>
-    </header>
-
     {
       page.currentPage === 1 && (
         <>
@@ -66,6 +62,7 @@ const posts = page.data;
               <div class="form-content">
                 <div class="form-column">
                   <h2>Engineering leadership weekly</h2>
+                  <p class="form-subtitle">Learn to build humane, effective engineering organizations</p>
                   <ul class="form-errors" data-element="errors"></ul>
                   <div class="form-fields">
                     <input
@@ -184,21 +181,9 @@ const posts = page.data;
     margin: 0 auto;
   }
 
-  .homepage-header {
-    margin-bottom: var(--space-l);
-    text-align: center;
-  }
-
-  .homepage-header h1 {
-    font-size: var(--heading-size-h1);
-    line-height: var(--heading-line-height-h1);
-    color: var(--text-color-primary);
-    margin-bottom: var(--space-m);
-  }
-
   /* Newsletter signup form */
   .newsletter-signup {
-    margin: var(--space-l) 0;
+    margin: 0 0 var(--space-l) 0;
   }
 
   .convertkit-form {
@@ -221,6 +206,13 @@ const posts = page.data;
     color: #4d4d4d;
     font-size: 1.5rem;
     font-weight: 600;
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .form-subtitle {
+    color: #6b6b6b;
+    font-size: 0.95rem;
+    line-height: 1.4;
     margin: 0 0 var(--space-m) 0;
   }
 
