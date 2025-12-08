@@ -22,3 +22,7 @@ If you can, these can make a big difference in the upside. Your ability to negot
 * I might also request to see the most recent board deck.
 * "Ask to meet 1-2 board members or investors as part of your interview process. This should be easily managed for a series A company. Why are they excited about this company? What do they think of the CEO? Do they easily show confidence in the CEO and value-prop? Or are there hints that there may be a difficult relationship between the investors and the founders? What's the runway and how long before they have to raise again? You want to ask this to get an idea of how they balance building for growth vs being fiscally conservative -- IMO you don't want them to come down too far on either side. For me, it usually comes down liking the people I work with and finding the product interesting/fun."
 * Lethain has great advice he offers here: https://lethain.com/getting-engineering-executive-job/
+
+## How to negotiate
+
+* [Kalzumeus's guide to salary negotiation](https://www.kalzumeus.com/2012/01/23/salary-negotiation/)
