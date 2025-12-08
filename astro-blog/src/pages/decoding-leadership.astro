@@ -37,13 +37,14 @@ function normalizeWhitespace(value: string): string {
 >
   <div class="podcast-page">
     <div class="podcast-intro">
-      <div class="intro-text">
-        <p>Where we break down the elements of humane and effective leadership.</p>
+      <div class="intro-logo">
         <img
           src="/images/decoding-leadership-6.png"
           alt="Decoding Leadership Podcast"
           class="podcast-logo"
         />
+      </div>
+      <div class="intro-text">
         <p>
           <a
             href="https://podcasters.spotify.com/pod/show/decodingleadership"
@@ -54,28 +55,30 @@ function normalizeWhitespace(value: string): string {
             Listen to Decoding Leadership
           </a>
         </p>
+        <p>Where we break down the elements of humane and effective leadership.</p>
       </div>
-      <div class="testimonial">
-        <blockquote>
-          "This is hands down one of the best podcast discussions on incident
-          management, coordination, and reliability I've seen in ages!
-          Fantastic conversation between Beth Adele Long and Jade Rubick on the
-          Decoding Leadership podcast. Definitely worth a listen for anyone
-          working in this space."
-        </blockquote>
-        <p class="attribution">
-          — <a
-            href="https://www.resiliumlabs.com"
-            target="_blank"
-            rel="noopener noreferrer">Adrian Hornsby</a
-          >
-          <a
-            href="https://www.linkedin.com/posts/adhorn_beth-adele-long-on-reliability-and-leadership-activity-7366471477837127682-ZXfV?rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA"
-            target="_blank"
-            rel="noopener noreferrer">on LinkedIn</a
-          >
-        </p>
-      </div>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>
+        "This is hands down one of the best podcast discussions on incident
+        management, coordination, and reliability I've seen in ages!
+        Fantastic conversation between Beth Adele Long and Jade Rubick on the
+        Decoding Leadership podcast. Definitely worth a listen for anyone
+        working in this space."
+      </blockquote>
+      <p class="attribution">
+        — <a
+          href="https://www.resiliumlabs.com"
+          target="_blank"
+          rel="noopener noreferrer">Adrian Hornsby</a
+        >
+        <a
+          href="https://www.linkedin.com/posts/adhorn_beth-adele-long-on-reliability-and-leadership-activity-7366471477837127682-ZXfV?rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA"
+          target="_blank"
+          rel="noopener noreferrer">on LinkedIn</a
+        >
+      </p>
     </div>
 
     <section class="latest-episodes">
@@ -128,14 +131,28 @@ function normalizeWhitespace(value: string): string {
   }
 
   .podcast-intro {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: var(--space-l);
+  }
+
+  .intro-logo {
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    margin-bottom: var(--space-xl);
+    justify-content: center;
+  }
+
+  .podcast-logo {
+    width: 100%;
+    max-width: 300px;
+    border-radius: var(--size-radius-default);
   }
 
   .intro-text {
-    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .intro-text p {
@@ -144,17 +161,11 @@ function normalizeWhitespace(value: string): string {
     margin-bottom: var(--space-m);
   }
 
-  .podcast-logo {
-    width: 60%;
-    max-width: 300px;
-    border-radius: var(--size-radius-default);
-    margin: var(--space-m) 0;
-  }
-
   .listen-link {
     color: var(--color-brand-primary);
     font-weight: var(--font-weight-bold);
     text-decoration: none;
+    font-size: var(--font-size-l);
   }
 
   .listen-link:hover {
@@ -163,8 +174,8 @@ function normalizeWhitespace(value: string): string {
   }
 
   .testimonial {
-    flex: 1;
-    padding-left: 1rem;
+    width: 100%;
+    margin-bottom: var(--space-xl);
   }
 
   .testimonial blockquote {
@@ -271,19 +282,16 @@ function normalizeWhitespace(value: string): string {
 
   @media (max-width: 768px) {
     .podcast-intro {
-      flex-direction: column;
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
     }
 
-    .intro-text {
-      flex: 1;
-    }
-
-    .testimonial {
-      padding-left: 0;
+    .intro-logo {
+      justify-content: flex-start;
     }
 
     .podcast-logo {
-      width: 80%;
+      max-width: 250px;
     }
   }
 
