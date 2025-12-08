@@ -13,4 +13,13 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { posts };
+const wiki = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    icon: z.string().optional(),
+    description: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, wiki };

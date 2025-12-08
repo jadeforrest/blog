@@ -1,0 +1,41 @@
+---
+title: AI coding
+icon: 🤖
+description: AI-powered development tools, workflows, and best practices for augmented coding with Claude Code, Cursor, and other AI assistants.
+---
+
+## Monitoring the situation
+
+* A good way to stay abreast of AI tooling: [Rands Leadership Slack #ai-coding-tools](https://randsinrepose.com/welcome-to-rands-leadership-slack/)
+
+## Background info
+
+* [Claude Code tutorials](https://www.youtube.com/@anthropic-ai/streams)
+* [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices)
+
+## Workflow
+
+* Document driven (need link)
+* [An iterative approach that makes your genie less insane over time](https://ghuntley.com/stdlib/) Stdlib from Ghuntley (Cursor)
+* [A structured approach to coding](https://www.youtube.com/watch?v=fD4ktSkNCw4&t=1701s) by Ryan Carson. For Cursor but generally relevant.
+* [Kent Beck described a TDD and tidy first](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes) approach he calls augmented coding. 
+* [Vibe engineering](https://simonwillison.net/2025/Oct/7/vibe-engineering/) describes patterns for those who are building high quality code quickly with AI. 
+
+## Adoption
+
+* [The Gap Through Which We Praise the Machine](https://ferd.ca/the-gap-through-which-we-praise-the-machine.html) on usability issues in agent coding, and why some people seem to be doing well and others aren't.
+* [Nobody codes here anymore](https://open.substack.com/pub/ghiculescu/p/nobody-codes-here-anymore?r=8j0ru) A case study on adoption
+
+## Drinking coolaid
+
+* [Revenge of the Junior Developer](https://sourcegraph.com/blog/revenge-of-the-junior-developer) - Steve Yegge (who has a vested interest in this) lays out his vision of where this is going: agents, agent fleets, etc.
+
+## AI topics
+
+Should probably have its own page
+* [How AI agents software fits into companies](https://lethain.com/what-can-agents-do/)
+* [Double standard for women using AI](https://www.linkedin.com/posts/lpeate_the-most-interesting-ai-paper-ive-read-in-activity-7368796283416793092-36WR?utm_medium=ios_app&rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA)
+
+## AI tooling
+
+* See also [AI tooling wiki page](/wiki/tools/ai.md)
