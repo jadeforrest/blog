@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. Note that there are really two codebases, the first a Gatsby based blog located in the main repo, and the second a migrated Astro version of the same blog that will replace the Gatsby version, located in the astro-blog directory.
 
 ## Build and Development
 - Build: `npm run build`
