@@ -1,0 +1,153 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButton from "../components/CTAButton.astro";
+import FAQSection from "../components/FAQSection.astro";
+import { FaSeedling } from "react-icons/fa";
+---
+
+<BaseLayout
+  title="Frontline Management Course | Jade Rubick - Engineering Leadership"
+  description="5-month newsletter-based course on engineering management"
+>
+  <div class="course-page">
+    <h1>Frontline management course</h1>
+
+    <p>I offer a newsletter-based course on engineering management:</p>
+
+    <CTAButton
+      href="https://rubick.ck.page/products/management-bootcamp"
+      mainText="Start Management Bootcamp"
+      subText="5-Month Course"
+      variant="primary"
+    >
+      <FaSeedling slot="icon" size={48} />
+    </CTAButton>
+
+    <p>
+      This is a paid course delivered via newsletter. It's designed for
+      engineering managers who are just getting started or have some experience.
+    </p>
+
+    <img
+      src="/images/rachel.png"
+      alt="Course illustration"
+      class="course-image"
+    />
+
+    <h2>About the course</h2>
+
+    <FAQSection variant="compact">
+      <dt>What is the format for this course?</dt>
+      <dd>It is an email-based newsletter course.</dd>
+
+      <dt>How much time does this course require?</dt>
+      <dd>
+        The amount of time you devote to it depends on you.
+        <br />
+        <br />
+        The Frontline Management Bootcamp course has some assignments. But all
+        assignments are optional, and it's up to you to decide which you want to
+        integrate into your management practice. For example, there is an
+        assignment to set up your support network, with some suggestions for how
+        to do so. You don't have to do any of them, but you'll probably find it
+        helpful.
+      </dd>
+
+      <dt>Are there assessments or quizzes with this course?</dt>
+      <dd>No. The course does not have any assessments.</dd>
+
+      <dt>Is there any interaction with other students?</dt>
+      <dd>
+        Not currently. I did have a Slack community for participants, but we
+        haven't had a critical mass yet.
+      </dd>
+
+      <dt>I can't afford your course, but really want to take it</dt>
+      <dd>
+        <a href="/contact/">Contact me!</a> I'll set you up.
+      </dd>
+
+      <dt>How much email will I be receiving, and for how long?</dt>
+      <dd>
+        The Frontline Management Bootcamp course is delivered weekly. It is a
+        five month course.
+        <br />
+        <br />
+        After the course, you will get all the content from the Engineering
+        Leadership Weekly newsletter. That is another year plus of newsletters.
+      </dd>
+
+      <dt>Can I sign up for both the newsletter and course?</dt>
+      <dd>
+        You can, but if you're thinking about that, I would just sign up for the
+        course. At the end of the course, you will automatically transition into
+        receiving the newsletter. You will get a few duplicate emails, but not
+        many.
+      </dd>
+
+      <dt>If I pay for the course and don't like it, can I get a refund?</dt>
+      <dd>
+        Yes, I provide refunds with no questions asked, for two months after the
+        course starts. <a href="/contact/">Contact me</a>.
+      </dd>
+
+      <dt>Is it annoying to unsubscribe if I'm finished with it?</dt>
+      <dd>Every email has an unsubscribe link in it. It should be super easy.</dd>
+
+      <dt>How do I give you feedback on any of the course content?</dt>
+      <dd>
+        You can reply to any email and I'll read it. I really appreciate
+        feedback!
+      </dd>
+
+      <dt>How relevant is this content for non-engineering managers and leaders?</dt>
+      <dd>
+        The Frontline Management course is very engineering focused. It's best
+        suited for engineering managers, though some content may be applicable to
+        other technical disciplines.
+      </dd>
+    </FAQSection>
+  </div>
+</BaseLayout>
+
+<style>
+  .course-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .course-page h1 {
+    font-size: var(--heading-size-h1);
+    line-height: var(--heading-line-height-h1);
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-l);
+  }
+
+  .course-page h2 {
+    font-size: var(--heading-size-h2);
+    line-height: var(--heading-line-height-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-gray-j);
+    margin: var(--space-l) 0 var(--space-m);
+  }
+
+  .course-page p {
+    font-size: var(--font-size-s);
+    line-height: var(--text-line-height-default);
+    margin: 0 0 var(--space-m);
+  }
+
+  .course-image {
+    width: 50%;
+    max-width: 400px;
+    display: block;
+    margin: var(--space-l) auto;
+    border-radius: var(--size-radius-default);
+  }
+
+  @media (max-width: 768px) {
+    .course-image {
+      width: 80%;
+    }
+  }
+</style>

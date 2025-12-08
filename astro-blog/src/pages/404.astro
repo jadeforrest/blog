@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="404 - Page Not Found | Jade Rubick - Engineering Leadership"
+  description="Page not found"
+>
+  <div class="not-found-page">
+    <h1>404</h1>
+    <p>Unfortunately you came to a page doesn't exist.</p>
+    <p>
+      <a href="/">Return to homepage</a> or <a href="/search/">search the site</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found-page {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl) var(--space-m);
+  }
+
+  .not-found-page h1 {
+    font-size: var(--heading-size-h1);
+    line-height: var(--heading-line-height-h1);
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-l);
+  }
+
+  .not-found-page p {
+    font-size: var(--font-size-m);
+    line-height: var(--text-line-height-default);
+    margin: var(--space-m) 0;
+    color: var(--text-color-primary);
+  }
+
+  .not-found-page a {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+  }
+
+  .not-found-page a:hover {
+    color: var(--color-brand-hover);
+  }
+</style>
