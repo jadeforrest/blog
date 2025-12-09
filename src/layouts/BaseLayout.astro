@@ -150,6 +150,12 @@ const buildTime = buildDate.toLocaleString("en-US", {
         window.addEventListener("scroll", handleScroll);
       }
     </script>
+
+    <script is:inline>
+      // Talkyard configuration - must be set before loading the script
+      talkyardServerUrl = 'https://comments-for-www-rubick-com.talkyard.net';
+      talkyardScriptUrl = talkyardServerUrl + '/talkyard-comments.min.js';
+    </script>
   </body>
 </html>
 

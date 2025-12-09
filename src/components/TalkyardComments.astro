@@ -7,32 +7,38 @@ const { discussionId } = Astro.props;
 ---
 
 {discussionId && (
-  <div id="talkyard-comments">
-    <script is:inline>
-      // Talkyard initialization
-      var talkyardServerUrl = 'https://comments-for-rubick-com.talkyard.net';
-      var talkyardScriptUrl = talkyardServerUrl + '/talkyard-comments.min.js';
+  <>
+    <div class="talkyard-comments" data-discussion-id={discussionId} data-talkyard-page-id="">
+      <noscript>Please enable Javascript to view comments.</noscript>
+      <p style="margin-top: 25px; opacity: 0.9; font-size: 96%">
+        Comments powered by <a href="https://www.talkyard.io">Talkyard</a>.
+      </p>
+    </div>
 
-      var d = document;
-      var t = d.createElement('script');
-      t.type = 'text/javascript';
-      t.async = true;
-      t.defer = true;
-      t.src = talkyardScriptUrl;
-      (d.head || d.body).appendChild(t);
+    <script is:inline>
+      // Load Talkyard script once (similar to React componentDidMount)
+      (function() {
+        if (window.talkyardScriptAdded) return;
+
+        var scriptElem = document.createElement('script');
+        var headOrBodyElem = document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0];
+
+        scriptElem.async = true;
+        scriptElem.type = 'text/javascript';
+        scriptElem.src = window.talkyardScriptUrl || 'https://c1.ty-cdn.net/-/talkyard-comments.min.js';
+
+        headOrBodyElem.appendChild(scriptElem);
+        window.talkyardScriptAdded = true;
+      })();
     </script>
-    <div class="talkyard-comments" data-discussion-id={discussionId}></div>
-  </div>
+  </>
 )}
 
 <style>
-  #talkyard-comments {
+  .talkyard-comments {
     margin-top: var(--space-xl);
     padding-top: var(--space-l);
     border-top: 1px solid var(--color-neutral-gray-c);
-  }
-
-  .talkyard-comments {
     max-width: 100%;
   }
 </style>
