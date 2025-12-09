@@ -342,17 +342,20 @@ async function generateStaticImageWebP() {
     }
   }
 
-  // Process sarah.png in public/images (newsletter page - use high quality)
+  // Process sarah.png in public/images (newsletter page - use high quality, multiple sizes)
   const sarahPath = path.join(publicDir, "images", "sarah.png");
   if (fs.existsSync(sarahPath)) {
-    const webpPath = path.join(publicDir, "images", "sarah-400.webp");
-    const result = await generateWebP(sarahPath, webpPath, 400, 92);
-    if (result.success) {
-      if (result.skipped) {
-        skipped++;
-      } else {
-        generated++;
-        console.log(`   Generated sarah-400.webp (quality: 92)`);
+    const sizes = [800, 1200]; // Larger sizes for full-width display
+    for (const size of sizes) {
+      const webpPath = path.join(publicDir, "images", `sarah-${size}.webp`);
+      const result = await generateWebP(sarahPath, webpPath, size, 92);
+      if (result.success) {
+        if (result.skipped) {
+          skipped++;
+        } else {
+          generated++;
+          console.log(`   Generated sarah-${size}.webp (quality: 92)`);
+        }
       }
     }
   }
