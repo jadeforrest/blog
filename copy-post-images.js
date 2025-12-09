@@ -286,81 +286,109 @@ function copyAboutPageAssets() {
   }
 }
 
-async function generateStaticImageWebP() {
-  console.log("\n📸 Processing static images");
+/**
+ * Determine appropriate WebP sizes based on source image dimensions
+ * Returns array of { width, quality } objects
+ */
+function getResponsiveSizes(sourceWidth) {
+  // Very small images (< 150px): just 1x and 2x
+  if (sourceWidth < 150) {
+    return [
+      { width: 100, quality: 85 },
+      { width: 200, quality: 85 }
+    ];
+  }
+
+  // Small images (150-500px): single size at slightly larger than source
+  if (sourceWidth < 500) {
+    return [{ width: Math.min(600, sourceWidth), quality: 92 }];
+  }
+
+  // Medium images (500-1000px): two responsive sizes
+  if (sourceWidth < 1000) {
+    return [
+      { width: 800, quality: 92 },
+      { width: 1200, quality: 92 }
+    ];
+  }
+
+  // Large images (1000-2000px): two or three responsive sizes
+  if (sourceWidth < 2000) {
+    return [
+      { width: 800, quality: 92 },
+      { width: 1200, quality: 92 },
+      { width: 1600, quality: 92 }
+    ];
+  }
+
+  // Very large images (2000px+): three responsive sizes
+  return [
+    { width: 800, quality: 92 },
+    { width: 1200, quality: 92 },
+    { width: 2000, quality: 92 }
+  ];
+}
+
+/**
+ * Process a static image file and generate responsive WebP versions
+ */
+async function processStaticImage(sourcePath, targetDir, baseName) {
   let generated = 0;
   let skipped = 0;
 
-  // Process avatar.jpg in public/images (header image - small, default quality is fine)
-  const avatarPath = path.join(publicDir, "images", "avatar.jpg");
-  if (fs.existsSync(avatarPath)) {
-    const sizes = [100, 200]; // Small sizes for header
-    for (const size of sizes) {
-      const webpPath = path.join(publicDir, "images", `avatar-${size}.webp`);
-      const result = await generateWebP(avatarPath, webpPath, size);
-      if (result.success) {
-        if (result.skipped) {
-          skipped++;
-        } else {
-          generated++;
-          console.log(`   Generated avatar-${size}.webp`);
-        }
-      }
-    }
+  // Get source dimensions
+  const dimensions = await getImageDimensions(sourcePath);
+  if (!dimensions) {
+    console.warn(`   ⚠️  Could not read dimensions for ${baseName}`);
+    return { generated, skipped };
   }
 
-  // Process avatar-large.jpeg in public/about (prominent image - use high quality)
-  const avatarLargePath = path.join(publicDir, "about", "avatar-large.jpeg");
-  if (fs.existsSync(avatarLargePath)) {
-    const sizes = [400, 600]; // Medium sizes for about page
-    for (const size of sizes) {
-      const webpPath = path.join(publicDir, "about", `avatar-large-${size}.webp`);
-      const result = await generateWebP(avatarLargePath, webpPath, size, 92);
-      if (result.success) {
-        if (result.skipped) {
-          skipped++;
-        } else {
-          generated++;
-          console.log(`   Generated avatar-large-${size}.webp (quality: 92)`);
-        }
-      }
-    }
-  }
+  // Determine appropriate sizes
+  const sizes = getResponsiveSizes(dimensions.width);
 
-  // Process charity.png in public/images (homepage banner - use high quality)
-  const charityPath = path.join(publicDir, "images", "charity.png");
-  if (fs.existsSync(charityPath)) {
-    const webpPath = path.join(publicDir, "images", "charity-400.webp");
-    const result = await generateWebP(charityPath, webpPath, 400, 92);
+  // Generate each size
+  for (const { width, quality } of sizes) {
+    const webpPath = path.join(targetDir, `${baseName}-${width}.webp`);
+    const result = await generateWebP(sourcePath, webpPath, width, quality);
     if (result.success) {
       if (result.skipped) {
         skipped++;
       } else {
         generated++;
-        console.log(`   Generated charity-400.webp (quality: 92)`);
+        const qualityStr = quality !== 85 ? ` (quality: ${quality})` : '';
+        console.log(`   Generated ${baseName}-${width}.webp${qualityStr}`);
       }
     }
   }
 
-  // Process sarah.png in public/images (newsletter page - use high quality, multiple sizes)
-  const sarahPath = path.join(publicDir, "images", "sarah.png");
-  if (fs.existsSync(sarahPath)) {
-    const sizes = [800, 1200]; // Larger sizes for full-width display
-    for (const size of sizes) {
-      const webpPath = path.join(publicDir, "images", `sarah-${size}.webp`);
-      const result = await generateWebP(sarahPath, webpPath, size, 92);
-      if (result.success) {
-        if (result.skipped) {
-          skipped++;
-        } else {
-          generated++;
-          console.log(`   Generated sarah-${size}.webp (quality: 92)`);
-        }
-      }
+  return { generated, skipped };
+}
+
+async function generateStaticImageWebP() {
+  console.log("\n📸 Processing static images");
+  let totalGenerated = 0;
+  let totalSkipped = 0;
+
+  // Define static images to process
+  const staticImages = [
+    { path: path.join(publicDir, "images", "avatar.jpg"), targetDir: path.join(publicDir, "images"), name: "avatar" },
+    { path: path.join(publicDir, "images", "charity.png"), targetDir: path.join(publicDir, "images"), name: "charity" },
+    { path: path.join(publicDir, "images", "sarah.png"), targetDir: path.join(publicDir, "images"), name: "sarah" },
+    { path: path.join(publicDir, "images", "rachel.png"), targetDir: path.join(publicDir, "images"), name: "rachel" },
+    { path: path.join(publicDir, "images", "decoding-leadership-6.png"), targetDir: path.join(publicDir, "images"), name: "decoding-leadership-6" },
+    { path: path.join(publicDir, "about", "avatar-large.jpeg"), targetDir: path.join(publicDir, "about"), name: "avatar-large" }
+  ];
+
+  // Process each image
+  for (const image of staticImages) {
+    if (fs.existsSync(image.path)) {
+      const { generated, skipped } = await processStaticImage(image.path, image.targetDir, image.name);
+      totalGenerated += generated;
+      totalSkipped += skipped;
     }
   }
 
-  console.log(`   Static images: ${generated} generated, ${skipped} skipped`);
+  console.log(`   Static images: ${totalGenerated} generated, ${totalSkipped} skipped`);
 }
 
 async function main() {
