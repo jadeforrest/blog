@@ -61,7 +61,7 @@ function getCoverImage(dir) {
   return coverMatch ? coverMatch[1].trim() : null;
 }
 
-async function generateWebP(sourcePath, targetPath, width) {
+async function generateWebP(sourcePath, targetPath, width, quality = 85) {
   // Skip if file exists and not forcing regeneration
   if (!forceRegenerate && fs.existsSync(targetPath)) {
     try {
@@ -79,7 +79,7 @@ async function generateWebP(sourcePath, targetPath, width) {
         withoutEnlargement: true,
         fit: "inside",
       })
-      .webp({ quality: 85 })
+      .webp({ quality })
       .toFile(targetPath);
     return { success: true, width: info.width, height: info.height, skipped: false };
   } catch (error) {
@@ -291,7 +291,7 @@ async function generateStaticImageWebP() {
   let generated = 0;
   let skipped = 0;
 
-  // Process avatar.jpg in public/images (header image)
+  // Process avatar.jpg in public/images (header image - small, default quality is fine)
   const avatarPath = path.join(publicDir, "images", "avatar.jpg");
   if (fs.existsSync(avatarPath)) {
     const sizes = [100, 200]; // Small sizes for header
@@ -309,20 +309,35 @@ async function generateStaticImageWebP() {
     }
   }
 
-  // Process avatar-large.jpeg in public/about (about page image)
+  // Process avatar-large.jpeg in public/about (prominent image - use high quality)
   const avatarLargePath = path.join(publicDir, "about", "avatar-large.jpeg");
   if (fs.existsSync(avatarLargePath)) {
     const sizes = [400, 600]; // Medium sizes for about page
     for (const size of sizes) {
       const webpPath = path.join(publicDir, "about", `avatar-large-${size}.webp`);
-      const result = await generateWebP(avatarLargePath, webpPath, size);
+      const result = await generateWebP(avatarLargePath, webpPath, size, 92);
       if (result.success) {
         if (result.skipped) {
           skipped++;
         } else {
           generated++;
-          console.log(`   Generated avatar-large-${size}.webp`);
+          console.log(`   Generated avatar-large-${size}.webp (quality: 92)`);
         }
+      }
+    }
+  }
+
+  // Process charity.png in public/images (homepage banner - use high quality)
+  const charityPath = path.join(publicDir, "images", "charity.png");
+  if (fs.existsSync(charityPath)) {
+    const webpPath = path.join(publicDir, "images", "charity-400.webp");
+    const result = await generateWebP(charityPath, webpPath, 400, 92);
+    if (result.success) {
+      if (result.skipped) {
+        skipped++;
+      } else {
+        generated++;
+        console.log(`   Generated charity-400.webp (quality: 92)`);
       }
     }
   }
