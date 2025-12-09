@@ -19,6 +19,14 @@ All commands below refer to the Astro blog unless specified otherwise.
   - Copies images, builds the site to `dist/`, and generates search index with Pagefind
 - **Preview**: `npm run preview` (preview production build)
 
+#### Image Processing Scripts
+- **Incremental build** (default): `npm run copy-images`
+  - Skips existing images for faster builds (generated WebP files are checked in)
+- **Force regeneration**: `npm run copy-images:force`
+  - Regenerates all images even if they exist
+- **Clean old images**: `npm run images:clean` or `npm run copy-images:clean`
+  - Removes directories for deleted posts (safely checks for WebP files)
+
 ### Gatsby Blog (Legacy)
 Navigate to `gatsby-blog/` directory first:
 - **Dev server**: `npm run develop` or `npm run devhost` (network access)
