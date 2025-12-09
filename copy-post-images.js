@@ -1,9 +1,11 @@
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
 
 /**
  * Copy images from post directories to public output
  * This makes images accessible at /[slug]/[image.png]
+ * Also generates optimized WebP thumbnails for cover images
  */
 
 const postsDir = "src/content/posts";
@@ -25,11 +27,44 @@ function findPostDirectories(dir) {
   return results;
 }
 
-function copyImages() {
+function getCoverImage(dir) {
+  // Read the index.mdx or index.md file to find the cover image
+  const mdxPath = path.join(dir, "index.mdx");
+  const mdPath = path.join(dir, "index.md");
+  const filePath = fs.existsSync(mdxPath) ? mdxPath : mdPath;
+
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  const content = fs.readFileSync(filePath, "utf-8");
+  // Match both quoted and unquoted cover values
+  const coverMatch = content.match(/cover:\s*['"]?([^'"\n\r]+)['"]?/);
+  return coverMatch ? coverMatch[1].trim() : null;
+}
+
+async function generateThumbnail(sourcePath, targetPath, width) {
+  try {
+    await sharp(sourcePath)
+      .resize(width, null, {
+        withoutEnlargement: true,
+        fit: "inside",
+      })
+      .webp({ quality: 85 })
+      .toFile(targetPath);
+    return true;
+  } catch (error) {
+    console.error(`Error generating thumbnail: ${error.message}`);
+    return false;
+  }
+}
+
+async function copyImages() {
   const postDirs = findPostDirectories(postsDir);
   let copiedCount = 0;
+  let thumbnailsGenerated = 0;
 
-  postDirs.forEach(({ dir, slug }) => {
+  for (const { dir, slug } of postDirs) {
     // Extract slug without date prefix
     const cleanSlug = slug.replace(/^\d{4}-\d{2}-\d{2}--/, "");
 
@@ -38,7 +73,7 @@ function copyImages() {
 
     // Find image files (jpg, jpeg, png, gif, webp, svg)
     const imageFiles = files.filter((file) =>
-      /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(file)
+      /\.(jpg|jpeg|png|gif|webp)$/i.test(file)
     );
 
     if (imageFiles.length > 0) {
@@ -49,20 +84,41 @@ function copyImages() {
         fs.mkdirSync(targetDir, { recursive: true });
       }
 
-      // Copy each image
-      imageFiles.forEach((imageFile) => {
+      // Get cover image filename
+      const coverImage = getCoverImage(dir);
+
+      // Copy each image and generate thumbnails for cover image
+      for (const imageFile of imageFiles) {
         const sourcePath = path.join(dir, imageFile);
         const targetPath = path.join(targetDir, imageFile);
 
+        // Copy original
         fs.copyFileSync(sourcePath, targetPath);
         copiedCount++;
-      });
 
-      console.log(`Copied ${imageFiles.length} images for ${cleanSlug}`);
+        // Generate thumbnails only for cover image
+        if (coverImage && imageFile === coverImage && !/\.svg$/i.test(imageFile)) {
+          const baseName = path.parse(imageFile).name;
+
+          // Generate 240px thumbnail for mobile
+          const thumb240 = path.join(targetDir, `${baseName}-thumb-240.webp`);
+          if (await generateThumbnail(sourcePath, thumb240, 240)) {
+            thumbnailsGenerated++;
+          }
+
+          // Generate 400px thumbnail for desktop
+          const thumb400 = path.join(targetDir, `${baseName}-thumb-400.webp`);
+          if (await generateThumbnail(sourcePath, thumb400, 400)) {
+            thumbnailsGenerated++;
+          }
+        }
+      }
+
+      console.log(`Copied ${imageFiles.length} images for ${cleanSlug}${coverImage ? " (with thumbnails)" : ""}`);
     }
-  });
+  }
 
-  console.log(`\nTotal: Copied ${copiedCount} images from ${postDirs.length} posts`);
+  console.log(`\nTotal: Copied ${copiedCount} images and generated ${thumbnailsGenerated} thumbnails from ${postDirs.length} posts`);
 }
 
 function copyAboutPageAssets() {
@@ -80,5 +136,12 @@ function copyAboutPageAssets() {
   }
 }
 
-copyImages();
-copyAboutPageAssets();
+async function main() {
+  await copyImages();
+  copyAboutPageAssets();
+}
+
+main().catch((error) => {
+  console.error("Error:", error);
+  process.exit(1);
+});

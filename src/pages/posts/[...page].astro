@@ -9,29 +9,29 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   // Get all posts and sort by date (newest first)
   const allPosts = await getCollection("posts");
 
-  const posts = allPosts
-    .map((post) => {
-      // Parse YYYY-MM-DD--slug format
-      const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
-      const date = dateMatch ? dateMatch[1] : post.data.date || "";
+  const posts = allPosts.map((post) => {
+    // Parse YYYY-MM-DD--slug format
+    const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
+    const date = dateMatch ? dateMatch[1] : post.data.date || "";
 
-      const slug = post.id
-        .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
-        .replace(/\/index\.(md|mdx)$/, "");
+    const slug = post.id
+      .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
+      .replace(/\/index\.(md|mdx)$/, "");
 
-      return {
-        ...post,
-        date,
-        slug,
-      };
-    })
-    .sort((a, b) => {
-      // Sort by date descending (newest first)
-      return b.date.localeCompare(a.date);
-    });
+    return {
+      ...post,
+      date,
+      slug,
+    };
+  });
+
+  const sortedPosts = posts.sort((a, b) => {
+    // Sort by date descending (newest first)
+    return b.date.localeCompare(a.date);
+  });
 
   // Paginate posts - 20 per page
-  return paginate(posts, { pageSize: 20 });
+  return paginate(sortedPosts, { pageSize: 20 });
 };
 
 type Props = {
@@ -58,11 +58,25 @@ const posts = page.data;
             <article class="post-item">
               {post.data.cover && (
                 <a href={`/${post.slug}/`} class="post-image-link">
-                  <img
-                    src={`/${post.slug}/${post.data.cover}`}
-                    alt={post.data.title}
-                    class="post-image"
-                  />
+                  <picture>
+                    <source
+                      media="(max-width: 599px)"
+                      srcset={`/${post.slug}/${post.data.cover.replace(/\.\w+$/, "")}-thumb-240.webp`}
+                      type="image/webp"
+                    />
+                    <source
+                      srcset={`/${post.slug}/${post.data.cover.replace(/\.\w+$/, "")}-thumb-400.webp`}
+                      type="image/webp"
+                    />
+                    <img
+                      src={`/${post.slug}/${post.data.cover}`}
+                      alt={post.data.title}
+                      width="200"
+                      height="150"
+                      loading="lazy"
+                      class="post-image"
+                    />
+                  </picture>
                 </a>
               )}
               <div class="post-content">
