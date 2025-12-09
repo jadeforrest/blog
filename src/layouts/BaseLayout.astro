@@ -47,7 +47,13 @@ const buildTime = buildDate.toLocaleString("en-US", {
         <div class="header-container">
           <a href="/" class="logo-type">
             <div class="logo">
-              <img src="/images/avatar.jpg" alt="Jade Rubick" />
+              <picture>
+                <source
+                  srcset="/images/avatar-100.webp"
+                  type="image/webp"
+                />
+                <img src="/images/avatar.jpg" alt="Jade Rubick" />
+              </picture>
             </div>
             <div class="type">
               <div class="h1menu">jade rubick</div>

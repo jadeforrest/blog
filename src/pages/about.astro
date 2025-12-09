@@ -35,11 +35,22 @@ const popularPosts = allPosts
 >
   <div class="about-page">
     <div class="about-header">
-      <img
-        src="/about/avatar-large.jpeg"
-        alt="Jade Rubick"
-        class="avatar"
-      />
+      <picture>
+        <source
+          media="(max-width: 599px)"
+          srcset="/about/avatar-large-400.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="/about/avatar-large-600.webp"
+          type="image/webp"
+        />
+        <img
+          src="/about/avatar-large.jpeg"
+          alt="Jade Rubick"
+          class="avatar"
+        />
+      </picture>
     </div>
 
     <section class="about-content">

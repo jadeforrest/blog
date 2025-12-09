@@ -286,6 +286,50 @@ function copyAboutPageAssets() {
   }
 }
 
+async function generateStaticImageWebP() {
+  console.log("\n📸 Processing static images");
+  let generated = 0;
+  let skipped = 0;
+
+  // Process avatar.jpg in public/images (header image)
+  const avatarPath = path.join(publicDir, "images", "avatar.jpg");
+  if (fs.existsSync(avatarPath)) {
+    const sizes = [100, 200]; // Small sizes for header
+    for (const size of sizes) {
+      const webpPath = path.join(publicDir, "images", `avatar-${size}.webp`);
+      const result = await generateWebP(avatarPath, webpPath, size);
+      if (result.success) {
+        if (result.skipped) {
+          skipped++;
+        } else {
+          generated++;
+          console.log(`   Generated avatar-${size}.webp`);
+        }
+      }
+    }
+  }
+
+  // Process avatar-large.jpeg in public/about (about page image)
+  const avatarLargePath = path.join(publicDir, "about", "avatar-large.jpeg");
+  if (fs.existsSync(avatarLargePath)) {
+    const sizes = [400, 600]; // Medium sizes for about page
+    for (const size of sizes) {
+      const webpPath = path.join(publicDir, "about", `avatar-large-${size}.webp`);
+      const result = await generateWebP(avatarLargePath, webpPath, size);
+      if (result.success) {
+        if (result.skipped) {
+          skipped++;
+        } else {
+          generated++;
+          console.log(`   Generated avatar-large-${size}.webp`);
+        }
+      }
+    }
+  }
+
+  console.log(`   Static images: ${generated} generated, ${skipped} skipped`);
+}
+
 async function main() {
   console.log("📸 Image processing started");
   if (forceRegenerate) {
@@ -300,6 +344,7 @@ async function main() {
 
   const activeSlugs = await copyImages();
   copyAboutPageAssets();
+  await generateStaticImageWebP();
 
   // Clean old directories if requested
   if (cleanOldImages) {

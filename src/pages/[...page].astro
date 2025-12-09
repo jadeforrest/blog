@@ -87,11 +87,17 @@ const posts = page.data;
           </div>
 
           <div class="charity-container">
-            <img
-              src="/images/charity.png"
-              alt="Charity"
-              class="charity-image"
-            />
+            <picture>
+              <source
+                srcset="/images/charity-400.webp"
+                type="image/webp"
+              />
+              <img
+                src="/images/charity.png"
+                alt="Charity"
+                class="charity-image"
+              />
+            </picture>
           </div>
         </>
       )

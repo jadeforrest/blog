@@ -38,11 +38,27 @@ function normalizeWhitespace(value: string): string {
   <div class="podcast-page">
     <div class="podcast-intro">
       <div class="intro-logo">
-        <img
-          src="/images/decoding-leadership-6.png"
-          alt="Decoding Leadership Podcast"
-          class="podcast-logo"
-        />
+        <picture>
+          <source
+            media="(max-width: 599px)"
+            srcset="/images/decoding-leadership-6-400.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1199px)"
+            srcset="/images/decoding-leadership-6-800.webp"
+            type="image/webp"
+          />
+          <source
+            srcset="/images/decoding-leadership-6-1200.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/decoding-leadership-6.png"
+            alt="Decoding Leadership Podcast"
+            class="podcast-logo"
+          />
+        </picture>
       </div>
       <div class="intro-text">
         <p>
