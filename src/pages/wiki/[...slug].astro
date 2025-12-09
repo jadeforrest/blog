@@ -36,7 +36,7 @@ const { entry, isIndex } = Astro.props;
 const { Content } = await entry.render();
 
 // GitHub edit URL
-const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/content/wiki/${entry.id}`;
+const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/src/content/wiki/${entry.id}`;
 
 // Get all wiki entries for breadcrumbs and directory listing
 const allWikiEntries = await getCollection("wiki");
