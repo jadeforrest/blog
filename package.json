@@ -7,7 +7,10 @@
     "build": "npm run copy-images && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "copy-images": "node copy-post-images.js"
+    "copy-images": "node copy-post-images.js",
+    "copy-images:force": "node copy-post-images.js --force",
+    "copy-images:clean": "node copy-post-images.js --clean",
+    "images:clean": "node copy-post-images.js --clean"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.12",

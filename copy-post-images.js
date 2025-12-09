@@ -7,10 +7,19 @@ import sharp from "sharp";
  * This makes images accessible at /[slug]/[image.png]
  * Generates optimized WebP versions at multiple sizes for all images
  * Creates image-metadata.json with dimensions for responsive loading
+ *
+ * Options:
+ *   --force   Regenerate all images even if they exist
+ *   --clean   Remove old generated image directories for deleted posts
  */
 
 const postsDir = "src/content/posts";
 const publicDir = "public";
+
+// Parse command line arguments
+const args = process.argv.slice(2);
+const forceRegenerate = args.includes("--force");
+const cleanOldImages = args.includes("--clean");
 
 // Responsive sizes for content images (not thumbnails)
 const CONTENT_IMAGE_SIZES = [640, 960, 1280];
@@ -53,6 +62,17 @@ function getCoverImage(dir) {
 }
 
 async function generateWebP(sourcePath, targetPath, width) {
+  // Skip if file exists and not forcing regeneration
+  if (!forceRegenerate && fs.existsSync(targetPath)) {
+    try {
+      const metadata = await sharp(targetPath).metadata();
+      return { success: true, width: metadata.width, height: metadata.height, skipped: true };
+    } catch (error) {
+      // If file exists but is corrupt, regenerate it
+      console.warn(`Existing file corrupt, regenerating: ${targetPath}`);
+    }
+  }
+
   try {
     const info = await sharp(sourcePath)
       .resize(width, null, {
@@ -61,7 +81,7 @@ async function generateWebP(sourcePath, targetPath, width) {
       })
       .webp({ quality: 85 })
       .toFile(targetPath);
-    return { success: true, width: info.width, height: info.height };
+    return { success: true, width: info.width, height: info.height, skipped: false };
   } catch (error) {
     console.error(`Error generating WebP: ${error.message}`);
     return { success: false };
@@ -82,11 +102,15 @@ async function copyImages() {
   const postDirs = findPostDirectories(postsDir);
   let copiedCount = 0;
   let thumbnailsGenerated = 0;
+  let thumbnailsSkipped = 0;
   let responsiveImagesGenerated = 0;
+  let responsiveImagesSkipped = 0;
+  const activeSlugs = new Set();
 
   for (const { dir, slug } of postDirs) {
     // Extract slug without date prefix
     const cleanSlug = slug.replace(/^\d{4}-\d{2}-\d{2}--/, "");
+    activeSlugs.add(cleanSlug);
 
     // Read all files in post directory
     const files = fs.readdirSync(dir);
@@ -114,9 +138,11 @@ async function copyImages() {
         const baseName = path.parse(imageFile).name;
         const isCover = coverImage && imageFile === coverImage;
 
-        // Copy original
-        fs.copyFileSync(sourcePath, targetPath);
-        copiedCount++;
+        // Copy original if it doesn't exist or if forcing
+        if (forceRegenerate || !fs.existsSync(targetPath)) {
+          fs.copyFileSync(sourcePath, targetPath);
+          copiedCount++;
+        }
 
         // Get original dimensions for metadata
         const dimensions = await getImageDimensions(sourcePath);
@@ -131,7 +157,11 @@ async function copyImages() {
             const thumbPath = path.join(targetDir, `${baseName}-thumb-${size}.webp`);
             const result = await generateWebP(sourcePath, thumbPath, size);
             if (result.success) {
-              thumbnailsGenerated++;
+              if (result.skipped) {
+                thumbnailsSkipped++;
+              } else {
+                thumbnailsGenerated++;
+              }
             }
           }
         }
@@ -142,7 +172,11 @@ async function copyImages() {
           const webpPath = path.join(targetDir, `${baseName}-${size}.webp`);
           const result = await generateWebP(sourcePath, webpPath, size);
           if (result.success) {
-            responsiveImagesGenerated++;
+            if (result.skipped) {
+              responsiveImagesSkipped++;
+            } else {
+              responsiveImagesGenerated++;
+            }
             // Store dimensions for each responsive size
             const metadataKey = `${cleanSlug}/${baseName}-${size}.webp`;
             imageMetadata[metadataKey] = {
@@ -154,11 +188,87 @@ async function copyImages() {
       }
 
       const suffix = coverImage ? " (with thumbnails)" : "";
-      console.log(`Copied ${imageFiles.length} images for ${cleanSlug}${suffix}`);
+      console.log(`Processed ${imageFiles.length} images for ${cleanSlug}${suffix}`);
     }
   }
 
-  console.log(`\nTotal: Copied ${copiedCount} images, generated ${thumbnailsGenerated} thumbnails and ${responsiveImagesGenerated} responsive images from ${postDirs.length} posts`);
+  console.log(`\nTotal: Copied ${copiedCount} images, generated ${thumbnailsGenerated} thumbnails (${thumbnailsSkipped} skipped) and ${responsiveImagesGenerated} responsive images (${responsiveImagesSkipped} skipped) from ${postDirs.length} posts`);
+
+  return activeSlugs;
+}
+
+function cleanOldDirectories(activeSlugs) {
+  // Safety check: ensure publicDir is set and is a valid path
+  if (!publicDir || publicDir === '/' || publicDir === '.') {
+    console.error('ERROR: Invalid publicDir path for cleanup');
+    return;
+  }
+
+  // Get all directories in public/ that look like blog post slug directories
+  // (exclude special directories like 'about', 'images', etc.)
+  const excludedDirs = new Set(['about', 'images', 'wiki', 'tags', 'static', 'fonts', 'css', 'js']);
+
+  if (!fs.existsSync(publicDir)) {
+    return;
+  }
+
+  // Resolve to absolute path for safety checks
+  const absolutePublicDir = path.resolve(publicDir);
+  const publicContents = fs.readdirSync(publicDir);
+  let removedCount = 0;
+
+  for (const item of publicContents) {
+    // Safety check: prevent path traversal
+    if (item.includes('..') || item.includes('/') || item.includes('\\')) {
+      console.warn(`Skipping suspicious path: ${item}`);
+      continue;
+    }
+
+    const itemPath = path.join(publicDir, item);
+    const absoluteItemPath = path.resolve(itemPath);
+
+    // Safety check: ensure the path is actually within publicDir
+    if (!absoluteItemPath.startsWith(absolutePublicDir + path.sep)) {
+      console.error(`ERROR: Path ${item} is outside public directory, skipping`);
+      continue;
+    }
+
+    // Safety check: ensure we're not deleting publicDir itself
+    if (absoluteItemPath === absolutePublicDir) {
+      console.error('ERROR: Attempted to delete public directory itself, skipping');
+      continue;
+    }
+
+    const stat = fs.statSync(itemPath);
+
+    // Only check directories, and skip excluded ones
+    if (stat.isDirectory() && !excludedDirs.has(item) && !activeSlugs.has(item)) {
+      // Check if directory contains generated image files (webp)
+      const dirContents = fs.readdirSync(itemPath);
+      const hasGeneratedImages = dirContents.some(file => file.endsWith('.webp'));
+
+      if (hasGeneratedImages) {
+        // Final safety check: ensure path depth is reasonable (should be public/slug-name)
+        const relativePath = path.relative(publicDir, itemPath);
+        const pathDepth = relativePath.split(path.sep).length;
+
+        if (pathDepth !== 1) {
+          console.warn(`Skipping unexpected path depth: ${relativePath}`);
+          continue;
+        }
+
+        console.log(`Removing old directory: ${item}`);
+        fs.rmSync(itemPath, { recursive: true, force: true });
+        removedCount++;
+      }
+    }
+  }
+
+  if (removedCount > 0) {
+    console.log(`\n🧹 Cleaned ${removedCount} old image directories`);
+  } else {
+    console.log(`\n🧹 No old directories to clean`);
+  }
 }
 
 function copyAboutPageAssets() {
@@ -177,8 +287,24 @@ function copyAboutPageAssets() {
 }
 
 async function main() {
-  await copyImages();
+  console.log("📸 Image processing started");
+  if (forceRegenerate) {
+    console.log("   --force flag: Regenerating all images");
+  } else {
+    console.log("   Skipping existing images (use --force to regenerate)");
+  }
+  if (cleanOldImages) {
+    console.log("   --clean flag: Will remove old directories");
+  }
+  console.log();
+
+  const activeSlugs = await copyImages();
   copyAboutPageAssets();
+
+  // Clean old directories if requested
+  if (cleanOldImages) {
+    cleanOldDirectories(activeSlugs);
+  }
 
   // Save image metadata to JSON file for use by components
   const metadataPath = path.join(publicDir, "image-metadata.json");
