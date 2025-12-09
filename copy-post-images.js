@@ -342,6 +342,21 @@ async function generateStaticImageWebP() {
     }
   }
 
+  // Process sarah.png in public/images (newsletter page - use high quality)
+  const sarahPath = path.join(publicDir, "images", "sarah.png");
+  if (fs.existsSync(sarahPath)) {
+    const webpPath = path.join(publicDir, "images", "sarah-400.webp");
+    const result = await generateWebP(sarahPath, webpPath, 400, 92);
+    if (result.success) {
+      if (result.skipped) {
+        skipped++;
+      } else {
+        generated++;
+        console.log(`   Generated sarah-400.webp (quality: 92)`);
+      }
+    }
+  }
+
   console.log(`   Static images: ${generated} generated, ${skipped} skipped`);
 }
 
