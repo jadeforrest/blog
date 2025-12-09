@@ -5,11 +5,20 @@ import sharp from "sharp";
 /**
  * Copy images from post directories to public output
  * This makes images accessible at /[slug]/[image.png]
- * Also generates optimized WebP thumbnails for cover images
+ * Generates optimized WebP versions at multiple sizes for all images
+ * Creates image-metadata.json with dimensions for responsive loading
  */
 
 const postsDir = "src/content/posts";
 const publicDir = "public";
+
+// Responsive sizes for content images (not thumbnails)
+const CONTENT_IMAGE_SIZES = [640, 960, 1280];
+// Thumbnail sizes for cover images
+const THUMBNAIL_SIZES = [240, 400];
+
+// Store image metadata (dimensions) for use in components
+const imageMetadata = {};
 
 function findPostDirectories(dir) {
   let results = [];
@@ -43,19 +52,29 @@ function getCoverImage(dir) {
   return coverMatch ? coverMatch[1].trim() : null;
 }
 
-async function generateThumbnail(sourcePath, targetPath, width) {
+async function generateWebP(sourcePath, targetPath, width) {
   try {
-    await sharp(sourcePath)
+    const info = await sharp(sourcePath)
       .resize(width, null, {
         withoutEnlargement: true,
         fit: "inside",
       })
       .webp({ quality: 85 })
       .toFile(targetPath);
-    return true;
+    return { success: true, width: info.width, height: info.height };
   } catch (error) {
-    console.error(`Error generating thumbnail: ${error.message}`);
-    return false;
+    console.error(`Error generating WebP: ${error.message}`);
+    return { success: false };
+  }
+}
+
+async function getImageDimensions(imagePath) {
+  try {
+    const metadata = await sharp(imagePath).metadata();
+    return { width: metadata.width, height: metadata.height };
+  } catch (error) {
+    console.error(`Error reading image dimensions: ${error.message}`);
+    return null;
   }
 }
 
@@ -63,6 +82,7 @@ async function copyImages() {
   const postDirs = findPostDirectories(postsDir);
   let copiedCount = 0;
   let thumbnailsGenerated = 0;
+  let responsiveImagesGenerated = 0;
 
   for (const { dir, slug } of postDirs) {
     // Extract slug without date prefix
@@ -71,7 +91,7 @@ async function copyImages() {
     // Read all files in post directory
     const files = fs.readdirSync(dir);
 
-    // Find image files (jpg, jpeg, png, gif, webp, svg)
+    // Find image files (jpg, jpeg, png, gif, webp - exclude svg)
     const imageFiles = files.filter((file) =>
       /\.(jpg|jpeg|png|gif|webp)$/i.test(file)
     );
@@ -87,38 +107,58 @@ async function copyImages() {
       // Get cover image filename
       const coverImage = getCoverImage(dir);
 
-      // Copy each image and generate thumbnails for cover image
+      // Process each image
       for (const imageFile of imageFiles) {
         const sourcePath = path.join(dir, imageFile);
         const targetPath = path.join(targetDir, imageFile);
+        const baseName = path.parse(imageFile).name;
+        const isCover = coverImage && imageFile === coverImage;
 
         // Copy original
         fs.copyFileSync(sourcePath, targetPath);
         copiedCount++;
 
-        // Generate thumbnails only for cover image
-        if (coverImage && imageFile === coverImage && !/\.svg$/i.test(imageFile)) {
-          const baseName = path.parse(imageFile).name;
+        // Get original dimensions for metadata
+        const dimensions = await getImageDimensions(sourcePath);
+        if (dimensions) {
+          const metadataKey = `${cleanSlug}/${imageFile}`;
+          imageMetadata[metadataKey] = dimensions;
+        }
 
-          // Generate 240px thumbnail for mobile
-          const thumb240 = path.join(targetDir, `${baseName}-thumb-240.webp`);
-          if (await generateThumbnail(sourcePath, thumb240, 240)) {
-            thumbnailsGenerated++;
+        // Generate thumbnails for cover images (240px, 400px)
+        if (isCover) {
+          for (const size of THUMBNAIL_SIZES) {
+            const thumbPath = path.join(targetDir, `${baseName}-thumb-${size}.webp`);
+            const result = await generateWebP(sourcePath, thumbPath, size);
+            if (result.success) {
+              thumbnailsGenerated++;
+            }
           }
+        }
 
-          // Generate 400px thumbnail for desktop
-          const thumb400 = path.join(targetDir, `${baseName}-thumb-400.webp`);
-          if (await generateThumbnail(sourcePath, thumb400, 400)) {
-            thumbnailsGenerated++;
+        // Generate responsive WebP versions for all content images
+        // (These are larger sizes for images inside blog posts)
+        for (const size of CONTENT_IMAGE_SIZES) {
+          const webpPath = path.join(targetDir, `${baseName}-${size}.webp`);
+          const result = await generateWebP(sourcePath, webpPath, size);
+          if (result.success) {
+            responsiveImagesGenerated++;
+            // Store dimensions for each responsive size
+            const metadataKey = `${cleanSlug}/${baseName}-${size}.webp`;
+            imageMetadata[metadataKey] = {
+              width: result.width,
+              height: result.height,
+            };
           }
         }
       }
 
-      console.log(`Copied ${imageFiles.length} images for ${cleanSlug}${coverImage ? " (with thumbnails)" : ""}`);
+      const suffix = coverImage ? " (with thumbnails)" : "";
+      console.log(`Copied ${imageFiles.length} images for ${cleanSlug}${suffix}`);
     }
   }
 
-  console.log(`\nTotal: Copied ${copiedCount} images and generated ${thumbnailsGenerated} thumbnails from ${postDirs.length} posts`);
+  console.log(`\nTotal: Copied ${copiedCount} images, generated ${thumbnailsGenerated} thumbnails and ${responsiveImagesGenerated} responsive images from ${postDirs.length} posts`);
 }
 
 function copyAboutPageAssets() {
@@ -139,6 +179,12 @@ function copyAboutPageAssets() {
 async function main() {
   await copyImages();
   copyAboutPageAssets();
+
+  // Save image metadata to JSON file for use by components
+  const metadataPath = path.join(publicDir, "image-metadata.json");
+  fs.writeFileSync(metadataPath, JSON.stringify(imageMetadata, null, 2));
+  console.log(`\n✅ Saved image metadata to ${metadataPath}`);
+  console.log(`   Total images tracked: ${Object.keys(imageMetadata).length}`);
 }
 
 main().catch((error) => {
