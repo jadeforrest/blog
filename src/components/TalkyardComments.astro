@@ -1,0 +1,38 @@
+---
+interface Props {
+  discussionId?: string;
+}
+
+const { discussionId } = Astro.props;
+---
+
+{discussionId && (
+  <div id="talkyard-comments">
+    <script is:inline>
+      // Talkyard initialization
+      var talkyardServerUrl = 'https://comments-for-rubick-com.talkyard.net';
+      var talkyardScriptUrl = talkyardServerUrl + '/talkyard-comments.min.js';
+
+      var d = document;
+      var t = d.createElement('script');
+      t.type = 'text/javascript';
+      t.async = true;
+      t.defer = true;
+      t.src = talkyardScriptUrl;
+      (d.head || d.body).appendChild(t);
+    </script>
+    <div class="talkyard-comments" data-discussion-id={discussionId}></div>
+  </div>
+)}
+
+<style>
+  #talkyard-comments {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--color-neutral-gray-c);
+  }
+
+  .talkyard-comments {
+    max-width: 100%;
+  }
+</style>

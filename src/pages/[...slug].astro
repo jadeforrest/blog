@@ -27,6 +27,7 @@ const { Content, components } = await post.render();
 
 // Import MDX components for custom elements like <re-img>
 import MDXComponents from "../components/MDXComponents.jsx";
+import TalkyardComments from "../components/TalkyardComments.astro";
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
@@ -57,6 +58,8 @@ import MDXComponents from "../components/MDXComponents.jsx";
     <div class="post-content">
       <Content components={MDXComponents} />
     </div>
+
+    <TalkyardComments discussionId={post.data.discussionId} />
   </article>
 </BaseLayout>
 
