@@ -8,7 +8,7 @@ const { URL } = require('url');
 
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
-const SENT_TRACKING_FILE = './linkedin-sent.json';
+const SENT_TRACKING_FILE = path.join(__dirname, 'linkedin-sent.json');
 const LINKEDIN_API_BASE = 'https://api.linkedin.com/v2';
 
 /**

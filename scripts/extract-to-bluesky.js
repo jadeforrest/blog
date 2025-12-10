@@ -9,7 +9,7 @@ const { execSync } = require('child_process');
 
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
-const SENT_TRACKING_FILE = './bluesky-sent.json';
+const SENT_TRACKING_FILE = path.join(__dirname, 'bluesky-sent.json');
 const BLUESKY_API_BASE = 'https://bsky.social/xrpc';
 
 /**
