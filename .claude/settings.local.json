@@ -23,7 +23,8 @@
       "Bash(find:*)",
       "Bash(test:*)",
       "Bash(git commit:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"\"\"=== {} ===\"\"\"\"; head -20 {}')"
     ],
     "deny": []
   },
