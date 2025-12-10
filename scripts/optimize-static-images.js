@@ -1,3 +1,32 @@
+/**
+ * OPTIMIZE STATIC IMAGES
+ *
+ * One-time utility script to optimize specific static images in public/images/
+ * by converting them to WebP format and creating responsive sizes.
+ *
+ * WHEN TO USE:
+ * - When adding new static images to public/images/ that need optimization
+ * - When you want to create responsive WebP versions of large images
+ *
+ * WHAT IT DOES:
+ * - Converts PNG/JPG images to WebP format (better compression)
+ * - Creates multiple responsive sizes for large images
+ * - Keeps original files as fallbacks for older browsers
+ *
+ * HOW TO USE:
+ * 1. Add your image to public/images/
+ * 2. Add an entry to the `images` array below with desired sizes
+ * 3. Run: node scripts/optimize-static-images.js
+ * 4. Update HTML/Astro components to use <picture> elements with new WebP versions
+ *
+ * NOTE: This is different from copy-post-images.js which handles blog post images.
+ * This script is for static site images (logos, avatars, course images, etc.)
+ *
+ * Created: 2024-12-09
+ * Last run: Successfully generated WebP versions for decoding-leadership-6, charity,
+ *           rachel, and sarah images.
+ */
+
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
