@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const http = require('http');
-const { URL } = require('url');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+import http from 'http';
+import { URL } from 'url';
+import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
@@ -742,11 +747,11 @@ async function main() {
 }
 
 // Run the script
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 
-module.exports = {
+export {
   parseExtractedContent,
   postToBluesky,
   loadSentTracking,
