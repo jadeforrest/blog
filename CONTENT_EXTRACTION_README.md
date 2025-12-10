@@ -1,37 +1,33 @@
 # Content Extraction Script
 
-This script analyzes markdown files in your blog and extracts the most interesting content using Claude Code CLI. It creates individual output files for each markdown page, containing the best extracts along with full URLs.
+This script analyzes markdown files in your Astro blog and extracts the most interesting content using Claude Code CLI. It creates individual output files for each markdown page, containing the best extracts along with full URLs.
 
-## The Script - `extract-content.js`
+## The Script - `scripts/extract-content.js`
 
 Uses Claude Code CLI for AI analysis with intelligent fallback to heuristics if Claude Code is unavailable.
 
 **Features:**
 - Uses Claude Code CLI for high-quality content analysis
-- Fallback analysis using smart heuristics 
-- Creates individual files and a master compilation
-- Processes all markdown posts automatically
+- Fallback analysis using smart heuristics
+- Creates individual files for each post
+- Processes all markdown/MDX posts automatically
 - Generates proper URLs for each extract
+- Supports both `.md` and `.mdx` files
 
 **Prerequisites:**
 - Node.js installed
 - Claude Code CLI installed and configured (optional - script has fallback)
 
-**Usage:**
+**Usage (run from repository root):**
 ```bash
-# Make script executable (first time only)
-chmod +x extract-content.js
-
 # Run the script on all files
-node extract-content.js
+node scripts/extract-content.js
 
 # Test mode - process only the first markdown file for faster iteration
-node extract-content.js --test-mode
-
-# Or run directly
-./extract-content.js
-./extract-content.js --test-mode
+node scripts/extract-content.js --test-mode
 ```
+
+**Note:** All scripts must be run from the repository root directory, not from within the `scripts/` directory.
 
 ## Output Structure
 
@@ -63,11 +59,11 @@ https://www.rubick.com/reliability-all-stick-no-carrot/
 
 ## How It Works
 
-1. **File Discovery**: Recursively finds all `index.md` files in the content directory
-2. **Content Parsing**: Extracts title and content from markdown files, removing front matter
-3. **URL Generation**: Creates URLs by removing date prefixes from directory names
+1. **File Discovery**: Recursively finds all `index.md` and `index.mdx` files in `src/content/posts/`
+2. **Content Parsing**: Extracts title and content from markdown/MDX files, removing front matter
+3. **URL Generation**: Creates URLs by removing date prefixes (`YYYY-MM-DD--`) from directory names
 4. **AI Analysis**: Uses AI to identify the most interesting 2-4 passages per post
-5. **Output Generation**: Creates individual text files and a master compilation
+5. **Output Generation**: Creates individual text files in `extracted-content/` directory
 
 ## AI Analysis Focus
 
@@ -82,17 +78,17 @@ The AI analysis prioritizes:
 
 ### Changing Configuration
 
-Edit the configuration variables at the top of `extract-content.js`:
+Edit the configuration variables at the top of `scripts/extract-content.js`:
 
 ```javascript
-const BASE_URL = 'https://yourdomain.com';  // Change base URL
-const CONTENT_DIR = './content/posts';       // Change content directory
-const OUTPUT_DIR = './extracted-content';   // Change output directory
+const BASE_URL = 'https://www.rubick.com';      // Change base URL
+const CONTENT_DIR = './src/content/posts';      // Astro content directory
+const OUTPUT_DIR = './extracted-content';       // Change output directory
 ```
 
 ### Modifying Analysis Criteria
 
-Edit the AI prompt in the `analyzeWithClaudeCode` function to change what type of content gets extracted. Look for the prompt variable and modify the "Focus on:" section.
+Edit the AI prompt in the `analyzeChunkWithClaudeCode` function to change what type of content gets extracted. Look for the prompt variable and modify the "Focus on:" section.
 
 ## Troubleshooting
 
@@ -106,10 +102,8 @@ Edit the AI prompt in the `analyzeWithClaudeCode` function to change what type o
 - Check that your markdown files have substantial content (>100 characters)
 - Ensure front matter is properly formatted with `---` delimiters
 
-### Permission Errors
-```bash
-chmod +x extract-content.js
-```
+### Path Errors
+Make sure you're running the script from the repository root directory, not from within `scripts/`.
 
 ## Example Output
 
@@ -130,7 +124,7 @@ This creates a curated collection of the most valuable insights from your entire
 
 ---
 
-# LinkedIn Publishing Script - `extract-to-linkedin.js`
+# LinkedIn Publishing Script - `scripts/extract-to-linkedin.js`
 
 This script posts extracted content to LinkedIn as article shares, creating professional posts with URL preview cards. Designed for daily automated posting.
 
@@ -163,21 +157,14 @@ This script posts extracted content to LinkedIn as article shares, creating prof
 export LINKEDIN_ACCESS_TOKEN="your_access_token_here"
 ```
 
-## Usage
+## Usage (run from repository root)
 
 ```bash
-# Make script executable (first time only)
-chmod +x extract-to-linkedin.js
-
 # Dry run - test without posting
-./extract-to-linkedin.js --dry-run
+node scripts/extract-to-linkedin.js --dry-run
 
 # Post next item in queue (daily usage)
-./extract-to-linkedin.js
-
-# Or with node
-node extract-to-linkedin.js --dry-run
-node extract-to-linkedin.js
+node scripts/extract-to-linkedin.js
 ```
 
 ## How It Works
@@ -207,16 +194,16 @@ People don't generally value reliability that much unless the site is down, or t
 ### Using Cron (Linux/Mac)
 ```bash
 # Add to crontab: post daily at 9 AM
-0 9 * * * cd /path/to/blog && ./extract-to-linkedin.js >> linkedin-posts.log 2>&1
+0 9 * * * cd /path/to/blog && node scripts/extract-to-linkedin.js >> linkedin-posts.log 2>&1
 ```
 
 ### Manual Usage
 ```bash
 # Check what would be posted next (random selection)
-./extract-to-linkedin.js --dry-run
+node scripts/extract-to-linkedin.js --dry-run
 
 # Post it
-./extract-to-linkedin.js
+node scripts/extract-to-linkedin.js
 ```
 
 ## File Structure
@@ -234,7 +221,7 @@ linkedin-posts.log              # Optional log file for cron
 ## Example Output
 
 ```bash
-$ ./extract-to-linkedin.js --dry-run
+$ node scripts/extract-to-linkedin.js --dry-run
 Starting LinkedIn posting in DRY RUN mode...
 Found 45 extracted posts
 12 already sent, 33 remaining
@@ -323,7 +310,7 @@ LinkedIn's API provides several advantages for professional content sharing:
 
 ---
 
-# Bluesky Publishing Script - `extract-to-bluesky.js`
+# Bluesky Publishing Script - `scripts/extract-to-bluesky.js`
 
 This script posts extracted content to Bluesky, creating posts with automatic website card previews. Designed for automated social media posting with intelligent content selection.
 
@@ -370,21 +357,14 @@ export BLUESKY_REFRESH_TOKEN="your_refresh_token"  # Optional
 export BLUESKY_REFRESH_TOKEN="your_refresh_token"
 ```
 
-## Usage
+## Usage (run from repository root)
 
 ```bash
-# Make script executable (first time only)
-chmod +x extract-to-bluesky.js
-
 # Dry run - test without posting
-./extract-to-bluesky.js --dry-run
+node scripts/extract-to-bluesky.js --dry-run
 
 # Post random item from queue
-./extract-to-bluesky.js
-
-# Or with node
-node extract-to-bluesky.js --dry-run
-node extract-to-bluesky.js
+node scripts/extract-to-bluesky.js
 ```
 
 ## How It Works
@@ -414,16 +394,16 @@ People don't generally value reliability that much unless the site is down, or t
 ### Using Cron (Linux/Mac)
 ```bash
 # Random post 3 times daily at 9 AM, 2 PM, and 7 PM
-0 9,14,19 * * * cd /path/to/blog && ./extract-to-bluesky.js >> bluesky-posts.log 2>&1
+0 9,14,19 * * * cd /path/to/blog && node scripts/extract-to-bluesky.js >> bluesky-posts.log 2>&1
 ```
 
 ### Manual Usage
 ```bash
 # Check what would be posted next (random selection)
-./extract-to-bluesky.js --dry-run
+node scripts/extract-to-bluesky.js --dry-run
 
 # Post it
-./extract-to-bluesky.js
+node scripts/extract-to-bluesky.js
 ```
 
 ## File Structure
@@ -458,7 +438,7 @@ bluesky-posts.log              # Optional log file for cron
 ## Example Output
 
 ```bash
-$ ./extract-to-bluesky.js --dry-run
+$ node scripts/extract-to-bluesky.js --dry-run
 Starting Bluesky posting in DRY RUN mode...
 Authenticating with Bluesky...
 Authenticated as @yourusername.bsky.social
@@ -509,10 +489,8 @@ All posts have already been sent!
 - Check internet connectivity for URL fetching
 - Some websites may block automated metadata requests
 
-### Permission Errors
-```bash
-chmod +x extract-to-bluesky.js
-```
+### Path Errors
+Make sure you're running the script from the repository root directory, not from within `scripts/`.
 
 ## Best Practices
 
