@@ -131,7 +131,7 @@ This script posts extracted content to LinkedIn as article shares, creating prof
 ## Prerequisites
 
 - LinkedIn account
-- LinkedIn access token with `w_member_social` scope
+- LinkedIn access token with `openid`, `profile`, `w_member_social` scopes
 - LinkedIn Developer App (for generating tokens)
 
 ## Key Features
@@ -148,8 +148,10 @@ This script posts extracted content to LinkedIn as article shares, creating prof
 
 1. Go to [LinkedIn Developers](https://www.linkedin.com/developers/)
 2. Create a new app
-3. Add required scopes: `w_member_social`, `r_liteprofile`
-4. Generate access token
+3. Add required products:
+   - **Share on LinkedIn** (provides `w_member_social` scope)
+   - **Sign In with LinkedIn using OpenID Connect** (provides `openid` and `profile` scopes)
+4. Generate access token using the token generator script (see Token Management below)
 
 ### 2. Set Environment Variable
 
@@ -244,10 +246,43 @@ Remaining posts in queue: 32
 - No automatic refresh available (LinkedIn limitation)
 
 ### Re-authentication Process
-1. When token expires, script shows authentication error
-2. Generate new token from LinkedIn Developer console
-3. Update `LINKEDIN_ACCESS_TOKEN` environment variable
-4. Resume posting
+
+#### Option 1: Using the Token Generator Script (Recommended)
+
+Use the included `linkedin-get-token.js` script to easily generate a new access token:
+
+1. **Get your app credentials**:
+   - Go to [LinkedIn Developer Apps](https://www.linkedin.com/developers/apps)
+   - Select your app → **Auth** tab
+   - Copy your **Client ID** and **Client Secret**
+
+2. **Add redirect URL** (one-time setup):
+   - In the Auth tab, under "OAuth 2.0 Settings" → "Redirect URLs"
+   - Add: `http://localhost:3000/callback`
+
+3. **Run the token generator**:
+   ```bash
+   export LINKEDIN_CLIENT_ID="your_client_id"
+   export LINKEDIN_CLIENT_SECRET="your_client_secret"
+   node scripts/linkedin-get-token.js
+   ```
+
+4. **Authorize in browser**:
+   - The script will open your browser automatically
+   - Log in to LinkedIn and click "Allow"
+   - The script will display your new access token
+
+5. **Save the token**:
+   ```bash
+   export LINKEDIN_ACCESS_TOKEN="your_new_token"
+   ```
+
+#### Option 2: Using Postman
+
+1. Add Postman redirect URL to your app: `https://oauth.pstmn.io/v1/callback`
+2. Use Postman's OAuth 2.0 Authorization Code flow
+3. Configure with your Client ID, Client Secret, and required scopes
+4. Generate and copy the access token
 
 ### Token Security
 ```bash
