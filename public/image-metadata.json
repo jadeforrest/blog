@@ -3582,5 +3582,117 @@
   "ai-surprises-2025/lake-1280.webp": {
     "width": 1280,
     "height": 830
+  },
+  "calendar-rules/calendar.jpg": {
+    "width": 1784,
+    "height": 1041
+  },
+  "calendar-rules/calendar-640.webp": {
+    "width": 640,
+    "height": 373
+  },
+  "calendar-rules/calendar-960.webp": {
+    "width": 960,
+    "height": 560
+  },
+  "calendar-rules/calendar-1280.webp": {
+    "width": 1280,
+    "height": 747
+  },
+  "calendar-rules/colors2.png": {
+    "width": 766,
+    "height": 504
+  },
+  "calendar-rules/colors2-640.webp": {
+    "width": 640,
+    "height": 421
+  },
+  "calendar-rules/colors2-960.webp": {
+    "width": 766,
+    "height": 504
+  },
+  "calendar-rules/colors2-1280.webp": {
+    "width": 766,
+    "height": 504
+  },
+  "calendar-rules/declined.png": {
+    "width": 438,
+    "height": 900
+  },
+  "calendar-rules/declined-640.webp": {
+    "width": 438,
+    "height": 900
+  },
+  "calendar-rules/declined-960.webp": {
+    "width": 438,
+    "height": 900
+  },
+  "calendar-rules/declined-1280.webp": {
+    "width": 438,
+    "height": 900
+  },
+  "calendar-rules/editable-by-default.png": {
+    "width": 474,
+    "height": 672
+  },
+  "calendar-rules/editable-by-default-640.webp": {
+    "width": 474,
+    "height": 672
+  },
+  "calendar-rules/editable-by-default-960.webp": {
+    "width": 474,
+    "height": 672
+  },
+  "calendar-rules/editable-by-default-1280.webp": {
+    "width": 474,
+    "height": 672
+  },
+  "calendar-rules/free.png": {
+    "width": 1228,
+    "height": 654
+  },
+  "calendar-rules/free-640.webp": {
+    "width": 640,
+    "height": 341
+  },
+  "calendar-rules/free-960.webp": {
+    "width": 960,
+    "height": 511
+  },
+  "calendar-rules/free-1280.webp": {
+    "width": 1228,
+    "height": 654
+  },
+  "calendar-rules/no-overlap.png": {
+    "width": 472,
+    "height": 122
+  },
+  "calendar-rules/no-overlap-640.webp": {
+    "width": 472,
+    "height": 122
+  },
+  "calendar-rules/no-overlap-960.webp": {
+    "width": 472,
+    "height": 122
+  },
+  "calendar-rules/no-overlap-1280.webp": {
+    "width": 472,
+    "height": 122
+  },
+  "calendar-rules/speedy.png": {
+    "width": 738,
+    "height": 292
+  },
+  "calendar-rules/speedy-640.webp": {
+    "width": 640,
+    "height": 253
+  },
+  "calendar-rules/speedy-960.webp": {
+    "width": 738,
+    "height": 292
+  },
+  "calendar-rules/speedy-1280.webp": {
+    "width": 738,
+    "height": 292
   }
 }
