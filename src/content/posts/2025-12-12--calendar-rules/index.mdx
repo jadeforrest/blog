@@ -7,9 +7,18 @@ discussionId: "calendar-rules"
 description: "Calendar rules I learned from an executive assistant and colleagues"
 ---
 
+import { Image } from 'astro:assets';
+import calendarImage from './calendar.jpg';
+import nooverlapImage from './no-overlap.png';
+import colors2Image from './colors2.png';
+import declinedImage from './declined.png';
+import editablebydefaultImage from './editable-by-default.png';
+import speedyImage from './speedy.png';
+import freeImage from './free.png';
+
 I once asked an executive assistant to help me be better at calendaring. Of course, she was a complete expert and pro at this, and I learned a lot. I'd like to share some of the things she taught me.
 
-<re-img src="calendar.jpg"></re-img>
+<Image src={calendarImage} alt="Calendar" width={800} />
 
 ## Calendar rules I learned from an EA
 
@@ -23,7 +32,7 @@ One of the most basic errors people make with their calendar is they don't handl
 
 When you get an invite to a meeting, if there is a conflict, you should communicate your intentions. Otherwise, when you DO address the conflict, the impact of that decision will hit other people at inconvenient times. For example, you might do it the day of, and then all the people who expected you to show up now have to handle the fact you won't be at that meeting. Rude! Or more accurately, disruptive. 
 
-<re-img src="no-overlap.png"></re-img>
+<Image src={nooverlapImage} alt="No overlap" width={800} />
 
 This is metaphorically similar to merge conflicts in code. It's way better to keep your calendar integrated with others, than to produce a bunch of surprises at the last minute.
 
@@ -33,7 +42,7 @@ One thing I noticed when the EA showed me the calendar for the CPO she worked fo
 
 For me, this was a relevation. Ever since then, I've played with a couple of different schemes for color-coding my calendar. They have varied as my work has varied, and you should probably create your own schemes. But they can represent things like:
 
-<re-img src="colors2.png"></re-img>
+<Image src={colors2Image} alt="Colors2" width={800} />
 
 * Level of focus: your staff level, stuff within your org, stuff above your level.
 * Which clients it is for.
@@ -61,7 +70,7 @@ I'm surprised how many people don't do this. If you're flexible about the time f
 
 People often leave declined events on their calendar. Simplify your view of the world -- take them off, and only add them back on when you're looking for them.
 
-<re-img src="declined.png"></re-img>
+<Image src={declinedImage} alt="Declined" width={800} />
 
 ## Calendar rules I learned from Bjorn
 
@@ -81,7 +90,7 @@ If you need to change the time for an appointment, it's a hassle to go through t
 
 So set your calendar entries to be editable. You can do it on a case by case basis in the invite:
 
-<re-img src="editable-by-default.png"></re-img>
+<Image src={editablebydefaultImage} alt="Editable by default" width={800} />
 
 Or do it in your preferences (calendar setting, general, Event settings, guest settings -> Modify event) and have it default to that for all future calendar invites. I recommend making the default editable, and then turn off editable for meetings that are so large you worry someone will screw up the invite.
 
@@ -95,7 +104,7 @@ One of the reasons meetings waste time is that people have biological needs. The
 
 If you run your meetings right up to the end of the hour, you're making meetings as a whole less effective. Start on time, and end at :25 or :50 or :55. 
 
-<re-img src="speedy.png"></re-img>
+<Image src={speedyImage} alt="Speedy" width={800} />
 
 You can do this by default by turning on "speedy meetings".
 
@@ -123,7 +132,7 @@ It's become my favorite way to organize my time.
 
 You can schedule things on your calendar that other people don't see. Just mark the calendar invite as Free. This can be useful if you want to annotate your calendar but not have it show up as busy. 
 
-<re-img src="free.png"></re-img>
+<Image src={freeImage} alt="Free" width={800} />
 
 I also sometimes will mark something as Free if I am setting aside that time to work on a particular thing, but I'm willing to be interrupted.
 

@@ -7,9 +7,12 @@ discussionId: "reducing-dependencies"
 description: "At a certain size, organizational dependencies will kill you. Here's a menu of options to fix it."
 ---
 
+import { Image } from 'astro:assets';
+import depsImage from './deps.jpg';
+
 When your company gets large enough, you'll start having problems with dependencies. Here's how to address it.
 
-<re-img src="deps.jpg"></re-img>
+<Image src={depsImage} alt="Deps" width={800} />
 
 ## What do I mean by dependencies?
 

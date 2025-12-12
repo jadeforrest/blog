@@ -7,7 +7,13 @@ discussionId: "role-definition"
 description: "Learn a handy exercise you can use to define boundaries between roles (and teams)"
 ---
 
-<re-img src="role-definition.jpg"></re-img>
+import { Image } from 'astro:assets';
+import roledefinitionImage from './role-definition.jpg';
+import threecolumnsImage from './three-columns.png';
+import threecolumnsfilledImage from './three-columns-filled.png';
+import emImage from './em.png';
+
+<Image src={roledefinitionImage} alt="Role definition" width={800} />
 
 When you're working in a group, you need to know how to coordinate. Coordination requires a shared understanding of how everyone will work together. Most human groups define Roles to clarify boundaries and expectations. 
 
@@ -28,7 +34,7 @@ Start out by creating three columns on the whiteboard:
 2. Write "Clearly Product Manager" as the third column, on the right. 
 3. In between the two, write "Unclear"
 
-<re-img src="three-columns.png" width="50%"></re-img>
+<Image src={threecolumnsImage} alt="Three columns" width={400} class="img-50" />
 
 ## Doing the ownership exercise
 
@@ -43,7 +49,7 @@ I usually use the second approach, as it is a little more time-efficient. Basica
 
 Here's a messy version of how it might look after adding some responsibilities. In this example, both the Engineering Manager and Product Manager think they should be doing project reporting. And they've both worked in places before where their role was responsible for defining user stories for the team. 
 
-<re-img src="three-columns-filled.png" width="50%"></re-img>
+<Image src={threecolumnsfilledImage} alt="Three columns filled" width={400} class="img-50" />
 
 Just doing this initial exercise has already been valuable. You've aligned on a lot about your roles, and you've made it explicit what conversations you still need to have. 
 
@@ -65,7 +71,7 @@ Get through as many Unclear items as you can, and schedule followup meetings to 
 
 You've now done the work defining the roles. One of you now needs to write down what you've agreed to. Simply list the roles, and the areas of responsibility under each.
 
-<re-img src="em.png" width="50%"></re-img>
+<Image src={emImage} alt="Em" width={400} class="img-50" />
 
 You can also categorize things, if you've had a discussion where you've come up with some larger themes. For example, you might say the Engineering Manager is responsible for People, Process, Projects. But it's always useful to include examples. The larger themes are optional.
 

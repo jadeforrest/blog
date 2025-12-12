@@ -7,7 +7,15 @@ discussionId: "how-to-be-an-information-flow-superhero"
 description: "Describes a technique you can use to improve information flow with the people around you."
 ---
 
-<re-img src="communication.jpg"></re-img>
+import { Image } from 'astro:assets';
+import communicationImage from './communication.jpg';
+import infoFlowUpImage from './info-flow-up.jpg';
+import infoFlowAroundYouImage from './info-flow-around-you.jpg';
+import infobitNotesImage from './infobit-notes.jpg';
+import infobitsPeopleImage from './infobits-people.jpg';
+import infobitsEditedImage from './infobits-edited.jpg';
+
+<Image src={communicationImage} alt="Communication and information flow concept" width={800} />
 
 ## Information flow is how you communicate with the people around you
 
@@ -45,11 +53,11 @@ An email isn’t the only way to flow information, however — for example, dail
 
 However, a summary email flows information in only one direction: up.
 
-<re-img src="info-flow-up.jpg" width="50%"></re-img>
+<Image src={infoFlowUpImage} alt="Diagram showing information flowing upward to manager" width={400} class="img-50" />
 
 Most people work in a richer environment: with neighboring teams, people on related projects, stakeholders, outside customers, and others who may be affected by your work.
 
-<re-img src="info-flow-around-you.jpg" width="50%"></re-img>
+<Image src={infoFlowAroundYouImage} alt="Diagram showing information flowing in multiple directions" width={400} class="img-50" />
 
 The challenge can be keeping track of all the people around you and who you’ve told what. And everyone has different information needs.
 
@@ -57,15 +65,15 @@ The challenge can be keeping track of all the people around you and who you’ve
 
 Here's how I work when I use Infobits. I keep a log, just like I did in the past. Throughout the day, I write down little tidbits to remind me of things that happened. For example:
 
-<re-img src="infobit-notes.jpg"></re-img>
+<Image src={infobitNotesImage} alt="Example of infobit notes in a document" width={800} />
 
 As the day goes by, I record more and more items in that list. Periodically, often several times a day, I go through that list, and copy and paste it to the name sections I have further in the document, to specify who the information is most relevant to, like this:
 
-<re-img src="infobits-people.jpg"></re-img>
+<Image src={infobitsPeopleImage} alt="Infobits organized by person's name" width={800} />
 
-Then, I edit them based on that particular person’s information needs:
+Then, I edit them based on that particular person's information needs:
 
-<re-img src="infobits-edited.jpg"></re-img>
+<Image src={infobitsEditedImage} alt="Edited infobits tailored for each recipient" width={800} />
 
 ## Considerations as you edit Infobits
 

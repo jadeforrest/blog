@@ -7,7 +7,11 @@ discussionId: "obsess-feedback-loops"
 description: "Describes the impact of OODA loops and feedback cycles on engineering organizations."
 ---
 
-<re-img src="f86-sabre.jpg"></re-img>
+import { Image } from 'astro:assets';
+import f86SabreImage from './f86-sabre.jpg';
+import johnBoydImage from './john-boyd.jpg';
+
+<Image src={f86SabreImage} alt="F-86 Sabre fighter jet in flight" width={800} />
 
 ## Colonel John Boyd invents the concept of the OODA
 
@@ -22,7 +26,7 @@ He was influential in a many ways, but one of the things he's known for is his t
 
 ...faster than anybody else. He said, "Time is the dominant parameter. The pilot who goes through the OODA cycle in the shortest time prevails because his opponent is caught responding to situations that have already changed."
 
-<re-img src="john-boyd.jpg" width="30%" meme="true"></re-img>
+<Image src={johnBoydImage} alt="Portrait of Colonel John Boyd" width={240} class="img-meme" />
 
 ## Focusing on speed in engineering teams is a mistake
 

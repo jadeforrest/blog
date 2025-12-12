@@ -7,7 +7,10 @@ discussionId: "candidate-packet"
 description: "Improve your hiring by using a candidate packet. Help candidates understand the company, position, and hiring process."
 ---
 
-<re-img src="hiring-packet.jpg"></re-img>
+import { Image } from 'astro:assets';
+import hiringpacketImage from './hiring-packet.jpg';
+
+<Image src={hiringpacketImage} alt="Hiring packet" width={800} />
 
 This is a part of a [series of articles on hiring and recruiting](/startup-hiring-and-recruiting). 
 

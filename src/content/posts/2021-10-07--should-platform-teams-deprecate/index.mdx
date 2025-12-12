@@ -7,7 +7,10 @@ discussionId: "platform-deprecation"
 description: "Deprecation is a common thing with platform technologies: libraries, APIs, and components. But it causes huge problems. This outlines the hidden costs of deprecation and suggests other ways to handle deprecation."
 ---
 
-<re-img src="fan.jpg"></re-img>
+import { Image } from 'astro:assets';
+import fanImage from './fan.jpg';
+
+<Image src={fanImage} alt="Fan" width={800} />
 
 Platform teams underestimate how much pain they cause when they deprecate their offerings. You should make deprecation rare and go through a process. Or the team should do the deprecation work itself.
 

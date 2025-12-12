@@ -7,7 +7,10 @@ discussionId: "demo-driven-development"
 description: "Demo-driven development is a practice where you use regular demos, a standard week-by-week project plan, and value based user stories to plan the team's work."
 ---
 
-<re-img src="fast.jpg"></re-img>
+import { Image } from 'astro:assets';
+import fastImage from './fast.jpg';
+
+<Image src={fastImage} alt="Fast" width={800} />
 
 Over the years, I’ve developed a set of practices that I’ve started calling “demo-driven development”. I believe it incentivizes the right things to both improve your planning, and take into account the chaos and change in product development. 
 

@@ -7,10 +7,19 @@ discussionId: "product-strategy"
 description: "An overview of common mistakes people make while developing a product strategy, tips for creating a successful strategy, and how to communicate and execute on a product strategy."
 ---
 
+import { Image } from 'astro:assets';
+import productstrategyImage from './product-strategy.jpg';
+import strategysoonImage from './strategy-soon.png';
+import roadmapaintstrategyImage from './roadmap-aint-strategy.png';
+import directcompetitionImage from './direct-competition.png';
+import futurethinkingImage from './future-thinking.png';
+import oppositetestImage from './opposite-test.png';
+import executionplanImage from './execution-plan.png';
+
 As a consultant, I have a view across many companies. So I’ve seen a lot of product strategies. Most have been problematic. Occasionally, I see an example of a product strategy that stands out. Today, I review common problems with product strategies. Then, we’ll cover how to craft a product strategy that avoids these problems.
 
 
-<re-img src="product-strategy.jpg"></re-img>
+<Image src={productstrategyImage} alt="Product strategy" width={800} />
 
 ## Problem: product strategies take too long to create
 
@@ -18,7 +27,7 @@ Putting together a product strategy is fucking hard. And while it is important, 
 
 Sometimes, you don’t have all the information you need. You need to develop deep expertise in your area or market. That requires time – contacting people, having lots of conversations, and developing a deep sense of the dynamics of your space.
 
-<re-img src="strategy-soon.png" width="70%"></re-img>
+<Image src={strategysoonImage} alt="Strategy soon" width={560} class="img-70" />
 
 Writing down your thoughts requires sustained, focused time. The people who usually write product strategy (CEOs or heads of product) have hard jobs that lure them from that focused effort. This can result in it taking a long time to put together.
 
@@ -41,7 +50,7 @@ I’ve seen some leaders view the product strategy as a **communication challeng
 
 So, they write down some themes to focus on. And they share a roadmap, and talk about why it is important. Then they clap their hands together and say, “done!”. They’re not done.
 
-<re-img src="roadmap-aint-strategy.png" width="30%"></re-img>
+<Image src={roadmapaintstrategyImage} alt="Roadmap aint strategy" width={240} class="img-30" />
 
 Usually, they then get feedback that people are still confused. So they give another presentation on the “strategy”, and it helps, a little. But all they really did is communicate what the company will be working on. People are still confused.
 
@@ -136,7 +145,7 @@ Your work on this should be iterative, and even after you produce the first vers
 
 I like to think of companies as being in an ecosystem in the same way that species are part of an ecosystem. **If your strategy is to compete directly with another company, you better have a really strong reason to believe that you’ll outcompete that competitor.** Head to head competition is usually not good for either party, so you have to have some sort of innate advantage that your competitor can’t compensate for. This is likely something like a capability they can’t easily add, or because your product is much less expensive than theirs due to some sort of structural reason. 
 
-<re-img src="direct-competition.png" width="50%"></re-img>
+<Image src={directcompetitionImage} alt="Direct competition" width={400} class="img-50" />
 
 When you key in on your competitive advantage, you have to be consistent with using that as a part of your strategy. For example, Google Docs was able to outperform Microsoft Word mostly because the value of collaborating on a document was so much greater in Google Docs, because it was web-based, and able to maintain centralized state. New Relic was able to establish itself in a whole new category of Application Performance Monitoring, because it was SaaS based and had a product led growth approach to purchase. 
 
@@ -181,7 +190,7 @@ Henry Shapiro: “I think one of the central challenges of the product strategy 
 
 I read once that Steve Jobs dedicated most of his Mondays to talking with his most trusted advisors about the future. They spent all Monday talking through various aspects of how the future could play out, and how they could shape it. I don’t know if he actually did this, but after reading it, I played with something I started to call “Invent the Future meetings”.
 
-<re-img src="future-thinking.png" width="50%"></re-img>
+<Image src={futurethinkingImage} alt="Future thinking" width={400} class="img-50" />
 
 Sometimes groups can have a vision that is too focused on the next month. If you need more focus on where you’re going, try an “invent the future meeting”. Here’s how I ran it: 
 
@@ -205,7 +214,7 @@ The strategy needs to solve these three things:
 
 The opposite of your strategy should be a viable strategy.
 
-<re-img src="opposite-test.png" width="50%"></re-img>
+<Image src={oppositetestImage} alt="Opposite test" width={400} class="img-50" />
 
 Nadya Duke Boone suggests checking to see if anyone _would_ ever do the opposite approach. If no one ever would do the opposite, then your strategy is too generic. This helps you recognize goals masquerading as strategy. 
 
@@ -243,7 +252,7 @@ You may be surprised at the appetite for hearing about product strategy. When [P
 
 Once the Product Strategy has been finalized, it’s often a good next step to have various parties write down their Execution Plans in response. You want them to think deeply about the implications of the plan, and reconcile it with what they were already planning on doing. And then you want to rationalize these plans against each other -- sharing what people are thinking, and dealing with the inevitable conflict between plans and reality. Sometimes this will require further revisions to your strategy, if you uncover anything major. 
 
-<re-img src="execution-plan.png" width="40%"></re-img>
+<Image src={executionplanImage} alt="Execution plan" width={320} class="img-40" />
 
 You should make sure you make space for people to surface the tradeoffs and implications of executing against this new strategy. Your product strategy is a tool for improving and communicating your strategy, not holy scripture. You may not realize some of the tradeoffs you are making, so ask people to be explicit about what implications they see. Team should volunteer the things they’re giving up or deprioritizing, so everyone has full visibility into it. 
 

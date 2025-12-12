@@ -7,7 +7,10 @@ discussionId: "holiday-focus-days"
 description: "Describes a novel approach to company holidays which improves company focus, and makes it easier for people to take vacation on less common holidays."
 ---
 
-<re-img src="holiday.jpg"></re-img>
+import { Image } from 'astro:assets';
+import holidayImage from './holiday.jpg';
+
+<Image src={holidayImage} alt="Holiday" width={800} />
 
 One of the challenges of dealing with a diverse workplace is that all of your employees have different vacation needs:
 

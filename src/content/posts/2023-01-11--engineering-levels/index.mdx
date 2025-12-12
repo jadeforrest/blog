@@ -7,7 +7,10 @@ discussionId: "engineering-levels"
 description: "Jade shares example engineering levels, that you can use to craft engineering levels at your company."
 ---
 
-<re-img src="staircase.jpg"></re-img>
+import { Image } from 'astro:assets';
+import staircaseImage from './staircase.jpg';
+
+<Image src={staircaseImage} alt="Staircase" width={800} />
 
 ## Introduction
 

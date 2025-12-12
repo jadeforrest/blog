@@ -7,9 +7,22 @@ discussionId: "fast-agile"
 description: "An introduction to FaST, describing how it works and what the tradeoffs of adopting it are"
 ---
 
+import { Image } from 'astro:assets';
+import surfingImage from './surfing.jpg';
+import whatteamImage from './what-team.png';
+import otherprioritiesImage from './other-priorities.png';
+import scalingImage from './scaling.png';
+import largesmallteamsImage from './large-small-teams.png';
+import profitImage from './profit.png';
+import blobImage from './blob.png';
+import miseryImage from './misery.png';
+import jobImage from './job.png';
+import ownershipImage from './ownership.png';
+import stewardImage from './steward.png';
+
 [FaST](https://www.fastagile.io/method) is the most interesting organizational practice I've learned about in a while. Today I share what FaST is, and explore whether it's worth experimenting with. TL;DR? Quite compelling, but still experimental. 
 
-<re-img src="surfing.jpg"></re-img>
+<Image src={surfingImage} alt="Surfing" width={800} />
 
 ## What is Fluid Scaling Technology (FaST)?
 
@@ -25,11 +38,11 @@ The most interesting part of FaST is these self-organizing teams, so let’s des
 
 Every meeting, people volunteer to lead teams, and people volunteer to participate in those teams. When someone volunteers to steward a team, they step forward and say, “I’m going to work on [one of the top projects]”. People then join the teams that have been created and work in that area. The minimum team size is two, so you need people to “vote with their feet” to form the team.
 
-<re-img src="what-team.png" width="40%"></re-img>
+<Image src={whatteamImage} alt="What team" width={320} class="img-40" />
 
 The teams formed do <span style="text-decoration:underline;">not</span> have to be around the priorities that product has laid out. For example, a team can form around improving the deploy pipeline, or improving monitoring for some flaky services. 
 
-<re-img src="other-priorities.png" width="40%"></re-img>
+<Image src={otherprioritiesImage} alt="Other priorities" width={320} class="img-40" />
 
 Outside of the hour a week in meetings, people spend most of their time in their self-selected, self-organized teams. Theoretically, you could change teams twice a week. But in practice, people end up figuring out who they like to work with, and teams tend to [settle down after the first month or so](https://www.youtube.com/watch?v=WbPLjuvyCUA). They remain fluid enough that people can move as business needs shift, or people with expertise are needed in different areas. Moving teams is an expected, low-effort change. So what this means is that during the Collective meetings, there is a pattern of people recreating their teams, but the composition tends to not change as much as you might imagine.
 
@@ -112,7 +125,7 @@ When you scale organizations, you typically do so by scaling them “horizontall
 
 The complexity of the organization explodes as the number of people increases. If you have ten people in engineering, they can all communicate with each other. A hundred people in engineering cannot all talk with each other. And the codebase won’t fit in any individual’s head. So you segment this complexity into teams, and each team has an area they can focus on.
 
-<re-img src="scaling.png" width="50%"></re-img>
+<Image src={scalingImage} alt="Scaling" width={400} class="img-50" />
 
 FaST is interesting because it is an attempt to scale organizations “vertically”. Instead of adding more teams, FaST attempts to make _bigger teams_, called Collectives. The Collectives still own code, but the self-organized teams within that Collective do not. And you do still have to segment communication. But the teams are more dynamic and continually evolved. Instead of reshaping teams through reorgs, it is a continual, expected part of the way you operate. 
 
@@ -135,7 +148,7 @@ Advantages of large teams
 * Flatter organization. An engineering organization with 150 engineers in it will have 3-4 directors with ten-person teams. It will have 6-8 directors and 1-2 VPs with five-person teams. Where does the confusion in an organization come from? Probably the leadership, so large teams can reduce confusion.
 * More resiliency. Someone can take vacation and the team can continue just fine.
 
-<re-img src="large-small-teams.png" width="70%"></re-img>
+<Image src={largesmallteamsImage} alt="Large small teams" width={560} class="img-70" />
 
 So small teams are great within their team, but less ideal because there are so many of them that it increases organizational complexity. Larger teams are better for overall organizational complexity, but less ideal for performance within each team.
 
@@ -182,7 +195,7 @@ On the face of it, this is a ridiculous proposition. Teams that large are not ef
 
 The central premise of FaST agile is that if you add self-organization, and self-selecting teams within this larger Collective, you can scale your teams more _horizontally_. Each team (FaST calls them Collectives) can be much larger. And then the teams people work with on a day to day basis are self-assembled within those Collectives.
 
-<re-img src="profit.png" width="70%"></re-img>
+<Image src={profitImage} alt="Profit" width={560} class="img-70" />
 
 If the larger Collectives _were_ effective, they would reduce organizational complexity significantly. The typical software startup could go years longer before having to divide up into areas of responsibility. The codebase wouldn’t need to be rigorously segmented out into areas that each team owns. This would free up significant management time that managers could use to focus on the product and teams.
 
@@ -242,7 +255,7 @@ So although the jury is out on this, my hunch is that this practice has a lot of
 
 This isn’t mentioned in the FaST materials, but one thing that jumped out at me as being interesting about FaST is that you can experiment with it incrementally. 
 
-<re-img src="blob.png" width="60%"></re-img>
+<Image src={blobImage} alt="Blob" width={480} class="img-60" />
 
 You can implement FaST Agile on one team as an experiment, and then use a blob approach where you swallow additional teams over time. If it goes well, continue to swallow additional teams. If it doesn’t, abort the experiment.
 
@@ -316,7 +329,7 @@ Any organization can have bad actors, or people that aren’t aligned with the i
 
 With FaST, you are signing up for managing a _community_ of people. 
 
-<re-img src="misery.png" width="40%"></re-img>
+<Image src={miseryImage} alt="Misery" width={320} class="img-40" />
 
 In conventional situations, the hierarchy makes clear who is responsible for this. In FaST, I suspect it would be easy to try and avoid conflict and “let the members figure it out”. This could result in informal power networks dominating in a sort of [tyranny of structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). If you do use FaST, this is something I would guard against.
 
@@ -352,7 +365,7 @@ In FaST, the engineering manager role is less clear. You don’t have long-lived
 
 You could have engineering managers lead the self-assembled teams. Or you could have them be pure people managers. Or you could have them be player-coaches. 
 
-<re-img src="job.png" width="40%"></re-img>
+<Image src={jobImage} alt="Job" width={320} class="img-40" />
 
 All of these have tradeoffs, and some pretty big downsides. FaST seems to diminish the need for as much engineering management. You still need people to hire, do performance management, and oversee process. But maybe not as much as in a conventional organization? I’ve seen many organizations suffer because they don’t value management as a discipline. But I would guess that FaST organizations need less management. 
 
@@ -364,7 +377,7 @@ Code ownership provides natural incentives for keeping code quality high. It’s
 
 In a shared code ownership situation, you have to go to greater lengths to ensure code quality. My recommendation would be pairing or mobbing as a required practice.
 
-<re-img src="ownership.png" width="40%"></re-img>
+<Image src={ownershipImage} alt="Ownership" width={320} class="img-40" />
 
 You’ll also need stronger standards for code patterns. You’ll need code linting. And you’ll need some sort of architectural decision-making. You don’t want to have twenty patterns for how your frontend code handles state. These are problems you’ll have in most software organizations, but they’ll be much more pressing in an organization using FaST.
 
@@ -394,7 +407,7 @@ FaST has an optional role called a “Feature Steward”. They are kind of an ex
 
 Like on-call, you’ll need a mapping of features to people with expertise on those features. This will be important for both bugs and support escalations. And you might as well combine it with on-call as well. You’ll need some way to triage issues to the right people. 
 
-<re-img src="steward.png" width="70%"></re-img>
+<Image src={stewardImage} alt="Steward" width={560} class="img-70" />
 
 You’ll also need to make sure you have a mechanism for filling in knowledge gaps when expertise is isolated to one or two people. 
 

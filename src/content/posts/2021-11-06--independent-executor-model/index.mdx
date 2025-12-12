@@ -7,9 +7,12 @@ discussionId: "independent-executor"
 description: "Product engineering teams rely on dependencies heavily. They shouldn't. This post argues that product engineering teams (and all teams really) should instead operate using the 'independent executor model'."
 ---
 
+import { Image } from 'astro:assets';
+import independentImage from './independent.jpg';
+
 It's inevitable that your team will need things from other teams. This is especially common in product engineering. You can use the "Independent Executor Model" to avoid making this a problem.
 
-<re-img src="independent.jpg"></re-img>
+<Image src={independentImage} alt="Independent" width={800} />
 
 ## What pain do dependencies cause?
 

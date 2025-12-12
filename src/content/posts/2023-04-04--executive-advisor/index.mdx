@@ -7,9 +7,14 @@ discussionId: "advisor"
 description: "An executive advisor can help you grow faster and navigate unfamiliar terrain. This post summarizes how to evaluate advisors and what rates to pay for their services"
 ---
 
+import { Image } from 'astro:assets';
+import guideImage from './guide.jpg';
+import workingsessionsImage from './working-sessions.png';
+import moneyImage from './money.png';
+
 When you’re navigating new territory, it is essential to have a guide. And if you want to grow your skills as rapidly as possible, it helps to learn from someone who has done it before.
 
-<re-img src="guide.jpg"></re-img>
+<Image src={guideImage} alt="Guide" width={800} />
 
 ## Why use an executive advisor?
 
@@ -27,7 +32,7 @@ Every advisor is different, so you should find out what approach a prospective a
 
 With most of my clients, we conduct _working sessions_. They are one hour sessions, and are weekly, biweekly, or monthly. In these sessions, my client brings their current problems, and we problem-solve them together.
 
-<re-img src="working-sessions.png" width="70%"></re-img>
+<Image src={workingsessionsImage} alt="Working sessions" width={560} class="img-70" />
 
 Each of us brings an essential part to the working session. I bring a lot of experience (both in terms of years doing this, and across many companies). I’ve seen it all before. My clients have their own experience and expertise. But most importantly, they have much better context on the problem and environment. 
 
@@ -81,7 +86,7 @@ Rates vary greatly depending on the advisor. I’ve seen rates that vary by an o
 
 But you have to be careful with your choices. You’re hiring someone for their expertise, not just for them to coach you (more on the difference between coaches and advisors later). 
 
-<re-img src="money.png" width="15%"></re-img>
+<Image src={moneyImage} alt="Money" width={120} class="img-15" />
 
 Ideally, your company should be paying for the advisor. What I tell companies is to use this heuristic to determine whether the rates are reasonable for an advisor: 
 

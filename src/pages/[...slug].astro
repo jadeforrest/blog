@@ -186,4 +186,39 @@ import TalkyardComments from "../components/TalkyardComments.astro";
     background-color: transparent;
     padding: 0;
   }
+
+  /* Image styles for Astro Image component */
+  .post-content :global(img) {
+    margin: 2.5em 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  /* Width control classes */
+  .post-content :global(.img-30) {
+    max-width: 30%;
+  }
+
+  .post-content :global(.img-50) {
+    max-width: 50%;
+  }
+
+  .post-content :global(.img-60) {
+    max-width: 60%;
+  }
+
+  .post-content :global(.img-75) {
+    max-width: 75%;
+  }
+
+  .post-content :global(.img-80) {
+    max-width: 80%;
+  }
+
+  .post-content :global(.img-meme) {
+    max-width: 30%;
+  }
 </style>

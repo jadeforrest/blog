@@ -7,13 +7,17 @@ discussionId: "bundled-hiring"
 description: "Bundled hiring is where you take multiple, similar positions, and you merge the hiring queue and use a unified process to respond to all of them. It is one of the best approachs I've seen to speed up hiring, and increase the diversity of people you hire."
 ---
 
-<re-img src="bundle.jpg"></re-img>
+import { Image } from 'astro:assets';
+import bundleImage from './bundle.jpg';
+import greenImage from './green.png';
+
+<Image src={bundleImage} alt="Bundle of tied sticks representing bundled hiring concept" width={800} />
 
 This is a part of a [series of articles on hiring and recruiting](/startup-hiring-and-recruiting). And a series of posts on [what works to improve diversity, equity, and inclusion](/equity-benefits-everyone).
 
 ### Imagine filling a position in a week (or a day!)
 
-<re-img src="green.png" width="75%"></re-img>
+<Image src={greenImage} alt="Green checkmark icon indicating success" width={600} class="img-75" />
 
 Several years ago, I was asked to build up a new team quickly. We seeded the team with a couple of people, and knew we would need to hire a few other positions rapidly. 
 

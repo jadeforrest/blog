@@ -7,9 +7,15 @@ discussionId: "evil-staging-gauntlet-programs"
 description: "Evil staging and gauntlet programs are chaos engineering inspired, systemic approaches to improve software reliability."
 ---
 
+import { Image } from 'astro:assets';
+import evilstagingdalleImage from './evil-staging-dalle.jpg';
+import gauntletprogramdalleImage from './gauntlet-program-dalle.jpg';
+import reliabilityracedalleImage from './reliability-race-dalle.jpg';
+import newbiegauntletdalleImage from './newbie-gauntlet-dalle.jpg';
+
 I’m excited to share some innovative but experimental practices today. You can use them to improve the reliability of your engineering organization. They are based on ideas from [chaos engineering](https://www.gremlin.com/community/tutorials/chaos-engineering-the-history-principles-and-practice). 
 
-<re-img src="evil-staging-dalle.jpg"></re-img>
+<Image src={evilstagingdalleImage} alt="Evil staging dalle" width={800} />
 
 ## What is chaos engineering?
 
@@ -50,7 +56,7 @@ If it’s not a good fit, read on for Gauntlet programs.
 
 The second technique is what I call a Gauntlet Program. 
 
-<re-img src="gauntlet-program-dalle.jpg" width="75%"></re-img>
+<Image src={gauntletprogramdalleImage} alt="Gauntlet program dalle" width={600} class="img-75" />
 
 A Gauntlet Program is where you gradually introduce faults into your staging and then production environments. But, you do it on a gradual schedule. It might take a year or two to fully ramp up the gauntlet. 
 
@@ -77,7 +83,7 @@ Note that you can add additional types of challenges to the gauntlet. You might 
 
 You could design a gauntlet as a Reliability Race, where you have a maturity model, and each team turns up the difficulty level until they reach MAX LEVEL. 
 
-<re-img src="reliability-race-dalle.jpg" width="75%"></re-img>
+<Image src={reliabilityracedalleImage} alt="Reliability race dalle" width={600} class="img-75" />
 
 It could look like this:
 
@@ -102,7 +108,7 @@ Making it a Reliability Race could make it more enjoyable for participants. It c
 
 A variation of the Gauntlet Program is a Newbie Gauntlet. This is easier to introduce because you only do it for new things. 
 
-<re-img src="newbie-gauntlet-dalle.jpg" width="75%"></re-img>
+<Image src={newbiegauntletdalleImage} alt="Newbie gauntlet dalle" width={600} class="img-75" />
 
 Whenever you spin up a new service, you start with all the failures in your staging and production environment. This makes it so you have to build things to be resilient at every point. It forces good reliability and engineering practices in everything you do. 
 

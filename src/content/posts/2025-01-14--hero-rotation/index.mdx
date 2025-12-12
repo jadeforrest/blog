@@ -7,9 +7,12 @@ discussionId: "hero-rotation"
 description: "Why your engineering team may need a hero rotation to combine focus and responsiveness"
 ---
 
+import { Image } from 'astro:assets';
+import heroImage from './hero.jpg';
+
 You're working on a complicated engineering problem. An urgent Slack question catches your attention. By the time you get back to the problem, you’ve lost the chain of thought, and it usually takes quite a while to get back into that productive “zone”. This is common on engineering teams (and with other types of thoughtful work). 
 
-<re-img src="hero.jpg"></re-img>
+<Image src={heroImage} alt="Hero" width={800} />
 
 Engineering teams often face challenges because the work requires uninterrupted time if you want to be productive. But there are a lot of reasons to interrupt a team: support questions, small bugs, and communication needs (“is this expected behavior?”, “what’s our latest thinking on the estimate for this project?”). Coordination and responsiveness compete with focus.
 

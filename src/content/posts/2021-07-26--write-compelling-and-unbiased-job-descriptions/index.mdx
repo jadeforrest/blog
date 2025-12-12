@@ -7,7 +7,11 @@ discussionId: "job-description"
 description: "Most job descriptions are boring. Write job descriptions that engage your candidates and design them to be more useful and inclusive with this guide. Includes links ot helpful tools."
 ---
 
-<re-img src="description.jpg"></re-img>
+import { Image } from 'astro:assets';
+import descriptionImage from './description.jpg';
+import interviewprocessImage from './interview-process.png';
+
+<Image src={descriptionImage} alt="Description" width={800} />
 
 
 This is a part of a [series of articles on hiring and recruiting](/startup-hiring-and-recruiting). 
@@ -22,7 +26,7 @@ People vet a job based on the job description. If it’s well-written, they may 
 
 * **Test what you write with existing team members**. Ask them if they would be excited by the position. It's not finished until its exciting.
 
-* **Include a section for "Interview Process"**. Include a short section that describes the interview process. This is a great example from [ReachSuite](https://www.reachsuite.io) <re-img src="interview-process.png"></re-img>
+* **Include a section for "Interview Process"**. Include a short section that describes the interview process. This is a great example from [ReachSuite](https://www.reachsuite.io) <Image src={interviewprocessImage} alt="Interview process" width={800} />
 
 ## Fight bias
 

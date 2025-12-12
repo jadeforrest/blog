@@ -7,13 +7,20 @@ discussionId: "shit-shield"
 description: "For managers, viewing your role as a shit shield is one of the most common early mistakes. Learn the dangers of being a shit shield, and what to do instead."
 ---
 
+import { Image } from 'astro:assets';
+import shitshieldImage from './shit-shield.jpg';
+import goodpersonImage from './good-person.png';
+import staybackImage from './stay-back.png';
+import teamsImage from './teams.png';
+import hammerImage from './hammer.png';
+
 ## 💩🛡️
 
 Many new managers think their job is to “protect the team”. In fact, they see that as their primary function. 
 
 This is a mistake. I’ve interviewed hundreds of managers in my career. Usually, when people talk about protecting the team, it is a sign of inexperience. It is a common trap for new managers.
 
-<re-img src="shit-shield.jpg"></re-img>
+<Image src={shitshieldImage} alt="Shit shield" width={800} />
 
 ## Why do new managers focus on being a “shit shield”?
 
@@ -21,7 +28,7 @@ If you’re a new manager, you may be stepping out of an individual contributor 
 
 You'll hear phrases like, “[you can be a shit shield, or a shit funnel](https://techcrunch.com/2010/03/14/key-to-gmail/)”. The response to that seems obvious: "be the shit shield". It sounds honorable. And you don't want to expose your team to dysfunction, right?
 
-<re-img src="good-person.png" width="40%"></re-img>
+<Image src={goodpersonImage} alt="Good person" width={320} class="img-40" />
 
 Most people find their first exposure to management politics to be painful. My first thought was, “oh my god, has this been going on all the time?” It’s easy to come to the conclusion that protecting your team from that mess is desirable. You may see that as a large part of your role. 
 
@@ -37,7 +44,7 @@ When you’re focused on protecting your team, you’re setting up the rest of t
 
 This can prevent you from being effective. Sometimes, the solutions to your team’s problems will come from collaboration. Sometimes, the solution requires structural changes. People won’t see you as a person to engage with that type of work if they see you being defensive all the time. 
 
-<re-img src="stay-back.png" width="40%"></re-img>
+<Image src={staybackImage} alt="Stay back" width={320} class="img-40" />
 
 This can leak into how your team behaves. The team can begin to see the world as "us versus them". I often see these teams look down on sales or support. 
 
@@ -47,7 +54,7 @@ Adversarial relationships tend to propagate dysfunction. Look for better options
 
 An organization composed of self-protecting teams isn’t an effective organization. They are all focused on their own needs, but there isn’t an ability to fix problems that are larger than the team level. 
 
-<re-img src="teams.png" width="40%"></re-img>
+<Image src={teamsImage} alt="Teams" width={320} class="img-40" />
 
 For example, you may run into a problem where support is sending you too many tickets. Instead of focusing on your team’s needs, it’s preferable to look at the larger picture. Work together with the support person, and identify what is better for both of you. You might ask these questions:
 
@@ -69,7 +76,7 @@ You shouldn’t compromise on your team’s needs, but see it within a larger ec
 
 Protecting a team is one of many tools you need in your management toolkit. 
 
-<re-img src="hammer.png" width="40%"></re-img>
+<Image src={hammerImage} alt="Hammer" width={320} class="img-40" />
 
 For example, let’s say there is some conflict over the [product strategy](/product-strategy/). You could try to shield the team from the messy conversations. Or you could take the approach of an <span style="text-decoration:underline;">interpreter</span>: explain the situation to them so they understand what is going on. 
 

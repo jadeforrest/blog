@@ -7,9 +7,12 @@ discussionId: "commit"
 description: "Commitments trade slower velocity for higher predictability. Is that what you really want?"
 ---
 
+import { Image } from 'astro:assets';
+import commitImage from './commit.jpg';
+
 Many engineering teams have sprint **commitments**. You want accountability, right? So you have the team commit to what they’ll accomplish during the sprint. 
 
-<re-img src="commit.jpg"></re-img>
+<Image src={commitImage} alt="Commit" width={800} />
 
 Mostly, this is a terrible idea: **commit based approaches trade slower velocity for higher predictability.**
 

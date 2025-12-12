@@ -7,9 +7,12 @@ discussionId: "fan-out-work"
 description: "Fan out work spreads tasks across many teams, leading to hidden, externalized costs and poor incentives. We explore the issue and potential solutions."
 ---
 
+import { Image } from 'astro:assets';
+import fanImage from './fan.jpg';
+
 Imagine an engineer who decides to make a breaking change to an API. They think it saves a ton of time. What they may not realize is that this decision will ripple out, causing countless hours of rework for multiple teams across the organization. This is the hidden danger of fan out work.
 
-<re-img src="fan.jpg"></re-img>
+<Image src={fanImage} alt="Fan" width={800} />
 
 Fan out work is a topic I haven’t seen written about before. It is something I've observed mostly in organizations that are medium-sized or larger. 
 

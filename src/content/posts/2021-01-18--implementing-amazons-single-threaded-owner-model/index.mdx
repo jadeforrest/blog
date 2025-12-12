@@ -7,7 +7,10 @@ discussionId: "implementing-single-threaded-ownership"
 description: "A Single Threaded Owner (STO), is a single leader that is completely responsible for their area of the product. I share my experiences implementing this model, including the tradeoffs and challenges. And I give the nuts and bolts of how we implemented it and what we learned."
 ---
 
-<re-img src="thread.jpg"></re-img>
+import { Image } from 'astro:assets';
+import threadImage from './thread.jpg';
+
+<Image src={threadImage} alt="Thread" width={800} />
 
 I’d like to share the results of one of the most interesting management experiments I’ve been a part of. At a company I worked at recently, we implemented the Single Threaded Owner (STO) model from Amazon, where you have everyone on the team report to a single leader, including product, design, and engineering. You can think of the STO model as a more extreme form of cross-functional teams, where the team has everything it needs to deliver on its mission. 
 

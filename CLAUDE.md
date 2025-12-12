@@ -40,7 +40,8 @@ Navigate to `gatsby-blog/` directory first:
 - **Blog posts**: Located in `src/content/posts/`
   - Directory naming: `YYYY-MM-DD--slug-name/index.mdx` (date prefix required)
   - Images stored alongside post content files
-  - `copy-post-images.js` copies images to `public/[slug]/` during build
+  - Content images use Astro's native Image component (imported at top of MDX)
+  - Cover images still use `copy-post-images.js` build script (see TODO.md for future migration)
   - Content schema defined in `src/content/config.ts` (title, tags, cover, description, etc.)
 
 - **Wiki pages**: Located in `src/content/wiki/`
@@ -56,8 +57,8 @@ Navigate to `gatsby-blog/` directory first:
 - **Search**: Pagefind integration (`npx pagefind --site dist` during build)
 - **RSS**: Generated at `src/pages/rss.xml.ts`
 - **Sitemap**: Automatic via `@astrojs/sitemap`
-- **MDX support**: Custom remark plugins in `src/plugins/`
-  - `remark-reimg.mjs` for image processing
+- **MDX support**: Uses `remarkSmartypants` for typography
+- **Images**: Astro's native Image component for optimization and responsive images
 
 ### Styling
 - PostCSS with plugins: nested, preset-env, easy-media-query, text-remove-gap
@@ -81,9 +82,40 @@ Navigate to `gatsby-blog/` directory first:
 - **React patterns**: Prefer destructuring for props, follow JSX-a11y accessibility guidelines
 - **Error handling**: console errors allowed but use sparingly
 
+## Image Handling
+
+### Content Images (in MDX posts)
+- Use Astro's native Image component
+- Import images at top of MDX file:
+  ```mdx
+  import { Image } from 'astro:assets';
+  import myImage from './my-image.jpg';
+  ```
+- Use in content:
+  ```mdx
+  <Image src={myImage} alt="Descriptive alt text" width={800} />
+  ```
+
+### Width Control Classes
+Available CSS classes for controlling image width:
+- `img-30` - 30% width
+- `img-50` - 50% width
+- `img-60` - 60% width
+- `img-75` - 75% width
+- `img-80` - 80% width
+- `img-meme` - 30% width with meme styling
+
+Usage: `<Image src={img} alt="..." width={400} class="img-50" />`
+
+### Cover Images (listing pages)
+- Use string paths in frontmatter: `cover: "image.jpg"`
+- Build script generates WebP thumbnails (240px, 400px) via `copy-post-images.js`
+- Displayed using manual `<picture>` elements in listing page templates
+- Future migration to Astro Image planned (see TODO.md)
+
 ## Important Notes
 
-- Image paths in posts use relative paths (e.g., `./image.png`) which are copied to public directory
+- Content image imports use relative paths: `import img from './image.png'`
 - Site URL configured as `https://www.rubick.com` in `astro.config.mjs`
 - Syntax highlighting via Shiki with `github-dark` theme
 - The Astro blog does not have lint/format scripts configured (linting only set up for Gatsby)

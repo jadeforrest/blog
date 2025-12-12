@@ -7,11 +7,18 @@ discussionId: "tools-to-make-your-org-better"
 description: "Review of tools to make startups more effective"
 ---
 
-<re-img src="hammer.jpg"></re-img>
+import { Image } from 'astro:assets';
+import hammerImage from './hammer.jpg';
+import donutslacklogoImage from './donut-slack-logo.png';
+import heytacologoImage from './heytacologo.png';
+import fellowlogoImage from './fellow-logo.png';
+import reclaimaiImage from './reclaimai.png';
+
+<Image src={hammerImage} alt="Hammer" width={800} />
 
 One of the things I love about consulting is that I get to work with a lot of companies, and see what each of them is doing. One thing I’ve noticed is a profusion of tools for helping people to work more effectively together. As I discover tools I find especially interesting, I’ll list them here.
 
-<re-img src="donut-slack-logo.png"></re-img>
+<Image src={donutslacklogoImage} alt="Donut slack logo" width={800} />
 
 [Donut](https://www.donut.com/) is a wonderful tool that serves two important functions in a remote work environment. First of all, it is a very well designed *onboarding tool*. It acts as a Slack virtual companion, that chats you up as you start at a company, running through a list of things you need to know, introducing you to people, and for onboarding in a remote work environment. 
 
@@ -23,19 +30,19 @@ I also used it for [skip level 1-1](/skip-level-1-on-1s/) planning. Instead of u
 
 Donut can do interesting things like pair 3 people together, or randomly select people from a group, so you can do things like have random pair programming sessions, or randomly select people to do gamedays each week. 
 
-<re-img src="heytacologo.png"></re-img>
+<Image src={heytacologoImage} alt="Heytacologo" width={800} />
 
 [HeyTaco](https://www.heytaco.chat/) is a wonderful, simple little tool used to recognize people within your company. You install it as a Slack bot, and provides a place for people to give thanks and recognize other people on the team. There is something about the act of giving tacos that is lighthearted enough that it works as some sort of magic social hack. It has some lightweight reporting and so on, but mostly it's just a simple way to get recognition going through your company. Although you can replicate it manually yourself, the bot is a nice little layer that incentivizes recognition. 
 
 I'm not sure how well it would work in an international context, where tacos may not be a commonplace meal. But when I compare the effectiveness of how this was used at a startup I worked at versus a full on recognition program rolled out by HR at another company, HeyTaco was way better. I think the reason why is that it's fun!
 
-<re-img src="fellow-logo.png"></re-img>
+<Image src={fellowlogoImage} alt="Fellow logo" width={800} />
 
 [Fellow](https://fellow.app) is a wonderful tool for more effective meetings. It's like linking in a Google Doc for every meeting, but has all the right chrome around it to make a nice workflow for meeting planning and notetaking. It integrates nicely with Google Calendar, inserting the agenda into the calendar invite. And everyone gets clear action items and notes, all taken collaboratively. It's very nicely done, and a tool I wish was at more companies -- I highly recommend it. 
 
 One thing I like about Fellow is that it helps me plan out my week more effectively. I'm able to spend a chunk of time planning multiple meetings without much switch in context. I love it.
 
-<re-img src="reclaimai.png"></re-img>
+<Image src={reclaimaiImage} alt="Reclaimai" width={800} />
 
 [ReclaimAI](https://go.reclaim.ai/89i1sugn123m) is a tool to make your calendar more productive. It has a number of really useful tools to help you:
 

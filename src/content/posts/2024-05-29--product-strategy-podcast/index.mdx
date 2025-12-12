@@ -7,9 +7,12 @@ discussionId: "product-strategy-podcast"
 description: "I was interviewed on the Level Up podcast. This is a summary of that interview."
 ---
 
+import { Image } from 'astro:assets';
+import podcastImage from './podcast.jpg';
+
 [Kenneth Rose](https://www.linkedin.com/in/klprose/) interviewed me for the [Level Up](https://www.opslevel.com/podcasts) podcast. We covered the topic of strategy work. 
 
-<re-img src="podcast.jpg"></re-img>
+<Image src={podcastImage} alt="Podcast" width={800} />
 
 Here is an outline of the topics we covered:
 * Where to focus when creating a product strategy.

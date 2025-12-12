@@ -7,7 +7,11 @@ discussionId: "equity-benefits-everyone"
 description: "Under-represented minority groups are the best leading indicator of company culture. Describes why this is the case, and links to posts on how to improve."
 ---
 
-<re-img src="equity.jpg"></re-img>
+import { Image } from 'astro:assets';
+import equityImage from './equity.jpg';
+import washingMachineImage from './washing-machine.png';
+
+<Image src={equityImage} alt="Equity concept illustration" width={800} />
 
 ## Washing machines for the elderly
 
@@ -18,7 +22,7 @@ There once was a company that made washing machines. They decided to make a mode
 
 They started selling this product. Customers surprised them by buying them across all sorts of demographics. It ended up being a popular product for young people.
 
-<re-img src="washing-machine.png" width="50%"></re-img>
+<Image src={washingMachineImage} alt="Washing machine with large, easy-to-read controls" width={400} class="img-50" />
 
 Why? It turns out everyone wants easy to read dials and great controls. Washing machines are often in poorly lit locations. So designing for people with poor vision also helped many people in common situations. Designing for the elderly benefited everyone.
 

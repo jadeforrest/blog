@@ -7,7 +7,10 @@ discussionId: "service-provider"
 description: "Service provider is the only pattern many platform teams have known. This article describes how this coordination model works and some alternatives to consider."
 ---
 
-<re-img src="service-provider.jpg"></re-img>
+import { Image } from 'astro:assets';
+import serviceproviderImage from './service-provider.jpg';
+
+<Image src={serviceproviderImage} alt="Service provider" width={800} />
 
 **The Service Provider is one of the most common and least effective coordination models in software engineering teams**. There are legitimate reasons to use this model, but you should avoid it unless you’re aware of the tradeoffs. 
 

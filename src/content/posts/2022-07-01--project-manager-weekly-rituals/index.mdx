@@ -7,6 +7,13 @@ discussionId: "project-manager-rituals"
 description: "Learn the nuts and bolts of project management for software projects, with the things you should do every week: update your project plan, review your risk registry, and send a project update"
 ---
 
+import { Image } from 'astro:assets';
+import projectmanagementImage from './project-management.jpg';
+import milestoneyesreallyImage from './milestone-yes-really.png';
+import projectplanImage from './project-plan.png';
+import riskregistryImage from './risk-registry.png';
+import aaronbermantweetImage from './aaron-berman-tweet.png';
+
 Today, I'd like to cover the weekly life of a project manager. When I'm managing a project, these are the things I do every week:
 1. **Identify the next milestone**. Do you have a goal that is less than a month away? If not, make one up as soon as you can. Talk about the next milestone every meeting with the team. 
 2. **Update your project plan**. Schedule an hour or two every Friday to review and update your project plan. 
@@ -15,7 +22,7 @@ Today, I'd like to cover the weekly life of a project manager. When I'm managing
 
 Putting these things together will often require meetings or conversations. But having a concrete idea of what you're delivering each week can make it more clear what to focus on.
 
-<re-img src="project-management.jpg"></re-img>
+<Image src={projectmanagementImage} alt="Project management" width={800} />
 
 ## Identify the next milestone
 
@@ -25,7 +32,7 @@ This also cleaves complexity into a chunk you can manage. People can reason abou
 
 Most weeks, you should already have a next milestone identified. Fantastic! However, you'll often be close to finishing that milestone, or things will shift in a project. Or the project won't be broken down enough to have a milestone that is soon enough. 
 
-<re-img src="milestone-yes-really.png" width="30%"></re-img>
+<Image src={milestoneyesreallyImage} alt="Milestone yes really" width={240} class="img-30" />
 
 Why a month, as opposed to something sooner or later? The short answer is that this is what I've seen both with my own experience, and with evidence from some limited data I've seen. You can read more about this in my post on [milestones, not projects](/milestones-not-projects/). 
 
@@ -51,7 +58,7 @@ I make project plans that are week by week. Each week has a couple of bullet poi
 
 I also add time-based events that are relevant to the delivery of the project. For example, vacation time, on-call schedules, and offsites. 
 
-<re-img src="project-plan.png" width="50%"></re-img>
+<Image src={projectplanImage} alt="Project plan" width={400} class="img-50" />
 
 The goal for your project plan is to not be more specific that a couple of bullet points. You want a plan that is easy to change. The more specified your project is, the more expensive it is to alter it. A good project plan should be a tool for discussion and one that encourages change rather than discourages it. When I see lots of project artifacts, and things that require updating, I get skeptical. Gantt charts communicate effectively but are often a sign the underlying data is hard to change. 
 
@@ -72,7 +79,7 @@ As you update your project plans, you should also ask yourself what could go wro
 
 Risk management is a balancing act. You don't want to overinvest in many of your risks. But you do want to think through them. After you come up with new risks, list them as bullet points in your _risk registry_. 
 
-<re-img src="risk-registry.png" width="50%"></re-img>
+<Image src={riskregistryImage} alt="Risk registry" width={400} class="img-50" />
 
 For each risk, you or your leadership group should determine if you want to take any action to mitigate that risk. Next to your risk registry, list your plan next to each. Or write down, "accept risk".
 
@@ -86,7 +93,7 @@ The aim of a weekly project update is not to share everything about the project.
 
 This tweet summarized a lot of the things I've learned over the years about writing concise, readable updates. It also features some wonderful examples, so I strongly recommend reading through it:
 
-<re-img src="aaron-berman-tweet.png" width="60%" href="https://theblueowl.substack.com/p/writing-tips-from-the-presidents-daily-brief-c4d96e9fa0c2"></re-img>
+<Image src={aaronbermantweetImage} alt="Aaron berman tweet" width={480} class="img-60" />
 
 One thing I'd like to emphasize is that you should come across as a neutral party: objective, upfront about risk, exposing things without bias.
 

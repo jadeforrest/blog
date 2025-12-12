@@ -7,15 +7,22 @@ discussionId: "three-anti-patterns-project-management"
 description: "Three anti-patterns are ubiquitous: task treadmill, million-meeting agile, and Gantt-aholic project management. Describes them and links to better alternatives."
 ---
 
-<re-img src="slow.jpg"></re-img>
+import { Image } from 'astro:assets';
+import slowImage from './slow.jpg';
+import threeTipsImage from './3-tips.png';
+import tasksImage from './tasks.png';
+import calendarImage from './calendar.png';
+import ganttImage from './gantt.png';
+
+<Image src={slowImage} alt="Slow-moving sloth representing slow project management" width={800} />
 
 ## Managers are in the best position to cause misery
 
 As managers, we're in the best position to cause sadness on our teams. If you aspire to be truly great at inflicting pain on your team, pay attention! We'll cover three of the most popular ways. 
 
-Note that this is focused on project management "anti-patterns". There are many _other_ ways you can make the people on your team miserable. 
+Note that this is focused on project management "anti-patterns". There are many _other_ ways you can make the people on your team miserable.
 
-<re-img src="3-tips.png" width="50%"></re-img>
+<Image src={threeTipsImage} alt="Three anti-patterns illustrated" width={400} class="img-50" />
 
 These techniques lead to slow delivery, and can make your company less effective. With enough participation, you can cause engineering to completely fail in its mission. So not only can these techniques make your team unhappy, they can also destroy your company! 
 
@@ -33,9 +40,9 @@ I've done all three of these approaches, and they all have merits and risks. I c
 
 ## Task treadmill
 
-This is the most common pain-causing technique I see in startups today. Diabolical managers turn to it because it's so effective at numbing the mind. 
+This is the most common pain-causing technique I see in startups today. Diabolical managers turn to it because it's so effective at numbing the mind.
 
-<re-img src="tasks.png" width="50%"></re-img>
+<Image src={tasksImage} alt="Task list visualization" width={400} class="img-50" />
 
 Here's how it works:
 
@@ -64,9 +71,9 @@ You should be aware that this technique isn't fail-proof. Or rather, it can succ
 
 ## Million-meeting agile
 
-If you're a twisted manager, you'll want to know all the variants. This second way of managing projects is sure to infuriate your team! This approach is to follow the form of agile, but to make it heavyweight. I call this approach “million-meeting agile”. 
+If you're a twisted manager, you'll want to know all the variants. This second way of managing projects is sure to infuriate your team! This approach is to follow the form of agile, but to make it heavyweight. I call this approach "million-meeting agile".
 
-<re-img src="calendar.png" width="50%"></re-img>
+<Image src={calendarImage} alt="Calendar filled with meetings" width={400} class="img-50" />
 
 The approach is:
 
@@ -97,9 +104,9 @@ These practices are not in themselves terrible. A lot of them have good rational
 
 Last and certainly least is Gantt-aholic project management. This is an approach usually taken by someone who is new to project management. They read a lot about project management techniques and apply them to software development. That can cause a lot of pain!
 
-If you're seeking to cause the world to be a worse place, I would start with the other two patterns, but this can do its part as well. 
+If you're seeking to cause the world to be a worse place, I would start with the other two patterns, but this can do its part as well.
 
-<re-img src="gantt.png" width="50%"></re-img>
+<Image src={ganttImage} alt="Complex Gantt chart diagram" width={400} class="img-50" />
 
 So how does Gantt-aholic project management work? It is an approach that uses fine-grained planning to determine a schedule.
 

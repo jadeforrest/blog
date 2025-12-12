@@ -7,7 +7,16 @@ discussionId: "how-to-speed-up-hiring"
 description: "The easiest way to improve your hiring is to speed it up. Here's how: use an SLA, reduce steps, use schedule blocks, present instant offers, and use a modified rolling approach."
 ---
 
-<re-img src="hiring-fast.jpg"></re-img>
+import { Image } from 'astro:assets';
+import hiringfastImage from './hiring-fast.jpg';
+import applytoofferImage from './apply-to-offer.png';
+import sla24hrImage from './24-hr-sla.png';
+import morestepsImage from './more-steps.png';
+import lessstepsImage from './less-steps.png';
+import interviewtimeImage from './interview-time.png';
+import fairinterviewImage from './fair-interview.png';
+
+<Image src={hiringfastImage} alt="Hiring fast" width={800} />
 
 This is a part of a [series of articles on hiring and recruiting](/startup-hiring-and-recruiting). 
 
@@ -21,7 +30,7 @@ But all that deliberation comes at a cost. Imagine your process took twice as lo
 
 The same principle applies if you shorten the amount of time it takes to decide on a candidate. Imagine a theoretical situation where you could immediately decide on a candidate after they apply. How much more likely would it be that they would end up working for you? In my experience, this can result in dramatic improvements.
 
-<re-img src="apply-to-offer.png" width="50%"></re-img>
+<Image src={applytoofferImage} alt="Apply to offer" width={400} class="img-50" />
 
 **Time windows** are a differentiator when hiring. Candidates have an amount of time within which they'll interview. And they have an amount of time within which they'll make a decision.
 
@@ -33,7 +42,7 @@ Instead of filling a position in three months, you might fill it in one. The com
 
 My advice: give everyone that touches candidates **24 hours** to get back to them. Ideally you get back to candidates within a few hours.
 
-<re-img src="24-hr-sla.png" width="50%"></re-img>
+<Image src={sla24hrImage} alt="24 hr sla" width={400} class="img-50" />
 
 Even if you do nothing else, this will give you many times better results than being average. 
 
@@ -47,11 +56,11 @@ The second change to make is to remove steps in your interview process.
 
 Most interview processes contain three to five rounds. For example, you might have a process like this:
 
-<re-img src="more-steps.png"></re-img>
+<Image src={morestepsImage} alt="More steps" width={800} />
 
 Each of these steps adds a new cycle of turnaround time to your interview process. So removing steps is the best way to compete with other companies:
 
-<re-img src="less-steps.png"></re-img>
+<Image src={lessstepsImage} alt="Less steps" width={800} />
 
 With these changes, your time window is a week or two, instead of a month or more. 
 
@@ -61,7 +70,7 @@ You’ve just made your hiring pipeline AT LEAST 2-4 times more effective. You�
 
 The formula for how long your interview takes is:
 
-<re-img src="interview-time.png" width="50%"></re-img>
+<Image src={interviewtimeImage} alt="Interview time" width={400} class="img-50" />
 
 (Number of steps) * (Turnaround time + Coordination time)
 
@@ -92,7 +101,7 @@ You can [batch up candidates if you’re not getting enough diversity](/bundled-
 
 Research shows [if you have one woman in your candidate pool, there is 0% chance she’ll be hired](https://hbr.org/2016/04/if-theres-only-one-woman-in-your-candidate-pool-theres-statistically-no-chance-shell-be-hired), and I imagine that’s true of other underrepresented groups). 
 
-<re-img src="fair-interview.png" width="70%"></re-img>
+<Image src={fairinterviewImage} alt="Fair interview" width={560} class="img-70" />
 
 I like to not make a decision until I've interviewed people at least two people from underrepresented groups. To balance against the need to hire quickly, I give myself a time limit. If I don't meet that limit, I can proceed, but note down the failure as a signal for improvement.
 

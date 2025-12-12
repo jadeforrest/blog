@@ -7,7 +7,10 @@ discussionId: "goal-frameworks"
 description: "Goal frameworks like OKRs are a popular way to coordinate the work across an organization. One of the most common anti-patterns is to use it to run projects in engineering. This describes why that is a problem and better alternatives."
 ---
 
-<re-img src="goal.jpg"></re-img>
+import { Image } from 'astro:assets';
+import goalImage from './goal.jpg';
+
+<Image src={goalImage} alt="Goal" width={800} />
 
 Goal frameworks are a way to create a set of goals within the organization that attempt to be coherent across all the groups that need to contribute to that goal. The most common framework is [OKRs](https://en.wikipedia.org/wiki/OKR), but you also see [V2MOM](https://www.salesforce.com/blog/how-to-create-alignment-within-your-company/) and homegrown goal frameworks. You can even just track a list of goals across all departments. The military has a system called Commander’s Intent that you might be interested in, as well. 
 

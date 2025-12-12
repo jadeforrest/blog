@@ -7,7 +7,10 @@ discussionId: "objective-expert"
 description: "Security, reliability, and design teams can use the objective expert model to get other teams to do work for them, in a scalable way that encourages good relationships with other teams."
 ---
 
-<re-img src="objective.jpg"></re-img>
+import { Image } from 'astro:assets';
+import objectiveImage from './objective.jpg';
+
+<Image src={objectiveImage} alt="Objective" width={800} />
 
 Today I’m going to share my favorite way to organize specialist teams that want other teams to do work for them. I recommend this [coordination model](/coordination-models/) for security, reliability, and design teams. Non-specialist teams can also use it for some projects!
 

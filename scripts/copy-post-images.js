@@ -8,6 +8,10 @@ import sharp from "sharp";
  * Generates optimized WebP versions at multiple sizes for all images
  * Creates image-metadata.json with dimensions for responsive loading
  *
+ * NOTE: This script is primarily kept for cover image thumbnail generation.
+ * Content images within posts now use Astro's native Image component for optimization.
+ * See TODO.md for future migration plans to fully migrate to Astro Image.
+ *
  * Options:
  *   --force   Regenerate all images even if they exist
  *   --clean   Remove old generated image directories for deleted posts
