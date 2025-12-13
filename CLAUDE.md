@@ -114,8 +114,9 @@ Usage: `<Image src={img} alt="..." width={400} class="img-50" />`
 - Files: `src/pages/[...page].astro`, `src/pages/posts/[...page].astro`, `src/pages/tags/[tag].astro`, `src/pages/about.astro`
 
 ### Static Page Images
-- Course, newsletter, and podcast pages currently use manual picture elements
-- Future migration to Astro Image planned (see TODO.md)
+- Course, newsletter, and podcast pages use Astro's Image component
+- Images stored in `src/assets/` (rachel.png, sarah.png, decoding-leadership-6.png)
+- Files: `src/pages/course.astro`, `src/pages/newsletter.astro`, `src/pages/decoding-leadership.astro`
 
 ## Important Notes
 

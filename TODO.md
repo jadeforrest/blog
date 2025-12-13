@@ -18,27 +18,20 @@ Cover images on listing pages now use Astro's native image() helper and getImage
 
 ---
 
-## Static Page Images Migration to Astro Image
+## ✅ Static Page Images Migration to Astro Image - COMPLETED
 
-Currently course, newsletter, and podcast pages use manual picture elements with WebP sources.
+**Status:** Completed December 2025
 
-**Files affected:**
-- `src/pages/course.astro` (lines 31-46) - rachel.png with responsive WebP
-- `src/pages/newsletter.astro` (lines 44-64) - sarah.png with responsive WebP
-- `src/pages/decoding-leadership.astro` (lines 41-61) - decoding-leadership-6.png with responsive WebP
-- `public/images/*.webp` files
+Course, newsletter, and podcast pages now use Astro's Image component instead of manual picture elements:
+- Images moved from `public/images/` to `src/assets/`
+- Pages migrated: `course.astro`, `newsletter.astro`, `decoding-leadership.astro`
+- Manual WebP files removed from `public/images/`
+- Build script updated to skip migrated images
 
-**To migrate:**
-1. Move images from `public/images/` to `src/assets/` (or keep in public/ and import)
-2. Replace picture elements with Astro Image component
-3. Remove manual WebP file generation
-
-**Estimated effort:** 1-2 hours
-
-**Benefits:**
+**Benefits Realized:**
 - Consistent image handling across all pages
-- Automatic optimization
-- Simpler maintenance
+- Automatic optimization (rachel: 61kB→20kB, sarah: 83kB→19kB, podcast: 6MB→72kB)
+- Simpler maintenance (no manual picture elements)
 
 ## Alt Text Improvement
 

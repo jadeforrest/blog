@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Parser from "rss-parser";
 import { FaCalendar } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
+import { Image } from "astro:assets";
+import podcastImage from "../assets/decoding-leadership-6.png";
 
 // Fetch podcast episodes at build time
 const RSS_URL = "https://anchor.fm/s/f420aba8/podcast/rss";
@@ -38,27 +40,12 @@ function normalizeWhitespace(value: string): string {
   <div class="podcast-page">
     <div class="podcast-intro">
       <div class="intro-logo">
-        <picture>
-          <source
-            media="(max-width: 799px)"
-            srcset="/images/decoding-leadership-6-800.webp"
-            type="image/webp"
-          />
-          <source
-            media="(max-width: 1199px)"
-            srcset="/images/decoding-leadership-6-1200.webp"
-            type="image/webp"
-          />
-          <source
-            srcset="/images/decoding-leadership-6-2000.webp"
-            type="image/webp"
-          />
-          <img
-            src="/images/decoding-leadership-6.png"
-            alt="Decoding Leadership Podcast"
-            class="podcast-logo"
-          />
-        </picture>
+        <Image
+          src={podcastImage}
+          alt="Decoding Leadership Podcast"
+          class="podcast-logo"
+          loading="eager"
+        />
       </div>
       <div class="intro-text">
         <p>
@@ -162,6 +149,7 @@ function normalizeWhitespace(value: string): string {
   .podcast-logo {
     width: 100%;
     max-width: 300px;
+    height: auto;
     border-radius: var(--size-radius-default);
   }
 

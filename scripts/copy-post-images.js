@@ -354,12 +354,10 @@ async function generateStaticImageWebP() {
   let totalSkipped = 0;
 
   // Define static images to process
+  // Note: rachel.png, sarah.png, and decoding-leadership-6.png now use Astro Image component
   const staticImages = [
     { path: path.join(publicDir, "images", "avatar.jpg"), targetDir: path.join(publicDir, "images"), name: "avatar" },
     { path: path.join(publicDir, "images", "charity.png"), targetDir: path.join(publicDir, "images"), name: "charity" },
-    { path: path.join(publicDir, "images", "sarah.png"), targetDir: path.join(publicDir, "images"), name: "sarah" },
-    { path: path.join(publicDir, "images", "rachel.png"), targetDir: path.join(publicDir, "images"), name: "rachel" },
-    { path: path.join(publicDir, "images", "decoding-leadership-6.png"), targetDir: path.join(publicDir, "images"), name: "decoding-leadership-6" },
     { path: path.join(publicDir, "about", "avatar-large.jpeg"), targetDir: path.join(publicDir, "about"), name: "avatar-large" }
   ];
 

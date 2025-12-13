@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
 import FAQSection from "../components/FAQSection.astro";
 import { FaEnvelope } from "react-icons/fa";
+import { Image } from "astro:assets";
+import sarahImage from "../assets/sarah.png";
 ---
 
 <BaseLayout
@@ -41,27 +43,12 @@ import { FaEnvelope } from "react-icons/fa";
         on a weekly schedule.
       </p>
 
-      <picture>
-        <source
-          media="(max-width: 799px)"
-          srcset="/images/sarah-800.webp"
-          type="image/webp"
-        />
-        <source
-          media="(max-width: 1199px)"
-          srcset="/images/sarah-1200.webp"
-          type="image/webp"
-        />
-        <source
-          srcset="/images/sarah-1600.webp"
-          type="image/webp"
-        />
-        <img
-          src="/images/sarah.png"
-          alt="Newsletter illustration"
-          class="newsletter-image"
-        />
-      </picture>
+      <Image
+        src={sarahImage}
+        alt="Newsletter illustration"
+        class="newsletter-image"
+        loading="eager"
+      />
 
       <h2>About the newsletter</h2>
 
@@ -176,6 +163,7 @@ import { FaEnvelope } from "react-icons/fa";
 
   .newsletter-image {
     width: 100%;
+    height: auto;
     margin: var(--space-l) 0;
     border-radius: var(--size-radius-default);
   }

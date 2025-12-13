@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
 import FAQSection from "../components/FAQSection.astro";
 import { FaSeedling } from "react-icons/fa";
+import { Image } from "astro:assets";
+import rachelImage from "../assets/rachel.png";
 ---
 
 <BaseLayout
@@ -28,22 +30,12 @@ import { FaSeedling } from "react-icons/fa";
       engineering managers who are just getting started or have some experience.
     </p>
 
-    <picture>
-      <source
-        media="(max-width: 799px)"
-        srcset="/images/rachel-800.webp"
-        type="image/webp"
-      />
-      <source
-        srcset="/images/rachel-1200.webp"
-        type="image/webp"
-      />
-      <img
-        src="/images/rachel.png"
-        alt="Course illustration"
-        class="course-image"
-      />
-    </picture>
+    <Image
+      src={rachelImage}
+      alt="Course illustration"
+      class="course-image"
+      loading="eager"
+    />
 
     <h2>About the course</h2>
 
@@ -151,6 +143,7 @@ import { FaSeedling } from "react-icons/fa";
   .course-image {
     width: 50%;
     max-width: 400px;
+    height: auto;
     display: block;
     margin: var(--space-l) 0;
     border-radius: var(--size-radius-default);
