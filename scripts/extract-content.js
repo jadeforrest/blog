@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const { spawn } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { spawn } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration - Updated for Astro structure
 const BASE_URL = 'https://www.rubick.com';
@@ -347,11 +351,11 @@ async function main() {
 }
 
 // Run the script
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 
-module.exports = {
+export {
   findMarkdownFiles,
   parseMarkdownFile,
   generateUrl,
