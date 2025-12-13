@@ -3,14 +3,12 @@ import path from "path";
 import sharp from "sharp";
 
 /**
- * Copy images from post directories to public output
- * This makes images accessible at /[slug]/[image.png]
- * Creates image-metadata.json with dimensions for responsive loading
+ * Copy images from post directories to public output directory.
+ * Makes images accessible at /[slug]/[image.png] and creates image-metadata.json
+ * with dimensions for responsive loading.
  *
- * NOTE: All images now use Astro's native Image component for optimization.
- * - Cover images: use getImage() on listing pages
- * - Content images: use <Image> component in MDX files
- * This script simply copies original images to public directory.
+ * NOTE: All image optimization is now handled by Astro's native Image component.
+ * This script only copies original images and collects metadata.
  *
  * Options:
  *   --force   Force copy all images even if they exist
@@ -42,33 +40,6 @@ function findPostDirectories(dir) {
   });
 
   return results;
-}
-
-async function generateWebP(sourcePath, targetPath, width, quality = 85) {
-  // Skip if file exists and not forcing regeneration
-  if (!forceRegenerate && fs.existsSync(targetPath)) {
-    try {
-      const metadata = await sharp(targetPath).metadata();
-      return { success: true, width: metadata.width, height: metadata.height, skipped: true };
-    } catch (error) {
-      // If file exists but is corrupt, regenerate it
-      console.warn(`Existing file corrupt, regenerating: ${targetPath}`);
-    }
-  }
-
-  try {
-    const info = await sharp(sourcePath)
-      .resize(width, null, {
-        withoutEnlargement: true,
-        fit: "inside",
-      })
-      .webp({ quality })
-      .toFile(targetPath);
-    return { success: true, width: info.width, height: info.height, skipped: false };
-  } catch (error) {
-    console.error(`Error generating WebP: ${error.message}`);
-    return { success: false };
-  }
 }
 
 async function getImageDimensions(imagePath) {
@@ -209,99 +180,6 @@ function cleanOldDirectories(activeSlugs) {
   }
 }
 
-function copyAboutPageAssets() {
-  // No longer needed - avatar-large.jpeg now uses Astro Image component
-  // and is stored in src/assets/ instead of being copied to public/about
-}
-
-/**
- * Determine appropriate WebP sizes based on source image dimensions
- * Returns array of { width, quality } objects
- */
-function getResponsiveSizes(sourceWidth) {
-  // Very small images (< 150px): just 1x and 2x
-  if (sourceWidth < 150) {
-    return [
-      { width: 100, quality: 85 },
-      { width: 200, quality: 85 }
-    ];
-  }
-
-  // Small images (150-500px): single size at slightly larger than source
-  if (sourceWidth < 500) {
-    return [{ width: Math.min(600, sourceWidth), quality: 92 }];
-  }
-
-  // Medium images (500-1000px): two responsive sizes
-  if (sourceWidth < 1000) {
-    return [
-      { width: 800, quality: 92 },
-      { width: 1200, quality: 92 }
-    ];
-  }
-
-  // Large images (1000-2000px): two or three responsive sizes
-  if (sourceWidth < 2000) {
-    return [
-      { width: 800, quality: 92 },
-      { width: 1200, quality: 92 },
-      { width: 1600, quality: 92 }
-    ];
-  }
-
-  // Very large images (2000px+): three responsive sizes
-  return [
-    { width: 800, quality: 92 },
-    { width: 1200, quality: 92 },
-    { width: 2000, quality: 92 }
-  ];
-}
-
-/**
- * Process a static image file and generate responsive WebP versions
- */
-async function processStaticImage(sourcePath, targetDir, baseName) {
-  let generated = 0;
-  let skipped = 0;
-
-  // Get source dimensions
-  const dimensions = await getImageDimensions(sourcePath);
-  if (!dimensions) {
-    console.warn(`   ⚠️  Could not read dimensions for ${baseName}`);
-    return { generated, skipped };
-  }
-
-  // Determine appropriate sizes
-  const sizes = getResponsiveSizes(dimensions.width);
-
-  // Generate each size
-  for (const { width, quality } of sizes) {
-    const webpPath = path.join(targetDir, `${baseName}-${width}.webp`);
-    const result = await generateWebP(sourcePath, webpPath, width, quality);
-    if (result.success) {
-      if (result.skipped) {
-        skipped++;
-      } else {
-        generated++;
-        const qualityStr = quality !== 85 ? ` (quality: ${quality})` : '';
-        console.log(`   Generated ${baseName}-${width}.webp${qualityStr}`);
-      }
-    }
-  }
-
-  return { generated, skipped };
-}
-
-async function generateStaticImageWebP() {
-  // All static images now use Astro's Image component:
-  // - rachel.png, sarah.png, decoding-leadership-6.png (course/newsletter/podcast pages)
-  // - avatar.jpg (site header)
-  // - charity.png (homepage)
-  // - avatar-large.jpeg (about page)
-  // No static image WebP generation needed anymore
-  console.log("\n📸 Static images: All handled by Astro Image component");
-}
-
 async function main() {
   console.log("📸 Image processing started");
   if (forceRegenerate) {
@@ -315,8 +193,6 @@ async function main() {
   console.log();
 
   const activeSlugs = await copyImages();
-  copyAboutPageAssets();
-  await generateStaticImageWebP();
 
   // Clean old directories if requested
   if (cleanOldImages) {
