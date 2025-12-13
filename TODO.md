@@ -58,3 +58,12 @@ Cleanup tasks completed:
 - ✅ Updated `copy-post-images.js` to stop generating responsive WebP versions
 - Script now simply copies original images to public directory
 - Astro Image component handles all optimization at build time
+
+## Review and Prune copy-post-images.js
+
+**Context:** After migrating all images to Astro Image component, `copy-post-images.js` still contains unused functions.
+
+**Task:** Review and remove dead code from `scripts/copy-post-images.js`:
+- Potentially unused functions: `generateWebP()`, `getResponsiveSizes()`, `processStaticImage()`
+- Consider simplifying or removing `copyAboutPageAssets()` and `generateStaticImageWebP()` stubs
+- Review if the entire script could be simplified further now that it only copies originals
