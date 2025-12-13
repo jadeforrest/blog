@@ -1,62 +1,44 @@
 # Future Work
 
-## Cover Image Migration to Astro Image
+## ✅ Cover Image Migration to Astro Image - COMPLETED
 
-Currently, cover images on listing pages (homepage, posts index, tag pages, about page) use the build script approach:
-- String paths in frontmatter: `cover: "image.jpg"`
-- Manual picture elements with WebP thumbnails in listing pages
-- Build script (`scripts/copy-post-images.js`) generates thumbnails at 240px and 400px
+**Status:** Completed December 2025
 
-### Future Migration Strategy
+Cover images on listing pages now use Astro's native image() helper and getImage():
+- Schema: `cover: image().optional()` in `src/content/config.ts`
+- Frontmatter: All 102 posts updated to `cover: ./image.jpg` format
+- Listing pages: Homepage, posts index, tag pages, and about page now use `getImage()`
+- Build script: Thumbnail generation removed from `scripts/copy-post-images.js`
 
-To fully migrate to Astro Image for cover images:
+**Benefits Realized:**
+- Type-safe validation of cover image paths
+- Automatic WebP conversion and optimization
+- Simpler code (no manual picture elements)
+- Unified approach with content images
 
-**1. Change Content Schema**
-- Update `src/content/config.ts`:
-  ```typescript
-  cover: image().optional()  // Use Astro's image() helper
-  ```
+---
 
-**2. Update All Post Frontmatter** (100+ posts)
-```yaml
-# Before:
-cover: "image.jpg"
+## Static Page Images Migration to Astro Image
 
-# After:
-cover: "./image.jpg"  # Relative import path
-```
+Currently course, newsletter, and podcast pages use manual picture elements with WebP sources.
 
-**3. Use getImage() in Listing Pages**
-- Import `getImage` from `astro:assets`
-- Process cover images at build time in:
-  - `src/pages/[...page].astro` (lines 122-143)
-  - `src/pages/posts/[...page].astro` (lines 59-80)
-  - `src/pages/about.astro` (lines 320-327)
-  - `src/pages/tags/[tag].astro` (lines 85-92)
-- Generate responsive srcset automatically
+**Files affected:**
+- `src/pages/course.astro` (lines 31-46) - rachel.png with responsive WebP
+- `src/pages/newsletter.astro` (lines 44-64) - sarah.png with responsive WebP
+- `src/pages/decoding-leadership.astro` (lines 41-61) - decoding-leadership-6.png with responsive WebP
+- `public/images/*.webp` files
 
-**4. Remove Build Script Thumbnail Generation**
-- Keep `scripts/copy-post-images.js` for now (still copies source images)
-- Remove thumbnail generation code (lines 154-167)
-- Eventually may be able to remove entire script once fully on Astro Image
+**To migrate:**
+1. Move images from `public/images/` to `src/assets/` (or keep in public/ and import)
+2. Replace picture elements with Astro Image component
+3. Remove manual WebP file generation
 
-**Estimated Effort:** 4-6 hours
-- Schema change: 30 minutes
-- Frontmatter updates (can script): 1-2 hours
-- Page updates: 2-3 hours
-- Testing: 1 hour
+**Estimated effort:** 1-2 hours
 
 **Benefits:**
-- Unified image approach across entire site
-- Remove build script dependency
-- Better integration with Astro's optimization pipeline
-- Automatic responsive image generation
-
-**Risks:**
-- Large number of files to update (100+ posts)
-- Need migration script to avoid manual work
-- Must ensure backwards compatibility during migration
-- Build time may increase slightly
+- Consistent image handling across all pages
+- Automatic optimization
+- Simpler maintenance
 
 ## Alt Text Improvement
 

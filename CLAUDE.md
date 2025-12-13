@@ -40,8 +40,7 @@ Navigate to `gatsby-blog/` directory first:
 - **Blog posts**: Located in `src/content/posts/`
   - Directory naming: `YYYY-MM-DD--slug-name/index.mdx` (date prefix required)
   - Images stored alongside post content files
-  - Content images use Astro's native Image component (imported at top of MDX)
-  - Cover images still use `copy-post-images.js` build script (see TODO.md for future migration)
+  - All images use Astro's native Image component for optimization
   - Content schema defined in `src/content/config.ts` (title, tags, cover, description, etc.)
 
 - **Wiki pages**: Located in `src/content/wiki/`
@@ -108,9 +107,14 @@ Available CSS classes for controlling image width:
 Usage: `<Image src={img} alt="..." width={400} class="img-50" />`
 
 ### Cover Images (listing pages)
-- Use string paths in frontmatter: `cover: "image.jpg"`
-- Build script generates WebP thumbnails (240px, 400px) via `copy-post-images.js`
-- Displayed using manual `<picture>` elements in listing page templates
+- Frontmatter format: `cover: ./image.jpg` (relative path with `./` prefix)
+- Schema uses `image().optional()` for type-safe validation
+- Listing pages use `getImage()` from `astro:assets` to generate optimized versions at build time
+- Astro automatically handles WebP conversion and responsive image generation
+- Files: `src/pages/[...page].astro`, `src/pages/posts/[...page].astro`, `src/pages/tags/[tag].astro`, `src/pages/about.astro`
+
+### Static Page Images
+- Course, newsletter, and podcast pages currently use manual picture elements
 - Future migration to Astro Image planned (see TODO.md)
 
 ## Important Notes

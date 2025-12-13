@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { FaCalendar } from "react-icons/fa";
 import { formatDate } from "../../utils/formatDate";
@@ -65,6 +66,21 @@ type Props = {
 };
 
 const { posts, tag } = Astro.props;
+
+// Generate optimized cover images for all posts
+const postsWithCovers = await Promise.all(
+  posts.map(async (post) => {
+    if (!post.data.cover) return { ...post, coverImage: null };
+
+    const coverImage = await getImage({
+      src: post.data.cover,
+      width: 400,
+      format: "webp",
+    });
+
+    return { ...post, coverImage };
+  })
+);
 ---
 
 <BaseLayout
@@ -80,13 +96,15 @@ const { posts, tag } = Astro.props;
 
     <div class="posts-container">
       {
-        posts.map((post) => (
+        postsWithCovers.map((post) => (
           <article class="post-item">
-            {post.data.cover && (
+            {post.coverImage && (
               <a href={`/${post.slug}/`} class="post-image-link">
                 <img
-                  src={`/${post.slug}/${post.data.cover}`}
+                  src={post.coverImage.src}
                   alt={post.data.title}
+                  {...post.coverImage.attributes}
+                  loading="lazy"
                   class="post-image"
                 />
               </a>

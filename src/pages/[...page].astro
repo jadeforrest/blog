@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { FaCalendar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
@@ -40,6 +41,21 @@ type Props = {
 
 const { page } = Astro.props;
 const posts = page.data;
+
+// Generate optimized cover images for all posts
+const postsWithCovers = await Promise.all(
+  posts.map(async (post) => {
+    if (!post.data.cover) return { ...post, coverImage: null };
+
+    const coverImage = await getImage({
+      src: post.data.cover,
+      width: 400,
+      format: "webp",
+    });
+
+    return { ...post, coverImage };
+  })
+);
 ---
 
 <BaseLayout
@@ -117,29 +133,17 @@ const posts = page.data;
       <h2>Recent posts</h2>
       <div class="posts-container">
         {
-          posts.map((post) => (
+          postsWithCovers.map((post) => (
             <article class="post-item">
-              {post.data.cover && (
+              {post.coverImage && (
                 <a href={`/${post.slug}/`} class="post-image-link">
-                  <picture>
-                    <source
-                      media="(max-width: 599px)"
-                      srcset={`/${post.slug}/${post.data.cover.replace(/\.\w+$/, "")}-thumb-240.webp`}
-                      type="image/webp"
-                    />
-                    <source
-                      srcset={`/${post.slug}/${post.data.cover.replace(/\.\w+$/, "")}-thumb-400.webp`}
-                      type="image/webp"
-                    />
-                    <img
-                      src={`/${post.slug}/${post.data.cover}`}
-                      alt={post.data.title}
-                      width="200"
-                      height="150"
-                      loading="lazy"
-                      class="post-image"
-                    />
-                  </picture>
+                  <img
+                    src={post.coverImage.src}
+                    alt={post.data.title}
+                    {...post.coverImage.attributes}
+                    loading="lazy"
+                    class="post-image"
+                  />
                 </a>
               )}
               <div class="post-content">

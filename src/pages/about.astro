@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialIcons from "../components/SocialIcons";
 import { FaCalendar } from "react-icons/fa";
@@ -27,6 +28,21 @@ const popularPosts = allPosts
   })
   .sort((a, b) => b.date.localeCompare(a.date))
   .slice(0, 5);
+
+// Generate optimized cover images for popular posts
+const popularPostsWithCovers = await Promise.all(
+  popularPosts.map(async (post) => {
+    if (!post.data.cover) return { ...post, coverImage: null };
+
+    const coverImage = await getImage({
+      src: post.data.cover,
+      width: 400,
+      format: "webp",
+    });
+
+    return { ...post, coverImage };
+  })
+);
 ---
 
 <BaseLayout
@@ -315,13 +331,15 @@ const popularPosts = allPosts
 
       <div class="popular-posts">
         {
-          popularPosts.map((post) => (
+          popularPostsWithCovers.map((post) => (
             <article class="post-item">
-              {post.data.cover && (
+              {post.coverImage && (
                 <a href={`/${post.slug}/`} class="post-image-link">
                   <img
-                    src={`/${post.slug}/${post.data.cover}`}
+                    src={post.coverImage.src}
                     alt={post.data.title}
+                    {...post.coverImage.attributes}
+                    loading="lazy"
                     class="post-image"
                   />
                 </a>

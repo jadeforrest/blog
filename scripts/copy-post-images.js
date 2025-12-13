@@ -5,12 +5,12 @@ import sharp from "sharp";
 /**
  * Copy images from post directories to public output
  * This makes images accessible at /[slug]/[image.png]
- * Generates optimized WebP versions at multiple sizes for all images
+ * Generates optimized WebP versions at multiple sizes for content images
  * Creates image-metadata.json with dimensions for responsive loading
  *
- * NOTE: This script is primarily kept for cover image thumbnail generation.
- * Content images within posts now use Astro's native Image component for optimization.
- * See TODO.md for future migration plans to fully migrate to Astro Image.
+ * NOTE: Cover images now use Astro's native Image component with getImage().
+ * Content images within posts also use Astro's native Image component.
+ * This script is kept for copying original images and generating responsive sizes.
  *
  * Options:
  *   --force   Regenerate all images even if they exist
@@ -25,10 +25,8 @@ const args = process.argv.slice(2);
 const forceRegenerate = args.includes("--force");
 const cleanOldImages = args.includes("--clean");
 
-// Responsive sizes for content images (not thumbnails)
+// Responsive sizes for content images
 const CONTENT_IMAGE_SIZES = [640, 960, 1280];
-// Thumbnail sizes for cover images
-const THUMBNAIL_SIZES = [240, 400];
 
 // Store image metadata (dimensions) for use in components
 const imageMetadata = {};
@@ -105,8 +103,6 @@ async function getImageDimensions(imagePath) {
 async function copyImages() {
   const postDirs = findPostDirectories(postsDir);
   let copiedCount = 0;
-  let thumbnailsGenerated = 0;
-  let thumbnailsSkipped = 0;
   let responsiveImagesGenerated = 0;
   let responsiveImagesSkipped = 0;
   const activeSlugs = new Set();
@@ -155,21 +151,6 @@ async function copyImages() {
           imageMetadata[metadataKey] = dimensions;
         }
 
-        // Generate thumbnails for cover images (240px, 400px)
-        if (isCover) {
-          for (const size of THUMBNAIL_SIZES) {
-            const thumbPath = path.join(targetDir, `${baseName}-thumb-${size}.webp`);
-            const result = await generateWebP(sourcePath, thumbPath, size);
-            if (result.success) {
-              if (result.skipped) {
-                thumbnailsSkipped++;
-              } else {
-                thumbnailsGenerated++;
-              }
-            }
-          }
-        }
-
         // Generate responsive WebP versions for all content images
         // (These are larger sizes for images inside blog posts)
         for (const size of CONTENT_IMAGE_SIZES) {
@@ -191,12 +172,11 @@ async function copyImages() {
         }
       }
 
-      const suffix = coverImage ? " (with thumbnails)" : "";
-      console.log(`Processed ${imageFiles.length} images for ${cleanSlug}${suffix}`);
+      console.log(`Processed ${imageFiles.length} images for ${cleanSlug}`);
     }
   }
 
-  console.log(`\nTotal: Copied ${copiedCount} images, generated ${thumbnailsGenerated} thumbnails (${thumbnailsSkipped} skipped) and ${responsiveImagesGenerated} responsive images (${responsiveImagesSkipped} skipped) from ${postDirs.length} posts`);
+  console.log(`\nTotal: Copied ${copiedCount} images, generated ${responsiveImagesGenerated} responsive images (${responsiveImagesSkipped} skipped) from ${postDirs.length} posts`);
 
   return activeSlugs;
 }
