@@ -1,5 +1,7 @@
 ---
 import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch } from "react-icons/fa";
+import { Image } from "astro:assets";
+import avatarImage from "../assets/avatar.jpg";
 
 interface Props {
   title: string;
@@ -47,13 +49,12 @@ const buildTime = buildDate.toLocaleString("en-US", {
         <div class="header-container">
           <a href="/" class="logo-type">
             <div class="logo">
-              <picture>
-                <source
-                  srcset="/images/avatar-100.webp"
-                  type="image/webp"
-                />
-                <img src="/images/avatar.jpg" alt="Jade Rubick" />
-              </picture>
+              <Image
+                src={avatarImage}
+                alt="Jade Rubick"
+                width={100}
+                height={100}
+              />
             </div>
             <div class="type">
               <div class="h1menu">jade rubick</div>

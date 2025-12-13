@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import { getImage } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialIcons from "../components/SocialIcons";
 import { FaCalendar } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
+import avatarLargeImage from "../assets/avatar-large.jpeg";
 
 // Get posts with "popular" tag, sorted by date, limit to 5
 const allPosts = await getCollection("posts");
@@ -51,27 +52,13 @@ const popularPostsWithCovers = await Promise.all(
 >
   <div class="about-page">
     <div class="about-header">
-      <picture>
-        <source
-          media="(max-width: 799px)"
-          srcset="/about/avatar-large-800.webp"
-          type="image/webp"
-        />
-        <source
-          media="(max-width: 1199px)"
-          srcset="/about/avatar-large-1200.webp"
-          type="image/webp"
-        />
-        <source
-          srcset="/about/avatar-large-1600.webp"
-          type="image/webp"
-        />
-        <img
-          src="/about/avatar-large.jpeg"
-          alt="Jade Rubick"
-          class="avatar"
-        />
-      </picture>
+      <Image
+        src={avatarLargeImage}
+        alt="Jade Rubick"
+        class="avatar"
+        widths={[800, 1200, 1600]}
+        sizes="(max-width: 799px) 800px, (max-width: 1199px) 1200px, 1600px"
+      />
     </div>
 
     <section class="about-content">

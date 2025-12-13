@@ -210,18 +210,8 @@ function cleanOldDirectories(activeSlugs) {
 }
 
 function copyAboutPageAssets() {
-  // Copy avatar image from old Gatsby content to public/about
-  const sourceAvatar = "../content/pages/1--about/avatar-large.jpeg";
-  const targetDir = "public/about";
-  const targetAvatar = path.join(targetDir, "avatar-large.jpeg");
-
-  if (fs.existsSync(sourceAvatar)) {
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-    fs.copyFileSync(sourceAvatar, targetAvatar);
-    console.log("\nCopied avatar image for about page");
-  }
+  // No longer needed - avatar-large.jpeg now uses Astro Image component
+  // and is stored in src/assets/ instead of being copied to public/about
 }
 
 /**
@@ -303,28 +293,13 @@ async function processStaticImage(sourcePath, targetDir, baseName) {
 }
 
 async function generateStaticImageWebP() {
-  console.log("\n📸 Processing static images");
-  let totalGenerated = 0;
-  let totalSkipped = 0;
-
-  // Define static images to process
-  // Note: rachel.png, sarah.png, and decoding-leadership-6.png now use Astro Image component
-  const staticImages = [
-    { path: path.join(publicDir, "images", "avatar.jpg"), targetDir: path.join(publicDir, "images"), name: "avatar" },
-    { path: path.join(publicDir, "images", "charity.png"), targetDir: path.join(publicDir, "images"), name: "charity" },
-    { path: path.join(publicDir, "about", "avatar-large.jpeg"), targetDir: path.join(publicDir, "about"), name: "avatar-large" }
-  ];
-
-  // Process each image
-  for (const image of staticImages) {
-    if (fs.existsSync(image.path)) {
-      const { generated, skipped } = await processStaticImage(image.path, image.targetDir, image.name);
-      totalGenerated += generated;
-      totalSkipped += skipped;
-    }
-  }
-
-  console.log(`   Static images: ${totalGenerated} generated, ${totalSkipped} skipped`);
+  // All static images now use Astro's Image component:
+  // - rachel.png, sarah.png, decoding-leadership-6.png (course/newsletter/podcast pages)
+  // - avatar.jpg (site header)
+  // - charity.png (homepage)
+  // - avatar-large.jpeg (about page)
+  // No static image WebP generation needed anymore
+  console.log("\n📸 Static images: All handled by Astro Image component");
 }
 
 async function main() {

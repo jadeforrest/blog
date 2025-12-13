@@ -1,10 +1,11 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection } from "astro:content";
-import { getImage } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { FaCalendar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
+import charityImage from "../assets/charity.png";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   // Get all posts and sort by date (newest first)
@@ -103,27 +104,13 @@ const postsWithCovers = await Promise.all(
           </div>
 
           <div class="charity-container">
-            <picture>
-              <source
-                media="(max-width: 799px)"
-                srcset="/images/charity-800.webp"
-                type="image/webp"
-              />
-              <source
-                media="(max-width: 1199px)"
-                srcset="/images/charity-1200.webp"
-                type="image/webp"
-              />
-              <source
-                srcset="/images/charity-1600.webp"
-                type="image/webp"
-              />
-              <img
-                src="/images/charity.png"
-                alt="Charity"
-                class="charity-image"
-              />
-            </picture>
+            <Image
+              src={charityImage}
+              alt="Charity"
+              class="charity-image"
+              widths={[800, 1200, 1600]}
+              sizes="(max-width: 799px) 800px, (max-width: 1199px) 1200px, 1600px"
+            />
           </div>
         </>
       )
