@@ -5,15 +5,15 @@ import sharp from "sharp";
 /**
  * Copy images from post directories to public output
  * This makes images accessible at /[slug]/[image.png]
- * Generates optimized WebP versions at multiple sizes for content images
  * Creates image-metadata.json with dimensions for responsive loading
  *
- * NOTE: Cover images now use Astro's native Image component with getImage().
- * Content images within posts also use Astro's native Image component.
- * This script is kept for copying original images and generating responsive sizes.
+ * NOTE: All images now use Astro's native Image component for optimization.
+ * - Cover images: use getImage() on listing pages
+ * - Content images: use <Image> component in MDX files
+ * This script simply copies original images to public directory.
  *
  * Options:
- *   --force   Regenerate all images even if they exist
+ *   --force   Force copy all images even if they exist
  *   --clean   Remove old generated image directories for deleted posts
  */
 
@@ -24,9 +24,6 @@ const publicDir = "public";
 const args = process.argv.slice(2);
 const forceRegenerate = args.includes("--force");
 const cleanOldImages = args.includes("--clean");
-
-// Responsive sizes for content images
-const CONTENT_IMAGE_SIZES = [640, 960, 1280];
 
 // Store image metadata (dimensions) for use in components
 const imageMetadata = {};
@@ -45,22 +42,6 @@ function findPostDirectories(dir) {
   });
 
   return results;
-}
-
-function getCoverImage(dir) {
-  // Read the index.mdx or index.md file to find the cover image
-  const mdxPath = path.join(dir, "index.mdx");
-  const mdPath = path.join(dir, "index.md");
-  const filePath = fs.existsSync(mdxPath) ? mdxPath : mdPath;
-
-  if (!fs.existsSync(filePath)) {
-    return null;
-  }
-
-  const content = fs.readFileSync(filePath, "utf-8");
-  // Match both quoted and unquoted cover values
-  const coverMatch = content.match(/cover:\s*['"]?([^'"\n\r]+)['"]?/);
-  return coverMatch ? coverMatch[1].trim() : null;
 }
 
 async function generateWebP(sourcePath, targetPath, width, quality = 85) {
@@ -103,8 +84,6 @@ async function getImageDimensions(imagePath) {
 async function copyImages() {
   const postDirs = findPostDirectories(postsDir);
   let copiedCount = 0;
-  let responsiveImagesGenerated = 0;
-  let responsiveImagesSkipped = 0;
   const activeSlugs = new Set();
 
   for (const { dir, slug } of postDirs) {
@@ -128,15 +107,10 @@ async function copyImages() {
         fs.mkdirSync(targetDir, { recursive: true });
       }
 
-      // Get cover image filename
-      const coverImage = getCoverImage(dir);
-
       // Process each image
       for (const imageFile of imageFiles) {
         const sourcePath = path.join(dir, imageFile);
         const targetPath = path.join(targetDir, imageFile);
-        const baseName = path.parse(imageFile).name;
-        const isCover = coverImage && imageFile === coverImage;
 
         // Copy original if it doesn't exist or if forcing
         if (forceRegenerate || !fs.existsSync(targetPath)) {
@@ -150,33 +124,13 @@ async function copyImages() {
           const metadataKey = `${cleanSlug}/${imageFile}`;
           imageMetadata[metadataKey] = dimensions;
         }
-
-        // Generate responsive WebP versions for all content images
-        // (These are larger sizes for images inside blog posts)
-        for (const size of CONTENT_IMAGE_SIZES) {
-          const webpPath = path.join(targetDir, `${baseName}-${size}.webp`);
-          const result = await generateWebP(sourcePath, webpPath, size);
-          if (result.success) {
-            if (result.skipped) {
-              responsiveImagesSkipped++;
-            } else {
-              responsiveImagesGenerated++;
-            }
-            // Store dimensions for each responsive size
-            const metadataKey = `${cleanSlug}/${baseName}-${size}.webp`;
-            imageMetadata[metadataKey] = {
-              width: result.width,
-              height: result.height,
-            };
-          }
-        }
       }
 
       console.log(`Processed ${imageFiles.length} images for ${cleanSlug}`);
     }
   }
 
-  console.log(`\nTotal: Copied ${copiedCount} images, generated ${responsiveImagesGenerated} responsive images (${responsiveImagesSkipped} skipped) from ${postDirs.length} posts`);
+  console.log(`\nTotal: Copied ${copiedCount} images from ${postDirs.length} posts`);
 
   return activeSlugs;
 }

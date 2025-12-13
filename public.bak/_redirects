@@ -1,0 +1,3 @@
+# Redirect wiki URLs with .md extension to without extension
+/wiki/*.md /wiki/:splat 301
+/wiki/*/*.md /wiki/:splat/:splat 301

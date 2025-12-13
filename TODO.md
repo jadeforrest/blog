@@ -48,7 +48,13 @@ Good alt text should:
 - Be concise but descriptive
 - Not just repeat the filename
 
-## Cleanup Opportunities
+## ✅ Cleanup - COMPLETED
 
-- Consider removing unused generated WebP files from content images (640px, 960px, 1280px) now that Astro Image handles these
-- Clean up `migrate-images.cjs` and `fix-alt-text.cjs` scripts (can be archived or deleted after migration complete)
+**Status:** Completed December 2025
+
+Cleanup tasks completed:
+- ✅ Deleted 693 unused generated WebP files (640px, 960px, 1280px) - Astro Image now handles optimization
+- ✅ Migration scripts already removed (`migrate-images.cjs`, `fix-alt-text.cjs`)
+- ✅ Updated `copy-post-images.js` to stop generating responsive WebP versions
+- Script now simply copies original images to public directory
+- Astro Image component handles all optimization at build time
