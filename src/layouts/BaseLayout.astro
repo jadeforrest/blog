@@ -2,18 +2,28 @@
 import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch } from "react-icons/fa";
 import { Image } from "astro:assets";
 import avatarImage from "../assets/avatar.jpg";
+import ogDefaultImage from "../assets/og-default.jpg";
 
 interface Props {
   title: string;
   description?: string;
+  ogImage?: ImageMetadata;
+  ogImageAlt?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage, ogImageAlt } = Astro.props;
 const siteTitle = "Jade Rubick - Engineering Leadership";
 const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+const pageDescription = description || "Jade Rubick builds thriving engineering organizations. Expertise in scaling engineering, product delivery, and organizational coordination.";
 const currentPath = Astro.url.pathname;
 const isHomepage = currentPath === "/";
 const isWikiPage = currentPath.startsWith("/wiki/");
+
+// Open Graph image handling
+const socialImage = ogImage || ogDefaultImage;
+const socialImageAlt = ogImageAlt || "Jade Rubick - Engineering Leadership";
+const canonicalURL = new URL(currentPath, Astro.site);
+const socialImageURL = new URL(socialImage.src, Astro.site);
 
 // Format build time
 const buildDate = new Date();
@@ -33,7 +43,28 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-    {description && <meta name="description" content={description} />}
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={siteTitle} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
