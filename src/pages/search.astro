@@ -21,6 +21,99 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   });
 </script>
 
+<script is:inline>
+  // Keyboard navigation for search results
+  window.addEventListener("DOMContentLoaded", () => {
+    let selectedIndex = -1; // -1 means no selection
+    const SELECTED_CLASS = "keyboard-selected";
+
+    function getResultElements() {
+      // Query for Pagefind result links
+      return Array.from(document.querySelectorAll(".pagefind-ui__result-link"));
+    }
+
+    function updateSelection(newIndex) {
+      const results = getResultElements();
+
+      // Remove old selection
+      if (selectedIndex >= 0 && selectedIndex < results.length) {
+        results[selectedIndex].classList.remove(SELECTED_CLASS);
+      }
+
+      // Update index
+      selectedIndex = newIndex;
+
+      // Add new selection
+      if (selectedIndex >= 0 && selectedIndex < results.length) {
+        results[selectedIndex].classList.add(SELECTED_CLASS);
+        // Scroll into view if needed
+        results[selectedIndex].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }
+    }
+
+    function handleKeyDown(event) {
+      const results = getResultElements();
+
+      // Only handle keyboard if there are results
+      if (results.length === 0) return;
+
+      switch (event.key) {
+        case "ArrowDown":
+          event.preventDefault();
+          // Move to next result, or select first if none selected
+          const nextIndex = selectedIndex < results.length - 1 ? selectedIndex + 1 : selectedIndex;
+          updateSelection(nextIndex);
+          break;
+
+        case "ArrowUp":
+          event.preventDefault();
+          // Move to previous result
+          if (selectedIndex > 0) {
+            updateSelection(selectedIndex - 1);
+          }
+          break;
+
+        case "Enter":
+          event.preventDefault();
+          // Navigate to selected result
+          if (selectedIndex >= 0 && selectedIndex < results.length) {
+            window.location.href = results[selectedIndex].href;
+          }
+          break;
+
+        case "Escape":
+          event.preventDefault();
+          // Clear selection
+          if (selectedIndex >= 0) {
+            results[selectedIndex].classList.remove(SELECTED_CLASS);
+            selectedIndex = -1;
+          }
+          break;
+      }
+    }
+
+    // Add keyboard event listener
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Use MutationObserver to detect when results change
+    const searchContainer = document.getElementById("search");
+    if (searchContainer) {
+      const observer = new MutationObserver(() => {
+        // Reset selection when results change
+        selectedIndex = -1;
+      });
+
+      observer.observe(searchContainer, {
+        childList: true,
+        subtree: true
+      });
+    }
+  });
+</script>
+
 <style>
   .search-page {
     max-width: 800px;
@@ -37,5 +130,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   #search {
     width: 100%;
+  }
+
+  /* Keyboard navigation selection styling */
+  :global(.pagefind-ui__result-link.keyboard-selected) {
+    border: 2px solid var(--color-brand-primary);
+    background: rgba(56, 117, 185, 0.05);
+    border-radius: var(--size-radius-small);
+    transition: all 0.2s ease;
+    outline: none;
   }
 </style>

@@ -33,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   });
 
   // Paginate posts - 20 per page
-  return paginate(sortedPosts, { pageSize: 20 });
+  return paginate(sortedPosts, { pageSize: 10 });
 };
 
 type Props = {
