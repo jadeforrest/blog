@@ -19,4 +19,7 @@ export default defineConfig({
     shikiConfig: { theme: "github-dark" },
     remarkPlugins: [remarkSmartypants],
   },
+  redirects: {
+    "/tag/[tag]": "/tags/[tag]",
+  },
 });
