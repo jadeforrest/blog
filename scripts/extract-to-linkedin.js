@@ -250,7 +250,7 @@ function fetchUrlMetadata(url) {
  * Extract meta tags from HTML content
  */
 function extractMetaTags(html, baseUrl) {
-  const metadata = { title: baseUrl, description: '' };
+  const metadata = { title: baseUrl, description: '', image: '' };
 
   // Extract title
   const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
@@ -270,6 +270,16 @@ function extractMetaTags(html, baseUrl) {
     metadata.description = ogDescMatch[1].trim();
   } else if (descMatch) {
     metadata.description = descMatch[1].trim();
+  }
+
+  // Extract image
+  const ogImageMatch = html.match(/<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']*)["']/i);
+  const contentImageMatch = html.match(/<meta[^>]*content=["']([^"']*)["'][^>]*property=["']og:image["']/i);
+
+  if (ogImageMatch) {
+    metadata.image = ogImageMatch[1].trim();
+  } else if (contentImageMatch) {
+    metadata.image = contentImageMatch[1].trim();
   }
 
   return metadata;
@@ -351,12 +361,12 @@ async function postToLinkedIn(post, accessToken, options = {}) {
       metadata = await Promise.race([
         fetchUrlMetadata(post.url),
         new Promise((resolve) => setTimeout(() => {
-          resolve({ title: post.url, description: '' });
+          resolve({ title: post.url, description: '', image: '' });
         }, 8000))
       ]);
     } catch (error) {
       console.log(`  Metadata fetch failed, using fallback`);
-      metadata = { title: post.url, description: '' };
+      metadata = { title: post.url, description: '', image: '' };
     }
 
     // Create the LinkedIn post data using Posts API format
@@ -379,6 +389,12 @@ async function postToLinkedIn(post, accessToken, options = {}) {
       lifecycleState: 'PUBLISHED',
       isReshareDisabledByAuthor: false
     };
+
+    // Log the og:image we found for debugging
+    if (metadata.image) {
+      console.log(`  Found og:image: ${metadata.image}`);
+      console.log(`  Note: LinkedIn will scrape the page to fetch this image`);
+    }
 
     const response = await makeLinkedInRequest('/posts', postData, accessToken);
     console.log(`  ✓ Posted successfully (ID: ${response.id || 'unknown'})`);

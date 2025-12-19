@@ -9,9 +9,10 @@ interface Props {
   description?: string;
   ogImage?: ImageMetadata;
   ogImageAlt?: string;
+  author?: string;
 }
 
-const { title, description, ogImage, ogImageAlt } = Astro.props;
+const { title, description, ogImage, ogImageAlt, author } = Astro.props;
 const siteTitle = "Jade Rubick - Engineering Leadership";
 const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 const pageDescription = description || "Jade Rubick builds thriving engineering organizations. Expertise in scaling engineering, product delivery, and organizational coordination.";
@@ -56,6 +57,8 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content={siteTitle} />
+    {author && <meta property="article:author" content={author} />}
+    {author && <meta name="author" content={author} />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
