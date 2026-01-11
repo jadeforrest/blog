@@ -286,6 +286,44 @@ function extractMetaTags(html, baseUrl) {
 }
 
 /**
+ * Download image from URL
+ */
+function downloadImage(imageUrl) {
+  return new Promise((resolve, reject) => {
+    try {
+      const urlObj = new URL(imageUrl);
+      const client = urlObj.protocol === 'https:' ? https : http;
+
+      const req = client.request(imageUrl, (res) => {
+        // Handle redirects
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          downloadImage(res.headers.location).then(resolve).catch(reject);
+          return;
+        }
+
+        if (res.statusCode !== 200) {
+          return reject(new Error(`Image download failed: ${res.statusCode}`));
+        }
+
+        const chunks = [];
+        res.on('data', chunk => chunks.push(chunk));
+        res.on('end', () => resolve(Buffer.concat(chunks)));
+        res.on('error', reject);
+      });
+
+      req.on('error', reject);
+      req.setTimeout(10000, () => {
+        req.destroy();
+        reject(new Error('Image download timeout'));
+      });
+      req.end();
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+/**
  * Get LinkedIn Person URN for the authenticated user
  */
 async function getPersonUrn(accessToken) {
@@ -336,6 +374,65 @@ async function getPersonUrn(accessToken) {
 }
 
 /**
+ * Upload image to LinkedIn Images API
+ */
+async function uploadImageToLinkedIn(imageBuffer, personId, accessToken) {
+  // Step 1: Initialize upload
+  const initData = {
+    initializeUploadRequest: {
+      owner: `urn:li:person:${personId}`
+    }
+  };
+
+  const initResponse = await makeLinkedInRequest(
+    '/images?action=initializeUpload',
+    initData,
+    accessToken
+  );
+
+  const { uploadUrl, image: imageUrn } = initResponse.value;
+
+  // Step 2: Upload binary data to signed URL
+  await new Promise((resolve, reject) => {
+    try {
+      const urlObj = new URL(uploadUrl);
+      const options = {
+        hostname: urlObj.hostname,
+        path: urlObj.pathname + urlObj.search,
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'Content-Length': imageBuffer.length
+        }
+      };
+
+      const req = https.request(options, (res) => {
+        let responseData = '';
+        res.on('data', (chunk) => {
+          responseData += chunk;
+        });
+
+        res.on('end', () => {
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            resolve();
+          } else {
+            reject(new Error(`Upload failed: ${res.statusCode} - ${responseData}`));
+          }
+        });
+      });
+
+      req.on('error', reject);
+      req.write(imageBuffer);
+      req.end();
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+  return imageUrn;
+}
+
+/**
  * Post an article share to LinkedIn using Posts API
  */
 async function postToLinkedIn(post, accessToken, options = {}) {
@@ -343,16 +440,7 @@ async function postToLinkedIn(post, accessToken, options = {}) {
 
   console.log(`${dryRun ? '[DRY RUN] ' : ''}Posting: "${post.text.substring(0, 50)}..."`);
 
-  if (dryRun) {
-    console.log(`  Would post to LinkedIn with URL: ${post.url}`);
-    return { success: true, dryRun: true };
-  }
-
   try {
-    // Get the person URN for the authenticated user
-    const personId = await getPersonUrn(accessToken);
-    const authorUrn = `urn:li:person:${personId}`;
-
     // Fetch URL metadata for page title
     console.log(`  Fetching metadata for: ${post.url}`);
     let metadata;
@@ -369,6 +457,38 @@ async function postToLinkedIn(post, accessToken, options = {}) {
       metadata = { title: post.url, description: '', image: '' };
     }
 
+    if (dryRun) {
+      if (metadata.image) {
+        console.log(`  [DRY RUN] Found og:image: ${metadata.image}`);
+        console.log(`  [DRY RUN] Would download and upload image to LinkedIn`);
+      } else {
+        console.log(`  [DRY RUN] No og:image found, would post without thumbnail`);
+      }
+      console.log(`  [DRY RUN] Would post to LinkedIn with title: "${metadata.title}"`);
+      return { success: true, dryRun: true };
+    }
+
+    // Get the person URN for the authenticated user
+    const personId = await getPersonUrn(accessToken);
+    const authorUrn = `urn:li:person:${personId}`;
+
+    // Upload image if og:image is present
+    let imageUrn = null;
+    if (metadata.image) {
+      try {
+        console.log(`  Downloading image: ${metadata.image}`);
+        const imageBuffer = await downloadImage(metadata.image);
+        console.log(`  Image downloaded: ${imageBuffer.length} bytes`);
+
+        console.log(`  Uploading image to LinkedIn...`);
+        imageUrn = await uploadImageToLinkedIn(imageBuffer, personId, accessToken);
+        console.log(`  ✓ Image uploaded: ${imageUrn}`);
+      } catch (error) {
+        console.log(`  ⚠ Image upload failed: ${error.message}`);
+        console.log(`  Continuing without image...`);
+      }
+    }
+
     // Create the LinkedIn post data using Posts API format
     const postData = {
       author: authorUrn,
@@ -383,18 +503,13 @@ async function postToLinkedIn(post, accessToken, options = {}) {
         article: {
           source: post.url,
           title: metadata.title || post.url,
-          description: metadata.description || post.text
+          description: metadata.description || post.text,
+          ...(imageUrn && { thumbnail: imageUrn })
         }
       },
       lifecycleState: 'PUBLISHED',
       isReshareDisabledByAuthor: false
     };
-
-    // Log the og:image we found for debugging
-    if (metadata.image) {
-      console.log(`  Found og:image: ${metadata.image}`);
-      console.log(`  Note: LinkedIn will scrape the page to fetch this image`);
-    }
 
     const response = await makeLinkedInRequest('/posts', postData, accessToken);
     console.log(`  ✓ Posted successfully (ID: ${response.id || 'unknown'})`);
@@ -519,5 +634,7 @@ export {
   saveSentTracking,
   getPersonUrn,
   fetchUrlMetadata,
-  extractMetaTags
+  extractMetaTags,
+  downloadImage,
+  uploadImageToLinkedIn
 };
