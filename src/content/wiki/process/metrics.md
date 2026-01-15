@@ -8,10 +8,10 @@ description: Guidance on engineering productivity metrics, board reporting, and 
 
 * This is a sticky topic.
 * Individual productivity metrics are almost always a bad idea.
-* I've generally found that metrics are more useful the higher the degree of trust and safety around the use of the metrics. I.e., you can use really inexact measurements when you're not worried about them being misapplied. The range of usefulness increases as the level of trust increases. This is kind of the correlary to [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) that "When a measure becomes a target, it ceases to be a good measure"
-* You will get a lot of pressure from the GTM side of the business to measure productivity, for individuals, teams, and organizations.
+* Metrics are more useful when you have trust. Some metric collection is dangerous but useful -- you can't use those in low trust environments. The range of usefulness increases as the level of trust increases. This is kind of the correlary to [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) that "When a measure becomes a target, it ceases to be a good measure".
+* You will get pressure from the GTM side of the business to measure productivity, for individuals, teams, and organizations.
 * This makes sense for the GTM side of the business, because their work is mathematical. They can quite rigorously model things like, "If we spend half a million dollars, how will that affect how many customers we can bring in". Things are much fuzzier in engineering, not because of laziness, but because the nature of the work is far different.
-* A wonderful post on the dangers of metrics is [Kent Beck on metrics and how they enshittify](https://tidyfirst.substack.com/p/my-fitbit-buzzed-and-i-understood). It outlines a lot of the way that incentives within companies can lead to worse products.
+* A wonderful post on the dangers of metrics is [Kent Beck on metrics and how they enshittify](https://tidyfirst.substack.com/p/my-fitbit-buzzed-and-i-understood). It outlines how incentives can lead to worse products.
 
 ## Productivity measurements in engineering
 * [DORA](https://dora.dev) is the most industry accepted way of measurement. It has problems (lagging, sometimes not especially actionable), but can be useful as a way of talking about improvements. Lead time for changes, frequency of deploys, change fail percentage, failed deployment recovery time.
