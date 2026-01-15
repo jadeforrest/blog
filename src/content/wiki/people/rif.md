@@ -49,3 +49,14 @@ Focus on the stayers
 
 Treat people with dignity and respect while protecting company
 
+## Notes from Layoff foundations
+
+* Source: [https://kellanem.com/notes/layoff-foundations](Layoff foundations)
+* Working on something hard in secret.
+* Layoffs often come with promotions and people receiving new responsibilities
+* Reduce complexity of running company, not just people.
+* Find a way for anonymous feedback.
+* Have a practice where everyone who has been informed about a topic (aka “read in”) is listed in a shared doc.
+* Have a playbook for unowned stuff.
+* Take time off before a layoff.
+* Clear your schedule.
