@@ -14,6 +14,10 @@ description: Guidance on engineering productivity metrics, board reporting, and 
 * See also [Metrics tooling](/wiki/tools/metrics/)
 * [CORE 4](https://www.lennysnewsletter.com/p/introducing-core-4-the-best-way-to) is a good approach. PR Throughput, Developer Experience Index, Change Failure Rate, and % of time spent on new capabilities. 
 
+## dangers of metrics
+
+* [Kent Beck on metrics and how they enshittify][https://tidyfirst.substack.com/p/my-fitbit-buzzed-and-i-understood] 
+
 ## Engineering reporting at a board meeting
 
 ### General board info
