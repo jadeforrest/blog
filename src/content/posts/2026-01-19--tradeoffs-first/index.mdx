@@ -1,0 +1,118 @@
+---
+title: First agree on the tradeoffs
+tags: ["communication", "design", "architecture"]
+cover: ./choice.jpg
+author: Jade Rubick
+discussionId: "tradeoffs-first"
+description: "Jade outlines an approach to getting people with strong disagreements to agree"
+---
+
+import { Image } from 'astro:assets';
+import choiceImage from './choice.jpg';
+
+People disagree. It's something that you expect. 
+
+* **Disagreements can be beneficial**. They can help bring up areas that people aren’t considering. 
+* **Disagreements can be destructive**. People can get set in different directions, and the friction can prevent forward progress. 
+
+I'd like to share an approach that can get people with strong disagreements to get aligned:
+
+**“First, agree on the tradeoffs”**
+
+<Image src={choiceImage} alt="Choice" width={800} />
+
+## What do people typically do?
+
+People generally have their own approach to deciding on things:
+
+* **Arguers**: Some people think arguing about things is how you come up with the best ideas. They believe it’s a duel. The problem is, this relies on everyone else engaging in the same way as they do. So they tend to be evangelical about arguing.
+* **Askees**: Some people need to be asked to volunteer their ideas. They won’t speak up unless they’re asked.
+* **First ones**: Many people latch on to the first idea that feels good enough. They do this because there is a lot of discomfort in not having a good plan, so once the first good enough plan is developed, they latch on to it. It resolves the tension, so it is the best plan.
+* **Perfectionists**: Other people are perfectionists about plans. They have difficulty choosing, because they are always trying to figure out what the perfect plan would look like. For them, it is risky to choose, because you're losing options.
+
+There is a lot of variation in the approach people take. And some approaches are incompatible with others.
+
+I generally find that **groups don’t explore the solution space very well**. They argue about the wrong part of the problem, often aren’t even on the same page about the problem they’re solving, and often the solutions fall short.
+
+## The problem-solving approach I recommend
+
+This is an approach I’ve found useful:
+
+1. Come up with at least three approaches.
+2. Outline the tradeoffs, and make sure we agree on the tradeoffs.
+3. Decide who should make the decision, if it’s not clear and we don’t agree.
+
+## Come up with at least three approaches.
+
+Groups tend to not explore the problem space very thoroughly. Designers have a lot of experience with this, and you’ll find they often divide their activities into "**divergent**" and "**convergent**" phases.
+
+The first phase is divergent: you come up with a lot of possible approaches. You explore what is possible, and think less about constraints. The goal is to come up with a lot of variations.
+
+Then, you aim for convergence: you weigh the solutions to find the one that best matches your constraints.
+
+In engineering teams, I find that a lot of our troubles come from poorly exploring the solution space. We  jump to solutions without fully considering all the alternatives. We get attached to a solution and run with it. This is so prevalent! I believe it's one of the most fruitful areas for improving projects.
+
+We can come up with dramatically better solutions if we think about alternative approaches and challenge our assumptions. We can deliver things in much less time if we can come up with shorter, more efficient approaches.
+
+Or as I like to say, “if we can deliver projects that are 50% smaller, we can double our speed without doing anything else”.
+
+So the first stage is to get the group to come up with *a couple* of approaches. I usually suggest a minimum of three. Often, teams will not come up with three choices unless I ask for it.
+
+As a leader, I sometimes am not as involved in the details as the team. But I am often way more experienced with software than they are. Leaders in this position may have good instincts about potential solutions. I have a lot of history to pattern match against. But I also might not be close enough to the solution to know why some approach might be inappropriate. Adding my favorite idea to the pile can be a way to make sure it is tested against other ideas, especially if I make it clear I want it to be critiqued.
+
+## Outline the tradeoffs
+
+After the team has come up with a couple of approaches, then as facilitator, I have the team outline the tradeoffs of the various approaches. This can be done asynchronously or in a meeting.
+
+What you’ll often find is the tradeoffs are between time horizons: short-term vs long-term. Or they are tradeoffs of completeness. Get a list of the tradeoffs, and what would make a solution better under which circumstances.
+
+## Make sure we agree on the tradeoffs
+
+The next phase is crucial: you want to **get the team to agree on what the trade-offs are.**
+
+This is important because you need to get the group to operate under the same shared reality.
+
+Often, there are people that understand things that others don't. Or people might be seeing the problem in an incomplete way. Or they may not have even heard the problem statement correctly.
+
+Unless everybody agrees on the trade-offs, you haven't done enough discussion to actually make a decision. If you're not operating under a shared understanding of the situation, how could you make a decision?
+
+Another advantage of getting the team to agree on the trade-offs is it shifts the thinking of the team. Instead of having a bunch of people with positions, you **switch to analytical thinking**. You get a set of tradeoffs, instead of a set of positions. People think better when they’re being analytical.
+
+A final advantage of this is that because everybody understands the trade-offs, **they will be more willing to go along with whatever decision is made**. They will feel like their concerns have been listened to, and you will have greater alignment about whatever decision is made.
+
+I can't emphasize enough how important this is. You get alignment for free when using this approach.
+
+## Decide who should make the decision
+
+When I'm facilitating technical decision-making meeting, the next step is to make a decision.
+
+Often, it will be clear who the decision-maker is.
+
+In some companies, you might have agreed-upon [decision-making frameworks](/wiki/people/decision-making/). For example, you might have "disagree and commit." You might have a consent-based approach where, unless somebody substantially disagrees, a particular person decides. Some companies use a single responsible person approach where a person is identified using some sort of criteria.
+
+And there might be roles that get to make the decision. For example, the chief architect or [tech lead](/engineering-manager-vs-tech-lead/) is the person making the decision.
+
+Even if that is the case, it can be good to try to come to some sort of consensus. But if there is a clear decision-maker, after all of the trade-offs are heard and people's opinions have been solicited, that decision-maker should quickly make the decision and you can move on to other topics.
+
+If it's not clear who the decision-maker is, then you have to decide on how the decision is going to be made.
+
+If you're facilitating the meeting, you can often ask a question that guides who the decision-maker should be. For example, if you think the decision should be made by the person closest to the problem, you can ask, "Who is most knowledgeable about this problem and best able to make the right decision?"
+
+If you think the decision should be made by someone with the most business context, you can suggest something like, "Okay, we have outlined the trade-offs, but ultimately this is a business decision, so it seems like so-and-so should make the decision."
+
+Farm for discontent: “Does anybody have any substantial concerns with this decision?” Make sure you have alignment. Sometimes people seem like they’ve agreed to something, but they really are just keeping their mouth closed.
+
+Once the decision is made, record the decision somewhere public, and share the tradeoffs and context.
+
+## Conclusion
+
+You might call this a “reality-first” approach. You get people to align on the tradeoffs as a way of making sure we’re all seeing the same problem. But you’re also engaging in divergent thinking, coming up with a couple of approaches. Then you use the structure of “tradeoffs” to see how the solutions you’ve come up with map against the constraints you care about. Then you make a decision.
+
+Let me know what you think.
+
+
+## Thank you
+
+This post was based on advice I’ve been giving for years in my coaching and advising practice. I remembered it due to a wonderful post by Nadya Duke Boone on [alternatives to disagree and commit](https://www.nadyadukeboone.com/alternatives-to-disagree-and-commit/). Which was in turn inspired by Molly Graham’s great post on [disagree and let’s see](https://mollyg.substack.com/p/disagree-and-lets-see).
+
+Image by <a href="https://pixabay.com/users/yamu_jay-44818947/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=9104188">kp yamu Jayanath</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=9104188">Pixabay</a>
