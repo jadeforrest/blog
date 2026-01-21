@@ -97,7 +97,7 @@ function makeLinkedInRequest(endpoint, data, accessToken) {
         'Content-Length': Buffer.byteLength(postData),
         'Authorization': `Bearer ${accessToken}`,
         'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': '202501'
+        'LinkedIn-Version': '202601'
       }
     };
 
