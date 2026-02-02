@@ -27,7 +27,7 @@ description: Guidance on engineering productivity metrics, board reporting, and 
 * Engineering is rarely a focus in board meetings. That’s not ideal, but often the case. In fact, engineering being discussed much in a board meeting is often a sign things aren't going well.
 * Copresenting with product is often a good approach.
 * Often good to focus on deep, specific topics.
-* Focus on productivity, efficiency, and people stats.
+* Focus on productivity, efficiency, and people stats. Focus in particular on whatever problem the board thinks is most important for you to solve.
 * Tie presentation to product strategy and key initiatives.
 
 ### Some format examples
