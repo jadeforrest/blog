@@ -20,6 +20,10 @@ description: Guidance on engineering productivity metrics, board reporting, and 
 * [Measuring engineering organizations](https://lethain.com/measuring-engineering-organizations/) by Lethain
 * See also [Metrics tooling](/wiki/tools/metrics/)
 
+## Using metrics well
+
+* [Goodhart's Law isn't as useful as you think](https://commoncog.com/goodharts-law-not-useful/). This article has some really good information in it. Basic thesis is that you can avoid some of the traps of people gaming metrics by using the concept of input metrics and output metrics. In my experience, this is a really important distinction, and any organization using metrics heavily should master this concept. But it doesn't mention how important trust is. Building a culture of doing the right thing and viewing metrics as signals rather than absolutes is what I tend to aim for. 
+
 ## Engineering reporting at a board meeting
 
 ### General board info
