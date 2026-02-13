@@ -238,7 +238,7 @@ Total posts sent to date: 12
 Remaining posts in queue: 32
 ```
 
-## Token Management
+## Token management and renewal
 
 ### Token Lifespan
 - LinkedIn access tokens expire after ~60 days
@@ -254,18 +254,17 @@ Use the included `linkedin-get-token.js` script to easily generate a new access 
 1. **Get your app credentials**:
    - Go to [LinkedIn Developer Apps](https://www.linkedin.com/developers/apps)
    - Select your app → **Auth** tab
-   - Copy your **Client ID** and **Client Secret**
+   - Open a separate tab in Terminal
+   - Copy your **Client ID** and **Primary Client Secret**
+   - In Terminal: export LINKEDIN_CLIENT_ID="your_client_id"
+   - In Terminal: export LINKEDIN_CLIENT_SECRET="your_client_secret"
 
-2. **Add redirect URL** (one-time setup):
+2. **Add redirect URL** (only first time):
    - In the Auth tab, under "OAuth 2.0 Settings" → "Redirect URLs"
    - Add: `http://localhost:3000/callback`
 
 3. **Run the token generator**:
-   ```bash
-   export LINKEDIN_CLIENT_ID="your_client_id"
-   export LINKEDIN_CLIENT_SECRET="your_client_secret"
-   node scripts/linkedin-get-token.js
-   ```
+   - In Terminal: `node scripts/linkedin-get-token.js`
 
 4. **Authorize in browser**:
    - The script will open your browser automatically
@@ -276,6 +275,7 @@ Use the included `linkedin-get-token.js` script to easily generate a new access 
    ```bash
    export LINKEDIN_ACCESS_TOKEN="your_new_token"
    ```
+   - You may want this in a file or place it will be referred to. 
 
 #### Option 2: Using Postman
 
