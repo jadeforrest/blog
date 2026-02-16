@@ -1,7 +1,7 @@
 ---
 title: SOC2
 icon: 🔒
-description: Comprehensive guide to SOC2 compliance including automated platform comparisons, pricing, and auditor considerations.
+description: SOC2 compliance including automated platform comparisons, pricing, and auditor considerations.
 created at: Thu Mar 02 2023 23:30:11 GMT+0000 (Coordinated Universal Time)
 updated at: Fri Apr 21 2023 18:20:14 GMT+0000 (Coordinated Universal Time)
 ---
