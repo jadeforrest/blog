@@ -10,7 +10,7 @@ updated at: Fri Apr 21 2023 18:20:14 GMT+0000 (Coordinated Universal Time)
 
 ### Automated Platforms
 
-* \*\*Vanta \*\*
+* Vanta
   * Pricing
     * 15k 1-year SOC2 compliance
     * 15k 1-year GDPR & State Privacy Law Compliance
