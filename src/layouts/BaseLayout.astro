@@ -1,5 +1,5 @@
 ---
-import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch } from "react-icons/fa";
+import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch, FaBars } from "react-icons/fa";
 import { Image } from "astro:assets";
 import avatarImage from "../assets/avatar.jpg";
 import ogDefaultImage from "../assets/og-default.jpg";
@@ -130,6 +130,9 @@ const buildTime = buildDate.toLocaleString("en-US", {
               <span>Search</span>
             </a>
           </nav>
+          <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <FaBars size={24} />
+          </button>
         </div>
       </header>
 
@@ -189,6 +192,31 @@ const buildTime = buildDate.toLocaleString("en-US", {
 
       if (typeof window !== "undefined") {
         window.addEventListener("scroll", handleScroll);
+      }
+
+      // Hamburger menu toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteNav = document.querySelector(".site-nav");
+
+      if (menuToggle && siteNav) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteNav.classList.toggle("open");
+          menuToggle.setAttribute("aria-expanded", isOpen.toString());
+        });
+
+        siteNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            siteNav.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!menuToggle.contains(e.target) && !siteNav.contains(e.target)) {
+            siteNav.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
       }
     </script>
 
@@ -429,13 +457,60 @@ const buildTime = buildDate.toLocaleString("en-US", {
     text-decoration: underline;
   }
 
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color-primary);
+    padding: var(--space-xs);
+    align-items: center;
+  }
+
+  .menu-toggle:hover {
+    color: var(--color-brand-primary);
+  }
+
   /* Mobile styles */
   @media (max-width: 768px) {
     .logo-type {
-      visibility: hidden;
+      display: flex;
     }
+
     .availability-container {
       display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .site-nav {
+      display: none;
+      position: fixed;
+      top: var(--header-height-default);
+      left: 0;
+      right: 0;
+      background-color: var(--background-color-primary);
+      flex-direction: column;
+      padding: 0 var(--space-m);
+      border-bottom: 2px solid var(--color-neutral-gray-c);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    .site-nav.open {
+      display: flex;
+    }
+
+    .site-nav a {
+      padding: var(--space-s) 0;
+      border-bottom: 1px solid var(--color-neutral-gray-c);
+      font-size: 1.1rem;
+    }
+
+    .site-nav a:last-child {
+      border-bottom: none;
     }
   }
 </style>
