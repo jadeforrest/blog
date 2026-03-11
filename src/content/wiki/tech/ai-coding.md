@@ -21,7 +21,8 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Kent Beck described a TDD and tidy first](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes) approach he calls augmented coding. 
 * [Vibe engineering](https://simonwillison.net/2025/Oct/7/vibe-engineering/) describes patterns for those who are building high quality code quickly with AI.
 * [Why AI swarms can't build architecture](https://jsulmont.github.io/swarms-ai/) and [what to do about that](https://jsulmont.github.io/swarms-ai/part2).
-* [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents) show a workflow for creating pull requests in a large codebase, triggered by Slack. [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) goes into some detail of how it works.
+* [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents) show a workflow for creating pull requests in a large codebase, triggered by Slack. [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) goes into some detail of how it works. Most interesting part is the orchestration and how it separates deterministic and LLM based approaches. It's a mostly one-shot approach, and suffers a bit because of that. But very interesting!
+* [How to kill code review](https://www.latent.space/p/reviews-dead) from a biased source who founded Aviator, but an interesting take on using BDD and deterministic tooling to constraint coding agents.
 
 ## Adoption
 
