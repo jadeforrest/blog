@@ -1,0 +1,182 @@
+---
+title: Adding innovation labs
+tags: ["org-design", "product-management", "innovation"]
+cover: ./labs.jpg
+author: Jade Rubick
+discussionId: "innovation-labs"
+description: "Covers advice for setting up innovation labs in companies, pointing out a lot of the dangers and opportunities."
+---
+
+import { Image } from 'astro:assets';
+import labsImage from './labs.jpg';
+
+Today we cover the topic of creating an Innovation Lab.
+
+<Image src={labsImage} alt="Picture of laboratory" width={800} />
+
+## Companies suck at risky long term planning
+
+Engineering organizations struggle to focus on anything that isn’t a project.
+
+Yes, you can and should work to change this. But there is a lot of inertia behind projects being the unit of work. 
+
+So what do you do when there are things in your future that don’t easily become projects? When there are risky activities that need definition? New potential products you need to vet and validate?
+
+
+## Product and engineering have some part in this
+
+Most of this is what Product does. Product management is all about exploring and understanding the terrain. 
+
+But sometimes this exploration is *between* Product and Engineering. For example, is this even technically possible? Or is there a product possibility here that can be built in an economical way? Are there novel approaches we can take that we don’t even know are possible right now?
+
+
+## This is why companies make Innovation Labs
+
+Exploring the space between Product and Engineering is often why companies form Labs. The input is risky ideas that could be highly profitable. The output is things that can be made into projects.
+
+
+## The Three Horizon Model
+
+This is something that companies have done for ages. [McKinsey](https://www.mckinsey.com/) famously packaged up some previous work on this into the “Three Horizon Model”. 
+
+* **Horizon 1** is the core business that provides profits and cash flow.
+* **Horizon 2** is emerging opportunities, likely to generate profits, but requiring investment.
+* **Horizon 3** is ideas for profitable growth that are risky, untested and may not generate profit for a while. “Zero to one”.
+
+The Horizon Model helps you see how to structure the business for each type of Horizon. 
+
+Businesses are almost always optimized for Horizon 1. After all, that really is what the business IS. A machine for generating profit. All of the practices in the company are optimized for that. Horizon 1 focuses on performance and optimizations. It is operational in nature.
+
+Some companies are good at Horizon 2 activities. But the important thing is that often they require investment. So there can be some competition between Horizon 1 and Horizon 2 investments. But Horizon 2 is often clear enough that the investment makes sense and the company can logically act on it. Horizon 2 is more about acquiring usage and customers, and anticipated revenue.
+
+Horizon 3 is where things get tricky. They are ideas, and they need experimentation. Lots of experimentation! They are often risky and more often than not, they should be discarded. Horizon 3 activities require a totally different approach. **Horizon 3 activities require protection from optimization**. Their goals tend to be more about milestones and experiments, very market oriented but driven more by possibility than actuals. They often require protection from processes that the rest of the company takes for granted.
+
+And Horizon 3 will always lose in a competition with Horizon 1. It needs serious protection. 
+
+
+## Advice for putting together Labs
+
+I’m not a world expert on this topic, but I have done it before, and I’ve seen about 5-10 examples of this at places I’ve worked. I reached out to my network for some other people I know who have done this well in the past. So here are some suggestions if you’re thinking about putting together a Lab:
+
+
+## Consider putting the Lab under Product
+
+Product and Engineering both have a big stake in this, and it’s often best to have some of your most entrepreneurial, customer focused, and deep technical leaders in your Lab. And you usually want both a product and engineering counterpart, so the things you’re experimenting with are most aligned with the market.
+
+If you put Labs under engineering, it will look like a place people go work on cool ideas without shipping anything. And it breeds deep resentment with the rest of engineering. If you put it under Product, you clarify that this is a scouting function – the work is to experiment and scout out the terrain. It also helps ensure Product and Engineering are aligned and not competing.
+
+The message if you put it in Product is: the focus is on defining the future rather than building it.
+
+You can put Lab elsewhere. In fact I’ve seen it done outside of Product most often. I’ve seen it in an Office of the CTO, which worked pretty well. And I’ve seen the head of the Labs report to the CEO, which also worked pretty well. I would consider all of these options, but default to putting it in Product.
+
+
+## Challenge: the “white page problem”
+
+One challenge is that you may have too much freedom and not enough focus. Because of this, collaboration with Product or other people with deep market expertise is essential. The idea is to find the areas that you’re getting signals may be highly valuable, but require validation and technical exploration. 
+
+For example, I was at a startup when Kubernetes was starting to take off. Product knew that this represented a big opportunity. But there were a lot of unknowns about what a “Kubernetes version of our product” would look like. Engineering could have tackled this by having some exploratory projects. But we had other clearer projects that we knew would be good for the business, and that were easier for Product to wrap their heads around. So rather than prioritize an ambiguous project that may or may not succeed, Product would prioritize a more certain but lower potential value project, over and over. Exploring the Kubernetes project was a classic Horizon 3 activity: go explore this emerging development, and give us a better understanding of how our product can expand into that space. Validate the approach we’re taking. Figure out where the dangers are, and what a project would look like. Give us a potential project.
+
+
+## Challenge: interface with engineering
+
+It’s pretty important for the Head of Engineering to be on board with the importance of the Labs. So work with the Head of Engineering on the role boundaries, on project ownership, and on how handoffs work.
+
+The handoffs are especially important. One of the more successful patterns I’ve seen is that the team that did the exploration joins with the engineering team when the idea is productized. They work together with that larger, expanded team for a while. Often the engineering team is newly spun up to deliver the new thing. After a while, when the initial versions of the product have been built, and you have a team that can continue the work, you start to pull out the Labs members. Then the engineering team owns the work and future extensions of it.
+
+
+## Danger zone: Lab members working in other teams’ codebases
+
+When Labs team members are working, the nature of their work is that they may be doing extensions or experiments in other teams’ areas. This is especially hard because often the people that are on Labs teams are people who may have been around the company for a while, so they’re often comfortable doing so. 
+
+Labs team members must act like guests in the codebase. Even if they were the ones who originally shipped that code, they should go out of their way to make the team owning that code comfortable. Code ownership tends to create territorial behavior as a side effect. The team owning that code is responsible for it and any problems you introduce. There is a moral hazard in working on something and not maintaining it. So you have to be extra extra careful about this. 
+
+One trick is to take on-call for anything you’ve worked on for a while. Another is to spend time up front with the manager and product manager of that team, and make sure your presence is welcomed. Show you understand it may be a burden for them, or additional work for them, and that you’re going out of your way to make it as easy for them as you can. Sometimes you can work out arrangements where you have a member of the team you’re working with or who is reviewing your work. 
+
+
+## Challenge: morale issues
+
+One of the more common issues with a Labs function is that it can be seen as the most “fun” or “interesting” work. Why do they get to do all this work? 
+
+Engineering leaders need to decide what kind of operating model they want for their teams. I generally have a bias towards teams that are as customer centric as possible, and that have some ability to influence the production direction. Ideally, they understand their space better than anybody, and mostly control their own work. They experiment and innovate in their area. 
+
+A Labs function can be seen as being in opposition to this. You have an innovative part of the organization, and everyone else is just a feature factory. Working on bugs and well defined features. 
+
+This is a pretty large leadership topic, and I’m not going to cover it completely here, but there are some real choices and tradeoffs to be had. 
+
+One suggestion for Labs is that they not solve the entire problem space. Just the most dangerous and validation focused ones. Leave some things to be solved that are interesting and engaging. You want to smooth the terrain, but you don’t want to lay out the entire project plan. Think of yourself as the team that dynamites the way through the mountains, not lays the roads.
+
+
+## Danger: don’t become alternate engineering team for urgent projects
+
+One temptation will often be to use the Labs team to deliver projects. If you see that happening, intervene early. If you’re doing that, you’re not really a Labs function, you’re a Tiger Team, and you should structure things completely differently.
+
+
+## Challenge: Skill requirements
+
+You often want your most startup-like and entrepreneurial types in your Labs. Often it is a good fit for founding engineers, a principal engineer with the right skillset, or a CTO that has a lot of technical skills. 
+
+You want people that won’t be discouraged when an idea is shown to be a bad idea.
+
+You want people that explore ideas rapidly.
+
+
+## Challenge: metrics and risk management
+
+Your team should probably operate differently than the rest of product development. Work with your leadership to carve out a space that has different requirements. 
+
+You’re not shipping product, so you shouldn’t be subject to a lot of the same requirements as product engineering.
+
+You’re doing exploratory work, so you shouldn’t be focused on how much revenue you’re generating. 
+
+If you do have to come up with OKRs or metrics, they probably should be more around experiment delivery, and satisfaction of your stakeholders. You might consider surveys rather than financial measures.
+
+
+## Challenge: engaging with customers
+
+One risk with Labs teams is that when you talk with a customer, they may get excited by your exploration. That’s excellent – excitement is an important signal. But you have to be careful that they don’t expect anything you’re exploring to become product right away. 
+
+You might talk about it as a design partnership, but set the expectation that it may or may not become part of the main product. 
+
+
+## Challenge: avoid innovation theater
+
+If nothing you explore becomes product, you’re not generating value for the company. If everything you do is validated and a good idea, then you’re generating more work than will ever get done.
+
+Because of this, it’s often good to talk with Product about how you’ll decide which ideas get on to the roadmap. Having a person within product advocating for it is great. But are vetted ideas funded as new teams, or given to existing teams? How often do we want that to happen? There is a lot of room for figuring things out there.
+
+
+## Governance and leadership
+
+You want to be showing lots of experiments you’ve run, and share what you’ve learned. You want there to be active debate on what that direction should be.
+
+You probably want to have some monthly or biweekly meetings with the CEO, Head of Product, and Head of Engineering. And potentially some other parties as well. 
+
+It can be good to demo your work to the rest of engineering or product. But you have to be careful to contextualize things. And you definitely don’t want the company selling your experiments as product. 
+
+## Product in a year prototypes
+
+One thing I’ve seen is collaborations with design, product, and engineering to put together a hand-wavy but directional prototype of what the product is evolving into. 
+
+This is useful when there is a lot of confusion about the direction the product is going. And it can provide additional clarity. 
+
+But it can also confuse if it’s not fully agreed upon as the direction. Often its desirable to have a lot of these possible prototypes. They should be clearly communicated as *possibilities* until you get alignment that they are the way forward.
+
+Whether or not this is a Labs function kind of depends on your Lab. It may be more of a Horizon 2 activity, but the more uncertainty there is, the more it could be a Labs collaboration.
+
+## Is it worth it?
+
+To me the main question is whether you can achieve the same results without an Innovation Lab.
+
+One question is whether innovation is really the most important thing for your organization. Sometimes execution is more important than innovation.
+
+If you have a high need for innovation, then the question is whether you can do it within your existing engineering and product structure.
+
+If the need for innovation is high, then your best bet may be to do it both places: both within your existing Engineering organization, and ALSO with an Innovation Lab.
+
+As you can see, there are a lot of potential pitfalls with an Innovation Lab. But they can generate extremely high value. Or be a complete waste of time. Hopefully this post will help you avoid some of the failure modes!
+
+## Thank you
+
+I believe the work McKinsey based the Three Horizon model on was The Alchemy of Growth, by Mehrdad Baghai, Stephen Coley, and David White. The Podcast for the Three Horizon Model is [here](https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/enduring-ideas-the-three-horizons-of-growth#). Thanks to [Sam Alexander](https://www.linkedin.com/in/sxalexander/) for helping me find and digest the podcast on the Three Horizon Model. [Tim Krajcar](https://www.linkedin.com/in/timkrajcar/) provided some valuable suggestions and feedback, especially around handsoffs and failure modes. [Karl Schmidt](https://www.linkedin.com/in/kschmidtdev/) emphasized the importance of throwing away your prototypes. [Susie Dirks](https://www.linkedin.com/in/susiedirks/) helped me fill in the section on the connection with engineering and morale issues. [Jacob Groundwater](https://www.linkedin.com/in/groundwater/) helped review this post.
+
+Image by <a href="https://pixabay.com/users/publicdomainpictures-14/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=217041">PublicDomainPictures</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=217041">Pixabay</a>
