@@ -25,7 +25,9 @@
       "Bash(git commit:*)",
       "Bash(git add:*)",
       "Bash(xargs -I {} sh -c 'echo \"\"\"\"=== {} ===\"\"\"\"; head -20 {}')",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "WebFetch(domain:developers.kit.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": []
   },
