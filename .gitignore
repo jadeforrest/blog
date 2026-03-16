@@ -83,4 +83,8 @@ report/
 # Generated content
 bluesky-sent.json
 linkedin-sent.json
-extracted-content/scripts/kit-session.json
+extracted-content/
+
+# Kit sync
+scripts/kit-session.json
+scripts/kit-captured-requests.json
