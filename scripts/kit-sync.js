@@ -39,6 +39,11 @@ function md5(str) {
   return crypto.createHash('md5').update(str).digest('hex');
 }
 
+function hashableContent(raw) {
+  // Exclude the kitSyncHash line itself so writing the hash doesn't invalidate it.
+  return raw.replace(/^kitSyncHash:.*\n?/m, '');
+}
+
 function cleanSlug(dirName) {
   return dirName.replace(/^\d{4}-\d{2}-\d{2}--/, '');
 }
@@ -117,7 +122,7 @@ async function main() {
   let toSync = mapped.filter(p => {
     if (postFilter && !p.slug.includes(postFilter)) return false;
     if (force) return true;
-    const currentHash = md5(p.raw);
+    const currentHash = md5(hashableContent(p.raw));
     return !p.data.kitSyncHash || p.data.kitSyncHash !== currentHash;
   });
 
@@ -128,7 +133,7 @@ async function main() {
 
   console.log(`Posts to sync: ${toSync.length}`);
   for (const p of toSync) {
-    const currentHash = md5(p.raw);
+    const currentHash = md5(hashableContent(p.raw));
     const status = !p.data.kitSyncHash ? 'never synced' : 'content changed';
     console.log(`  - ${p.slug} (${status})`);
   }
@@ -197,7 +202,7 @@ async function main() {
 
     // Only update hash if all URLs were confirmed
     if (allConfirmed) {
-      const newHash = md5(post.raw);
+      const newHash = md5(hashableContent(post.raw));
       updateFrontmatterHash(post.file, newHash);
       console.log(`  ✓ Hash updated`);
       synced++;
