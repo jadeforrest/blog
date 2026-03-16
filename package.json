@@ -10,7 +10,10 @@
     "copy-images": "node scripts/copy-post-images.js",
     "copy-images:force": "node scripts/copy-post-images.js --force",
     "copy-images:clean": "node scripts/copy-post-images.js --clean",
-    "images:clean": "node scripts/copy-post-images.js --clean"
+    "images:clean": "node scripts/copy-post-images.js --clean",
+    "kit-sync": "node scripts/kit-sync.js",
+    "kit-sync:dry-run": "node scripts/kit-sync.js --dry-run",
+    "kit-add-frontmatter": "node scripts/kit-add-frontmatter.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.12",
@@ -18,11 +21,15 @@
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.4",
+    "gray-matter": "^4.0.3",
     "marked": "^15.0.12",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-icons": "^5.5.0",
     "rehype-raw": "^7.0.0",
+    "remark": "^15.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-html": "^16.0.1",
     "remark-smartypants": "^3.0.2",
     "rss-parser": "^3.13.0",
     "sharp": "^0.34.5",
@@ -30,6 +37,7 @@
   },
   "devDependencies": {
     "pagefind": "^1.4.0",
+    "playwright": "^1.58.2",
     "postcss": "^8.5.6",
     "postcss-easy-media-query": "^1.0.0",
     "postcss-nested": "^7.0.2",

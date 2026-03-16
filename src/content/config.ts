@@ -10,6 +10,8 @@ const posts = defineCollection({
     cover: image().optional(),
     description: z.string().optional(),
     discussionId: z.string().optional(),
+    kitEmails: z.string().optional(),
+    kitSyncHash: z.string().optional(),
   }),
 });
 
