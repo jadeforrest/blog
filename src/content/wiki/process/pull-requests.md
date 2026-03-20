@@ -4,6 +4,10 @@ icon: 🔀
 description: Best practices for pull request size, git strategies, and code review workflows including trunk-based vs git flow approaches.
 ---
 
+## Maybe don't do them
+
+* [PRs considered harmful](https://open.substack.com/pub/a4al6a/p/stop-using-pull-requests)
+
 ## Size of PRs
 
 * https://google.github.io/eng-practices/review/developer/small-cls.html is a fantastic writeup on making small PRs.
