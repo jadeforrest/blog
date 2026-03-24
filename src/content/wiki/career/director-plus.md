@@ -15,6 +15,7 @@ description: Transitioning to director+ roles and learning business context
 * Someone recommended this newsletter to [learn SaaS business context](https://substack.com/@cloudedjudgement)
 * [Financial modeling for startups, an introduction](https://www.fivecastfinancial.com/guides/financial-modeling-for-startups-an-introduction/)
 * [Rule of 40](https://www.cloudzero.com/blog/rule-of-40/)
+* [Why the Rule of 40 is becoming the Rule of 60](https://kellblog.com/2026/03/12/why-the-rule-of-40-is-becoming-the-rule-of-60-and-what-you-can-do-about-it/) - Argues that investor expectations have shifted and SaaS companies now need to hit 60+ to be considered healthy, with advice on how to adapt.
 * Talk with finance people and review costs, models, etc.
 * Talk with sales engineers.
 * Talk with people in the growth function. Understand the numbers they track and care about.
