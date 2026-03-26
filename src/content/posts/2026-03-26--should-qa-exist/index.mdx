@@ -12,10 +12,9 @@ kitSyncHash: ""
 import { Image } from 'astro:assets';
 import landscapeImage from './landscape.jpg';
 
-<Image src={landscapeImage} alt="Unrelated picture of nighttime landscape" width={800} />
-
-
 Should engineering organizations have quality assurance (QA)? A lot of engineering leaders say they should not. I review the topic, and provide some suggestions for QA leaders, and some nuance on the problems with the way QA and engineering work together. 🌶️  ahead!
+
+<Image src={landscapeImage} alt="Unrelated picture of nighttime landscape" width={800} />
 
 ## QA should not exist
 
@@ -100,7 +99,7 @@ I often join teams that have an existing QA team. What do I do when I join a sit
 
 First of all, it’s often not my top priority. If there are other higher priorities, I’ll focus on them first. But I can usually improve things a bit with just a few nudges, that don’t require a lot of extensive work. I’ll often meet with the Head of QA and talk these over as goals:
 
-#### Shift QA left
+### Shift QA left
 
 * Get rid of handoff between dev and QA.
 * Have QA members embedded on the team and attend meetings.
@@ -109,18 +108,18 @@ First of all, it’s often not my top priority. If there are other higher priori
 * Share concept of testing pyramid, and make sure engineers are writing unit tests, and that PR review requires unit tests. Ironically, I find that most companies that have had QA for a while also don’t have a good unit test suite. I’m not sure why that is, but I think it’s because engineering thinks QA is there as a safety net.
 * One challenge is with QA teams in different time zones, or where they are offsite and the team is on-site.
 
-#### Focus on automated testing
+### Focus on automated testing
 
 * Emphasize that testing needs to be automated. Ask the leader to recommend training or replacing team members to move us to mostly automated tests.
 * Make sure the test suite is fast. Make sure we have statistics on how quickly it runs, report on it frequently. Get the QA team to make it faster. Often this means separating parts of the test suite by criticality so that a portion of it can run fast enough, and other parts can run later.
 * Make sure the tests are a part of the developer workflow, not only seen by QA.
 
-#### Metrics
+### Metrics
 
 * Unit test coverage
 * Unit and UI test run times.
 
-#### Evaluate the situation
+### Evaluate the situation
 
 Once the burning fires are put out, improving the way QA operates rises towards the top of the list. But it depends on the company. I’ve seen companies where the problem was so egregious the best solution was to let go of QA. I’ve seen situations where it was working *fine*, or fine enough that I didn’t care to intervene because I had other priorities.
 
@@ -171,6 +170,8 @@ Metrics for an AVE:
 
 8. The company should have a “testing pyramid” approach, with unit tests at the bottom as a foundation, then integration and UI tests above that. There are other tests to consider as well, but generally you want more unit tests than UI tests.
 
+Some of these responsibilities might already be covered well in your organization, and this is just a sketch of how it could work, not a job description. So modify it for your company.
+
 ## Automated Verification Engineer is experimental
 
 I’ll add that this is all experimental. It might even be a bad idea. But if I were a quality leader, I’d be doing some sort of experiments along these lines.
@@ -179,9 +180,11 @@ I’ll add that this is all experimental. It might even be a bad idea. But if I 
 
 I’m more nervous about this post than most, because I think it risks making people feel like their role isn’t important. I’d like to emphasize that it isn’t about the people themselves, but the role that is the problem. In the same way that Operations was a problematic role in many organizations, I believe QA is not often set up well. I think a combination of respect for the people involved, and some experimentation in the role might yield some big results in the age of agent based AI development. But the bottom line is that working more continuously, more within the same workstreams, typically yields much better results than passing things on in a transactional, assembly line process.
 
-It would be a lot easier to say "no, just don't do QA", and honestly for a lo tof places that makes sense. Or to say, "yes, let's just keep QA the way it is". But a lot of the challenge is to experiment with the workflows, and see if you can make QA a high leverage point for the company. If you do manage to make automated verification exceptional, you're taking your role from a cost center to a point of differentiation for the company.
+It would be a lot easier to say "no, just don't do QA", and honestly for a lot of places that makes sense. Or to say, "yes, let's just keep QA the way it is". But a lot of the challenge is to experiment with the workflows, and see if you can make QA a high leverage point for the company. If you do manage to make automated verification exceptional, you're taking your role from a cost center to a point of differentiation for the company.
 
 If you have any feedback on this post, let me know. I imagine my thinking will evolve, and I’d like to hear your perspective.
+
+Also, if you do end up experimenting with these ideas, let me know. I'd like to see what worked and what didn't!
 
 ## Thank you
 
