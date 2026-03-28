@@ -6,7 +6,7 @@ author: Jade Rubick
 discussionId: "should-qa-exist"
 description: "There are a lot of challenges in the way QA and engineering work together. Many eng leaders think you shouldn't have QA. I dig in."
 kitEditUrls: "https://app.kit.com/sequences/1031459"
-kitSyncHash: "a07989dc78422b8e2cc3c07238b8cc4e"
+kitSyncHash: "ccbf1b841f70377ee6238b52c7328daf"
 ---
 
 import { Image } from 'astro:assets';
@@ -22,9 +22,8 @@ In some engineering leadership circles, the answer is “of course not”. QA is
 
 I tend to be skeptical of this type of engineering hubris. But there are some good arguments for this: 
 
-* **QA slows things down**. There is too much back and forth when you’re passing work in a [gated process](https://www.rubick.com/process-gates-of-hell/). QA finds an issue, dev fixes it. Then QA rechecks it and finds other issues. This continues forever, greatly slowing down engineering velocity.
+* **QA slows things down**. There is too much back and forth when you’re passing work in a [gated process](https://www.rubick.com/process-gates-of-hell/). QA finds an issue, dev fixes it. Then QA rechecks it and finds other issues. This continues forever, greatly slowing down engineering velocity. Note this isn't because QA is finding issues -- it's because of the back and forth.
 * **Throw it over the wall**. There is a moral hazard in having other people responsible for whether your work is correct. You’re creating bad behavior for your engineers by not having them responsible for their quality.
-* **Incentives are poor for QA**. If your job is to find issues, you’re going to find issues. This automatically slows down engineering, regardless of whether the issues are important or not.
 
 QA is often compared to Operations. Having engineers write code and operators put it in production and care for it has similar problems: handoffs and incentive problems.
 
@@ -37,7 +36,7 @@ Other leaders are firmly in support of QA.
 
 They argue:
 
-* **Testing is a skill**. Looking for issues is a real skill, and having an adversarial approach does result in finding deeper issues. Engineers sometimes exhibit an arrogance that they can do everyone else’s job, but the truth is this is a real skill, and not one that is easy for developers to pick up.
+* **Testing is a skill**. Looking for issues is a real skill, and having an adversarial approach does result in finding deeper issues. Engineers sometimes exhibit an arrogance that they can do everyone else’s job, but the truth is this is a real skill, and not one that is easy for developers to pick up. And there can be a value in having independence from the engineering organization.
 * **Automed tests are valuable**. Automated tests, when embedded in your workflows, are incredibly valuable. And they can be done by people who are less expensive than engineers, making their work high leverage.
 * **Some situations absolutely require QA**. There are some high stakes situations where a skilled expert can be worth their weight in gold. They can save the company from considerable risk and ensure a better product experience.
 
