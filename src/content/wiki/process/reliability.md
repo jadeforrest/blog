@@ -22,6 +22,10 @@ Some great resources:
 * https://www.honeycomb.io/blog/oncall-and-sustainable-software-development
 * https://response.pagerduty.com
 
+## Gamedays
+
+## Risk matrices
+
 ## Examples of good incident communication to customers
 
 * https://github.com/danluu/post-mortems (a collection of post-mortems)
