@@ -588,7 +588,7 @@ async function processContentLength(text) {
     const prompt = `Please create a shorter version of this content that is under 300 characters while preserving the main message:\n\n${text}`;
 
     // Execute claude command with the prompt, using stdin to avoid shell escaping issues
-    const result = execSync('claude', {
+    const result = execSync('/Users/jade/.local/bin/claude', {
       input: prompt,
       encoding: 'utf8',
       timeout: 30000 // 30 second timeout
