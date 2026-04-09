@@ -11,3 +11,7 @@ description: Tools that take advantage of AI
 ## AI enablement
 
 * [Glean](https://www.glean.com) looks quite interesting to Jade.
+
+## Security
+
+* [The lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) describes how susceptible LLMs are to prompt injection attacks.
