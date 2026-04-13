@@ -20,6 +20,11 @@
         <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>14</integer></dict>
     </array>
 
+    <key>StandardOutPath</key>
+    <string>/Users/jade/Developer/blog/scripts/blog-to-bluesky.launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/jade/Developer/blog/scripts/blog-to-bluesky.launchd.log</string>
+
     <key>EnvironmentVariables</key>
     <dict>
         <key>HOME</key>
