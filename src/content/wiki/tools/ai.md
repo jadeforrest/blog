@@ -11,6 +11,7 @@ description: Tools that take advantage of AI
 ## AI enablement
 
 * [Glean](https://www.glean.com) looks quite interesting to Jade.
+* [A framework for categorizing and prioritizing internal AI initiatives](https://www.lennysnewsletter.com/p/not-all-ai-agents-are-created-equal), centralized approach.
 
 ## Security
 
