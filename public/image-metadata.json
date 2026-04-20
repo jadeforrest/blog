@@ -934,5 +934,13 @@
   "should-qa-exist/landscape.jpg": {
     "width": 1758,
     "height": 1143
+  },
+  "risk-matrix/likelihood-impact.png": {
+    "width": 952,
+    "height": 924
+  },
+  "risk-matrix/risk-matrix.jpg": {
+    "width": 1743,
+    "height": 867
   }
 }
