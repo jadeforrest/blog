@@ -73,3 +73,6 @@ console.log(`  3. Update the title field`);
 console.log(`  4. Add tags`);
 console.log(`  5. Write your description`);
 console.log(`  6. Add the content`);
+console.log(`  7. Commit to git and push, wait three minutes`);
+console.log(`  8. Go to kit.com, and add in the URL for the new post to KitEditUrls`);
+console.log(`  9. run node scripts/kit-sync.js`);
