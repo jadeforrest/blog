@@ -8,7 +8,9 @@ description: Compensation data, pay equity implementation, and salary benchmarki
 
 * [What great engineering managers need to know about comp and equity](https://www.rubick.com/compensation-and-equity/)
 
-* [Good LinkedIn post on equity](https://www.linkedin.com/posts/marcbaselga_friend-i-got-an-amazing-offer-50000-shares-activity-7279515466664992768-P09C/) some things to think about when taking equity in an offer
+* [Good LinkedIn post on equity](https://www.linkedin.com/posts/marcbaselga_friend-i-got-an-amazing-offer-50000-shares-activity-7279515466664992768-P09C/) some things to think about when taking equity in an offer.
+
+* [Equity page on this wiki](/wiki/people/equity/)
 
 ## Implementing pay equity / point based pay
 
