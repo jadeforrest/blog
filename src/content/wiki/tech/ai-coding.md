@@ -25,7 +25,8 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [How to kill code review](https://www.latent.space/p/reviews-dead) from a biased source who founded Aviator, but an interesting take on using BDD and deterministic tooling to constraint coding agents.
 * Consider using [ast-grep](https://ast-grep.github.io) for larger codebases (and also this tool looks amazing).
 * Potential tooling for reducing duplication in code: [jscpd](https://github.com/kucherenko/jscpd), [pylint](https://pypi.org/project/pylint/) for Python, [dupl](https://github.com/mibk/dupl) for Go.
-* [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines. 
+* [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
+* [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be.
 
 ## Adoption
 
