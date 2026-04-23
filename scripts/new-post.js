@@ -76,3 +76,4 @@ console.log(`  6. Add the content`);
 console.log(`  7. Commit to git and push, wait three minutes`);
 console.log(`  8. Go to kit.com, and add in the URL for the new post to KitEditUrls`);
 console.log(`  9. run node scripts/kit-sync.js`);
+console.log(`  9. run node scripts/extract-content.js`);
