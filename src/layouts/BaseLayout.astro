@@ -14,7 +14,10 @@ interface Props {
 
 const { title, description, ogImage, ogImageAlt, author } = Astro.props;
 const siteTitle = "Jade Rubick - Engineering Leadership";
-const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+// LinkedIn's OG scraper truncates titles at ASCII apostrophes. Normalize to the
+// Unicode right single quote so embeds render the full title.
+const normalizeApostrophes = (s: string) => s.replace(/'/g, "\u2019");
+const pageTitle = normalizeApostrophes(title ? `${title} | ${siteTitle}` : siteTitle);
 const pageDescription = description || "Jade Rubick builds thriving engineering organizations. Expertise in scaling engineering, product delivery, and organizational coordination.";
 const currentPath = Astro.url.pathname;
 const isHomepage = currentPath === "/";
