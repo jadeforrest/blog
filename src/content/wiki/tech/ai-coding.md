@@ -28,6 +28,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
 * [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be.
 * [Intercom on AI approval of PRs](https://www.intercom.com/blog/ai-is-approving-our-pull-requests-heres-how-we-made-it-safe/). 19% of PRs approved by AI. Note I think their metrics are bogus, since of course the easiest and safest PRs will be reviewed by AI. Some nice approaches to how they did it, however.
+* [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html). Describes some useful concepts for understanding how to engineer more reliably with coding agents.
 
 ## Adoption
 
