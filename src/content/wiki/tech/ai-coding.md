@@ -21,14 +21,21 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Kent Beck described a TDD and tidy first](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes) approach he calls augmented coding. 
 * [Vibe engineering](https://simonwillison.net/2025/Oct/7/vibe-engineering/) describes patterns for those who are building high quality code quickly with AI.
 * [Why AI swarms can't build architecture](https://jsulmont.github.io/swarms-ai/) and [what to do about that](https://jsulmont.github.io/swarms-ai/part2).
-* [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents) show a workflow for creating pull requests in a large codebase, triggered by Slack. [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) goes into some detail of how it works. Most interesting part is the orchestration and how it separates deterministic and LLM based approaches. It's a mostly one-shot approach, and suffers a bit because of that. But very interesting!
-* [How to kill code review](https://www.latent.space/p/reviews-dead) from a biased source who founded Aviator, but an interesting take on using BDD and deterministic tooling to constraint coding agents.
 * Consider using [ast-grep](https://ast-grep.github.io) for larger codebases (and also this tool looks amazing).
 * Potential tooling for reducing duplication in code: [jscpd](https://github.com/kucherenko/jscpd), [pylint](https://pypi.org/project/pylint/) for Python, [dupl](https://github.com/mibk/dupl) for Go.
-* [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
-* [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be.
+
+## How automated can you get?
+
+* [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be. **Must read**.
+* [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents) show a workflow for creating pull requests in a large codebase, triggered by Slack. [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) goes into some detail of how it works. Most interesting part is the orchestration and how it separates deterministic and LLM based approaches. It's a mostly one-shot approach, and suffers a bit because of that. But very interesting!
+* [How to kill code review](https://www.latent.space/p/reviews-dead) from a biased source who founded Aviator, but an interesting take on using BDD and deterministic tooling to constraint coding agents.
 * [Intercom on AI approval of PRs](https://www.intercom.com/blog/ai-is-approving-our-pull-requests-heres-how-we-made-it-safe/). 19% of PRs approved by AI. Note I think their metrics are bogus, since of course the easiest and safest PRs will be reviewed by AI. Some nice approaches to how they did it, however.
 * [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html). Describes some useful concepts for understanding how to engineer more reliably with coding agents.
+* [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
+
+## Maintenance
+
+* [You need AI that reduces maintenance costs](https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs) shows the numbers.
 
 ## Adoption
 
