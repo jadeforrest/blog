@@ -8,6 +8,10 @@ description: Best practices for interviewing, candidate review meetings, and bia
 
 * A [list of engineering take home assignments](https://homework.adhoc.team/assignments/) that look nicely done. Could be a good source of inspiration if you are (want) to have that sort of exercise as part of your hiring process.
 
+## Provisional employment schemes
+
+* [Steve Yegge on "campfire interviewing"](https://steve-yegge.medium.com/the-last-technical-interview-bc13ddcf4564) basically arguing for having people do real work. He had a lot more experience hiring than I expected, and a lot of it rang true, though sounds like he might be hawking a new product at the end.
+
 ## Bias tools
 
 * http://gender-decoder.katmatfield.com/
