@@ -6,7 +6,7 @@ description: Frameworks for sizing option grants, refresh grants, and equity com
 
 ## About equity compensation
 
-* The definitive guide to equity compensation is [Holloway's guide to equity compensation](https://www.holloway.com/g/equity-compensation).
+* The definitive guide to equity compensation is [Holloway's guide to equity compensation](https://www.holloway.com/g/equity-compensation). They might be charging for it now?
 * I have a post on [compensation and equity](/compensation-and-equity/)
 
 ## Sizing option grants
