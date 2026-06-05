@@ -1,4 +1,22 @@
-# Content Extraction Script
+# Content Extraction & Publishing Scripts
+
+This repository includes a small pipeline of scripts that pull the most interesting passages out of the blog (and podcast), store them as text files in `extracted-content/`, and then drip them out to social media. This document covers all of them.
+
+## Script Summary
+
+| Script | What it does | How it runs |
+|--------|--------------|-------------|
+| [`scripts/extract-content.js`](#content-extraction-script---scriptsextract-contentjs) | Extracts the best 2–4 passages from each blog post (`src/content/posts/`) into `extracted-content/*.txt`. Uses Claude Code CLI with a heuristic fallback. | **Manual** — run when new posts are added to refresh the extract queue. |
+| [`scripts/extract-podcast-content.js`](#podcast-content-extraction-script---scriptsextract-podcast-contentjs) | Extracts 1–3 compelling sentences from each podcast episode's RSS description into `extracted-content/podcast-*.txt`. Uses Claude Code CLI with a heuristic fallback. | **Manual** — run when new episodes are published. Only processes new (unseen) episodes unless `--force`. |
+| [`scripts/extract-to-linkedin.js`](#linkedin-publishing-script---scriptsextract-to-linkedinjs) | Posts one random unsent extract to LinkedIn as an article share. Tracks sent items in `linkedin-sent.json`. | **Scheduled** — launchd (`com.jade.blog-to-linkedin.plist`) runs it weekdays (Mon–Fri) at 9:16 AM via `~/Library/Scripts/blog-to-linkedin.sh`. |
+| [`scripts/extract-to-bluesky.js`](#bluesky-publishing-script---scriptsextract-to-blueskyjs) | Posts one random unsent extract to Bluesky with a website card. Tracks sent items in `bluesky-sent.json`. | **Scheduled** — launchd (`com.jade.blog-to-bluesky.plist`) runs it weekdays (Mon–Fri) at 9:14 AM via `~/Library/Scripts/blog-to-bluesky.sh`. |
+| [`scripts/linkedin-get-token.js`](#token-management-and-renewal) | Helper to generate a fresh LinkedIn OAuth access token. | **Manual** — run only when the ~60-day LinkedIn token expires. |
+
+**Pipeline overview:** the two `extract-content` scripts *produce* the shared `extracted-content/` queue; the two `extract-to-*` scripts *consume* it. None of these run as part of `npm run build` — the build only handles images and the Pagefind search index. Run the extraction scripts manually to top up the queue; the publishing scripts then post from it automatically on the launchd schedule above.
+
+---
+
+# Content Extraction Script - `scripts/extract-content.js`
 
 This script analyzes markdown files in your Astro blog and extracts the most interesting content using Claude Code CLI. It creates individual output files for each markdown page, containing the best extracts along with full URLs.
 
@@ -121,6 +139,106 @@ https://www.rubick.com/reliability-all-stick-no-carrot/
 ```
 
 This creates a curated collection of the most valuable insights from your entire blog, perfect for sharing, referencing, or creating social media content.
+
+---
+
+# Podcast Content Extraction Script - `scripts/extract-podcast-content.js`
+
+This script is the podcast counterpart to `extract-content.js`. Instead of reading local markdown posts, it fetches the podcast's RSS feed, pulls the most compelling 1–3 sentences from each episode's description, and writes them into the same `extracted-content/` queue so the LinkedIn and Bluesky publishers can post them.
+
+## How It Works
+
+1. **Feed Fetch**: Downloads and parses the podcast RSS feed (`RSS_URL`, currently `https://anchor.fm/s/f420aba8/podcast/rss`) using `rss-parser`, pulling in iTunes `episode` and `duration` fields.
+2. **Sorting**: Sorts episodes oldest-first by publish date.
+3. **Content Extraction**: Strips HTML tags and normalizes whitespace from each episode's description (falling back to `contentSnippet`). Episodes with descriptions shorter than 50 characters are skipped.
+4. **AI Analysis**: Sends the description to Claude Code CLI (`claude --print`) with a prompt that copies 1–3 sentences word-for-word. Times out after 30 seconds.
+5. **Fallback Analysis**: If Claude Code fails or is unavailable, a heuristic picks sentences containing cue words (`discusses`, `explores`, `shares`, `explains`, `reveals`, `talks about`), or the first few substantial sentences.
+6. **Output Generation**: Writes one file per episode to `extracted-content/`, each extract followed by the episode URL.
+7. **Incremental by Default**: Episodes that already have a non-empty output file are skipped, so re-running only processes newly published episodes.
+
+## Prerequisites
+
+- Node.js installed (the script uses ES modules and the `rss-parser` dependency)
+- Claude Code CLI installed and configured (optional — script has a heuristic fallback)
+
+## Usage (run from repository root)
+
+```bash
+# Process all new (unprocessed) episodes
+node scripts/extract-podcast-content.js
+
+# Test mode - process only the first (oldest) episode for faster iteration
+node scripts/extract-podcast-content.js --test-mode
+
+# Force mode - reprocess every episode, even ones already done
+node scripts/extract-podcast-content.js --force
+
+# Write extracts to a custom directory instead of ./extracted-content
+node scripts/extract-podcast-content.js --output-dir ./some-other-dir
+```
+
+## Output
+
+Files are named by publish date and episode number:
+
+```
+extracted-content/
+├── podcast-2024-03-12--episode-7.txt
+├── podcast-2024-04-09--episode-8.txt
+└── ...
+```
+
+Each file contains the extracted sentences, each followed by the episode link:
+
+```
+In this episode we dig into why reliability work is invisible until it isn't.
+https://example.com/podcast/episode-7
+
+The trick is making the post-mortem the most interesting meeting of the week.
+https://example.com/podcast/episode-7
+```
+
+These files live in the same `extracted-content/` directory as the blog post extracts, so the LinkedIn and Bluesky publishing scripts pick them up automatically — no extra wiring required.
+
+## Configuration
+
+Edit the constants near the top of `scripts/extract-podcast-content.js`:
+
+```javascript
+const RSS_URL = 'https://anchor.fm/s/f420aba8/podcast/rss';  // Podcast RSS feed
+const DEFAULT_OUTPUT_DIR = './extracted-content';            // Output directory (override with --output-dir)
+```
+
+To change what gets extracted, edit the prompt in the `analyzeEpisodeWithClaudeCode` function.
+
+## Scheduling
+
+This script is **not** scheduled — run it manually whenever new episodes are published. (Only the publishing scripts, `extract-to-linkedin.js` and `extract-to-bluesky.js`, run automatically via launchd.) To extract podcast content on a schedule you could add a cron entry:
+
+```bash
+# Check for new episodes every morning at 8 AM
+0 8 * * * cd /path/to/blog && node scripts/extract-podcast-content.js >> podcast-extract.log 2>&1
+```
+
+## Troubleshooting
+
+### Feed Fetch Errors
+```
+Failed to fetch podcast feed: ...
+```
+Check that `RSS_URL` is correct and reachable, and that you have internet connectivity.
+
+### Claude Code Issues
+If the `claude` CLI is missing, errors, or times out (30s), the script logs a warning and falls back to heuristic extraction — it does not fail the run.
+
+### No Episodes Processed
+```
+All episodes have already been processed!
+```
+Every episode already has a non-empty output file. Use `--force` to reprocess, or wait for new episodes to publish.
+
+### Path Errors
+Run the script from the repository root, not from inside `scripts/`.
 
 ---
 
