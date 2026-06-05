@@ -22,3 +22,11 @@ How do folks approach admin access to laptops for devs?
 * If you want them to manage risk have them take security training. Acceptable use policy.
 * Can be a sticking point on SOC2-ish audits.
 * "We use a tool called Admin By Request on the Mac now, which primarily exists to make the user exist unprivileged and then grants admin to that user temporarily when you self-serve activate it. Like using sudo instead of always being logged in as root. Unfortunately, it sounds simple, but something about it offends the gods, and so it causes a lot of strange performance issues. On balance, I don’t think it is a win. (But it could be if it worked better.) To prevent installing unapproved software, the endpoint security software builds a list of everything installed and IT puts things on a block list. This used to be rare, but after some spicy incidents, we now immediately ban most things that are not clearly dev related."
+
+## Security review
+
+* A couple of my connections detail a process looking like Trust Page -> Solution consultants using automated tooling to fill out most of questionnaire -> Security engineers fill out the escalations and gaps.
+* [Vanta](https://www.vanta.com) for NDA signing, SOC2, etc. Self-serve.
+* [Conveyer](https://www.conveyor.com/) does security questionnaire automation.
+* [Sifthub](https://www.sifthub.io) does some automation of filling out questionnaires. Probably there are other tools as well.
+* [Trustmind](https://trustmind.com) one contact I know was evaluating it to hopefully improve automation over others.
