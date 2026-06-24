@@ -54,6 +54,10 @@ Should probably have its own page
 * [How AI agents software fits into companies](https://lethain.com/what-can-agents-do/)
 * [Double standard for women using AI](https://www.linkedin.com/posts/lpeate_the-most-interesting-ai-paper-ive-read-in-activity-7368796283416793092-36WR?utm_medium=ios_app&rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA)
 
+## Ethics
+
+* [Charity Majors: make AI boring again](https://charitydotwtf.substack.com/p/make-ai-boring-again) argues we should engage in using AI especially if we have concerns about it.
+
 ## AI tooling
 
 * See also [AI tooling wiki page](/wiki/tools/ai/)
