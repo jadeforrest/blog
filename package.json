@@ -3,16 +3,21 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "npm run copy-images && astro dev",
-    "build": "npm run copy-images && astro build && npx pagefind --site dist",
+    "dev": "npm run copy-images && npm run copy-newsletter-images && astro dev",
+    "build": "npm run copy-images && npm run copy-newsletter-images && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "node --test scripts/",
     "copy-images": "node scripts/copy-post-images.js",
     "copy-images:force": "node scripts/copy-post-images.js --force",
     "copy-images:clean": "node scripts/copy-post-images.js --clean",
     "images:clean": "node scripts/copy-post-images.js --clean",
+    "copy-newsletter-images": "node scripts/copy-newsletter-images.js",
+    "copy-newsletter-images:force": "node scripts/copy-newsletter-images.js --force",
     "kit-sync": "node scripts/kit-sync.js",
     "kit-sync:dry-run": "node scripts/kit-sync.js --dry-run",
+    "kit-fetch": "node scripts/kit-fetch-sequence.js",
+    "kit-fetch:dry-run": "node scripts/kit-fetch-sequence.js --dry-run",
     "kit-add-frontmatter": "node scripts/kit-add-frontmatter.js"
   },
   "dependencies": {
@@ -42,6 +47,7 @@
     "postcss-easy-media-query": "^1.0.0",
     "postcss-nested": "^7.0.2",
     "postcss-preset-env": "^10.5.0",
-    "postcss-text-remove-gap": "^1.1.1"
+    "postcss-text-remove-gap": "^1.1.1",
+    "turndown": "^7.2.4"
   }
 }
