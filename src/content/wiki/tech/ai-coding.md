@@ -44,6 +44,10 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [The Gap Through Which We Praise the Machine](https://ferd.ca/the-gap-through-which-we-praise-the-machine.html) on usability issues in agent coding, and why some people seem to be doing well and others aren't.
 * [Nobody codes here anymore](https://open.substack.com/pub/ghiculescu/p/nobody-codes-here-anymore?r=8j0ru) A case study on adoption
 
+## Agent frameworks
+
+* [Eve](https://vercel.com/blog/introducing-eve) and [Flue](https://flueframework.com).
+
 ## Evals
 
 * [Building eval systems that improve your product](https://www.lennysnewsletter.com/p/building-eval-systems-that-improve) described a methodology for creating evals. Start with error analysis and an expert, build eval suite of code and LLM evals. Pass/fail based, with critique. Split data into train, dev, and test sets. True pass rate over true negative rates. Paywalled but useful.
