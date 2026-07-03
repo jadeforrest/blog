@@ -4,6 +4,8 @@ icon: 🗣️
 description: Best practices for conducting effective engineering all-hands meetings, including topics, formats, and Q&A strategies.
 ---
 
+* [Rands on All Hands](https://randsinrepose.com/archives/so-you-want-to-fix-your-all-hands/) is a great piece on how he conducts all hands.
+
 > Does anyone do an Engineering All Hands? If so, what topics do you discuss?
 
 * "For my part, I can say that one of the most consistent challenges I've had with all-hands has been engineers presenting work done without any sense of context or value. To offset that, I have brought in product managers to help give that context and/or give it myself when it was lacking. I've found that when engineers have models discussing the "why" of their work, they get better at it themselves."
