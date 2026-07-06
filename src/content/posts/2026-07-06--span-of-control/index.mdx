@@ -1,0 +1,340 @@
+---
+title: How to think about span of control
+tags: ["ai", "architecture", "complexity", "org-design", "platform-engineering", "scaling"]
+cover: ./span.jpg
+author: Jade Rubick
+discussionId: "span-of-control"
+description: "Understand the tradeoffs of team size and span of control for managers"
+kitEditUrls: ""
+kitSyncHash: ""
+---
+
+import { Image } from 'astro:assets';
+import spanImage from './span.jpg';
+
+I’m seeing a renewed interest in the topic of team size and the span of control of managers. Most of this is coming from a questioning of how we do *everything* now that agentic software development is disrupting our existing patterns of work. I think this is a topic where a lot of people don’t understand the tradeoffs, and I’d like to share some perspective on span of control and team size.
+
+<Image src={spanImage} alt="An image of a span of a bridge" width={800} />
+
+## Span of control and team size
+
+* **Span of control** is how many direct reports your managers have. 
+* **Team size** is how large each team is. 
+
+While these seem like they should be the same thing, a manager can have multiple teams. So it can be true that you have team sizes of four people, but managers have a span of control of eight.
+
+
+## Span of control
+
+You are juggling a lot of tradeoffs, some of which you may not be aware of. 
+
+A good place to start is:
+
+* **Choose a low span of control for innovation and local effectiveness.**
+* **Choose a large span of control if you want efficiency and scale**. 
+
+
+### The larger the span of control, the flatter your organization
+
+This table shows the **number of direct reports per manager** and how that interacts with the **number of layers** in the organization.
+
+The numbers in yellow are the **number of possible employees**. If you exceed that number, you need larger teams, or another layer of management.
+
+
+<style>{`
+  .soc-table { border-collapse: collapse; }
+  .soc-table td { border: 1px solid #555; padding: 12px 16px; }
+`}</style>
+
+<table class="soc-table">
+  <tr>
+   <td style="background-color:#d6e4f5">Layers</td>
+   <td style="background-color:#d9d2e9">3 direct reports</td>
+   <td style="background-color:#d9d2e9">5 direct reports</td>
+   <td style="background-color:#d9d2e9">8 direct reports</td>
+   <td style="background-color:#d9d2e9">10 direct reports</td>
+   <td style="background-color:#d9d2e9">12 direct reports</td>
+   <td style="background-color:#d9d2e9">15 direct reports</td>
+   <td style="background-color:#d9d2e9">20 direct reports</td>
+  </tr>
+  <tr>
+   <td style="background-color:#d6e4f5">2</td>
+   <td style="background-color:#fdf6d3">4</td>
+   <td style="background-color:#fdf6d3">6</td>
+   <td style="background-color:#fdf6d3">9</td>
+   <td style="background-color:#fdf6d3">11</td>
+   <td style="background-color:#fdf6d3">13</td>
+   <td style="background-color:#fdf6d3">16</td>
+   <td style="background-color:#fdf6d3">21</td>
+  </tr>
+  <tr>
+   <td style="background-color:#d6e4f5">3</td>
+   <td style="background-color:#fdf6d3">13</td>
+   <td style="background-color:#fdf6d3">31</td>
+   <td style="background-color:#fdf6d3">73</td>
+   <td style="background-color:#fdf6d3">111</td>
+   <td style="background-color:#fdf6d3">157</td>
+   <td style="background-color:#fdf6d3">241</td>
+   <td style="background-color:#fdf6d3">421</td>
+  </tr>
+  <tr>
+   <td style="background-color:#d6e4f5">4</td>
+   <td style="background-color:#fdf6d3">40</td>
+   <td style="background-color:#fdf6d3">156</td>
+   <td style="background-color:#fdf6d3">585</td>
+   <td style="background-color:#fdf6d3">1,111</td>
+   <td style="background-color:#fdf6d3">1,885</td>
+   <td style="background-color:#fdf6d3">3,616</td>
+   <td style="background-color:#fdf6d3">8,421</td>
+  </tr>
+  <tr>
+   <td style="background-color:#d6e4f5">5</td>
+   <td style="background-color:#fdf6d3">121</td>
+   <td style="background-color:#fdf6d3">781</td>
+   <td style="background-color:#fdf6d3">4,681</td>
+   <td style="background-color:#fdf6d3">11,111</td>
+   <td style="background-color:#fdf6d3">22,621</td>
+   <td style="background-color:#fdf6d3">54,241</td>
+   <td style="background-color:#fdf6d3">168,421</td>
+  </tr>
+  <tr>
+   <td style="background-color:#d6e4f5">6</td>
+   <td style="background-color:#fdf6d3">364</td>
+   <td style="background-color:#fdf6d3">3,906</td>
+   <td style="background-color:#fdf6d3">37,449</td>
+   <td style="background-color:#fdf6d3">111,111</td>
+   <td style="background-color:#fdf6d3">271,453</td>
+   <td style="background-color:#fdf6d3">813,616</td>
+   <td style="background-color:#fdf6d3">3,368,421</td>
+  </tr>
+</table>
+
+
+Here are a couple of examples:
+
+* If a CEO is willing to take on ten direct reports, they would have two layers of eleven people in the company (themself and ten direct reports). And three layers at twelve people. 
+* With four layers (CEO, reporting to CEO, front line managers, and individual contributors), with an average of eight direct reports, the company can have up to 585 employees.
+
+A few things to note:
+
+* There is also a minimum number of employees this supports. If you go below that minimum, then you either need less layers, or a smaller number of direct reports.
+* Keep in mind this is the *average* span of control.
+
+So basically, you’re choosing between small teams, but more layers. Or large teams, with less layers. And there are all sorts of implications of those choices.
+
+
+### Levels of management = complexity
+
+The complexity in organizations explodes with each additional layer of management. You often see a different type of problem emerge as each layer is added. For example, in startups you may find that early on, a lot of the challenges are around dividing into teams. But as you add a director layer, the problems become about coordinating between teams (and cross-team projects). And as you add a VP layer, you'll find a whole other set of challenges around coordination for large projects and overall structures of teams.
+
+Because of this, you'll find that a lot of leaders are biased towards large spans of control and want to flatten the organizational hierarchy. Flatter hierarchies result in more clarity and less organizational complexity. [Nic Benders](https://www.linkedin.com/in/benders/), a former coworker of mine: “You can optimize an organization for execution by reducing layers. And the easiest way to reduce layers is to have larger spans of control. Especially in the executive + middle-management tiers.” ([quoted here](https://www.linkedin.com/feed/update/urn:li:activity:7477051240498110464/))
+
+A lot of individual contributors and frontline managers may not be very conscious of these benefits, but it affects them too. When there are challenges and you have to go multiple levels up a hierarchy to have them resolved, those problems get resolved much slower, and they are competing for many other problems that are also navigating the same hierarchy. Basically, a large span of control minimizes one dimension of organizational complexity, which is the number of layers.
+
+
+### Benefits of a large span of control
+
+The primary benefit of a large span of control is reduced complexity, which improves communication, organization wide execution, and clarity. But there are some other benefits as well:
+
+
+
+* Can prevent micromanaging and having managers excessively involved in the work of individual contributors.
+* Can require fewer reorgs, because more can be done within the span of control of a director or VP.
+
+
+### Enablers for large span of control
+
+These things help:
+
+
+
+* Work that is more homogenous.
+* Senior and self-directed team members.
+* Autonomy and local decision-making with good context and direction.
+* Strong systems, standards, and documentation that reduces the manager as a routing layer and decision-maker.
+* Colocation or strong async work practices.
+
+
+### Challenges of a large span of control
+
+Why don't all companies just immediately implement huge spans of control? Well, there are trade-offs, of course. You’re trading off complexity caused by the number of levels with local complexity. Local complexity can be just as bad, or worse. So you’re often trying to strike a balance between these two concerns.
+
+For span of control, you have to take particular care with front-line managers. But this is true for all management roles. Having a wide span of control can feel like an impossible task. 
+
+I have coached many managers who have so many direct reports that it feels like they’re being set up to fail. They're expected to do hands-on coding, to be the technical leader across all of their projects, to be aware of all the details of everything happening in their organization, to be coaching and developing all their team members, and to be project managing and coordinating huge bodies of work. 
+
+This is just completely unrealistic, and I often see organizations realize that when the person leaves. They have to hire multiple people to replace the manager that left.
+
+When a manager has too much on their plate, they:
+
+* Neglect team members. This leads to high employee turnover, poor team context, and ineffective teams that struggle to succeed.
+* Deal with performance management issues slower. People that are performing poorly may not get attention, get noticed, or be dealt with. 
+* Neglect keeping their skills sharp. They may not be able to push the team to be innovative, because they can’t participate in these things themselves.
+* Fail to invest in onboarding, so new team members take longer to contribute.
+* Fail to be close enough to the work, so they don’t understand fully what is going on in their area. This leads to communication problems, more process that slows everything down, and unfair criticism of them.
+* Will have a fully booked calendar, leading to slower decision-making and them as a bottleneck. Their schedule is packed, so everything has to be on the calendar. Leading to a culture of meetings as the only place things happen.
+* Take longer to hire, because they have less capacity to focus on doing it quickly.
+* Take longer to take action, because they’re often not able to respond to anything until the end of their workday or the evening.
+
+Communication pathways also become more complicated with a large span of control. Nic Benders: “If, as a leader, you have a team of 4-6 managers you can discuss and decide. If you've got 15 managers in your team meeting, that's [not a decision making body](/the-rule-of-eight-for-strong-decision-making-meetings/).” 
+
+So often the tradeoff is between local execution and global execution. If you tilt too hard towards global execution, you actually may not achieve it, because your local execution will suffer.
+
+
+### Barriers to large spans of control
+
+Besides the negative effects above, these are things that can get in the way of having a large span of control: 
+
+
+
+* Coordination overhead.
+* Innovative work and challenging problems. Lots of local complexity and a need for lots of local creativity.
+* Communication bottlenecks. Poor communication.
+* High rate of change, priority thrash.
+* Inexperienced managers.
+* Stressed out managers, burnout, and retention problems.
+* Emergencies.
+* The amount of individual contributor work the manager does.
+* Hiring and other time-consuming activities.
+
+
+### Some landmines to large span of control
+
+A large span of control can make your organization less desirable for the management team. Savvy managers will realize there will be less room for promotion. Managers will also feel less inclined to stay around if the management role is overwhelming or stressful.
+
+It is true that leaders can learn a lot from the challenge of managing a lot of people. It can make you a better leader, as long as you are well supported and it’s not past your breaking point. Usually it’s best if it is a temporary situation.
+
+
+### AI and span of control
+
+So does AI allow managers to have a much larger span of control? There is a [trend in larger companies](https://www.bloomberg.com/news/articles/2026-06-17/why-companies-are-cutting-middle-managers-in-the-ai-era) nowadays having much larger spans of control. Some of this may be attributable to AI. I suspect the trend was well underway before AI really took off, and a lot of this may be continuing post-ZIRP transition and the [US tax code changes that drove most of the layoffs over the last few years](https://qz.com/tech-layoffs-tax-code-trump-section-174-microsoft-meta-1851783502). 
+
+AI should theoretically speed up the flow of information and allow teams to coordinate better. However, it also increases the speed of work and the amount of information that may need to be conveyed. I suspect that most of the mandated span of control changes in larger companies are examples of companies wanting to reduce the number of layers in their organization and thinking that AI will help them and making bets without [properly doing the groundwork to make it work well](https://www.businessinsider.com/meta-layoffs-managers-software-engineers-ai-spending-2026-6).
+
+A lot of experiments with getting rid of management layers are guided by an anti-management bias, and are unintended [experiments with structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). “No structure” usually equals “informal structures”. These experiments seldom end well. Ironically, I think it works best when you have a strong management team.
+
+
+## Terminology: teams vs pods
+
+Talking about span of control also necessarily bleeds into the topic of team size, but before we talk about team size, we need to align on some terminology. 
+
+* A **team** is a group of people working for a shared purpose. Teams are generally long-lasting, unless they are **project teams**. In software teams, you usually have an area of ownership (but this is a continuum from **shared ownership** to **full ownership teams**). 
+
+* The term **pod** is used in a lot of different ways, so it's a messy term. The way I use it is that a **pod** is a sub-team. It may or may not be long-lasting, but is usually a smaller group within a larger team, focused on a project or lane. The pods are generally similar to each other and could be interchangeable with their sister pods. 
+
+So with this definition, you can have multiple pods within a team. And you could potentially have two dissimilar teams managed by the same manager. A manager could have three pods under them, that would feel like one to three teams, depending on how similar the pods were to each other. 
+
+
+## Overall suggestion
+
+
+
+* Choose small pods for execution
+* Choose larger teams for resilience and shared context
+* Choose wider spans of control, enabled by good management
+
+
+## Team size: why small teams?
+
+Human seem to work best in groups of eight or less people.  I imagine if you look back in history or you look at the way militaries have organized their teams, this has probably been consistent.
+
+When describing why that is, I think it is mostly due to the fact that communication explodes with the number of people in a team (see [Metcalf’s Law](https://en.wikipedia.org/wiki/Metcalfe%27s_law)).
+
+
+![alt_text](lines-of-communication-stackoverflow-1024x953.png "image_tooltip")
+
+
+*(The original source for this was apparently StackOverflow, but it has disappeared as far as I can tell)*
+
+The conventional wisdom amongst engineering leaders is that small teams move faster, are happier, and more effective. Jeff Bezos famously coined the [2-pizza rule](https://aws.amazon.com/executive-insights/content/amazon-two-pizza-team/), and you’ll notice Amazon cites a lot of studies showing the benefits of keeping teams small. 
+
+
+### But avoid the pod of one
+
+One of the more common practices in engineering is the pod of one. Every person on the team gets their own project, and works on it independently. 
+
+This may be exacerbated by agentic software development, because one person can get so much done. 
+
+But the challenges historically have been:
+
+* **Poor shared context**. Makes it hard for people to be fungible against projects. Mary has to work on that project, because she’s the one that worked on it last, and is the only one who understands all the ins and outs of the customer needs there.
+* **Lower reliability and quality**. It’s harder to review each other’s work when you aren’t working on something similar. It’s harder to respond to incidents when you don’t know what’s involved.
+* **Lower innovation**. Teams that know how to work well together can often come up with much better designs and solutions if they problem solve together, critique each other’s designs, and help each other improve their thinking.
+* **Poor team dynamics**. People can feel isolated, lonely, and may not work as effectively.
+* **Poor overall execution**. Because there are so many projects in flight, none of them truly get the attention they deserve. Communication bottlenecks proliferate. People get blocked, so they start up even more work. People go on vacation, and since just one person is working on it, it can delay the entire project. Dependencies between projects become more critical, because someone being out means all the dependencies become more painful.
+
+It’s not the worst thing in the world. You can overcome some of these challenges by having a team show and tell, or having occasional pairing time. Or other practices that help blunt some of these dangers. But I’ve found teams that learn to work together produce better results than teams that work in isolation.
+
+There is a lot of momentum behind the work an individual can do when paired with AI, so I'm keeping an eye on this to see if I change my mind.
+
+I generally find that as companies grow, there is a point where it makes sense to impose a limit on the number of projects per team. This increases the resilience of the organization and minimizes the problems above, while decreasing overall throughput. But you can argue for it by saying it’s more important to get the highest priority projects done sooner, than to ship overall more projects. And the long-term benefits are to erase a lot of the above mentioned problems.
+
+When imposing a project limit, I usually choose either (number of people / 2). Or a limit of 1-2 projects per team, depending on its size. 
+
+Then people can be working on adject work within the same project, and share a lot more context with each other. This has a lot of benefits, including closer teams, better execution, less project management overhead, better product manager focus, and less of all the problems I mentioned above.
+
+### Thus, project based pods
+
+This lends itself to project-based pods. They focus on a project together, and live within a larger team. They share a lot of their process with sister pods. But they’re focused on their project goals together, and the main people they communicate with each week are their pod members.
+
+
+### Large teams have advantages too
+
+Large teams do have some advantages. They tend to be more resilient. They can absorb disruption like vacations more easily. They can often have [people focused on reducing interruptions](/hero-rotation/), so the rest of the team can focus more. 
+
+Large teams can support specialists that a small team cannot. So you might have someone that is really good at something and can help the rest of the team with it. In highly cross-functional teams (spanning a lot of areas of expertise), large teams may be an absolute necessity. 
+
+
+### Experimental approaches with large teams
+
+With this context in mind, you can see why I’ve been bullish on approaches like [FaST agile](/fast-agile/). While most approaches with radically increasing team size seem like ineffective experiments, this was an approach that avoids a lot of the traps of the past. It seems to combine a lot of the advantages of large teams with the advantages of small teams. 
+
+I think the reason for that is that it uses *process* to get people aligned on priorities, and *self-organization* to help people self-organize around the work and their communication needs. My own experiments with it have been promising, although there are of course costs and challenges as well, which I outline in my experience report linked above.
+
+
+## Overall principles and conclusions
+
+For early stage companies
+
+* A **rule of thumb is four to eight people** for a span of control. In the early days of a company, you should start with small teams and mostly ignore what you read about trends in larger companies. 
+* The cost of having a small span of control is less significant when you're a smaller company, but it often makes sense as you start getting towards the next layer of management to increase the span of control to try and hold on to a less complex organization. 
+
+As you grow
+
+* The **optimal span of control does change over time as the company grows**. As your business processes and operations become more mature, you can increase spans of control over time. 
+* **Choose a low span of control if you want innovation and focus, and choose a large span of control if you want efficiency and your organization is getting bigger.**
+* Make sure your managers are improving the *operations* of your organization. Things should be getting easier over time, not more complicated. You have to fight the entropy that comes from getting larger and larger as you grow. Ironically, good management practices are often what allow you to have a higher span of control. The practice that I encourage is [organizational work](/organizational-work-second-job/) as a core part of the management role.
+* You may want to think about front-line manager span of control separately from middle and executive managers. Their role is often harder in many ways, and more affected by span of control.
+* You’ll have to refactor communication, roles, and how people work together as your company evolves. Most people underestimate the work involved with this, and many smart people run into problems with it. Seek help if it’s not working (that’s my whole line of business!)
+* Holding on to the old way of doing things isn’t going to help (and will harm you). Don’t hold on to the forms of the past, but do pay attention to the outcomes and make sure they are getting better over time. This is one of the most common founder mistakes I see, because founders often feel an emotional attachment to what made them successful at the beginning.
+* Focus on reducing confusion, providing better clarity, reducing communication overhead, and giving people direct access to customers. Local decision-making with high context and direction is the way.
+* A lot of your focus with AI should be about reducing communication overhead, and improving context. 
+
+Sense what your span of control capacity is
+
+* There will usually be hot spots in any sufficiently large company. Do you have the ability to make those hot spots get better? If they don’t get dealt with, that’s a sign you may not be able to grow your span of control everywhere, as you are lacking the ability to manage your organization.
+* Periodically evaluate your “resilience”. How able are you to respond to emergencies and change? If you get the sense your managers are all at full capacity, you probably don’t want to be increasing their span of control, you want to be simplifying their world.
+* Keep in mind that some parts of your organization may have different needs than the other parts of the organization. It can sometimes be counterproductive to have a uniform span of control. 
+* Your managers may have different span of control capacities. You can periodically evaluate that.
+* Over time, as a company grows, the span of control should increase. But the mandates to go to 20, 40, or 50 people on a team are ridiculous.  There is no way a manager is going to be able to serve a team of 40 or 50 people. Even 20 is something I've never really seen done very well. Twelve is pretty hard and not a good idea in most situations.
+
+Think architecturally
+
+* Think about things that might make it possible for you to have a larger span of control. For example, a platform organization that abstracts away some complexities can allow for some of your teams to be a lot less full-stack. This can allow those teams to be a little bit more homogeneous, and can allow them to be larger. 
+
+Make a plan
+
+* For example, you might have an average span of control of six people within your organization. You’re observing that it's becoming a more mature organization. Projects are becoming more predictable. Your management team is experienced.  You're seeing communication improve through AI tooling.  
+* You might put together a plan to push the average span of control to eight or ten people. 
+* That plan should include how you'll know that you're going too fast, and how you'll know that you're going too slow. It might also include some investments in particular teams that can help make the overall complexity of the organization decrease. It could include management training or changes to the way you hire. And it could involve changes to some of the roles that support the team. For example, you might have technical leads take on different responsibilities as you increase the span of control beyond eight people.
+
+## What did I miss?
+
+That’s how I’m thinking about it right now. Let me know if you think I missed anything or overlooked anything.
+
+
+## Thank you
+
+Thank you to all the people who have shaped my thinking on this as I’ve discussed it recently. I’d like to particularly thank [Nic Benders](https://www.linkedin.com/in/benders/), my old office mate. Thank you to [Anton Vaynshtok](https://www.linkedin.com/in/avaynshtok/) for introducing me to the [Tyranny of Structurelessness](https://www.jofreeman.com/joreen/tyranny.htm). And thank you to [Ken Liu](https://www.linkedin.com/in/kenliu2/) for making some points that influenced my thinking about team size and how it relates to span of control. 
+
+Image by <a href="https://pixabay.com/users/memorycatcher-168384/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2415293">Siggy Nowak</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2415293">Pixabay</a>
