@@ -144,8 +144,8 @@ heading:
   family: *font-family-target
   size:
     h1: *font-size-xl
-    h2: 2.4em
-    h3: 1.8em
+    h2: 1.6em
+    h3: 1.3em
   lineHeight:
     h1: *font-line-height-xs
     h2: 1.2
