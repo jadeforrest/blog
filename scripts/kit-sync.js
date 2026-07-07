@@ -156,7 +156,7 @@ async function main() {
 
     let html;
     try {
-      html = await mdxToEmailHtml(post.raw, post.slug);
+      html = await mdxToEmailHtml(post.raw, post.slug, path.dirname(post.file));
     } catch (err) {
       console.error(`  Error converting MDX: ${err.message}`);
       skipped++;

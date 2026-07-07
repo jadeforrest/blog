@@ -20,22 +20,26 @@ const SITE_URL = 'https://www.rubick.com';
  * Kit's editor strips <style> blocks and class-based CSS on paste, which
  * collapses tables with no inline styling into a wall of concatenated text.
  * Rather than fight Kit's sanitizer, render each <table> to a PNG and swap it
- * for an <img>, saved alongside the post's other images so it gets a normal
- * absolute rubick.com URL.
+ * for an <img>.
+ *
+ * The PNG is saved into the post's source directory (alongside index.mdx and
+ * its other images), matching where every other post image lives, and then
+ * copied into public/ so the absolute rubick.com URL resolves immediately
+ * without waiting for the next `npm run dev`/`build` image-copy pass.
  */
-async function renderTablesAsImages(html, slug) {
+async function renderTablesAsImages(html, slug, sourceDir) {
   const tables = html.match(/<table[\s\S]*?<\/table>/g);
   if (!tables) return html;
 
-  const outDir = path.join(PUBLIC_DIR, slug);
-  fs.mkdirSync(outDir, { recursive: true });
+  const publicOutDir = path.join(PUBLIC_DIR, slug);
+  fs.mkdirSync(publicOutDir, { recursive: true });
 
   const browser = await chromium.launch();
   try {
     for (let i = 0; i < tables.length; i++) {
       const tableHtml = tables[i];
       const filename = `kit-table-${i + 1}.png`;
-      const outPath = path.join(outDir, filename);
+      const sourcePath = path.join(sourceDir, filename);
 
       const page = await browser.newPage({ deviceScaleFactor: 2 });
       await page.setContent(
@@ -43,11 +47,13 @@ async function renderTablesAsImages(html, slug) {
         `font-family:Arial,Helvetica,sans-serif;font-size:14px;">${tableHtml}</body></html>`
       );
       const table = await page.$('table');
-      await table.screenshot({ path: outPath });
+      await table.screenshot({ path: sourcePath });
       await page.close();
 
+      fs.copyFileSync(sourcePath, path.join(publicOutDir, filename));
+
       // Rendered at 2x for retina; halve back to CSS pixels for the <img width>.
-      const { width } = await sharp(outPath).metadata();
+      const { width } = await sharp(sourcePath).metadata();
       const widthAttr = width ? ` width="${Math.round(width / 2)}"` : '';
 
       html = html.replace(tableHtml, `<img src="${SITE_URL}/${slug}/${filename}" alt="Table"${widthAttr} />`);
@@ -62,8 +68,10 @@ async function renderTablesAsImages(html, slug) {
 /**
  * Given the raw MDX file content and the post slug, returns email HTML.
  * slug = the clean slug without date prefix (e.g. "equity-benefits-everyone")
+ * sourceDir = the post's source directory (contains index.mdx and its images),
+ * used to save any generated table screenshots alongside the post's other assets.
  */
-export async function mdxToEmailHtml(rawMdx, slug) {
+export async function mdxToEmailHtml(rawMdx, slug, sourceDir) {
   // 1. Strip frontmatter block
   const withoutFrontmatter = rawMdx.replace(/^---\n[\s\S]*?\n---\n/, '');
 
@@ -142,7 +150,7 @@ export async function mdxToEmailHtml(rawMdx, slug) {
   html = html.replace(/<td(?![^>]*\bstyle=)>/g,
     '<td style="border:1px solid #555;padding:12px 16px;">');
 
-  html = await renderTablesAsImages(html, slug);
+  html = await renderTablesAsImages(html, slug, sourceDir);
 
   // 4. Wrap with share-link paragraphs
   const postUrl = `${SITE_URL}/${slug}/`;
