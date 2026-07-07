@@ -7,8 +7,57 @@ import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import remarkFrontmatter from 'remark-frontmatter';
 import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { chromium } from 'playwright';
+import sharp from 'sharp';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const SITE_URL = 'https://www.rubick.com';
+
+/**
+ * Kit's editor strips <style> blocks and class-based CSS on paste, which
+ * collapses tables with no inline styling into a wall of concatenated text.
+ * Rather than fight Kit's sanitizer, render each <table> to a PNG and swap it
+ * for an <img>, saved alongside the post's other images so it gets a normal
+ * absolute rubick.com URL.
+ */
+async function renderTablesAsImages(html, slug) {
+  const tables = html.match(/<table[\s\S]*?<\/table>/g);
+  if (!tables) return html;
+
+  const outDir = path.join(PUBLIC_DIR, slug);
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const browser = await chromium.launch();
+  try {
+    for (let i = 0; i < tables.length; i++) {
+      const tableHtml = tables[i];
+      const filename = `kit-table-${i + 1}.png`;
+      const outPath = path.join(outDir, filename);
+
+      const page = await browser.newPage({ deviceScaleFactor: 2 });
+      await page.setContent(
+        `<!DOCTYPE html><html><body style="margin:0;padding:16px;background:#fff;` +
+        `font-family:Arial,Helvetica,sans-serif;font-size:14px;">${tableHtml}</body></html>`
+      );
+      const table = await page.$('table');
+      await table.screenshot({ path: outPath });
+      await page.close();
+
+      // Rendered at 2x for retina; halve back to CSS pixels for the <img width>.
+      const { width } = await sharp(outPath).metadata();
+      const widthAttr = width ? ` width="${Math.round(width / 2)}"` : '';
+
+      html = html.replace(tableHtml, `<img src="${SITE_URL}/${slug}/${filename}" alt="Table"${widthAttr} />`);
+    }
+  } finally {
+    await browser.close();
+  }
+
+  return html;
+}
 
 /**
  * Given the raw MDX file content and the post slug, returns email HTML.
@@ -85,15 +134,15 @@ export async function mdxToEmailHtml(rawMdx, slug) {
     return `<img${before} src="${SITE_URL}/${slug}/${src}"`;
   });
 
-  // Make tables email-safe: Kit's editor strips <style> blocks and class-based CSS
-  // on paste, which collapses tables with no inline styling into a wall of text.
-  // Add inline borders/padding directly on the table and cells so they survive.
+  // Add inline borders/padding so the table renders cleanly in the screenshot below.
   html = html.replace(/<table(?![^>]*\bstyle=)([^>]*)>/g,
     '<table$1 border="1" cellspacing="0" cellpadding="8" style="border-collapse:collapse">');
   html = html.replace(/<td style="([^"]*)"/g,
     '<td style="$1;border:1px solid #555;padding:12px 16px;"');
   html = html.replace(/<td(?![^>]*\bstyle=)>/g,
     '<td style="border:1px solid #555;padding:12px 16px;">');
+
+  html = await renderTablesAsImages(html, slug);
 
   // 4. Wrap with share-link paragraphs
   const postUrl = `${SITE_URL}/${slug}/`;
