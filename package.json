@@ -18,6 +18,8 @@
     "kit-sync:dry-run": "node scripts/kit-sync.js --dry-run",
     "kit-fetch": "node scripts/kit-fetch-sequence.js",
     "kit-fetch:dry-run": "node scripts/kit-fetch-sequence.js --dry-run",
+    "kit-push": "node scripts/kit-push-email.js",
+    "kit-push:dry-run": "node scripts/kit-push-email.js --dry-run",
     "kit-add-frontmatter": "node scripts/kit-add-frontmatter.js"
   },
   "dependencies": {

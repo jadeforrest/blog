@@ -21,6 +21,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
+import { loadApiKey, apiGet } from './lib/kit-api.js';
 import {
   folderName,
   buildFrontmatter,
@@ -32,59 +33,12 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
-const API_BASE = 'https://api.kit.com/v4';
 const DEFAULT_SEQUENCE_ID = '2684721';
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const prune = args.includes('--prune');
 const sequenceId = args.find((a) => /^\d+$/.test(a)) || DEFAULT_SEQUENCE_ID;
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-function loadApiKey() {
-  if (process.env.KIT_API_KEY) return process.env.KIT_API_KEY;
-  // Fallback: parse blog/.env (uses `export KIT_API_KEY="..."`).
-  const envPath = path.join(REPO_ROOT, '.env');
-  if (fs.existsSync(envPath)) {
-    const m = fs
-      .readFileSync(envPath, 'utf8')
-      .match(/^\s*(?:export\s+)?KIT_API_KEY\s*=\s*["']?([^"'\n]+)["']?/m);
-    if (m) return m[1];
-  }
-  return null;
-}
-
-async function apiGet(pathAndQuery, apiKey, { retries = 3 } = {}) {
-  const url = `${API_BASE}${pathAndQuery}`;
-  for (let attempt = 0; ; attempt++) {
-    const res = await fetch(url, {
-      headers: { 'X-Kit-Api-Key': apiKey, Accept: 'application/json' },
-    });
-
-    if (res.status === 429 && attempt < retries) {
-      const wait = Number(res.headers.get('retry-after')) || 2 ** attempt;
-      console.warn(`  Rate limited (429). Waiting ${wait}s before retry...`);
-      await sleep(wait * 1000);
-      continue;
-    }
-
-    if (!res.ok) {
-      const body = await res.text().catch(() => '');
-      const hint =
-        res.status === 401
-          ? ' — check KIT_API_KEY is a valid v4 key'
-          : res.status === 404
-            ? ' — check the sequence id exists'
-            : res.status === 429
-              ? ' — rate limited, try again later'
-              : '';
-      throw new Error(`GET ${pathAndQuery} → ${res.status} ${res.statusText}${hint}\n${body.slice(0, 500)}`);
-    }
-
-    return res.json();
-  }
-}
 
 /** Page through the sequence's emails (metadata only; bodies fetched separately). */
 async function listAllEmails(apiKey) {

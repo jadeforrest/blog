@@ -88,3 +88,4 @@ extracted-content/
 # Kit sync
 scripts/kit-session.json
 scripts/kit-captured-requests.json
+scripts/kit-backups/
