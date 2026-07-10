@@ -16,10 +16,12 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: 90cf4ef5ce10fd003ce0f95521b23f28
+kitSyncedAt: '2026-07-09T22:49:29.260Z'
 ---
 ​
 
-Hello there! Welcome to my course on getting started as an engineering manager. I'll use the term "front-line" managers for your role. Front-line managers are managers that are directly manage a team, instead of being a manager of managers.
+👋 Hello there! Welcome to my course on getting started as an engineering manager. I'll use the term "front-line" managers for your role. Front-line managers are managers that are directly manage a team, instead of being a manager of managers.
 
 ## New manager, or not?
 
