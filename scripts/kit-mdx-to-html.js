@@ -142,6 +142,17 @@ export async function mdxToEmailHtml(rawMdx, slug, sourceDir) {
     return `<img${before} src="${SITE_URL}/${slug}/${src}"`;
   });
 
+  // Rewrite relative <a> href attributes to absolute rubick.com URLs.
+  // Internal links in posts are root-relative (e.g. [x](/some-post/)), but an
+  // email has no base URL, so a client turns "/some-post/" into the bare host
+  // "http://some-post/". Prepend the domain for root-relative hrefs, and the
+  // domain + slug for bare relative hrefs (e.g. links to a sibling image file).
+  html = html.replace(/<a([^>]*?)\shref="([^"]+)"/g, (match, before, href) => {
+    if (/^(https?:)?\/\//.test(href) || /^(mailto:|tel:|#)/.test(href)) return match;
+    if (href.startsWith('/')) return `<a${before} href="${SITE_URL}${href}"`;
+    return `<a${before} href="${SITE_URL}/${slug}/${href}"`;
+  });
+
   // Add inline borders/padding so the table renders cleanly in the screenshot below.
   html = html.replace(/<table(?![^>]*\bstyle=)([^>]*)>/g,
     '<table$1 border="1" cellspacing="0" cellpadding="8" style="border-collapse:collapse">');
