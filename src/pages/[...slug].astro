@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatDate } from "../utils/formatDate";
 
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { post, date } = Astro.props;
-const { Content, components } = await post.render();
+const { Content } = await render(post);
 
 // Import MDX components for custom elements like <re-img>
 import MDXComponents from "../components/MDXComponents.jsx";

@@ -10,7 +10,7 @@
     "build": "npm run copy-images && npm run copy-newsletter-images && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node --test scripts/",
+    "test": "node --test \"scripts/**/*.test.js\"",
     "copy-images": "node scripts/copy-post-images.js",
     "copy-images:force": "node scripts/copy-post-images.js --force",
     "copy-images:clean": "node scripts/copy-post-images.js --clean",

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 }
 
 const { entry, isIndex } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 // GitHub edit URL
 const githubEditUrl = `https://github.com/jadeforrest/blog/edit/master/src/content/wiki/${entry.id}`;
