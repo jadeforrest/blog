@@ -2,6 +2,9 @@
   "name": "astro-blog",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "npm run copy-images && npm run copy-newsletter-images && astro dev",
     "build": "npm run copy-images && npm run copy-newsletter-images && astro build && npx pagefind --site dist",
@@ -23,11 +26,12 @@
     "kit-add-frontmatter": "node scripts/kit-add-frontmatter.js"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.12",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.4",
+    "@astrojs/markdown-remark": "^7.2.1",
+    "@astrojs/mdx": "^7.0.3",
+    "@astrojs/react": "^6.0.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.0.9",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.5",
     "react": "^19.2.1",
@@ -48,7 +52,7 @@
     "postcss": "^8.5.6",
     "postcss-easy-media-query": "^1.0.0",
     "postcss-nested": "^7.0.2",
-    "postcss-preset-env": "^10.5.0",
+    "postcss-preset-env": "^11.3.2",
     "postcss-text-remove-gap": "^1.1.1",
     "turndown": "^7.2.4"
   }
