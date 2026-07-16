@@ -34,6 +34,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html). Describes some useful concepts for understanding how to engineer more reliably with coding agents.
 * [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
 * [Ratchets and linting](https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/) as a tool for increasing the amount of quality in automated codebases.
+* [PR review tips](https://newsletter.posthog.com/p/code-review-tips) from posthog.
 
 ## Maintenance
 
