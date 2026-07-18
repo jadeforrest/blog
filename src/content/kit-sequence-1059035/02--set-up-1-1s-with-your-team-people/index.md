@@ -12,12 +12,14 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: 5237c2f716ccf4a9e54d4b11012f119e
+kitSyncedAt: '2026-07-18T17:23:54.620Z'
 ---
 ## Assignment
 
 If you haven't already, it's time to set up recurring one on ones ("1-1s") with your team.
 
-Action: Set up 1-1s with all your team. By the end of the day today. 25 minutes each.
+**Action**: Set up 1-1s with all your team. By the end of the day today. 25 minutes each.
 
 ## Why do 1-1s?
 
@@ -50,12 +52,14 @@ I like to have a Google Doc I use with each of my 1-1s. You can see an example [
 
 I take notes during each 1-1, and add action items. The other person can as well. Either of us can add topics to the Backlog for future conversations.
 
+With the rise of automated notetakers, I'm less sure nowadays of whether the shared notes are necessary. But having a place to put upcoming topics can be useful.
+
 ## Format for first 1-1
 
 For your first 1-1s with someone, I like to start with an outline like this:
 
--   <Greetings>
--   <If you don’t know them> Tell me a little about yourself, and I’ll do the same.
+-   &lt;Greetings&gt;
+-   &lt;If you don’t know them&gt; Tell me a little about yourself, and I’ll do the same.
 -   I see 1-1s as mostly your meeting. I'll sometimes have topics of my own as well, or have feedback to share with you. I like to keep notes in a shared Google doc, so we can keep a record of previous conversations. Feel free to use that Google doc like it's your agenda for our 1-1. Add topics you'd like to discuss.
 -   Do you have any advice for me as your manager? (If they don’t respond to that, ask about the managers they’ve enjoyed working for, or not enjoyed working for, and to tell you what about it they enjoyed or didn’t. You’ll learn about their working style and get some hints on how to serve them well.)
 
@@ -63,9 +67,9 @@ Listen more than you talk.
 
 ## Format for 1-1s after the first one
 
--   <Greetings>
+-   &lt;Greetings&gt;
 -   What is on your mind?
--   <Listen and discuss>
+-   &lt;Listen and discuss&gt;
 -   Then choose other questions from the "open ended questions list"
 
 For the most part, you shouldn’t use your 1-1s for status. This means your status will need to come from other meetings or means.
@@ -82,11 +86,12 @@ Here are some open-ended questions you can ask:
 -   How do you think <last project or milestone> went? Anything we can learn from it?
 -   How are these 1-1s going for you? Anything you'd like to change?
 
+I have a much longer list of questions at [Leadership wiki: 1-1s](https://www.rubick.com/wiki/people/one-on-ones/)
+
 ## Evolve to fit your style
 
-You'll develop your own style of 1-1 as you get experience with it. That's fine -- everyone seems to do it differently. Just check in periodically to make sure you're being useful and helpful to your direct reports.  
-​
+You'll develop your own style of 1-1 as you get experience with it. That's fine -- everyone seems to do it differently. Just check in periodically to make sure you're being useful and helpful to your direct reports.
+
 
 This post is for course members only at this point.
 
-​
