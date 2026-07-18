@@ -8,13 +8,16 @@
  * round-trip. Safety properties:
  *   - Backs up the current remote email JSON to scripts/kit-backups/ before any PUT
  *   - Writes the outgoing HTML alongside the backup for eyeballing/diffing
- *   - PUT sends only subject / preview_text / content — never position, published,
- *     delays, or send_days (the v4 endpoint leaves omitted fields untouched)
+ *   - PUT sends only subject / preview_text / content — never position, delays, or
+ *     send_days (the v4 endpoint leaves omitted fields untouched)
+ *   - The email's draft/published state is left untouched unless --publish is given,
+ *     which additionally sends published:true to flip a draft live (one-directional:
+ *     a push never unpublishes a live email)
  *   - Interactive [y/N] confirmation before the PUT (skippable with --yes)
  *   - kitSyncHash frontmatter gate skips files already in sync (override: --force)
  *
  * Usage:
- *   node scripts/kit-push-email.js <path-to-index.md> [--dry-run] [--force] [--yes]
+ *   node scripts/kit-push-email.js <path-to-index.md> [--dry-run] [--force] [--yes] [--publish]
  */
 
 import fs from 'fs';
@@ -32,6 +35,7 @@ const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const force = args.includes('--force');
 const yes = args.includes('--yes');
+const publish = args.includes('--publish');
 const filePath = args.find((a) => !a.startsWith('--'));
 
 function prompt(question) {
@@ -46,7 +50,7 @@ function prompt(question) {
 
 async function main() {
   if (!filePath) {
-    console.error('Usage: node scripts/kit-push-email.js <path-to-index.md> [--dry-run] [--force] [--yes]');
+    console.error('Usage: node scripts/kit-push-email.js <path-to-index.md> [--dry-run] [--force] [--yes] [--publish]');
     process.exit(1);
   }
   if (!fs.existsSync(filePath)) {
@@ -107,14 +111,27 @@ async function main() {
   }
   console.log(`Remote content: ${(remoteEmail.content ?? '').length} chars → outgoing: ${html.length} chars`);
 
+  // Publish intent: only ever flip a draft live, never unpublish.
+  const remotePublished = remoteEmail.published ?? false;
+  console.log(`Remote state:   ${remotePublished ? 'published' : 'draft'}`);
+  if (publish && remotePublished) {
+    console.log('  ℹ Already published on Kit — --publish is a no-op for state.');
+  } else if (publish) {
+    console.log('  → --publish set: this push will publish the email (draft → published).');
+  }
+
   if (dryRun) {
     console.log('\nDry run complete. No changes made to Kit.');
     console.log('Inspect the outgoing HTML against the backup, then rerun without --dry-run.');
     return;
   }
 
-  const payload = buildUpdatePayload(fm, html);
-  console.log('\nWill PUT only: subject, preview_text, content (scheduling fields untouched).');
+  const payload = buildUpdatePayload(fm, html, { publish });
+  console.log(
+    publish
+      ? '\nWill PUT: subject, preview_text, content, published:true (scheduling fields untouched).'
+      : '\nWill PUT only: subject, preview_text, content (scheduling/publish state untouched).'
+  );
   if (!yes) {
     const answer = await prompt('Push to Kit? [y/N]: ');
     if (answer !== 'y') {
@@ -125,13 +142,17 @@ async function main() {
 
   const result = await apiPut(`/sequences/${fm.sequenceId}/emails/${fm.kitEmailId}`, payload, apiKey);
   const updated = result.email || result;
-  console.log(`\n✓ Pushed. Kit now has subject "${updated.subject ?? ''}" (${(updated.content ?? '').length} chars).`);
+  const nowPublished = updated.published ?? (publish || remotePublished);
+  console.log(
+    `\n✓ Pushed. Kit now has subject "${updated.subject ?? ''}" (${(updated.content ?? '').length} chars, ${nowPublished ? 'published' : 'draft'}).`
+  );
 
   // Record push state in frontmatter. The stored hash is computed from the file
   // exactly as written here (matter.stringify may normalize hand-edited YAML), and
   // hashableContent excludes the kitSyncHash/kitSyncedAt lines themselves — so the
   // next run's contentHash(raw) matches and correctly reports "already in sync".
-  const newFm = { ...fm, kitSyncHash: 'pending', kitSyncedAt: new Date().toISOString() };
+  // Keep the `published` mirror in step with what Kit now reports.
+  const newFm = { ...fm, published: nowPublished, kitSyncHash: 'pending', kitSyncedAt: new Date().toISOString() };
   let out = matter.stringify(body, newFm);
   out = out.replace(/^kitSyncHash: .*$/m, `kitSyncHash: ${contentHash(out)}`);
   fs.writeFileSync(filePath, out);

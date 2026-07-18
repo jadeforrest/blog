@@ -46,14 +46,21 @@ export function contentHash(raw) {
 
 /**
  * Build the PUT body for `/v4/sequences/{sequence_id}/emails/{id}`. Deliberately
- * limited to content-ish fields — never position, published, delays, or send_days,
- * so a push can't disturb sequence scheduling (the v4 endpoint only changes fields
- * present in the body).
+ * limited to content-ish fields — never position, delays, or send_days, so a push
+ * can't disturb sequence scheduling (the v4 endpoint only changes fields present
+ * in the body).
+ *
+ * `published` is likewise omitted by default: the email's draft/published state on
+ * Kit is left untouched unless the caller opts in with `{ publish: true }` (the
+ * `--publish` CLI flag), which sends `published: true` to flip a draft live. Note
+ * this is intentionally one-directional — we never send `published: false`, so a
+ * push cannot unpublish a live email.
  */
-export function buildUpdatePayload(frontmatter, html) {
+export function buildUpdatePayload(frontmatter, html, { publish = false } = {}) {
   return {
     subject: frontmatter.subject ?? '',
     preview_text: frontmatter.previewText ?? '',
     content: html,
+    ...(publish && { published: true }),
   };
 }

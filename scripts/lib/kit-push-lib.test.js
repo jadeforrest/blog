@@ -77,3 +77,21 @@ test('buildUpdatePayload: tolerates missing subject/preview', () => {
   const payload = buildUpdatePayload({}, '<p>x</p>\n');
   assert.deepEqual(payload, { subject: '', preview_text: '', content: '<p>x</p>\n' });
 });
+
+test('buildUpdatePayload: never sends published unless publish opted in', () => {
+  // Frontmatter's own published flag must not leak into the payload.
+  const payload = buildUpdatePayload({ subject: 'Hi', published: true }, '<p>x</p>\n');
+  assert.equal('published' in payload, false);
+});
+
+test('buildUpdatePayload: publish:true sends published:true', () => {
+  const payload = buildUpdatePayload({ subject: 'Hi', previewText: 'peek' }, '<p>x</p>\n', {
+    publish: true,
+  });
+  assert.deepEqual(payload, {
+    subject: 'Hi',
+    preview_text: 'peek',
+    content: '<p>x</p>\n',
+    published: true,
+  });
+});
