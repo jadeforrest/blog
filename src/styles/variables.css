@@ -1,11 +1,18 @@
 :root {
+  /* ==========================================================================
+     Jade Rubick Design System — design tokens
+     Brand identity ported from the original theme; the editorial layer
+     (display serif, warm surfaces, elevation, wider layouts) is layered on top.
+     Prefer the semantic aliases at the bottom of each section in product code.
+     ========================================================================== */
+
   /* Colors - Brand */
   --color-brand-primary: #3875b9;
   --color-brand-primary-light: #fafaf9;
   --color-brand-primary-dark: #b67a0e;
   --color-brand-hover: #c09f80;
 
-  /* Colors - Neutral */
+  /* Colors - Neutral (a = lightest → k = near-black; warm-leaning) */
   --color-neutral-white: #ffffff;
   --color-neutral-black: #000000;
   --color-neutral-gray-a: #fafaf9;
@@ -21,7 +28,7 @@
   --color-neutral-gray-k: #2b2826;
   --color-neutral-blue: #3875b9;
 
-  /* Colors - Accent */
+  /* Colors - Accent (complement the blue; use one at a time, sparingly) */
   --color-accent-orange: #e67e22;
   --color-accent-coral: #ff6b6b;
   --color-accent-gold: #f39c12;
@@ -29,12 +36,18 @@
   --color-accent-mint: #20c997;
   --color-accent-purple: #6f42c1;
 
-  /* Colors - Special */
+  /* Colors - Special / status ("attention" is the warm-orange CTA color) */
   --color-special-attention: #e37222;
   --color-special-success: #20c997;
   --color-special-warning: #f39c12;
   --color-special-error: #ff6b6b;
   --color-special-info: #17a2b8;
+
+  /* Warm editorial surfaces (heroes, feature moments) */
+  --surface-paper: #f7f4ee; /* warm ivory "paper" */
+  --surface-deep: #1f3b57; /* deep navy ink */
+  --color-accent: var(--color-special-attention); /* warm orange, secondary accent */
+  --color-accent-soft: #f3ded0; /* pale warm tint for accent fills */
 
   /* Spacing */
   --space-default: 20px;
@@ -59,14 +72,23 @@
   --space-inline-m: 0 20px 0 0;
   --space-inline-l: 0 40px 0 0;
 
-  /* Sizes */
-  --size-radius-default: 10px;
-  --size-radius-small: 5px;
-  --size-article-max-width: 700px;
+  /* Sizes - radii */
+  --size-radius-default: 10px; /* cards / panels */
+  --size-radius-small: 5px; /* chips & inputs */
+  --size-radius-cta: 14px; /* large call-to-action buttons */
+  --size-radius-pill: 999px;
+
+  /* Sizes - layout widths */
+  --size-content-max-width: 1200px; /* header / footer / wide pages */
+  --size-reading-max-width: 800px; /* homepage, posts list, article shell */
+  --size-article-max-width: 700px; /* article body measure */
+  --size-article-text-width: 700px;
 
   /* Typography - Font Family */
   --font-family-base: "Open Sans", Arial, sans-serif;
   --font-family-heading: "Open Sans", Arial, sans-serif;
+  --font-family-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-family-mono: "Courier New", Courier, monospace;
 
   /* Typography - Font Size */
   --font-size-xxs: 0.8em;
@@ -87,8 +109,9 @@
   --line-height-xxl: 1.6;
   --line-height-reset: 1;
 
-  /* Typography - Font Weight */
+  /* Typography - Font Weight (only three are used across the brand) */
   --font-weight-standard: 400;
+  --font-weight-medium: 500;
   --font-weight-bold: 600;
 
   /* Heading Sizes */
@@ -100,19 +123,46 @@
   --heading-line-height-h3: 1.3;
   --heading-weight: 600;
 
-  /* Text Colors */
-  --text-color-primary: #666;
-  --text-color-primary-inverse: #ffffff;
-  --text-color-brand: #3875b9;
-  --text-color-attention: #e37222;
+  /* Text Colors (semantic) */
+  --text-color-primary: var(--color-neutral-gray-j);
+  --text-color-secondary: var(--color-neutral-gray-h);
+  --text-color-muted: var(--color-neutral-gray-g);
+  --text-color-heading: var(--color-neutral-gray-j);
+  --text-color-primary-inverse: var(--color-neutral-white);
+  --text-color-inverse: var(--color-neutral-white);
+  --text-color-brand: var(--color-brand-primary);
+  --text-color-attention: var(--color-special-attention);
   --text-line-height-default: 1.4;
   --text-max-width-tablet: 650px;
   --text-max-width-desktop: 700px;
 
   /* Background Colors */
-  --background-color-primary: #ffffff;
-  --background-color-alt: #fafaf9;
-  --background-color-brand: #3875b9;
+  --background-color-primary: var(--color-neutral-white);
+  --background-color-alt: var(--color-neutral-gray-a);
+  --background-color-panel: #f8f9fa; /* form / quote panels */
+  --background-color-brand: var(--color-brand-primary);
+
+  /* Borders & lines */
+  --border-color-subtle: var(--color-neutral-gray-c);
+  --border-color-default: var(--color-neutral-gray-d);
+  --border-hairline: 1px solid var(--color-neutral-gray-c);
+  --border-default: 1px solid var(--color-neutral-gray-d);
+  --border-strong: 2px solid var(--color-neutral-gray-c);
+  --line-color: var(--color-neutral-gray-c);
+  --icon-color: var(--color-brand-primary);
+
+  /* Links */
+  --link-color: var(--color-brand-primary);
+  --link-color-hover: var(--color-brand-hover);
+
+  /* Elevation — subtle by design; cards feel like paper, not floating */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 2px 5px rgba(0, 0, 0, 0.15);
+  --shadow-hairline: 0 0 2px rgba(0, 0, 0, 0.15);
+  --shadow-fixed-header: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-dropdown: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-cta: 0 6px 20px rgba(227, 114, 34, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --shadow-cta-hover: 0 8px 25px rgba(227, 114, 34, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
   /* Header */
   --header-height-default: 50px;
@@ -122,4 +172,7 @@
   /* Time/Animation */
   --time-duration-default: 0.5s;
   --time-duration-long: 1s;
+  --transition-color: color 0.3s ease;
+  --transition-fast: all 0.2s ease;
+  --transition-default: all var(--time-duration-default);
 }

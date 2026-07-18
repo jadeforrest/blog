@@ -6,6 +6,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { FaCalendar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
 import charityImage from "../assets/charity.png";
+import avatarLarge from "../assets/avatar-large.jpeg";
+import Hero from "../components/Hero.astro";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   // Get all posts and sort by date (newest first)
@@ -67,6 +69,20 @@ const postsWithCovers = await Promise.all(
     {
       page.currentPage === 1 && (
         <>
+          <Hero
+            kicker="Engineering Leadership"
+            title="Build humane, effective engineering organizations"
+            emphasis="humane"
+            emphasisPosition="start"
+            subtitle="I help leaders troubleshoot and scale their engineering and product — advising, coaching, and interim leadership."
+            primaryText="Work with me"
+            primaryHref="/about/"
+            secondaryText="Read the blog"
+            secondaryHref="/posts/"
+            image={avatarLarge}
+            imageAlt="Jade Rubick"
+          />
+
           <div class="newsletter-signup">
             <script src="https://f.convertkit.com/ckjs/ck.5.js" is:inline></script>
             <form
@@ -198,8 +214,12 @@ const postsWithCovers = await Promise.all(
 
 <style>
   .homepage {
-    max-width: 800px;
+    max-width: var(--size-reading-max-width);
     margin: 0 auto;
+  }
+
+  .homepage :global(.hero) {
+    margin-bottom: var(--space-l);
   }
 
   /* Newsletter signup form */

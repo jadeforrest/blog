@@ -1,0 +1,202 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  kicker?: string;
+  title: string;
+  emphasis?: string;
+  emphasisPosition?: "start" | "end";
+  subtitle?: string;
+  primaryText?: string;
+  primaryHref?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+}
+
+const {
+  kicker,
+  title,
+  emphasis,
+  emphasisPosition = "end",
+  subtitle,
+  primaryText,
+  primaryHref = "#",
+  secondaryText,
+  secondaryHref = "#",
+  image,
+  imageAlt = "",
+} = Astro.props;
+
+// Highlight the emphasis word in place if present; otherwise prepend/append it.
+type TitlePart = { text: string; emphasis: boolean };
+let titleParts: TitlePart[];
+if (emphasis && title.includes(emphasis)) {
+  const idx = title.indexOf(emphasis);
+  titleParts = [
+    { text: title.slice(0, idx), emphasis: false },
+    { text: emphasis, emphasis: true },
+    { text: title.slice(idx + emphasis.length), emphasis: false },
+  ];
+} else if (emphasis) {
+  titleParts =
+    emphasisPosition === "start"
+      ? [
+          { text: emphasis, emphasis: true },
+          { text: ` ${title}`, emphasis: false },
+        ]
+      : [
+          { text: `${title} `, emphasis: false },
+          { text: emphasis, emphasis: true },
+        ];
+} else {
+  titleParts = [{ text: title, emphasis: false }];
+}
+---
+
+<section class={`hero ${image ? "hero--with-image" : ""}`}>
+  <div class="hero-body">
+    {kicker && <div class="hero-kicker">{kicker}</div>}
+    <h1 class="hero-title">
+      {
+        titleParts.map((part) =>
+          part.emphasis ? <span class="hero-em">{part.text}</span> : <>{part.text}</>
+        )
+      }
+    </h1>
+    {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+    {
+      (primaryText || secondaryText) && (
+        <div class="hero-actions">
+          {primaryText && (
+            <a href={primaryHref} class="btn btn-primary btn-lg">
+              {primaryText}
+            </a>
+          )}
+          {secondaryText && (
+            <a href={secondaryHref} class="btn btn-secondary btn-lg">
+              {secondaryText}
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+
+  {
+    image && (
+      <div class="hero-image">
+        {/* Astro center-crops to this exact 4:5 ratio at 2x for retina. The
+            source's subject must sit near center; there is no CSS crop lever
+            here because the generated file already matches the display box. */}
+        <Image src={image} alt={imageAlt} width={600} height={750} />
+      </div>
+    )
+  }
+
+  <div class="hero-glow" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-paper);
+    border-radius: var(--size-radius-default);
+    padding: clamp(32px, 5vw, 64px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero--with-image {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .hero-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-kicker {
+    /* Darker than --color-accent so 14px bold clears WCAG AA on paper */
+    color: #a94d0c;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .hero-title {
+    font-family: var(--font-family-display);
+    font-weight: 500;
+    font-size: clamp(38px, 4.4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--color-neutral-gray-k);
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+
+  .hero-em {
+    color: var(--color-brand-primary);
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--color-neutral-gray-h);
+    margin: 0 0 28px;
+    max-width: 40ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero-image {
+    position: relative;
+    z-index: 1;
+    justify-self: center;
+  }
+
+  .hero-image :global(img) {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--size-radius-default);
+    box-shadow: 0 10px 30px rgba(31, 59, 87, 0.18);
+    display: block;
+  }
+
+  .hero-glow {
+    position: absolute;
+    right: -120px;
+    bottom: -120px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(227, 114, 34, 0.12),
+      rgba(227, 114, 34, 0)
+    );
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero--with-image {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+      grid-row: 1;
+    }
+  }
+</style>

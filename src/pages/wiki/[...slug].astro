@@ -132,7 +132,7 @@ const entriesInDir = isIndex
       isIndex && entriesInDir.length > 0 && (
         <div class="wiki-listing">
           <h2>Pages in this section</h2>
-          <ul>
+          <div class="wiki-grid">
             {entriesInDir.map((e) => {
               const isSubdir = e.id.endsWith("/index.md");
               // Remove .md first, then remove /index for subdirectories
@@ -143,18 +143,19 @@ const entriesInDir = isIndex
               const linkPath = isSubdir ? `/${linkSlug}/` : `/${linkSlug}`;
 
               return (
-                <li>
-                  <a href={`/wiki${linkPath}`}>
-                    {e.data.icon && <span class="wiki-icon">{e.data.icon}</span>}
-                    {e.data.title}
-                  </a>
+                <a href={`/wiki${linkPath}`} class="wiki-card">
+                  {e.data.icon && <div class="wiki-card-icon">{e.data.icon}</div>}
+                  <h3 class="wiki-card-title">{e.data.title}</h3>
                   {e.data.description && (
-                    <span class="entry-description">- {e.data.description}</span>
+                    <p class="wiki-card-desc">{e.data.description}</p>
                   )}
-                </li>
+                  <span class="badge badge-info">
+                    {isSubdir ? "Section" : "Wiki"}
+                  </span>
+                </a>
               );
             })}
-          </ul>
+          </div>
         </div>
       )
     }
@@ -292,32 +293,46 @@ const entriesInDir = isIndex
     color: var(--text-color-primary);
   }
 
-  .wiki-listing ul {
-    list-style: none;
-    padding: 0;
+  .wiki-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-m);
   }
 
-  .wiki-listing li {
-    margin-bottom: var(--space-s);
-    padding: var(--space-s);
-    background: var(--background-color-alt);
-    border-radius: var(--size-radius-small);
-  }
-
-  .wiki-listing a {
-    color: var(--color-brand-primary);
+  .wiki-card {
+    display: block;
+    background: var(--color-neutral-white);
+    border-radius: var(--size-radius-default);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-m);
     text-decoration: none;
-    font-weight: var(--font-weight-bold);
+    transition: box-shadow var(--time-duration-default);
   }
 
-  .wiki-listing a:hover {
-    color: var(--color-brand-hover);
-    text-decoration: underline;
+  .wiki-card:hover {
+    box-shadow: var(--shadow-card-hover);
   }
 
-  .entry-description {
-    color: var(--color-neutral-gray-j);
+  .wiki-card-icon {
+    font-size: 1.8em;
+    line-height: 1;
+    margin-bottom: var(--space-s);
+  }
+
+  .wiki-card-title {
+    font-size: var(--heading-size-h3);
+    line-height: var(--heading-line-height-h3);
+    margin: 0 0 var(--space-xs);
+    color: var(--text-color-primary);
+  }
+
+  .wiki-card:hover .wiki-card-title {
+    color: var(--color-brand-primary);
+  }
+
+  .wiki-card-desc {
+    margin: 0 0 var(--space-s);
+    color: var(--color-neutral-gray-h);
     font-size: var(--font-size-xs);
-    margin-left: var(--space-xs);
   }
 </style>

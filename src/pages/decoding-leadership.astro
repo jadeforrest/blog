@@ -34,7 +34,7 @@ function normalizeWhitespace(value: string): string {
 ---
 
 <BaseLayout
-  title="Decoding Leadership Podcast | Jade Rubick"
+  title="Decoding Leadership Podcast"
   description="Where we break down the elements of humane and effective leadership"
 >
   <div class="podcast-page">
@@ -75,7 +75,7 @@ function normalizeWhitespace(value: string): string {
           href="https://www.resiliumlabs.com"
           target="_blank"
           rel="noopener noreferrer">Adrian Hornsby</a
-        >
+        >{" "}
         <a
           href="https://www.linkedin.com/posts/adhorn_beth-adele-long-on-reliability-and-leadership-activity-7366471477837127682-ZXfV?rcm=ACoAAABlKc0BaeEYgJ_9P6NkNW6WS3BVMP2QmzA"
           target="_blank"
@@ -183,12 +183,15 @@ function normalizeWhitespace(value: string): string {
   }
 
   .testimonial blockquote {
+    font-family: var(--font-family-display);
     font-style: italic;
+    font-size: 1.3em;
     margin: 0;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    line-height: var(--text-line-height-default);
+    padding: var(--space-m) var(--space-l);
+    background-color: var(--background-color-panel);
+    border-radius: var(--size-radius-default);
+    line-height: 1.5;
+    color: var(--text-color-primary);
   }
 
   .attribution {

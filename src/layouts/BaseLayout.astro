@@ -1,6 +1,7 @@
 ---
 import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch, FaBars } from "react-icons/fa";
 import { Image } from "astro:assets";
+import "../styles/global.css";
 import avatarImage from "../assets/avatar.jpg";
 import ogDefaultImage from "../assets/og-default.jpg";
 
@@ -75,7 +76,7 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400&display=swap"
       rel="stylesheet"
     />
     <script defer data-domain="rubick.com" src="https://plausible.io/js/script.js"></script>
@@ -232,8 +233,6 @@ const buildTime = buildDate.toLocaleString("en-US", {
 </html>
 
 <style>
-  @import "../styles/global.css";
-
   .site-wrapper {
     min-height: 100vh;
     display: flex;
