@@ -37,7 +37,7 @@ Companies break up the roles and responsibilities of an engineering manager in m
 
 Many startups start out with a tech lead model. It’s fine for the early stages of a company, but tends to be something you outgrow.
 
-![Tech Lead model](https://embed.filekitcdn.com/e/mNeKaTGtKvpZpieVZMQsz6/dAUPzzPm8wS7ZrW3PoGB4T)
+![Tech Lead model](https://www.rubick.com/kit-images/1059035/27d6f86830825e53.png)
 
 ​
 
@@ -52,7 +52,7 @@ Many startups start out with a tech lead model. It’s fine for the early stages
 
 This is the approach I gravitate towards. With this approach, you have an Engineering Manager, Product Manager, and Tech Lead.
 
-![Engineering manager runs projects](https://embed.filekitcdn.com/e/mNeKaTGtKvpZpieVZMQsz6/5TgzwBd7cS8j1LE1y7cK6w)
+![Engineering manager runs projects](https://www.rubick.com/kit-images/1059035/af867b7ed543ca97.png)
 
 ​
 
@@ -66,7 +66,7 @@ This is the approach I gravitate towards. With this approach, you have an Engine
 
 The intention is to have the Product Manager heavily involved in the team’s work. And to have highly technical engineering managers, who review code and sometimes even write code. At least some parts of Google operate with this model.
 
-![Product manager runs projects](https://embed.filekitcdn.com/e/mNeKaTGtKvpZpieVZMQsz6/eXPc7NSySMUe8wCDbDCPho)
+![Product manager runs projects](https://www.rubick.com/kit-images/1059035/2bc172254c7bc04b.png)
 
 ​
 
@@ -81,7 +81,7 @@ The intention is to have the Product Manager heavily involved in the team’s wo
 
 The Single Threaded Owner owns everything. They can hire people to delegate parts of their job. I have a longer [experience report on the Single Threaded Owner model](https://www.rubick.com/implementing-amazons-single-threaded-owner-model/?utm_source=ck-em-vs-tl&utm_medium=link&utm_campaign=em-vs-tl). Amazon popularized this approach.
 
-![Single Threaded Owner runs everything](https://embed.filekitcdn.com/e/mNeKaTGtKvpZpieVZMQsz6/d9fzUQaKjiZ7r7cREtLQU8)
+![Single Threaded Owner runs everything](https://www.rubick.com/kit-images/1059035/cd5e1124b2bd1227.png)
 
 ​
 
@@ -96,7 +96,7 @@ The Single Threaded Owner owns everything. They can hire people to delegate part
 
 The SCRUM approach is a classic approach to software development. It doesn’t explicitly call out the managerial responsibilities. Here’s an [overview of SCRUM](https://www.scrumalliance.org/ScrumRedesignDEVSite/media/ScrumAllianceMedia/Files%20and%20PDFs/Community/Articles/2015/SCRUM-in-Agile.pdf).
 
-![SCRUM model](https://embed.filekitcdn.com/e/mNeKaTGtKvpZpieVZMQsz6/xxKk1Hxb36LwkHnd7uDQfa)
+![SCRUM model](https://www.rubick.com/kit-images/1059035/bc92b66a91a5221e.png)
 
 ​
 
@@ -110,7 +110,7 @@ The SCRUM approach is a classic approach to software development. It doesn’t e
 
 ​
 
-![](https://embed.filekitcdn.com/e/mNeKaTGtKvpZpieVZMQsz6/v5RyhjnUovuCY8mkprctNo/email)
+![](https://www.rubick.com/kit-images/1059035/9a8f11fc0e1519a0.png)
 
 ​
 

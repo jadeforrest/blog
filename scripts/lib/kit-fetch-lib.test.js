@@ -9,6 +9,11 @@ import {
   nextCursor,
   extractImageUrls,
   isRubickUrl,
+  isImageContentType,
+  imageExtension,
+  imageUrlHash,
+  mirroredImageName,
+  rewriteImageUrls,
   snippetKeysIn,
   applySnippets,
 } from './kit-fetch-lib.js';
@@ -139,6 +144,57 @@ test('isRubickUrl: matches rubick.com host only', () => {
   assert.equal(isRubickUrl('https://rubick.com/x.png'), true);
   assert.equal(isRubickUrl('https://cdn.kit.com/x.png'), false);
   assert.equal(isRubickUrl('not a url'), false);
+});
+
+test('isImageContentType: true only for image/* media types', () => {
+  assert.equal(isImageContentType('image/png'), true);
+  assert.equal(isImageContentType('image/jpeg; charset=binary'), true);
+  assert.equal(isImageContentType('text/html'), false);
+  assert.equal(isImageContentType(''), false);
+  assert.equal(isImageContentType(null), false);
+});
+
+test('imageExtension: prefers Content-Type, falls back to URL then png', () => {
+  // Content-Type wins even for an extensionless (filekitcdn-style) URL.
+  assert.equal(imageExtension('https://embed.filekitcdn.com/e/abc/def', 'image/png'), 'png');
+  assert.equal(imageExtension('https://x/y', 'image/jpeg'), 'jpg');
+  assert.equal(imageExtension('https://x/y.webp', ''), 'webp');
+  assert.equal(imageExtension('https://x/y.JPG?v=2', ''), 'jpg');
+  assert.equal(imageExtension('https://embed.filekitcdn.com/e/abc/def', ''), 'png');
+});
+
+test('imageUrlHash: deterministic and URL-sensitive', () => {
+  assert.equal(imageUrlHash('https://x/a'), imageUrlHash('https://x/a'));
+  assert.notEqual(imageUrlHash('https://x/a'), imageUrlHash('https://x/b'));
+  assert.match(imageUrlHash('https://x/a'), /^[0-9a-f]{16}$/);
+});
+
+test('mirroredImageName: <hash>.<ext>, stable across runs', () => {
+  const url = 'https://embed.filekitcdn.com/e/abc/def';
+  const name = mirroredImageName(url, 'image/png');
+  assert.equal(name, `${imageUrlHash(url)}.png`);
+  assert.equal(mirroredImageName(url, 'image/png'), name);
+});
+
+test('rewriteImageUrls: swaps exact URLs, skips no-op entries', () => {
+  const md = '![a](https://cdn/x) and again ![b](https://cdn/x) but ![c](https://cdn/y)';
+  const out = rewriteImageUrls(
+    md,
+    new Map([
+      ['https://cdn/x', 'https://www.rubick.com/kit-images/1/h.png'],
+      ['https://cdn/z', 'https://cdn/z'], // identical → skipped
+    ]),
+  );
+  assert.equal(
+    out,
+    '![a](https://www.rubick.com/kit-images/1/h.png) and again ![b](https://www.rubick.com/kit-images/1/h.png) but ![c](https://cdn/y)',
+  );
+});
+
+test('rewriteImageUrls: accepts a plain object and tolerates empty mapping', () => {
+  assert.equal(rewriteImageUrls('![a](u)', { u: 'v' }), '![a](v)');
+  assert.equal(rewriteImageUrls('![a](u)', {}), '![a](u)');
+  assert.equal(rewriteImageUrls('![a](u)', null), '![a](u)');
 });
 
 test('snippetKeysIn: distinct keys in first-seen order', () => {

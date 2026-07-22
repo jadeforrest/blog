@@ -17,12 +17,19 @@
  * one-way convenience: an expanded file no longer references the shared snippet,
  * so pushing it back to Kit would inline the content there too.
  *
+ * Images: external images (anything not already on rubick.com — chiefly Kit's
+ * ephemeral embed.filekitcdn.com CDN) are mirrored into public/kit-images/<seq>/
+ * and the Markdown refs rewritten to their stable https://www.rubick.com/... URLs.
+ * public/ is this site, so the mirror is both version-controlled AND a public URL
+ * an email can still load after a push back to Kit. Disable with --no-mirror-images.
+ *
  * Usage:
  *   source .env && node scripts/kit-fetch-sequence.js            # default sequence 2684721
  *   node scripts/kit-fetch-sequence.js 2684721
  *   node scripts/kit-fetch-sequence.js --dry-run                 # list only, no writes
  *   node scripts/kit-fetch-sequence.js --prune                   # remove orphan folders
  *   node scripts/kit-fetch-sequence.js --expand-snippets         # inline {{ snippet.* }} tags
+ *   node scripts/kit-fetch-sequence.js --no-mirror-images        # leave external images remote
  *   # Update a single email in place (folder derived from the file), e.g. to refresh snippets:
  *   node scripts/kit-fetch-sequence.js <path/to/index.md> --expand-snippets
  */
@@ -39,6 +46,10 @@ import {
   nextCursor,
   extractImageUrls,
   isRubickUrl,
+  isImageContentType,
+  imageUrlHash,
+  mirroredImageName,
+  rewriteImageUrls,
   snippetKeysIn,
   applySnippets,
 } from './lib/kit-fetch-lib.js';
@@ -46,11 +57,18 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
 const DEFAULT_SEQUENCE_ID = '2684721';
+// public/ is served at the site root, so a file at public/<X> is reachable at
+// https://www.rubick.com/<X> — the stable, email-safe home for mirrored images.
+const SITE_URL = 'https://www.rubick.com';
+const IMAGES_SUBDIR = 'kit-images';
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const prune = args.includes('--prune');
 const expandSnippets = args.includes('--expand-snippets');
+// Mirror external (non-rubick.com) images into public/ by default; --no-mirror-images
+// keeps them as remote references instead.
+const mirrorImages = !args.includes('--no-mirror-images');
 // A non-flag, non-numeric argument is a path to a single email's index.md to
 // update in place (sequence + email id come from its frontmatter).
 const singleFile = args.find((a) => !a.startsWith('--') && !/^\d+$/.test(a));
@@ -135,7 +153,61 @@ async function expandSnippetsIn(body, resolver, label) {
   return text;
 }
 
-/** Report any non-rubick.com image URLs in `body` (left verbatim, never downloaded). */
+/**
+ * Download one external image into public/kit-images/<seq>/ and return its
+ * rubick.com URL. Idempotent: a URL is content-addressed by a short hash, so an
+ * already-downloaded image (any extension) is reused without re-fetching. Throws
+ * on a network error or a non-image response so the caller can leave it verbatim.
+ */
+async function mirrorOneImage(url, seqId) {
+  const destDir = path.join(REPO_ROOT, 'public', IMAGES_SUBDIR, String(seqId));
+  const urlFor = (name) => `${SITE_URL}/${IMAGES_SUBDIR}/${seqId}/${name}`;
+
+  const hash = imageUrlHash(url);
+  if (fs.existsSync(destDir)) {
+    const existing = fs.readdirSync(destDir).find((f) => f.startsWith(`${hash}.`));
+    if (existing) return urlFor(existing);
+  }
+
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  const contentType = res.headers.get('content-type') || '';
+  if (!isImageContentType(contentType)) {
+    throw new Error(`not an image (Content-Type: ${contentType || 'unknown'})`);
+  }
+  const name = mirroredImageName(url, contentType);
+  fs.mkdirSync(destDir, { recursive: true });
+  fs.writeFileSync(path.join(destDir, name), Buffer.from(await res.arrayBuffer()));
+  return urlFor(name);
+}
+
+/**
+ * Mirror every external (non-rubick.com) image referenced in `body`, rewriting
+ * refs to the mirrored rubick.com URLs. Failures are reported and left verbatim.
+ * In `dryRun` mode nothing is downloaded — it only lists what would be mirrored.
+ */
+async function mirrorImagesIn(body, seqId, label, { dryRun }) {
+  const urls = [...new Set(extractImageUrls(body).filter((u) => !isRubickUrl(u)))];
+  if (!urls.length) return body;
+
+  const mapping = new Map();
+  for (const url of urls) {
+    if (dryRun) {
+      console.log(`  would mirror image in ${label}: ${url}`);
+      continue;
+    }
+    try {
+      const newUrl = await mirrorOneImage(url, seqId);
+      mapping.set(url, newUrl);
+      console.log(`  mirrored image in ${label}: ${path.basename(new URL(newUrl).pathname)}`);
+    } catch (err) {
+      console.warn(`  ⚠ could not mirror ${url} in ${label} (left verbatim): ${err.message}`);
+    }
+  }
+  return rewriteImageUrls(body, mapping);
+}
+
+/** Report any non-rubick.com image URLs in `body` (used when mirroring is disabled). */
 function reportExternalImages(body, label) {
   const external = extractImageUrls(body).filter((u) => !isRubickUrl(u));
   if (external.length) {
@@ -187,6 +259,7 @@ async function runSingleFile(apiKey, resolver) {
   const email = data.email || data;
   let body = htmlToMarkdown(email.content);
   if (expandSnippets) body = await expandSnippetsIn(body, resolver, label);
+  if (mirrorImages) body = await mirrorImagesIn(body, fm.sequenceId, label, { dryRun });
 
   const fileContent = matter.stringify(body, buildFrontmatter(email));
   if (dryRun) {
@@ -195,7 +268,7 @@ async function runSingleFile(apiKey, resolver) {
   }
   fs.writeFileSync(filePath, fileContent);
   console.log(`\n✓ Updated ${path.relative(REPO_ROOT, filePath)}`);
-  reportExternalImages(body, label);
+  if (!mirrorImages) reportExternalImages(body, label);
 }
 
 async function main() {
@@ -253,13 +326,16 @@ async function main() {
     fs.mkdirSync(desiredDir, { recursive: true });
     let body = htmlToMarkdown(email.content);
     if (expandSnippets) body = await expandSnippetsIn(body, resolver, desiredName);
+    if (mirrorImages) {
+      body = await mirrorImagesIn(body, sequenceId, desiredName, { dryRun });
+    } else {
+      for (const url of extractImageUrls(body)) {
+        if (!isRubickUrl(url)) externalImages.push({ email: desiredName, url });
+      }
+    }
     const fileContent = matter.stringify(body, buildFrontmatter({ ...meta, ...email }));
     fs.writeFileSync(path.join(desiredDir, 'index.md'), fileContent);
     written++;
-
-    for (const url of extractImageUrls(body)) {
-      if (!isRubickUrl(url)) externalImages.push({ email: desiredName, url });
-    }
   }
 
   // Orphans: folders whose kitEmailId is no longer in the sequence.

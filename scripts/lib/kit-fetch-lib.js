@@ -6,6 +6,7 @@
  * orchestration layer over these functions.
  */
 
+import { createHash } from 'node:crypto';
 import TurndownService from 'turndown';
 
 /**
@@ -114,6 +115,61 @@ export function isRubickUrl(url) {
   } catch {
     return false;
   }
+}
+
+const CONTENT_TYPE_EXT = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg',
+  'image/gif': 'gif',
+  'image/webp': 'webp',
+  'image/svg+xml': 'svg',
+  'image/avif': 'avif',
+};
+
+/** True if `contentType` names an image media type (`image/...`). */
+export function isImageContentType(contentType) {
+  return /^image\//i.test(String(contentType ?? '').trim());
+}
+
+/**
+ * File extension for a mirrored image. Prefers the `Content-Type` (authoritative
+ * for filekitcdn's extensionless URLs), then the URL's own extension, then `png`.
+ */
+export function imageExtension(url, contentType) {
+  const ct = String(contentType ?? '')
+    .split(';')[0]
+    .trim()
+    .toLowerCase();
+  if (CONTENT_TYPE_EXT[ct]) return CONTENT_TYPE_EXT[ct];
+  const m = String(url ?? '')
+    .split(/[?#]/)[0]
+    .match(/\.([a-z0-9]{2,4})$/i);
+  return m ? m[1].toLowerCase() : 'png';
+}
+
+/** Short, stable content-address of a source image URL (used as the mirror's basename). */
+export function imageUrlHash(url) {
+  return createHash('sha1').update(String(url)).digest('hex').slice(0, 16);
+}
+
+/** Deterministic mirrored filename for a source image URL: `<hash>.<ext>`. */
+export function mirroredImageName(url, contentType) {
+  return `${imageUrlHash(url)}.${imageExtension(url, contentType)}`;
+}
+
+/**
+ * Replace exact image source URLs in `markdown` using `mapping` (old URL → new
+ * URL, a Map or plain object). No-op entries (missing/identical) are skipped.
+ */
+export function rewriteImageUrls(markdown, mapping) {
+  let out = String(markdown ?? '');
+  const entries = mapping instanceof Map ? [...mapping] : Object.entries(mapping ?? {});
+  for (const [oldUrl, newUrl] of entries) {
+    if (!oldUrl || !newUrl || oldUrl === newUrl) continue;
+    out = out.split(oldUrl).join(newUrl);
+  }
+  return out;
 }
 
 /** Matches Kit's Liquid snippet tag, e.g. `{{ snippet.engineering-manager }}`. */
