@@ -53,6 +53,28 @@ export function buildFrontmatter(email) {
   };
 }
 
+/**
+ * Frontmatter keys owned by the push side (kit-push-email), not derivable from
+ * Kit's API. A fetch rebuilds frontmatter from the API, so these must be carried
+ * over from the file's existing frontmatter — otherwise a re-fetch wipes the
+ * push script's change-detection state (kitSyncHash) and last-push timestamp.
+ */
+export const PRESERVED_FRONTMATTER_KEYS = ['kitSyncHash', 'kitSyncedAt'];
+
+/**
+ * Merge freshly-built frontmatter with push-side bookkeeping carried over from
+ * `existing` (the file's current frontmatter, or null/undefined for a new file).
+ * Only PRESERVED_FRONTMATTER_KEYS with a non-null existing value are carried;
+ * everything else comes from `built`.
+ */
+export function mergeFrontmatter(built, existing) {
+  const out = { ...built };
+  for (const key of PRESERVED_FRONTMATTER_KEYS) {
+    if (existing != null && existing[key] != null) out[key] = existing[key];
+  }
+  return out;
+}
+
 let _turndown;
 function turndown() {
   if (!_turndown) {

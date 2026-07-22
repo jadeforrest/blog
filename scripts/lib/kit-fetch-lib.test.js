@@ -5,6 +5,7 @@ import {
   paddedPosition,
   folderName,
   buildFrontmatter,
+  mergeFrontmatter,
   htmlToMarkdown,
   nextCursor,
   extractImageUrls,
@@ -78,6 +79,33 @@ test('buildFrontmatter: tolerates missing optional fields', () => {
   assert.equal(fm.published, false);
   assert.equal(fm.delayValue, null);
   assert.equal(fm.emailTemplateId, null);
+});
+
+test('mergeFrontmatter: carries over push-side bookkeeping from existing', () => {
+  const built = buildFrontmatter({ id: 1, sequence_id: 2, position: 0 });
+  const merged = mergeFrontmatter(built, {
+    kitSyncHash: 'abc123',
+    kitSyncedAt: '2026-07-20T16:17:44.211Z',
+  });
+  assert.equal(merged.kitSyncHash, 'abc123');
+  assert.equal(merged.kitSyncedAt, '2026-07-20T16:17:44.211Z');
+  // API-derived fields still come from `built`.
+  assert.equal(merged.kitEmailId, 1);
+});
+
+test('mergeFrontmatter: no existing (new file) leaves built untouched', () => {
+  const built = buildFrontmatter({ id: 1, sequence_id: 2, position: 0 });
+  assert.deepEqual(mergeFrontmatter(built, null), built);
+  assert.deepEqual(mergeFrontmatter(built, undefined), built);
+  assert.deepEqual(mergeFrontmatter(built, {}), built);
+  assert.equal('kitSyncHash' in mergeFrontmatter(built, {}), false);
+});
+
+test('mergeFrontmatter: only preserved keys are carried, not arbitrary extras', () => {
+  const built = buildFrontmatter({ id: 1, sequence_id: 2, position: 0 });
+  const merged = mergeFrontmatter(built, { kitSyncHash: 'h', someOtherField: 'x' });
+  assert.equal(merged.kitSyncHash, 'h');
+  assert.equal('someOtherField' in merged, false);
 });
 
 test('htmlToMarkdown: converts headings/links/lists', () => {

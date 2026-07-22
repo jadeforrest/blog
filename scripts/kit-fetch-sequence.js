@@ -42,6 +42,7 @@ import { loadApiKey, apiGet } from './lib/kit-api.js';
 import {
   folderName,
   buildFrontmatter,
+  mergeFrontmatter,
   htmlToMarkdown,
   nextCursor,
   extractImageUrls,
@@ -261,7 +262,9 @@ async function runSingleFile(apiKey, resolver) {
   if (expandSnippets) body = await expandSnippetsIn(body, resolver, label);
   if (mirrorImages) body = await mirrorImagesIn(body, fm.sequenceId, label, { dryRun });
 
-  const fileContent = matter.stringify(body, buildFrontmatter(email));
+  // Preserve push-side bookkeeping (kitSyncHash/kitSyncedAt) that the API can't
+  // supply, so refreshing an already-pushed file doesn't reset its sync state.
+  const fileContent = matter.stringify(body, mergeFrontmatter(buildFrontmatter(email), fm));
   if (dryRun) {
     console.log('\nDry run complete. Nothing written.');
     return;
@@ -324,6 +327,19 @@ async function main() {
     }
 
     fs.mkdirSync(desiredDir, { recursive: true });
+
+    // Read any existing frontmatter (post-rename it lives at desiredDir) so we can
+    // carry over push-side bookkeeping the API doesn't return (kitSyncHash/kitSyncedAt).
+    const indexPath = path.join(desiredDir, 'index.md');
+    let existingFm = null;
+    if (fs.existsSync(indexPath)) {
+      try {
+        existingFm = matter(fs.readFileSync(indexPath, 'utf8')).data;
+      } catch {
+        /* unreadable frontmatter: fall back to a clean rebuild */
+      }
+    }
+
     let body = htmlToMarkdown(email.content);
     if (expandSnippets) body = await expandSnippetsIn(body, resolver, desiredName);
     if (mirrorImages) {
@@ -333,8 +349,11 @@ async function main() {
         if (!isRubickUrl(url)) externalImages.push({ email: desiredName, url });
       }
     }
-    const fileContent = matter.stringify(body, buildFrontmatter({ ...meta, ...email }));
-    fs.writeFileSync(path.join(desiredDir, 'index.md'), fileContent);
+    const fileContent = matter.stringify(
+      body,
+      mergeFrontmatter(buildFrontmatter({ ...meta, ...email }), existingFm),
+    );
+    fs.writeFileSync(indexPath, fileContent);
     written++;
   }
 
