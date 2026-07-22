@@ -13,7 +13,7 @@ sendDays:
   - sunday
 emailTemplateId: null
 kitSyncHash: 5237c2f716ccf4a9e54d4b11012f119e
-kitSyncedAt: '2026-07-18T17:23:54.620Z'
+kitSyncedAt: '2026-07-20T16:17:44.211Z'
 ---
 ## Assignment
 
