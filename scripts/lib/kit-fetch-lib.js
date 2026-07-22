@@ -115,3 +115,45 @@ export function isRubickUrl(url) {
     return false;
   }
 }
+
+/** Matches Kit's Liquid snippet tag, e.g. `{{ snippet.engineering-manager }}`. */
+const SNIPPET_TAG = /\{\{\s*snippet\.([a-zA-Z0-9_-]+)\s*\}\}/g;
+
+/**
+ * Distinct snippet keys referenced via Kit's Liquid snippet tag
+ * (`{{ snippet.<key> }}`), in first-seen order and de-duplicated.
+ */
+export function snippetKeysIn(text) {
+  const keys = [];
+  const seen = new Set();
+  for (const m of String(text ?? '').matchAll(SNIPPET_TAG)) {
+    if (!seen.has(m[1])) {
+      seen.add(m[1]);
+      keys.push(m[1]);
+    }
+  }
+  return keys;
+}
+
+/**
+ * Replace `{{ snippet.<key> }}` tags with resolved content. `resolved` is a Map
+ * (or plain object) of key → replacement string; a key whose value is missing
+ * (undefined / null) is left untouched so an unknown snippet degrades to its tag
+ * rather than vanishing. Returns `{ text, replaced, missing }` (both lists of
+ * distinct keys) so the caller can report what happened.
+ */
+export function applySnippets(text, resolved) {
+  const get = (k) => (resolved instanceof Map ? resolved.get(k) : resolved?.[k]);
+  const replaced = new Set();
+  const missing = new Set();
+  const out = String(text ?? '').replace(SNIPPET_TAG, (whole, key) => {
+    const value = get(key);
+    if (value == null) {
+      missing.add(key);
+      return whole;
+    }
+    replaced.add(key);
+    return String(value);
+  });
+  return { text: out, replaced: [...replaced], missing: [...missing] };
+}

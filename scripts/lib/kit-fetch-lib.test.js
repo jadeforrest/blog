@@ -9,6 +9,8 @@ import {
   nextCursor,
   extractImageUrls,
   isRubickUrl,
+  snippetKeysIn,
+  applySnippets,
 } from './kit-fetch-lib.js';
 
 test('slugify: normal subject → kebab-case', () => {
@@ -137,4 +139,41 @@ test('isRubickUrl: matches rubick.com host only', () => {
   assert.equal(isRubickUrl('https://rubick.com/x.png'), true);
   assert.equal(isRubickUrl('https://cdn.kit.com/x.png'), false);
   assert.equal(isRubickUrl('not a url'), false);
+});
+
+test('snippetKeysIn: distinct keys in first-seen order', () => {
+  const text = 'a {{ snippet.engineering-manager }} b {{snippet.hiring_speed}} c {{ snippet.engineering-manager }}';
+  assert.deepEqual(snippetKeysIn(text), ['engineering-manager', 'hiring_speed']);
+});
+
+test('snippetKeysIn: ignores other Liquid tags, tolerates empty', () => {
+  assert.deepEqual(snippetKeysIn('{{ subscriber.first_name }} {% if x %}{% endif %}'), []);
+  assert.deepEqual(snippetKeysIn(''), []);
+  assert.deepEqual(snippetKeysIn(null), []);
+});
+
+test('applySnippets: replaces known keys, reports replaced', () => {
+  const { text, replaced, missing } = applySnippets(
+    'intro\n\n{{ snippet.engineering-manager }}\n\noutro',
+    new Map([['engineering-manager', 'EXPANDED BODY']]),
+  );
+  assert.equal(text, 'intro\n\nEXPANDED BODY\n\noutro');
+  assert.deepEqual(replaced, ['engineering-manager']);
+  assert.deepEqual(missing, []);
+});
+
+test('applySnippets: unknown key left as its tag and reported missing', () => {
+  const { text, replaced, missing } = applySnippets('{{ snippet.unknown }}', new Map());
+  assert.equal(text, '{{ snippet.unknown }}');
+  assert.deepEqual(replaced, []);
+  assert.deepEqual(missing, ['unknown']);
+});
+
+test('applySnippets: accepts a plain object and de-dupes reported keys', () => {
+  const { text, replaced } = applySnippets(
+    '{{ snippet.a }} and {{ snippet.a }}',
+    { a: 'X' },
+  );
+  assert.equal(text, 'X and X');
+  assert.deepEqual(replaced, ['a']);
 });

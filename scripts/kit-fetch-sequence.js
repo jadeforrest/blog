@@ -10,11 +10,21 @@
  *
  * Auth: reads KIT_API_KEY from the environment (or from blog/.env). Never logged.
  *
+ * Snippets: Kit lets emails embed reusable content via Liquid tags like
+ * `{{ snippet.engineering-manager }}`. Those pass through verbatim by default.
+ * With `--expand-snippets` each tag is replaced inline with the snippet's content
+ * (fetched from the v4 /snippets API and converted to Markdown). Note this is a
+ * one-way convenience: an expanded file no longer references the shared snippet,
+ * so pushing it back to Kit would inline the content there too.
+ *
  * Usage:
  *   source .env && node scripts/kit-fetch-sequence.js            # default sequence 2684721
  *   node scripts/kit-fetch-sequence.js 2684721
  *   node scripts/kit-fetch-sequence.js --dry-run                 # list only, no writes
  *   node scripts/kit-fetch-sequence.js --prune                   # remove orphan folders
+ *   node scripts/kit-fetch-sequence.js --expand-snippets         # inline {{ snippet.* }} tags
+ *   # Update a single email in place (folder derived from the file), e.g. to refresh snippets:
+ *   node scripts/kit-fetch-sequence.js <path/to/index.md> --expand-snippets
  */
 
 import fs from 'fs';
@@ -29,6 +39,8 @@ import {
   nextCursor,
   extractImageUrls,
   isRubickUrl,
+  snippetKeysIn,
+  applySnippets,
 } from './lib/kit-fetch-lib.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,6 +50,10 @@ const DEFAULT_SEQUENCE_ID = '2684721';
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const prune = args.includes('--prune');
+const expandSnippets = args.includes('--expand-snippets');
+// A non-flag, non-numeric argument is a path to a single email's index.md to
+// update in place (sequence + email id come from its frontmatter).
+const singleFile = args.find((a) => !a.startsWith('--') && !/^\d+$/.test(a));
 const sequenceId = args.find((a) => /^\d+$/.test(a)) || DEFAULT_SEQUENCE_ID;
 
 /** Page through the sequence's emails (metadata only; bodies fetched separately). */
@@ -60,6 +76,74 @@ async function fetchEmailBody(id, apiKey) {
   return data.email || data;
 }
 
+/** List every snippet on the account as a `key → id` map (content omitted here). */
+async function listAllSnippets(apiKey) {
+  const map = new Map();
+  let cursor = null;
+  do {
+    const q = new URLSearchParams({ per_page: '500' });
+    if (cursor) q.set('after', cursor);
+    const data = await apiGet(`/snippets?${q.toString()}`, apiKey);
+    for (const s of data.snippets || []) map.set(s.key, s.id);
+    cursor = nextCursor(data.pagination, cursor);
+  } while (cursor);
+  return map;
+}
+
+/**
+ * Lazily resolve snippet keys → Markdown. The account's `key → id` index and each
+ * snippet's converted body are fetched on first use and cached, so a bulk run
+ * hits `/snippets` at most once and each referenced snippet at most once. An
+ * unknown key resolves to `null` (left as its tag by `applySnippets`).
+ */
+function makeSnippetResolver(apiKey) {
+  let index = null;
+  const cache = new Map(); // key → Markdown string | null
+  return async function resolve(keys) {
+    const out = new Map();
+    for (const key of keys) {
+      if (!cache.has(key)) {
+        if (!index) index = await listAllSnippets(apiKey);
+        const id = index.get(key);
+        if (id == null) {
+          cache.set(key, null);
+        } else {
+          const data = await apiGet(`/snippets/${id}`, apiKey);
+          const snip = data.snippet || data;
+          cache.set(key, htmlToMarkdown(snip.content).trim());
+        }
+      }
+      out.set(key, cache.get(key));
+    }
+    return out;
+  };
+}
+
+/**
+ * Inline `{{ snippet.* }}` tags in `body` using `resolver`, logging what was
+ * expanded or left as an unknown tag. Returns the (possibly unchanged) body.
+ */
+async function expandSnippetsIn(body, resolver, label) {
+  const keys = snippetKeysIn(body);
+  if (!keys.length) return body;
+  const resolved = await resolver(keys);
+  const { text, replaced, missing } = applySnippets(body, resolved);
+  if (replaced.length) console.log(`  expanded snippet(s) in ${label}: ${replaced.join(', ')}`);
+  if (missing.length) {
+    console.warn(`  ⚠ unknown snippet key(s) in ${label} (left as tag): ${missing.join(', ')}`);
+  }
+  return text;
+}
+
+/** Report any non-rubick.com image URLs in `body` (left verbatim, never downloaded). */
+function reportExternalImages(body, label) {
+  const external = extractImageUrls(body).filter((u) => !isRubickUrl(u));
+  if (external.length) {
+    console.log('\nNon-rubick.com image URLs (left verbatim, not downloaded):');
+    for (const url of external) console.log(`  ${label}: ${url}`);
+  }
+}
+
 /** Map existing kitEmailId → folder name by reading each index.md's frontmatter. */
 function scanExistingFolders(outDir) {
   const map = new Map();
@@ -77,11 +161,55 @@ function scanExistingFolders(outDir) {
   return map;
 }
 
+/**
+ * Update a single email's index.md in place. Sequence + email id come from the
+ * file's own frontmatter, so this works regardless of the positional/default
+ * sequence id and writes back to the exact path given (no folder renames).
+ */
+async function runSingleFile(apiKey, resolver) {
+  const filePath = path.resolve(singleFile);
+  if (!fs.existsSync(filePath)) {
+    console.error(`Error: file not found: ${singleFile}`);
+    process.exit(1);
+  }
+  const { data: fm } = matter(fs.readFileSync(filePath, 'utf8'));
+  if (!fm.kitEmailId || !fm.sequenceId) {
+    console.error('Error: frontmatter must contain kitEmailId and sequenceId (is this a kit-sequence file?)');
+    process.exit(1);
+  }
+
+  const label = path.basename(path.dirname(filePath));
+  console.log(`Single email → ${path.relative(REPO_ROOT, filePath)}`);
+  console.log(`Sequence ${fm.sequenceId}  Email id ${fm.kitEmailId}  — "${fm.subject || '(no subject)'}"`);
+  if (dryRun) console.log('--- DRY RUN (no writes) ---');
+
+  const data = await apiGet(`/sequences/${fm.sequenceId}/emails/${fm.kitEmailId}`, apiKey);
+  const email = data.email || data;
+  let body = htmlToMarkdown(email.content);
+  if (expandSnippets) body = await expandSnippetsIn(body, resolver, label);
+
+  const fileContent = matter.stringify(body, buildFrontmatter(email));
+  if (dryRun) {
+    console.log('\nDry run complete. Nothing written.');
+    return;
+  }
+  fs.writeFileSync(filePath, fileContent);
+  console.log(`\n✓ Updated ${path.relative(REPO_ROOT, filePath)}`);
+  reportExternalImages(body, label);
+}
+
 async function main() {
   const apiKey = loadApiKey();
   if (!apiKey) {
     console.error('Error: KIT_API_KEY not set. Add it to .env (export KIT_API_KEY="...") or the environment.');
     process.exit(1);
+  }
+
+  const resolver = makeSnippetResolver(apiKey);
+
+  if (singleFile) {
+    await runSingleFile(apiKey, resolver);
+    return;
   }
 
   const outDir = path.join(REPO_ROOT, 'src', 'content', `kit-sequence-${sequenceId}`);
@@ -123,7 +251,8 @@ async function main() {
     }
 
     fs.mkdirSync(desiredDir, { recursive: true });
-    const body = htmlToMarkdown(email.content);
+    let body = htmlToMarkdown(email.content);
+    if (expandSnippets) body = await expandSnippetsIn(body, resolver, desiredName);
     const fileContent = matter.stringify(body, buildFrontmatter({ ...meta, ...email }));
     fs.writeFileSync(path.join(desiredDir, 'index.md'), fileContent);
     written++;
