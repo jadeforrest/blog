@@ -26,6 +26,22 @@ All commands below refer to the Astro blog unless specified otherwise.
   - Regenerates all images even if they exist
 - **Clean old images**: `npm run images:clean` or `npm run copy-images:clean`
   - Removes directories for deleted posts (safely checks for WebP files)
+  - `public/kit-images/` is a protected directory (see Kit Email Sync) and is never treated as a stale post directory
+
+#### Kit Email Sync (`scripts/kit-fetch-sequence.js`)
+Pulls emails from a Kit (kit.com) sequence via the v4 API into per-email Markdown
+under `src/content/kit-sequence-<id>/`. The inverse push is `scripts/kit-push-email.js`.
+- **Fetch a whole sequence**: `source .env && node scripts/kit-fetch-sequence.js [sequenceId]`
+- **Refresh one email in place**: `node scripts/kit-fetch-sequence.js <path/to/index.md>`
+  (sequence + email id come from the file's own frontmatter; the folder is not renamed)
+- **Flags**: `--dry-run` (no writes), `--prune` (remove orphan folders), `--expand-snippets`
+  (inline `{{ snippet.* }}` Liquid tags — one-way), `--no-mirror-images` (leave external images remote)
+- **Frontmatter**: fetch preserves the push-side keys `kitSyncHash` / `kitSyncedAt`; all other
+  fields are rebuilt from the Kit API on each fetch
+- **Mirrored images**: external (non-rubick.com) images are downloaded into
+  `public/kit-images/<seq>/` (checked in, served at `https://www.rubick.com/kit-images/<seq>/...`)
+  and the Markdown refs rewritten. SVGs are left remote (same-origin script risk).
+  This directory is append-only — orphaned images are **not** auto-pruned; clean it manually if needed.
 
 ### Gatsby Blog (Legacy)
 Navigate to `gatsby-blog/` directory first:
