@@ -145,13 +145,21 @@ const CONTENT_TYPE_EXT = {
   'image/jpg': 'jpg',
   'image/gif': 'gif',
   'image/webp': 'webp',
-  'image/svg+xml': 'svg',
   'image/avif': 'avif',
 };
 
 /** True if `contentType` names an image media type (`image/...`). */
 export function isImageContentType(contentType) {
   return /^image\//i.test(String(contentType ?? '').trim());
+}
+
+/**
+ * True if `contentType` is SVG. SVGs are intentionally NOT mirrored into public/:
+ * they can carry embedded script and would then be served same-origin from
+ * rubick.com, so the caller leaves them as their original remote reference.
+ */
+export function isSvgContentType(contentType) {
+  return /^image\/svg\+xml\b/i.test(String(contentType ?? '').trim());
 }
 
 /**

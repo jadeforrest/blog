@@ -11,6 +11,7 @@ import {
   extractImageUrls,
   isRubickUrl,
   isImageContentType,
+  isSvgContentType,
   imageExtension,
   imageUrlHash,
   mirroredImageName,
@@ -180,6 +181,15 @@ test('isImageContentType: true only for image/* media types', () => {
   assert.equal(isImageContentType('text/html'), false);
   assert.equal(isImageContentType(''), false);
   assert.equal(isImageContentType(null), false);
+});
+
+test('isSvgContentType: true only for image/svg+xml', () => {
+  assert.equal(isSvgContentType('image/svg+xml'), true);
+  assert.equal(isSvgContentType('image/svg+xml; charset=utf-8'), true);
+  assert.equal(isSvgContentType('IMAGE/SVG+XML'), true);
+  assert.equal(isSvgContentType('image/png'), false);
+  assert.equal(isSvgContentType(''), false);
+  assert.equal(isSvgContentType(null), false);
 });
 
 test('imageExtension: prefers Content-Type, falls back to URL then png', () => {

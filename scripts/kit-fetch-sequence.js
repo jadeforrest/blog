@@ -22,6 +22,8 @@
  * and the Markdown refs rewritten to their stable https://www.rubick.com/... URLs.
  * public/ is this site, so the mirror is both version-controlled AND a public URL
  * an email can still load after a push back to Kit. Disable with --no-mirror-images.
+ * SVGs are left as their remote reference (not mirrored) since serving an SVG
+ * same-origin from rubick.com would expose any script it embeds.
  *
  * Usage:
  *   source .env && node scripts/kit-fetch-sequence.js            # default sequence 2684721
@@ -48,6 +50,7 @@ import {
   extractImageUrls,
   isRubickUrl,
   isImageContentType,
+  isSvgContentType,
   imageUrlHash,
   mirroredImageName,
   rewriteImageUrls,
@@ -175,6 +178,10 @@ async function mirrorOneImage(url, seqId) {
   const contentType = res.headers.get('content-type') || '';
   if (!isImageContentType(contentType)) {
     throw new Error(`not an image (Content-Type: ${contentType || 'unknown'})`);
+  }
+  // SVGs can carry script; don't mirror them into public/ (served same-origin).
+  if (isSvgContentType(contentType)) {
+    throw new Error('SVG not mirrored (left remote to avoid same-origin script)');
   }
   const name = mirroredImageName(url, contentType);
   fs.mkdirSync(destDir, { recursive: true });
