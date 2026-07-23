@@ -36,6 +36,9 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Ratchets and linting](https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/) as a tool for increasing the amount of quality in automated codebases.
 * [PR review tips](https://newsletter.posthog.com/p/code-review-tips) from posthog.
 
+## Large-scale refactoring
+* [Restoration of a 20-year-old Java “Big Ball of Mud” using AI and Docker](https://martinfowler.com/articles/archaeologist-copilot.html)
+
 ## Maintenance
 
 * [You need AI that reduces maintenance costs](https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs) shows the numbers.
