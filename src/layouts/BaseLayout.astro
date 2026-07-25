@@ -1,6 +1,6 @@
 ---
 import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch, FaBars } from "react-icons/fa";
-import { Image } from "astro:assets";
+import { Image, Font } from "astro:assets";
 import "../styles/global.css";
 import avatarImage from "../assets/avatar.jpg";
 import ogDefaultImage from "../assets/og-default.jpg";
@@ -73,12 +73,14 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <meta name="twitter:image:alt" content={socialImageAlt} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400&display=swap"
-      rel="stylesheet"
-    />
+    {/* Self-hosted; see the `fonts` block in astro.config.mjs. Only Open Sans
+        400 is preloaded — it is the body face and the post <h1>, and being a
+        variable font that one file covers 400-700 site-wide. Newsreader is
+        deliberately not preloaded: it is used only by .hero-title and
+        blockquote, so preloading it on every post would compete with the LCP
+        image for bandwidth. */}
+    <Font cssVariable="--font-open-sans" preload={[{ weight: 400, style: "normal" }]} />
+    <Font cssVariable="--font-newsreader" />
     <script defer data-domain="rubick.com" src="https://plausible.io/js/script.js"></script>
   </head>
   <body>

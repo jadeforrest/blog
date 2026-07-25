@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
@@ -19,6 +19,38 @@ export default defineConfig({
     processor: unified({ remarkPlugins: [remarkLcpImage] }),
     shikiConfig: { theme: "github-dark" },
   },
+  // Self-hosted so no render-blocking request to fonts.googleapis.com sits ahead
+  // of the LCP element. Astro inlines the @font-face rules, emits the preload
+  // link, and (via optimizedFallbacks, on by default) generates metric-matched
+  // fallback faces so the swap does not shift layout.
+  //
+  // Use the fontsource provider rather than npm: the npm one reads the package's
+  // index.css, which carries every unicode-range subset, so `subsets` cannot
+  // filter it and italics live in files it never reads. That produced 10 preload
+  // links and no real italic. fontsource honours `subsets` and resolves both
+  // styles, giving one latin file per family per style.
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "Open Sans",
+      cssVariable: "--font-open-sans",
+      weights: ["300 800"],
+      styles: ["normal", "italic"],
+      subsets: ["latin"],
+      fallbacks: ["Arial", "sans-serif"],
+      display: "swap",
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Newsreader",
+      cssVariable: "--font-newsreader",
+      weights: ["200 800"],
+      styles: ["normal", "italic"],
+      subsets: ["latin"],
+      fallbacks: ["Georgia", "Times New Roman", "serif"],
+      display: "swap",
+    },
+  ],
   redirects: {
     "/tag/[tag]": "/tags/[tag]",
   },

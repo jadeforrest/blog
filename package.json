@@ -47,6 +47,8 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource-variable/open-sans": "^5.3.0",
     "pagefind": "^1.4.0",
     "playwright": "^1.58.2",
     "postcss": "^8.5.6",
