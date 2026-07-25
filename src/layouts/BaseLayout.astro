@@ -72,7 +72,7 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -88,11 +88,15 @@ const buildTime = buildDate.toLocaleString("en-US", {
         <div class="header-container">
           <a href="/" class="logo-type">
             <div class="logo">
+              {/* First image in the document on every page — eager so it does
+                  not pop in, but not `priority`: it must not compete with the
+                  real LCP element for bandwidth. */}
               <Image
                 src={avatarImage}
                 alt="Jade Rubick"
                 width={100}
                 height={100}
+                loading="eager"
               />
             </div>
             <div class="type">

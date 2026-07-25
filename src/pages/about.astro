@@ -315,11 +315,12 @@ const popularPostsWithCovers = await Promise.all(
             <article class="post-item">
               {post.coverImage && (
                 <a href={`/${post.slug}/`} class="post-image-link">
+                  {/* Deep below the fold here, so these stay lazy —
+                      `attributes` already sets it; no need to repeat it. */}
                   <img
                     src={post.coverImage.src}
                     alt={post.data.title}
                     {...post.coverImage.attributes}
-                    loading="lazy"
                     class="post-image"
                   />
                 </a>

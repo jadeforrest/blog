@@ -89,8 +89,21 @@ if (emphasis && title.includes(emphasis)) {
       <div class="hero-image">
         {/* Astro center-crops to this exact 4:5 ratio at 2x for retina. The
             source's subject must sit near center; there is no CSS crop lever
-            here because the generated file already matches the display box. */}
-        <Image src={image} alt={imageAlt} width={600} height={750} />
+            here because the generated file already matches the display box.
+
+            On mobile this image sits above the title (see .hero-image grid-row
+            below), making it the LCP element — hence `priority`. `sizes` is a
+            fixed 300px because the img is capped at max-width:300px at every
+            viewport, so deriving it from `width` would over-fetch on phones. */}
+        <Image
+          src={image}
+          alt={imageAlt}
+          width={600}
+          height={750}
+          priority
+          widths={[300, 450, 600]}
+          sizes="300px"
+        />
       </div>
     )
   }

@@ -47,7 +47,7 @@ const posts = page.data;
 
 // Generate optimized cover images for all posts
 const postsWithCovers = await Promise.all(
-  posts.map(async (post) => {
+  posts.map(async (post, i) => {
     if (!post.data.cover) return { ...post, coverImage: null };
 
     const coverImage = await getImage({
@@ -56,7 +56,13 @@ const postsWithCovers = await Promise.all(
       format: "webp",
     });
 
-    return { ...post, coverImage };
+    // Page 1 leads with the Hero, which owns the LCP; from page 2 on there is
+    // no hero, so the first thumbnail does. Override inside `attributes` rather
+    // than adding a second `loading` on the tag — duplicate HTML attributes
+    // resolve to the *first* one, so an override after the spread is ignored.
+    const loading = i === 0 && page.currentPage !== 1 ? "eager" : "lazy";
+
+    return { ...post, coverImage: { ...coverImage, attributes: { ...coverImage.attributes, loading } } };
   })
 );
 ---
@@ -84,7 +90,10 @@ const postsWithCovers = await Promise.all(
           />
 
           <div class="newsletter-signup">
-            <script src="https://f.convertkit.com/ckjs/ck.5.js" is:inline></script>
+            {/* `defer`, not `async`: async can run mid-parse before the
+                [data-sv-form] element exists. Without either, this blocks the
+                parser (and the preload scanner) in the middle of the page. */}
+            <script src="https://f.convertkit.com/ckjs/ck.5.js" is:inline defer></script>
             <form
               action="https://app.convertkit.com/forms/2891253/subscriptions"
               class="convertkit-form"
@@ -136,7 +145,7 @@ const postsWithCovers = await Promise.all(
       <h2>Recent posts</h2>
       <div class="posts-container">
         {
-          postsWithCovers.map((post) => (
+          postsWithCovers.map((post, i) => (
             <article class="post-item">
               {post.coverImage && (
                 <a href={`/${post.slug}/`} class="post-image-link">
@@ -144,7 +153,6 @@ const postsWithCovers = await Promise.all(
                     src={post.coverImage.src}
                     alt={post.data.title}
                     {...post.coverImage.attributes}
-                    loading="lazy"
                     class="post-image"
                   />
                 </a>
