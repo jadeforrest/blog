@@ -280,6 +280,23 @@ const postsWithCovers = await Promise.all(
     display: block;
   }
 
+  /* ck.5.js renders its confirmation as .formkit-alert.formkit-alert-success,
+     which nothing here styled — so a successful signup showed up as bare
+     unstyled text that was easy to miss entirely. Mirror the .form-errors
+     treatment in green. :global() is required because the element is injected
+     at runtime and so never gets Astro's scope attribute. */
+  .newsletter-signup :global(.formkit-alert-success) {
+    background: #e6f4ea;
+    border: 1px solid #34a853;
+    border-radius: var(--size-radius-small);
+    color: #1a7f37;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+    padding: var(--space-m);
+    text-align: center;
+  }
+
   .form-fields {
     margin-bottom: var(--space-m);
   }
