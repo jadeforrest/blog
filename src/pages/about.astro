@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import { getImage, Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SocialIcons from "../components/SocialIcons";
+import SocialIcons from "../components/SocialIcons.astro";
 import { FaCalendar } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
 import avatarLargeImage from "../assets/avatar-large.jpeg";
@@ -359,7 +359,7 @@ const popularPostsWithCovers = await Promise.all(
       </p>
 
       <div class="social-icons-container">
-        <SocialIcons client:only="react" />
+        <SocialIcons />
       </div>
     </section>
   </div>

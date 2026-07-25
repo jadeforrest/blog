@@ -1,6 +1,6 @@
 ---
 import { FaBook, FaPodcast, FaEnvelope, FaSeedling, FaUser, FaBookOpen, FaSearch, FaBars } from "react-icons/fa";
-import { Image, Font } from "astro:assets";
+import { Image, Font, getImage } from "astro:assets";
 import "../styles/global.css";
 import avatarImage from "../assets/avatar.jpg";
 import ogDefaultImage from "../assets/og-default.jpg";
@@ -28,7 +28,19 @@ const isWikiPage = currentPath.startsWith("/wiki/");
 const socialImage = ogImage || ogDefaultImage;
 const socialImageAlt = ogImageAlt || "Jade Rubick - Engineering Leadership";
 const canonicalURL = new URL(currentPath, Astro.site);
-const socialImageURL = new URL(socialImage.src, Astro.site);
+// Resize rather than advertising the raw import. Post covers are full-size
+// originals — several run to 2-5MB, past the ~5MB cap Twitter and LinkedIn
+// apply, so the largest previews could fail outright. Going through getImage
+// also makes the hardcoded og:image:width/height below actually true, and stops
+// the build emitting ~109 untouched originals into _astro/ just to serve meta tags.
+const socialImageResized = await getImage({
+  src: socialImage,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpeg",
+});
+const socialImageURL = new URL(socialImageResized.src, Astro.site);
 
 // Format build time
 const buildDate = new Date();

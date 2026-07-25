@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SocialIcons from "../components/SocialIcons";
+import SocialIcons from "../components/SocialIcons.astro";
 import { FaLinkedin } from "react-icons/fa";
 ---
 
@@ -30,7 +30,7 @@ import { FaLinkedin } from "react-icons/fa";
       </p>
 
       <div class="social-icons-container">
-        <SocialIcons client:only="react" />
+        <SocialIcons />
       </div>
     </div>
   </div>
