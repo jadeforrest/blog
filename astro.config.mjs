@@ -51,6 +51,21 @@ export default defineConfig({
       display: "swap",
     },
   ],
+  // `prefetchAll` opts every internal link in; `defaultStrategy` decides when.
+  // "hover" fetches on mouseenter/focus (touchstart/mousedown on mobile), one
+  // page at a time on genuine intent - not a bulk fetch on load. Astro dedupes
+  // and skips prefetching entirely under save-data or a 2g effectiveType.
+  // Deliberately not "viewport": /posts/ has ~20 internal links and would fire
+  // ~20 HTML requests on load.
+  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
+
+  // Removes a render-blocking round trip on the path that gates LCP paint. The
+  // tradeoff is that repeat visitors no longer get a cached BaseLayout.css; for
+  // a blog where most sessions arrive cold from search or social, the
+  // first-visit win dominates. Compounds with prefetch, since prefetched HTML
+  // then carries its own CSS.
+  build: { inlineStylesheets: "always" },
+
   redirects: {
     "/tag/[tag]": "/tags/[tag]",
   },
