@@ -16,6 +16,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: 9e7e3673a55135bb5f51dd02d6338fb8
+kitSyncedAt: '2026-07-26T20:43:24.242Z'
 ---
 Your first task is to figure out what you are responsible for. Are you responsible for **People**, **Projects**, **Process**, or **Technical** decisionmaking? Try to figure out what the standard approach is at your company. If you're not sure, talk with your manager about it this week.
 
@@ -27,7 +29,7 @@ Even if you're not joining a new role, it's often helpful to pretend you're join
 
 It's important to be really clear on what the role is that you inhabit. This article helps outline the different engineering manager roles I've seen at companies I've worked at. Which one applies to you? And is that the right model for your company?
 
-\--------------------------------
+--------------------------------
 
 ## What should an Engineering Manager own?
 
@@ -38,8 +40,6 @@ Companies break up the roles and responsibilities of an engineering manager in m
 Many startups start out with a tech lead model. It’s fine for the early stages of a company, but tends to be something you outgrow.
 
 ![Tech Lead model](https://www.rubick.com/kit-images/1059035/27d6f86830825e53.png)
-
-​
 
 -   A Tech Lead manages people, projects, and process. They also lead the technical decision-making.
 -   People management suffers, because the Tech Lead has so many responsibilities. And they’re often not an Engineering Manager by training.
@@ -54,8 +54,6 @@ This is the approach I gravitate towards. With this approach, you have an Engine
 
 ![Engineering manager runs projects](https://www.rubick.com/kit-images/1059035/af867b7ed543ca97.png)
 
-​
-
 -   The Engineering Manager handles people management. They coach their team members to make them more impactful.
 -   The Engineering Manager runs projects: project breakdown, sequencing, risk management, and project communication. This gives them a day to day view of the team’s work, and helps them be effective coaches for their team.
 -   The Engineering Manager manages the team’s process. They adapt and improve the way the team operates. This helps the team always improve.
@@ -67,8 +65,6 @@ This is the approach I gravitate towards. With this approach, you have an Engine
 The intention is to have the Product Manager heavily involved in the team’s work. And to have highly technical engineering managers, who review code and sometimes even write code. At least some parts of Google operate with this model.
 
 ![Product manager runs projects](https://www.rubick.com/kit-images/1059035/2bc172254c7bc04b.png)
-
-​
 
 -   The Engineering Manager handles people management. They coach their team members to make them more impactful.
 -   The Engineering Manager manages the team’s process. They adapt and improve the way the team operates. This helps the team always improve.
@@ -83,8 +79,6 @@ The Single Threaded Owner owns everything. They can hire people to delegate part
 
 ![Single Threaded Owner runs everything](https://www.rubick.com/kit-images/1059035/cd5e1124b2bd1227.png)
 
-​
-
 -   The Single Threaded Owner (STO) owns everything. They either do the work themselves, or find someone to delegate to.
 -   The STO manages people. They coach their team members to improve their impact.
 -   The STO may run projects or have a project manager run the project. That person does project breakdown, sequencing, risk management, and project communication.
@@ -98,8 +92,6 @@ The SCRUM approach is a classic approach to software development. It doesn’t e
 
 ![SCRUM model](https://www.rubick.com/kit-images/1059035/bc92b66a91a5221e.png)
 
-​
-
 -   It’s not specified in SCRUM how people management works. Usually that person takes on the Scrummaster or Product Owner role. Ignore that the Scrummaster [should not have authority over the team](https://www.scrumalliance.org/ScrumRedesignDEVSite/media/ScrumAllianceMedia/Files%20and%20PDFs/Community/Articles/2015/SCRUM-in-Agile.pdf). Coaching individual team members tends to suffer. The manager may not be close enough to the work to coach the team member.
 -   You don’t see a lot of project management with SCRUM. It’s all focused on points or burndown charts. SCRUM teams I’ve worked with have neglected project breakdown, sequencing, and risk management. SCRUM divides project responsibilities between the Product Owner and the Scrummaster.
 -   Incentives for the Scrummaster are to focus on process and meetings. They tend to go overboard with it. They tend to lean on process too much.
@@ -108,11 +100,7 @@ The SCRUM approach is a classic approach to software development. It doesn’t e
 
 ## Summary
 
-​
-
 ![](https://www.rubick.com/kit-images/1059035/9a8f11fc0e1519a0.png)
-
-​
 
 ## Transitions
 
@@ -124,9 +112,7 @@ I have experience with all of these models listed above. One model I didn’t in
 
 Image by [Marcus Williams](https://pixabay.com/users/markiss33311-20814146/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6116282) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6116282)​
 
-This article is also available at [Engineering Manager vs Tech Lead](https://www.rubick.com/engineering-manager-vs-tech-lead/?utm_source=ck-share-em-vs-tl&utm_medium=link&utm_campaign=em-vs-tl)​
 
-​
 
 Share this post: [https://www.rubick.com/engineering-manager-vs-tech-lead/](https://www.rubick.com/engineering-manager-vs-tech-lead/)​
 
