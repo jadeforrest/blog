@@ -5,6 +5,7 @@ import path from 'path';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
 import Parser from 'rss-parser';
+import { enforceLimits, graphemeCount, BLUESKY_MAX_GRAPHEMES } from './lib/text-limits.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,11 @@ const __dirname = path.dirname(__filename);
 const RSS_URL = 'https://anchor.fm/s/f420aba8/podcast/rss';
 const DEFAULT_OUTPUT_DIR = './extracted-content';
 let OUTPUT_DIR = DEFAULT_OUTPUT_DIR; // Will be set from command line args
+const QUARANTINE_FILE = path.join(__dirname, 'podcast-extract-quarantine.json');
+
+// Passages that could not be kept within the post-length limit, reported at the end
+// of a run so they can be hand-edited rather than silently disappearing.
+const quarantined = [];
 
 /**
  * Strip HTML tags from text
@@ -124,6 +130,7 @@ ${content}
 Instructions:
 - Copy sentences exactly as they appear in the description
 - Select sentences that highlight interesting topics, insights, or what listeners will learn
+- Each extract must be under ${BLUESKY_MAX_GRAPHEMES} characters. This is a selection criterion, not an editing one — if a sentence is too long, choose a different one. Never shorten or reword the original.
 - Output only the extracted sentences, one per line
 - No commentary, no analysis, no meta-text
 - Just the sentences themselves`;
@@ -235,20 +242,38 @@ async function processEpisode(episode) {
     extracts = fallbackAnalysis(episodeContent.content, episodeContent.title);
   }
 
-  // Generate output content
-  const output = extracts
-    .filter(extract => extract && extract.trim().length > 10)
-    .map(extract => `${extract}\n${episodeContent.url}`)
-    .join('\n\n');
+  const substantial = extracts.filter(extract => extract && extract.trim().length > 10);
 
-  // Create output file
+  // Enforce the post-length limit here rather than inside the Claude call, so the
+  // heuristic fallback path is covered too. Over-long extracts are trimmed to whole
+  // sentences (still verbatim) or dropped — never reworded.
+  const { kept, dropped } = enforceLimits(substantial);
+
   const fileName = generateOutputFileName(episode);
   const outputPath = path.join(OUTPUT_DIR, fileName);
 
-  fs.writeFileSync(outputPath, output);
-  console.log(`  ✓ Created: ${outputPath}`);
+  if (dropped.length > 0) {
+    console.log(`  ⚠ ${dropped.length} extract(s) too long to keep verbatim, quarantined`);
+    quarantined.push(...dropped.map(text => ({
+      sourceFile: fileName,
+      graphemes: graphemeCount(text),
+      reason: 'single sentence exceeds limit; cannot shorten without rewording',
+      text,
+      url: episodeContent.url
+    })));
+  }
 
-  return { fileName, outputPath, extractCount: extracts.length };
+  if (kept.length === 0) {
+    // Better to flag this loudly than to let an episode vanish from the queue unnoticed.
+    console.log(`  ⚠ ${fileName} produced no postable extracts`);
+  }
+
+  const output = kept.map(extract => `${extract}\n${episodeContent.url}`).join('\n\n');
+
+  fs.writeFileSync(outputPath, output);
+  console.log(`  ✓ Created: ${outputPath} (${kept.length} extract${kept.length === 1 ? '' : 's'})`);
+
+  return { fileName, outputPath, extractCount: kept.length };
 }
 
 /**
@@ -324,6 +349,13 @@ async function main() {
   console.log(`Processed ${results.length} episodes${testMode ? ' (test mode)' : ''}${forceMode ? ' (force mode)' : ''}`);
   console.log(`Total extracts: ${results.reduce((sum, r) => sum + r.extractCount, 0)}`);
   console.log(`Output directory: ${OUTPUT_DIR}`);
+
+  if (quarantined.length > 0) {
+    fs.writeFileSync(QUARANTINE_FILE, JSON.stringify(quarantined, null, 2));
+    console.log(`\n⚠ ${quarantined.length} extract(s) quarantined — see ${QUARANTINE_FILE}`);
+  } else if (fs.existsSync(QUARANTINE_FILE)) {
+    fs.unlinkSync(QUARANTINE_FILE);
+  }
 }
 
 // Run the script

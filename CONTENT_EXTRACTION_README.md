@@ -11,8 +11,63 @@ This repository includes a small pipeline of scripts that pull the most interest
 | [`scripts/extract-to-linkedin.js`](#linkedin-publishing-script---scriptsextract-to-linkedinjs) | Posts one random unsent extract to LinkedIn as an article share. Tracks sent items in `linkedin-sent.json`. | **Scheduled** — launchd (`com.jade.blog-to-linkedin.plist`) runs it weekdays (Mon–Fri) at 9:16 AM via `~/Library/Scripts/blog-to-linkedin.sh`. |
 | [`scripts/extract-to-bluesky.js`](#bluesky-publishing-script---scriptsextract-to-blueskyjs) | Posts one random unsent extract to Bluesky with a website card. Tracks sent items in `bluesky-sent.json`. | **Scheduled** — launchd (`com.jade.blog-to-bluesky.plist`) runs it weekdays (Mon–Fri) at 9:14 AM via `~/Library/Scripts/blog-to-bluesky.sh`. |
 | [`scripts/linkedin-get-token.js`](#token-management-and-renewal) | Helper to generate a fresh LinkedIn OAuth access token. | **Manual** — run only when the ~60-day LinkedIn token expires. |
+| [`scripts/report-damaged-bluesky-posts.js`](#reporting-damaged-posts) | Read-only report of already-published posts damaged by the old shortening step. | **Manual** — diagnostic only; modifies nothing. |
+| [`scripts/lib/text-limits.js`](#the-post-length-rule) | Shared grapheme counting, limit checks, and verbatim sentence trimming. | Library — imported by the scripts above. |
 
 **Pipeline overview:** the two `extract-content` scripts *produce* the shared `extracted-content/` queue; the two `extract-to-*` scripts *consume* it. None of these run as part of `npm run build` — the build only handles images and the Pagefind search index. Run the extraction scripts manually to top up the queue; the publishing scripts then post from it automatically on the launchd schedule above.
+
+---
+
+# The post-length rule
+
+Bluesky caps a post at **300 graphemes and 3000 UTF-8 bytes**. (Graphemes, not JavaScript
+`String.length` — a family emoji is 1 grapheme but 11 UTF-16 code units.) `scripts/lib/text-limits.js`
+holds the shared helpers: `graphemeCount`, `fitsBlueskyLimit`, `trimToWholeSentences`, and
+`enforceLimits`.
+
+**The rule: extracts are verbatim quotes, and nothing in this pipeline ever rewrites them.**
+
+Length is enforced *only* by selecting and trimming, never by rewording:
+
+1. **At extraction**, both extractors ask Claude to *select* passages under the limit — explicitly
+   framed as a selection criterion, never an instruction to shorten.
+2. **After extraction**, an over-long extract is trimmed to the longest leading run of whole
+   sentences that fits. The result is still an exact prefix of the original, so it remains a true
+   quote. Anything still too long (a single over-long sentence) is dropped and quarantined.
+3. **At publishing**, `extract-to-bluesky.js` only ever *selects* an extract that already fits. It
+   has no shortening or truncation code path at all. If nothing in the queue fits, it posts nothing
+   and fires a macOS notification.
+
+### Why this matters
+
+An earlier version of `extract-to-bluesky.js` called the `claude` CLI to shorten over-long extracts
+and published the raw stdout. Two things went wrong, both live on the public account:
+
+- Claude sometimes appended commentary about its own output — one post shipped ending in
+  `(238 characters)`.
+- When shortening failed, a `substring(0, 297) + '...'` fallback cut posts mid-word.
+
+13 of 225 posts (5.8%) were damaged this way. Just as importantly, the shortening step *paraphrased*
+Jade's writing and published the paraphrase under his name — which is precisely what the extraction
+prompts ("copy word-for-word") exist to prevent. Since ~92% of the queue already fits, selecting a
+different extract is strictly better than rewriting one.
+
+Run `npm test` to exercise the helpers, including property tests asserting that a trimmed extract is
+always a verbatim prefix of its source.
+
+### Quarantine files
+
+Passages that cannot be kept within the limit verbatim are recorded rather than silently dropped:
+
+| File | Written by | Contents |
+|---|---|---|
+| `scripts/extract-quarantine.json` | `extract-content.js` | Blog passages too long to trim verbatim |
+| `scripts/podcast-extract-quarantine.json` | `extract-podcast-content.js` | Podcast sentences too long to trim verbatim |
+| `scripts/bluesky-oversized.json` | `extract-to-bluesky.js` | Unsent queue items over the limit at post time |
+
+Each is removed automatically when its run finds nothing to quarantine, so a lingering file always
+means there is something to hand-edit. Fix these by editing the extract in `extracted-content/` —
+shortening it yourself, or replacing it with a different passage from the post.
 
 ---
 
@@ -43,7 +98,16 @@ node scripts/extract-content.js
 
 # Test mode - process only the first markdown file for faster iteration
 node scripts/extract-content.js --test-mode
+
+# Re-apply the post-length rule to the existing queue, in place (no Claude calls)
+node scripts/extract-content.js --revalidate
 ```
+
+`--revalidate` re-checks every file already in `extracted-content/` — blog and podcast alike, since
+they share a directory and format — trimming over-long extracts to whole sentences and quarantining
+the ones that cannot be salvaged. Use it after changing the limit rules, or to clean up a queue
+built before they existed. It rewrites files in place and makes no Claude calls, so it is cheap, but
+note `extracted-content/` is git-ignored — there is no version history to fall back on.
 
 **Note:** All scripts must be run from the repository root directory, not from within the `scripts/` directory.
 
@@ -81,7 +145,8 @@ https://www.rubick.com/reliability-all-stick-no-carrot/
 2. **Content Parsing**: Extracts title and content from markdown/MDX files, removing front matter
 3. **URL Generation**: Creates URLs by removing date prefixes (`YYYY-MM-DD--`) from directory names
 4. **AI Analysis**: Uses AI to identify the most interesting 2-4 passages per post
-5. **Output Generation**: Creates individual text files in `extracted-content/` directory
+5. **Length Enforcement**: Passages over the 300-grapheme limit are trimmed to whole sentences, or quarantined to `scripts/extract-quarantine.json` if a single sentence is too long. Applied to both the Claude and fallback paths. See [The post-length rule](#the-post-length-rule).
+6. **Output Generation**: Creates individual text files in `extracted-content/` directory
 
 ## AI Analysis Focus
 
@@ -153,8 +218,9 @@ This script is the podcast counterpart to `extract-content.js`. Instead of readi
 3. **Content Extraction**: Strips HTML tags and normalizes whitespace from each episode's description (falling back to `contentSnippet`). Episodes with descriptions shorter than 50 characters are skipped.
 4. **AI Analysis**: Sends the description to Claude Code CLI (`claude --print`) with a prompt that copies 1–3 sentences word-for-word. Times out after 30 seconds.
 5. **Fallback Analysis**: If Claude Code fails or is unavailable, a heuristic picks sentences containing cue words (`discusses`, `explores`, `shares`, `explains`, `reveals`, `talks about`), or the first few substantial sentences.
-6. **Output Generation**: Writes one file per episode to `extracted-content/`, each extract followed by the episode URL.
-7. **Incremental by Default**: Episodes that already have a non-empty output file are skipped, so re-running only processes newly published episodes.
+6. **Length Enforcement**: Extracts over the 300-grapheme limit are trimmed to whole sentences, or quarantined to `scripts/podcast-extract-quarantine.json` if a single sentence is too long. Applied to both the Claude and fallback paths. See [The post-length rule](#the-post-length-rule).
+7. **Output Generation**: Writes one file per episode to `extracted-content/`, each extract followed by the episode URL.
+8. **Incremental by Default**: Episodes that already have a non-empty output file are skipped, so re-running only processes newly published episodes.
 
 ## Prerequisites
 
@@ -522,11 +588,16 @@ node scripts/extract-to-bluesky.js
 
 ## How It Works
 
-1. **Random Selection**: Picks a random unsent item from extracted content
-2. **Website Card Generation**: Fetches metadata (title, description, image) from URLs
-3. **Bluesky API**: Creates post with embedded website card
-4. **Tracking**: Marks item as sent in `bluesky-sent.json`
-5. **Session Management**: Automatically refreshes tokens when needed
+1. **Random Selection**: Picks a random unsent item **that already fits the 300-grapheme limit**
+2. **Quarantine**: Any unsent item over the limit is written to `scripts/bluesky-oversized.json` and skipped
+3. **Website Card Generation**: Fetches metadata (title, description, image) from URLs
+4. **Bluesky API**: Creates post with embedded website card, text posted **verbatim**
+5. **Tracking**: Marks item as sent in `bluesky-sent.json` (including the post URI)
+6. **Session Management**: Automatically refreshes tokens when needed
+
+This script never modifies post text — see [The post-length rule](#the-post-length-rule). If no
+unsent extract fits, it posts nothing and sends a macOS notification rather than publishing something
+degraded.
 
 ## Post Format
 
@@ -642,8 +713,26 @@ All posts have already been sent!
 - Check internet connectivity for URL fetching
 - Some websites may block automated metadata requests
 
+### Nothing Was Posted
+```
+No postable extracts: N unsent extracts are all over the limit. Nothing posted.
+```
+Every remaining unsent extract exceeds the 300-grapheme limit. Check
+`scripts/bluesky-oversized.json`, shorten those extracts by hand (or replace them with different
+passages), or top the queue up by running `node scripts/extract-content.js`. This is deliberate —
+the script will not truncate or reword to fill the slot.
+
 ### Path Errors
 Make sure you're running the script from the repository root directory, not from within `scripts/`.
+
+## Reporting damaged posts
+
+`node scripts/report-damaged-bluesky-posts.js` lists already-published posts carrying either damage
+signature from the old shortening step: a trailing `(N characters)` annotation, or a mid-sentence
+`...` truncation. It is read-only — it makes no API calls and does not touch `bluesky-sent.json`.
+
+AT Protocol posts cannot be edited. To remove one, delete it from the Bluesky app. Posts published
+before this change have no recorded `postUri`, so they must be found by browsing the profile.
 
 ## Best Practices
 

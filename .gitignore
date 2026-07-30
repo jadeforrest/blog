@@ -85,6 +85,11 @@ bluesky-sent.json
 linkedin-sent.json
 extracted-content/
 
+# Over-limit extracts held back for hand-editing (regenerated each run)
+scripts/extract-quarantine.json
+scripts/podcast-extract-quarantine.json
+scripts/bluesky-oversized.json
+
 # Kit sync
 scripts/kit-session.json
 scripts/kit-captured-requests.json

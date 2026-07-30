@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
+import { enforceLimits, graphemeCount, BLUESKY_MAX_GRAPHEMES } from './lib/text-limits.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +13,11 @@ const __dirname = path.dirname(__filename);
 const BASE_URL = 'https://www.rubick.com';
 const CONTENT_DIR = './src/content/posts';
 const OUTPUT_DIR = './extracted-content';
+const QUARANTINE_FILE = path.join(__dirname, 'extract-quarantine.json');
+
+// Passages that could not be kept within the post-length limit, reported at the end
+// of a run so they can be hand-edited rather than silently disappearing.
+const quarantined = [];
 
 /**
  * Find all markdown files in the content directory
@@ -126,6 +132,8 @@ Focus on:
 - Surprising insights
 - Memorable quotes or principles
 - Practical frameworks or models
+
+Length requirement: each extract must be under ${BLUESKY_MAX_GRAPHEMES} characters. Prefer shorter, self-contained passages. This is a selection criterion, not an editing one — if a passage is too long, pick a different one. Never shorten, reword, or summarize the original text.
 
 Title: ${title}${chunkInfo}
 
@@ -285,20 +293,125 @@ async function processFile(filePath) {
     extracts = fallbackAnalysis(content, title);
   }
 
-  // Generate output content
-  const output = extracts
-    .filter(extract => extract && extract.trim().length > 10)
-    .map(extract => `${extract}\n${url}`)
-    .join('\n\n');
+  const substantial = extracts.filter(extract => extract && extract.trim().length > 10);
 
-  // Create output file
+  // Enforce the post-length limit here rather than inside the Claude call, so the
+  // heuristic fallback path is covered too. Over-long extracts are trimmed to whole
+  // sentences (still verbatim) or dropped — never reworded.
+  const { kept, dropped } = enforceLimits(substantial);
+
   const fileName = path.basename(path.dirname(filePath)) + '.txt';
   const outputPath = path.join(OUTPUT_DIR, fileName);
 
-  fs.writeFileSync(outputPath, output);
-  console.log(`  ✓ Created: ${outputPath}`);
+  if (dropped.length > 0) {
+    console.log(`  ⚠ ${dropped.length} extract(s) too long to keep verbatim, quarantined`);
+    quarantined.push(...dropped.map(text => ({
+      sourceFile: fileName,
+      graphemes: graphemeCount(text),
+      reason: 'single sentence exceeds limit; cannot shorten without rewording',
+      text,
+      url
+    })));
+  }
 
-  return { filePath, outputPath, extractCount: extracts.length };
+  if (kept.length === 0) {
+    // Better to flag this loudly than to let a post vanish from the queue unnoticed.
+    console.log(`  ⚠ ${fileName} produced no postable extracts`);
+  }
+
+  const output = kept.map(extract => `${extract}\n${url}`).join('\n\n');
+
+  fs.writeFileSync(outputPath, output);
+  console.log(`  ✓ Created: ${outputPath} (${kept.length} extract${kept.length === 1 ? '' : 's'})`);
+
+  return { filePath, outputPath, extractCount: kept.length };
+}
+
+/**
+ * Write the quarantine report for a run, or clear a stale one.
+ */
+function writeQuarantineReport() {
+  if (quarantined.length > 0) {
+    fs.writeFileSync(QUARANTINE_FILE, JSON.stringify(quarantined, null, 2));
+    console.log(`\n⚠ ${quarantined.length} extract(s) quarantined — see ${QUARANTINE_FILE}`);
+  } else if (fs.existsSync(QUARANTINE_FILE)) {
+    fs.unlinkSync(QUARANTINE_FILE);
+  }
+}
+
+/**
+ * Re-apply the length limit to the existing queue, in place.
+ *
+ * Covers every file in the shared extracted-content/ directory — blog and podcast
+ * alike, since they share a format and a queue — so the backlog is fixed with one
+ * pass and no Claude calls. Extracts are only ever trimmed to whole sentences or
+ * dropped, so what remains is still verbatim.
+ */
+function revalidateExistingExtracts() {
+  console.log('Revalidating existing extracts against the post-length limit...\n');
+
+  const files = fs.readdirSync(OUTPUT_DIR)
+    .filter(file => file.endsWith('.txt') && file !== 'all-extracts.txt')
+    .sort();
+
+  let filesChanged = 0;
+  let trimmedCount = 0;
+  let droppedCount = 0;
+
+  for (const file of files) {
+    const filePath = path.join(OUTPUT_DIR, file);
+    const lines = fs.readFileSync(filePath, 'utf8')
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line);
+
+    // Files are alternating text/URL pairs.
+    const pairs = [];
+    for (let i = 0; i + 1 < lines.length; i += 2) {
+      pairs.push({ text: lines[i], url: lines[i + 1] });
+    }
+
+    const rebuilt = [];
+    let changed = false;
+
+    for (const pair of pairs) {
+      const { kept, dropped } = enforceLimits([pair.text]);
+
+      if (dropped.length > 0) {
+        droppedCount++;
+        changed = true;
+        quarantined.push({
+          sourceFile: file,
+          graphemes: graphemeCount(pair.text),
+          reason: 'single sentence exceeds limit; cannot shorten without rewording',
+          text: pair.text,
+          url: pair.url
+        });
+        continue;
+      }
+
+      if (kept[0] !== pair.text) {
+        trimmedCount++;
+        changed = true;
+      }
+      rebuilt.push({ text: kept[0], url: pair.url });
+    }
+
+    if (!changed) continue;
+
+    filesChanged++;
+    if (rebuilt.length === 0) {
+      console.log(`  ⚠ ${file} has no postable extracts left`);
+    }
+    fs.writeFileSync(filePath, rebuilt.map(p => `${p.text}\n${p.url}`).join('\n\n'));
+  }
+
+  console.log(`\n=== Revalidation Summary ===`);
+  console.log(`Files scanned: ${files.length}`);
+  console.log(`Files changed: ${filesChanged}`);
+  console.log(`Extracts trimmed to whole sentences: ${trimmedCount}`);
+  console.log(`Extracts dropped (unsalvageable): ${droppedCount}`);
+  writeQuarantineReport();
 }
 
 /**
@@ -308,6 +421,12 @@ async function main() {
   // Parse command line arguments
   const args = process.argv.slice(2);
   const testMode = args.includes('--test-mode');
+  const revalidate = args.includes('--revalidate');
+
+  if (revalidate) {
+    revalidateExistingExtracts();
+    return;
+  }
 
   console.log(testMode ? 'Starting content extraction in TEST MODE (first file only)...' : 'Starting content extraction with Claude Code...');
 
@@ -348,6 +467,7 @@ async function main() {
   console.log(`Processed ${results.length} files${testMode ? ' (test mode)' : ''}`);
   console.log(`Output directory: ${OUTPUT_DIR}`);
   console.log(`Total extracts: ${results.reduce((sum, r) => sum + r.extractCount, 0)}`);
+  writeQuarantineReport();
 }
 
 // Run the script

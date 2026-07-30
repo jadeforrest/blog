@@ -5,8 +5,9 @@ import path from 'path';
 import https from 'https';
 import http from 'http';
 import { URL } from 'url';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import { fitsBlueskyLimit, graphemeCount, escapeForAppleScript } from './lib/text-limits.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -15,7 +16,27 @@ const __dirname = path.dirname(__filename);
 // Configuration
 const EXTRACTED_DIR = './extracted-content';
 const SENT_TRACKING_FILE = path.join(__dirname, 'bluesky-sent.json');
+const OVERSIZED_FILE = path.join(__dirname, 'bluesky-oversized.json');
 const BLUESKY_API_BASE = 'https://bsky.social/xrpc';
+
+/**
+ * Surface a message in macOS Notification Center.
+ *
+ * Queue-health problems are otherwise invisible until someone reads the log, and a
+ * schedule that quietly stops posting is exactly the failure worth being told about.
+ * Uses execFileSync (no shell) and escapes the AppleScript string literals, so
+ * arbitrary post text cannot break out.
+ */
+function notify(message, { sound = false } = {}) {
+  try {
+    const script = `display notification "${escapeForAppleScript(message)}" with title "blog-to-bluesky"` +
+      (sound ? ' sound name "Basso"' : '');
+    execFileSync('osascript', ['-e', script], { timeout: 5000 });
+  } catch (error) {
+    // Never let a notification failure break posting.
+    console.warn(`  (notification failed: ${error.message})`);
+  }
+}
 
 /**
  * Load tracking data for sent posts
@@ -39,6 +60,18 @@ function loadSentTracking() {
  */
 function saveSentTracking(tracking) {
   fs.writeFileSync(SENT_TRACKING_FILE, JSON.stringify(tracking, null, 2));
+}
+
+/**
+ * Ids currently listed in the quarantine file, used to detect newly-oversized extracts.
+ */
+function loadOversizedIds() {
+  if (!fs.existsSync(OVERSIZED_FILE)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(OVERSIZED_FILE, 'utf8')).map(item => item.id);
+  } catch {
+    return [];
+  }
 }
 
 /**
@@ -493,14 +526,14 @@ async function postToBluesky(post, session, options = {}) {
 
   console.log(`${dryRun ? '[DRY RUN] ' : ''}Posting: "${post.text.substring(0, 50)}..."`);
 
-  // Process content length (truncate or shorten if over 300 characters)
-  const processedText = await processContentLength(post.text);
+  // The post text is the extract, verbatim. Selection already guaranteed it fits
+  // (see main()), so there is deliberately no shortening or truncation step here —
+  // nothing in this script may alter what gets published.
+  const processedText = post.text;
 
   if (dryRun) {
     console.log(`  Would post to Bluesky with URL card: ${post.url}`);
-    if (processedText !== post.text) {
-      console.log(`  Content was processed from ${post.text.length} to ${processedText.length} characters`);
-    }
+    console.log(`  Text (${graphemeCount(processedText)} graphemes): "${processedText}"`);
     return { success: true, dryRun: true, processedText };
   }
 
@@ -573,47 +606,6 @@ async function postToBluesky(post, session, options = {}) {
 }
 
 /**
- * Truncate or shorten content using Claude Code if over 300 characters
- */
-async function processContentLength(text) {
-  if (text.length <= 300) {
-    return text;
-  }
-
-  console.log(`  Content is ${text.length} characters, attempting to shorten...`);
-  console.log(`  Original: "${text}"`);
-
-  try {
-    // Use Claude Code to generate a shorter version
-    const prompt = `Please create a shorter version of this content that is under 300 characters while preserving the main message:\n\n${text}`;
-
-    // Execute claude command with the prompt, using stdin to avoid shell escaping issues
-    const result = execSync('/Users/jade/.local/bin/claude', {
-      input: prompt,
-      encoding: 'utf8',
-      timeout: 30000 // 30 second timeout
-    });
-
-    const shortened = result.trim();
-
-    if (shortened.length <= 300 && shortened.length > 0) {
-      console.log(`  ✓ Shortened from ${text.length} to ${shortened.length} characters using Claude Code`);
-      console.log(`  Shortened: "${shortened}"`);
-      return shortened;
-    } else {
-      console.log(`  Claude Code response was ${shortened.length} characters, falling back to truncation`);
-      throw new Error('Claude response too long or empty');
-    }
-  } catch (error) {
-    console.log(`  Claude Code shortening failed (${error.message}), truncating to 300 characters`);
-    const truncated = text.substring(0, 297) + '...';
-    console.log(`  Truncated: "${truncated}"`);
-    // Fallback to simple truncation
-    return truncated;
-  }
-}
-
-/**
  * Get environment variables with validation
  */
 function getConfig() {
@@ -678,9 +670,50 @@ async function main() {
       return;
     }
 
-    // Randomly select an unsent post
-    const randomIndex = Math.floor(Math.random() * unsentPosts.length);
-    const postToProcess = unsentPosts[randomIndex];
+    // Only consider extracts that already fit Bluesky's limit. Anything longer is
+    // quarantined for hand-editing rather than being rewritten or truncated here —
+    // posting an altered version of Jade's own words is worse than posting nothing.
+    const postableItems = unsentPosts.filter(post => fitsBlueskyLimit(post.text));
+    const oversizedItems = unsentPosts.filter(post => !fitsBlueskyLimit(post.text));
+
+    if (oversizedItems.length > 0) {
+      console.log(`${oversizedItems.length} unsent extracts exceed the 300-grapheme limit — quarantined, not posted`);
+
+      // Only notify when the backlog grows. This runs five times a week; a standing
+      // notification for a known backlog would just train us to ignore it.
+      const previousIds = new Set(loadOversizedIds());
+      const newlyOversized = oversizedItems.filter(post => !previousIds.has(post.id));
+
+      fs.writeFileSync(OVERSIZED_FILE, JSON.stringify(
+        oversizedItems.map(post => ({
+          id: post.id,
+          sourceFile: post.sourceFile,
+          graphemes: graphemeCount(post.text),
+          text: post.text,
+          url: post.url
+        })),
+        null, 2
+      ));
+      console.log(`Quarantine list written to: ${OVERSIZED_FILE}`);
+
+      if (newlyOversized.length > 0) {
+        notify(`${newlyOversized.length} new over-limit extract(s) quarantined (${oversizedItems.length} total).`);
+      }
+    } else if (fs.existsSync(OVERSIZED_FILE)) {
+      // Queue is clean — don't leave a stale quarantine list behind.
+      fs.unlinkSync(OVERSIZED_FILE);
+    }
+
+    if (postableItems.length === 0) {
+      const message = `No postable extracts: ${oversizedItems.length} unsent extracts are all over the limit. Nothing posted.`;
+      console.log(message);
+      notify(message, { sound: true });
+      return;
+    }
+
+    // Randomly select a postable unsent post
+    const randomIndex = Math.floor(Math.random() * postableItems.length);
+    const postToProcess = postableItems[randomIndex];
     console.log(`Processing: "${postToProcess.text.substring(0, 50)}..." from ${postToProcess.sourceFile}`);
 
     try {
@@ -693,6 +726,9 @@ async function main() {
           text: result.processedText || postToProcess.text,
           url: postToProcess.url,
           sourceFile: postToProcess.sourceFile,
+          // Recorded so a published post can be located later without hunting through
+          // the profile — historical entries predate this and have no URI.
+          postUri: result.response?.uri,
           dryRun: false
         };
 
@@ -704,7 +740,10 @@ async function main() {
       console.log(`${dryRun ? 'Dry run: ' : ''}Posted 1 update successfully`);
       console.log(`Tracking file: ${SENT_TRACKING_FILE}`);
       console.log(`Total posts sent to date: ${Object.keys(sentTracking).length}`);
-      console.log(`Remaining posts in queue: ${unsentPosts.length - 1}`);
+      console.log(`Remaining postable posts in queue: ${postableItems.length - 1}`);
+      if (oversizedItems.length > 0) {
+        console.log(`Quarantined (over limit): ${oversizedItems.length}`);
+      }
 
     } catch (error) {
       console.error(`Failed to post "${postToProcess.text.substring(0, 30)}...": ${error.message}`);
