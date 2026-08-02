@@ -116,8 +116,11 @@ function cleanOldDirectories(activeSlugs) {
   // Get all directories in public/ that look like blog post slug directories
   // (exclude special directories like 'about', 'images', etc.)
   // 'kit-images' holds Kit sequence-email images mirrored by kit-fetch-sequence.js
-  // (not blog-post images), so it must never be treated as a stale post directory.
-  const excludedDirs = new Set(['about', 'images', 'wiki', 'tags', 'static', 'fonts', 'css', 'js', 'kit-images']);
+  // (not blog-post images), and 'icons' holds the site favicon set, so neither must
+  // ever be treated as a stale post directory.
+  const excludedDirs = new Set([
+    'about', 'images', 'wiki', 'tags', 'static', 'fonts', 'css', 'js', 'kit-images', 'icons',
+  ]);
 
   if (!fs.existsSync(publicDir)) {
     return;
