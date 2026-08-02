@@ -28,7 +28,8 @@ import matter from 'gray-matter';
 import { mdxToEmailHtml } from './kit-mdx-to-html.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const POSTS_DIR = path.join(__dirname, '..', 'src', 'content', 'posts');
+const REPO_ROOT = path.join(__dirname, '..');
+const POSTS_DIR = path.join(REPO_ROOT, 'src', 'content', 'posts');
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -75,6 +76,79 @@ function prompt(question) {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
     rl.question(question, (answer) => { rl.close(); resolve(answer.trim().toLowerCase()); });
   });
+}
+
+function git(cmd) {
+  try {
+    return execSync(`git ${cmd}`, { cwd: REPO_ROOT, stdio: ['pipe', 'pipe', 'pipe'] })
+      .toString().trim();
+  } catch {
+    return ''; // no upstream configured, not a repo, etc. — never block the sync
+  }
+}
+
+/**
+ * Markdown tables are rendered to PNGs (see kit-mdx-to-html.js) and referenced
+ * by absolute rubick.com URL, so they only reach the email once the PNG is live
+ * on the site. Find the table images this email depends on and report the ones
+ * that haven't shipped yet — uncommitted, or committed but not pushed.
+ *
+ * Returns { count, paths }: how many tables became images, and the repo-relative
+ * files that still need to go out. Empty paths means they're already deployed.
+ */
+function pendingTableImages(html, post) {
+  const files = [...html.matchAll(/src="[^"]*\/(kit-table-\d+\.png)"/g)].map(m => m[1]);
+  if (files.length === 0) return { count: 0, paths: [] };
+
+  // Each table lives twice: in the post source dir and in public/ (see CLAUDE.md).
+  const paths = files
+    .flatMap(f => [
+      path.join('public', post.slug, f),
+      path.join('src', 'content', 'posts', post.dirName, f),
+    ])
+    .filter(p => fs.existsSync(path.join(REPO_ROOT, p)));
+
+  const pathspec = paths.map(p => `'${p}'`).join(' ');
+  const shipped = git(`status --porcelain -- ${pathspec}`) === ''
+    && git(`log --oneline @{u}..HEAD -- ${pathspec}`) === '';
+
+  return { count: files.length, paths: shipped ? [] : paths };
+}
+
+function warnAboutTableImages({ count, paths }, slug) {
+  const one = count === 1;
+  const w = {
+    subject: one ? 'The table in this post was' : `The ${count} tables in this post were`,
+    image: one ? 'an image' : 'images',
+    images: one ? 'image' : 'images',
+    theyAre: one ? "it isn't" : "they aren't",
+    it: one ? 'it' : 'them',
+    broken: one ? 'a broken image' : 'broken images',
+    fills: one ? 'the image fills in by itself' : 'the images fill in by themselves',
+  };
+
+  console.log(`\n  ⚠ ${w.subject} rendered as ${w.image}, and ${w.theyAre} on rubick.com yet.`);
+  console.log(`    Kit loads ${w.it} from the live site, so the Kit preview and any test send will`);
+  console.log(`    show ${w.broken} until you ship ${w.it}:`);
+  console.log(`\n      git add ${paths.join(' ')}`);
+  console.log(`      git commit -m "Add table ${w.images} for ${slug}"`);
+  console.log('      git push\n');
+  console.log(`    Pasting into Kit now is fine — ${w.fills} once the deploy finishes.`);
+  console.log(`    Just don't send the email until then.`);
+}
+
+/**
+ * Repeat the table-image warning at the end of the run, so it isn't lost in the
+ * scrollback above a long sync.
+ */
+function remindAboutUnshippedImages(paths) {
+  if (paths.length === 0) return;
+  const unique = [...new Set(paths)];
+  console.log('\n⚠ Before sending: these table images still need to reach the live site,');
+  console.log('  or the emails you just pasted will go out with broken images.');
+  console.log(`\n    git add ${unique.join(' ')}`);
+  console.log('    git commit -m "Add table images for Kit emails"');
+  console.log('    git push');
 }
 
 function updateFrontmatterHash(filePath, newHash) {
@@ -146,6 +220,7 @@ async function main() {
 
   // Interactive sync loop
   let synced = 0, skipped = 0;
+  const unshippedImages = [];
 
   for (const post of toSync) {
     const urls = post.data.kitEditUrls.split(',').map(u => u.trim()).filter(Boolean);
@@ -161,6 +236,14 @@ async function main() {
       console.error(`  Error converting MDX: ${err.message}`);
       skipped++;
       continue;
+    }
+
+    // Warn before the paste, not after — the missing image is the first thing
+    // you'd notice in the Kit preview, and this explains it up front.
+    const tableImages = pendingTableImages(html, post);
+    if (tableImages.paths.length > 0) {
+      warnAboutTableImages(tableImages, post.slug);
+      unshippedImages.push(...tableImages.paths);
     }
 
     let allConfirmed = true;
@@ -190,6 +273,7 @@ async function main() {
       if (answer === 'q') {
         console.log('\nQuitting. Progress saved for completed posts.');
         console.log(`Summary: ${synced} synced, ${skipped} skipped`);
+        remindAboutUnshippedImages(unshippedImages);
         process.exit(0);
       }
 
@@ -213,6 +297,7 @@ async function main() {
 
   console.log(`\n${'='.repeat(60)}`);
   console.log(`Done. Synced: ${synced}, Skipped: ${skipped}`);
+  remindAboutUnshippedImages(unshippedImages);
 }
 
 main().catch(err => { console.error('Error:', err.message); process.exit(1); });
