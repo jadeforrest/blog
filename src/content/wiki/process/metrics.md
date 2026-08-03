@@ -17,6 +17,7 @@ description: Guidance on engineering productivity metrics, board reporting, and 
 * [DORA](https://dora.dev) is the most industry accepted way of measurement. It has problems (lagging, sometimes not especially actionable), but can be useful as a way of talking about improvements. Lead time for changes, frequency of deploys, change fail percentage, failed deployment recovery time.
 * [The SPACE of Developer Productivity - ACM Queue](https://queue.acm.org/detail.cfm?id=3454124) SPACE (which is kind of DORA v2)
 * [CORE 4](https://www.lennysnewsletter.com/p/introducing-core-4-the-best-way-to) is a good approach. It's v3 of DORA. PR Throughput, Developer Experience Index, Change Failure Rate, and % of time spent on new capabilities.
+* here is [how I measure value delivery.](https://www.rubick.com/valuesum-metric/)
 * [Measuring engineering organizations](https://lethain.com/measuring-engineering-organizations/) by Lethain
 * See also [Metrics tooling](/wiki/tools/metrics/)
 
