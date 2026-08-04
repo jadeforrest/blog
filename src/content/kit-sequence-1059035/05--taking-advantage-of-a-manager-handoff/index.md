@@ -12,6 +12,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: bbcd304d2d2864efa85d18f5d99d6e4c
+kitSyncedAt: '2026-08-04T19:57:35.323Z'
 ---
 ## Management requires context
 
