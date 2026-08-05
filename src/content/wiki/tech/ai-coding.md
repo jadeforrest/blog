@@ -26,7 +26,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 
 ## How automated can you get?
 
-* [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be. **Must read**.
+* [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) by [Kief Morris](https://www.linkedin.com/in/kiefmorris/). Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be. **Must read**.
 * Pairs nicely with Lethain's [What can agents do](https://lethain.com/what-can-agents-do/) which describes some of the nuts and bolts of what it takes to have an internal agent you have to support.
 * [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents) show a workflow for creating pull requests in a large codebase, triggered by Slack. [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) goes into some detail of how it works. Most interesting part is the orchestration and how it separates deterministic and LLM based approaches. It's a mostly one-shot approach, and suffers a bit because of that. But very interesting!
 * [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html). Describes some useful concepts for understanding how to engineer more reliably with coding agents.
