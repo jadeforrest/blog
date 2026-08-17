@@ -12,7 +12,7 @@ description: Headcount and AI, Organizational design, power structures, and fram
 
 * Tomasz Tunguz on [R&D expense as a percent of headcount](https://tomtunguz.com/et30-headcount-analysis/). This is for "top enterprise companies". They tend to move towards about 30% of headcount in R&D.
 * This [2020 Redpoint survey by Tomasz Tunguz](https://tomtunguz.com/redpoint-2020-gtm-survey/) shows a ratio of Engineers to AEs going from 2:1 (before 5M ARR), to 1.75:1 (below 20M ARR), and 1.25:1 (below 50M ARR) and 1:1 (below 100M). With some variation. 
-* Engineering tends to be about 10-50% of headcount. This depends on revenue and growth. Large mature companies around 10%, very early stage companies at the top end.
+* One leader's read: "Engineering tends to be about 10-50% of headcount. This depends on revenue and growth. Large mature companies around 10%, very early stage companies at the top end. Oversimplifying: public, late-stage startups, PE backed between 15-20, and stage B and later with high growth 20-25."
 
 ## Headcount and AI
 
