@@ -8,7 +8,12 @@ description: Headcount and AI, Organizational design, power structures, and fram
 
 * This is a new favorite post of mine from Molly Graham, on [how to evolve your Company structure over time](https://mollyg.substack.com/p/startup-org-design-power-centers). It's quite insightful, helped me see things in a new way, and will be something I refer to in the future. A very useful read! @jade 
 
-# Headcount and AI
+## Engineering ratios for various sized companies
+
+* This [2020 Redpoint survey by Tomasz Tunguz](https://tomtunguz.com/redpoint-2020-gtm-survey/) shows a ratio of Engineers to AEs going from 2:1 (before 5M ARR), to 1.75:1 (below 20M ARR), and 1.25:1 (below 50M ARR) and 1:1 (below 100M). With some variation. 
+* Engineering tends to be about 10-50% of headcount. This depends on revenue and growth. Large mature companies around 10%, very early stage companies at the top end.
+
+## Headcount and AI
 
 * [AI layoffs are backfiring in 2026](https://www.theregister.com/ai-and-ml/2026/05/06/ai-layoffs-backfire-as-cutting-staff-doesnt-cut-it-firms-warned/5230631) 
 
