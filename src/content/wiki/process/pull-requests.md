@@ -19,3 +19,4 @@ description: Best practices for pull request size, git strategies, and code revi
 ## Stack tooling
 
 * [Sapling](https://sapling-scm.com/docs/introduction/) is a tool based on internal tools at Facebook used to deal with stacking PRs.
+* [Graphite](https://graphite.com/docs/get-started) is a tool for stacked PRs, inspired by tools created at a number of companies.
