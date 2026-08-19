@@ -2,7 +2,9 @@
 
 import http from 'http';
 import https from 'https';
-import { URL } from 'url';
+import fs from 'fs';
+import path from 'path';
+import { URL, fileURLToPath } from 'url';
 import { exec } from 'child_process';
 
 /**
@@ -12,6 +14,12 @@ import { exec } from 'child_process';
  * 1. Starting a local server to receive OAuth callbacks
  * 2. Opening your browser to authorize the app
  * 3. Exchanging the authorization code for an access token
+ * 4. Writing that token (and its expiry) straight into blog/.env
+ *
+ * The token is never printed — there is nothing to copy or paste. LinkedIn
+ * member tokens last ~60 days and cannot be refreshed programmatically, so
+ * scripts/extract-to-linkedin.js reads the expiry written here and warns
+ * 7 days out. Re-run this script when it does.
  *
  * Usage:
  *   node scripts/linkedin-get-token.js
@@ -31,6 +39,9 @@ import { exec } from 'child_process';
 const PORT = 3000;
 const REDIRECT_URI = `http://localhost:${PORT}/callback`;
 const SCOPES = 'openid profile w_member_social';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ENV_PATH = path.join(__dirname, '..', '.env');
 
 // Configuration
 const config = {
@@ -103,6 +114,41 @@ function getAccessToken(code) {
     req.write(postData);
     req.end();
   });
+}
+
+/**
+ * Persist the new token into blog/.env, replacing the existing keys in place.
+ *
+ * The token itself is never printed or logged — same convention as
+ * scripts/lib/kit-api.js. Writes to a temp file and renames so an interrupted
+ * write cannot truncate .env (which also holds the Bluesky and Kit credentials).
+ *
+ * Returns the ISO expiry timestamp that was written.
+ */
+function writeTokenToEnv(tokenData, envPath = ENV_PATH) {
+  if (!fs.existsSync(envPath)) {
+    throw new Error(`No .env found at ${envPath} — refusing to create one from scratch.`);
+  }
+
+  const expiresAt = new Date(Date.now() + tokenData.expires_in * 1000).toISOString();
+  const original = fs.readFileSync(envPath, 'utf8');
+
+  // Matches the `export KEY="value"` convention parsed in scripts/lib/kit-api.js.
+  const upsert = (text, key, value) => {
+    const line = `export ${key}="${value}"`;
+    const re = new RegExp(`^\\s*(?:export\\s+)?${key}\\s*=.*$`, 'm');
+    return re.test(text) ? text.replace(re, line) : `${text.replace(/\n*$/, '')}\n${line}\n`;
+  };
+
+  let updated = upsert(original, 'LINKEDIN_ACCESS_TOKEN', tokenData.access_token);
+  updated = upsert(updated, 'LINKEDIN_TOKEN_EXPIRES_AT', expiresAt);
+
+  const tmpPath = `${envPath}.tmp-${process.pid}`;
+  fs.writeFileSync(tmpPath, updated, { mode: 0o600 });
+  fs.renameSync(tmpPath, envPath);
+  fs.chmodSync(envPath, 0o600);
+
+  return expiresAt;
 }
 
 /**
@@ -259,17 +305,18 @@ async function main() {
     // Wait for token
     const tokenData = await tokenPromise;
 
+    const expiresAt = writeTokenToEnv(tokenData);
+    const days = Math.floor(tokenData.expires_in / 86400);
+
     console.log('\n' + '='.repeat(80));
-    console.log('🎉 SUCCESS! Access Token Generated');
+    console.log('🎉 SUCCESS! Access token generated and saved.');
     console.log('='.repeat(80));
-    console.log('\n📝 Access Token:');
-    console.log(tokenData.access_token);
-    console.log('\n⏰ Expires in:', tokenData.expires_in, 'seconds (approx', Math.floor(tokenData.expires_in / 86400), 'days)');
-    console.log('\n💾 Save your token by running:');
-    console.log(`\nexport LINKEDIN_ACCESS_TOKEN="${tokenData.access_token}"\n`);
-    console.log('Or add to your ~/.bashrc or ~/.zshrc for persistence:\n');
-    console.log(`echo 'export LINKEDIN_ACCESS_TOKEN="${tokenData.access_token}"' >> ~/.bashrc\n`);
-    console.log('='.repeat(80) + '\n');
+    console.log(`\n💾 Written to: ${ENV_PATH}`);
+    console.log('   (token value not printed \u2014 nothing to copy or paste)');
+    console.log(`\n⏰ Expires:    ${new Date(expiresAt).toLocaleString()} (~${days} days)`);
+    console.log('\n   scripts/extract-to-linkedin.js will warn you 7 days before that date.');
+    console.log('   Re-run this script when it does.');
+    console.log('\n' + '='.repeat(80) + '\n');
 
   } catch (error) {
     console.error('\n❌ Error:', error.message);
@@ -289,4 +336,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 
-export { getAccessToken, startServer };
+export { getAccessToken, startServer, writeTokenToEnv };

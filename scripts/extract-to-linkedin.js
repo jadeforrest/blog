@@ -6,6 +6,7 @@ import https from 'https';
 import http from 'http';
 import { URL } from 'url';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +16,10 @@ const __dirname = path.dirname(__filename);
 const EXTRACTED_DIR = './extracted-content';
 const SENT_TRACKING_FILE = path.join(__dirname, 'linkedin-sent.json');
 const LINKEDIN_API_BASE = 'https://api.linkedin.com/v2';
+
+// LinkedIn member tokens last ~60 days and cannot be refreshed programmatically,
+// so the only defence is noticing before they lapse.
+const TOKEN_WARNING_DAYS = 7;
 
 /**
  * Load tracking data for sent posts
@@ -521,6 +526,54 @@ async function postToLinkedIn(post, accessToken, options = {}) {
 }
 
 /**
+ * Best-effort macOS notification, matching the alert style already used by
+ * ~/Library/Scripts/blog-to-linkedin.sh so it reads as the same channel.
+ * Never throws: a missing/failing osascript must not take down the day's post.
+ */
+function notify(message) {
+  if (process.platform !== 'darwin') return;
+  try {
+    execFileSync('osascript', [
+      '-e',
+      `display notification ${JSON.stringify(message)} with title "launchd error" sound name "Basso"`
+    ], { stdio: 'ignore', timeout: 10000 });
+  } catch {
+    // Headless or notifications unavailable — the log line above still stands.
+  }
+}
+
+/**
+ * Warn when the access token is close to expiring, so it is renewed on a
+ * schedule instead of discovered dead by a 401. Returns days remaining, or
+ * null when LINKEDIN_TOKEN_EXPIRES_AT is absent or unparseable (older .env
+ * files predate the key; their absence must not block posting).
+ */
+function checkTokenExpiry(expiresAtRaw = process.env.LINKEDIN_TOKEN_EXPIRES_AT, notifier = notify) {
+  if (!expiresAtRaw) return null;
+
+  const expiresAt = new Date(expiresAtRaw);
+  if (Number.isNaN(expiresAt.getTime())) {
+    console.warn(`⚠️  Could not parse LINKEDIN_TOKEN_EXPIRES_AT ("${expiresAtRaw}") — skipping expiry check.`);
+    return null;
+  }
+
+  const daysLeft = (expiresAt.getTime() - Date.now()) / 86400000;
+
+  if (daysLeft <= 0) {
+    const msg = 'LinkedIn token has EXPIRED. Run: node scripts/linkedin-get-token.js';
+    console.warn(`\n⚠️  ${msg} (expired ${expiresAt.toLocaleString()})\n`);
+    notifier(msg);
+  } else if (daysLeft <= TOKEN_WARNING_DAYS) {
+    const rounded = Math.ceil(daysLeft);
+    const msg = `LinkedIn token expires in ${rounded} day${rounded === 1 ? '' : 's'}. Run: node scripts/linkedin-get-token.js`;
+    console.warn(`\n⚠️  ${msg} (expires ${expiresAt.toLocaleString()})\n`);
+    notifier(msg);
+  }
+
+  return daysLeft;
+}
+
+/**
  * Get environment variables with validation
  */
 function getConfig() {
@@ -530,6 +583,10 @@ function getConfig() {
   if (!accessToken) {
     throw new Error('LINKEDIN_ACCESS_TOKEN environment variable is required');
   }
+
+  // Advisory only — a soon-to-expire token is still a working token, and the
+  // day's post must still go out. Only a real 401 fails the run.
+  checkTokenExpiry();
 
   return {
     accessToken,
@@ -636,5 +693,6 @@ export {
   fetchUrlMetadata,
   extractMetaTags,
   downloadImage,
-  uploadImageToLinkedIn
+  uploadImageToLinkedIn,
+  checkTokenExpiry
 };
