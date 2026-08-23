@@ -959,8 +959,16 @@
     "width": 1875,
     "height": 1127
   },
+  "valuesum-metric/kit-table-1.png": {
+    "width": 606,
+    "height": 508
+  },
   "valuesum-metric/numbers.jpg": {
     "width": 2253,
     "height": 1014
+  },
+  "valuesum-metric/valuesum-chart.png": {
+    "width": 2098,
+    "height": 1204
   }
 }
