@@ -12,17 +12,20 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: 2b3125eabacc5feddd3c928b496359f2
+kitSyncedAt: '2026-08-23T04:22:17.774Z'
 ---
+
 As managers, our job is to make our part of the organization better. This requires imposing change. Today we'll discuss how to make changes: how to overcome resistance, skepticism, change fatigue, and people who push back against proposals.
 
 ## First, always be listening
 
 First of all, you need to be steeped in the problems of your team. You need to understand them better than anybody. This requires a lot of listening and questioning. Use your 1-1s to ask people what's going on for them:
 
--   What problems do they see?
--   What's frustrating for them?
--   What do they love about their team?
--   How do they interact with other teammates, or other teams?
+- What problems do they see?
+- What's frustrating for them?
+- What do they love about their team?
+- How do they interact with other teammates, or other teams?
 
 The more you understand the team's problems, the more the team will trust that you're there to improve things for them. Your proposals and changes will go over better if there is a track record of you listening to them.
 
@@ -38,10 +41,10 @@ I keep this backlog separate from my management tasks, and treat the problem I'm
 
 Once you've selected something from the top of your backlog, here's how you might go about making the change.
 
-1.  You start with a **problem**. The problem is an observation of the issue that's happening. It may have a swirl of related problems associated with it. For example, the problem might be that "the team velocity is slowing down". You're getting complaints about it, and maybe the team is telling you about it. This is the issue you had in your backlog. I sometimes will write it down for clarity. What are people meaning by "velocity"? Is it that the team just seems to not be delivering as much as it used to?
-2.  Assess **how large** of an issue this is. If it's a problem that you understand reasonably well, and the solution won't face a lot of resistance, you can just do some small improvements as experiments. In that case, you can reduce the amount of time you spend on the rest of these steps. Including the socializing portion.
-3.  Next, your goal is to come up with a **diagnosis**. A diagnosis is the issue that is at the heart of the problem. This is the step most managers skip, and it's the most important step. You dig in and research it so you understand it better than anyone. You must do this as rapidly as possible. There may be 10 problems in the mix -- the diagnosis identifies where to focus. I usually do this by stacking up intensive conversations with the people involved: all within a couple of days. But I might also look at any tools, or any data that can help me understand the situation. If we're looking at the team velocity, I would stack up 1-1s with the team and ask people individually. It could be a million things that are slowing down the team, or it could be multiple things. When you understand it well, you have a diagnosis. A clear diagnosis is important, because usually the remedy is clear with a good diagnosis. Also note it is fine if the diagnosis is that there are lots of small problems.
-4.  Finally, you come up with a proposed **remedy**. This should be something that will make the situation better. It doesn't have to completely solve the problem, but it should make things a lot better.
+1. You start with a **problem**. The problem is an observation of the issue that's happening. It may have a swirl of related problems associated with it. For example, the problem might be that "the team velocity is slowing down". You're getting complaints about it, and maybe the team is telling you about it. This is the issue you had in your backlog. I sometimes will write it down for clarity. What are people meaning by "velocity"? Is it that the team just seems to not be delivering as much as it used to?
+2. Assess **how large** of an issue this is. If it's a problem that you understand reasonably well, and the solution won't face a lot of resistance, you can just do some small improvements as experiments. In that case, you can reduce the amount of time you spend on the rest of these steps. Including the socializing portion.
+3. Next, your goal is to come up with a **diagnosis**. A diagnosis is the issue that is at the heart of the problem. This is the step most managers skip, and it's the most important step. You dig in and research it so you understand it better than anyone. You must do this as rapidly as possible. There may be 10 problems in the mix -- the diagnosis identifies where to focus. I usually do this by stacking up intensive conversations with the people involved: all within a couple of days. But I might also look at any tools, or any data that can help me understand the situation. If we're looking at the team velocity, I would stack up 1-1s with the team and ask people individually. It could be a million things that are slowing down the team, or it could be multiple things. When you understand it well, you have a diagnosis. A clear diagnosis is important, because usually the remedy is clear with a good diagnosis. Also note it is fine if the diagnosis is that there are lots of small problems.
+4. Finally, you come up with a proposed **remedy**. This should be something that will make the situation better. It doesn't have to completely solve the problem, but it should make things a lot better.
 
 I usually recommend writing down these three things in a half-page or page doc. This clarifies your thinking. The sections are Problem, Diagnosis, and Proposed Remedy.
 
@@ -124,6 +127,5 @@ I've learned about this topic from a lot of people. [Alex Kroman](https://www.li
 
 ## Want to share this?
 
-Share this post: [https://www.rubick.com/make-changes-easy/](https://www.rubick.com/make-changes-easy/)​
+Share this post: [https://www.rubick.com/make-changes-easy/](https://www.rubick.com/make-changes-easy/)
 
-​

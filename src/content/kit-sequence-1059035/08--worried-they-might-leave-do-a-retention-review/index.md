@@ -12,8 +12,9 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: 32b8abe00a266f2d648e2279fbad470b
+kitSyncedAt: '2026-08-23T04:15:55.850Z'
 ---
-​
 
 Sometimes, everything falls apart. It can seem like everyone in the organization is about to quit.
 
@@ -29,10 +30,10 @@ A retention review is a tool you can use. You employ it when you're worried abou
 
 A retention review is pretty easy to implement:
 
-1.  Create a spreadsheet with everyone in your organization. You can use my [retention review template](https://docs.google.com/spreadsheets/d/1lHGSVGnBGRaqwuqwE_dg1yIsL1OeNSw0oNLAUaPaMNw/edit#gid=0) and modify it. Let me know if you improve it significantly -- would love to see variations!
-2.  Each manager fills it in for all of their team members.
-3.  Identify team members you're not sure about.
-4.  Also identify team members that might be unhappy or apathetic (yellow). And identify team members that are at risk of leaving (red).
+1. Create a spreadsheet with everyone in your organization. You can use my [retention review template](https://docs.google.com/spreadsheets/d/1lHGSVGnBGRaqwuqwE_dg1yIsL1OeNSw0oNLAUaPaMNw/edit#gid=0) and modify it. Let me know if you improve it significantly -- would love to see variations!
+2. Each manager fills it in for all of their team members.
+3. Identify team members you're not sure about.
+4. Also identify team members that might be unhappy or apathetic (yellow). And identify team members that are at risk of leaving (red).
 
 ## Identify action items
 
@@ -55,5 +56,3 @@ Importantly, you also need to take care of yourself. Times of turmoil are diffic
 ## Thank you
 
 I learned this approach from [Marco Rogers](https://www.linkedin.com/in/marcorogers/).
-
-​
