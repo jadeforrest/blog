@@ -291,30 +291,6 @@
     "width": 1729,
     "height": 779
   },
-  "using-a-dslr-for-video-conferencing/logitech.png": {
-    "width": 1270,
-    "height": 710
-  },
-  "using-a-dslr-for-video-conferencing/lumina-day-plus.png": {
-    "width": 966,
-    "height": 550
-  },
-  "using-a-dslr-for-video-conferencing/lumina-day-raw.png": {
-    "width": 966,
-    "height": 550
-  },
-  "using-a-dslr-for-video-conferencing/lumina-night-w-light.png": {
-    "width": 966,
-    "height": 550
-  },
-  "using-a-dslr-for-video-conferencing/lumina-oct22.png": {
-    "width": 1680,
-    "height": 952
-  },
-  "using-a-dslr-for-video-conferencing/lumina-plus-without-lights.png": {
-    "width": 966,
-    "height": 550
-  },
   "using-a-dslr-for-video-conferencing/macbook.png": {
     "width": 2540,
     "height": 1418
@@ -326,14 +302,6 @@
   "using-a-dslr-for-video-conferencing/no-lighting.png": {
     "width": 2540,
     "height": 1418
-  },
-  "using-a-dslr-for-video-conferencing/sony-day.png": {
-    "width": 966,
-    "height": 550
-  },
-  "using-a-dslr-for-video-conferencing/sony-night-w-light.png": {
-    "width": 966,
-    "height": 550
   },
   "using-a-dslr-for-video-conferencing/sony-oct22.png": {
     "width": 1912,
@@ -970,5 +938,9 @@
   "valuesum-metric/valuesum-chart.png": {
     "width": 2098,
     "height": 1204
+  },
+  "the-executive-loop/pottery.jpg": {
+    "width": 1774,
+    "height": 798
   }
 }
