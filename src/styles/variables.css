@@ -48,6 +48,8 @@
   --surface-deep: #1f3b57; /* deep navy ink */
   --color-accent: var(--color-special-attention); /* warm orange, secondary accent */
   --color-accent-soft: #f3ded0; /* pale warm tint for accent fills */
+  --surface-blue-soft: #f7fafd; /* barely-there blue tint for table fills */
+  --surface-blue-soft-strong: #dfeaf6; /* header row / hover variant */
 
   /* Spacing */
   --space-default: 20px;

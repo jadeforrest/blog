@@ -200,6 +200,31 @@ import TalkyardComments from "../components/TalkyardComments.astro";
     padding: 0;
   }
 
+  /* Tables */
+  .post-content :global(table) {
+    width: 100%;
+    margin: var(--space-m) 0;
+    border-collapse: collapse;
+    background-color: var(--surface-blue-soft);
+    border: 1px solid var(--border-color-subtle);
+    font-size: 0.95em;
+  }
+
+  .post-content :global(th),
+  .post-content :global(td) {
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--border-color-subtle);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .post-content :global(thead td),
+  .post-content :global(th),
+  .post-content :global(table tr:first-child td) {
+    background-color: var(--surface-blue-soft-strong);
+    font-weight: 600;
+  }
+
   /* Image styles for Astro Image component */
   .post-content :global(img) {
     margin: 2.5em 0;
