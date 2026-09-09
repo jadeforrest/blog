@@ -24,13 +24,14 @@ description: AI-powered development tools, workflows, and best practices for aug
 * Consider using [ast-grep](https://ast-grep.github.io) for larger codebases (and also this tool looks amazing).
 * Potential tooling for reducing duplication in code: [jscpd](https://github.com/kucherenko/jscpd), [pylint](https://pypi.org/project/pylint/) for Python, [dupl](https://github.com/mibk/dupl) for Go.
 
-## How automated can you get?
+## Software factories
 
 * [Humans ON the loop](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) by [Kief Morris](https://www.linkedin.com/in/kiefmorris/). Articulates a lot of the direction my thinking has been going around where a lot of engineering focus will probably be. **Must read**.
 * Pairs nicely with Lethain's [What can agents do](https://lethain.com/what-can-agents-do/) which describes some of the nuts and bolts of what it takes to have an internal agent you have to support.
 * [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents) show a workflow for creating pull requests in a large codebase, triggered by Slack. [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) goes into some detail of how it works. Most interesting part is the orchestration and how it separates deterministic and LLM based approaches. It's a mostly one-shot approach, and suffers a bit because of that. But very interesting!
 * [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html). Describes some useful concepts for understanding how to engineer more reliably with coding agents.
 * [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
+* [Harness engineering at OpenAI](https://openai.com/index/harness-engineering/) A Feb 2026 article on an internal team at OpenAI that instituted a "no human code rule" and went from 0 -> 1MM lines of code. Contains some useful things they learned. 
 
 ## Code review
 * [How to kill code review](https://www.latent.space/p/reviews-dead) from Ankit Jain, founder of Aviator. Argues code review isn't sustainable any more, and we have to start developing approaches like BDD and deterministic verification.
