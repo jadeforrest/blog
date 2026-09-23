@@ -17,6 +17,7 @@ If you can, these can make a big difference in the upside. Your ability to negot
 * **Longer term post-termination clauses**. Unless you're joining a company one or two years from a liquidity event, you're taking a large risk that you're going to stay with the company for a LONG time if you want to have any sort of equity payout. It is not especially common for people to negotiate for this. But this means when you leave, you usually lose any options unless you have the cash to buy them when you leave. Jade has done negotiation for this as a part of contract roles. And there are companies that do it for ALL employees. Jade even read a blog post once saying it was the direction that startups were trending towards. But.. there weren't a lot of people that had negotiated for this. In 2025, Carta said that 26% of terminated options had windows of over 90 days.
 * **Double trigger acceleration** [protects you](https://scaleup.mofo.com/guidance/equity-fundamentals-single--vs-double-trigger-acceleration-explained) after an acquisition. 
 * **Severance** terms, can be 6-12 months, or tied to vesting schedule. Can include healthcare continuation.
+* **most favored nation clauses** protect you from getting worse terms than someone else within a time period free you leave, for example with severance. upgrades you to those terms.
 
 ## Questions to ask / things to ask
 
