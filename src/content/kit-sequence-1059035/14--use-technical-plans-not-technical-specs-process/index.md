@@ -1,7 +1,7 @@
 ---
 kitEmailId: 4688139
 sequenceId: 1059035
-subject: 'Use technical plans, not technical specs (process)'
+subject: 'Demo driven development'
 previewText: ''
 position: 14
 published: true
