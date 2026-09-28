@@ -1,0 +1,103 @@
+---
+title: The ratchet
+tags: ["change-management"]
+cover: ./ratchet.jpg
+author: Jade Rubick
+discussionId: "the-ratchet"
+description: "A ratchet is a tool that only goes in one direction. We explore using this technique for leadership problems."
+kitEditUrls: "https://app.kit.com/sequences/1031459"
+kitSyncHash: ""
+---
+
+import { Image } from 'astro:assets';
+import ratchetImage from './ratchet.jpg';
+
+Today I'd like to talk about a useful tool to have in your leadership toolkit. I call it **the ratchet**.
+
+<Image src={ratchetImage} alt="picture of a ratchet tool" width={800} />
+
+## What is a ratchet?
+
+Ratchets are a technique for ensuring a change goes only in one direction. 
+
+In engineering, an example would be a code coverage ratchet. Let's say your testing covers 50% of your code and you want to make sure that that is trending up. You could add a ratchet that every addition to the code base increases the code coverage.
+
+
+## How you make a ratchet
+
+Someone with some power says what the ratchet is, and adds the process or automation to make it happen.
+
+So for example, a leader might say, “we have a goal to improve our code coverage. This is important as it makes our codebase better and more reliable. It makes our jobs easier. So I’m putting a code coverage tool in place, and it will fail to accept code that lowers our code coverage rate. You can override it in emergencies, but the goal is to bake this into the way we do our work”
+
+## Why a ratchet?
+
+They’re a pretty fabulous way to make sure you get the results you’re looking for. They can help you ensure that a [trend is followed](/trend-test/). 
+
+They are an incremental and evolutionary approach. 
+
+## When to employ a ratchet
+
+There is a real overhead in adding a ratchet, so you should be conscious of whether it's worth it. I usually think ask myself questions like:
+
+* Is the ratchet valuable enough that it’s worth the cost of the overhead?
+* Can I automate away the overhead?
+* Is an incremental approach sufficient (and maybe even preferable?) or is it worth doing it all now?
+
+## Pitfalls with ratchets
+
+A ratchet can **make the cost of doing something seem lower than it is**. 
+
+I've often regretted using ratchets for code migration work. Prior to coding agents, making a change would often seem too expensive to do all at once. So I would use a ratchet instead. But this was just hiding the real cost of doing the work. Often it would be better to abandon the work, or do it all at once.
+
+So I recommend weighing whether it’s better to get it all done at once, or do it gradually. An ideal situation for a ratchet is when it will take a lot of learning along the way to get better at something.
+
+**Ratchets add process and overhead**. For example, with the code coverage ratchet, you are adding just a little friction to every code contribution. Ideally, you want to automate that. If you add a lot of ratchets, they can slow everything down. So be conscious of their costs.
+
+One thing you can consider is a ratchet that self-destructs when the goal is accomplished.
+
+**Ratchets usually need some sort of oversight**. They need a measurement, or a metric. They have to be visible in some way, or they can’t really work effectively. For example, a code coverage ratchet will need some sort of measurement to be run every time an engineer submits code. 
+
+
+## Examples of ratchets that we can learn from
+
+### Moving to continuous delivery
+
+When I first joined New Relic, I was a Ruby developer. We shipped our code to production every two weeks.  The VP of Engineering employed a ratchet-based approach to get us to CI/CD. What did he do?
+
+He insisted first that we move to deploying every week. As a team, we did all the things necessary to make that go well. 
+
+Then he said we needed to do it twice a week. So we made the necessary changes to get to twice a week.
+
+Then he said we needed to move to daily deploys. 
+
+Each of these was an increasing constraint, and we knew that we were moving towards more continuous delivery. But this allowed us to learn on the way, and gradually improve our approach. It allowed us to break all the things holding us back from more continuous delivery.
+
+In some situations it might have been better to just move directly to continuous delivery. But in this case, that would have been excessively risky. We had a lot to learn and change on the way. So a ratchet made a lot of sense.
+
+### Improved testing
+
+We earlier used an example of test coverage for a ratchet. On my personal coding projects, I use a ratchet based approach with my software agents to improve my confidence in the coding quality.
+
+I’ve found that [fuzz testing](https://en.wikipedia.org/wiki/Fuzzing), complexity / [CRAP testing](https://testing.googleblog.com/2011/02/this-code-is-crap.html), and [mutation testing](https://en.wikipedia.org/wiki/Mutation_testing) are all useful for improving the code quality I get from software agents. So what I’ve done is put in my CLAUDE.md file that they should be a part of verification, not just running the existing test suite.
+
+This has been a really nice ratchet. The cost is relatively small (it eats a little context from every session, and the tests themselves take additional time). But all of my projects have started sprouting more extensive testing. And if I start a new project, it is naturally added there as well.
+
+### Moving a codebase to services
+
+When I did a retrospective on a services effort I was a leader on, I later thought that we could have simplified the whole effort into a ratchet. It would have looked like this:
+
+1. We move a few people to a new “services team”. One person acts as product manager.
+2. We add a checklist item for new projects on all teams, that has a review of whether the work would ideally be done in a service. 
+3. We list any blockers to being able to do that. This is fed to the product manager.
+4. The product manager prioritizes work for the services team based on what would most unlock other teams to be able to self-service work in services, instead of the monolith.
+5. Voila! A greater and greater percentage of projects are unblocked and able to do their work within services.
+
+If you want it to go faster, you move more people to the services team. 
+
+This seemed much less complicated than what we did, which was much more messy. However, it also requires a certain amount of overhead in every new project, and requires a certain amount of process. I think it would have been worth it.
+
+What can we learn from this? Identifying a ratchet approach can sometimes simplify complex situations into a simple algorithm. The algorithm itself can be improved as you practice it.
+
+## Thank you
+
+Image by <a href="https://pixabay.com/users/webandi-1460261/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3500072">Andreas Lischka</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3500072">Pixabay</a>
