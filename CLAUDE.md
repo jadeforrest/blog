@@ -76,7 +76,7 @@ Navigate to `gatsby-blog/` directory first:
 - **Images**: Astro's native Image component for optimization and responsive images
 
 ### Styling
-- PostCSS with plugins: nested, preset-env, easy-media-query, text-remove-gap
+- PostCSS with plugins: nested, preset-env
 - Configuration in `postcss.config.cjs`
 - Theme configuration in `src/theme/`
 

@@ -53,10 +53,8 @@
     "pagefind": "^1.4.0",
     "playwright": "^1.58.2",
     "postcss": "^8.5.6",
-    "postcss-easy-media-query": "^1.0.0",
     "postcss-nested": "^7.0.2",
     "postcss-preset-env": "^11.3.2",
-    "postcss-text-remove-gap": "^1.1.1",
     "turndown": "^7.2.4"
   }
 }
