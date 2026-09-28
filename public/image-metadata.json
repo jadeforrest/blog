@@ -950,5 +950,9 @@
   "trend-test/trend.jpg": {
     "width": 1804,
     "height": 812
+  },
+  "the-ratchet/ratchet.jpg": {
+    "width": 1890,
+    "height": 850
   }
 }
