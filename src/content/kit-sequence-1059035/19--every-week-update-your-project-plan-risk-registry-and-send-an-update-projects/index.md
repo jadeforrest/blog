@@ -14,6 +14,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: aa304d2e37f9665cc78a41e4fe84c800
+kitSyncedAt: '2026-09-29T21:41:07.835Z'
 ---
 Today, I'd like to cover the weekly life of a project manager. When I'm managing a project, these are the things I do every week:
 

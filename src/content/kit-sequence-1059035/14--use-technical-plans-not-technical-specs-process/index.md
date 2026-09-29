@@ -12,6 +12,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: d75b450f1967f47b990425c9b0fe60fe
+kitSyncedAt: '2026-09-29T21:40:52.136Z'
 ---
 ## Step 6: Create technical plans
 

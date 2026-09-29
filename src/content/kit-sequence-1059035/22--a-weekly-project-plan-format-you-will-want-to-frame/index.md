@@ -12,6 +12,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
+kitSyncHash: d16ff41f6ac8d95b632917168689dadb
+kitSyncedAt: '2026-09-29T21:41:45.104Z'
 ---
 Today, I’ll share a few thoughts on what makes a good project plan. And I’ll provide a sample project plan.
 
