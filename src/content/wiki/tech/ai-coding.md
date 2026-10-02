@@ -33,6 +33,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Dark factories](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) this post is mostly alright but the point I found useful is the concept of "dark factories", factories where you are not designing for people but machines.
 * [Harness engineering at OpenAI](https://openai.com/index/harness-engineering/) A Feb 2026 article on an internal team at OpenAI that instituted a "no human code rule" and went from 0 -> 1MM lines of code. Contains some useful things they learned.
 * [Digital twin universes](https://simonwillison.net/2026/Feb/7/software-factory/) approach to cloning dependencies for fast automated verification. 
+* [Intercom's Fin on how they 2xed PRs](https://ideas.fin.ai/p/2x-nine-months-later), contains a lot of good metrics and info on how they went about it.
 
 ## Code review
 * [How to kill code review](https://www.latent.space/p/reviews-dead) from Ankit Jain, founder of Aviator. Argues code review isn't sustainable any more, and we have to start developing approaches like BDD and deterministic verification.
