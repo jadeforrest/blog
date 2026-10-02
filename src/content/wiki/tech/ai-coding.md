@@ -40,6 +40,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Intercom on AI approval of PRs](https://www.intercom.com/blog/ai-is-approving-our-pull-requests-heres-how-we-made-it-safe/). 19% of PRs approved by AI. Note I think their metrics are bogus, since of course the easiest and safest PRs will be reviewed by AI. Some nice approaches to how they did it, however.
 * [Ratchets and linting](https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/) as a tool for increasing the amount of quality in automated codebases.
 * [PR review tips](https://newsletter.posthog.com/p/code-review-tips) from posthog.
+* [Automating PR review at Fin/intercom](https://ideas.fin.ai/p/ai-is-approving-our-pull-requests)
 
 ## Large-scale refactoring
 * [Restoration of a 20-year-old Java “Big Ball of Mud” using AI and Docker](https://martinfowler.com/articles/archaeologist-copilot.html)
