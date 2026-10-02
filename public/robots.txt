@@ -1,8 +1,11 @@
 # robots.txt for https://www.rubick.com (RFC 9309)
 # All crawlers, including AI agents, may read the site. /pagefind/ holds the
 # client-side search index, which has no content of its own.
+# Content-Signal (https://contentsignals.org): search, AI answers and AI
+# training are all welcome.
 
 User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /pagefind/
 
