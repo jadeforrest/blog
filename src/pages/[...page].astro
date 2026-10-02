@@ -8,6 +8,7 @@ import { formatDate } from "../utils/formatDate";
 import charityImage from "../assets/charity.png";
 import avatarLarge from "../assets/avatar-large.jpeg";
 import Hero from "../components/Hero.astro";
+import { homepageJsonLd } from "../../scripts/lib/json-ld.js";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   // Get all posts and sort by date (newest first)
@@ -65,11 +66,23 @@ const postsWithCovers = await Promise.all(
     return { ...post, coverImage: { ...coverImage, attributes: { ...coverImage.attributes, loading } } };
   })
 );
+
+// Identity for agents and search engines; only the root page, not /2/, /3/...
+const description =
+  "Jade Rubick helps leaders troubleshoot and scale their engineering and product organizations through advising, coaching, and interim leadership.";
+const jsonLd =
+  page.currentPage === 1
+    ? homepageJsonLd({
+        description,
+        image: new URL((await getImage({ src: avatarLarge, width: 400, format: "jpeg" })).src, Astro.site).href,
+      })
+    : undefined;
 ---
 
 <BaseLayout
   title="Build humane, effective engineering organizations"
   description="Engineering leadership blog by Jade Rubick"
+  jsonLd={jsonLd}
 >
   <div class="homepage">
     {
@@ -131,7 +144,7 @@ const postsWithCovers = await Promise.all(
           <div class="charity-container">
             <Image
               src={charityImage}
-              alt="Charity"
+              alt="Charity Majors, CTO of honeycomb.io, on LinkedIn: “Jade Rubick is one of the only people whose writings on engineering organization and management I read obsessively and await eagerly. His stuff is never simplistic or unusably abstract. He deserves a bigger audience, imho.”"
               class="charity-image"
               widths={[800, 1200, 1600]}
               sizes="(max-width: 799px) 800px, (max-width: 1199px) 1200px, 1600px"

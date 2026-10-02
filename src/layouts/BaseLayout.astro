@@ -4,6 +4,7 @@ import { Image, Font, getImage } from "astro:assets";
 import "../styles/global.css";
 import avatarImage from "../assets/avatar.jpg";
 import ogDefaultImage from "../assets/og-default.jpg";
+import { serializeJsonLd } from "../../scripts/lib/json-ld.js";
 
 interface Props {
   title: string;
@@ -11,9 +12,11 @@ interface Props {
   ogImage?: ImageMetadata;
   ogImageAlt?: string;
   author?: string;
+  /** schema.org object(s) rendered as a JSON-LD script in <head>. */
+  jsonLd?: object;
 }
 
-const { title, description, ogImage, ogImageAlt, author } = Astro.props;
+const { title, description, ogImage, ogImageAlt, author, jsonLd } = Astro.props;
 const siteTitle = "Jade Rubick - Engineering Leadership";
 // LinkedIn's OG scraper truncates titles at ASCII apostrophes. Normalize to the
 // Unicode right single quote so embeds render the full title.
@@ -83,6 +86,8 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
+
+    {jsonLd && <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />

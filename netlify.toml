@@ -10,3 +10,10 @@
   to = "/newsletter"
   status = 301
   force = true
+
+# RFC 8288 Link header so agents can discover the machine-readable views of
+# the site from the homepage alone.
+[[headers]]
+  for = "/"
+  [headers.values]
+    Link = '''</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain", </sitemap-index.xml>; rel="sitemap"; type="application/xml"'''

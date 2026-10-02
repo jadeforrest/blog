@@ -1,0 +1,9 @@
+# robots.txt for https://www.rubick.com (RFC 9309)
+# All crawlers, including AI agents, may read the site. /pagefind/ holds the
+# client-side search index, which has no content of its own.
+
+User-agent: *
+Allow: /
+Disallow: /pagefind/
+
+Sitemap: https://www.rubick.com/sitemap-index.xml

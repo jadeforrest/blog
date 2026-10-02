@@ -2,6 +2,8 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatDate } from "../utils/formatDate";
+import { getImage } from "astro:assets";
+import { blogPostingJsonLd } from "../../scripts/lib/json-ld.js";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -28,6 +30,20 @@ const { Content } = await render(post);
 // Import MDX components for custom elements like <re-img>
 import MDXComponents from "../components/MDXComponents.jsx";
 import TalkyardComments from "../components/TalkyardComments.astro";
+
+// Same transform BaseLayout uses for og:image, so no extra asset is emitted.
+const cover = post.data.cover
+  ? await getImage({ src: post.data.cover, width: 1200, height: 630, fit: "cover", format: "jpeg" })
+  : null;
+const jsonLd = blogPostingJsonLd({
+  title: post.data.title,
+  description: post.data.description,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  datePublished: date || undefined,
+  author: post.data.author,
+  image: cover ? new URL(cover.src, Astro.site).href : undefined,
+  tags: post.data.tags,
+});
 ---
 
 <BaseLayout
@@ -36,6 +52,7 @@ import TalkyardComments from "../components/TalkyardComments.astro";
   ogImage={post.data.cover}
   ogImageAlt={post.data.title}
   author={post.data.author}
+  jsonLd={jsonLd}
 >
   <article class="blog-post" data-pagefind-body>
     <header class="post-header">

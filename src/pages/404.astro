@@ -12,6 +12,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <p>
       <a href="/">Return to homepage</a> or <a href="/search/">search the site</a>
     </p>
+    <p class="agent-hint">
+      Browse <a href="/posts/">all posts</a>, the <a href="/sitemap-index.xml">sitemap</a>,{" "}
+      or <a href="/llms.txt">llms.txt</a>. Agents can request any page as Markdown{" "}
+      with <code>Accept: text/markdown</code>.
+    </p>
   </div>
 </BaseLayout>
 
@@ -40,6 +45,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .not-found-page a {
     color: var(--color-brand-primary);
     text-decoration: underline;
+  }
+
+  .not-found-page .agent-hint {
+    font-size: var(--font-size-s);
+    color: var(--color-neutral-gray-h);
   }
 
   .not-found-page a:hover {

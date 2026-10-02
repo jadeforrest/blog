@@ -1,3 +1,6 @@
 # Redirect wiki URLs with .md extension to without extension
 /wiki/*.md /wiki/:splat 301
 /wiki/*/*.md /wiki/:splat/:splat 301
+
+# Conventional sitemap location; @astrojs/sitemap writes sitemap-index.xml
+/sitemap.xml /sitemap-index.xml 301
