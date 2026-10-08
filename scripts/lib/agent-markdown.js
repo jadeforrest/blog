@@ -97,9 +97,25 @@ function converter() {
 // text together in Markdown.
 const ADJACENT_INLINE = /<\/(a|time|span)>(?=<(?:a|time|span)\b)/g;
 
+// Script/style bodies are cut from the raw string before parsing: the DOM-level
+// remove() above misses them when malformed markup swallows the opening tag
+// (`<text<script>` tokenizes as one tag named "text<script"). An unclosed block
+// runs to the end of input, as it would in a browser. Repeated until stable so
+// a removal cannot splice a new opening tag together (`<scr<script></script>ipt>`).
+const RAW_TEXT_BLOCK = /<(script|style)(?=[\s/>]|$)[^>]*>[\s\S]*?(?:<\/\1\s*>|$)/gi;
+
+function stripRawTextBlocks(html) {
+  let prev;
+  do {
+    prev = html;
+    html = html.replace(RAW_TEXT_BLOCK, "");
+  } while (html !== prev);
+  return html;
+}
+
 export function htmlToMarkdown(html) {
   return converter()
-    .turndown((html || "").replace(ADJACENT_INLINE, "</$1> "))
+    .turndown(stripRawTextBlocks(html || "").replace(ADJACENT_INLINE, "</$1> "))
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }

@@ -125,6 +125,39 @@ test("property: htmlToMarkdown never throws and never leaks script bodies", () =
   );
 });
 
+test("htmlToMarkdown drops script/style bodies hidden by malformed markup", () => {
+  // fast-check counterexample (seed 1942889274, path "45:1:1").
+  assert.equal(htmlToMarkdown(["<", "text", "<script>SECRET()</script>"].join("")), "");
+  for (const html of [
+    "<p<script>SECRET()</script>",
+    "<x <STYLE type=\"text/css\">SECRET{}</style >",
+    "<text<script>SECRET()",
+    "<text<scr<script></script>ipt>SECRET()</script>",
+    "<p>keep</p><text<script>SECRET()</script><p>also</p>",
+  ]) {
+    const md = htmlToMarkdown(html);
+    assert.ok(!md.includes("SECRET"), html);
+  }
+  assert.match(htmlToMarkdown("<p>keep</p><text<script>SECRET()</script><p>also</p>"), /keep/);
+  assert.equal(htmlToMarkdown("<p>scripted <b>style</b></p>"), "scripted **style**");
+});
+
+test("property: script/style bodies never leak through spliced or malformed tags", () => {
+  const fragment = fc.constantFrom(
+    "<script>", "</script>", "<style>", "</style>", "<scr", "ipt>", "<sty", "le>", "<", ">", "/",
+    "text", "<p>", "</p>", " ", "\"", "<!--", "-->"
+  );
+  const body = fc.constantFrom("<script>SECRET()</script>", "<style>SECRET{}</style>", "<script>SECRET()");
+  const parts = fc.array(fragment, { maxLength: 15 });
+  fc.assert(
+    fc.property(parts, body, parts, (before, secret, after) => {
+      const md = htmlToMarkdown(before.join("") + secret + after.join(""));
+      assert.ok(!md.includes("SECRET"));
+    }),
+    { numRuns: 2000 }
+  );
+});
+
 test("notFoundMarkdown points at recovery resources", () => {
   const md = notFoundMarkdown();
   assert.match(md, /^# Page not found/);
