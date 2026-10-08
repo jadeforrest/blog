@@ -1,0 +1,72 @@
+---
+import { logos, moreClientsLabel } from "../data/proof.js";
+
+interface Props {
+  label?: string;
+}
+
+const { label = "Led engineering at or advised" } = Astro.props;
+---
+
+<section class="logo-strip" aria-label={label}>
+  <p class="logo-strip-label">{label}</p>
+  <ul class="logo-strip-list">
+    {
+      logos.map((logo) => (
+        <li
+          class="logo"
+          role="img"
+          aria-label={logo.name}
+          style={`--logo: url(${logo.file}); --ratio: ${logo.ratio};`}
+        />
+      ))
+    }
+    {moreClientsLabel && <li class="logo-more">{moreClientsLabel}</li>}
+  </ul>
+</section>
+
+<style>
+  .logo-strip {
+    text-align: center;
+    margin: var(--space-l) 0;
+  }
+
+  .logo-strip-label {
+    font-size: var(--font-size-xxs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-color-muted);
+    margin: 0 0 var(--space-m);
+  }
+
+  .logo-strip-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 22px 40px;
+  }
+
+  /* Each logo is a mask over a flat fill, so every wordmark renders in the
+     same muted ink regardless of its original colors. Height is normalized by
+     area so wide wordmarks don't dominate. */
+  .logo {
+    --h: clamp(18px, calc(56px / sqrt(var(--ratio))), 30px);
+    height: var(--h);
+    width: calc(var(--h) * var(--ratio));
+    max-width: 190px;
+    background-color: var(--text-color-secondary);
+    opacity: 0.75;
+    -webkit-mask: var(--logo) center / contain no-repeat;
+    mask: var(--logo) center / contain no-repeat;
+  }
+
+  .logo-more {
+    font-size: var(--font-size-xs);
+    color: var(--text-color-secondary);
+    white-space: nowrap;
+  }
+</style>

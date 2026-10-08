@@ -1,0 +1,456 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LogoStrip from "../components/LogoStrip.astro";
+import { INTERIM_AVAILABLE, BOOKING_URL } from "../config/consulting.js";
+import { visibleForAvailability } from "../../scripts/lib/availability.js";
+import { testimonials, engagementStories } from "../data/proof.js";
+
+const offers = visibleForAvailability(
+  [
+    {
+      title: "Executive advising",
+      body: "Regular working sessions with you and/or your leadership team: weekly, biweekly, or monthly. You bring the context, I bring the pattern recognition, and we leave with concrete next steps. Part coaching, part problem solving.",
+    },
+    {
+      title: "Engineering leadership hiring",
+      body: "Hiring a CTO, VP, or Head of Engineering. I help define the profile you actually need, design an interview process that tests for running an organization, interview your finalists, and help your new leader land well. I often partner with your executive recruiter.",
+    },
+    {
+      title: "Organization assessment",
+      body: "An outside look at how engineering is really working: delivery, quality, structure, and leadership. You get a clear picture of what's in the way and a short list of the changes that will matter most. Useful as a sanity check or for due diligence.",
+    },
+    {
+      title: "Interim leadership",
+      body: "When you need an experienced leader now. I lead engineering for a few months, stabilize and improve the organization, and hire and onboard my permanent replacement.",
+      interimOnly: true,
+    },
+  ],
+  INTERIM_AVAILABLE
+);
+
+const strengths = [
+  ["Hiring engineering leaders", "I've hired my own replacement repeatedly since 2020, and interviewed more CTO and VP candidates than almost anyone."],
+  ["AI acceleration", "Making AI-assisted development actually pay off: measuring the delivery of value instead of activity, change management and organizational focus, plus a view informed by what's working across the industry."],
+  ["Delivery and execution", "When shipping stalls: incremental delivery, CI/CD, and lightweight project management."],
+  ["Organization design for growth", "Team structure, roles, and coordination that keep working as you add teams."],
+  ["Leveling up new leaders", "Supporting promising but less experienced leaders through the parts of the job that are counterintuitive."],
+  ["Quality and reliability", "Tech debt, incident response, and on-call practices that teams are proud of."],
+];
+
+const quotes = visibleForAvailability(testimonials, INTERIM_AVAILABLE);
+---
+
+<BaseLayout
+  title="Work with me"
+  description="Advising, engineering leadership hiring, and organization assessments for CTOs, CPOs, VPs of Engineering and Product, CEOs, and founders at startups with roughly 10–150 engineers."
+>
+  <div class="wwm">
+    <header class="wwm-hero">
+      <div class="wwm-kicker">Work with me</div>
+      <h1>An experienced engineering and product executive in your corner</h1>
+      <p class="wwm-lede">
+        I work with CTOs, CPOs, VPEs, VPPs, CEOs, and founders at startups with roughly 10–150
+        engineers.
+        I've led engineering at New Relic, Gremlin, and a string of startups, and since 2020
+        I've worked as an advisor and engineering leader for companies across the startup world.
+      </p>
+      <div class="wwm-actions">
+        <a href={BOOKING_URL} class="btn btn-primary btn-lg">Book an intro call</a>
+      </div>
+    </header>
+
+    <LogoStrip />
+
+    <section class="wwm-section">
+      <h2>Are we a fit?</h2>
+      <p>We're probably a good fit if:</p>
+      <ul class="fit-list">
+        <li>You lead a software company, usually seed to Series C, with roughly 10–150 engineers.</li>
+        <li>
+          You want an experienced partner for the hard parts: scaling the organization, getting
+          delivery unstuck, or making a high-stakes leadership hire.
+        </li>
+        <li>You want an organization that is both effective and humane.</li>
+      </ul>
+      <p>
+        I work across most industries. We're probably not a fit if you see people as
+        interchangeable resources. If you're not sure, an intro call is the quickest way to find out.
+      </p>
+    </section>
+
+    <section class="wwm-section">
+      <h2>How I help</h2>
+      <div class="offer-grid" style={`--cols: ${offers.length === 4 ? 2 : 3}`}>
+        {
+          offers.map((offer) => (
+            <article class="offer">
+              <h3>{offer.title}</h3>
+              <p>{offer.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="wwm-section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>
+          <h3>Intro call</h3>
+          <p>
+            A short conversation about what's going on and whether I'm the right person to help.
+            No pitch.
+          </p>
+        </li>
+        <li>
+          <h3>A sample working session</h3>
+          <p>
+            Before you commit, we work on a real problem together, so you can see what working with
+            me is actually like.
+          </p>
+        </li>
+        <li>
+          <h3>Monthly retainer</h3>
+          <p>
+            Advising runs on a simple monthly retainer at the cadence that suits you. Either of us
+            can end it at any time. Hiring and assessment projects are scoped individually.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="wwm-section">
+      <h2>Where I'm most useful</h2>
+      <dl class="strengths">
+        {
+          strengths.map(([name, desc]) => (
+            <div>
+              <dt>{name}</dt>
+              <dd>{desc}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="wwm-section">
+      <h2>What clients say</h2>
+      <div class="quotes">
+        {
+          quotes.map((t) => (
+            <figure class="quote">
+              <blockquote>“{t.quote}”</blockquote>
+              <figcaption>
+                <strong>{t.role}</strong>, {t.company}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+      <p class="more-link">
+        More recommendations on <a href="https://www.linkedin.com/in/jaderubick/details/recommendations/">LinkedIn</a>.
+      </p>
+    </section>
+
+    <section class="wwm-section">
+      <h2>What an engagement looks like</h2>
+      <div class="stories">
+        {
+          engagementStories.map((s) => (
+            <article class="story">
+              <div class="story-company">{s.company}</div>
+              <h3>{s.title}</h3>
+              <dl>
+                <dt>Situation</dt>
+                <dd>{s.situation}</dd>
+                <dt>What I did</dt>
+                <dd>{s.approach}</dd>
+                {s.duration && (
+                  <>
+                    <dt>How long</dt>
+                    <dd>{s.duration}</dd>
+                  </>
+                )}
+                <dt>Result</dt>
+                <dd>{s.result}</dd>
+              </dl>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="wwm-cta">
+      <h2>Let's talk</h2>
+      <p>
+        Tell me what's going on, and I'll tell you honestly whether I can help. If I can't, I'll try
+        to point you to someone who can.
+      </p>
+      <a href={BOOKING_URL} class="btn btn-primary btn-lg">Book an intro call</a>
+      <p class="wwm-alt">Prefer email? jade at rubick dot com.</p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .wwm {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .wwm-hero {
+    background: var(--surface-paper);
+    border-radius: var(--size-radius-default);
+    padding: clamp(32px, 5vw, 64px);
+  }
+
+  .wwm-kicker {
+    color: #a94d0c;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: var(--space-s);
+  }
+
+  .wwm-hero h1 {
+    font-family: var(--font-family-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    margin: 0 0 var(--space-m);
+    color: var(--text-color-heading);
+    max-width: 24ch;
+  }
+
+  .wwm-lede {
+    font-size: 1.15em;
+    line-height: 1.6;
+    color: var(--text-color-secondary);
+    max-width: 60ch;
+    margin: 0 0 var(--space-l);
+  }
+
+  .wwm-section {
+    margin: var(--space-xl) 0;
+    line-height: var(--text-line-height-default);
+  }
+
+  .fit-list {
+    max-width: 70ch;
+    padding-left: var(--space-l);
+    margin: 0 0 var(--space-m);
+  }
+
+  .fit-list li {
+    margin-bottom: var(--space-s);
+  }
+
+  .wwm-section > p {
+    max-width: 70ch;
+    margin-bottom: var(--space-m);
+  }
+
+  .wwm h2 {
+    font-family: var(--font-family-display);
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0 0 var(--space-m);
+    color: var(--text-color-heading);
+  }
+
+  .wwm h3 {
+    font-size: 1.1rem;
+    margin: 0 0 var(--space-s);
+    color: var(--text-color-heading);
+  }
+
+  .wwm a:not(.btn) {
+    color: var(--color-brand-primary);
+  }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+  }
+
+  @media (min-width: 900px) {
+    .offer-grid {
+      grid-template-columns: repeat(var(--cols), 1fr);
+    }
+  }
+
+  .offer {
+    background: var(--color-neutral-white);
+    border-radius: var(--size-radius-default);
+    box-shadow: var(--shadow-card);
+    border-top: 3px solid var(--color-brand-primary);
+    padding: var(--space-m);
+  }
+
+  .offer p {
+    margin: 0;
+    color: var(--text-color-secondary);
+  }
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-m);
+  }
+
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-top: 52px;
+  }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--surface-deep);
+    color: var(--text-color-inverse);
+    font-weight: 700;
+  }
+
+  .steps p {
+    margin: 0;
+    color: var(--text-color-secondary);
+  }
+
+  .strengths {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-m) var(--space-l);
+    margin: 0;
+  }
+
+  .strengths dt {
+    font-weight: 700;
+    color: var(--text-color-heading);
+  }
+
+  .strengths dd {
+    margin: var(--space-xs) 0 0;
+    color: var(--text-color-secondary);
+  }
+
+  .quotes {
+    columns: 2 300px;
+    column-gap: var(--space-m);
+  }
+
+  .quote {
+    break-inside: avoid;
+    margin: 0 0 var(--space-m);
+    padding: var(--space-m);
+    background: var(--surface-paper);
+    border-radius: var(--size-radius-default);
+  }
+
+  .quote blockquote {
+    font-family: var(--font-family-display);
+    font-size: 1.2rem;
+    line-height: 1.45;
+    margin: 0 0 var(--space-s);
+    color: var(--text-color-heading);
+  }
+
+  .quote figcaption {
+    font-size: var(--font-size-xxs);
+    color: var(--text-color-secondary);
+  }
+
+  .more-link {
+    font-size: var(--font-size-xxs);
+    color: var(--text-color-muted);
+  }
+
+  .stories {
+    display: grid;
+    gap: var(--space-m);
+  }
+
+  .story {
+    border: 1px solid var(--color-neutral-gray-c);
+    border-radius: var(--size-radius-default);
+    padding: var(--space-m) var(--space-l);
+  }
+
+  .story-company {
+    font-size: var(--font-size-xxs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-color-muted);
+    margin-bottom: var(--space-xs);
+  }
+
+  .story dl {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: var(--space-s) var(--space-m);
+    margin: 0;
+  }
+
+  .story dt {
+    font-weight: 700;
+    color: var(--text-color-heading);
+  }
+
+  .story dd {
+    margin: 0;
+    color: var(--text-color-secondary);
+  }
+
+  .wwm-cta {
+    text-align: center;
+    background: var(--surface-deep);
+    color: var(--text-color-inverse);
+    border-radius: var(--size-radius-default);
+    padding: clamp(32px, 5vw, 56px) var(--space-m);
+    margin: var(--space-xl) 0 var(--space-l);
+  }
+
+  .wwm-cta h2 {
+    color: var(--text-color-inverse);
+  }
+
+  .wwm-cta p {
+    max-width: 52ch;
+    margin: 0 auto var(--space-l);
+  }
+
+  .wwm-cta .wwm-alt {
+    margin: var(--space-m) auto 0;
+    font-size: var(--font-size-xxs);
+    opacity: 0.8;
+  }
+
+  @media (max-width: 599px) {
+    .story {
+      padding: var(--space-m);
+    }
+
+    .story dl {
+      grid-template-columns: 1fr;
+      gap: var(--space-xxs);
+    }
+
+    .story dd {
+      margin-bottom: var(--space-s);
+    }
+  }
+</style>

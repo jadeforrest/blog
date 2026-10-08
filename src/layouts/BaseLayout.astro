@@ -5,6 +5,8 @@ import "../styles/global.css";
 import avatarImage from "../assets/avatar.jpg";
 import ogDefaultImage from "../assets/og-default.jpg";
 import { serializeJsonLd } from "../../scripts/lib/json-ld.js";
+import { availabilityBanner } from "../../scripts/lib/availability.js";
+import { INTERIM_AVAILABLE } from "../config/consulting.js";
 
 interface Props {
   title: string;
@@ -169,8 +171,8 @@ const buildTime = buildDate.toLocaleString("en-US", {
 
         {!isWikiPage && (
           <div class="availability-container" id="availability-banner">
-            <a href="/about/" class="availability">
-              Available for advising and coaching.
+            <a href="/work-with-me/" class="availability">
+              {availabilityBanner(INTERIM_AVAILABLE)}
             </a>
           </div>
         )}
