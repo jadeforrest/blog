@@ -1,0 +1,152 @@
+---
+// Quiet end-of-post note: an honest pointer to client work, plus the newsletter.
+// Uses the same Kit (ConvertKit) form as the homepage signup.
+---
+
+<aside class="post-footer" aria-label="About this writing" data-pagefind-ignore>
+  <p class="post-footer-lead">
+    I like to share what I’ve learned. If you’re running into something like this at your
+    company, <a href="/work-with-me/">I’m happy to talk</a>.
+  </p>
+
+  {/* `defer` so the [data-sv-form] element exists before ck.5.js runs. */}
+  <script src="https://f.convertkit.com/ckjs/ck.5.js" is:inline defer></script>
+  <form
+    action="https://app.convertkit.com/forms/2891253/subscriptions"
+    class="post-footer-form"
+    method="post"
+    data-sv-form="2891253"
+    data-uid="3978146adc"
+  >
+    <label class="post-footer-label" for="post-footer-email">
+      Or get posts like these weekly:
+    </label>
+    <ul class="post-footer-errors" data-element="errors"></ul>
+    <div class="post-footer-fields">
+      <input
+        id="post-footer-email"
+        class="post-footer-input"
+        name="email_address"
+        placeholder="you@company.com"
+        autocomplete="email"
+        required
+        type="email"
+      />
+      <button type="submit" class="post-footer-submit">Subscribe</button>
+    </div>
+  </form>
+</aside>
+
+<style>
+  .post-footer {
+    margin: var(--space-l) 0;
+    padding: var(--space-m) var(--space-m) calc(var(--space-m) + 4px);
+    background-color: var(--surface-paper);
+    border-left: 3px solid var(--color-brand-primary);
+    border-radius: 0 var(--size-radius-default) var(--size-radius-default) 0;
+    color: var(--color-neutral-gray-k);
+  }
+
+  .post-footer-lead {
+    font-family: var(--font-family-display);
+    font-size: 1.2em;
+    line-height: var(--line-height-l);
+    margin: 0 0 var(--space-m) 0;
+  }
+
+  .post-footer-lead a {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-footer-lead a:hover {
+    color: var(--surface-deep);
+  }
+
+  .post-footer-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-gray-i);
+    margin-bottom: var(--space-s);
+  }
+
+  .post-footer-fields {
+    display: flex;
+    gap: var(--space-s);
+  }
+
+  .post-footer-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    font: inherit;
+    font-size: 15px;
+    padding: 10px 12px;
+    background: var(--color-neutral-white);
+    border: 1px solid var(--color-neutral-gray-d);
+    border-radius: var(--size-radius-small);
+    transition: border-color 0.2s ease;
+  }
+
+  .post-footer-input:focus {
+    outline: none;
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 0 3px var(--surface-blue-soft-strong);
+  }
+
+  .post-footer-input::placeholder {
+    color: var(--color-neutral-gray-f);
+  }
+
+  .post-footer-submit {
+    flex: 0 0 auto;
+    font: inherit;
+    font-size: 15px;
+    font-weight: var(--font-weight-medium);
+    padding: 10px 20px;
+    color: var(--color-neutral-white);
+    background-color: var(--color-brand-primary);
+    border: 0;
+    border-radius: var(--size-radius-small);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .post-footer-submit:hover,
+  .post-footer-submit:focus-visible {
+    background-color: var(--surface-deep);
+  }
+
+  .post-footer-errors {
+    display: none;
+    list-style: none;
+    margin: 0 0 var(--space-s) 0;
+    padding: var(--space-s);
+    font-size: var(--font-size-xs);
+    color: #b3300c;
+    background: #fde8e2;
+    border: 1px solid #f2643b;
+    border-radius: var(--size-radius-small);
+  }
+
+  .post-footer-errors:not(:empty) {
+    display: block;
+  }
+
+  /* ck.5.js injects its confirmation at runtime, so it has no scope attribute. */
+  .post-footer :global(.formkit-alert-success) {
+    margin: 0;
+    padding: var(--space-s) var(--space-m);
+    font-weight: var(--font-weight-bold);
+    color: #1a7f37;
+    background: #e6f4ea;
+    border: 1px solid #34a853;
+    border-radius: var(--size-radius-small);
+  }
+
+  @media (max-width: 480px) {
+    .post-footer-fields {
+      flex-direction: column;
+    }
+  }
+</style>

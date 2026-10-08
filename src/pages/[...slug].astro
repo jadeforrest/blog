@@ -30,6 +30,7 @@ const { Content } = await render(post);
 // Import MDX components for custom elements like <re-img>
 import MDXComponents from "../components/MDXComponents.jsx";
 import TalkyardComments from "../components/TalkyardComments.astro";
+import PostFooter from "../components/PostFooter.astro";
 
 // Same transform BaseLayout uses for og:image, so no extra asset is emitted.
 const cover = post.data.cover
@@ -81,6 +82,8 @@ const jsonLd = blogPostingJsonLd({
     <div class="post-content">
       <Content components={MDXComponents} />
     </div>
+
+    <PostFooter />
 
     <TalkyardComments discussionId={post.data.discussionId} />
   </article>
