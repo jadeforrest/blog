@@ -4,15 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This repository contains two blog implementations:
-1. **Legacy Gatsby blog** - Located in `gatsby-blog/` directory (being phased out)
-2. **Current Astro blog** - Located at repository root (primary codebase)
-
-All commands below refer to the Astro blog unless specified otherwise.
+This repository is an Astro blog for https://www.rubick.com, deployed on Netlify
+(Node 22; `package.json` engines requires `>=22.12.0`). It was migrated from Gatsby, which
+has been removed; legacy Gatsby URLs are handled by 301s in `public/_redirects`.
 
 ## Build and Development
 
-### Astro Blog (Current)
 - **Dev server**: `npm run dev` (runs at `localhost:4321`)
   - Automatically copies post images from `src/content/posts/` to `public/` before starting
 - **Build**: `npm run build`
@@ -56,13 +53,6 @@ under `src/content/kit-sequence-<id>/`. The inverse push is `scripts/kit-push-em
 - **robots.txt** is static in `public/robots.txt`; **JSON-LD** comes from `scripts/lib/json-ld.js`
   via BaseLayout's `jsonLd` prop (homepage: Person/Organization/WebSite; posts: BlogPosting).
 - Check locally: `curl -s -H "Accept: text/markdown" https://www.rubick.com/<slug>/`
-
-### Gatsby Blog (Legacy)
-Navigate to `gatsby-blog/` directory first:
-- **Dev server**: `npm run develop` or `npm run devhost` (network access)
-- **Build**: `npm run build`
-- **Format**: `npm run format`
-- **Lint**: `npm run lint` (all) or `npm run lint-errors` (errors only)
 
 ## Architecture
 
@@ -153,4 +143,5 @@ Usage: `<Image src={img} alt="..." width={400} class="img-50" />`
 - Content image imports use relative paths: `import img from './image.png'`
 - Site URL configured as `https://www.rubick.com` in `astro.config.mjs`
 - Syntax highlighting via Shiki with `github-dark` theme
-- The Astro blog does not have lint/format scripts configured (linting only set up for Gatsby)
+- No lint/format npm scripts are configured; Prettier/ESLint configs exist for editors only
+- Redirects live in `public/_redirects` (plus `/courses/*` in `netlify.toml`); `/tag/*` -> `/tags/*` is a real 301 there, not an Astro redirect

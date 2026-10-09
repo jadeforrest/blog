@@ -21,7 +21,7 @@ The blog features blog posts, a wiki section, full-text search, RSS feeds, and r
 
 ### Prerequisites
 
-- Node.js (v18 or higher recommended)
+- Node.js 22.12 or higher (see `engines` in `package.json` and `.nvmrc`)
 - npm
 
 ### Installation
@@ -51,7 +51,8 @@ npm run build
 This will:
 1. Copy post images to the public directory
 2. Build the Astro site
-3. Generate the search index with Pagefind
+3. Generate Markdown twins and `llms.txt` (`scripts/build-agent-files.js`)
+4. Generate the search index with Pagefind
 
 ### Preview
 
@@ -65,7 +66,6 @@ npm run preview
 
 ```text
 /
-├── gatsby-blog/          # Legacy Gatsby blog (archived)
 ├── public/               # Static assets and copied post images
 ├── src/
 │   ├── components/       # React and Astro components
@@ -101,6 +101,8 @@ All commands are run from the root of the project:
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run kit-sync`        | Sync emails with Kit (also `kit-fetch`, `kit-push`; each has a `:dry-run`) |
+| `npm test`                | Run the script unit tests                        |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
@@ -142,7 +144,7 @@ You are welcome to fork this repository and use the code to create your own blog
 
 ## History and Credits
 
-This blog was originally built with [Gatsby](https://www.gatsbyjs.com/) and migrated to [Astro](https://astro.build) for improved performance and developer experience. The legacy Gatsby implementation is preserved in the `gatsby-blog/` directory.
+This blog was originally built with [Gatsby](https://www.gatsbyjs.com/) and migrated to [Astro](https://astro.build) for improved performance and developer experience.
 
 ### Gatsby Blog Origins
 

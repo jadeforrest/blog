@@ -65,8 +65,4 @@ export default defineConfig({
   // first-visit win dominates. Compounds with prefetch, since prefetched HTML
   // then carries its own CSS.
   build: { inlineStylesheets: "always" },
-
-  redirects: {
-    "/tag/[tag]": "/tags/[tag]",
-  },
 });

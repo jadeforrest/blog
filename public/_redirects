@@ -4,3 +4,28 @@
 
 # Conventional sitemap location; @astrojs/sitemap writes sitemap-index.xml
 /sitemap.xml /sitemap-index.xml 301
+
+# Tag pages moved from /tag/<tag> (Gatsby) to /tags/<tag>. Real 301s replace
+# the old Astro meta-refresh stub pages.
+/tag /tags 301
+/tag/* /tags/:splat 301
+
+# Gatsby-era post pagination was /posts, /posts2, /posts3, ...
+/posts2 /posts/2 301
+/posts3 /posts/3 301
+/posts4 /posts/4 301
+/posts5 /posts/5 301
+/posts6 /posts/6 301
+
+# Gatsby-era sitemap location
+/sitemap/sitemap-index.xml /sitemap-index.xml 301
+
+# Legacy Gatsby-era URLs (restored from gatsby-blog/static/_redirects)
+/agilereleasemanagement /managing-features-and-releases-without-a-developer-in-the-room/ 301
+/blog / 301
+/Home / 301
+/aquarium/* /posts/ 301
+/books/* /posts/ 301
+/bookshelf/* /posts/ 301
+/blogger/* /posts/ 301
+/openacs/* /posts/ 301
