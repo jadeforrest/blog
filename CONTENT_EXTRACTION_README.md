@@ -6,7 +6,7 @@ This repository includes a small pipeline of scripts that pull the most interest
 
 | Script | What it does | How it runs |
 |--------|--------------|-------------|
-| [`scripts/extract-content.js`](#content-extraction-script---scriptsextract-contentjs) | Extracts the best 2–4 passages from each blog post (`src/content/posts/`) into `extracted-content/*.txt`. Uses Claude Code CLI with a heuristic fallback. | **Manual** — run when new posts are added to refresh the extract queue. |
+| [`scripts/extract-content.js`](#content-extraction-script---scriptsextract-contentjs) | Extracts up to 10 passages per chunk of each blog post (`src/content/posts/`) into `extracted-content/*.txt`, after you approve them. `--append` adds more to already-processed posts. Uses Claude Code CLI with a heuristic fallback. | **Manual** — run when new posts are added to refresh the extract queue. |
 | [`scripts/extract-podcast-content.js`](#podcast-content-extraction-script---scriptsextract-podcast-contentjs) | Extracts 1–3 compelling sentences from each podcast episode's RSS description into `extracted-content/podcast-*.txt`. Uses Claude Code CLI with a heuristic fallback. | **Manual** — run when new episodes are published. Only processes new (unseen) episodes unless `--force`. |
 | [`scripts/extract-to-linkedin.js`](#linkedin-publishing-script---scriptsextract-to-linkedinjs) | Posts one random unsent extract to LinkedIn as an article share. Tracks sent items in `linkedin-sent.json`. | **Scheduled** — launchd (`com.jade.blog-to-linkedin.plist`) runs it weekdays (Mon–Fri) at 9:16 AM via `~/Library/Scripts/blog-to-linkedin.sh`. |
 | [`scripts/extract-to-bluesky.js`](#bluesky-publishing-script---scriptsextract-to-blueskyjs) | Posts one random unsent extract to Bluesky with a website card. Tracks sent items in `bluesky-sent.json`. | **Scheduled** — launchd (`com.jade.blog-to-bluesky.plist`) runs it weekdays (Mon–Fri) at 9:14 AM via `~/Library/Scripts/blog-to-bluesky.sh`. |
@@ -101,7 +101,25 @@ node scripts/extract-content.js --test-mode
 
 # Re-apply the post-length rule to the existing queue, in place (no Claude calls)
 node scripts/extract-content.js --revalidate
+
+# Add more extracts to posts that were already processed (e.g. to use a newer prompt).
+# Targets can be a slug, post directory, index file, or extracted-content .txt file.
+node scripts/extract-content.js --append completed-staff-work 2016-07-27--completed-staff-work
+
+# Skip the approval step and keep every extract that passes the length limit
+node scripts/extract-content.js --yes
 ```
+
+**Approval:** before anything is written, the candidates for each post are listed with their
+length. Press Enter to keep all, `n` to keep none, `q` to stop the run, or type numbers like
+`1,3,5-7`. Candidates whose text (outside `[bracketed edits]`) can't be found in the post are
+flagged with ⚠. A new post with nothing approved gets no file, so it comes up again next run.
+Approval needs a terminal; non-interactive runs must pass `--yes`.
+
+**Appending:** `--append` keeps the existing file untouched and adds new extracts after it with
+the same blank-line spacing, skipping duplicates. Existing extracts are passed to Claude so it picks
+different ones. Appending never shifts existing entries, so the posting scripts' sent-tracking
+(which identifies extracts by file and position) stays valid.
 
 `--revalidate` re-checks every file already in `extracted-content/` — blog and podcast alike, since
 they share a directory and format — trimming over-long extracts to whole sentences and quarantining
@@ -126,7 +144,7 @@ extracted-content/
 
 ### Individual File Format
 
-Each file contains 2-4 extracts in this format:
+Each file contains alternating extract/URL lines, separated by blank lines:
 
 ```
 People don't generally value reliability that much unless the site is down, or things are really bad.
@@ -144,18 +162,21 @@ https://www.rubick.com/reliability-all-stick-no-carrot/
 1. **File Discovery**: Recursively finds all `index.md` and `index.mdx` files in `src/content/posts/`
 2. **Content Parsing**: Extracts title and content from markdown/MDX files, removing front matter
 3. **URL Generation**: Creates URLs by removing date prefixes (`YYYY-MM-DD--`) from directory names
-4. **AI Analysis**: Uses AI to identify the most interesting 2-4 passages per post
-5. **Length Enforcement**: Passages over the 300-grapheme limit are trimmed to whole sentences, or quarantined to `scripts/extract-quarantine.json` if a single sentence is too long. Applied to both the Claude and fallback paths. See [The post-length rule](#the-post-length-rule).
-6. **Output Generation**: Creates individual text files in `extracted-content/` directory
+4. **AI Analysis**: Uses AI to pick 1-10 shareable passages per chunk of the post
+5. **Approval**: You choose which candidates to keep (skipped with `--yes`)
+6. **Length Enforcement**: Passages over the 300-grapheme limit are trimmed to whole sentences, or quarantined to `scripts/extract-quarantine.json` if a single sentence is too long. Applied to both the Claude and fallback paths. See [The post-length rule](#the-post-length-rule).
+7. **Output Generation**: Creates (or with `--append`, extends) individual text files in `extracted-content/`
 
 ## AI Analysis Focus
 
-The AI analysis prioritizes:
-- Actionable advice and practical tips
-- Surprising insights and non-obvious observations  
-- Memorable quotes and principles
-- Practical frameworks and models
-- Key takeaways that provide real value
+The goal is quotes that get reactions on social media while staying faithful to the post. The prompt prioritizes:
+- Contrarian statements, which provoke agreement or disagreement
+- Statements that name a pattern, which spark insight
+- Sentences that summarize the post's main points
+
+Each extract must be understandable on its own. Claude may make minor edits purely for
+comprehensibility, always marked with brackets: "He said..." → "[John Smith] said...", `[...]` for
+omissions, `[M]anagers` for capitalization. Text outside brackets must be verbatim.
 
 ## Customization
 
@@ -171,7 +192,7 @@ const OUTPUT_DIR = './extracted-content';       // Change output directory
 
 ### Modifying Analysis Criteria
 
-Edit the AI prompt in the `analyzeChunkWithClaudeCode` function to change what type of content gets extracted. Look for the prompt variable and modify the "Focus on:" section.
+Edit `buildExtractionPrompt` in `scripts/lib/extract-content-lib.js` to change what type of content gets extracted. Look for the prompt variable and modify the "Focus on:" section.
 
 ## Troubleshooting
 

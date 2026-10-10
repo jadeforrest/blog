@@ -2,9 +2,20 @@
 
 import fs from 'fs';
 import path from 'path';
+import readline from 'readline/promises';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
-import { enforceLimits, graphemeCount, BLUESKY_MAX_GRAPHEMES } from './lib/text-limits.js';
+import { enforceLimits, graphemeCount } from './lib/text-limits.js';
+import {
+  buildExtractionPrompt,
+  parseModelOutput,
+  parseExtractFile,
+  formatExtracts,
+  appendExtracts,
+  removeDuplicates,
+  unverifiedFragments,
+  parseSelection
+} from './lib/extract-content-lib.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +24,10 @@ const __dirname = path.dirname(__filename);
 const BASE_URL = 'https://www.rubick.com';
 const CONTENT_DIR = './src/content/posts';
 const OUTPUT_DIR = './extracted-content';
-const QUARANTINE_FILE = path.join(__dirname, 'extract-quarantine.json');
+// Overridable so tests don't touch the real report.
+const QUARANTINE_FILE =
+  process.env.EXTRACT_QUARANTINE_FILE || path.join(__dirname, 'extract-quarantine.json');
+const CLAUDE_TIMEOUT_MS = 180000;
 
 // Passages that could not be kept within the post-length limit, reported at the end
 // of a run so they can be hand-edited rather than silently disappearing.
@@ -122,25 +136,10 @@ function splitContentIntoChunks(content, maxChunkSize = 6000) {
 /**
  * Use Claude Code to analyze a single chunk of content
  */
-function analyzeChunkWithClaudeCode(content, title, chunkIndex, totalChunks) {
+function analyzeChunkWithClaudeCode(content, title, chunkIndex, totalChunks, alreadySelected = []) {
   return new Promise((resolve, reject) => {
     const chunkInfo = totalChunks > 1 ? ` (Part ${chunkIndex + 1} of ${totalChunks})` : '';
-    const prompt = `Analyze this blog post${chunkInfo} and extract 1-3 of the most interesting, valuable, or insightful sentences or short passages. Each extract should be 1-3 sentences long and capture key insights, practical advice, or thought-provoking ideas.
-
-Focus on:
-- Actionable advice
-- Surprising insights
-- Memorable quotes or principles
-- Practical frameworks or models
-
-Length requirement: each extract must be under ${BLUESKY_MAX_GRAPHEMES} characters. Prefer shorter, self-contained passages. This is a selection criterion, not an editing one — if a passage is too long, pick a different one. Never shorten, reword, or summarize the original text.
-
-Title: ${title}${chunkInfo}
-
-Content:
-${content}
-
-IMPORTANT: Return ONLY the exact text from the original blog post - no analysis, commentary, or introductory phrases. Do not include phrases like "Based on my analysis" or "here are the insights". Extract the actual sentences/passages verbatim from the source content. One extract per line, no quotes or additional formatting.`;
+    const prompt = buildExtractionPrompt({ title, content, chunkInfo, alreadySelected });
 
     const claude = spawn('claude', ['--print'], {
       stdio: ['pipe', 'pipe', 'pipe']
@@ -149,6 +148,12 @@ IMPORTANT: Return ONLY the exact text from the original blog post - no analysis,
     let output = '';
     let error = '';
     let stdinClosed = false;
+
+    // Choosing up to 10 extracts takes longer than the old 1-3 did.
+    const timer = setTimeout(() => {
+      claude.kill('SIGTERM');
+      reject(new Error(`Claude analysis timed out after ${CLAUDE_TIMEOUT_MS / 1000} seconds`));
+    }, CLAUDE_TIMEOUT_MS);
 
     claude.stdout.on('data', (data) => {
       output += data.toString();
@@ -159,17 +164,14 @@ IMPORTANT: Return ONLY the exact text from the original blog post - no analysis,
     });
 
     claude.on('error', (err) => {
+      clearTimeout(timer);
       reject(new Error(`Claude spawn error: ${err.message}`));
     });
 
     claude.on('close', (code) => {
+      clearTimeout(timer);
       if (code === 0) {
-        const extracts = output
-          .split('\n')
-          .map(line => line.trim())
-          .filter(line => line.length > 20) // Filter out short lines
-          .slice(0, 3); // Limit to 3 extracts per chunk
-        resolve(extracts);
+        resolve(parseModelOutput(output));
       } else {
         reject(new Error(`Claude process exited with code ${code}: ${error || 'No error details'}`));
       }
@@ -189,25 +191,21 @@ IMPORTANT: Return ONLY the exact text from the original blog post - no analysis,
     } catch (err) {
       reject(new Error(`Failed to write to Claude: ${err.message}`));
     }
-
-    // Timeout after 30 seconds
-    setTimeout(() => {
-      claude.kill('SIGTERM');
-      reject(new Error('Claude analysis timed out after 30 seconds'));
-    }, 30000);
   });
 }
 
 /**
  * Use Claude Code to analyze content (handles chunking automatically)
  */
-async function analyzeWithClaudeCode(content, title) {
+async function analyzeWithClaudeCode(content, title, alreadySelected = []) {
   const chunks = splitContentIntoChunks(content);
   const allExtracts = [];
 
   for (let i = 0; i < chunks.length; i++) {
     try {
-      const chunkExtracts = await analyzeChunkWithClaudeCode(chunks[i], title, i, chunks.length);
+      const chunkExtracts = await analyzeChunkWithClaudeCode(
+        chunks[i], title, i, chunks.length, alreadySelected
+      );
       allExtracts.push(...chunkExtracts);
     } catch (error) {
       console.log(`    ⚠ Failed to analyze chunk ${i + 1}/${chunks.length}: ${error.message}`);
@@ -215,10 +213,7 @@ async function analyzeWithClaudeCode(content, title) {
     }
   }
 
-  // For multiple chunks, allow up to 4 extracts per chunk
-  // For single chunk, limit to 4 total
-  const maxExtracts = chunks.length > 1 ? chunks.length * 4 : 4;
-  return allExtracts.slice(0, maxExtracts);
+  return allExtracts;
 }
 
 /**
@@ -275,18 +270,84 @@ function isFileProcessed(filePath) {
 }
 
 /**
- * Process a single markdown file
+ * Show candidate extracts and ask which to keep. Returns { action, kept } where
+ * action is 'keep' or 'quit'. `ask` is readline's question(), injectable for tests.
  */
-async function processFile(filePath) {
+async function approveExtracts(candidates, { label, source, ask }) {
+  console.log(`\n  Candidates for ${label}:`);
+  candidates.forEach((text, i) => {
+    console.log(`\n  ${String(i + 1).padStart(2)}. ${text}  (${graphemeCount(text)} chars)`);
+    for (const fragment of unverifiedFragments(text, source)) {
+      console.log(`      ⚠ not found verbatim in the post: "${fragment}"`);
+    }
+  });
+
+  for (;;) {
+    const selection = parseSelection(
+      await ask('\n  Keep which? [Enter]=all, n=none, q=quit, or numbers like 1,3,5-7: '),
+      candidates.length
+    );
+    if (!selection.error) {
+      return { action: selection.action, kept: selection.indices.map(i => candidates[i]) };
+    }
+    console.log(`  ${selection.error}`);
+  }
+}
+
+/**
+ * Record extracts that could not be kept within the length limit.
+ */
+function quarantine(dropped, sourceFile, url) {
+  if (dropped.length === 0) return;
+  console.log(`  ⚠ ${dropped.length} extract(s) too long to keep verbatim, quarantined`);
+  quarantined.push(...dropped.map(text => ({
+    sourceFile,
+    graphemes: graphemeCount(text),
+    reason: 'single sentence exceeds limit; cannot shorten without rewording',
+    text,
+    url
+  })));
+}
+
+/**
+ * Write extracts to a post's output file, after `existing` content when appending
+ * (pass null to replace the file).
+ */
+function writeExtracts(outputPath, pairs, existing) {
+  const appending = existing !== null;
+  fs.writeFileSync(outputPath, appending ? appendExtracts(existing, pairs) : formatExtracts(pairs));
+  const plural = pairs.length === 1 ? '' : 's';
+  console.log(`  ✓ ${appending ? 'Appended to' : 'Created'}: ${outputPath} (${pairs.length} extract${plural})`);
+}
+
+/**
+ * Process a single markdown file.
+ *
+ * With `append`, new extracts are added after the ones already in the output file
+ * (skipping duplicates) instead of replacing it. With `ask`, candidates go through
+ * approval first; without it everything that passes the length limit is written.
+ * Returns null when the user quits.
+ */
+async function processFile(filePath, {
+  append = false,
+  ask = null,
+  outputDir = OUTPUT_DIR,
+  analyze = analyzeWithClaudeCode
+} = {}) {
   console.log(`Processing: ${filePath}`);
 
   const { title, content } = parseMarkdownFile(filePath);
   const url = generateUrl(filePath);
+  const fileName = path.basename(path.dirname(filePath)) + '.txt';
+  const outputPath = path.join(outputDir, fileName);
+
+  const existing = append && fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : '';
+  const existingTexts = parseExtractFile(existing).map(pair => pair.text);
 
   let extracts;
   try {
     // Try to use Claude Code
-    extracts = await analyzeWithClaudeCode(content, title);
+    extracts = await analyze(content, title, existingTexts);
     console.log(`  ✓ Analyzed with Claude Code`);
   } catch (error) {
     console.log(`  ⚠ Claude Code failed, using fallback: ${error.message}`);
@@ -297,34 +358,46 @@ async function processFile(filePath) {
 
   // Enforce the post-length limit here rather than inside the Claude call, so the
   // heuristic fallback path is covered too. Over-long extracts are trimmed to whole
-  // sentences (still verbatim) or dropped — never reworded.
+  // sentences or dropped — never reworded.
   const { kept, dropped } = enforceLimits(substantial);
 
-  const fileName = path.basename(path.dirname(filePath)) + '.txt';
-  const outputPath = path.join(OUTPUT_DIR, fileName);
+  quarantine(dropped, fileName, url);
 
-  if (dropped.length > 0) {
-    console.log(`  ⚠ ${dropped.length} extract(s) too long to keep verbatim, quarantined`);
-    quarantined.push(...dropped.map(text => ({
-      sourceFile: fileName,
-      graphemes: graphemeCount(text),
-      reason: 'single sentence exceeds limit; cannot shorten without rewording',
-      text,
-      url
-    })));
-  }
+  const candidates = removeDuplicates(kept, existingTexts);
+  const decision = ask && candidates.length > 0
+    ? await approveExtracts(candidates, { label: `${title} (${url})`, source: content, ask })
+    : { action: 'keep', kept: candidates };
+  if (decision.action === 'quit') return null;
+  const approved = decision.kept;
 
-  if (kept.length === 0) {
+  if (approved.length === 0) {
     // Better to flag this loudly than to let a post vanish from the queue unnoticed.
-    console.log(`  ⚠ ${fileName} produced no postable extracts`);
+    // Nothing is written, so a new post is picked up again on the next run.
+    console.log(`  ⚠ ${fileName}: no extracts ${candidates.length > 0 ? 'approved' : 'produced'}, file left unchanged`);
+    return { filePath, outputPath, extractCount: 0 };
   }
 
-  const output = kept.map(extract => `${extract}\n${url}`).join('\n\n');
+  writeExtracts(outputPath, approved.map(text => ({ text, url })), append ? existing : null);
+  return { filePath, outputPath, extractCount: approved.length };
+}
 
-  fs.writeFileSync(outputPath, output);
-  console.log(`  ✓ Created: ${outputPath} (${kept.length} extract${kept.length === 1 ? '' : 's'})`);
-
-  return { filePath, outputPath, extractCount: kept.length };
+/**
+ * Resolve --append targets to post files. A target may be a post directory or its
+ * index file, an extracted-content .txt file, the directory name, or the bare slug.
+ */
+function resolvePostTargets(targets, allFiles) {
+  return targets.map(target => {
+    const base = path.basename(target).replace(/\.(txt|mdx?)$/, '');
+    const name = base === 'index' ? path.basename(path.dirname(target)) : base;
+    const matches = allFiles.filter(file => {
+      const dirName = path.basename(path.dirname(file));
+      return dirName === name || dirName.endsWith(`--${name}`);
+    });
+    if (matches.length !== 1) {
+      throw new Error(`--append target "${target}" matched ${matches.length} posts`);
+    }
+    return matches[0];
+  });
 }
 
 /**
@@ -415,58 +488,102 @@ function revalidateExistingExtracts() {
 }
 
 /**
+ * Choose which post files this run covers.
+ */
+function selectFiles({ testMode, appendTargets }) {
+  const allMarkdownFiles = findMarkdownFiles();
+
+  if (appendTargets.length > 0) {
+    console.log(`Appending extracts for ${appendTargets.length} post(s)`);
+    return resolvePostTargets(appendTargets, allMarkdownFiles);
+  }
+
+  // Filter out already processed files unless in test mode
+  const unprocessedFiles = testMode ? allMarkdownFiles : allMarkdownFiles.filter(file => !isFileProcessed(file));
+  const skippedCount = allMarkdownFiles.length - unprocessedFiles.length;
+  console.log(`Found ${allMarkdownFiles.length} markdown files${testMode ? `, processing first 1 in test mode` : `, ${skippedCount} already processed, ${unprocessedFiles.length} to process`}`);
+
+  return testMode ? allMarkdownFiles.slice(0, 1) : unprocessedFiles;
+}
+
+/**
+ * Explain why these command-line options can't run, or return null if they can.
+ */
+function usageError({ append, appendTargets, autoApprove }) {
+  if (append && appendTargets.length === 0) {
+    return '--append needs at least one post (slug, post directory, or extracted-content .txt file)';
+  }
+  if (!autoApprove && !process.stdin.isTTY) {
+    return 'Approval needs an interactive terminal; pass --yes to keep every extract without asking.';
+  }
+  return null;
+}
+
+/**
+ * Process each file in turn, stopping early if the user quits during approval.
+ */
+async function processAll(files, options) {
+  const results = [];
+  for (const file of files) {
+    try {
+      const result = await processFile(file, options);
+      if (result === null) {
+        console.log('\nStopped; remaining posts were not processed.');
+        break;
+      }
+      results.push(result);
+    } catch (error) {
+      console.error(`Error processing ${file}:`, error);
+    }
+  }
+  return results;
+}
+
+/**
  * Main function
  */
 async function main() {
   // Parse command line arguments
   const args = process.argv.slice(2);
   const testMode = args.includes('--test-mode');
-  const revalidate = args.includes('--revalidate');
+  const append = args.includes('--append');
+  const autoApprove = args.includes('--yes');
+  const appendTargets = append ? args.filter(arg => !arg.startsWith('--')) : [];
 
-  if (revalidate) {
+  if (args.includes('--revalidate')) {
     revalidateExistingExtracts();
     return;
   }
 
-  console.log(testMode ? 'Starting content extraction in TEST MODE (first file only)...' : 'Starting content extraction with Claude Code...');
-
-  // Create output directory
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  const error = usageError({ append, appendTargets, autoApprove });
+  if (error) {
+    console.error(error);
+    process.exitCode = 1;
+    return;
   }
 
-  // Find all markdown files
-  const allMarkdownFiles = findMarkdownFiles();
+  console.log(testMode ? 'Starting content extraction in TEST MODE (first file only)...' : 'Starting content extraction with Claude Code...');
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  // Filter out already processed files unless in test mode
-  const unprocessedFiles = testMode ? allMarkdownFiles : allMarkdownFiles.filter(file => !isFileProcessed(file));
-  const markdownFiles = testMode ? allMarkdownFiles.slice(0, 1) : unprocessedFiles;
-
-  const skippedCount = allMarkdownFiles.length - unprocessedFiles.length;
-  console.log(`Found ${allMarkdownFiles.length} markdown files${testMode ? `, processing first 1 in test mode` : `, ${skippedCount} already processed, ${unprocessedFiles.length} to process`}`);
-
-  if (!testMode && unprocessedFiles.length === 0) {
+  const markdownFiles = selectFiles({ testMode, appendTargets });
+  if (markdownFiles.length === 0) {
     console.log('All files have already been processed!');
     return;
   }
 
-  // Process each file
-  const results = [];
-  for (const file of markdownFiles) {
-    try {
-      const result = await processFile(file);
-      results.push(result);
-    } catch (error) {
-      console.error(`Error processing ${file}:`, error);
-    }
+  const rl = autoApprove ? null : readline.createInterface({ input: process.stdin, output: process.stdout });
+  let results;
+  try {
+    results = await processAll(markdownFiles, { append, ask: rl && (question => rl.question(question)) });
+  } finally {
+    rl?.close();
   }
-
 
   // Summary
   console.log('\n=== Summary ===');
   console.log(`Processed ${results.length} files${testMode ? ' (test mode)' : ''}`);
   console.log(`Output directory: ${OUTPUT_DIR}`);
-  console.log(`Total extracts: ${results.reduce((sum, r) => sum + r.extractCount, 0)}`);
+  console.log(`Total extracts ${append ? 'appended' : 'written'}: ${results.reduce((sum, r) => sum + r.extractCount, 0)}`);
   writeQuarantineReport();
 }
 
@@ -479,8 +596,11 @@ export {
   findMarkdownFiles,
   parseMarkdownFile,
   generateUrl,
+  analyzeChunkWithClaudeCode,
   analyzeWithClaudeCode,
   fallbackAnalysis,
+  approveExtracts,
   processFile,
+  resolvePostTargets,
   isFileProcessed
 };
