@@ -61,6 +61,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 ## Evals
 
 * [Building eval systems that improve your product](https://www.lennysnewsletter.com/p/building-eval-systems-that-improve) described a methodology for creating evals. Start with error analysis and an expert, build eval suite of code and LLM evals. Pass/fail based, with critique. Split data into train, dev, and test sets. True pass rate over true negative rates. Paywalled but useful.
+* [All about evals](https://hamel.dev/blog/posts/evals-faq/) from an eval expert. 
 
 ## Drinking coolaid
 
