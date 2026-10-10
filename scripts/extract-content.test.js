@@ -144,7 +144,7 @@ test("analyzeChunkWithClaudeCode sends the prompt to claude and parses its outpu
   const promptFile = path.join(bin, "prompt.txt");
   fs.writeFileSync(
     path.join(bin, "claude"),
-    `#!/bin/sh\ncat > "${promptFile}"\nprintf '1. Managers who never say no end up with teams that cannot say yes.\\nshort\\n'\n`,
+    `#!/bin/sh\ncat > "${promptFile}"\nprintf '%s\\n' 'Sure:' '["Managers who never say no end up with teams that cannot say yes."]'\n`,
     { mode: 0o755 },
   );
   const originalPath = process.env.PATH;
@@ -155,6 +155,9 @@ test("analyzeChunkWithClaudeCode sends the prompt to claude and parses its outpu
     const prompt = fs.readFileSync(promptFile, "utf8");
     assert.match(prompt, /Title: Reorgs \(Part 1 of 2\)/);
     assert.match(prompt, /- Old pick\./);
+
+    fs.writeFileSync(path.join(bin, "claude"), "#!/bin/sh\ncat >/dev/null\necho No new qualifying extracts found.\n");
+    await assert.rejects(analyzeChunkWithClaudeCode(BODY, "Reorgs", 0, 1), /No JSON array/);
 
     fs.writeFileSync(path.join(bin, "claude"), "#!/bin/sh\ncat >/dev/null\necho boom >&2\nexit 3\n");
     await assert.rejects(analyzeChunkWithClaudeCode(BODY, "Reorgs", 0, 1), /exited with code 3: boom/);
@@ -174,8 +177,8 @@ function fakeClaudeBin() {
 prompt=$(cat)
 case "$prompt" in *FAIL*) exit 1;; esac
 case "$prompt" in
-  *"already selected"*) echo "Managers who never say no end up with teams that cannot say yes." ;;
-  *) echo "Most reorgs fail because nobody owns the transition." ;;
+  *"already selected"*) echo '["Managers who never say no end up with teams that cannot say yes."]' ;;
+  *) echo '["Most reorgs fail because nobody owns the transition."]' ;;
 esac
 `,
     { mode: 0o755 },

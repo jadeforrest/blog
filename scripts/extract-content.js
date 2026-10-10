@@ -171,7 +171,11 @@ function analyzeChunkWithClaudeCode(content, title, chunkIndex, totalChunks, alr
     claude.on('close', (code) => {
       clearTimeout(timer);
       if (code === 0) {
-        resolve(parseModelOutput(output));
+        try {
+          resolve(parseModelOutput(output));
+        } catch (err) {
+          reject(err);
+        }
       } else {
         reject(new Error(`Claude process exited with code ${code}: ${error || 'No error details'}`));
       }

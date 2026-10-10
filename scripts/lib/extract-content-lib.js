@@ -21,7 +21,7 @@ function buildExtractionPrompt({ title, content, chunkInfo = "", alreadySelected
 
   return `You are choosing quotes from a blog post to share on social media (Bluesky and LinkedIn). Each quote is posted on its own with a link to the post, so it has to work for a reader who has never seen the article.
 
-Analyze this blog post${chunkInfo} and extract 1-${MAX_EXTRACTS_PER_CHUNK} sentences or short passages (1-3 sentences each). Return fewer rather than padding the list with weak ones.
+Analyze this blog post${chunkInfo} and extract 0-${MAX_EXTRACTS_PER_CHUNK} sentences or short passages (1-3 sentences each). Return fewer rather than padding the list with weak ones. If nothing in this content qualifies, return an empty array.
 
 Prioritize:
 1. Contrarian statements: claims that cut against conventional wisdom and provoke a reaction of agreement or disagreement.
@@ -43,18 +43,44 @@ Title: ${title}${chunkInfo}
 Content:
 ${content}
 
-IMPORTANT: Return ONLY the extracts, one per line. No numbering, bullets, surrounding quotation marks, headings, analysis, or commentary such as "Here are the extracts".`;
+IMPORTANT: Return ONLY a JSON array of strings, one string per extract, e.g. ["First extract.", "Second extract."]. Return [] if nothing qualifies. No explanation, analysis, or commentary anywhere: not before the array, not after it, and not inside it.`;
 }
 
 /**
- * Turn Claude's raw output into extract lines, stripping list markers it adds despite
- * being asked not to and dropping short lines (stray headings, commentary).
+ * Find the JSON array of strings in Claude's output. Extracts can contain
+ * [bracketed edits], so this tries each "[" that could open a JSON array against
+ * each "]" (longest first) rather than trusting the first or last bracket.
+ * Returns null when there is none.
+ */
+function findStringArray(output) {
+  const ends = [...output.matchAll(/\]/g)].map((m) => m.index).reverse();
+  for (const start of output.matchAll(/\[(?=\s*["\]])/g)) {
+    for (const end of ends.filter((e) => e > start.index)) {
+      try {
+        const value = JSON.parse(output.slice(start.index, end + 1));
+        if (Array.isArray(value) && value.every((item) => typeof item === "string")) return value;
+      } catch {
+        // Not valid JSON between these brackets; try the next pair.
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Turn Claude's raw output into extracts. Only strings inside the returned JSON array
+ * count, so commentary Claude adds around it is never mistaken for an extract.
+ * Whitespace is collapsed because the output file holds one extract per line.
+ * Throws when the output has no JSON array of strings.
  */
 function parseModelOutput(output) {
-  return output
-    .split("\n")
-    .map((line) => line.trim().replace(/^(?:[-*•]|\d+[.)])\s+/, ""))
-    .filter((line) => line.length > 20)
+  const extracts = findStringArray(output);
+  if (extracts === null) {
+    throw new Error(`No JSON array of extracts in Claude's output: ${output.trim().slice(0, 200)}`);
+  }
+  return extracts
+    .map((text) => text.replace(/\s+/g, " ").trim())
+    .filter((text) => text.length > 0)
     .slice(0, MAX_EXTRACTS_PER_CHUNK);
 }
 

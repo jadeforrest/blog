@@ -22,7 +22,8 @@ const pair = fc.record({ text: line, url: line }).map((p) => ({ ...p }));
 
 test("prompt asks for 1-10 extracts and the new emphasis", () => {
   const prompt = buildExtractionPrompt({ title: "T", content: "Body text." });
-  assert.match(prompt, /extract 1-10 sentences/);
+  assert.match(prompt, /extract 0-10 sentences/);
+  assert.match(prompt, /JSON array of strings/);
   assert.match(prompt, /Contrarian/);
   assert.match(prompt, /pattern/);
   assert.match(prompt, /comprehensible in isolation/);
@@ -42,20 +43,48 @@ test("prompt lists already-selected extracts in append mode", () => {
   assert.match(prompt, /Title: T \(Part 1 of 2\)/);
 });
 
-test("model output: strips list markers, drops short lines, caps the count", () => {
+test("model output: only strings in the JSON array count as extracts", () => {
   const output = [
     "Here are the extracts:",
-    "1. Managers who never say no end up with teams that cannot say yes.",
-    "- Reorgs fail when nobody owns the transition plan, not the org chart.",
-    "",
-    ...Array.from({ length: 15 }, (_, i) => `Extract number ${i} is long enough to keep.`),
+    "```json",
+    '["[John Smith] said managers should have 20 direct reports.", "Two\\n  lines.", "  "]',
+    "```",
+    "Part 2 only contains one usable idea, which duplicates an already-selected quote.",
   ].join("\n");
 
-  const lines = parseModelOutput(output);
-  assert.equal(lines.length, MAX_EXTRACTS_PER_CHUNK);
-  assert.equal(lines[0], "Here are the extracts:");
-  assert.equal(lines[1], "Managers who never say no end up with teams that cannot say yes.");
-  assert.equal(lines[2], "Reorgs fail when nobody owns the transition plan, not the org chart.");
+  assert.deepEqual(parseModelOutput(output), [
+    "[John Smith] said managers should have 20 direct reports.",
+    "Two lines.",
+  ]);
+});
+
+test("model output: an empty array means no extracts", () => {
+  assert.deepEqual(parseModelOutput("[]"), []);
+  assert.deepEqual(parseModelOutput("Nothing new here [see above].\n[]"), []);
+});
+
+test("model output: prose without a JSON array is an error, not an extract", () => {
+  assert.throws(
+    () => parseModelOutput("This passage is too short and context-dependent. No new qualifying extracts found."),
+    /No JSON array/,
+  );
+  assert.throws(() => parseModelOutput('[1, 2] ["unterminated'), /No JSON array/);
+});
+
+test("model output: caps the count", () => {
+  const many = Array.from({ length: 15 }, (_, i) => `Extract ${i}.`);
+  assert.equal(parseModelOutput(JSON.stringify(many)).length, MAX_EXTRACTS_PER_CHUNK);
+});
+
+test("property: any array of strings round-trips through surrounding commentary", () => {
+  const extract = fc.string({ minLength: 1, maxLength: 60 }).filter((t) => t.trim().length > 0);
+  const prose = fc.string({ maxLength: 40 }).map((t) => t.replace(/[[\]]/g, ""));
+  fc.assert(
+    fc.property(fc.array(extract, { maxLength: MAX_EXTRACTS_PER_CHUNK }), prose, prose, (items, before, after) => {
+      const expected = items.map((t) => t.replace(/\s+/g, " ").trim());
+      assert.deepEqual(parseModelOutput(`${before}\n${JSON.stringify(items)}\n${after}`), expected);
+    }),
+  );
 });
 
 test("appending matches the formatting of a freshly generated file", () => {
