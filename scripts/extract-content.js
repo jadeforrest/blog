@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline/promises';
 import { spawn } from 'child_process';
+import { styleText } from 'util';
 import { fileURLToPath } from 'url';
 import { enforceLimits, graphemeCount } from './lib/text-limits.js';
 import {
@@ -280,9 +281,12 @@ function isFileProcessed(filePath) {
 async function approveExtracts(candidates, { label, source, ask }) {
   console.log(`\n  Candidates for ${label}:`);
   candidates.forEach((text, i) => {
-    console.log(`\n  ${String(i + 1).padStart(2)}. ${text}  (${graphemeCount(text)} chars)`);
+    // Annotations are styled so they read as notes to the reviewer, not part of the extract.
+    // styleText drops the colors when stdout isn't a terminal or NO_COLOR is set.
+    const length = styleText('dim', `(${graphemeCount(text)} chars)`);
+    console.log(`\n  ${String(i + 1).padStart(2)}. ${text}  ${length}`);
     for (const fragment of unverifiedFragments(text, source)) {
-      console.log(`      ⚠ not found verbatim in the post: "${fragment}"`);
+      console.log(styleText('yellow', `      ⚠ not found verbatim in the post: "${fragment}"`));
     }
   });
 
