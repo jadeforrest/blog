@@ -41,6 +41,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Ratchets and linting](https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/) as a tool for increasing the amount of quality in automated codebases.
 * [PR review tips](https://newsletter.posthog.com/p/code-review-tips) from posthog.
 * [Automating PR review at Fin/intercom](https://ideas.fin.ai/p/ai-is-approving-our-pull-requests)
+* [Attempting to reverse engineer code review](https://cate.blog/2026/10/13/attempting-to-reverse-engineer-code-review/) by Cate Huston walks through how she tried to systematically automate code review and what she learned along the way. Nice and reproducible. 
 
 ## Large-scale refactoring
 * [Restoration of a 20-year-old Java “Big Ball of Mud” using AI and Docker](https://martinfowler.com/articles/archaeologist-copilot.html)
