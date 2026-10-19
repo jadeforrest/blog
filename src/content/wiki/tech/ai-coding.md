@@ -77,7 +77,13 @@ Should probably have its own page
 ## Security
 
 * [One does not simply defend agentically](https://www.ncsc.gov.uk/blogs/one-does-not-simply-defend-agentically) makes an interesting point that all offensive problems are technical problems, and all defensive problems are political problems".
-* [How Anthropic does application security](https://claude.com/resources/articles/how-anthropic-secures-its-ai-native-software-development-lifecycle) also contains the most detailed breakdown of their SDLC I’ve seen. Some very interesting approaches like risk weighted sampling for reviews. 
+* [How Anthropic does application security](https://claude.com/resources/articles/how-anthropic-secures-its-ai-native-software-development-lifecycle) also contains the most detailed breakdown of their SDLC I’ve seen. Some very interesting approaches like risk weighted sampling for reviews.
+
+## Telemetry
+
+* [Agent observability with Claude Code](https://claude.com/resources/articles/agent-observability-on-the-claude-platform) by Anthropic. Oct 2026.
+* [Youtube video of telemetry in Claude Oct 2026](https://www.youtube.com/watch?v=tok8ncWJ7l4)
+
 ## Ethics
 
 * [Charity Majors: make AI boring again](https://charitydotwtf.substack.com/p/make-ai-boring-again) argues we should engage in using AI especially if we have concerns about it.
