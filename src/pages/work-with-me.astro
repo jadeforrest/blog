@@ -9,7 +9,7 @@ const offers = visibleForAvailability(
   [
     {
       title: "Executive advising",
-      body: "Regular working sessions with you and/or your leadership team: weekly, biweekly, or monthly. You bring the context, I bring the pattern recognition, and we leave with concrete next steps. Part coaching, part problem solving.",
+      body: "Regular working sessions with you and/or your leadership team: weekly, biweekly, or monthly. You bring the context, I bring the pattern recognition, and we leave with concrete next steps. Part sounding board, part problem solving.",
     },
     {
       title: "Engineering leadership hiring",
@@ -57,6 +57,10 @@ const quotes = visibleForAvailability(testimonials, INTERIM_AVAILABLE);
       <div class="wwm-actions">
         <a href={BOOKING_URL} class="btn btn-primary btn-lg">Book an intro call</a>
       </div>
+      <p class="wwm-fork">
+        Looking for coaching for yourself rather than your company?{" "}
+        <a href="#individuals">See options for individual leaders</a>.
+      </p>
     </header>
 
     <LogoStrip />
@@ -189,6 +193,47 @@ const quotes = visibleForAvailability(testimonials, INTERIM_AVAILABLE);
       <a href={BOOKING_URL} class="btn btn-primary btn-lg">Book an intro call</a>
       <p class="wwm-alt">Prefer email? jade at rubick dot com.</p>
     </section>
+
+    <section class="wwm-section" id="individuals">
+      <div class="wwm-kicker">For individual leaders</div>
+      <h2>Help for you personally</h2>
+      <p>
+        Everything above is advising for companies. If you're a manager or leader working on your
+        own growth, these are the ways I can help, from free to one-on-one.
+      </p>
+      <div class="offer-grid" style="--cols: 3">
+        <article class="offer">
+          <h3>Newsletter</h3>
+          <p>
+            Engineering Leadership Weekly: one free email a week on building humane, effective
+            organizations. <a href="/newsletter/">Subscribe</a>.
+          </p>
+        </article>
+        <article class="offer">
+          <h3>Management course</h3>
+          <p>
+            A five-month email course for engineering managers who are new or still finding their
+            footing. Work through it at your own pace. <a href="/course/">Learn more</a>.
+          </p>
+        </article>
+        <article class="offer offer-coaching">
+          <h3>One-on-one coaching</h3>
+          <p class="price">$625 <span>per session</span></p>
+          <p>
+            This is my reduced individual rate. It applies when the contract is with you personally
+            rather than with your employer. I can invoice in other currencies, and further discounts
+            are sometimes available internationally.
+          </p>
+          <p>
+            Many companies will cover coaching for their leaders, so it's worth asking.
+          </p>
+          <p>
+            To get started, email jade at rubick dot com with a few lines about your role and what
+            you'd like to work on.
+          </p>
+        </article>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
@@ -229,6 +274,12 @@ const quotes = visibleForAvailability(testimonials, INTERIM_AVAILABLE);
     color: var(--text-color-secondary);
     max-width: 60ch;
     margin: 0 0 var(--space-l);
+  }
+
+  .wwm-fork {
+    margin: var(--space-m) 0 0;
+    font-size: var(--font-size-xxs);
+    color: var(--text-color-secondary);
   }
 
   .wwm-section {
@@ -292,6 +343,23 @@ const quotes = visibleForAvailability(testimonials, INTERIM_AVAILABLE);
 
   .offer p {
     margin: 0;
+    color: var(--text-color-secondary);
+  }
+
+  .offer p + p {
+    margin-top: var(--space-s);
+  }
+
+  .offer .price {
+    font-family: var(--font-family-display);
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--text-color-heading);
+  }
+
+  .offer .price span {
+    font-family: inherit;
+    font-size: var(--font-size-xxs);
     color: var(--text-color-secondary);
   }
 
