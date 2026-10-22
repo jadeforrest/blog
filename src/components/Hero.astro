@@ -172,10 +172,15 @@ if (emphasis && title.includes(emphasis)) {
     flex-wrap: wrap;
   }
 
+  /* Definite width: as a shrink-to-fit grid item (justify-self) with a
+     width:100% img, this box collapsed to 0 until the image loaded, then
+     pushed .hero-body down ~375px on mobile (CLS 0.36 when the image was slow). */
   .hero-image {
     position: relative;
     z-index: 1;
     justify-self: center;
+    width: 100%;
+    max-width: 300px;
   }
 
   .hero-image :global(img) {
