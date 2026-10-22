@@ -39,7 +39,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import matter from 'gray-matter';
+import { parseFrontmatter, stringifyFrontmatter } from './lib/frontmatter.js';
 import { loadApiKey, apiGet } from './lib/kit-api.js';
 import {
   folderName,
@@ -232,7 +232,7 @@ function scanExistingFolders(outDir) {
     const indexPath = path.join(outDir, name, 'index.md');
     if (!fs.existsSync(indexPath)) continue;
     try {
-      const { data } = matter(fs.readFileSync(indexPath, 'utf8'));
+      const { data } = parseFrontmatter(fs.readFileSync(indexPath, 'utf8'), indexPath);
       if (data.kitEmailId != null) map.set(data.kitEmailId, name);
     } catch {
       /* ignore unreadable folders */
@@ -252,7 +252,7 @@ async function runSingleFile(apiKey, resolver) {
     console.error(`Error: file not found: ${singleFile}`);
     process.exit(1);
   }
-  const { data: fm } = matter(fs.readFileSync(filePath, 'utf8'));
+  const { data: fm } = parseFrontmatter(fs.readFileSync(filePath, 'utf8'), filePath);
   if (!fm.kitEmailId || !fm.sequenceId) {
     console.error('Error: frontmatter must contain kitEmailId and sequenceId (is this a kit-sequence file?)');
     process.exit(1);
@@ -271,7 +271,7 @@ async function runSingleFile(apiKey, resolver) {
 
   // Preserve push-side bookkeeping (kitSyncHash/kitSyncedAt) that the API can't
   // supply, so refreshing an already-pushed file doesn't reset its sync state.
-  const fileContent = matter.stringify(body, mergeFrontmatter(buildFrontmatter(email), fm));
+  const fileContent = stringifyFrontmatter(body, mergeFrontmatter(buildFrontmatter(email), fm));
   if (dryRun) {
     console.log('\nDry run complete. Nothing written.');
     return;
@@ -341,7 +341,7 @@ async function main() {
     let existingFm = null;
     if (fs.existsSync(indexPath)) {
       try {
-        existingFm = matter(fs.readFileSync(indexPath, 'utf8')).data;
+        existingFm = parseFrontmatter(fs.readFileSync(indexPath, 'utf8'), indexPath).data;
       } catch {
         /* unreadable frontmatter: fall back to a clean rebuild */
       }
@@ -356,7 +356,7 @@ async function main() {
         if (!isRubickUrl(url)) externalImages.push({ email: desiredName, url });
       }
     }
-    const fileContent = matter.stringify(
+    const fileContent = stringifyFrontmatter(
       body,
       mergeFrontmatter(buildFrontmatter({ ...meta, ...email }), existingFm),
     );

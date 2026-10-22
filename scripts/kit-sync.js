@@ -24,7 +24,7 @@ import crypto from 'crypto';
 import readline from 'readline';
 import { execSync, exec } from 'child_process';
 import { fileURLToPath } from 'url';
-import matter from 'gray-matter';
+import { parseFrontmatter } from './lib/frontmatter.js';
 import { mdxToEmailHtml } from './kit-mdx-to-html.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -174,7 +174,7 @@ async function main() {
 
   const allPosts = files.map(file => {
     const raw = fs.readFileSync(file, 'utf8');
-    const { data } = matter(raw);
+    const { data } = parseFrontmatter(raw, file);
     const dirName = path.basename(path.dirname(file));
     const slug = cleanSlug(dirName);
     return { file, raw, data, slug, dirName };

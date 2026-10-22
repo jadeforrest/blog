@@ -1,10 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import fc from 'fast-check';
+import { parseFrontmatter } from './frontmatter.js';
 import {
   markdownToHtml,
   hashableContent,
   contentHash,
   buildUpdatePayload,
+  recordPushState,
 } from './kit-push-lib.js';
 
 test('markdownToHtml: converts headings/links/lists', async () => {
@@ -94,4 +97,69 @@ test('buildUpdatePayload: publish:true sends published:true', () => {
     content: '<p>x</p>\n',
     published: true,
   });
+});
+
+test('recordPushState: records published, syncedAt and a hash that reads as in sync', () => {
+  const fm = { kitEmailId: 1, sequenceId: 2, subject: 'Hi', published: false, kitSyncHash: 'old' };
+  const out = recordPushState('Body', fm, { published: true, syncedAt: '2026-10-22T10:00:00.000Z' });
+  const { data, content } = parseFrontmatter(out);
+  assert.equal(content, 'Body\n');
+  assert.equal(data.published, true);
+  assert.equal(data.kitSyncedAt, '2026-10-22T10:00:00.000Z');
+  assert.equal(data.kitSyncHash, contentHash(out));
+  assert.deepEqual({ ...data, published: false, kitSyncHash: 'old', kitSyncedAt: undefined }, {
+    ...fm,
+    kitSyncedAt: undefined,
+  });
+  // A body edit after the push makes the file read as changed.
+  assert.notEqual(contentHash(out.replace('Body', 'Body!')), data.kitSyncHash);
+});
+
+test('recordPushState: a digits-only hash still reads back as a string', () => {
+  const out = recordPushState('x', { a: 1 }, { published: false, syncedAt: 's' });
+  const line = out.match(/^kitSyncHash: (.*)$/m)[1];
+  assert.match(line, /^'[0-9a-f]{32}'$/);
+});
+
+test('property: after a push, the file always reads as in sync with its own hash', () => {
+  const key = fc.string({ minLength: 1, maxLength: 12 }).filter((k) => !k.startsWith('kitSync'));
+  const value = fc.oneof(
+    fc.string(),
+    fc.integer(),
+    fc.boolean(),
+    fc.constant(null),
+    fc.array(fc.string(), { maxLength: 3 }),
+    // Long and multi-line values make js-yaml fold or block them.
+    fc.string({ minLength: 90, maxLength: 200 }),
+    fc.constantFrom('a\nkitSyncHash: fake', 'x\nkitSyncedAt: y'),
+  );
+  const previous = fc.record(
+    {
+      kitSyncHash: fc.oneof(fc.stringMatching(/^[0-9a-f]{32}$/), fc.string()),
+      kitSyncedAt: fc.string(),
+    },
+    { requiredKeys: [] },
+  );
+  const fm = fc
+    .tuple(fc.dictionary(key, value, { maxKeys: 8, noNullPrototype: true }), previous)
+    .map(([d, p]) => ({ kitEmailId: 1, sequenceId: 2, ...d, ...p }));
+  const body = fc.oneof(
+    fc.string(),
+    fc.constantFrom('kitSyncHash: in-body\n', '---\nkitSyncedAt: x\n---\n', ''),
+  );
+  const syncedAt = fc.date({ noInvalidDate: true }).map((d) => d.toISOString());
+  fc.assert(
+    fc.property(body, fm, fc.boolean(), syncedAt, (b, f, published, at) => {
+      const out = recordPushState(b, f, { published, syncedAt: at });
+      const { data, content } = parseFrontmatter(out);
+      assert.equal(data.kitSyncHash, contentHash(out));
+      assert.equal(data.kitSyncedAt, at);
+      assert.equal(data.published, published);
+      assert.equal(content, b.endsWith('\n') ? b : `${b}\n`);
+      for (const k of Object.keys(f)) {
+        if (!['kitSyncHash', 'kitSyncedAt', 'published'].includes(k)) assert.deepEqual(data[k], f[k], k);
+      }
+    }),
+    { numRuns: 2000 },
+  );
 });

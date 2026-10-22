@@ -10,6 +10,7 @@
 import crypto from 'crypto';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
+import { stringifyFrontmatter } from './frontmatter.js';
 
 /**
  * Convert sequence-email Markdown to HTML for the v4 `content` field. Kit merge /
@@ -42,6 +43,19 @@ export function hashableContent(raw) {
 /** md5 of the hashable content — stored in frontmatter as `kitSyncHash`. */
 export function contentHash(raw) {
   return crypto.createHash('md5').update(hashableContent(raw)).digest('hex');
+}
+
+/**
+ * The file as written after a successful push, recording `published`, `kitSyncedAt`
+ * and a `kitSyncHash` of the file exactly as written (stringifyFrontmatter may
+ * normalize hand-edited YAML). hashableContent drops the two push-state lines, so the
+ * next run's contentHash(file) matches and reports "already in sync". The hash is
+ * quoted so a digits-only hex string can't read back as a number.
+ */
+export function recordPushState(body, frontmatter, { published, syncedAt }) {
+  const fm = { ...frontmatter, published, kitSyncHash: 'pending', kitSyncedAt: syncedAt };
+  const out = stringifyFrontmatter(body, fm);
+  return out.replace(/^kitSyncHash: .*$/m, `kitSyncHash: '${contentHash(out)}'`);
 }
 
 /**

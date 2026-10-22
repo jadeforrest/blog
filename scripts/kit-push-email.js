@@ -24,9 +24,9 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 import { fileURLToPath } from 'url';
-import matter from 'gray-matter';
+import { parseFrontmatter } from './lib/frontmatter.js';
 import { loadApiKey, apiGet, apiPut } from './lib/kit-api.js';
-import { markdownToHtml, contentHash, buildUpdatePayload } from './lib/kit-push-lib.js';
+import { markdownToHtml, contentHash, buildUpdatePayload, recordPushState } from './lib/kit-push-lib.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BACKUP_DIR = path.join(__dirname, 'kit-backups');
@@ -59,7 +59,7 @@ async function main() {
   }
 
   const raw = fs.readFileSync(filePath, 'utf8');
-  const { data: fm, content: body } = matter(raw);
+  const { data: fm, content: body } = parseFrontmatter(raw, filePath);
 
   if (!fm.kitEmailId || !fm.sequenceId) {
     console.error('Error: frontmatter must contain kitEmailId and sequenceId (is this a kit-sequence file?)');
@@ -147,14 +147,12 @@ async function main() {
     `\n✓ Pushed. Kit now has subject "${updated.subject ?? ''}" (${(updated.content ?? '').length} chars, ${nowPublished ? 'published' : 'draft'}).`
   );
 
-  // Record push state in frontmatter. The stored hash is computed from the file
-  // exactly as written here (matter.stringify may normalize hand-edited YAML), and
-  // hashableContent excludes the kitSyncHash/kitSyncedAt lines themselves — so the
-  // next run's contentHash(raw) matches and correctly reports "already in sync".
-  // Keep the `published` mirror in step with what Kit now reports.
-  const newFm = { ...fm, published: nowPublished, kitSyncHash: 'pending', kitSyncedAt: new Date().toISOString() };
-  let out = matter.stringify(body, newFm);
-  out = out.replace(/^kitSyncHash: .*$/m, `kitSyncHash: ${contentHash(out)}`);
+  // Record push state in frontmatter, keeping the `published` mirror in step with
+  // what Kit now reports.
+  const out = recordPushState(body, fm, {
+    published: nowPublished,
+    syncedAt: new Date().toISOString(),
+  });
   fs.writeFileSync(filePath, out);
   console.log('✓ Recorded kitSyncHash + kitSyncedAt in frontmatter.');
 }
