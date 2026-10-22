@@ -1,0 +1,9 @@
+#!/bin/sh
+# Cost gate: see scripts/lib/cost-gate.js. Installed by `npm install`
+# (the prepare script sets core.hooksPath to .githooks).
+here=$(cd "$(dirname "$0")" && pwd)
+if ! command -v node >/dev/null 2>&1; then
+  echo "cost gate: node not found on PATH, skipping" >&2
+  exit 0
+fi
+exec node "$here/../scripts/cost-gate.js" "$1"

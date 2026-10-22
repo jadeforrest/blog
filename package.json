@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node --test \"scripts/**/*.test.js\"",
+    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
     "copy-images": "node scripts/copy-post-images.js",
     "copy-images:force": "node scripts/copy-post-images.js --force",
     "copy-images:clean": "node scripts/copy-post-images.js --clean",

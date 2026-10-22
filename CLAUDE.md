@@ -60,6 +60,27 @@ under `src/content/kit-sequence-<id>/`. The inverse push is `scripts/kit-push-em
   via BaseLayout's `jsonLd` prop (homepage: Person/Organization/WebSite; posts: BlogPosting).
 - Check locally: `curl -s -H "Accept: text/markdown" https://www.rubick.com/<slug>/`
 
+## Cost gate (commit-msg hook)
+
+`.githooks/commit-msg` (installed by `npm install` via the `prepare` script, which sets
+`core.hooksPath`; a test fails if it isn't) blocks commits that may add cost (bandwidth,
+function invocations, load time) unless the message has a `Cost:` line of at least three words
+saying what it costs and whether that is accepted or fixed, e.g. `Cost: none; comment-only
+change`. Rules live in `scripts/lib/cost-gate.js`:
+- **Paths**: `netlify/edge-functions/`, `netlify/functions/`, the edge logic
+  (`scripts/lib/agent-edge.js`, `agent-paths.js`, `accept.js`), `src/middleware*`,
+  `netlify.toml`, `public/_headers`, `public/robots.txt`, `astro.config.*`,
+  `scripts/build-agent-files.js`, and the gate itself.
+- **Added lines**: third-party `<script src>`, `<link href>`/`@import url()`, `<iframe>` (posts
+  included), `client:*` islands, `prerender = false`, 200 rewrites in `public/_redirects`.
+  Caching headers (`Vary`/`Cache-Control` assignments in code) count when added or removed.
+- **Size and deps**: files over 1 MB or over 5 MB in total under `public/`/`src/`; runtime
+  `dependencies` changes in `package.json` (not devDependencies).
+- Replayed over the 100 commits before it, about 12 would have needed a `Cost:` line.
+- Gaps: merges are skipped; `--amend`, reword and squash see only newly staged changes, so a
+  risky change committed with a throwaway message and amended later is never gated.
+  `git commit --no-verify` bypasses.
+
 ## Architecture
 
 ### Content Management
