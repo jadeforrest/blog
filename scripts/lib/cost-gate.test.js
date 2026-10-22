@@ -260,10 +260,24 @@ test("hook: a new runtime dependency is blocked without Cost", () => {
   fs.rmSync(r.dir, { recursive: true, force: true });
 });
 
-// The gate only works if git actually runs it in this checkout.
+// The gate only works if git actually runs it in this checkout. hooksPath is
+// ".githooks" from npm's prepare script, but a worktree may set its own
+// absolute path (Claude's desktop worktrees point at the main checkout's
+// .githooks), so check where it resolves rather than the literal value.
 test("this checkout has the cost gate installed", (t) => {
   const repo = fileURLToDir("../..");
-  const res = spawnSync("git", ["config", "core.hooksPath"], { cwd: repo, encoding: "utf8" });
   if (spawnSync("git", ["rev-parse"], { cwd: repo }).status !== 0) return t.skip("not a git checkout");
-  assert.equal(res.stdout.trim(), ".githooks", "run `npm install` (or `npm run prepare`)");
+  const res = spawnSync("git", ["config", "core.hooksPath"], { cwd: repo, encoding: "utf8" });
+  const hook = path.resolve(repo, res.stdout.trim() || ".git/hooks", "commit-msg");
+  const installed = fs.existsSync(hook) && fs.readFileSync(hook, "utf8").includes("cost-gate.js");
+  assert.ok(installed, `no cost gate at ${hook}: run \`npm install\` (or \`npm run prepare\`)`);
+});
+
+test("the installed check accepts an absolute hooksPath (worktrees)", () => {
+  const r = tempRepo();
+  r.git("config", "core.hooksPath", hooks); // absolute, as in a desktop worktree
+  const res = spawnSync("git", ["config", "core.hooksPath"], { cwd: r.dir, encoding: "utf8" });
+  const hook = path.resolve(r.dir, res.stdout.trim(), "commit-msg");
+  assert.match(fs.readFileSync(hook, "utf8"), /cost-gate\.js/);
+  fs.rmSync(r.dir, { recursive: true, force: true });
 });
