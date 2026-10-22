@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Daily rubick.com cost check. Install:
+     cp scripts/com.jade.rubick-usage-watch.plist ~/Library/LaunchAgents/
+     launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jade.rubick-usage-watch.plist -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jade.rubick-usage-watch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/jade/Developer/blog/scripts/usage-watch.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key>
+    <string>/Users/jade</string>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>8</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/jade/Library/Logs/rubick-usage-watch.launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/jade/Library/Logs/rubick-usage-watch.launchd.log</string>
+</dict>
+</plist>

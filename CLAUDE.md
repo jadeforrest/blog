@@ -81,6 +81,25 @@ change`. Rules live in `scripts/lib/cost-gate.js`:
   risky change committed with a throwaway message and amended later is never gated.
   `git commit --no-verify` bypasses.
 
+## Production cost watch (daily)
+
+`scripts/usage-watch.sh` runs daily at 08:30 via launchd (`com.jade.rubick-usage-watch`; plist
+in `scripts/`, installed in `~/Library/LaunchAgents/`) under job-wrapper, and notifies on:
+- **Headers (the real detector for per-request function overhead)**: probes `/`, `/about/`,
+  `/posts/`, `/tags/`, `/wiki/`, `/newsletter/` and the newest post. Alerts on `Vary: Accept` on
+  a page view (the Oct 2026 signature), a missing Netlify `cache-status` (a function generated
+  the page; a pass-through function keeps it, so only the Vary check sees that kind), broken
+  Markdown negotiation, non-200s (a Cloudflare bot challenge would show here) or failed requests.
+- **Bandwidth (crawler surges, heavier pages)**: Netlify's API exposes only cumulative account
+  bandwidth per billing period (`NETLIFY_AUTH_TOKEN` in `.env`), not function invocations. Daily
+  rates over windows of 20h+; alerts when a day exceeds 2x the 14-day median (needs 3 prior
+  days, and over 0.5 GB/day), when the last week's median rate projects past 80% of the
+  allowance, or when Netlify's data is over 3 days old. A sustained jump stops counting as a
+  spike once it becomes the median (about a week); the projection alert carries it from there.
+- Standing alerts repeat every 3 days. State: `~/Library/Application Support/rubick-usage-watch/`
+  (a corrupt file is moved aside and reported); log: `~/Library/Logs/rubick-usage-watch.log`.
+  Logic and thresholds: `scripts/lib/usage-watch.js`.
+
 ## Architecture
 
 ### Content Management
