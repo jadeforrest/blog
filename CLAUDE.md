@@ -46,10 +46,16 @@ under `src/content/kit-sequence-<id>/`. The inverse push is `scripts/kit-push-em
   `<link rel="alternate" type="text/markdown">` to each page, and generates `dist/llms.txt`
   and `dist/404.md`. Nothing is checked in; it is all regenerated per build.
 - **Content negotiation**: `netlify/edge-functions/agent-negotiation.js` serves the twin for
-  `Accept: text/markdown` (with `Vary: Accept`), a Markdown 404 for missing pages, and 406 for
-  unsupported types. Logic lives in `scripts/lib/agent-edge.js` + `scripts/lib/accept.js`
-  (unit-tested). The edge bundle must stay dependency-free: import only `accept.js` and
-  `agent-paths.js` from it, never `agent-markdown.js` (pulls in turndown).
+  `Accept: text/markdown` (with `Vary: Accept`) and a Markdown 404 for missing pages. Logic
+  lives in `scripts/lib/agent-edge.js` + `scripts/lib/accept.js` (unit-tested). The edge bundle
+  must stay dependency-free: import only `accept.js` and `agent-paths.js` from it, never
+  `agent-markdown.js` (pulls in turndown).
+  - **Routing is in `netlify.toml`, not inline**, and is gated so ordinary page views never
+    invoke the function (it ran on every page view until Oct 2026 and inflated edge-function
+    usage and bandwidth). It runs only when `Accept` names `text/markdown`, plus for direct
+    `*.md` requests. HTML pages therefore carry no `Vary: Accept`. Do not add an inline
+    `config` export: Netlify merges it over the TOML declarations.
+    `scripts/lib/edge-config.test.js` checks the routing.
 - **robots.txt** is static in `public/robots.txt`; **JSON-LD** comes from `scripts/lib/json-ld.js`
   via BaseLayout's `jsonLd` prop (homepage: Person/Organization/WebSite; posts: BlogPosting).
 - Check locally: `curl -s -H "Accept: text/markdown" https://www.rubick.com/<slug>/`

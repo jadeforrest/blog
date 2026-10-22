@@ -17,3 +17,22 @@
   for = "/"
   [headers.values]
     Link = '''</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain", </sitemap-index.xml>; rel="sitemap"; type="application/xml"'''
+
+# agent-negotiation edge function (see the file for what it does). Declared
+# here rather than inline because it needs two declarations: one gated on the
+# Accept header so ordinary page views never invoke it, and one for direct
+# *.md requests, which need its charset and canonical-link fix-ups whatever
+# Accept they send. scripts/lib/edge-config.test.js checks these patterns.
+[[edge_functions]]
+  function = "agent-negotiation"
+  pattern = '^/.*$'
+  # Static assets (anything with a file extension) are never negotiated.
+  excludedPattern = '^/.*\.[A-Za-z0-9]+$'
+  [edge_functions.header]
+    # Media types are case-insensitive; character classes keep this working
+    # whichever regex flavor Netlify matches with.
+    accept = '[Tt][Ee][Xx][Tt]/[Mm][Aa][Rr][Kk][Dd][Oo][Ww][Nn]'
+
+[[edge_functions]]
+  function = "agent-negotiation"
+  pattern = '^/.*\.md$'

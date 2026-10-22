@@ -3,6 +3,10 @@
 // (scripts/build-agent-files.js) with Vary: Accept; missing pages return a
 // Markdown 404; HTML responses gain Vary: Accept so caches keep the variants
 // apart. Logic lives in scripts/lib/agent-edge.js, where it is unit-tested.
+//
+// Routing is declared in netlify.toml, not inline: the function runs only for
+// requests whose Accept names text/markdown, and for direct *.md requests.
+// Ordinary page views never invoke it.
 import { handleAgentRequest } from "../../scripts/lib/agent-edge.js";
 
 export default (request, context) =>
@@ -15,10 +19,3 @@ export default (request, context) =>
         redirect: "manual",
       }),
   });
-
-export const config = {
-  path: "/*",
-  // Static assets (anything with a file extension other than .md) skip the
-  // function entirely; pages and Markdown twins go through it.
-  excludedPattern: "^/.*\\.(?!md$)[A-Za-z0-9]+$",
-};
