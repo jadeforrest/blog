@@ -19,6 +19,7 @@ const PATH_RULES = [
   [/^public\/robots\.txt$/, "robots.txt: crawler access changes how much bots fetch"],
   [/^astro\.config\.(mjs|js|ts)$/, "astro.config: output mode can move work to request time"],
   [/^scripts\/build-agent-files\.js$/, "build-agent-files: files published for every page"],
+  [/^budgets\.json$/, "size/performance budgets changed: say why the new cost is accepted"],
   [/^(\.githooks\/|scripts\/(lib\/)?cost-gate\.js$)/, "the cost gate itself changed"],
 ];
 

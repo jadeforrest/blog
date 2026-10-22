@@ -163,3 +163,15 @@ export function dueAlerts(alerts, sent, now) {
   for (const a of alerts) next[a.key] = due.includes(a) ? now : sent[a.key];
   return { due, sent: next };
 }
+
+// Netlify environment variable names for the site -> an alert while the
+// size-budget override (see scripts/lib/budgets.js) is still switched on.
+export function overrideAlerts(envKeys) {
+  if (!envKeys.includes("BUDGETS_WARN_ONLY")) return [];
+  return [
+    {
+      key: "budgets:override",
+      text: "BUDGETS_WARN_ONLY is still set in Netlify: size budgets are not enforced",
+    },
+  ];
+}

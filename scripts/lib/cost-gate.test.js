@@ -77,6 +77,7 @@ test("edge function logic, middleware, 200 rewrites and the gate itself are path
     "src/middleware/index.js",
     "scripts/lib/cost-gate.js",
     ".githooks/commit-msg",
+    "budgets.json",
   ]) {
     assert.equal(costTriggers([{ path: p }]).length, 1, p);
   }

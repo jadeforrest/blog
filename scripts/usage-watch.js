@@ -5,6 +5,7 @@
 // when the check itself could not run. See scripts/lib/usage-watch.js.
 //
 // Env: NETLIFY_AUTH_TOKEN (required), NETLIFY_ACCOUNT (default jadeforrest),
+// NETLIFY_SITE_ID (default: www.rubick.com's),
 // USAGE_WATCH_STATE (default ~/Library/Application Support/rubick-usage-watch/state.json),
 // USAGE_WATCH_SITE (default https://www.rubick.com).
 import fs from "node:fs";
@@ -15,6 +16,7 @@ import {
   assessBandwidth,
   assessHeaders,
   dueAlerts,
+  overrideAlerts,
   snapshotFrom,
 } from "./lib/usage-watch.js";
 
@@ -22,6 +24,7 @@ const token = process.env.NETLIFY_AUTH_TOKEN;
 if (!token) throw new Error("NETLIFY_AUTH_TOKEN is not set");
 const account = process.env.NETLIFY_ACCOUNT || "jadeforrest";
 const site = process.env.USAGE_WATCH_SITE || "https://www.rubick.com";
+const siteId = process.env.NETLIFY_SITE_ID || "d0df175b-1808-4f90-b865-e5a3ec9e626b";
 const stateFile =
   process.env.USAGE_WATCH_STATE ||
   path.join(os.homedir(), "Library/Application Support/rubick-usage-watch/state.json");
@@ -48,6 +51,19 @@ async function bandwidth() {
   });
   if (!res.ok) throw new Error(`Netlify bandwidth API: HTTP ${res.status}`);
   return snapshotFrom(await res.json());
+}
+
+// Names of the site's Netlify environment variables; [] if unreadable (the
+// override check is a convenience, not worth failing the run over).
+async function envKeys() {
+  try {
+    const res = await get(`https://api.netlify.com/api/v1/accounts/${account}/env?site_id=${siteId}`, {
+      headers: { authorization: `Bearer ${token}` },
+    });
+    return res.ok ? (await res.json()).map((e) => e.key) : [];
+  } catch {
+    return [];
+  }
 }
 
 // The newest post's URL, so a post page is probed too; null if not found.
@@ -124,6 +140,7 @@ const alerts = [
   ...assessBandwidth(state.history, now),
   ...assessHeaders(results),
   ...missingPost,
+  ...overrideAlerts(await envKeys()),
 ];
 const { due, sent } = dueAlerts(alerts, state.sent, now);
 saveState({ ...state, sent });

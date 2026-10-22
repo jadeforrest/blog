@@ -13,7 +13,8 @@ has been removed; legacy Gatsby URLs are handled by 301s in `public/_redirects`.
 - **Dev server**: `npm run dev` (runs at `localhost:4321`)
   - Automatically copies post images from `src/content/posts/` to `public/` before starting
 - **Build**: `npm run build`
-  - Copies images, builds the site to `dist/`, and generates search index with Pagefind
+  - Copies images, builds the site to `dist/`, generates search index with Pagefind, then
+    checks size budgets (see "Size and performance budgets"); over budget fails the build
 - **Preview**: `npm run preview` (preview production build)
 
 #### Image Processing Scripts
@@ -81,15 +82,44 @@ change`. Rules live in `scripts/lib/cost-gate.js`:
   risky change committed with a throwaway message and amended later is never gated.
   `git commit --no-verify` bypasses.
 
+## Size and performance budgets
+
+`budgets.json` holds the limits; changing it trips the cost gate, so raising a budget needs a
+`Cost:` line.
+- **Size (every build, incl. Netlify)**: `scripts/check-budgets.js` measures key pages (`/`,
+  `/about/`, `/posts/`, `/newsletter/`, `/completed-staff-work/`; `KEY_PAGES` in
+  `scripts/lib/budgets.js`): HTML, CSS, JS, eager-image bytes and third-party origins; plus files
+  and non-image bytes per HTML page site-wide (a Markdown twin per page, as on Oct 2 2026, breaks
+  both). Raw bytes from regex parsing: a regression tripwire, not a performance measurement.
+  Budgets are measured +10% with absolute floors (HTML 8 KB, CSS/JS 2 KB, eager images 150 KB)
+  so a new post's cover or blurb on a listing page doesn't fail a deploy; third-party origins are
+  exact. Every build prints measured/budget per metric. Over budget fails the build and prints
+  how to fix, accept (`npm run budgets:update` after the build, commit with a `Cost:` line) or
+  deploy anyway (`BUDGETS_WARN_ONLY=1` in Netlify's environment; the daily watch alerts while it
+  stays set).
+- **Lighthouse (local, daily)**: `scripts/perf-check.js` runs `lighthouse@13.5.0` via npx
+  (needs Chrome; not a site dependency) 3 times each on `/` and `/completed-staff-work/` in
+  production and compares medians with the `lighthouse` section. Laptop runs are noisy (the
+  homepage measured 0.96 and 0.87 an hour apart), so score/LCP/TBT/CLS budgets are wide (score
+  -0.1, LCP x1.4, TBT x1.5+200 ms, CLS +0.1) and must breach two runs in a row; page weight (+10%)
+  alerts at once. Failed runs are dropped; a page with none alerts as unavailable. The daily job
+  below runs it, so it happens without anyone remembering. On demand: `npm run perf`
+  (`-- --base http://localhost:4321` for a preview). Budgets are a ratchet and never tighten by
+  themselves: after a deliberate speed-up, run `npm run perf:update` (and `npm run
+  budgets:update`) to lock it in.
+- Not covered: client memory use (Lighthouse doesn't measure it; JS bytes are the proxy).
+
 ## Production cost watch (daily)
 
 `scripts/usage-watch.sh` runs daily at 08:30 via launchd (`com.jade.rubick-usage-watch`; plist
-in `scripts/`, installed in `~/Library/LaunchAgents/`) under job-wrapper, and notifies on:
+in `scripts/`, installed in `~/Library/LaunchAgents/`) under job-wrapper. It runs
+`scripts/usage-watch.js` and the Lighthouse check above, and notifies on:
 - **Headers (the real detector for per-request function overhead)**: probes `/`, `/about/`,
   `/posts/`, `/tags/`, `/wiki/`, `/newsletter/` and the newest post. Alerts on `Vary: Accept` on
   a page view (the Oct 2026 signature), a missing Netlify `cache-status` (a function generated
   the page; a pass-through function keeps it, so only the Vary check sees that kind), broken
   Markdown negotiation, non-200s (a Cloudflare bot challenge would show here) or failed requests.
+  Also alerts while `BUDGETS_WARN_ONLY` is set in Netlify's environment.
 - **Bandwidth (crawler surges, heavier pages)**: Netlify's API exposes only cumulative account
   bandwidth per billing period (`NETLIFY_AUTH_TOKEN` in `.env`), not function invocations. Daily
   rates over windows of 20h+; alerts when a day exceeds 2x the 14-day median (needs 3 prior

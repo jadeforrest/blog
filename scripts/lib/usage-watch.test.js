@@ -11,6 +11,7 @@ import {
   dailyRates,
   dueAlerts,
   median,
+  overrideAlerts,
   snapshotFrom,
 } from "./usage-watch.js";
 
@@ -226,4 +227,9 @@ test("property: rates never negative and never more than snapshots", () => {
       assert.ok(rates.every((r) => r.perDay >= 0));
     }),
   );
+});
+
+test("an override left on in Netlify keeps alerting", () => {
+  assert.deepEqual(overrideAlerts(["PLAUSIBLE_DOMAIN"]), []);
+  assert.deepEqual(keys(overrideAlerts(["PLAUSIBLE_DOMAIN", "BUDGETS_WARN_ONLY"])), ["budgets:override"]);
 });

@@ -7,8 +7,11 @@
   },
   "scripts": {
     "dev": "npm run copy-images && npm run copy-newsletter-images && astro dev",
-    "build": "npm run copy-images && npm run copy-newsletter-images && astro build && node scripts/build-agent-files.js dist && npx pagefind --site dist",
+    "build": "npm run copy-images && npm run copy-newsletter-images && astro build && node scripts/build-agent-files.js dist && npx pagefind --site dist && node scripts/check-budgets.js dist",
     "preview": "astro preview",
+    "budgets:update": "node scripts/check-budgets.js dist --update",
+    "perf": "node scripts/perf-check.js",
+    "perf:update": "node scripts/perf-check.js --update",
     "astro": "astro",
     "test": "node --test \"scripts/**/*.test.js\"",
     "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
