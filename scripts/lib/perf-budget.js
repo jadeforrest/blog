@@ -11,6 +11,8 @@
 
 export const PERF_PAGES = ["/", "/completed-staff-work/"];
 export const RUNS = 3;
+export const STALE_DAYS = 3;
+const DAY_MS = 24 * 3600 * 1000;
 
 const AUDITS = {
   lcpMs: "largest-contentful-paint",
@@ -86,4 +88,24 @@ export function confirmAlerts(alerts, previous = []) {
   const seen = new Set(previous);
   const confirmed = alerts.filter((a) => IMMEDIATE.has(a.key.split(":").at(-1)) || seen.has(a.key));
   return { confirmed, breached: alerts.map((a) => a.key) };
+}
+
+// `pmset -g systemstate` output -> true in a Power Nap dark wake (lid shut,
+// no display), when the daily job often fires: Chrome is throttled there, so
+// Lighthouse times out or measures nonsense. Full wake lists Graphics.
+// No output (not macOS, pmset failed) counts as awake.
+export function inDarkWake(systemstate) {
+  return /Capabilities are:/.test(systemstate) && !/\bGraphics\b/.test(systemstate);
+}
+
+// Skipped runs don't alert until there has been no real run for STALE_DAYS.
+export function staleAlerts(lastRun, now) {
+  const days = (Date.parse(now) - Date.parse(lastRun)) / DAY_MS;
+  if (!(days >= STALE_DAYS)) return [];
+  return [
+    {
+      key: "perf:stale",
+      text: `Lighthouse has not run since ${lastRun.slice(0, 10)}: the Mac was asleep at check time`,
+    },
+  ];
 }

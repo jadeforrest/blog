@@ -102,7 +102,10 @@ change`. Rules live in `scripts/lib/cost-gate.js`:
   production and compares medians with the `lighthouse` section. Laptop runs are noisy (the
   homepage measured 0.96 and 0.87 an hour apart), so score/LCP/TBT/CLS budgets are wide (score
   -0.1, LCP x1.4, TBT x1.5+200 ms, CLS +0.1) and must breach two runs in a row; page weight (+10%)
-  alerts at once. Failed runs are dropped; a page with none alerts as unavailable. The daily job
+  alerts at once. Failed runs are dropped; a page with none alerts as unavailable. When the 08:30
+  job fires in a Power Nap dark wake (lid shut; `pmset -g systemstate` lacks Graphics), Lighthouse
+  is skipped, not run: it timed out there (Oct 23 2026). It alerts only after 3 days with no real
+  run (`lastRun` in `perf-state.json`). The daily job
   below runs it, so it happens without anyone remembering. On demand: `npm run perf`
   (`-- --base http://localhost:4321` for a preview). Budgets are a ratchet and never tighten by
   themselves: after a deliberate speed-up, run `npm run perf:update` (and `npm run

@@ -16,8 +16,10 @@ import {
   RUNS,
   assessPerf,
   confirmAlerts,
+  inDarkWake,
   makePerfBudgets,
   medianRun,
+  staleAlerts,
   summarize,
 } from "./lib/perf-budget.js";
 
@@ -56,6 +58,37 @@ function tryLighthouse(url) {
   }
 }
 
+function systemstate() {
+  try {
+    return execFileSync("pmset", ["-g", "systemstate"], { encoding: "utf8" });
+  } catch {
+    return "";
+  }
+}
+
+let state = { sent: {}, breached: [] };
+try {
+  state = { ...state, ...JSON.parse(fs.readFileSync(stateFile, "utf8")) };
+} catch {
+  // first run, or unreadable: start fresh
+}
+const now = new Date().toISOString();
+const saveState = (s) => {
+  fs.mkdirSync(path.dirname(stateFile), { recursive: true });
+  fs.writeFileSync(stateFile, JSON.stringify(s, null, 2) + "\n");
+};
+
+// The daily job fires in Power Nap dark wakes when the lid is shut; skip
+// rather than time out, and alert only if that goes on for days.
+if (base === PRODUCTION && !update && inDarkWake(systemstate())) {
+  const lastRun = state.lastRun ?? now;
+  console.error(`Lighthouse skipped: Mac in dark wake (last run ${lastRun})`);
+  const result = dueAlerts(staleAlerts(lastRun, now), state.sent, now);
+  saveState({ ...state, sent: { ...state.sent, ...result.sent }, lastRun });
+  for (const a of result.due) console.log(a.text);
+  process.exit(0);
+}
+
 const medians = {};
 const unavailable = [];
 for (const page of PERF_PAGES) {
@@ -88,15 +121,8 @@ if (base !== PRODUCTION) {
   for (const a of alerts) console.log(a.text);
   process.exit(0);
 }
-let state = { sent: {}, breached: [] };
-try {
-  state = { ...state, ...JSON.parse(fs.readFileSync(stateFile, "utf8")) };
-} catch {
-  // first run, or unreadable: start fresh
-}
-const now = new Date().toISOString();
 const { confirmed, breached } = confirmAlerts(alerts, state.breached);
 const result = dueAlerts(confirmed, state.sent, now);
-fs.mkdirSync(path.dirname(stateFile), { recursive: true });
-fs.writeFileSync(stateFile, JSON.stringify({ sent: result.sent, breached }, null, 2) + "\n");
+const lastRun = Object.keys(medians).length ? now : state.lastRun;
+saveState({ sent: result.sent, breached, lastRun });
 for (const a of result.due) console.log(a.text);

@@ -1,7 +1,15 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fc from "fast-check";
-import { assessPerf, confirmAlerts, makePerfBudgets, medianRun, summarize } from "./perf-budget.js";
+import {
+  assessPerf,
+  confirmAlerts,
+  inDarkWake,
+  makePerfBudgets,
+  medianRun,
+  staleAlerts,
+  summarize,
+} from "./perf-budget.js";
 
 const lhr = (score, lcp, tbt, cls, bytes) => ({
   categories: { performance: { score } },
@@ -94,4 +102,22 @@ test("property: budgets made from a measurement never flag that measurement", ()
       assert.deepEqual(assessPerf(medians, makePerfBudgets(medians)), []);
     }),
   );
+});
+
+test("dark wake is detected from pmset systemstate", () => {
+  // Captured on this Mac: full wake, and the Power Nap state the job hit on Oct 23.
+  const full = "Current System Capabilities are: CPU Graphics Audio Network \nCurrent Power State: 4\n";
+  const dark = "Current System Capabilities are: CPU Network \nCurrent Power State: 4\n";
+  assert.equal(inDarkWake(full), false);
+  assert.equal(inDarkWake(dark), true);
+  assert.equal(inDarkWake(""), false); // pmset missing or failed: just try
+});
+
+test("skipped runs alert only once the last real run is STALE_DAYS old", () => {
+  const last = "2026-10-24T15:30:00.000Z";
+  assert.deepEqual(staleAlerts(last, "2026-10-27T15:29:59.000Z"), []);
+  const [a] = staleAlerts(last, "2026-10-27T15:30:00.000Z");
+  assert.equal(a.key, "perf:stale");
+  assert.match(a.text, /not run since 2026-10-24/);
+  assert.deepEqual(staleAlerts("garbage", "2026-10-27T15:30:00.000Z"), []);
 });
