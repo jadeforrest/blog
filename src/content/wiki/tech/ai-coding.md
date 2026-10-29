@@ -79,6 +79,10 @@ Should probably have its own page
 * [One does not simply defend agentically](https://www.ncsc.gov.uk/blogs/one-does-not-simply-defend-agentically) makes an interesting point that all offensive problems are technical problems, and all defensive problems are political problems".
 * [How Anthropic does application security](https://claude.com/resources/articles/how-anthropic-secures-its-ai-native-software-development-lifecycle) also contains the most detailed breakdown of their SDLC I’ve seen. Some very interesting approaches like risk weighted sampling for reviews.
 
+## Research
+
+* [Q2 2026 report on AI impact](https://getdx.com/uploads/state-of-ai-impact-in-engineering-q2-report.pdf) will age quickly but showing the impact of AI on the industry. 37% increase in output, more noticeable in <100 eng sized companies. Deploy frequency rising. Documentation and code focus improving. Incremental delivery, review turnaround, change confidence, incident handling, cross team collab, deep work all down. PR sizes doubled. 53% of code overall is AI generated.
+
 ## Telemetry
 
 * [Agent observability with Claude Code](https://claude.com/resources/articles/agent-observability-on-the-claude-platform) by Anthropic. Oct 2026.
