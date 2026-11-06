@@ -6,7 +6,7 @@ import https from 'https';
 import http from 'http';
 import { URL } from 'url';
 import { fileURLToPath } from 'url';
-import { execFileSync } from 'child_process';
+import { reportAlert } from './lib/report-error.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -526,20 +526,11 @@ async function postToLinkedIn(post, accessToken, options = {}) {
 }
 
 /**
- * Best-effort macOS notification, matching the alert style already used by
- * ~/Library/Scripts/blog-to-linkedin.sh so it reads as the same channel.
- * Never throws: a missing/failing osascript must not take down the day's post.
+ * Best-effort alert (macOS notification + error-reporting record, throttled).
+ * Never throws: a failing alert must not take down the day's post.
  */
 function notify(message) {
-  if (process.platform !== 'darwin') return;
-  try {
-    execFileSync('osascript', [
-      '-e',
-      `display notification ${JSON.stringify(message)} with title "launchd error" sound name "Basso"`
-    ], { stdio: 'ignore', timeout: 10000 });
-  } catch {
-    // Headless or notifications unavailable — the log line above still stands.
-  }
+  reportAlert('blog-to-linkedin', message, { sound: true });
 }
 
 /**

@@ -5,9 +5,9 @@ import path from 'path';
 import https from 'https';
 import http from 'http';
 import { URL } from 'url';
-import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import { fitsBlueskyLimit, graphemeCount, escapeForAppleScript } from './lib/text-limits.js';
+import { fitsBlueskyLimit, graphemeCount } from './lib/text-limits.js';
+import { reportAlert } from './lib/report-error.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -20,22 +20,16 @@ const OVERSIZED_FILE = path.join(__dirname, 'bluesky-oversized.json');
 const BLUESKY_API_BASE = 'https://bsky.social/xrpc';
 
 /**
- * Surface a message in macOS Notification Center.
+ * Surface a queue-health alert (macOS notification + error-reporting record).
  *
  * Queue-health problems are otherwise invisible until someone reads the log, and a
  * schedule that quietly stops posting is exactly the failure worth being told about.
- * Uses execFileSync (no shell) and escapes the AppleScript string literals, so
- * arbitrary post text cannot break out.
+ * lib/report-error.js passes the text as argv (no shell, no AppleScript
+ * splicing), so arbitrary post text cannot break out.
  */
 function notify(message, { sound = false } = {}) {
-  try {
-    const script = `display notification "${escapeForAppleScript(message)}" with title "blog-to-bluesky"` +
-      (sound ? ' sound name "Basso"' : '');
-    execFileSync('osascript', ['-e', script], { timeout: 5000 });
-  } catch (error) {
-    // Never let a notification failure break posting.
-    console.warn(`  (notification failed: ${error.message})`);
-  }
+  // Recorded + throttled via error-reporting; never throws.
+  reportAlert('blog-to-bluesky', message, { sound });
 }
 
 /**
