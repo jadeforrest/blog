@@ -530,7 +530,11 @@ async function postToLinkedIn(post, accessToken, options = {}) {
  * Never throws: a failing alert must not take down the day's post.
  */
 function notify(message) {
-  reportAlert('blog-to-linkedin', message, { sound: true });
+  reportAlert('blog-to-linkedin', message, {
+    sound: true,
+    log: path.join(__dirname, 'extract-linkedin.log'),
+    script: __filename,
+  });
 }
 
 /**

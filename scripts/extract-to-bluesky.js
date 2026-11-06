@@ -29,7 +29,11 @@ const BLUESKY_API_BASE = 'https://bsky.social/xrpc';
  */
 function notify(message, { sound = false } = {}) {
   // Recorded + throttled via error-reporting; never throws.
-  reportAlert('blog-to-bluesky', message, { sound });
+  reportAlert('blog-to-bluesky', message, {
+    sound,
+    log: path.join(__dirname, 'extract-bluesky.log'),
+    script: __filename,
+  });
 }
 
 /**

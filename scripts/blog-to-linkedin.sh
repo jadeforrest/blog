@@ -20,8 +20,11 @@ set +eu
 source .env
 set -eu
 
+# Arguments (e.g. --dry-run) pass through to node; a manual run with
+# arguments is not the schedule's success, so it writes no heartbeat.
+if [ $# -gt 0 ]; then JOB_NO_HEARTBEAT=1; fi
 code=0
-node "scripts/extract-to-linkedin.js" >> "$JOB_LOG_FILE" 2>&1 || code=$?
+node "scripts/extract-to-linkedin.js" "$@" >> "$JOB_LOG_FILE" 2>&1 || code=$?
 if (( code != 0 )); then
     JOB_FAIL_REASON="extract-to-linkedin.js failed (exit $code)"
 fi

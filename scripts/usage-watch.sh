@@ -29,9 +29,11 @@ if perf=$(node "$BLOG_DIR/scripts/perf-check.js" 2>>"$JOB_LOG_FILE"); then
 else
     alerts=$(printf '%s\n%s' "$alerts" "Lighthouse check could not run (exit $?); see $JOB_LOG_FILE")
 fi
+# Each alert is recorded and throttled by error-reporting (a cost alert that
+# repeats daily notifies at most every 3h), falling back to job_notify.
 while IFS= read -r alert; do
     [ -n "$alert" ] || continue
     job_log "ALERT: $alert"
-    job_notify "$alert" "rubick.com cost" "Basso"
+    job_report warning "$alert" "rubick.com cost" --sound=Basso
 done <<< "$alerts"
 job_log "done"
