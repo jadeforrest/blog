@@ -34,6 +34,7 @@ description: AI-powered development tools, workflows, and best practices for aug
 * [Harness engineering at OpenAI](https://openai.com/index/harness-engineering/) A Feb 2026 article on an internal team at OpenAI that instituted a "no human code rule" and went from 0 -> 1MM lines of code. Contains some useful things they learned.
 * [Digital twin universes](https://simonwillison.net/2026/Feb/7/software-factory/) approach to cloning dependencies for fast automated verification. 
 * [Intercom's Fin on how they 2xed PRs](https://ideas.fin.ai/p/2x-nine-months-later), contains a lot of good metrics and info on how they went about it.
+* [The Counting House](https://yegge.ai/essays/the-counting-house/) by Steve Yegge (Oct 2026). A locked-down counterpart to the open software factory, aimed at high-volume operational work like customer service. Stateless "clerk" models handle one case each, with no credentials or direct writes. Each intent is only turned on after the model passes evals against human-scored gold sets, and autonomy ratchets up through tiers. An orchestrator does the actual writes.
 
 ## Code review
 * [How to kill code review](https://www.latent.space/p/reviews-dead) from Ankit Jain, founder of Aviator. Argues code review isn't sustainable any more, and we have to start developing approaches like BDD and deterministic verification.
