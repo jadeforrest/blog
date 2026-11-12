@@ -43,9 +43,7 @@ It can be helpful to approach your role with “beginner’s eyes”. So, with t
 
 ## How frequently will I get courses?
 
-You'll get the first email tomorrow, and after that, you'll get an email every Monday morning. The posts will continue for four months, and then you'll get to the end of the courses I've already written.
-
-I may decide to add posts to this course in the future. This means after the course wraps up, you may get posts every once in a while. But they will be much less frequent.
+You'll get the first email tomorrow, and after that, you'll get an email every Monday morning. The posts will continue for four months, and then you'll get to the end of the "frontline management" course. You'll then receive almost two years of posts for Engineering Leadership Weekly.
 
 ## What topics will we cover?
 
@@ -68,10 +66,6 @@ In the future, topics include:
 -   Shit shielding or not
 
 and a few more topics.
-
-## This course vs the other course
-
-I have another course I offer on Engineering Leadership. Information on this is available at the bottom of every email. You can subscribe to both if you like. But I will automatically add you to Engineering Leadership Weekly after this course ends. There is a little overlap in content, so you will get a couple of duplicate messages.
 
 ## How do I give feedback?
 
