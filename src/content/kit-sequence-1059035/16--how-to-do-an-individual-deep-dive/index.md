@@ -5,12 +5,10 @@ subject: How to do an individual deep dive
 previewText: ''
 position: 16
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 As a manager, you'll often encounter the situation where you have a member of your team that everyone is saying terrible things about. That's tricky enough to navigate -- but it gets really difficult when you don't know the team member's work very well.

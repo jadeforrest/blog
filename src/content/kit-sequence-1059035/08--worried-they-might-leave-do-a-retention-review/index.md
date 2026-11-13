@@ -5,12 +5,10 @@ subject: Worried they might leave? Do a retention review!
 previewText: ''
 position: 8
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 32b8abe00a266f2d648e2279fbad470b
 kitSyncedAt: '2026-08-23T04:15:55.850Z'

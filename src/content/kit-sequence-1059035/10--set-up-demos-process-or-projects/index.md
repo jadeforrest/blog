@@ -5,12 +5,10 @@ subject: Set up demos (process or projects)
 previewText: ''
 position: 10
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 47aeda34a615364d2d82f547ea7126e4
 kitSyncedAt: '2026-09-09T18:52:16.169Z'

@@ -5,16 +5,10 @@ subject: Write a compelling subject...
 previewText: ''
 position: 6
 published: false
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - tuesday
-  - wednesday
-  - thursday
-  - friday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 When I was first moved to a management role, I was asked to finish up my current coding assignment. I had done a lot of tech lead roles in the past, and had observed my managers. I thought I could do both at the same time.

@@ -5,16 +5,10 @@ subject: Write a compelling subject...
 previewText: ''
 position: 28
 published: false
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - tuesday
-  - wednesday
-  - thursday
-  - friday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 ​  

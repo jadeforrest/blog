@@ -5,16 +5,10 @@ subject: Dig into the existing projects (projects)
 previewText: ''
 position: 35
 published: false
-delayValue: 2
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - tuesday
-  - wednesday
-  - thursday
-  - friday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 The best way to get up to speed rapidly is by getting involved in the work. This means taking over project management. This applies if you're a frontline manager. And only if you're responsible for project management.

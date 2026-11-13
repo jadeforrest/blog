@@ -5,12 +5,10 @@ subject: Team meetings
 previewText: ''
 position: 24
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 If the existing meeting structure is working for you, keep it. Otherwise, I wanted to share the meetings I typically will set up on a local team. And share a few I tend to avoid.

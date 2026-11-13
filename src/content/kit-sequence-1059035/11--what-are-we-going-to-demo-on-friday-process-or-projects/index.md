@@ -5,12 +5,10 @@ subject: What are we going to demo on Friday? (process or projects)
 previewText: ''
 position: 11
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 6baab1d03318bdc4652c6741215135a4
 kitSyncedAt: '2026-09-28T17:29:32.937Z'

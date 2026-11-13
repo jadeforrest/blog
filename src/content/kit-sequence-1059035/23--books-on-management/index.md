@@ -5,12 +5,10 @@ subject: Books on management
 previewText: ''
 position: 23
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 ## Introduction

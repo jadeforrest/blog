@@ -5,12 +5,10 @@ subject: 'Use technical plans, not technical specs (process)'
 previewText: ''
 position: 14
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: d75b450f1967f47b990425c9b0fe60fe
 kitSyncedAt: '2026-09-29T21:40:52.136Z'

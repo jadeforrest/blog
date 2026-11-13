@@ -5,12 +5,10 @@ subject: A weekly project plan format you will want to frame
 previewText: ''
 position: 22
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: d16ff41f6ac8d95b632917168689dadb
 kitSyncedAt: '2026-09-29T21:41:45.104Z'

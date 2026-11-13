@@ -5,12 +5,10 @@ subject: What do great engineering managers need to know about compensation and 
 previewText: ''
 position: 17
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 Today we're going to do a whirlwind tour of compensation. Hopefully you'll learn a bit along the way. And I'll share an exercise for managers, called a compensation review.

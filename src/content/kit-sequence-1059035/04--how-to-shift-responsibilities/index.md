@@ -5,12 +5,10 @@ subject: How to shift responsibilities
 previewText: ''
 position: 4
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 One of the most important skills for a manager is recognizing limits. You have to develop the ability to take things that are overwhelming or unrealistic, and chart out paths to make them achievable and realistic.

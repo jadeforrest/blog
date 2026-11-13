@@ -5,12 +5,10 @@ subject: Set up your support network
 previewText: ''
 position: 3
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 ## Being a manager is a hard job

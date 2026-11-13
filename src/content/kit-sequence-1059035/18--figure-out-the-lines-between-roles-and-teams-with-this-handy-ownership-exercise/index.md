@@ -7,12 +7,10 @@ subject: >-
 previewText: ''
 position: 18
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 When you're working in a group, you need to know how to coordinate. Coordination requires a shared understanding of how everyone will work together. Most human groups define Roles to clarify boundaries and expectations.

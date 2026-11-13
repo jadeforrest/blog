@@ -5,12 +5,10 @@ subject: You need project plans (projects)
 previewText: ''
 position: 13
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 ## Step 5: Create project plans or milestone plans

@@ -5,16 +5,10 @@ subject: Write a compelling subject...
 previewText: ''
 position: 34
 published: false
-delayValue: 1
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - tuesday
-  - wednesday
-  - thursday
-  - friday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 ## Step 7: Project execution meetings

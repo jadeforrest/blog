@@ -5,16 +5,10 @@ subject: Write a compelling subject...
 previewText: ''
 position: 27
 published: false
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - tuesday
-  - wednesday
-  - thursday
-  - friday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 How to develop your people and how to do good reviews

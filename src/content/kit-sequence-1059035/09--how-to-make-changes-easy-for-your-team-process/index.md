@@ -5,12 +5,10 @@ subject: How to make changes easy for your team (process)
 previewText: ''
 position: 9
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 2b3125eabacc5feddd3c928b496359f2
 kitSyncedAt: '2026-08-23T04:22:17.774Z'

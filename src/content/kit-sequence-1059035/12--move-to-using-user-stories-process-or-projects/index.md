@@ -5,12 +5,10 @@ subject: Move to using user stories (process or projects)
 previewText: ''
 position: 12
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: fc3eeff9887edbbdebc0e8c5e949650a
 kitSyncedAt: '2026-09-28T17:25:49.507Z'

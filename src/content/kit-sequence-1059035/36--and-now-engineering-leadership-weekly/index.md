@@ -5,16 +5,10 @@ subject: And now Engineering Leadership Weekly
 previewText: ''
 position: 36
 published: true
-delayValue: 3
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - tuesday
-  - wednesday
-  - thursday
-  - friday
-  - saturday
-  - sunday
 emailTemplateId: 1384647
 ---
 You've reached the end of the Frontline Management course. I may add more content in the future. Let me know what you thought -- was this course helpful?

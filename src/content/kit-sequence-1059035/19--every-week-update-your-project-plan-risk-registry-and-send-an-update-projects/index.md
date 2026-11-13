@@ -7,12 +7,10 @@ subject: >-
 previewText: ''
 position: 19
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: aa304d2e37f9665cc78a41e4fe84c800
 kitSyncedAt: '2026-09-29T21:41:07.835Z'

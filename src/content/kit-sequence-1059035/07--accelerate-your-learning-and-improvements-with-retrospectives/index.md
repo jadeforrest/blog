@@ -5,12 +5,10 @@ subject: Accelerate your learning and improvements with retrospectives
 previewText: ''
 position: 7
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 2a251f51a35acd8d24abc2855f395f65
 kitSyncedAt: '2026-08-23T04:19:00.278Z'

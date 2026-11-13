@@ -5,12 +5,10 @@ subject: The art of working with stakeholders
 previewText: ''
 position: 20
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 As you're getting established in your role, I recommend you take an inventory of your stakeholders and the other leaders you work with.

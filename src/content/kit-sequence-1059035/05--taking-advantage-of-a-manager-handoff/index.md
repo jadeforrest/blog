@@ -5,12 +5,10 @@ subject: Taking advantage of a manager handoff
 previewText: ''
 position: 5
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: bbcd304d2d2864efa85d18f5d99d6e4c
 kitSyncedAt: '2026-08-04T19:57:35.323Z'

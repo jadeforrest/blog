@@ -5,12 +5,10 @@ subject: Set up 1-1s with your team (people)
 previewText: ''
 position: 2
 published: true
-delayValue: 1
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 5237c2f716ccf4a9e54d4b11012f119e
 kitSyncedAt: '2026-07-20T16:17:44.211Z'

@@ -5,12 +5,10 @@ subject: Doing a performance review review
 previewText: ''
 position: 15
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 ---
 Let's turn our attention to people matters.

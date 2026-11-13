@@ -5,12 +5,10 @@ subject: Don't fall for the "protect the team" trap
 previewText: ''
 position: 21
 published: true
-delayValue: 7
+delayValue: 5
 delayUnit: days
 sendDays:
   - monday
-  - saturday
-  - sunday
 emailTemplateId: null
 kitSyncHash: 973f2ee044528b3eab840f01eebf2509
 kitSyncedAt: '2026-09-29T21:41:32.633Z'
