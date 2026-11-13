@@ -16,8 +16,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
-kitSyncHash: 90cf4ef5ce10fd003ce0f95521b23f28
-kitSyncedAt: '2026-07-09T22:49:29.260Z'
+kitSyncHash: 'd2fcbd180893dfd28308407309be4f32'
+kitSyncedAt: '2026-11-12T17:20:54.009Z'
 ---
 ​
 
