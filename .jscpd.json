@@ -1,0 +1,9 @@
+{
+  "path": ["scripts", "src", "netlify"],
+  "minLines": 5,
+  "format": ["javascript", "typescript", "jsx", "tsx", "css", "markup"],
+  "formatsExts": { "markup": ["astro", "html"] },
+  "ignore": ["**/src/content/**", "**/kit-backups/**", "**/*.md", "**/*.mdx"],
+  "gitignore": true,
+  "reporters": ["console"]
+}

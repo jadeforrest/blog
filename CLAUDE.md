@@ -16,6 +16,11 @@ has been removed; legacy Gatsby URLs are handled by 301s in `public/_redirects`.
   - Copies images, builds the site to `dist/`, generates search index with Pagefind, then
     checks size budgets (see "Size and performance budgets"); over budget fails the build
 - **Preview**: `npm run preview` (preview production build)
+- **Duplication check**: `npm run dupes` runs jscpd (`.jscpd.json`: `scripts/`, `src/`,
+  `netlify/` code incl. `.astro`; post/email content excluded) and fails only on clones missing
+  from `.jscpd-baseline.json`, marked `[NEW]` in the output (56 pre-existing clones are
+  baselined, Nov 2026). Fix a new clone, or accept it with `npm run dupes:update` and say why in
+  the commit; removing clones and updating also shrinks the baseline.
 
 #### Image Processing Scripts
 - **Incremental build** (default): `npm run copy-images`
