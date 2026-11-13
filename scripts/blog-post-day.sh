@@ -1,5 +1,5 @@
 #!/bin/bash
-# launchd: com.jade.rubick-post-day, daily at 6:00 AM. Runs scripts/post-day.js with the repo's
+# launchd: com.jade.blog-post-day, daily at 6:00 AM. Runs scripts/blog-post-day.js with the repo's
 # .env: builds the site on a scheduled post's date and announces new posts on Bluesky/LinkedIn.
 # Failures are recorded and notified by job-wrapper via ~/Developer/error-reporting, a missed
 # run by its heartbeat.
@@ -8,7 +8,7 @@ JOB_WRAPPER_LIB="${JOB_WRAPPER_LIB:-/Users/jade/Developer/job-wrapper/job-wrappe
 . "$JOB_WRAPPER_LIB"
 
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-job_init rubick-post-day "$HOME/Library/Logs/rubick-post-day.log" 3d
+job_init blog-post-day "$HOME/Library/Logs/blog-post-day.log" 3d
 job_log "--- started ---"
 
 job_setup_node || { JOB_FAIL_REASON="node not found on PATH"; exit 127; }
@@ -24,9 +24,9 @@ set -eu
 # arguments is not the schedule's success, so it writes no heartbeat.
 if [ $# -gt 0 ]; then JOB_NO_HEARTBEAT=1; fi
 code=0
-node "scripts/post-day.js" "$@" >> "$JOB_LOG_FILE" 2>&1 || code=$?
+node "scripts/blog-post-day.js" "$@" >> "$JOB_LOG_FILE" 2>&1 || code=$?
 if (( code != 0 )); then
-    JOB_FAIL_REASON="post-day.js failed (exit $code); see ~/Library/Logs/rubick-post-day.log"
+    JOB_FAIL_REASON="blog-post-day.js failed (exit $code); see ~/Library/Logs/blog-post-day.log"
 fi
 job_log "--- finished (exit $code) ---"
 exit "$code"

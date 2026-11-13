@@ -1,5 +1,5 @@
 /**
- * Decisions for scripts/post-day.js, kept free of I/O so they can be tested.
+ * Decisions for scripts/blog-post-day.js, kept free of I/O so they can be tested.
  *
  * State shape:
  *   lastChecked   YYYY-MM-DD; the last day a build was considered

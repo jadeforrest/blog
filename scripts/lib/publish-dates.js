@@ -5,7 +5,7 @@
  * (`src/content/posts/2026-12-01--slug/`), or frontmatter `date` when there is
  * no prefix. A post stays off the site, out of RSS and out of the social queues
  * until that date has arrived in Portland. The site is static, so "arrived"
- * means "on the day the build runs": scripts/post-day.js triggers that build.
+ * means "on the day the build runs": scripts/blog-post-day.js triggers that build.
  *
  * Plain JS with no dependencies so launchd scripts and Astro pages can both
  * import it.

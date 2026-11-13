@@ -82,15 +82,15 @@ production build: no page, listing, tag, RSS item, sitemap entry, Markdown twin 
 push it to master before its date.
 - **Social queues**: `extract-to-bluesky.js` / `extract-to-linkedin.js` skip extracts whose file
   date is in the future (`liveQueue`), so running `extract-content.js` early is safe.
-- **Go-live job**: `scripts/post-day.js` runs daily at 6:00 AM via launchd
-  (`com.jade.rubick-post-day`; plist in `scripts/`, under job-wrapper). When a post's date has
+- **Go-live job**: `scripts/blog-post-day.js` runs daily at 6:00 AM via launchd
+  (`com.jade.blog-post-day`; plist in `scripts/`, under job-wrapper). When a post's date has
   arrived since its last run (catching up days the Mac was off), it POSTs `NETLIFY_BUILD_HOOK`
   (`.env`; the hook is "scheduled-posts" in Netlify), waits up to 25 min for the page to return
   200, then posts "New post: <title>" to Bluesky and LinkedIn. Every post dated on or after the
   job's first run (Nov 14 2026) is announced once per platform, scheduled or not; a failed
   platform is retried daily. It fails if a post is scheduled and the hook is unset, or a due
-  page never goes live (not pushed?). State: `~/Library/Application Support/rubick-post-day/`;
-  log: `~/Library/Logs/rubick-post-day.log`. `--dry-run`, `--today YYYY-MM-DD`, `--no-announce`.
+  page never goes live (not pushed?). State: `~/Library/Application Support/blog-post-day/`;
+  log: `~/Library/Logs/blog-post-day.log`. `--dry-run`, `--today YYYY-MM-DD`, `--no-announce`.
 - **Not hidden**: images copied to `public/<slug>/` (served at guessable URLs once pushed), and
   Kit emails, which are pushed by hand.
 

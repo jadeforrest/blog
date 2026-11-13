@@ -4,9 +4,9 @@ import fs from "fs";
 import os from "os";
 import path from "path";
 import fc from "fast-check";
-import { announcementText, initialState, missingPlatforms, plan, readPosts } from "./post-day.js";
+import { announcementText, initialState, missingPlatforms, plan, readPosts } from "./blog-post-day.js";
 import { fitsBlueskyLimit } from "./text-limits.js";
-import { loadState, run, waitUntilLive } from "../post-day.js";
+import { loadState, run, waitUntilLive } from "../blog-post-day.js";
 
 const post = (date, slug, extra = {}) => ({
   dir: `${date}--${slug}`,
@@ -19,7 +19,7 @@ const post = (date, slug, extra = {}) => ({
 });
 
 test("readPosts reads dates, slugs and frontmatter", () => {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "post-day-"));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blog-post-day-"));
   fs.mkdirSync(path.join(dir, "2026-12-01--soon"));
   fs.writeFileSync(path.join(dir, "2026-12-01--soon", "index.mdx"), '---\ntitle: "Soon"\ndescription: "D"\n---\nBody');
   fs.mkdirSync(path.join(dir, "undated"));
@@ -187,7 +187,7 @@ test("waitUntilLive checks once with no timeout, and survives network errors", a
 });
 
 test("loadState starts fresh when there is no file, reads it when there is, and throws on corruption", () => {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "post-day-state-"));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blog-post-day-state-"));
   const file = path.join(dir, "state.json");
   assert.deepEqual(loadState(file, "2026-11-13"), initialState("2026-11-13"));
   fs.writeFileSync(file, JSON.stringify({ lastChecked: "2026-11-01", announceFrom: "2026-10-01", announced: {} }));

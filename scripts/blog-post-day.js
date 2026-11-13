@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * post-day.js — make scheduled posts go live on their date, and announce new posts.
+ * blog-post-day.js — make scheduled posts go live on their date, and announce new posts.
  *
  * A post dated in the future is left out of the build (src/utils/posts.ts) and out of the
  * Bluesky/LinkedIn excerpt queues. The site is static, so something has to build it on the day:
@@ -9,11 +9,11 @@
  * and LinkedIn (once per platform; a failed platform is retried on the next run).
  *
  * Usage:
- *   node scripts/post-day.js [--dry-run] [--today YYYY-MM-DD] [--no-announce]
+ *   node scripts/blog-post-day.js [--dry-run] [--today YYYY-MM-DD] [--no-announce]
  *
  * Env: NETLIFY_BUILD_HOOK (fails when a post is due or scheduled and it's missing), plus the
- * Bluesky and LinkedIn variables the excerpt scripts use. POST_DAY_STATE overrides the state
- * file (default ~/Library/Application Support/rubick-post-day/state.json).
+ * Bluesky and LinkedIn variables the excerpt scripts use. BLOG_POST_DAY_STATE overrides the state
+ * file (default ~/Library/Application Support/blog-post-day/state.json).
  *
  * Netlify builds master, so push a scheduled post before its date. If it isn't pushed, the
  * page never returns 200 and the run fails, naming it.
@@ -23,14 +23,14 @@ import fs from "fs";
 import os from "os";
 import path from "path";
 import { fileURLToPath } from "url";
-import { announcementText, initialState, missingPlatforms, plan, readPosts } from "./lib/post-day.js";
+import { announcementText, initialState, missingPlatforms, plan, readPosts } from "./lib/blog-post-day.js";
 import { siteToday } from "./lib/publish-dates.js";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_DIR = path.join(ROOT, "src", "content", "posts");
 const STATE_FILE =
-  process.env.POST_DAY_STATE ||
-  path.join(os.homedir(), "Library/Application Support/rubick-post-day/state.json");
+  process.env.BLOG_POST_DAY_STATE ||
+  path.join(os.homedir(), "Library/Application Support/blog-post-day/state.json");
 
 // A Netlify build of this site takes 3-6 minutes; allow for a queue.
 const LIVE_TIMEOUT_MS = 25 * 60_000;

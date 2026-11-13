@@ -6,7 +6,7 @@ export type DatedPost = CollectionEntry<"posts"> & { date: string; slug: string 
 /**
  * Posts with their date and slug, newest first. A post dated in the future is
  * left out of the build (no page, listing, tag, RSS item or sitemap entry)
- * until a build runs on its date; scripts/post-day.js triggers that build.
+ * until a build runs on its date; scripts/blog-post-day.js triggers that build.
  * The dev server shows everything so scheduled posts can be previewed.
  */
 export async function getPublishedPosts(): Promise<DatedPost[]> {
