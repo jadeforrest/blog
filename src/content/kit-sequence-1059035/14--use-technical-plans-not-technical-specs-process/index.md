@@ -1,7 +1,7 @@
 ---
 kitEmailId: 4688139
 sequenceId: 1059035
-subject: 'Use technical plans, not technical specs (process)'
+subject: Use technical plans, not technical specs (process)
 previewText: ''
 position: 14
 published: true
@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: d75b450f1967f47b990425c9b0fe60fe
-kitSyncedAt: '2026-09-29T21:40:52.136Z'
+kitSyncHash: '094fe41d36f291e6e3c687fbc42ead3e'
+kitSyncedAt: '2026-11-13T00:24:33.033Z'
 ---
 ## Step 6: Create technical plans
 

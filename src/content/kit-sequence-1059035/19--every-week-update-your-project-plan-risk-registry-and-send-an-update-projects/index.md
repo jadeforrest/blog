@@ -12,8 +12,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: aa304d2e37f9665cc78a41e4fe84c800
-kitSyncedAt: '2026-09-29T21:41:07.835Z'
+kitSyncHash: '391b664cda7da28cdc0d1184e3909268'
+kitSyncedAt: '2026-11-13T00:24:34.085Z'
 ---
 Today, I'd like to cover the weekly life of a project manager. When I'm managing a project, these are the things I do every week:
 

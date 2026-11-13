@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '92af6f54a46551daa14c0454308080b2'
+kitSyncedAt: '2026-11-13T00:24:35.017Z'
 ---
 If the existing meeting structure is working for you, keep it. Otherwise, I wanted to share the meetings I typically will set up on a local team. And share a few I tend to avoid.
 

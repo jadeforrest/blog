@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '5b13b1fb5b627c380a1b424e9f751e42'
+kitSyncedAt: '2026-11-13T00:24:31.207Z'
 ---
 One of the most important skills for a manager is recognizing limits. You have to develop the ability to take things that are overwhelming or unrealistic, and chart out paths to make them achievable and realistic.
 

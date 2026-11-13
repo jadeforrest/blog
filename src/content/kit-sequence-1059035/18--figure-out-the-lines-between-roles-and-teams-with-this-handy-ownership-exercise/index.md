@@ -12,6 +12,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: 'a0f6be7cb973e4cbc4ac638182b641f0'
+kitSyncedAt: '2026-11-13T00:24:33.837Z'
 ---
 When you're working in a group, you need to know how to coordinate. Coordination requires a shared understanding of how everyone will work together. Most human groups define Roles to clarify boundaries and expectations.
 

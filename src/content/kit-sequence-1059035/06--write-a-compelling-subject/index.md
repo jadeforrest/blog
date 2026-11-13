@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '77cb2ee673bf25c77d7e8f329444167f'
+kitSyncedAt: '2026-11-13T00:24:31.553Z'
 ---
 When I was first moved to a management role, I was asked to finish up my current coding assignment. I had done a lot of tech lead roles in the past, and had observed my managers. I thought I could do both at the same time.
 

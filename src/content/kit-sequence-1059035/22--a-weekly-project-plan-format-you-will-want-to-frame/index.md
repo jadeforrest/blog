@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: d16ff41f6ac8d95b632917168689dadb
-kitSyncedAt: '2026-09-29T21:41:45.104Z'
+kitSyncHash: 'dced56ec1d2bf223dc22ab08deea1b07'
+kitSyncedAt: '2026-11-13T00:24:34.673Z'
 ---
 Today, I’ll share a few thoughts on what makes a good project plan. And I’ll provide a sample project plan.
 

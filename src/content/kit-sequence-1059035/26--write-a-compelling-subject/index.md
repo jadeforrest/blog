@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '7b33ec98a70ff1d4427a4cedb1a0d5c7'
+kitSyncedAt: '2026-11-13T00:24:35.347Z'
 ---
 Sequences are an automated series of emails.
 

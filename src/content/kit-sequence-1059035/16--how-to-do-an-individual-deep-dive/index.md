@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '48414016356548593f71e962175fc973'
+kitSyncedAt: '2026-11-13T00:24:33.414Z'
 ---
 As a manager, you'll often encounter the situation where you have a member of your team that everyone is saying terrible things about. That's tricky enough to navigate -- but it gets really difficult when you don't know the team member's work very well.
 

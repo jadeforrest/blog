@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '8359b03e221ecab286967d0ec08a6a41'
+kitSyncedAt: '2026-11-13T00:24:36.969Z'
 ---
 ## Step 7: Project execution meetings
 

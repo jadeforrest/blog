@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: 'a1540cccf9442bc0e9c0004ed9ac64f6'
+kitSyncedAt: '2026-11-13T00:24:34.269Z'
 ---
 As you're getting established in your role, I recommend you take an inventory of your stakeholders and the other leaders you work with.
 

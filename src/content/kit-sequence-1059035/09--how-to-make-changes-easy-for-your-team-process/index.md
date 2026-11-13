@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: 2b3125eabacc5feddd3c928b496359f2
-kitSyncedAt: '2026-08-23T04:22:17.774Z'
+kitSyncHash: '95443a0d75126ff826aef2e49fd64818'
+kitSyncedAt: '2026-11-13T00:24:32.050Z'
 ---
 
 As managers, our job is to make our part of the organization better. This requires imposing change. Today we'll discuss how to make changes: how to overcome resistance, skepticism, change fatigue, and people who push back against proposals.

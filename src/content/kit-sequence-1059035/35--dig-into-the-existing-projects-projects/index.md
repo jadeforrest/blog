@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '5f55c6fc65a6ab675828997e4e503a13'
+kitSyncedAt: '2026-11-13T00:24:37.125Z'
 ---
 The best way to get up to speed rapidly is by getting involved in the work. This means taking over project management. This applies if you're a frontline manager. And only if you're responsible for project management.
 

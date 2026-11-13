@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '19839b954b82587b4cc645ffe9ee5a96'
+kitSyncedAt: '2026-11-13T00:24:36.189Z'
 ---
 Oh my god the meetings!
 

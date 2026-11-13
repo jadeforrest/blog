@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: 5237c2f716ccf4a9e54d4b11012f119e
-kitSyncedAt: '2026-07-20T16:17:44.211Z'
+kitSyncHash: '61b6eac1edf34b4d2aa3d6bdc46c8c88'
+kitSyncedAt: '2026-11-13T00:24:30.784Z'
 ---
 ## Assignment
 

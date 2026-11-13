@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: 2a251f51a35acd8d24abc2855f395f65
-kitSyncedAt: '2026-08-23T04:19:00.278Z'
+kitSyncHash: 'c35317677ea9aa8779ed22d14db32a91'
+kitSyncedAt: '2026-11-13T00:24:31.715Z'
 ---
 
 ## What's the point of retrospectives?

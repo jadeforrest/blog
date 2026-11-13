@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: 32b8abe00a266f2d648e2279fbad470b
-kitSyncedAt: '2026-08-23T04:15:55.850Z'
+kitSyncHash: '8b93d577fbd22b42ac629142383610d0'
+kitSyncedAt: '2026-11-13T00:24:31.864Z'
 ---
 
 Sometimes, everything falls apart. It can seem like everyone in the organization is about to quit.

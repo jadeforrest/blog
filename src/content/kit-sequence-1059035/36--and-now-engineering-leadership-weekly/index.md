@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - wednesday
 emailTemplateId: 1384647
+kitSyncHash: '9f7eaf8554eda3463d95b67c4ff02eab'
+kitSyncedAt: '2026-11-13T00:24:37.320Z'
 ---
 You've reached the end of the Frontline Management course. I may add more content in the future. Let me know what you thought -- was this course helpful?
 

@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '3ab93d4d4ecd39ac1f4816ab72f84ff3'
+kitSyncedAt: '2026-11-13T00:24:31.001Z'
 ---
 ## Being a manager is a hard job
 

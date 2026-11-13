@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '793a7b06581ee6af48a55f5e2edd3c14'
+kitSyncedAt: '2026-11-13T00:24:35.561Z'
 ---
 How to develop your people and how to do good reviews
 

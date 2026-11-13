@@ -10,6 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
+kitSyncHash: '1b3d721a59189b29feed0619d2cc8e0d'
+kitSyncedAt: '2026-11-13T00:24:32.879Z'
 ---
 ## Step 5: Create project plans or milestone plans
 

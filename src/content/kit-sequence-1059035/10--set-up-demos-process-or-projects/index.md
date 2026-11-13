@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: 47aeda34a615364d2d82f547ea7126e4
-kitSyncedAt: '2026-09-09T18:52:16.169Z'
+kitSyncHash: '99a00daa602fc966273ea14f42b966af'
+kitSyncedAt: '2026-11-13T00:24:32.269Z'
 ---
 Over the next couple of posts, I'm going to describe an approach to managing projects that is the most lightweight possible approach I can think of that still gives you pretty rigorous project management. Yet it also results is a highly flexible approach.
 
