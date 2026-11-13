@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "../utils/posts";
 import { getImage, Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialIcons from "../components/SocialIcons.astro";
@@ -8,26 +8,8 @@ import { formatDate } from "../utils/formatDate";
 import avatarLargeImage from "../assets/avatar-large.jpeg";
 
 // Get posts with "popular" tag, sorted by date, limit to 5
-const allPosts = await getCollection("posts");
-const popularPosts = allPosts
+const popularPosts = (await getPublishedPosts())
   .filter((post) => post.data.tags && post.data.tags.includes("popular"))
-  .map((post) => {
-    // Extract date from post id (YYYY-MM-DD--slug format)
-    const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
-    const date = dateMatch ? dateMatch[1] : post.data.date || "";
-
-    // Extract slug
-    const slug = post.id
-      .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
-      .replace(/\/index\.(md|mdx)$/, "");
-
-    return {
-      ...post,
-      date,
-      slug,
-    };
-  })
-  .sort((a, b) => b.date.localeCompare(a.date))
   .slice(0, 5);
 
 // Generate optimized cover images for popular posts

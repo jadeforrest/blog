@@ -1,27 +1,18 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
+import { getPublishedPosts } from "../utils/posts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatDate } from "../utils/formatDate";
 import { getImage } from "astro:assets";
 import { blogPostingJsonLd } from "../../scripts/lib/json-ld.js";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
+  const posts = await getPublishedPosts();
 
-  return posts.map((post) => {
-    // Parse YYYY-MM-DD--slug format
-    const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
-    const date = dateMatch ? dateMatch[1] : post.data.date || "";
-
-    const slug = post.id
-      .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
-      .replace(/\/index\.(md|mdx)$/, "");
-
-    return {
-      params: { slug },
-      props: { post, date },
-    };
-  });
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post, date: post.date },
+  }));
 }
 
 const { post, date } = Astro.props;

@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "../../utils/posts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 // Get all posts and extract unique tags
-const allPosts = await getCollection("posts");
+const allPosts = await getPublishedPosts();
 
 // Count posts per tag
 const tagCounts = new Map<string, number>();

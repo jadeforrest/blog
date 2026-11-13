@@ -1,29 +1,10 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "../utils/posts";
 import type { APIContext } from "astro";
 import { marked } from "marked";
 
 export async function GET(context: APIContext) {
-  const allPosts = await getCollection("posts");
-
-  // Sort posts by date (newest first) and extract metadata
-  const posts = allPosts
-    .map((post) => {
-      // Parse YYYY-MM-DD--slug format
-      const dateMatch = post.id.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})--/);
-      const date = dateMatch ? dateMatch[1] : post.data.date || "";
-
-      const slug = post.id
-        .replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2}--/, "")
-        .replace(/\/index\.(md|mdx)$/, "");
-
-      return {
-        ...post,
-        date,
-        slug,
-      };
-    })
-    .sort((a, b) => b.date.localeCompare(a.date));
+  const posts = await getPublishedPosts();
 
   // Convert MDX/Markdown content to HTML for RSS
   const processedPosts = posts.map((post) => {

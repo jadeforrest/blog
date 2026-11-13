@@ -3,25 +3,22 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { isPublished, siteToday } from './lib/publish-dates.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Get slug from command line argument
+// Slug, and an optional publish date (default today). A future date schedules the post:
+// it stays off the site until then, and scripts/post-day.js builds it on the day.
 const slug = process.argv[2];
+const datePrefix = process.argv[3] || siteToday();
 
-if (!slug) {
-  console.error('Usage: node scripts/new-post.js <slug>');
-  console.error('Example: node scripts/new-post.js my-new-post');
+if (!slug || !/^\d{4}-\d{2}-\d{2}$/.test(datePrefix)) {
+  console.error('Usage: node scripts/new-post.js <slug> [YYYY-MM-DD]');
+  console.error('Example: node scripts/new-post.js my-new-post 2026-12-01');
   process.exit(1);
 }
-
-// Get today's date in YYYY-MM-DD format
-const today = new Date();
-const year = today.getFullYear();
-const month = String(today.getMonth() + 1).padStart(2, '0');
-const day = String(today.getDate()).padStart(2, '0');
-const datePrefix = `${year}-${month}-${day}`;
+const scheduled = !isPublished(datePrefix, siteToday());
 
 // Create directory name with date prefix
 const dirName = `${datePrefix}--${slug}`;
@@ -73,7 +70,9 @@ console.log(`  3. Update the title field`);
 console.log(`  4. Add tags`);
 console.log(`  5. Write your description`);
 console.log(`  6. Add the content`);
-console.log(`  7. Commit to git and push, wait three minutes`);
+console.log(scheduled
+  ? `  7. Commit and push before ${datePrefix}. It stays hidden (npm run dev shows it) until the\n     6 AM post-day job builds it that day and announces it on Bluesky and LinkedIn.\n     Steps 8-10 can wait until it's live.`
+  : `  7. Commit to git and push, wait three minutes`);
 console.log(`  8. Go to kit.com, and add in the URL for the new post to KitEditUrls`);
 console.log(`  9. run node scripts/kit-sync.js`);
 console.log(`  10. run node scripts/extract-content.js`);

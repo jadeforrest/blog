@@ -8,6 +8,7 @@ import { URL } from 'url';
 import { fileURLToPath } from 'url';
 import { fitsBlueskyLimit, graphemeCount } from './lib/text-limits.js';
 import { reportAlert } from './lib/report-error.js';
+import { liveQueue } from './lib/publish-dates.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -656,8 +657,7 @@ async function main() {
     const sentTracking = loadSentTracking();
 
     // Parse extracted content
-    const allPosts = parseExtractedContent();
-    console.log(`Found ${allPosts.length} extracted posts`);
+    const allPosts = liveQueue(parseExtractedContent());
 
     // Filter out already sent posts
     const unsentPosts = allPosts.filter(post => !sentTracking[post.id]);
@@ -789,6 +789,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 }
 
 export {
+  getConfig,
   parseExtractedContent,
   postToBluesky,
   loadSentTracking,
