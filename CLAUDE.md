@@ -28,7 +28,13 @@ has been removed; legacy Gatsby URLs are handled by 301s in `public/_redirects`.
 
 #### Kit Email Sync (`scripts/kit-fetch-sequence.js`)
 Pulls emails from a Kit (kit.com) sequence via the v4 API into per-email Markdown
-under `src/content/kit-sequence-<id>/`. The inverse push is `scripts/kit-push-email.js`.
+under `src/content/kit-sequence-<id>/`. The inverse push is `scripts/kit-push-email.js` (one
+file) or `scripts/kit-push-sequence.js <folder> [--dry-run] [--force] [--yes]` (every changed
+or never-pushed file in a sequence folder, with progress, one confirmation, and a per-email
+summary of subject/content/schedule changes). Both send subject, preview text, content and
+the schedule (`delayValue`/`delayUnit`/`sendDays` → `delay_value`/`delay_unit`/`send_days`),
+never position; they back up each remote email to `scripts/kit-backups/` first. Shared steps
+live in `scripts/lib/kit-push-run.js`.
 - **Fetch a whole sequence**: `source .env && node scripts/kit-fetch-sequence.js [sequenceId]`
 - **Refresh one email in place**: `node scripts/kit-fetch-sequence.js <path/to/index.md>`
   (sequence + email id come from the file's own frontmatter; the folder is not renamed)

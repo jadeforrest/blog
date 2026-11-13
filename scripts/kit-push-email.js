@@ -4,12 +4,13 @@
  * Kit Push Email — upload ONE sequence email Markdown file back to Kit (kit.com)
  * via the v4 API. The inverse of `scripts/kit-fetch-sequence.js`.
  *
- * Deliberately single-file (no bulk mode yet) while we build trust in the
- * round-trip. Safety properties:
+ * One file per run; `scripts/kit-push-sequence.js` pushes a whole sequence folder
+ * with the same steps (scripts/lib/kit-push-run.js). Safety properties:
  *   - Backs up the current remote email JSON to scripts/kit-backups/ before any PUT
  *   - Writes the outgoing HTML alongside the backup for eyeballing/diffing
- *   - PUT sends only subject / preview_text / content — never position, delays, or
- *     send_days (the v4 endpoint leaves omitted fields untouched)
+ *   - PUT sends subject / preview_text / content plus the scheduling fields
+ *     delay_value / delay_unit / send_days from frontmatter — never position (the v4
+ *     endpoint leaves omitted fields untouched)
  *   - The email's draft/published state is left untouched unless --publish is given,
  *     which additionally sends published:true to flip a draft live (one-directional:
  *     a push never unpublishes a live email)
@@ -21,140 +22,28 @@
  */
 
 import fs from 'fs';
-import path from 'path';
-import readline from 'readline';
-import { fileURLToPath } from 'url';
-import { parseFrontmatter } from './lib/frontmatter.js';
-import { loadApiKey, apiGet, apiPut } from './lib/kit-api.js';
-import { markdownToHtml, contentHash, buildUpdatePayload, recordPushState } from './lib/kit-push-lib.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const BACKUP_DIR = path.join(__dirname, 'kit-backups');
+import { loadApiKey } from './lib/kit-api.js';
+import { askYesNo } from './lib/ask-yes-no.js';
+import { BACKUP_DIR, pushOne } from './lib/kit-push-run.js';
 
 const args = process.argv.slice(2);
-const dryRun = args.includes('--dry-run');
-const force = args.includes('--force');
 const yes = args.includes('--yes');
-const publish = args.includes('--publish');
 const filePath = args.find((a) => !a.startsWith('--'));
 
-function prompt(question) {
-  return new Promise((resolve) => {
-    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    rl.question(question, (answer) => {
-      rl.close();
-      resolve(answer.trim().toLowerCase());
-    });
-  });
-}
-
 async function main() {
-  if (!filePath) {
+  if (!filePath || !fs.existsSync(filePath)) {
     console.error('Usage: node scripts/kit-push-email.js <path-to-index.md> [--dry-run] [--force] [--yes] [--publish]');
     process.exit(1);
   }
-  if (!fs.existsSync(filePath)) {
-    console.error(`Error: file not found: ${filePath}`);
-    process.exit(1);
-  }
-
-  const raw = fs.readFileSync(filePath, 'utf8');
-  const { data: fm, content: body } = parseFrontmatter(raw, filePath);
-
-  if (!fm.kitEmailId || !fm.sequenceId) {
-    console.error('Error: frontmatter must contain kitEmailId and sequenceId (is this a kit-sequence file?)');
-    process.exit(1);
-  }
-
-  console.log(`Email:    ${fm.subject || '(no subject)'}`);
-  console.log(`Sequence: ${fm.sequenceId}   Email id: ${fm.kitEmailId}`);
-  if (dryRun) console.log('--- DRY RUN (no PUT will be issued) ---');
-
-  // Hash gate: skip if the file hasn't changed since the last recorded push.
-  const localHash = contentHash(raw);
-  if (fm.kitSyncHash === localHash && !force) {
-    console.log(`\nAlready in sync (kitSyncHash matches, last pushed ${fm.kitSyncedAt || 'unknown'}).`);
-    console.log('Nothing to push. Use --force to push anyway.');
-    return;
-  }
-  console.log(fm.kitSyncHash ? '\nContent changed since last push.' : '\nNever pushed before.');
-
-  const apiKey = loadApiKey();
-  if (!apiKey) {
-    console.error('Error: KIT_API_KEY not set. Add it to .env (export KIT_API_KEY="...") or the environment.');
-    process.exit(1);
-  }
-
-  // Backup the current remote state before anything else. If this fails, abort —
-  // never push without a safety copy.
-  console.log('\nFetching current remote email for backup...');
-  const remote = await apiGet(`/sequences/${fm.sequenceId}/emails/${fm.kitEmailId}`, apiKey);
-  const remoteEmail = remote.email || remote;
-
-  fs.mkdirSync(BACKUP_DIR, { recursive: true });
-  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const base = path.join(BACKUP_DIR, `${fm.sequenceId}-${fm.kitEmailId}-${stamp}`);
-  fs.writeFileSync(`${base}.json`, JSON.stringify(remote, null, 2));
-  console.log(`  ✓ Remote backup: ${path.relative(process.cwd(), `${base}.json`)}`);
-
-  // Convert and stage the outgoing HTML for inspection.
-  const html = await markdownToHtml(body);
-  fs.writeFileSync(`${base}-outgoing.html`, html);
-  console.log(`  ✓ Outgoing HTML: ${path.relative(process.cwd(), `${base}-outgoing.html`)}`);
-
-  // Drift check: warn if the remote subject no longer matches the frontmatter's.
-  console.log(`\nLocal subject:  "${fm.subject ?? ''}"`);
-  console.log(`Remote subject: "${remoteEmail.subject ?? ''}"`);
-  if ((remoteEmail.subject ?? '') !== (fm.subject ?? '')) {
-    console.warn('  ⚠ SUBJECT DRIFT: the email was changed on Kit since it was fetched.');
-    console.warn('  ⚠ Pushing will overwrite the remote subject and content.');
-  }
-  console.log(`Remote content: ${(remoteEmail.content ?? '').length} chars → outgoing: ${html.length} chars`);
-
-  // Publish intent: only ever flip a draft live, never unpublish.
-  const remotePublished = remoteEmail.published ?? false;
-  console.log(`Remote state:   ${remotePublished ? 'published' : 'draft'}`);
-  if (publish && remotePublished) {
-    console.log('  ℹ Already published on Kit — --publish is a no-op for state.');
-  } else if (publish) {
-    console.log('  → --publish set: this push will publish the email (draft → published).');
-  }
-
-  if (dryRun) {
-    console.log('\nDry run complete. No changes made to Kit.');
-    console.log('Inspect the outgoing HTML against the backup, then rerun without --dry-run.');
-    return;
-  }
-
-  const payload = buildUpdatePayload(fm, html, { publish });
-  console.log(
-    publish
-      ? '\nWill PUT: subject, preview_text, content, published:true (scheduling fields untouched).'
-      : '\nWill PUT only: subject, preview_text, content (scheduling/publish state untouched).'
-  );
-  if (!yes) {
-    const answer = await prompt('Push to Kit? [y/N]: ');
-    if (answer !== 'y') {
-      console.log('Aborted. Nothing pushed.');
-      return;
-    }
-  }
-
-  const result = await apiPut(`/sequences/${fm.sequenceId}/emails/${fm.kitEmailId}`, payload, apiKey);
-  const updated = result.email || result;
-  const nowPublished = updated.published ?? (publish || remotePublished);
-  console.log(
-    `\n✓ Pushed. Kit now has subject "${updated.subject ?? ''}" (${(updated.content ?? '').length} chars, ${nowPublished ? 'published' : 'draft'}).`
-  );
-
-  // Record push state in frontmatter, keeping the `published` mirror in step with
-  // what Kit now reports.
-  const out = recordPushState(body, fm, {
-    published: nowPublished,
-    syncedAt: new Date().toISOString(),
+  if (args.includes('--dry-run')) console.log('--- DRY RUN (no PUT will be issued) ---');
+  await pushOne(filePath, {
+    getApiKey: loadApiKey,
+    backupDir: BACKUP_DIR,
+    dryRun: args.includes('--dry-run'),
+    force: args.includes('--force'),
+    publish: args.includes('--publish'),
+    confirm: () => (yes ? Promise.resolve(true) : askYesNo('Push to Kit? [y/N]: ')),
   });
-  fs.writeFileSync(filePath, out);
-  console.log('✓ Recorded kitSyncHash + kitSyncedAt in frontmatter.');
 }
 
 main().catch((err) => {

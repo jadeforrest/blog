@@ -8,6 +8,10 @@ import {
   contentHash,
   buildUpdatePayload,
   recordPushState,
+  schedulePayload,
+  formatSchedule,
+  scheduleChange,
+  syncStatus,
 } from './kit-push-lib.js';
 
 test('markdownToHtml: converts headings/links/lists', async () => {
@@ -60,7 +64,7 @@ test('contentHash: changes when real content changes', () => {
   assert.notEqual(contentHash('---\nsubject: Hi\n---\nBody\n'), contentHash('---\nsubject: Hi\n---\nEdited\n'));
 });
 
-test('buildUpdatePayload: only content-ish fields, never scheduling', () => {
+test('buildUpdatePayload: content and scheduling fields, never position or published', () => {
   const payload = buildUpdatePayload(
     {
       subject: 'Hi',
@@ -73,7 +77,14 @@ test('buildUpdatePayload: only content-ish fields, never scheduling', () => {
     },
     '<p>Body</p>\n'
   );
-  assert.deepEqual(payload, { subject: 'Hi', preview_text: 'peek', content: '<p>Body</p>\n' });
+  assert.deepEqual(payload, {
+    subject: 'Hi',
+    preview_text: 'peek',
+    content: '<p>Body</p>\n',
+    delay_value: 2,
+    delay_unit: 'days',
+    send_days: ['monday'],
+  });
 });
 
 test('buildUpdatePayload: tolerates missing subject/preview', () => {
@@ -161,5 +172,64 @@ test('property: after a push, the file always reads as in sync with its own hash
       }
     }),
     { numRuns: 2000 },
+  );
+});
+
+test('schedulePayload: maps present fields, skips missing and null ones', () => {
+  assert.deepEqual(schedulePayload({ delayValue: 0, delayUnit: null, sendDays: [] }), {
+    delay_value: 0,
+    send_days: [],
+  });
+  assert.deepEqual(schedulePayload({ subject: 'x' }), {});
+});
+
+test('formatSchedule: readable line, ? for missing parts', () => {
+  assert.equal(
+    formatSchedule({ delay_value: 5, delay_unit: 'days', send_days: ['monday', 'friday'] }),
+    '5 days, monday/friday'
+  );
+  assert.equal(formatSchedule({}), '? ?, ?');
+  assert.equal(formatSchedule(), '? ?, ?');
+});
+
+test('scheduleChange: null when the push would not change the schedule', () => {
+  const remote = { delay_value: 5, delay_unit: 'days', send_days: ['monday'] };
+  assert.equal(scheduleChange(remote, { delayValue: 5, delayUnit: 'days', sendDays: ['monday'] }), null);
+  assert.equal(scheduleChange(remote, {}), null);
+});
+
+test('scheduleChange: from/to when it would', () => {
+  const remote = { delay_value: 7, delay_unit: 'days', send_days: ['monday', 'sunday'] };
+  assert.deepEqual(scheduleChange(remote, { delayValue: 5, sendDays: ['monday'] }), {
+    from: '7 days, monday/sunday',
+    to: '5 days, monday',
+  });
+});
+
+test('syncStatus: new, in-sync and changed', () => {
+  const raw = '---\nsubject: Hi\n---\nBody\n';
+  assert.equal(syncStatus(raw, {}), 'new');
+  assert.equal(syncStatus(raw, { kitSyncHash: contentHash(raw) }), 'in-sync');
+  assert.equal(syncStatus(raw, { kitSyncHash: 'stale' }), 'changed');
+});
+
+test('property: scheduleChange is null exactly when formatted schedules agree', () => {
+  const days = fc.array(fc.constantFrom('monday', 'tuesday', 'sunday'), { maxLength: 3 });
+  const remote = fc.record(
+    { delay_value: fc.nat(10), delay_unit: fc.constantFrom('days', 'hours'), send_days: days },
+    { requiredKeys: [] }
+  );
+  const local = fc.record(
+    { delayValue: fc.option(fc.nat(10)), delayUnit: fc.option(fc.constantFrom('days', 'hours')), sendDays: fc.option(days) },
+    { requiredKeys: [] }
+  );
+  fc.assert(
+    fc.property(remote, local, (r, l) => {
+      const change = scheduleChange(r, l);
+      const after = formatSchedule({ ...r, ...schedulePayload(l) });
+      if (change === null) assert.equal(formatSchedule(r), after);
+      else assert.deepEqual(change, { from: formatSchedule(r), to: after });
+    }),
+    { numRuns: 500 }
   );
 });
