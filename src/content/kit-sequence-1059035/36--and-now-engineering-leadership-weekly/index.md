@@ -5,12 +5,12 @@ subject: And now Engineering Leadership Weekly
 previewText: ''
 position: 36
 published: true
-delayValue: 5
+delayValue: 1
 delayUnit: days
 sendDays:
-  - monday
+  - wednesday
 emailTemplateId: 1384647
 ---
 You've reached the end of the Frontline Management course. I may add more content in the future. Let me know what you thought -- was this course helpful?
 
-This course now flows directly into the Engineering Leadership Weekly newsletter, which is delivered on Fridays. I hope you enjoy the next bit of content!
+This course now flows directly into the Engineering Leadership Weekly newsletter, which is delivered on Fridays. Some of my best feedback has been on some of these posts, so I hope you find it useful. Let me know what you think!
