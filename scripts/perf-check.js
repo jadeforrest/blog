@@ -37,7 +37,7 @@ function lighthouse(url) {
   execFileSync(
     "npx",
     ["--yes", "lighthouse@13.5.0", url, "--quiet", "--only-categories=performance",
-      "--output=json", `--output-path=${out}`, "--chrome-flags=--headless=new"],
+      "--output=json", `--output-path=${out}`, "--chrome-flags=--headless=new --use-fake-ui-for-media-stream --use-fake-device-for-media-stream"],
     { stdio: ["ignore", "ignore", "pipe"], timeout: 120000 },
   );
   try {
