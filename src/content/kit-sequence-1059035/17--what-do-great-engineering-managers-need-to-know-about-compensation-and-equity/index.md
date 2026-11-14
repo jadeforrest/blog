@@ -10,8 +10,8 @@ delayUnit: days
 sendDays:
   - monday
 emailTemplateId: null
-kitSyncHash: 'fca63a2d0a9eb52c1a832947ac8a73db'
-kitSyncedAt: '2026-11-13T00:24:33.635Z'
+kitSyncHash: '7f1b8a007743c151ced1004444144232'
+kitSyncedAt: '2026-11-14T15:10:00.395Z'
 ---
 Today we're going to do a whirlwind tour of compensation. Hopefully you'll learn a bit along the way. And I'll share an exercise for managers, called a compensation review.
 
