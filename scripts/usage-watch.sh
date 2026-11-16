@@ -4,7 +4,7 @@
 # (Lighthouse budgets) and turns each alert they print into a notification.
 # A failure of the check itself (bad token, API down) is reported by
 # job-wrapper; a missed day is reported by its stale-heartbeat check.
-JOB_WRAPPER_LIB="${JOB_WRAPPER_LIB:-/Users/jade/Developer/job-wrapper/job-wrapper.sh}"
+JOB_WRAPPER_LIB="${JOB_WRAPPER_LIB:-$HOME/.local/lib/job-wrapper.sh}"
 [ -r "$JOB_WRAPPER_LIB" ] || { echo "FATAL: job-wrapper missing" >&2; exit 78; }
 . "$JOB_WRAPPER_LIB"
 job_init rubick-usage-watch "$HOME/Library/Logs/rubick-usage-watch.log" 4d

@@ -1,13 +1,16 @@
-// Route a job's alerts through ~/Developer/error-reporting so they are
+// Route a job's alerts through error-reporting's report-error CLI
+// (installed at ~/.local/bin/report-error by its install.sh) so they are
 // recorded in its errors.jsonl (for the fix-reported-errors task) and
 // throttled like every other job's. Falls back to a plain osascript
 // notification when the CLI is absent or fails, and never throws: an alert
 // failing must not break posting.
 import fs from 'fs';
+import os from 'os';
+import path from 'path';
 import { execFileSync } from 'child_process';
 
 export const REPORT_ERROR_CLI =
-  process.env.REPORT_ERROR_CLI || '/Users/jade/Developer/error-reporting/bin/report-error';
+  process.env.REPORT_ERROR_CLI || path.join(os.homedir(), '.local', 'bin', 'report-error');
 
 /**
  * argv for `report-error report` (exported for tests). Values use --opt=VALUE

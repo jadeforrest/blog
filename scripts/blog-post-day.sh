@@ -1,9 +1,9 @@
 #!/bin/bash
 # launchd: com.jade.blog-post-day, daily at 6:00 AM. Runs scripts/blog-post-day.js with the repo's
 # .env: builds the site on a scheduled post's date and announces new posts on Bluesky/LinkedIn.
-# Failures are recorded and notified by job-wrapper via ~/Developer/error-reporting, a missed
+# Failures are recorded and notified by job-wrapper via error-reporting, a missed
 # run by its heartbeat.
-JOB_WRAPPER_LIB="${JOB_WRAPPER_LIB:-/Users/jade/Developer/job-wrapper/job-wrapper.sh}"
+JOB_WRAPPER_LIB="${JOB_WRAPPER_LIB:-$HOME/.local/lib/job-wrapper.sh}"
 [ -r "$JOB_WRAPPER_LIB" ] || { echo "FATAL: job-wrapper missing" >&2; exit 78; }
 . "$JOB_WRAPPER_LIB"
 
