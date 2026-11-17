@@ -22,9 +22,11 @@ A finance method of [providing equity to employees that is equitable](https://da
 
 ## Neurodiversity
 
-https://add.org/adhd-workplace-accommodations/
+* https://add.org/adhd-workplace-accommodations/
 
-https://www.infoq.com/articles/adhd-neurodivergencies-software-teams/ Excellent post on ADHD and software engineering
+* https://www.infoq.com/articles/adhd-neurodivergencies-software-teams/ Excellent post on ADHD and software engineering
+
+* [My interview with George Sudarkoff](https://creators.spotify.com/pod/profile/decodingleadership/episodes/39--George-Sudarkoff-on-leading-with-ADHD-e3nuc15)
 
 ## Supporting under represented groups
 
