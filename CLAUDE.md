@@ -147,8 +147,8 @@ change`. Rules live in `scripts/lib/cost-gate.js`:
 
 ## Production cost watch (daily)
 
-`scripts/usage-watch.sh` runs daily at 08:30 via launchd (`com.jade.rubick-usage-watch`; plist
-in `scripts/`, installed in `~/Library/LaunchAgents/`) under job-wrapper. It runs
+`scripts/usage-watch.sh` runs daily at 08:30 via launchd (`com.jade.rubick-usage-watch`; the plist
+is in Jade's private `ops` repo, like the other launchd jobs) under job-wrapper. It runs
 `scripts/usage-watch.js` and the Lighthouse check above, and notifies on:
 - **Headers (the real detector for per-request function overhead)**: probes `/`, `/about/`,
   `/posts/`, `/tags/`, `/wiki/`, `/newsletter/` and the newest post. Alerts on `Vary: Accept` on
