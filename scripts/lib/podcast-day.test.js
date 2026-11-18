@@ -9,7 +9,7 @@ import {
   pageHasLink,
   plan,
 } from "./podcast-day.js";
-import { run } from "../podcast-day.js";
+import { PAGE_URL, run } from "../podcast-day.js";
 
 const ep = (n) => ({
   guid: `g${n}`,
@@ -176,4 +176,21 @@ test("run: a failed page fetch throws", async () => {
     }),
     /503/,
   );
+});
+
+test("the retry window is an hour", () => {
+  const at = (min) => ({ builds: { g1: { count: 1, last: ago(min * 60_000) } } });
+  assert.equal(plan({ missing: [ep(1)], state: at(59), now, hasHook: true }).build, false);
+  assert.equal(plan({ missing: [ep(1)], state: at(60), now, hasHook: true }).build, true);
+});
+
+test("plan without a hook keeps the build history of still-missing episodes", () => {
+  const state = { builds: { g1: { count: 2, last: ago(0) } } };
+  assert.deepEqual(plan({ missing: [ep(1)], state, now, hasHook: false }).state, state);
+});
+
+test("run: checks the podcast page on the live site", async () => {
+  const r = await fakeRun({ items: [ep(1)], html: pageWith(ep(1)) });
+  assert.ok(r.calls.some((c) => c.url === PAGE_URL && c.method === "GET"));
+  assert.equal(PAGE_URL, "https://www.rubick.com/decoding-leadership/");
 });

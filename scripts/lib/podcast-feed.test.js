@@ -36,6 +36,7 @@ test("fetchFeedItems reads the fresh URL, falling back to the canonical one", as
   );
   assert.deepEqual(ok, [1]);
   assert.match(seen[0], /PODCAST\/RSS$/);
+  assert.deepEqual(await fetchFeedItems(async () => ({})), []);
 
   const fallback = await fetchFeedItems(async (url) => {
     if (url !== FEED_URL) throw new Error("404");
