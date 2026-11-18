@@ -91,6 +91,13 @@ push it to master before its date.
   platform is retried daily. It fails if a post is scheduled and the hook is unset, or a due
   page never goes live (not pushed?). State: `~/Library/Application Support/blog-post-day/`;
   log: `~/Library/Logs/blog-post-day.log`. `--dry-run`, `--today YYYY-MM-DD`, `--no-announce`.
+- **Podcast episodes**: `/decoding-leadership/` reads the Anchor/Spotify RSS feed at build time,
+  and Spotify keeps a scheduled episode out of the feed until release. `scripts/podcast-day.js`
+  runs hourly via launchd (`com.jade.podcast-day`, plist in `ops`, under job-wrapper): when a feed
+  episode's link isn't on the live page, it POSTs `NETLIFY_BUILD_HOOK`. Nothing to schedule by
+  hand. A build that doesn't bring the episode in is retried hourly (max 3 builds) and reported.
+  Logic: `scripts/lib/podcast-day.js`. State: `~/Library/Application Support/podcast-day/`; log:
+  `~/Library/Logs/podcast-day.log`. `--dry-run`.
 - **Not hidden**: images copied to `public/<slug>/` (served at guessable URLs once pushed), and
   Kit emails, which are pushed by hand.
 

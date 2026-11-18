@@ -24,6 +24,7 @@ import os from "os";
 import path from "path";
 import { fileURLToPath } from "url";
 import { announcementText, initialState, missingPlatforms, plan, readPosts } from "./lib/blog-post-day.js";
+import { loadJsonState, saveJsonState } from "./lib/json-state.js";
 import { siteToday } from "./lib/publish-dates.js";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -119,17 +120,7 @@ export async function run({ args, hook, posts, state, ...deps }) {
 
 /** The saved state, or a fresh one on the first run. */
 export function loadState(file, today) {
-  try {
-    return JSON.parse(fs.readFileSync(file, "utf8"));
-  } catch (err) {
-    if (err.code === "ENOENT") return initialState(today);
-    throw err;
-  }
-}
-
-function saveStateFile(state) {
-  fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
-  fs.writeFileSync(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`);
+  return loadJsonState(file, () => initialState(today));
 }
 
 /** Announcers built lazily, so a run with nothing to announce needs no credentials. */
@@ -156,7 +147,7 @@ async function main() {
     hook: process.env.NETLIFY_BUILD_HOOK,
     posts: readPosts(POSTS_DIR),
     state: loadState(STATE_FILE, siteToday()),
-    saveState: saveStateFile,
+    saveState: (state) => saveJsonState(STATE_FILE, state),
     fetchFn: fetch,
     sleep: (ms) => new Promise((r) => setTimeout(r, ms)),
     announcers: await realAnnouncers(),

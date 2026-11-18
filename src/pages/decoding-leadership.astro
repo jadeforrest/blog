@@ -5,9 +5,9 @@ import { FaCalendar } from "react-icons/fa";
 import { formatDate } from "../utils/formatDate";
 import { Image } from "astro:assets";
 import podcastImage from "../assets/decoding-leadership-6.png";
+import { fetchFeedItems } from "../../scripts/lib/podcast-feed.js";
 
-// Fetch podcast episodes at build time
-const RSS_URL = "https://anchor.fm/s/f420aba8/podcast/rss";
+// Fetch podcast episodes at build time, past the feed's CDN cache (see podcast-feed.js)
 const MAX_EPISODES = 20;
 
 const parser = new Parser({
@@ -18,8 +18,7 @@ const parser = new Parser({
 
 let episodes: any[] = [];
 try {
-  const feed = await parser.parseURL(RSS_URL);
-  episodes = (feed.items || []).slice(0, MAX_EPISODES);
+  episodes = (await fetchFeedItems((url) => parser.parseURL(url))).slice(0, MAX_EPISODES);
 } catch (error) {
   console.error("Error fetching podcast feed:", error);
 }
