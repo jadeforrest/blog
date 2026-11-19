@@ -5,10 +5,16 @@ subject: What are you responsible for?
 previewText: ''
 position: 1
 published: true
-delayValue: 5
+delayValue: 1
 delayUnit: days
 sendDays:
   - monday
+  - tuesday
+  - wednesday
+  - thursday
+  - friday
+  - saturday
+  - sunday
 emailTemplateId: null
 kitSyncHash: '0d2d9db4b169e3d2765392a5fcc34a28'
 kitSyncedAt: '2026-11-13T00:24:30.499Z'
