@@ -5,7 +5,7 @@ subject: Set up 1-1s with your team (people)
 previewText: ''
 position: 2
 published: true
-delayValue: 5
+delayValue: 1
 delayUnit: days
 sendDays:
   - monday
