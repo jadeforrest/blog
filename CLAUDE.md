@@ -199,6 +199,13 @@ is in Jade's private `ops` repo, like the other launchd jobs) under job-wrapper.
 - **Images**: Astro's native Image component for optimization and responsive images
 
 ### Styling
+- **Fonts** are self-hosted from `src/assets/fonts/` (local provider in `astro.config.mjs`):
+  fontsource's latin variable files trimmed by `scripts/build-fonts.py` (fontTools; run by hand,
+  not by the build) to weights 400-700, Open Sans width pinned, and Newsreader split into
+  `--font-family-display` (optical size 28-56, for 28 px and up) and `--font-family-serif-text`
+  (pinned at 20, for quotes and leads). That cut font bytes per page by about two thirds (Nov
+  2026). A new weight, width or Newsreader size range means rerunning the script; compare
+  before/after screenshots when you do.
 - PostCSS with plugins: nested, preset-env
 - Configuration in `postcss.config.cjs`
 - Theme configuration in `src/theme/`

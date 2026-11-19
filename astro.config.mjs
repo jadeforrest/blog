@@ -24,31 +24,53 @@ export default defineConfig({
   // link, and (via optimizedFallbacks, on by default) generates metric-matched
   // fallback faces so the swap does not shift layout.
   //
-  // Use the fontsource provider rather than npm: the npm one reads the package's
-  // index.css, which carries every unicode-range subset, so `subsets` cannot
-  // filter it and italics live in files it never reads. That produced 10 preload
-  // links and no real italic. fontsource honours `subsets` and resolves both
-  // styles, giving one latin file per family per style.
+  // The files are fontsource's latin variable fonts trimmed by
+  // scripts/build-fonts.py to the design space the CSS uses: weight 400-700,
+  // Open Sans width pinned, Newsreader split into a display cut (optical size
+  // 28-56) and a text cut (pinned at 20). Per page that cut font bytes by about two thirds (Nov
+  // 2026): they load at high priority next to the LCP image, so on slow
+  // connections they delayed it. Using another weight, a width, or Newsreader
+  // at a new size range means rerunning that script.
   fonts: [
     {
-      provider: fontProviders.fontsource(),
+      provider: fontProviders.local(),
       name: "Open Sans",
       cssVariable: "--font-open-sans",
-      weights: ["300 800"],
-      styles: ["normal", "italic"],
-      subsets: ["latin"],
       fallbacks: ["Arial", "sans-serif"],
       display: "swap",
+      options: {
+        variants: [
+          { src: ["./src/assets/fonts/open-sans-normal.woff2"], weight: "400 700", style: "normal" },
+          { src: ["./src/assets/fonts/open-sans-italic.woff2"], weight: "400 700", style: "italic" },
+        ],
+      },
     },
     {
-      provider: fontProviders.fontsource(),
+      // Display sizes (28-56 px).
+      provider: fontProviders.local(),
       name: "Newsreader",
       cssVariable: "--font-newsreader",
-      weights: ["200 800"],
-      styles: ["normal", "italic"],
-      subsets: ["latin"],
       fallbacks: ["Georgia", "Times New Roman", "serif"],
       display: "swap",
+      options: {
+        variants: [
+          { src: ["./src/assets/fonts/newsreader-display.woff2"], weight: "400 700", style: "normal" },
+        ],
+      },
+    },
+    {
+      // Quote and lead sizes (19-21 px).
+      provider: fontProviders.local(),
+      name: "Newsreader Text",
+      cssVariable: "--font-newsreader-text",
+      fallbacks: ["Georgia", "Times New Roman", "serif"],
+      display: "swap",
+      options: {
+        variants: [
+          { src: ["./src/assets/fonts/newsreader-text-normal.woff2"], weight: "400 700", style: "normal" },
+          { src: ["./src/assets/fonts/newsreader-text-italic.woff2"], weight: "400 700", style: "italic" },
+        ],
+      },
     },
   ],
   // `prefetchAll` opts every internal link in; `defaultStrategy` decides when.

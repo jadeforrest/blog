@@ -97,12 +97,14 @@ const buildTime = buildDate.toLocaleString("en-US", {
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
     {/* Self-hosted; see the `fonts` block in astro.config.mjs. Only Open Sans
         400 is preloaded — it is the body face and the post <h1>, and being a
-        variable font that one file covers 400-700 site-wide. Newsreader is
-        deliberately not preloaded: it is used only by .hero-title and
-        blockquote, so preloading it on every post would compete with the LCP
-        image for bandwidth. */}
+        variable font that one file covers 400-700 site-wide. Newsreader (both
+        cuts) is deliberately not preloaded: it is used only by .hero-title,
+        headings on a few pages, the post footer lead and blockquote, so
+        preloading it on every post would compete with the LCP image for
+        bandwidth. */}
     <Font cssVariable="--font-open-sans" preload={[{ weight: 400, style: "normal" }]} />
     <Font cssVariable="--font-newsreader" />
+    <Font cssVariable="--font-newsreader-text" />
     <script defer data-domain="rubick.com" src="https://plausible.io/js/script.js"></script>
   </head>
   <body>
