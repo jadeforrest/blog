@@ -1,59 +1,59 @@
 {
   "site": {
     "filesPerPage": 6.73,
-    "nonImageBytesPerPage": 62481
+    "nonImageBytesPerPage": 61972
   },
   "pages": {
     "/": {
-      "html": 66363,
-      "css": 26741,
-      "js": 5811,
+      "html": 66580,
+      "css": 26825,
+      "js": 5799,
       "eagerImages": 172380,
       "thirdParty": 2
     },
     "/about/": {
-      "html": 56733,
-      "css": 22254,
-      "js": 5811,
+      "html": 56797,
+      "css": 22303,
+      "js": 5799,
       "eagerImages": 154758,
       "thirdParty": 1
     },
     "/posts/": {
-      "html": 69340,
-      "css": 21354,
-      "js": 5811,
+      "html": 69404,
+      "css": 21403,
+      "js": 5799,
       "eagerImages": 160332,
       "thirdParty": 1
     },
     "/newsletter/": {
-      "html": 47982,
-      "css": 24999,
-      "js": 5811,
+      "html": 48046,
+      "css": 25053,
+      "js": 5799,
       "eagerImages": 180560,
       "thirdParty": 2
     },
     "/completed-staff-work/": {
-      "html": 61278,
-      "css": 24230,
-      "js": 6419,
+      "html": 62751,
+      "css": 24791,
+      "js": 6977,
       "eagerImages": 177542,
       "thirdParty": 2
     }
   },
   "lighthouse": {
     "/": {
-      "minScore": 0.86,
-      "maxLcpMs": 3650,
+      "minScore": 0.88,
+      "maxLcpMs": 2791,
       "maxTbtMs": 200,
       "maxCls": 0.102,
-      "maxBytes": 551936
+      "maxBytes": 411280
     },
     "/completed-staff-work/": {
-      "minScore": 0.85,
-      "maxLcpMs": 3784,
+      "minScore": 0.87,
+      "maxLcpMs": 3188,
       "maxTbtMs": 200,
       "maxCls": 0.1,
-      "maxBytes": 3049883
+      "maxBytes": 722713
     }
   }
 }
