@@ -1,0 +1,102 @@
+---
+/**
+ * A Spotify podcast episode player that stays off the page's critical path.
+ *
+ * Each Spotify iframe pulls in about 2.4 MB (a 1.5 MB script, three fonts, Sentry) as soon as
+ * the page starts loading, competing with the LCP image even when the player sits at the bottom
+ * of a post. This renders a placeholder of the same size holding a plain link to the episode,
+ * then swaps in the real iframe once the page has finished loading and the placeholder is near
+ * the viewport. No click needed; readers without JavaScript (and the Markdown twin, and email)
+ * get the link.
+ *
+ * Usage in MDX (registered in MDXComponents.jsx, so no import):
+ *   <SpotifyEpisode src="https://creators.spotify.com/pod/profile/<show>/embed/episodes/<slug>" />
+ * `src` is the embed URL Spotify's share dialog gives; older podcasters.spotify.com URLs work too.
+ */
+import { episodeLabel, parseSpotifyEmbed } from "../../scripts/lib/spotify-embed.js";
+
+interface Props {
+  src: string;
+  /** Episode name for the link and iframe title; derived from the URL when it has a slug. */
+  title?: string;
+  /** Player height in px: 102 is Spotify's compact player, 152 the standard one. */
+  height?: number;
+}
+
+const { src, title, height = 102 } = Astro.props;
+const episode = parseSpotifyEmbed(src);
+if (!episode) throw new Error(`SpotifyEpisode: not a Spotify episode embed URL: ${src}`);
+const label = episodeLabel(episode, title);
+---
+
+<div
+  class="spotify-episode"
+  data-embed-src={episode.embedUrl}
+  data-title={label}
+  style={`--spotify-height: ${height}px`}
+>
+  <a href={episode.pageUrl}>{label}</a>
+</div>
+
+<script>
+  // Swap each placeholder for its iframe once the page has loaded and it is within 300px of
+  // the viewport. Waiting for `load` keeps the player out of the LCP window even when it is
+  // on screen at first paint.
+  function mount(el: HTMLElement) {
+    const iframe = document.createElement("iframe");
+    iframe.src = el.dataset.embedSrc!;
+    iframe.title = el.dataset.title!;
+    iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+    iframe.allowFullscreen = true;
+    el.replaceChildren(iframe);
+    el.dataset.mounted = "";
+  }
+
+  function watch() {
+    const placeholders = document.querySelectorAll<HTMLElement>(
+      ".spotify-episode:not([data-mounted])",
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          observer.unobserve(entry.target);
+          mount(entry.target as HTMLElement);
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    placeholders.forEach((el) => observer.observe(el));
+  }
+
+  if (document.readyState === "complete") watch();
+  else window.addEventListener("load", watch, { once: true });
+</script>
+
+<style>
+  .spotify-episode {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    height: var(--spotify-height);
+    margin: var(--space-m) 0;
+    padding: 0 var(--space-m);
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: var(--color-neutral-gray-b);
+    font-size: 0.9em;
+  }
+
+  .spotify-episode[data-mounted] {
+    padding: 0;
+    background: none;
+  }
+
+  .spotify-episode :global(iframe) {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
+  }
+</style>

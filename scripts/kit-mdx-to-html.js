@@ -11,6 +11,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { chromium } from 'playwright';
 import sharp from 'sharp';
+import { spotifyEpisodeToMarkdown } from './lib/spotify-embed.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
@@ -111,6 +112,9 @@ export async function mdxToEmailHtml(rawMdx, slug, sourceDir) {
       return `<img src="${src}" alt="${alt}"${width} />`;
     }
   );
+
+  // Email clients don't run iframes: a Spotify player becomes a link to the episode.
+  markdown = markdown.replace(/<SpotifyEpisode\b[^>]*\/>/g, spotifyEpisodeToMarkdown);
 
   // Drop remaining JSX components (self-closing or with children)
   // This catches things like <Callout>...</Callout> or <SomeComponent />

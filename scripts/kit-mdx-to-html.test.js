@@ -31,3 +31,14 @@ test('link rewrite: mailto and fragment hrefs are left untouched', async () => {
   assert.match(out, /href="mailto:a@b\.com"/);
   assert.match(out, /href="#section"/);
 });
+
+test('SpotifyEpisode becomes a link to the episode (emails cannot play an iframe)', async () => {
+  const out = await html(
+    'Listen:\n\n<SpotifyEpisode src="https://podcasters.spotify.com/pod/show/decodingleadership/embed/episodes/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf" />\n'
+  );
+  assert.match(
+    out,
+    /<a href="https:\/\/creators\.spotify\.com\/pod\/profile\/decodingleadership\/episodes\/9--Jade-Rubick-on-removing-yourself-as-a-bottleneck-e2m49sf">Listen on Spotify: #9 Jade Rubick on removing yourself as a bottleneck<\/a>/
+  );
+  assert.doesNotMatch(out, /SpotifyEpisode|iframe/);
+});

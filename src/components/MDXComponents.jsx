@@ -1,7 +1,8 @@
-// Map custom HTML elements to React components
-// This makes these components available in all MDX files without imports
+// Components available in every MDX post without an import (passed to <Content components>).
+import SpotifyEpisode from "./SpotifyEpisode.astro";
+
 export const components = {
-  // No custom components currently needed
+  SpotifyEpisode,
 };
 
 export default components;

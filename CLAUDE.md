@@ -211,6 +211,13 @@ is in Jade's private `ops` repo, like the other launchd jobs) under job-wrapper.
 - Theme configuration in `src/theme/`
 
 ### Components
+- **Spotify episodes**: use `<SpotifyEpisode src="<embed URL>" />` in MDX (no import;
+  registered in `src/components/MDXComponents.jsx`), never a raw `<iframe>`. It renders a
+  same-size placeholder with a link and mounts the player after `load`, once it is near the
+  viewport, so the player's ~2.4 MB stays out of the LCP window. Old `podcasters.spotify.com`
+  URLs are normalised to the final `creators.spotify.com/pod/profile/...` form (two redirects
+  saved). Optional `title` and `height` (102 compact, 152 standard). URL logic and the email
+  fallback (a link) are in `scripts/lib/spotify-embed.js`.
 - React components used via `@astrojs/react`
 - Located in `src/components/`
 - Astro layouts in `src/layouts/`
