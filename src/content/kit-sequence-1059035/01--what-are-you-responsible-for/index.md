@@ -16,8 +16,8 @@ sendDays:
   - saturday
   - sunday
 emailTemplateId: null
-kitSyncHash: '0d2d9db4b169e3d2765392a5fcc34a28'
-kitSyncedAt: '2026-11-13T00:24:30.499Z'
+kitSyncHash: '749be9175faadb548882ece89bc8b495'
+kitSyncedAt: '2026-11-19T19:27:41.950Z'
 ---
 Your first task is to figure out what you are responsible for. Are you responsible for **People**, **Projects**, **Process**, or **Technical** decisionmaking? Try to figure out what the standard approach is at your company. If you're not sure, talk with your manager about it this week.
 
