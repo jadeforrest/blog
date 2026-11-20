@@ -7,7 +7,10 @@
  *   describePush    the lines to show for an inspected email (pure)
  *   applyPush       PUT the payload and record kitSyncHash/kitSyncedAt in the file
  *
- * I/O comes in through `deps` ({ fs, apiGet, apiPut, now }) so tests can fake it.
+ * Before any of that, an email linking to a post scheduled more than 13 days out is refused
+ * (scripts/lib/kit-schedule-guard.js).
+ *
+ * I/O comes in through `deps` ({ fs, apiGet, apiPut, now, posts, today }) so tests can fake it.
  */
 
 import nodeFs from 'fs';
@@ -15,6 +18,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { apiGet, apiPut } from './kit-api.js';
 import { parseFrontmatter } from './frontmatter.js';
+import { readPosts } from './blog-post-day.js';
+import { kitScheduleProblems } from './kit-schedule-guard.js';
+import { siteToday } from './publish-dates.js';
 import {
   markdownToHtml,
   buildUpdatePayload,
@@ -26,7 +32,17 @@ import {
 /** Where pushes save the remote email and outgoing HTML first (gitignored). */
 export const BACKUP_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'kit-backups');
 
-export const defaultDeps = { fs: nodeFs, apiGet, apiPut, now: () => new Date() };
+const POSTS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'src', 'content', 'posts');
+let cachedPosts;
+
+export const defaultDeps = {
+  fs: nodeFs,
+  apiGet,
+  apiPut,
+  now: () => new Date(),
+  posts: () => (cachedPosts ??= readPosts(POSTS_DIR)),
+  today: () => siteToday(),
+};
 
 const emailPath = (fm) => `/sequences/${fm.sequenceId}/emails/${fm.kitEmailId}`;
 
@@ -38,6 +54,18 @@ export function readEmailFile(filePath, { fs } = defaultDeps) {
     throw new Error(`${filePath}: frontmatter must contain kitEmailId and sequenceId`);
   }
   return { filePath, raw, fm, body, status: syncStatus(raw, fm) };
+}
+
+/**
+ * Throw if the email links to a post scheduled too far ahead for Kit. Deps without `posts` or
+ * `today` (most tests) use the real posts and date, so the check is never skipped.
+ */
+export function assertKitReady(email, deps = defaultDeps) {
+  const posts = (deps.posts ?? defaultDeps.posts)();
+  const today = (deps.today ?? defaultDeps.today)();
+  const problems = kitScheduleProblems({ text: email.body }, posts, today);
+  if (problems.length) throw new Error(`Not pushing to Kit: ${problems.join('; ')}`);
+  return email;
 }
 
 /**
@@ -134,8 +162,17 @@ export async function pushSequence(
       return email;
     }
   );
-  const pending = scan.ok.filter((e) => force || e.status !== 'in-sync');
-  const result = { scanned: files.length, pending: pending.length, pushed: 0, failed: scan.failed };
+  const outOfSync = scan.ok.filter((e) => force || e.status !== 'in-sync');
+  const ready = await eachWithProgress(outOfSync.map((email) => ({ email })), log, ({ email }) =>
+    assertKitReady(email, deps)
+  );
+  const pending = ready.ok;
+  const result = {
+    scanned: files.length,
+    pending: outOfSync.length,
+    pushed: 0,
+    failed: [...scan.failed, ...ready.failed],
+  };
   if (pending.length === 0) {
     log('\nNothing to push.');
     return result;
@@ -230,6 +267,7 @@ export async function pushOne(filePath, opts) {
     log('Nothing to push. Use --force to push anyway.');
     return 'in-sync';
   }
+  assertKitReady(email, deps);
   const apiKey = requireApiKey(getApiKey);
 
   log('\nFetching current remote email for backup...');

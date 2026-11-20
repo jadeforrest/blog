@@ -11,6 +11,9 @@
  *   4. Waits for you to paste and confirm
  *   5. Updates kitSyncHash in the post frontmatter
  *
+ * A post scheduled more than 13 days out, or one linking to such a post, is refused
+ * (scripts/lib/kit-schedule-guard.js): Kit could send it before the post is live.
+ *
  * Usage:
  *   node scripts/kit-sync.js
  *   node scripts/kit-sync.js --dry-run
@@ -26,6 +29,9 @@ import { execSync, exec } from 'child_process';
 import { fileURLToPath } from 'url';
 import { parseFrontmatter } from './lib/frontmatter.js';
 import { mdxToEmailHtml } from './kit-mdx-to-html.js';
+import { readPosts } from './lib/blog-post-day.js';
+import { kitScheduleProblems } from './lib/kit-schedule-guard.js';
+import { datePrefix, siteToday } from './lib/publish-dates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -163,6 +169,18 @@ function updateFrontmatterHash(filePath, newHash) {
   fs.writeFileSync(filePath, updated);
 }
 
+/** Drop (and report) posts Kit could send before they, or a post they link to, are live. */
+function withoutTooFarAhead(posts) {
+  const allPosts = readPosts(POSTS_DIR);
+  const today = siteToday();
+  return posts.filter((post) => {
+    const problems = kitScheduleProblems({ text: post.raw, date: datePrefix(post.dirName) }, allPosts, today);
+    if (problems.length === 0) return true;
+    console.log(`  ✗ Not syncing ${post.slug}: ${problems.join('; ')}`);
+    return false;
+  });
+}
+
 async function main() {
   if (dryRun) console.log('--- DRY RUN MODE ---\n');
 
@@ -199,6 +217,8 @@ async function main() {
     const currentHash = md5(hashableContent(p.raw));
     return !p.data.kitSyncHash || p.data.kitSyncHash !== currentHash;
   });
+
+  toSync = withoutTooFarAhead(toSync);
 
   if (toSync.length === 0) {
     console.log('All mapped posts are up to date. Nothing to sync.');

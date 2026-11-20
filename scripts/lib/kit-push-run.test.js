@@ -345,3 +345,38 @@ test('CLIs: a broken file fails the sequence run and the single push', () => {
   assert.match(seq.out, /✗ .*kitEmailId and sequenceId/);
   assert.equal(cli('kit-push-email.js', [file]).code, 1);
 });
+
+// --- Posts scheduled more than 13 days out (kit-schedule-guard.js) ---
+
+const scheduledPosts = { posts: () => [{ slug: 'far-off', date: '2026-12-25' }, { slug: 'near', date: '2026-11-25' }], today: () => '2026-11-12' };
+
+test('pushSequence: an email linking to a post scheduled >13 days out is refused, the rest still push', async () => {
+  const s = sequenceRun();
+  fs.appendFileSync(path.join(s.dir, '01--a', 'index.md'), '\n[Soon](https://www.rubick.com/far-off/)\n');
+  fs.appendFileSync(path.join(s.dir, '03--c', 'index.md'), '\n[Near](https://www.rubick.com/near/)\n');
+  const fake = fakeDeps({ 1: { subject: 'S1' }, 3: { subject: 'S3' } });
+  const result = await s.run({ deps: { ...fake.deps, ...scheduledPosts } });
+  assert.equal(result.pushed, 1);
+  assert.equal(result.failed.length, 1);
+  assert.match(result.failed[0].error, /Not pushing to Kit: it links to \/far-off\/, scheduled for 2026-12-25/);
+  assert.deepEqual(fake.puts.map((p) => p.path), ['/sequences/9/emails/3']);
+});
+
+test('pushOne: refuses before any Kit call, even with --force or --dry-run', async () => {
+  const s = oneRun({});
+  fs.appendFileSync(s.file, '\n[Soon](/far-off/)\n');
+  const gets = [];
+  const deps = { fs, now: () => NOW, apiGet: async (p) => gets.push(p), apiPut: async () => assert.fail('PUT'), ...scheduledPosts };
+  for (const extra of [{ dryRun: true }, { force: true }]) {
+    await assert.rejects(s.run({ ...extra, deps }), /Not pushing to Kit: it links to \/far-off\//);
+  }
+  assert.deepEqual(gets, []);
+});
+
+test('pushOne: allowed once the linked post is 13 days out', async () => {
+  const s = oneRun({});
+  fs.appendFileSync(s.file, '\n[Soon](/far-off/)\n');
+  const fake = fakeDeps({ 1: { subject: 'S1' } });
+  const deps = { ...fake.deps, ...scheduledPosts, today: () => '2026-12-12' };
+  assert.equal(await s.run({ deps }), 'pushed');
+});

@@ -58,11 +58,36 @@ export function isPublished(date, today) {
 }
 
 /**
+ * Collection entries with their date and slug, newest first, leaving out the ones dated after
+ * `today` unless `showAll` (the dev server, so scheduled posts can be previewed). Every page,
+ * listing, tag page and the RSS feed get their posts through this, via src/utils/posts.ts.
+ * @template {{ id: string, data: { date?: string } }} T
+ * @param {T[]} entries
+ * @param {{ today: string, showAll?: boolean }} options
+ * @returns {(T & { date: string, slug: string })[]}
+ */
+export function publishedPosts(entries, { today, showAll = false }) {
+  return entries
+    .map((entry) => ({ ...entry, date: datePrefix(entry.id, entry.data.date || ""), slug: postSlug(entry.id) }))
+    .filter((post) => showAll || isPublished(post.date, today))
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/**
+ * A YYYY-MM-DD date `days` later (earlier when negative).
+ * @param {string} date
+ * @param {number} days
+ */
+export function addDays(date, days) {
+  return new Date(Date.parse(`${date}T12:00:00Z`) + days * 86_400_000).toISOString().slice(0, 10);
+}
+
+/**
  * The day before a YYYY-MM-DD date.
  * @param {string} date
  */
 export function dayBefore(date) {
-  return new Date(Date.parse(`${date}T12:00:00Z`) - 86_400_000).toISOString().slice(0, 10);
+  return addDays(date, -1);
 }
 
 /**
