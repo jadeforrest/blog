@@ -954,5 +954,17 @@
   "the-ratchet/ratchet.jpg": {
     "width": 1890,
     "height": 850
+  },
+  "interviewing/interviews.jpg": {
+    "width": 1840,
+    "height": 828
+  },
+  "resumes/resumes.jpg": {
+    "width": 1900,
+    "height": 855
+  },
+  "early-career-advice/early-career.jpg": {
+    "width": 1886,
+    "height": 849
   }
 }
