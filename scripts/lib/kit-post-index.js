@@ -1,8 +1,9 @@
 /**
  * Which Kit sequence emails are copies of which blog posts, for scripts/kit-sync.js.
  *
- * A post's email starts with its share link ("Share this link: https://www.rubick.com/<slug>/",
- * or just the bare link in older pastes), so the first paragraph names the post. Later links
+ * A post's email carries its share link ("Share this link: https://www.rubick.com/<slug>/",
+ * or just the bare link in older pastes) in a paragraph of its own, usually the first, sometimes
+ * after an intro paragraph. The first such paragraph names the post; links inside running text
  * are only references to other posts and never count. Emails in sequences that have a local
  * src/content/kit-sequence-<id>/ folder are hand-written and owned by kit-push-sequence.js,
  * so those sequences are not scanned.
@@ -13,12 +14,33 @@
 // The `w+` tolerates typos like "wwww." seen in old pastes; the slug is the first path segment.
 const RUBICK_LINK = /(?:https?:)?\/\/(?:w+\.)?rubick\.com\/([a-z0-9][a-z0-9-]*)/i;
 
-/** The slug the email's first paragraph links to, or null. */
+const SHARE_LABEL = /^share this (?:post|link):?/i;
+const BARE_URL = new RegExp(`^${RUBICK_LINK.source}[^\\s]*$`, "i");
+
+/** A paragraph's visible text, without tags, zero-width spaces or surrounding space. */
+function paragraphText(inner) {
+  return inner.replace(/<[^>]*>/g, "").replace(/&nbsp;| |​/g, " ").trim();
+}
+
+/**
+ * The slug a share-link paragraph names: one labelled "Share this post/link" with a rubick.com
+ * link in it, or one whose whole text is a rubick.com URL. Null for any other paragraph.
+ */
+function shareParagraphSlug(inner) {
+  const text = paragraphText(inner);
+  const isShare = SHARE_LABEL.test(text) || BARE_URL.test(text);
+  const link = isShare && inner.match(RUBICK_LINK);
+  return link ? link[1].toLowerCase() : null;
+}
+
+/** The slug the email's first share-link paragraph names, or null. */
 export function shareSlug(html) {
   const body = String(html ?? "").replace(/<style[\s\S]*?<\/style>/gi, "");
-  const first = body.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
-  const link = first && first[1].match(RUBICK_LINK);
-  return link ? link[1].toLowerCase() : null;
+  for (const [, inner] of body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+    const slug = shareParagraphSlug(inner);
+    if (slug) return slug;
+  }
+  return null;
 }
 
 /** `[{ sequenceId, emailId }]` from a kitEmails value ("1031459/4535403, ..."). */
@@ -65,8 +87,8 @@ async function listEmails(sequenceId, get) {
 }
 
 /**
- * Every email in `sequences`, each with the slug its share link names. A slug never changes
- * for an email, so `cache` ({ [emailId]: slug | null }) saves fetching each one again; it is
+ * Every email in `sequences`, each with the slug its share link names. A matched slug never
+ * changes for an email, so `cache` ({ [emailId]: slug | null }) saves fetching it again; it is
  * updated in place. Returns `{ emails, fetched }`.
  */
 export async function loadKitIndex({ sequences, get, cache }) {
@@ -74,7 +96,9 @@ export async function loadKitIndex({ sequences, get, cache }) {
   let fetched = 0;
   for (const seq of sequences) {
     for (const email of await listEmails(seq.id, get)) {
-      if (!(email.id in cache)) {
+      // Only matches are cached: an email that names no post is checked again each run, so a
+      // better matcher (or a fixed share link) picks it up.
+      if (!cache[email.id]) {
         const full = await get(`/sequences/${seq.id}/emails/${email.id}`);
         cache[email.id] = shareSlug((full.email ?? full).content);
         fetched++;

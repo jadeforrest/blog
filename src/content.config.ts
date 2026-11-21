@@ -18,6 +18,7 @@ const posts = defineCollection({
       discussionId: z.string().optional(),
       kitEmails: z.string().optional(),
       kitSyncHash: z.string().optional(),
+      kitExclude: z.boolean().optional(),
     }),
 });
 
