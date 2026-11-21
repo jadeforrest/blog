@@ -11,8 +11,9 @@
  *   4. Waits for you to paste and confirm
  *   5. Updates kitSyncHash in the post frontmatter
  *
- * A post scheduled more than 13 days out, or one linking to such a post, is refused
- * (scripts/lib/kit-schedule-guard.js): Kit could send it before the post is live.
+ * A post, or one linking to a post, is refused until the day after that post's date
+ * (scripts/lib/kit-schedule-guard.js): Kit could send it before the post is live. A new post
+ * is also refused while an earlier post in the same Kit sequence is still unsynced.
  *
  * Usage:
  *   node scripts/kit-sync.js
@@ -90,7 +91,7 @@ async function main() {
       force,
       postFilter,
       dryRun,
-      problems: (post) => kitScheduleProblems({ text: post.raw, date: datePrefix(post.dirName) }, blogPosts, today),
+      problems: (post) => kitScheduleProblems({ text: post.raw, date: datePrefix(post.dirName), slug: post.slug }, blogPosts, today),
     },
     {
       log: (msg) => console.log(msg),

@@ -62,16 +62,36 @@ export function syncStatus(post) {
 }
 
 /**
+ * A never-synced post becomes a new email at the end of its Kit sequence, so it must not go
+ * ahead of an earlier post in that sequence that isn't synced yet and isn't being synced now.
+ * `held` maps a sequence URL to the first such post; this records `post` there when it is one.
+ */
+function sequenceOrderProblems(post, { status, going }, held) {
+  if (status !== 'never synced') return [];
+  const ahead = [...new Set(editUrls(post).filter((u) => held.has(u)).map((u) => held.get(u)))];
+  const problems = ahead.map((slug) => `it would land in Kit ahead of /${slug}/, an earlier post in the same sequence that isn't synced yet`);
+  if (!going || problems.length > 0) for (const u of editUrls(post)) if (!held.has(u)) held.set(u, post.slug);
+  return problems;
+}
+
+/**
  * What a run will do. `problems(post)` lists why a post can't go to Kit yet (the schedule
- * guard); those are refused rather than synced.
+ * guard); those are refused rather than synced, as are new posts that would land in Kit ahead
+ * of an unsynced earlier one. `posts` must be in date order (readSyncPosts sorts them).
  */
 export function syncPlan(posts, { force = false, postFilter = null, problems = () => [] } = {}) {
   const mapped = posts.filter((p) => editUrls(p).length > 0);
   const unmapped = posts.filter((p) => editUrls(p).length === 0);
+  const held = new Map();
   const candidates = mapped
-    .filter((p) => !postFilter || p.slug.includes(postFilter))
-    .map((post) => ({ post, status: syncStatus(post) ?? (force ? 'forced' : null), problems: problems(post) }))
-    .filter((c) => c.status);
+    .map((post) => {
+      const status = syncStatus(post);
+      const wanted = (status ?? (force ? 'forced' : null)) && (!postFilter || post.slug.includes(postFilter));
+      const own = wanted ? problems(post) : [];
+      const order = sequenceOrderProblems(post, { status, going: wanted && own.length === 0 }, held);
+      return wanted && { post, status: status ?? 'forced', problems: [...own, ...order] };
+    })
+    .filter(Boolean);
   return {
     mapped,
     unmapped,

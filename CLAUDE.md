@@ -100,9 +100,12 @@ push it to master before its date.
   `~/Library/Logs/podcast-day.log`. `--dry-run`.
 - **Not hidden**: images copied to `public/<slug>/` (served at guessable URLs once pushed), and
   Kit emails, which are pushed by hand.
-- **Kit guard**: Kit sequence delays are relative to signup, not post dates, so `kit-sync.js`
-  refuses a post dated more than 13 days out, and `kit-sync.js` / `kit-push-*.js` refuse anything
-  linking to such a post (`--force` doesn't override). Rules: `scripts/lib/kit-schedule-guard.js`.
+- **Kit guard**: Kit can send an email as soon as it's in a sequence, and a post goes live only
+  at some point on its date, so `kit-sync.js` refuses a post, and `kit-sync.js` / `kit-push-*.js`
+  refuse anything linking to a post, until the day after the post's date in Portland (`--force`
+  doesn't override). `kit-sync.js` also refuses a new post while an earlier post in the same Kit
+  sequence is unsynced, since it would land ahead of it. Rules: `scripts/lib/kit-schedule-guard.js`
+  and `syncPlan` in `scripts/lib/kit-sync-run.js`.
 - Multi-post scheduling (build/RSS, social queues, go-live job) is covered end to end by
   `scripts/lib/scheduled-posts.test.js`.
 

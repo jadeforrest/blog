@@ -346,14 +346,14 @@ test('CLIs: a broken file fails the sequence run and the single push', () => {
   assert.equal(cli('kit-push-email.js', [file]).code, 1);
 });
 
-// --- Posts scheduled more than 13 days out (kit-schedule-guard.js) ---
+// --- Linked posts not live yet (kit-schedule-guard.js): OK from the day after their date ---
 
-const scheduledPosts = { posts: () => [{ slug: 'far-off', date: '2026-12-25' }, { slug: 'near', date: '2026-11-25' }], today: () => '2026-11-12' };
+const scheduledPosts = { posts: () => [{ slug: 'far-off', date: '2026-12-25' }, { slug: 'live', date: '2026-11-11' }], today: () => '2026-11-12' };
 
-test('pushSequence: an email linking to a post scheduled >13 days out is refused, the rest still push', async () => {
+test('pushSequence: an email linking to a post not live yet is refused, the rest still push', async () => {
   const s = sequenceRun();
   fs.appendFileSync(path.join(s.dir, '01--a', 'index.md'), '\n[Soon](https://www.rubick.com/far-off/)\n');
-  fs.appendFileSync(path.join(s.dir, '03--c', 'index.md'), '\n[Near](https://www.rubick.com/near/)\n');
+  fs.appendFileSync(path.join(s.dir, '03--c', 'index.md'), '\n[Live](https://www.rubick.com/live/)\n');
   const fake = fakeDeps({ 1: { subject: 'S1' }, 3: { subject: 'S3' } });
   const result = await s.run({ deps: { ...fake.deps, ...scheduledPosts } });
   assert.equal(result.pushed, 1);
@@ -373,10 +373,11 @@ test('pushOne: refuses before any Kit call, even with --force or --dry-run', asy
   assert.deepEqual(gets, []);
 });
 
-test('pushOne: allowed once the linked post is 13 days out', async () => {
+test('pushOne: refused on the linked post\'s own date, allowed the day after', async () => {
   const s = oneRun({});
   fs.appendFileSync(s.file, '\n[Soon](/far-off/)\n');
   const fake = fakeDeps({ 1: { subject: 'S1' } });
-  const deps = { ...fake.deps, ...scheduledPosts, today: () => '2026-12-12' };
-  assert.equal(await s.run({ deps }), 'pushed');
+  const on = (day) => ({ ...fake.deps, ...scheduledPosts, today: () => day });
+  await assert.rejects(s.run({ deps: on('2026-12-25') }), /far-off\/, scheduled for 2026-12-25; it can go to Kit from 2026-12-26/);
+  assert.equal(await s.run({ deps: on('2026-12-26') }), 'pushed');
 });

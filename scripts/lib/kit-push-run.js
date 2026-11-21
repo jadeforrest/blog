@@ -7,7 +7,7 @@
  *   describePush    the lines to show for an inspected email (pure)
  *   applyPush       PUT the payload and record kitSyncHash/kitSyncedAt in the file
  *
- * Before any of that, an email linking to a post scheduled more than 13 days out is refused
+ * Before any of that, an email linking to a post is refused until the day after its date
  * (scripts/lib/kit-schedule-guard.js).
  *
  * I/O comes in through `deps` ({ fs, apiGet, apiPut, now, posts, today }) so tests can fake it.
