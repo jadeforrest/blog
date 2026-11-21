@@ -73,17 +73,26 @@ export function assertKitReady(email, deps = defaultDeps) {
  * `backupDir`. Never push without having done this: the backup is the undo.
  */
 export async function inspectRemote(email, { apiKey, backupDir, deps = defaultDeps }) {
-  const { fs, now } = deps;
   const remote = await deps.apiGet(emailPath(email.fm), apiKey);
   const remoteEmail = remote.email || remote;
   const html = await markdownToHtml(email.body);
 
+  const ids = { sequenceId: email.fm.sequenceId, emailId: email.fm.kitEmailId };
+  return { remoteEmail, html, backupBase: saveBackup(ids, remote, html, { backupDir, deps }) };
+}
+
+/**
+ * Save a remote email (as Kit returned it) and the HTML about to replace it under
+ * `backupDir`; returns the shared path prefix. Also used by kit-sync.js for blog posts.
+ */
+export function saveBackup({ sequenceId, emailId }, remote, html, { backupDir, deps = defaultDeps }) {
+  const { fs, now } = deps;
   fs.mkdirSync(backupDir, { recursive: true });
   const stamp = now().toISOString().replace(/[:.]/g, '-');
-  const base = path.join(backupDir, `${email.fm.sequenceId}-${email.fm.kitEmailId}-${stamp}`);
+  const base = path.join(backupDir, `${sequenceId}-${emailId}-${stamp}`);
   fs.writeFileSync(`${base}.json`, JSON.stringify(remote, null, 2));
   fs.writeFileSync(`${base}-outgoing.html`, html);
-  return { remoteEmail, html, backupBase: base };
+  return base;
 }
 
 /** What a push of this inspected email would change, as lines to print. */

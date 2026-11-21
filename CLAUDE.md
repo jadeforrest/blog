@@ -52,6 +52,28 @@ live in `scripts/lib/kit-push-run.js`.
   and the Markdown refs rewritten. SVGs are left remote (same-origin script risk).
   This directory is append-only — orphaned images are **not** auto-pruned; clean it manually if needed.
 
+#### Blog posts to Kit (`scripts/kit-sync.js`)
+Pushes blog posts to their Kit sequence emails through the v4 API (it used to copy HTML to the
+clipboard for pasting). `node scripts/kit-sync.js [--dry-run] [--publish] [--force] [--post <slug>] [--yes]`.
+- **Mapping**: `kitEmails: "<sequenceId>/<emailId>[, ...]"` in post frontmatter (replaces
+  `kitEditUrls`). Each run indexes Kit and adds ids it finds: an email belongs to the post its
+  first paragraph's share link names (`scripts/lib/kit-post-index.js`). Slugs are cached per
+  email id in `scripts/.kit-email-index.json` (gitignored; delete it to rescan). Sequences with
+  a local `kit-sequence-<id>/` folder (hand-written, pushed by `kit-push-sequence.js`) and
+  test/ZZ sequences aren't scanned.
+- **What it does**: records found ids (one confirmation), then pushes posts whose `kitSyncHash`
+  is out of date: backs up each email to `scripts/kit-backups/`, shows the change, and after
+  one confirmation PUTs **content only** (subject, preview text and schedule stay as Kit has
+  them). Then it offers each post with no email as a new draft at the end of "Engineering
+  leadership weekly" (sequence 1031459), scheduled like its last email: `[y]es`, `[n]o` (holds
+  back later new posts, which would land ahead of it), `[x]` sets `kitExclude: true`.
+- **Publishing**: Kit keeps a content change to a published email as an unpublished change
+  until `--publish` sends `published: true`. To publish a change already pushed:
+  `--publish --force --post <slug>`. `--publish` is refused while a post's table PNGs aren't live.
+- **Hash**: md5 of the file without the Kit bookkeeping lines, prefixed with `SYNC_FORMAT` in
+  `scripts/lib/kit-sync-run.js`; bump that when `kit-mdx-to-html.js` output changes and every
+  post becomes due. Hashes the clipboard version wrote still count as in sync.
+
 #### Agent readiness (Markdown, llms.txt, robots.txt, JSON-LD)
 - **Markdown twins**: `scripts/build-agent-files.js` runs after `astro build` and writes
   `dist/<page>/index.md` next to every page (HTML -> Markdown via turndown), adds a

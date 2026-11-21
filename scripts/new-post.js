@@ -41,7 +41,7 @@ cover: ./placeholder.jpg
 author: Jade Rubick
 discussionId: "${slug}"
 description: "TODO: Add description"
-kitEditUrls: ""
+kitEmails: ""
 kitSyncHash: ""
 ---
 

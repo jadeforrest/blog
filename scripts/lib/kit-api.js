@@ -1,6 +1,7 @@
 /**
  * Shared Kit (kit.com) v4 API client used by both directions of the sync:
- * `scripts/kit-fetch-sequence.js` (pull) and `scripts/kit-push-email.js` (push).
+ * `scripts/kit-fetch-sequence.js` (pull), `scripts/kit-push-email.js` (push) and
+ * `scripts/kit-sync.js` (blog posts).
  *
  * Auth: reads KIT_API_KEY from the environment (or from blog/.env). Never logged.
  */
@@ -29,7 +30,8 @@ export function loadApiKey() {
   return null;
 }
 
-async function apiRequest(method, pathAndQuery, apiKey, { body, retries = 3 } = {}) {
+// Six retries back off 1+2+4+8+16+32 s, enough for Kit's per-minute limit during a full kit-sync run.
+async function apiRequest(method, pathAndQuery, apiKey, { body, retries = 6 } = {}) {
   const url = `${API_BASE}${pathAndQuery}`;
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(url, {
@@ -72,6 +74,10 @@ async function apiRequest(method, pathAndQuery, apiKey, { body, retries = 3 } = 
 
 export function apiGet(pathAndQuery, apiKey, opts = {}) {
   return apiRequest('GET', pathAndQuery, apiKey, opts);
+}
+
+export function apiPost(pathAndQuery, body, apiKey, opts = {}) {
+  return apiRequest('POST', pathAndQuery, apiKey, { ...opts, body });
 }
 
 export function apiPut(pathAndQuery, body, apiKey, opts = {}) {

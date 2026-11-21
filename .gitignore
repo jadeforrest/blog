@@ -94,6 +94,7 @@ scripts/bluesky-oversized.json
 scripts/kit-session.json
 scripts/kit-captured-requests.json
 scripts/kit-backups/
+scripts/.kit-email-index.json
 
 # Per-machine Claude Code permissions
 .claude/settings.local.json
