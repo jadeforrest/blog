@@ -99,6 +99,10 @@
     "width": 1920,
     "height": 865
   },
+  "implementing-amazons-single-threaded-owner-model/kit-table-1.png": {
+    "width": 2496,
+    "height": 280
+  },
   "implementing-amazons-single-threaded-owner-model/sto-hierarchy.png": {
     "width": 824,
     "height": 223
@@ -263,6 +267,10 @@
     "width": 786,
     "height": 299
   },
+  "engineering-manager-vs-tech-lead/kit-table-1.png": {
+    "width": 2496,
+    "height": 838
+  },
   "engineering-manager-vs-tech-lead/manager.jpg": {
     "width": 1791,
     "height": 807
@@ -327,6 +335,14 @@
     "width": 1442,
     "height": 632
   },
+  "milestones-not-projects/kit-table-1.png": {
+    "width": 2496,
+    "height": 590
+  },
+  "milestones-not-projects/kit-table-2.png": {
+    "width": 2496,
+    "height": 736
+  },
   "milestones-not-projects/milestone.jpg": {
     "width": 1667,
     "height": 751
@@ -338,6 +354,10 @@
   "milestones-not-projects/vertical.png": {
     "width": 892,
     "height": 438
+  },
+  "objective-expert-model/kit-table-1.png": {
+    "width": 2042,
+    "height": 412
   },
   "objective-expert-model/objective.jpg": {
     "width": 1836,
@@ -563,6 +583,10 @@
     "width": 1906,
     "height": 858
   },
+  "engineering-levels/kit-table-1.png": {
+    "width": 2730,
+    "height": 2532
+  },
   "engineering-levels/staircase.jpg": {
     "width": 1791,
     "height": 806
@@ -587,6 +611,18 @@
     "width": 1898,
     "height": 854
   },
+  "engineering-handbook-tools/kit-table-1.png": {
+    "width": 1260,
+    "height": 248
+  },
+  "engineering-handbook-tools/kit-table-2.png": {
+    "width": 2044,
+    "height": 166
+  },
+  "engineering-handbook-tools/kit-table-3.png": {
+    "width": 2496,
+    "height": 230
+  },
   "engineering-handbook-tools/umbrellas-2.jpg": {
     "width": 1889,
     "height": 850
@@ -594,6 +630,10 @@
   "advice-for-new-directors/director.jpg": {
     "width": 1764,
     "height": 794
+  },
+  "high-trust-low-trust-organizations/kit-table-1.png": {
+    "width": 2072,
+    "height": 1134
   },
   "high-trust-low-trust-organizations/trust.jpg": {
     "width": 1866,
@@ -646,6 +686,14 @@
   "fast-agile/job.png": {
     "width": 438,
     "height": 216
+  },
+  "fast-agile/kit-table-1.png": {
+    "width": 2496,
+    "height": 1810
+  },
+  "fast-agile/kit-table-2.png": {
+    "width": 1330,
+    "height": 576
   },
   "fast-agile/large-small-teams.png": {
     "width": 910,
